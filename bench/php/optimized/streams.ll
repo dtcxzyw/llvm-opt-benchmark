@@ -59,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [5 x i8] c"unix\00", align 1
 @.str.9 = private unnamed_addr constant [4 x i8] c"udg\00", align 1
 @zend_string_init_interned = external local_unnamed_addr global ptr, align 8
-@.str.10 = private unnamed_addr constant [3 x i8] c"//\00", align 1
 @.str.11 = private unnamed_addr constant [6 x i8] c"data:\00", align 1
 @.str.12 = private unnamed_addr constant [87 x i8] c"Unable to find the wrapper \22%s\22 - did you forget to enable it when you configured PHP?\00", align 1
 @.str.13 = private unnamed_addr constant [5 x i8] c"file\00", align 1
@@ -4286,26 +4285,32 @@ switch.early.test:                                ; preds = %15
   %24 = icmp eq i8 %16, 58
   %25 = icmp ugt i64 %.0104, 1
   %or.cond = select i1 %24, i1 %25, i1 false
-  br i1 %or.cond, label %26, label %.critedge149
+  br i1 %or.cond, label %sub_0, label %.critedge149
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.0108, i64 1
-  %28 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(3) @.str.10, ptr noundef nonnull dereferenceable(1) %27, i64 noundef 2) #28
-  %.not123 = icmp eq i32 %28, 0
-  br i1 %.not123, label %32, label %29
+sub_0:                                            ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %.0108, i64 1
+  %27 = load i8, ptr %26, align 1
+  %.not187 = icmp eq i8 %27, 47
+  br i1 %.not187, label %.tail, label %.tail.thread
 
-29:                                               ; preds = %26
+.tail:                                            ; preds = %sub_0
+  %28 = getelementptr inbounds i8, ptr %.0108, i64 2
+  %29 = load i8, ptr %28, align 1
+  %.not123 = icmp eq i8 %29, 47
+  br i1 %.not123, label %32, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_0, %.tail
   %30 = icmp eq i64 %.0104, 4
   br i1 %30, label %31, label %.critedge149
 
-31:                                               ; preds = %29
+31:                                               ; preds = %.tail.thread
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.11, ptr noundef nonnull dereferenceable(5) %0, i64 5)
   %.not124 = icmp ne i32 %bcmp, 0
   %.not125 = icmp eq ptr %0, null
   %or.cond184 = or i1 %.not125, %.not124
   br i1 %or.cond184, label %.critedge149, label %33
 
-32:                                               ; preds = %26
+32:                                               ; preds = %.tail
   %.not125.old = icmp eq ptr %0, null
   br i1 %.not125.old, label %.critedge149, label %33
 
@@ -4389,8 +4394,8 @@ switch.early.test:                                ; preds = %15
   store ptr %57, ptr %1, align 8
   br label %.critedge149
 
-.critedge149:                                     ; preds = %23, %29, %31, %32, %.thread173, %53, %61
-  %.1110164 = phi ptr [ %.1110170, %53 ], [ %.1110170, %61 ], [ null, %.thread173 ], [ null, %32 ], [ null, %31 ], [ null, %29 ], [ null, %23 ]
+.critedge149:                                     ; preds = %23, %.tail.thread, %31, %32, %.thread173, %53, %61
+  %.1110164 = phi ptr [ %.1110170, %53 ], [ %.1110170, %61 ], [ null, %.thread173 ], [ null, %32 ], [ null, %31 ], [ null, %.tail.thread ], [ null, %23 ]
   %62 = and i32 %2, 64
   %.not133 = icmp eq i32 %62, 0
   br i1 %.not133, label %63, label %97
@@ -4480,9 +4485,6 @@ switch.early.test:                                ; preds = %15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #16
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 

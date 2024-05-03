@@ -1770,7 +1770,7 @@ declare ptr @val64_to_str_const(i64 noundef, ptr noundef, ptr noundef) local_unn
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ssl_get_keyex_alg(i32 noundef %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 39) i32 @ssl_get_keyex_alg(i32 noundef %0) local_unnamed_addr #3 {
   switch i32 %0, label %22 [
     i32 23, label %23
     i32 24, label %23
@@ -2256,7 +2256,7 @@ declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loca
 declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl_data_alloc(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @ssl_data_alloc(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call noalias ptr @g_malloc(i64 noundef %1) #25
   store ptr %3, ptr %0, align 8
   %.not = icmp ne i64 %1, 0
@@ -2392,7 +2392,7 @@ define hidden i32 @ssl_get_cipher_blocksize(ptr nocapture noundef readonly %0) l
 declare i64 @gcry_cipher_get_algo_blklen(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tls13_hkdf_expand_label_context(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i16 noundef zeroext %6, ptr nocapture noundef %7) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @tls13_hkdf_expand_label_context(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i16 noundef zeroext %6, ptr nocapture noundef %7) local_unnamed_addr #1 {
   %9 = alloca i8, align 1
   %10 = alloca i16, align 2
   %11 = alloca i8, align 1
@@ -2480,8 +2480,8 @@ declare ptr @gcry_strerror(i32 noundef) local_unnamed_addr #0
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tls13_hkdf_expand_label(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
-  %7 = tail call i32 @tls13_hkdf_expand_label_context(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %4, ptr noundef %5), !range !7
+define hidden range(i32 0, 2) i32 @tls13_hkdf_expand_label(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
+  %7 = tail call i32 @tls13_hkdf_expand_label_context(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %4, ptr noundef %5)
   ret i32 %7
 }
 
@@ -2511,7 +2511,7 @@ define hidden void @ssl_change_cipher(ptr nocapture noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl_generate_pre_master_secret(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ssl_generate_pre_master_secret(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca %struct._StringInfo, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 560
   %11 = load i32, ptr %10, align 8
@@ -2539,7 +2539,7 @@ define hidden noundef i32 @ssl_generate_pre_master_secret(ptr noundef %0, i32 no
   %21 = getelementptr inbounds i8, ptr %7, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 416
-  %24 = tail call fastcc i32 @ssl_restore_master_key(ptr noundef nonnull %0, ptr noundef nonnull @.str.508, i32 noundef 1, ptr noundef %22, ptr noundef nonnull %23), !range !7
+  %24 = tail call fastcc i32 @ssl_restore_master_key(ptr noundef nonnull %0, ptr noundef nonnull @.str.508, i32 noundef 1, ptr noundef %22, ptr noundef nonnull %23)
   %.not72 = icmp eq i32 %24, 0
   br i1 %.not72, label %25, label %94
 
@@ -2569,7 +2569,7 @@ define hidden noundef i32 @ssl_generate_pre_master_secret(ptr noundef %0, i32 no
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %0, i64 616
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
-  %38 = tail call fastcc i32 @from_hex(ptr noundef nonnull %36, ptr noundef nonnull %4, i64 noundef %37), !range !7
+  %38 = tail call fastcc i32 @from_hex(ptr noundef nonnull %36, ptr noundef nonnull %4, i64 noundef %37)
   %.not77 = icmp eq i32 %38, 0
   br i1 %.not77, label %39, label %40
 
@@ -2667,7 +2667,7 @@ define hidden noundef i32 @ssl_generate_pre_master_secret(ptr noundef %0, i32 no
   br i1 %.not73, label %90, label %87
 
 87:                                               ; preds = %78
-  %88 = call fastcc i32 @ssl_decrypt_pre_master_secret(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %6), !range !7
+  %88 = call fastcc i32 @ssl_decrypt_pre_master_secret(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %6)
   %.not74 = icmp eq i32 %88, 0
   br i1 %.not74, label %89, label %94
 
@@ -2679,7 +2679,7 @@ define hidden noundef i32 @ssl_generate_pre_master_secret(ptr noundef %0, i32 no
   store i32 8, ptr %84, align 8
   %91 = getelementptr inbounds i8, ptr %7, i64 24
   %92 = load ptr, ptr %91, align 8
-  %93 = call fastcc i32 @ssl_restore_master_key(ptr noundef nonnull %0, ptr noundef nonnull @.str.515, i32 noundef 1, ptr noundef %92, ptr noundef nonnull %9), !range !7
+  %93 = call fastcc i32 @ssl_restore_master_key(ptr noundef nonnull %0, ptr noundef nonnull @.str.515, i32 noundef 1, ptr noundef %92, ptr noundef nonnull %9)
   br label %94
 
 94:                                               ; preds = %90, %87, %20, %77, %74, %45, %44, %39, %34, %19, %14
@@ -2688,7 +2688,7 @@ define hidden noundef i32 @ssl_generate_pre_master_secret(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_restore_master_key(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ssl_restore_master_key(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -2787,7 +2787,7 @@ ssl_data_set.exit30:                              ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @from_hex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @from_hex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #1 {
   %4 = and i64 %2, 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %.loopexit
@@ -2824,7 +2824,7 @@ define internal fastcc noundef i32 @from_hex(ptr nocapture noundef %0, ptr nocap
   store i8 %22, ptr %24, align 1
   %25 = add nuw nsw i64 %.01922, 1
   %exitcond.not = icmp eq i64 %25, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %19, %5
   %26 = trunc i64 %2 to i32
@@ -2846,7 +2846,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_decrypt_pre_master_secret(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ssl_decrypt_pre_master_secret(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca %struct.gnutls_datum_t, align 8
   %5 = alloca %struct.gnutls_datum_t, align 8
   %.not = icmp eq ptr %1, null
@@ -2975,7 +2975,7 @@ define internal fastcc noundef i32 @ssl_decrypt_pre_master_secret(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl_generate_keyring_material(ptr noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @ssl_generate_keyring_material(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct._StringInfo, align 8
@@ -3126,11 +3126,11 @@ tls_handshake_hash.exit:                          ; preds = %59, %61
   br i1 %cond, label %80, label %82
 
 80:                                               ; preds = %77
-  %81 = call fastcc i32 @tls12_handshake_hash(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull %9), !range !9
+  %81 = call fastcc i32 @tls12_handshake_hash(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull %9)
   br label %84
 
 82:                                               ; preds = %77
-  %83 = call fastcc i32 @tls12_handshake_hash(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull %9), !range !9
+  %83 = call fastcc i32 @tls12_handshake_hash(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull %9)
   br label %84
 
 84:                                               ; preds = %80, %82, %tls_handshake_hash.exit
@@ -3149,7 +3149,7 @@ tls_handshake_hash.exit:                          ; preds = %59, %61
   store ptr null, ptr %53, align 8
   store i32 0, ptr %54, align 8
   %89 = getelementptr inbounds i8, ptr %0, i64 432
-  %90 = call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %48, ptr noundef nonnull @.str.523, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %89, i32 noundef 48), !range !7
+  %90 = call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %48, ptr noundef nonnull @.str.523, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %89, i32 noundef 48)
   %.not202 = icmp eq i32 %90, 0
   br i1 %.not202, label %91, label %93
 
@@ -3185,7 +3185,7 @@ tls_handshake_hash.exit:                          ; preds = %59, %61
   %110 = zext i32 %109 to i64
   tail call void @ssl_print_data(ptr noundef nonnull @.str.527, ptr noundef %107, i64 noundef %110)
   %111 = getelementptr inbounds i8, ptr %0, i64 432
-  %112 = tail call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %96, ptr noundef nonnull @.str.528, ptr noundef nonnull %101, ptr noundef nonnull %106, ptr noundef nonnull %111, i32 noundef 48), !range !7
+  %112 = tail call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %96, ptr noundef nonnull @.str.528, ptr noundef nonnull %101, ptr noundef nonnull %106, ptr noundef nonnull %111, i32 noundef 48)
   %.not199 = icmp eq i32 %112, 0
   br i1 %.not199, label %113, label %114
 
@@ -3306,7 +3306,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %134, %134, %134, %1
   %160 = getelementptr inbounds i8, ptr %0, i64 432
   %161 = getelementptr inbounds i8, ptr %0, i64 400
   %162 = getelementptr inbounds i8, ptr %0, i64 416
-  %163 = call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %160, ptr noundef nonnull @.str.532, ptr noundef nonnull %161, ptr noundef nonnull %162, ptr noundef nonnull %4, i32 noundef %157), !range !7
+  %163 = call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %160, ptr noundef nonnull @.str.532, ptr noundef nonnull %161, ptr noundef nonnull %162, ptr noundef nonnull %4, i32 noundef %157)
   %.not206 = icmp eq i32 %163, 0
   br i1 %.not206, label %164, label %165
 
@@ -3381,7 +3381,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %134, %134, %134, %1
   store i32 0, ptr %195, align 8
   store ptr %12, ptr %13, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.537, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %196 = call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.538, ptr noundef nonnull %162, ptr noundef nonnull %161, ptr noundef nonnull %13, i32 noundef %154), !range !7
+  %196 = call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.538, ptr noundef nonnull %162, ptr noundef nonnull %161, ptr noundef nonnull %13, i32 noundef %154)
   %.not208 = icmp eq i32 %196, 0
   br i1 %.not208, label %197, label %198
 
@@ -3458,7 +3458,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %134, %134, %134, %1
   %229 = getelementptr inbounds i8, ptr %19, i64 8
   store i32 %.0172, ptr %229, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.542, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %230 = call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.543, ptr noundef nonnull %162, ptr noundef nonnull %161, ptr noundef nonnull %17, i32 noundef 32), !range !7
+  %230 = call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.543, ptr noundef nonnull %162, ptr noundef nonnull %161, ptr noundef nonnull %17, i32 noundef 32)
   %.not209 = icmp eq i32 %230, 0
   br i1 %.not209, label %231, label %232
 
@@ -3470,7 +3470,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %134, %134, %134, %1
   store ptr %181, ptr %19, align 8
   store i32 %.0172, ptr %229, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.545, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %233 = call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.546, ptr noundef nonnull %162, ptr noundef nonnull %161, ptr noundef nonnull %18, i32 noundef 32), !range !7
+  %233 = call fastcc i32 @prf(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.546, ptr noundef nonnull %162, ptr noundef nonnull %161, ptr noundef nonnull %18, i32 noundef 32)
   %.not210 = icmp eq i32 %233, 0
   br i1 %.not210, label %234, label %235
 
@@ -3622,7 +3622,7 @@ define hidden void @ssl_print_string(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tls12_handshake_hash(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @tls12_handshake_hash(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca [48 x i8], align 16
   %6 = call i32 @gcry_md_open(ptr noundef nonnull %4, i32 noundef %1, i32 noundef 0) #23
@@ -3672,7 +3672,7 @@ ssl_data_alloc.exit.thread:                       ; preds = %ssl_md_init.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @prf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @prf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca %struct._StringInfo, align 8
   %9 = alloca %struct._StringInfo, align 8
   %10 = alloca %struct._StringInfo, align 8
@@ -3810,7 +3810,7 @@ define internal fastcc i32 @prf(ptr nocapture noundef readonly %0, ptr nocapture
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr nonnull align 16 %16, i64 %71, i1 false)
   %72 = add i32 %.03760.i, 16
   %73 = icmp ult i32 %72, %6
-  br i1 %73, label %25, label %ssl3_prf.exit, !llvm.loop !10
+  br i1 %73, label %25, label %ssl3_prf.exit, !llvm.loop !8
 
 ssl3_prf.exit:                                    ; preds = %55, %19
   %.val56.i = load ptr, ptr %14, align 8
@@ -3955,14 +3955,14 @@ ssl3_prf.exit:                                    ; preds = %55, %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %129, ptr align 1 %137, i64 %124, i1 false)
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1193, i32 noundef %123, i32 noundef %106)
   %138 = tail call i32 @gcry_md_map_name(ptr noundef nonnull @.str.338) #26
-  %139 = call fastcc i32 @tls_hash(ptr noundef nonnull %11, ptr noundef nonnull %8, i32 noundef %138, ptr noundef nonnull %10, i32 noundef %6), !range !9
+  %139 = call fastcc i32 @tls_hash(ptr noundef nonnull %11, ptr noundef nonnull %8, i32 noundef %138, ptr noundef nonnull %10, i32 noundef %6)
   %.not57.i = icmp eq i32 %139, 0
   br i1 %.not57.i, label %140, label %155
 
 140:                                              ; preds = %131
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1194)
   %141 = tail call i32 @gcry_md_map_name(ptr noundef nonnull @.str.339) #26
-  %142 = call fastcc i32 @tls_hash(ptr noundef nonnull %12, ptr noundef nonnull %8, i32 noundef %141, ptr noundef nonnull %9, i32 noundef %6), !range !9
+  %142 = call fastcc i32 @tls_hash(ptr noundef nonnull %12, ptr noundef nonnull %8, i32 noundef %141, ptr noundef nonnull %9, i32 noundef %6)
   %.not58.i = icmp eq i32 %142, 0
   br i1 %.not58.i, label %.preheader.i, label %155
 
@@ -3988,7 +3988,7 @@ ssl3_prf.exit:                                    ; preds = %55, %19
   store i8 %150, ptr %152, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i34, label %145, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i34, label %145, !llvm.loop !9
 
 ._crit_edge.i34:                                  ; preds = %145, %.preheader.i
   %.pre-phi.i = phi i64 [ 0, %.preheader.i ], [ %wide.trip.count.i, %145 ]
@@ -4052,15 +4052,15 @@ tls_prf.exit:                                     ; preds = %86, %160
   ]
 
 167:                                              ; preds = %162
-  %168 = tail call fastcc i32 @tls12_prf(i32 noundef 326, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6), !range !7
+  %168 = tail call fastcc i32 @tls12_prf(i32 noundef 326, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
   br label %173
 
 169:                                              ; preds = %162
-  %170 = tail call fastcc i32 @tls12_prf(i32 noundef 9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6), !range !7
+  %170 = tail call fastcc i32 @tls12_prf(i32 noundef 9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
   br label %173
 
 171:                                              ; preds = %162
-  %172 = tail call fastcc i32 @tls12_prf(i32 noundef 8, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6), !range !7
+  %172 = tail call fastcc i32 @tls12_prf(i32 noundef 8, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
   br label %173
 
 173:                                              ; preds = %171, %169, %167, %tls_prf.exit, %ssl3_prf.exit
@@ -4144,7 +4144,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr nocapture noundef readonl
   %20 = icmp ult i64 %.02936, 15
   %21 = icmp ult i64 %18, %2
   %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %12, label %.preheader34, !llvm.loop !12
+  br i1 %22, label %12, label %.preheader34, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.preheader34, %.lr.ph
   %.137 = phi i64 [ %25, %.lr.ph ], [ %19, %.preheader34 ]
@@ -4152,7 +4152,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr nocapture noundef readonl
   %24 = tail call i64 @fwrite(ptr nonnull @.str.690, i64 3, i64 1, ptr %23)
   %25 = add nuw nsw i64 %.137, 1
   %26 = icmp ult i64 %.137, 15
-  br i1 %26, label %.lr.ph, label %.lr.ph41.preheader, !llvm.loop !13
+  br i1 %26, label %.lr.ph, label %.lr.ph41.preheader, !llvm.loop !11
 
 .lr.ph41.preheader:                               ; preds = %.lr.ph, %.preheader34
   %27 = load ptr, ptr @ssl_debug_file, align 8
@@ -4184,7 +4184,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr nocapture noundef readonl
   %44 = icmp ult i64 %.239, 15
   %45 = icmp ult i64 %42, %2
   %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %.lr.ph41, label %.preheader, !llvm.loop !14
+  br i1 %46, label %.lr.ph41, label %.preheader, !llvm.loop !12
 
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
   %.342 = phi i64 [ %49, %.lr.ph43 ], [ %43, %.preheader ]
@@ -4192,14 +4192,14 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr nocapture noundef readonl
   %48 = tail call i32 @fputc(i32 noundef 32, ptr noundef %47)
   %49 = add nuw nsw i64 %.342, 1
   %exitcond.not = icmp eq i64 %49, 16
-  br i1 %exitcond.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !13
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %.preheader
   %50 = load ptr, ptr @ssl_debug_file, align 8
   %51 = tail call i64 @fwrite(ptr nonnull @.str.691, i64 2, i64 1, ptr %50)
   %52 = add i64 %.045, 16
   %53 = icmp ult i64 %52, %2
-  br i1 %53, label %9, label %.loopexit, !llvm.loop !16
+  br i1 %53, label %9, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge44, %5, %3
   ret void
@@ -4396,7 +4396,7 @@ define internal fastcc noalias noundef ptr @ssl_create_flow() unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tls13_generate_keys(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @tls13_generate_keys(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -4473,7 +4473,7 @@ define hidden noundef i32 @tls13_generate_keys(ptr nocapture noundef %0, ptr noc
   %or.cond.i = icmp ult i8 %43, 19
   %.str.1214..str.1215.i = select i1 %or.cond.i, ptr @.str.1214, ptr @.str.1215
   %44 = trunc i64 %39 to i16
-  %45 = call noundef i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.564, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %44, ptr noundef nonnull %4), !range !7
+  %45 = call i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.564, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %44, ptr noundef nonnull %4)
   %.not63 = icmp eq i32 %45, 0
   br i1 %.not63, label %46, label %47
 
@@ -4482,7 +4482,7 @@ define hidden noundef i32 @tls13_generate_keys(ptr nocapture noundef %0, ptr noc
   br label %83
 
 47:                                               ; preds = %38
-  %48 = call noundef i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.566, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext 12, ptr noundef nonnull %5), !range !7
+  %48 = call i32 @tls13_hkdf_expand_label_context(i32 noundef %36, ptr noundef %1, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull @.str.566, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext 12, ptr noundef nonnull %5)
   %.not64 = icmp eq i32 %48, 0
   br i1 %.not64, label %49, label %50
 
@@ -4569,7 +4569,7 @@ define hidden noundef i32 @tls13_generate_keys(ptr nocapture noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl_decrypt_record(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3, i32 noundef %4, ptr noundef %5, i16 noundef zeroext %6, ptr noundef %7, i8 noundef zeroext %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr nocapture noundef %11) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @ssl_decrypt_record(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3, i32 noundef %4, ptr noundef %5, i16 noundef zeroext %6, ptr noundef %7, i8 noundef zeroext %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr nocapture noundef %11) local_unnamed_addr #1 {
   %13 = alloca [12 x i8], align 4
   %14 = alloca [16 x i8], align 16
   %15 = alloca [3 x i64], align 16
@@ -5406,7 +5406,7 @@ ssl_cipher_decrypt.exit.thread:                   ; preds = %412, %415, %ssl_cip
   ]
 
 473:                                              ; preds = %466
-  %474 = tail call fastcc i32 @ssl3_check_mac(ptr noundef nonnull %1, i32 noundef %469, ptr noundef %.1, i32 noundef %.1139, ptr noundef %.1137), !range !9
+  %474 = tail call fastcc i32 @ssl3_check_mac(ptr noundef nonnull %1, i32 noundef %469, ptr noundef %.1, i32 noundef %.1139, ptr noundef %.1137)
   %475 = icmp slt i32 %474, 0
   br i1 %475, label %476, label %479
 
@@ -5428,7 +5428,7 @@ ssl_cipher_decrypt.exit.thread:                   ; preds = %412, %415, %ssl_cip
 
 480:                                              ; preds = %466, %466, %466, %466
   %481 = zext nneg i16 %472 to i32
-  %482 = tail call fastcc i32 @tls_check_mac(ptr noundef nonnull %1, i32 noundef %469, i32 noundef %481, ptr noundef %.1, i32 noundef %.1139, ptr noundef %.1137), !range !9
+  %482 = tail call fastcc i32 @tls_check_mac(ptr noundef nonnull %1, i32 noundef %469, i32 noundef %481, ptr noundef %.1, i32 noundef %.1139, ptr noundef %.1137)
   %483 = icmp slt i32 %482, 0
   br i1 %483, label %484, label %487
 
@@ -5449,7 +5449,7 @@ ssl_cipher_decrypt.exit.thread:                   ; preds = %412, %415, %ssl_cip
   br label %499
 
 488:                                              ; preds = %466, %466, %466
-  %489 = tail call fastcc i32 @dtls_check_mac(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %469, ptr noundef %.1, i32 noundef %.1139, ptr noundef %.1137, ptr noundef %7, i8 noundef zeroext %8), !range !9
+  %489 = tail call fastcc i32 @dtls_check_mac(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %469, ptr noundef %.1, i32 noundef %.1139, ptr noundef %.1137, ptr noundef %7, i8 noundef zeroext %8)
   %490 = icmp sgt i32 %489, -1
   br i1 %490, label %491, label %492
 
@@ -5458,7 +5458,7 @@ ssl_cipher_decrypt.exit.thread:                   ; preds = %412, %415, %ssl_cip
   br label %499
 
 492:                                              ; preds = %488
-  %493 = tail call fastcc i32 @tls_check_mac(ptr noundef nonnull %1, i32 noundef %469, i32 noundef 769, ptr noundef %.1, i32 noundef %.1139, ptr noundef %.1137), !range !9
+  %493 = tail call fastcc i32 @tls_check_mac(ptr noundef nonnull %1, i32 noundef %469, i32 noundef 769, ptr noundef %.1, i32 noundef %.1139, ptr noundef %.1137)
   %494 = icmp sgt i32 %493, -1
   br i1 %494, label %495, label %496
 
@@ -5603,7 +5603,7 @@ ssl_decompress_record.exit.thread:                ; preds = %541, %540, %tls_dec
 declare ptr @gcry_strsource(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl3_check_mac(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @ssl3_check_mac(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca [64 x i8], align 16
   %8 = alloca [20 x i8], align 16
@@ -5726,7 +5726,7 @@ ssl_md_init.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tls_check_mac(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @tls_check_mac(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca [48 x i8], align 16
   %9 = load ptr, ptr %0, align 8
@@ -5848,7 +5848,7 @@ ssl_hmac_final.exit:                              ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dtls_check_mac(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, i8 noundef zeroext %7) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @dtls_check_mac(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, i8 noundef zeroext %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca [48 x i8], align 16
   %11 = getelementptr inbounds i8, ptr %0, i64 656
@@ -6422,7 +6422,7 @@ copy_address_wmem.exit:                           ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl_packet_from_server(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ssl_packet_from_server(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %addresses_equal.exit, label %4
 
@@ -6585,7 +6585,7 @@ tls_add_packet_info.exit:                         ; preds = %8, %12
   %36 = load ptr, ptr %.0, align 8
   %.not = icmp eq ptr %36, null
   %37 = getelementptr inbounds i8, ptr %36, i64 40
-  br i1 %.not, label %38, label %35, !llvm.loop !17
+  br i1 %.not, label %38, label %35, !llvm.loop !15
 
 38:                                               ; preds = %35
   store ptr %20, ptr %.0, align 8
@@ -6626,7 +6626,7 @@ define hidden ptr @ssl_get_record_info(ptr noundef %0, i32 noundef %1, ptr nound
   %19 = getelementptr inbounds i8, ptr %.01521, i64 40
   %.015 = load ptr, ptr %19, align 8
   %.not17 = icmp eq ptr %.015, null
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %18, %.preheader, %6, %13
   %.0 = phi ptr [ %17, %13 ], [ null, %6 ], [ null, %.preheader ], [ null, %18 ]
@@ -6722,7 +6722,7 @@ define internal i32 @ssl_hash(ptr nocapture noundef readonly %0) #13 {
   %8 = add nuw i32 %.0811, 4
   %9 = getelementptr i8, ptr %.012, i64 4
   %10 = icmp ult i32 %8, %3
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.09.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -6730,7 +6730,7 @@ define internal i32 @ssl_hash(ptr nocapture noundef readonly %0) #13 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @ssl_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
+define internal range(i32 0, 2) i32 @ssl_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7053,7 +7053,7 @@ define hidden void @ssl_finalize_decryption(ptr noundef %0, ptr nocapture nounde
 17:                                               ; preds = %15
   %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 368
-  %20 = tail call fastcc i32 @ssl_restore_master_key(ptr noundef nonnull %0, ptr noundef nonnull @.str.634, i32 noundef 0, ptr noundef %18, ptr noundef nonnull %19), !range !7
+  %20 = tail call fastcc i32 @ssl_restore_master_key(ptr noundef nonnull %0, ptr noundef nonnull @.str.634, i32 noundef 0, ptr noundef %18, ptr noundef nonnull %19)
   %.not29 = icmp eq i32 %20, 0
   br i1 %.not29, label %21, label %41
 
@@ -7067,7 +7067,7 @@ define hidden void @ssl_finalize_decryption(ptr noundef %0, ptr nocapture nounde
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 384
-  %28 = tail call fastcc i32 @ssl_restore_master_key(ptr noundef nonnull %0, ptr noundef nonnull @.str.635, i32 noundef 0, ptr noundef %26, ptr noundef nonnull %27), !range !7
+  %28 = tail call fastcc i32 @ssl_restore_master_key(ptr noundef nonnull %0, ptr noundef nonnull @.str.635, i32 noundef 0, ptr noundef %26, ptr noundef nonnull %27)
   %.not31 = icmp eq i32 %28, 0
   br i1 %.not31, label %29, label %41
 
@@ -7075,7 +7075,7 @@ define hidden void @ssl_finalize_decryption(ptr noundef %0, ptr nocapture nounde
   %30 = getelementptr inbounds i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 416
-  %33 = tail call fastcc i32 @ssl_restore_master_key(ptr noundef nonnull %0, ptr noundef nonnull @.str.636, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %32), !range !7
+  %33 = tail call fastcc i32 @ssl_restore_master_key(ptr noundef nonnull %0, ptr noundef nonnull @.str.636, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %32)
   %.not32 = icmp eq i32 %33, 0
   br i1 %.not32, label %34, label %41
 
@@ -7096,7 +7096,7 @@ define hidden void @ssl_finalize_decryption(ptr noundef %0, ptr nocapture nounde
   br label %41
 
 41:                                               ; preds = %40, %29, %24, %17, %15
-  %42 = tail call i32 @ssl_generate_keyring_material(ptr noundef nonnull %0), !range !9
+  %42 = tail call i32 @ssl_generate_keyring_material(ptr noundef nonnull %0)
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %45
 
@@ -7330,7 +7330,7 @@ define hidden void @tls13_change_key(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not22, label %29, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @tls13_generate_keys(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef %2), !range !7
+  %11 = tail call i32 @tls13_generate_keys(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef %2)
   %.not23 = icmp eq i32 %11, 0
   br i1 %.not23, label %29, label %12
 
@@ -7422,7 +7422,7 @@ define hidden void @tls13_key_update(ptr nocapture noundef %0, i32 noundef %1) l
   %spec.store.select = select i1 %or.cond4, ptr @.str.654, ptr @.str.653
   %.str.1214..str.1215.i = select i1 %or.cond4, ptr @.str.1214, ptr @.str.1215
   %25 = trunc i32 %14 to i16
-  %26 = call noundef i32 @tls13_hkdf_expand_label_context(i32 noundef %23, ptr noundef nonnull %8, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull %spec.store.select, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %25, ptr noundef nonnull %3), !range !7
+  %26 = call i32 @tls13_hkdf_expand_label_context(i32 noundef %23, ptr noundef nonnull %8, ptr noundef nonnull %.str.1214..str.1215.i, ptr noundef nonnull %spec.store.select, ptr noundef null, i8 noundef zeroext 0, i16 noundef zeroext %25, ptr noundef nonnull %3)
   %.not37 = icmp eq i32 %26, 0
   br i1 %.not37, label %27, label %28
 
@@ -7444,7 +7444,7 @@ ssl_data_set.exit:                                ; preds = %28
   %32 = zext i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 1 %29, i64 %32, i1 false)
   store i32 %14, ptr %13, align 8
-  %33 = tail call i32 @tls13_generate_keys(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %1), !range !7
+  %33 = tail call i32 @tls13_generate_keys(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %1)
   %.not38 = icmp eq i32 %33, 0
   br i1 %.not38, label %40, label %ssl_data_set.exit41
 
@@ -7719,7 +7719,7 @@ ssl_compile_keyfile_regex.exit:                   ; preds = %50
   store i8 %118, ptr %120, align 1
   %121 = add nuw nsw i64 %.01922.i, 1
   %exitcond.not.i = icmp eq i64 %121, %103
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %115, %101
   %122 = trunc i64 %99 to i32
@@ -7787,7 +7787,7 @@ from_hex.exit:                                    ; preds = %.lr.ph.i, %.thread1
   store i8 %154, ptr %156, align 1
   %157 = add nuw nsw i64 %.01922.i95, 1
   %exitcond.not.i97 = icmp eq i64 %157, %139
-  br i1 %exitcond.not.i97, label %._crit_edge.i98, label %.lr.ph.i94, !llvm.loop !8
+  br i1 %exitcond.not.i97, label %._crit_edge.i98, label %.lr.ph.i94, !llvm.loop !7
 
 ._crit_edge.i98:                                  ; preds = %151, %137
   %158 = trunc i64 %135 to i32
@@ -7800,7 +7800,7 @@ from_hex.exit:                                    ; preds = %.lr.ph.i, %.thread1
   call void @g_free(ptr noundef %129) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %.thread113, label %125, !llvm.loop !20
+  br i1 %exitcond.not, label %.thread113, label %125, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph.i94, %._crit_edge.i98, %132
   call void @g_free(ptr noundef nonnull %129) #23
@@ -7834,7 +7834,7 @@ from_hex.exit:                                    ; preds = %.lr.ph.i, %.thread1
   %171 = icmp ne ptr %.1, null
   %172 = icmp ult ptr %.1, %59
   %173 = and i1 %171, %172
-  br i1 %173, label %64, label %.loopexit120, !llvm.loop !21
+  br i1 %173, label %64, label %.loopexit120, !llvm.loop !19
 
 .loopexit120:                                     ; preds = %169, %56, %ssl_compile_keyfile_regex.exit.thread, %ssl_compile_keyfile_regex.exit
   ret void
@@ -7996,24 +7996,30 @@ declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #16
 ; Function Attrs: nounwind uwtable
 define hidden void @ssl_set_debug(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %5, label %2
+  br i1 %.not, label %.tail, label %sub_0
 
-2:                                                ; preds = %1
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.681) #26
-  %4 = icmp ne i32 %3, 0
-  br label %5
+sub_0:                                            ; preds = %1
+  %2 = load i8, ptr %0, align 1
+  %.not8 = icmp eq i8 %2, 45
+  br i1 %.not8, label %sub_1, label %.tail
 
-5:                                                ; preds = %1, %2
-  %6 = phi i1 [ %4, %2 ], [ true, %1 ]
+sub_1:                                            ; preds = %sub_0
+  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp ne i8 %4, 0
+  br label %.tail
+
+.tail:                                            ; preds = %sub_1, %sub_0, %1
+  %6 = phi i1 [ true, %1 ], [ true, %sub_0 ], [ %5, %sub_1 ]
   %.b = load i1, ptr @ssl_set_debug.debug_file_must_be_closed, align 4
   br i1 %.b, label %7, label %10
 
-7:                                                ; preds = %5
+7:                                                ; preds = %.tail
   %8 = load ptr, ptr @ssl_debug_file, align 8
   %9 = tail call i32 @fclose(ptr noundef %8)
   br label %10
 
-10:                                               ; preds = %7, %5
+10:                                               ; preds = %7, %.tail
   br i1 %6, label %13, label %11
 
 11:                                               ; preds = %10
@@ -8238,7 +8244,7 @@ define internal void @ssl_association_info_(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #1 {
   %11 = alloca i32, align 4
   %.not = icmp ugt i32 %8, %9
   br i1 %.not, label %12, label %15
@@ -8328,7 +8334,7 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl_end_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ssl_end_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %4, %5
   br i1 %7, label %8, label %14
 
@@ -8468,7 +8474,7 @@ define hidden noundef i32 @tls_dissect_hnd_certificate_status(ptr noundef %0, pt
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load i32, ptr %17, align 4
-  %19 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 1, i32 noundef 16777215), !range !7
+  %19 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 1, i32 noundef 16777215)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.loopexit, label %20
 
@@ -8483,7 +8489,7 @@ define hidden noundef i32 @tls_dissect_hnd_certificate_status(ptr noundef %0, pt
   %.03032 = phi i32 [ %25, %.lr.ph ], [ %21, %20 ]
   %25 = call fastcc i32 @tls_dissect_ocsp_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.03032, i32 noundef %23)
   %26 = icmp ult i32 %25, %23
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %6, %14, %16
   %.0 = phi i32 [ %5, %16 ], [ %12, %6 ], [ %15, %14 ], [ %21, %20 ], [ %25, %.lr.ph ]
@@ -8496,7 +8502,7 @@ define internal fastcc noundef i32 @tls_dissect_ocsp_response(ptr noundef %0, pt
   %8 = alloca %struct._asn1_ctx_t, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 76
   %10 = load i32, ptr %9, align 4
-  %11 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %7, i32 noundef %10, i32 noundef 1, i32 noundef 16777215), !range !7
+  %11 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %7, i32 noundef %10, i32 noundef 1, i32 noundef 16777215)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %27, label %12
 
@@ -8539,7 +8545,7 @@ define hidden i32 @tls_dissect_sct_list(ptr noundef %0, ptr noundef %1, ptr noun
   %13 = alloca i32, align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 608
   %15 = load i32, ptr %14, align 4
-  %16 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %12, i32 noundef %15, i32 noundef 1, i32 noundef 65535), !range !7
+  %16 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %12, i32 noundef %15, i32 noundef 1, i32 noundef 65535)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.loopexit, label %17
 
@@ -8568,7 +8574,7 @@ define hidden i32 @tls_dissect_sct_list(ptr noundef %0, ptr noundef %1, ptr noun
   %33 = load i32, ptr %19, align 4
   %34 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %1, i32 noundef %.04153, i32 noundef 2, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.714) #23
   %35 = load i32, ptr %21, align 4
-  %36 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %34, i32 noundef %.04153, i32 noundef %5, ptr noundef nonnull %13, i32 noundef %35, i32 noundef 1, i32 noundef 65535), !range !7
+  %36 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %34, i32 noundef %.04153, i32 noundef %5, ptr noundef nonnull %13, i32 noundef %35, i32 noundef 1, i32 noundef 65535)
   %.not43 = icmp eq i32 %36, 0
   br i1 %.not43, label %.loopexit, label %37
 
@@ -8606,7 +8612,7 @@ define hidden i32 @tls_dissect_sct_list(ptr noundef %0, ptr noundef %1, ptr noun
   %58 = call ptr @proto_tree_add_time(ptr noundef %34, i32 noundef %57, ptr noundef %1, i32 noundef %51, i32 noundef 8, ptr noundef nonnull %10) #23
   %59 = add i32 %.04153, 43
   %60 = load i32, ptr %26, align 4
-  %61 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %34, i32 noundef %59, i32 noundef %40, ptr noundef nonnull %11, i32 noundef %60, i32 noundef 0, i32 noundef 65535), !range !7
+  %61 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %34, i32 noundef %59, i32 noundef %40, ptr noundef nonnull %11, i32 noundef %60, i32 noundef 0, i32 noundef 65535)
   %.not50.i = icmp eq i32 %61, 0
   br i1 %.not50.i, label %.thread, label %62
 
@@ -8646,7 +8652,7 @@ define hidden i32 @tls_dissect_sct_list(ptr noundef %0, ptr noundef %1, ptr noun
 
 74:                                               ; preds = %72, %69
   %.021.i.i = phi i32 [ %.048.i, %69 ], [ %73, %72 ]
-  %75 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %34, i32 noundef %.021.i.i, i32 noundef %40, ptr noundef nonnull %8, i32 noundef %70, i32 noundef 0, i32 noundef 65535), !range !7
+  %75 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %34, i32 noundef %.021.i.i, i32 noundef %40, ptr noundef nonnull %8, i32 noundef %70, i32 noundef 0, i32 noundef 65535)
   %.not.i.i = icmp eq i32 %75, 0
   br i1 %.not.i.i, label %ssl_dissect_digitally_signed.exit.i, label %76
 
@@ -8691,7 +8697,7 @@ tls_dissect_sct.exit:                             ; preds = %37, %ssl_dissect_di
 ssl_end_vector.exit:                              ; preds = %89, %82, %87, %.thread
   %94 = phi i32 [ %.0.i, %87 ], [ %40, %.thread ], [ %40, %82 ], [ %40, %89 ]
   %95 = icmp ult i32 %94, %5
-  br i1 %95, label %32, label %.loopexit, !llvm.loop !23
+  br i1 %95, label %32, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %32, %ssl_end_vector.exit, %17, %7
   %.0 = phi i32 [ %5, %7 ], [ %18, %17 ], [ %5, %32 ], [ %94, %ssl_end_vector.exit ]
@@ -8717,7 +8723,7 @@ define hidden i32 @ssl_dissect_ext_ech_echconfiglist(ptr noundef %0, ptr noundef
   %17 = alloca i32, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 944
   %19 = load i32, ptr %18, align 4
-  %20 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %17, i32 noundef %19, i32 noundef 1, i32 noundef 65535), !range !7
+  %20 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %17, i32 noundef %19, i32 noundef 1, i32 noundef 65535)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %ssl_end_vector.exit, label %21
 
@@ -8806,7 +8812,7 @@ define hidden i32 @ssl_dissect_ext_ech_echconfiglist(ptr noundef %0, ptr noundef
   %83 = load i32, ptr %9, align 4
   %84 = add i32 %83, %79
   %85 = load i32, ptr %37, align 4
-  %86 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %70, i32 noundef %84, i32 noundef %5, ptr noundef nonnull %10, i32 noundef %85, i32 noundef 4, i32 noundef 65532), !range !7
+  %86 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %70, i32 noundef %84, i32 noundef %5, ptr noundef nonnull %10, i32 noundef %85, i32 noundef 4, i32 noundef 65532)
   %.not.i.i.i = icmp eq i32 %86, 0
   br i1 %.not.i.i.i, label %dissect_ech_hpke_key_config.exit.i.i, label %87
 
@@ -8848,7 +8854,7 @@ define hidden i32 @ssl_dissect_ext_ech_echconfiglist(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %113 = add i32 %99, 4
   %.not64.i.i.i = icmp ugt i32 %113, %90
-  br i1 %.not64.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !24
+  br i1 %.not64.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !22
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %87
   %.062.lcssa.i.i.i = phi i32 [ %88, %87 ], [ %99, %.lr.ph.i.i.i ]
@@ -8896,7 +8902,7 @@ dissect_ech_hpke_key_config.exit.i.i:             ; preds = %ssl_end_vector.exit
   %139 = load i32, ptr %11, align 4
   %140 = add i32 %139, %134
   %141 = load i32, ptr %50, align 4
-  %142 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %56, i32 noundef %140, i32 noundef %5, ptr noundef nonnull %12, i32 noundef %141, i32 noundef 0, i32 noundef 65535), !range !7
+  %142 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %56, i32 noundef %140, i32 noundef %5, ptr noundef nonnull %12, i32 noundef %141, i32 noundef 0, i32 noundef 65535)
   %.not.i.i = icmp eq i32 %142, 0
   br i1 %.not.i.i, label %dissect_ech_echconfig_contents.exit.i, label %143
 
@@ -8933,7 +8939,7 @@ dissect_ech_echconfig.exit:                       ; preds = %dissect_ech_echconf
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %154 = add i32 %.pre-phi, %153
   %155 = icmp ult i32 %154, %24
-  br i1 %155, label %52, label %._crit_edge, !llvm.loop !25
+  br i1 %155, label %52, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %dissect_ech_echconfig.exit, %21
   %.027.lcssa = phi i32 [ %22, %21 ], [ %154, %dissect_ech_echconfig.exit ]
@@ -8954,7 +8960,7 @@ ssl_end_vector.exit:                              ; preds = %157, %._crit_edge, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ssl_is_valid_content_type(i8 noundef zeroext %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @ssl_is_valid_content_type(i8 noundef zeroext %0) local_unnamed_addr #3 {
   %.off = add i8 %0, -20
   %switch = icmp ult i8 %.off, 6
   %. = zext i1 %switch to i32
@@ -9044,7 +9050,7 @@ define hidden noundef zeroext i1 @tls_scan_server_hello(ptr noundef %0, i32 noun
   %29 = add i32 %37, %.03947
   %30 = sub i32 %2, %29
   %31 = icmp ugt i32 %30, 5
-  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %24, %28
   %32 = phi i32 [ %30, %28 ], [ %26, %24 ]
@@ -9316,7 +9322,7 @@ define hidden void @ssl_dissect_hnd_cli_hello(ptr noundef %0, ptr noundef %1, pt
   %83 = add i32 %91, %.157.i
   %84 = sub i32 %5, %83
   %85 = icmp ugt i32 %84, 5
-  br i1 %85, label %.lr.ph.i, label %tls_scan_client_hello.exit.thread, !llvm.loop !27
+  br i1 %85, label %.lr.ph.i, label %tls_scan_client_hello.exit.thread, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %78, %82
   %86 = phi i32 [ %84, %82 ], [ %80, %78 ]
@@ -9371,7 +9377,7 @@ tls_scan_client_hello.exit.thread:                ; preds = %.lr.ph.i, %82, %78,
 113:                                              ; preds = %101, %103
   %114 = call fastcc i32 @ssl_dissect_hnd_hello_common(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %97, ptr noundef %6, ptr noundef %7, i32 noundef 0, i32 noundef 0)
   %115 = load i32, ptr %8, align 4
-  %116 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %114, i32 noundef %5, ptr noundef nonnull %14, i32 noundef %115, i32 noundef 0, i32 noundef 32), !range !7
+  %116 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %114, i32 noundef %5, ptr noundef nonnull %14, i32 noundef %115, i32 noundef 0, i32 noundef 32)
   %.not = icmp eq i32 %116, 0
   br i1 %.not, label %367, label %117
 
@@ -9392,7 +9398,7 @@ tls_scan_client_hello.exit.thread:                ; preds = %.lr.ph.i, %82, %78,
   %.0213 = phi i32 [ %124, %120 ], [ %118, %117 ], [ %112, %111 ]
   %126 = getelementptr inbounds i8, ptr %0, i64 504
   %127 = load i32, ptr %126, align 4
-  %128 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.0213, i32 noundef %5, ptr noundef nonnull %11, i32 noundef %127, i32 noundef 2, i32 noundef 65535), !range !7
+  %128 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.0213, i32 noundef %5, ptr noundef nonnull %11, i32 noundef %127, i32 noundef 2, i32 noundef 65535)
   %.not229 = icmp eq i32 %128, 0
   br i1 %.not229, label %367, label %129
 
@@ -9451,7 +9457,7 @@ tls_scan_client_hello.exit.thread:                ; preds = %.lr.ph.i, %82, %78,
   %.1217 = phi ptr [ %.0216254, %151 ], [ @.str.681, %156 ]
   %164 = add i32 %145, 2
   %.not230 = icmp ugt i32 %164, %132
-  br i1 %.not230, label %._crit_edge, label %144, !llvm.loop !28
+  br i1 %.not230, label %._crit_edge, label %144, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %163, %129
   %.1214.lcssa = phi i32 [ %130, %129 ], [ %145, %163 ]
@@ -9483,7 +9489,7 @@ ssl_end_vector.exit:                              ; preds = %174, %166, %172
   %180 = phi i32 [ %.1214.lcssa, %172 ], [ %132, %166 ], [ %132, %174 ]
   %181 = getelementptr inbounds i8, ptr %0, i64 516
   %182 = load i32, ptr %181, align 4
-  %183 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %180, i32 noundef %5, ptr noundef nonnull %12, i32 noundef %182, i32 noundef 1, i32 noundef 255), !range !7
+  %183 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %180, i32 noundef %5, ptr noundef nonnull %12, i32 noundef %182, i32 noundef 1, i32 noundef 255)
   %.not232 = icmp eq i32 %183, 0
   br i1 %.not232, label %367, label %184
 
@@ -9534,7 +9540,7 @@ ssl_end_vector.exit:                              ; preds = %174, %166, %172
 212:                                              ; preds = %208, %210, %202
   %213 = add i32 %.3256, 1
   %exitcond.not = icmp eq i32 %213, %187
-  br i1 %exitcond.not, label %._crit_edge259, label %198, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge259, label %198, !llvm.loop !27
 
 ._crit_edge259:                                   ; preds = %212, %184
   %.3.lcssa = phi i32 [ %185, %184 ], [ %187, %212 ]
@@ -9654,7 +9660,7 @@ ssl_end_vector.exit:                              ; preds = %174, %166, %172
   %265 = load ptr, ptr %33, align 8
   %266 = call i32 @wmem_list_count(ptr noundef %265) #23
   %267 = icmp ult i32 %264, %266
-  br i1 %267, label %.lr.ph264, label %._crit_edge265, !llvm.loop !30
+  br i1 %267, label %.lr.ph264, label %._crit_edge265, !llvm.loop !28
 
 ._crit_edge265:                                   ; preds = %262, %249
   %268 = load ptr, ptr %36, align 8
@@ -9687,7 +9693,7 @@ ssl_end_vector.exit:                              ; preds = %174, %166, %172
   %283 = load ptr, ptr %36, align 8
   %284 = call i32 @wmem_list_count(ptr noundef %283) #23
   %285 = icmp ult i32 %282, %284
-  br i1 %285, label %.lr.ph269, label %._crit_edge270, !llvm.loop !31
+  br i1 %285, label %.lr.ph269, label %._crit_edge270, !llvm.loop !29
 
 ._crit_edge270:                                   ; preds = %280, %._crit_edge265
   %286 = load ptr, ptr %39, align 8
@@ -9727,7 +9733,7 @@ ssl_end_vector.exit:                              ; preds = %174, %166, %172
   %304 = load ptr, ptr %39, align 8
   %305 = call i32 @wmem_list_count(ptr noundef %304) #23
   %306 = icmp ult i32 %303, %305
-  br i1 %306, label %.lr.ph274, label %.loopexit, !llvm.loop !32
+  br i1 %306, label %.lr.ph274, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %301, %288, %._crit_edge270
   %307 = call ptr @wmem_strbuf_get_str(ptr noundef %22) #23
@@ -10023,7 +10029,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
   %66 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %65, ptr noundef nonnull @.str.503) #23
   %67 = getelementptr inbounds i8, ptr %0, i64 4
   %68 = load i32, ptr %67, align 4
-  %69 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %56, i32 noundef %68, i32 noundef 0, i32 noundef 65535), !range !7
+  %69 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %56, i32 noundef %68, i32 noundef 0, i32 noundef 65535)
   %.not = icmp eq i32 %69, 0
   br i1 %.not, label %ssl_end_vector.exit486, label %70
 
@@ -10277,7 +10283,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
 271:                                              ; preds = %270, %266, %._crit_edge537
   %.1 = phi ptr [ %.0518, %266 ], [ @.str.681, %270 ], [ %.0518, %._crit_edge537 ]
   %272 = load i32, ptr %82, align 4
-  %273 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %239, i32 noundef %73, ptr noundef nonnull %57, i32 noundef %272, i32 noundef 0, i32 noundef 65535), !range !7
+  %273 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %239, i32 noundef %73, ptr noundef nonnull %57, i32 noundef %272, i32 noundef 0, i32 noundef 65535)
   %.not417 = icmp eq i32 %273, 0
   br i1 %.not417, label %ssl_end_vector.exit486, label %274
 
@@ -10347,7 +10353,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
   %282 = load i32, ptr %230, align 4
   %283 = call ptr @proto_tree_add_subtree(ptr noundef %260, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef %282, ptr noundef null, ptr noundef nonnull @.str.1571) #23
   %284 = load i32, ptr %231, align 4
-  %285 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %283, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %52, i32 noundef %284, i32 noundef 1, i32 noundef 65535), !range !7
+  %285 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %283, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %52, i32 noundef %284, i32 noundef 1, i32 noundef 65535)
   %.not.i = icmp eq i32 %285, 0
   br i1 %.not.i, label %ssl_dissect_hnd_hello_ext_server_name.exit, label %286
 
@@ -10365,7 +10371,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
   %292 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %283, i32 noundef %291, ptr noundef %1, i32 noundef %.04449.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %54) #23
   %293 = add nuw i32 %.04449.i, 1
   %294 = load i32, ptr %233, align 4
-  %295 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %283, i32 noundef %293, i32 noundef %289, ptr noundef nonnull %53, i32 noundef %294, i32 noundef 1, i32 noundef 65535), !range !7
+  %295 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %283, i32 noundef %293, i32 noundef %289, ptr noundef nonnull %53, i32 noundef %294, i32 noundef 1, i32 noundef 65535)
   %.not48.i = icmp eq i32 %295, 0
   br i1 %.not48.i, label %ssl_dissect_hnd_hello_ext_server_name.exit, label %296
 
@@ -10390,7 +10396,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
 
 309:                                              ; preds = %305, %296
   %310 = icmp ult i32 %302, %289
-  br i1 %310, label %.lr.ph.i, label %ssl_dissect_hnd_hello_ext_server_name.exit, !llvm.loop !33
+  br i1 %310, label %.lr.ph.i, label %ssl_dissect_hnd_hello_ext_server_name.exit, !llvm.loop !31
 
 ssl_dissect_hnd_hello_ext_server_name.exit:       ; preds = %.lr.ph.i, %309, %279, %281, %286
   %.0.i = phi i32 [ %275, %279 ], [ %277, %281 ], [ %287, %286 ], [ %302, %309 ], [ %289, %.lr.ph.i ]
@@ -10453,7 +10459,7 @@ ssl_dissect_hnd_hello_ext_server_name.exit:       ; preds = %.lr.ph.i, %309, %27
 334:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51)
   %335 = load i32, ptr %226, align 4
-  %336 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %51, i32 noundef %335, i32 noundef 1, i32 noundef 255), !range !7
+  %336 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %51, i32 noundef %335, i32 noundef 1, i32 noundef 255)
   %.not.i422 = icmp eq i32 %336, 0
   br i1 %.not.i422, label %ssl_dissect_hnd_hello_ext_srp.exit, label %337
 
@@ -10496,7 +10502,7 @@ ssl_dissect_hnd_hello_ext_srp.exit:               ; preds = %334, %337
   call fastcc void @tls_dissect_signature_algorithm(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %260, i32 noundef %353, ptr noundef null)
   %354 = add i32 %.0401517, 10
   %355 = load i32, ptr %222, align 4
-  %356 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %354, i32 noundef %277, ptr noundef nonnull %49, i32 noundef %355, i32 noundef 1, i32 noundef 16777215), !range !7
+  %356 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %354, i32 noundef %277, ptr noundef nonnull %49, i32 noundef %355, i32 noundef 1, i32 noundef 16777215)
   %.not.i424 = icmp eq i32 %356, 0
   br i1 %.not.i424, label %ssl_dissect_hnd_ext_delegated_credentials.exit, label %357
 
@@ -10509,7 +10515,7 @@ ssl_dissect_hnd_hello_ext_srp.exit:               ; preds = %334, %337
   call fastcc void @tls_dissect_signature_algorithm(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %260, i32 noundef %362, ptr noundef null)
   %363 = add i32 %362, 2
   %364 = load i32, ptr %224, align 4
-  %365 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %363, i32 noundef %277, ptr noundef nonnull %50, i32 noundef %364, i32 noundef 1, i32 noundef 65535), !range !7
+  %365 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %363, i32 noundef %277, ptr noundef nonnull %50, i32 noundef %364, i32 noundef 1, i32 noundef 65535)
   %.not52.i = icmp eq i32 %365, 0
   br i1 %.not52.i, label %ssl_dissect_hnd_ext_delegated_credentials.exit, label %366
 
@@ -10633,7 +10639,7 @@ ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %378, %379, %384, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43)
   %433 = load i32, ptr %197, align 4
-  %434 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %42, i32 noundef %433, i32 noundef 2, i32 noundef 65535), !range !7
+  %434 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %42, i32 noundef %433, i32 noundef 2, i32 noundef 65535)
   %.not.i427 = icmp eq i32 %434, 0
   br i1 %.not.i427, label %ssl_dissect_hnd_hello_ext_alpn.exit, label %435
 
@@ -10656,7 +10662,7 @@ ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %378, %379, %384, %4
   %.083112.us.i = phi ptr [ %.1.us.i, %457 ], [ null, %.lr.ph.i429 ]
   %.084111.us.i = phi ptr [ %.185.us.i, %457 ], [ null, %.lr.ph.i429 ]
   %444 = load i32, ptr %200, align 4
-  %445 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %442, i32 noundef %.082113.us.i, i32 noundef %438, ptr noundef nonnull %43, i32 noundef %444, i32 noundef 1, i32 noundef 255), !range !7
+  %445 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %442, i32 noundef %.082113.us.i, i32 noundef %438, ptr noundef nonnull %43, i32 noundef %444, i32 noundef 1, i32 noundef 255)
   %.not96.us.i = icmp eq i32 %445, 0
   br i1 %.not96.us.i, label %ssl_dissect_hnd_hello_ext_alpn.exit, label %446
 
@@ -10686,14 +10692,14 @@ ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %378, %379, %384, %4
   %.1.us.i = phi ptr [ %456, %454 ], [ %.083112.us.i, %451 ], [ %.083112.us.i, %446 ]
   %458 = add i32 %449, %447
   %459 = icmp ult i32 %458, %438
-  br i1 %459, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !34
+  br i1 %459, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !32
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i429, %500
   %.082113.i = phi i32 [ %501, %500 ], [ %436, %.lr.ph.i429 ]
   %.083112.i = phi ptr [ %.1.i, %500 ], [ null, %.lr.ph.i429 ]
   %.084111.i = phi ptr [ %.185.i, %500 ], [ null, %.lr.ph.i429 ]
   %460 = load i32, ptr %200, align 4
-  %461 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %442, i32 noundef %.082113.i, i32 noundef %438, ptr noundef nonnull %43, i32 noundef %460, i32 noundef 1, i32 noundef 255), !range !7
+  %461 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %442, i32 noundef %.082113.i, i32 noundef %438, ptr noundef nonnull %43, i32 noundef %460, i32 noundef 1, i32 noundef 255)
   %.not96.i = icmp eq i32 %461, 0
   br i1 %.not96.i, label %ssl_dissect_hnd_hello_ext_alpn.exit, label %462
 
@@ -10764,7 +10770,7 @@ ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %378, %379, %384, %4
   %.1.i = phi ptr [ %496, %494 ], [ %.083112.i, %497 ], [ %.083112.i, %493 ]
   %501 = add i32 %465, %463
   %502 = icmp ult i32 %501, %438
-  br i1 %502, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !34
+  br i1 %502, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %500, %457
   %.084.lcssa.i = phi ptr [ %.185.us.i, %457 ], [ %.185.i, %500 ]
@@ -10791,7 +10797,7 @@ ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %378, %379, %384, %4
   br i1 %512, label %.preheader.i, label %.thread102.i
 
 513:                                              ; preds = %.preheader.i
-  br i1 %514, label %.preheader.i, label %ssl_dissect_hnd_hello_ext_alpn.exit, !llvm.loop !35
+  br i1 %514, label %.preheader.i, label %ssl_dissect_hnd_hello_ext_alpn.exit, !llvm.loop !33
 
 .preheader.i:                                     ; preds = %509, %513
   %514 = phi i1 [ false, %513 ], [ true, %509 ]
@@ -10843,7 +10849,7 @@ ssl_dissect_hnd_hello_ext_alpn.exit:              ; preds = %.lr.ph.split.i, %.l
 530:                                              ; preds = %529
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
   %531 = load i32, ptr %196, align 4
-  %532 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %41, i32 noundef %531, i32 noundef 1, i32 noundef 65535), !range !7
+  %532 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %41, i32 noundef %531, i32 noundef 1, i32 noundef 65535)
   %.not.i430 = icmp eq i32 %532, 0
   br i1 %.not.i430, label %ssl_dissect_hnd_hello_ext_status_request_v2.exit, label %533
 
@@ -10858,7 +10864,7 @@ ssl_dissect_hnd_hello_ext_alpn.exit:              ; preds = %.lr.ph.split.i, %.l
   %.01921.i = phi i32 [ %538, %.lr.ph.i432 ], [ %534, %533 ]
   %538 = call fastcc i32 @ssl_dissect_hnd_hello_ext_status_request(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %.01921.i, i32 noundef %536, i32 noundef 1)
   %539 = icmp ult i32 %538, %536
-  br i1 %539, label %.lr.ph.i432, label %ssl_dissect_hnd_hello_ext_status_request_v2.exit, !llvm.loop !36
+  br i1 %539, label %.lr.ph.i432, label %ssl_dissect_hnd_hello_ext_status_request_v2.exit, !llvm.loop !34
 
 ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i432, %530, %533
   %.0.i431 = phi i32 [ %277, %530 ], [ %534, %533 ], [ %538, %.lr.ph.i432 ]
@@ -10926,7 +10932,7 @@ ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i432, %530, 
 
 562:                                              ; preds = %561, %561
   %563 = load i32, ptr %191, align 4
-  %564 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %40, i32 noundef %563, i32 noundef 1, i32 noundef 254), !range !7
+  %564 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %40, i32 noundef %563, i32 noundef 1, i32 noundef 254)
   %.not.i433 = icmp eq i32 %564, 0
   br i1 %.not.i433, label %ssl_dissect_hnd_hello_ext_compress_certificate.exit, label %565
 
@@ -10943,7 +10949,7 @@ ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i432, %530, 
   %571 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %570, ptr noundef %1, i32 noundef %.0191.i, i32 noundef 2, i32 noundef 0) #23
   %572 = add i32 %.0191.i, 2
   %573 = icmp ult i32 %572, %568
-  br i1 %573, label %.lr.ph.i435, label %ssl_dissect_hnd_hello_ext_compress_certificate.exit, !llvm.loop !37
+  br i1 %573, label %.lr.ph.i435, label %ssl_dissect_hnd_hello_ext_compress_certificate.exit, !llvm.loop !35
 
 ssl_dissect_hnd_hello_ext_compress_certificate.exit: ; preds = %.lr.ph.i435, %561, %562, %565
   %.0.i434 = phi i32 [ %277, %562 ], [ %275, %561 ], [ %566, %565 ], [ %572, %.lr.ph.i435 ]
@@ -10962,7 +10968,7 @@ ssl_dissect_hnd_hello_ext_compress_certificate.exit: ; preds = %.lr.ph.i435, %56
   %580 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %579, ptr noundef %1, i32 noundef %578, i32 noundef 1, i32 noundef 0) #23
   %581 = add i32 %.0401517, 6
   %582 = load i32, ptr %187, align 4
-  %583 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %581, i32 noundef %277, ptr noundef nonnull %39, i32 noundef %582, i32 noundef 1, i32 noundef 255), !range !7
+  %583 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %581, i32 noundef %277, ptr noundef nonnull %39, i32 noundef %582, i32 noundef 1, i32 noundef 255)
   %.not.i437 = icmp eq i32 %583, 0
   br i1 %.not.i437, label %ssl_dissect_hnd_hello_ext_token_binding.exit, label %584
 
@@ -10985,7 +10991,7 @@ ssl_dissect_hnd_hello_ext_compress_certificate.exit: ; preds = %.lr.ph.i435, %56
   %596 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %595, ptr noundef %1, i32 noundef %.0423.i, i32 noundef 1, i32 noundef 0) #23
   %597 = add i32 %.0423.i, 1
   %exitcond.not.i = icmp eq i32 %597, %587
-  br i1 %exitcond.not.i, label %ssl_dissect_hnd_hello_ext_token_binding.exit, label %.lr.ph.i439, !llvm.loop !38
+  br i1 %exitcond.not.i, label %ssl_dissect_hnd_hello_ext_token_binding.exit, label %.lr.ph.i439, !llvm.loop !36
 
 ._crit_edge.i438:                                 ; preds = %584
   %598 = icmp ugt i32 %585, %587
@@ -11040,7 +11046,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
 
 620:                                              ; preds = %615
   %621 = load i32, ptr %133, align 4
-  %622 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %29, i32 noundef %621, i32 noundef 0, i32 noundef 65535), !range !7
+  %622 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %29, i32 noundef %621, i32 noundef 0, i32 noundef 65535)
   %.not335.i = icmp eq i32 %622, 0
   br i1 %.not335.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit, label %623
 
@@ -11090,7 +11096,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
   %648 = call ptr @proto_tree_add_item(ptr noundef %629, i32 noundef %647, ptr noundef %1, i32 noundef %.132823.i, i32 noundef 2, i32 noundef 0) #23
   %649 = add i32 %.132823.i, 2
   %650 = load i32, ptr %137, align 4
-  %651 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %629, i32 noundef %649, i32 noundef %.0329.i, ptr noundef nonnull %31, i32 noundef %650, i32 noundef 0, i32 noundef 65535), !range !7
+  %651 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %629, i32 noundef %649, i32 noundef %.0329.i, ptr noundef nonnull %31, i32 noundef %650, i32 noundef 0, i32 noundef 65535)
   %.not336.i = icmp eq i32 %651, 0
   br i1 %.not336.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit, label %652
 
@@ -11286,7 +11292,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
   %749 = call ptr @proto_tree_add_item(ptr noundef %629, i32 noundef %748, ptr noundef %1, i32 noundef %747, i32 noundef 2, i32 noundef 0) #23
   %750 = add i32 %.2.i, 24
   %751 = load i32, ptr %167, align 4
-  %752 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %629, i32 noundef %750, i32 noundef %277, ptr noundef nonnull %36, i32 noundef %751, i32 noundef 0, i32 noundef 20), !range !7
+  %752 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %629, i32 noundef %750, i32 noundef %277, ptr noundef nonnull %36, i32 noundef %751, i32 noundef 0, i32 noundef 20)
   %.not338.i = icmp eq i32 %752, 0
   br i1 %.not338.i, label %.loopexit.i, label %753
 
@@ -11425,7 +11431,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
   %834 = load i32, ptr %38, align 4
   %835 = lshr i32 %834, 2
   %836 = icmp ult i32 %833, %835
-  br i1 %836, label %.lr.ph21.i, label %.loopexit.i, !llvm.loop !39
+  br i1 %836, label %.lr.ph21.i, label %.loopexit.i, !llvm.loop !37
 
 837:                                              ; preds = %667
   %838 = load i32, ptr %148, align 4
@@ -11475,7 +11481,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
   %863 = add i32 %.117.i, 4
   %.4.i = add i32 %.418.i, 4
   %864 = icmp ult i32 %863, %657
-  br i1 %864, label %.lr.ph.i440, label %.loopexit.i, !llvm.loop !40
+  br i1 %864, label %.lr.ph.i440, label %.loopexit.i, !llvm.loop !38
 
 865:                                              ; preds = %667
   call void @quic_add_grease_quic_bit(ptr noundef %3) #23
@@ -11527,7 +11533,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
 ssl_end_vector.exit.i:                            ; preds = %884, %882, %877, %874, %869, %866, %856, %853, %846, %843, %819, %816, %782, %779, %672, %667
   %889 = phi i32 [ %.5.i, %882 ], [ %668, %877 ], [ %668, %884 ], [ %668, %667 ], [ %668, %869 ], [ %668, %874 ], [ %668, %672 ], [ %668, %779 ], [ %668, %782 ], [ %668, %816 ], [ %668, %819 ], [ %668, %843 ], [ %668, %846 ], [ %668, %853 ], [ %668, %856 ], [ %668, %866 ]
   %890 = icmp ult i32 %889, %.0329.i
-  br i1 %890, label %.lr.ph24.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit, !llvm.loop !41
+  br i1 %890, label %.lr.ph24.i, label %ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit, !llvm.loop !39
 
 ssl_dissect_hnd_hello_ext_quic_transport_parameters.exit: ; preds = %644, %ssl_end_vector.exit.i, %620, %.thread.i
   %.0326.i = phi i32 [ %277, %620 ], [ %.0327.i, %.thread.i ], [ %889, %ssl_end_vector.exit.i ], [ %.0329.i, %644 ]
@@ -11584,7 +11590,7 @@ ssl_dissect_hnd_hello_ext_session_ticket.exit:    ; preds = %891, %894
 
 906:                                              ; preds = %903
   %907 = load i32, ptr %128, align 4
-  %908 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %905, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %26, i32 noundef %907, i32 noundef 0, i32 noundef 65535), !range !7
+  %908 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %905, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %26, i32 noundef %907, i32 noundef 0, i32 noundef 65535)
   %.not62.i = icmp eq i32 %908, 0
   br i1 %.not62.i, label %ssl_dissect_hnd_hello_ext_key_share.exit, label %909
 
@@ -11612,7 +11618,7 @@ ssl_dissect_hnd_hello_ext_session_ticket.exit:    ; preds = %891, %894
   %.1.i446 = phi ptr [ @.str.1600, %916 ], [ %.070.i, %.lr.ph.i445 ]
   %918 = add i32 %914, 4
   %.not63.i = icmp ugt i32 %918, %912
-  br i1 %.not63.i, label %._crit_edge.i447, label %.lr.ph.i445, !llvm.loop !42
+  br i1 %.not63.i, label %._crit_edge.i447, label %.lr.ph.i445, !llvm.loop !40
 
 ._crit_edge.i447:                                 ; preds = %917, %909
   %.052.lcssa.i = phi i32 [ %910, %909 ], [ %914, %917 ]
@@ -11677,7 +11683,7 @@ ssl_dissect_hnd_hello_ext_key_share.exit:         ; preds = %902, %903, %906, %9
 
 945:                                              ; preds = %942
   %946 = load i32, ptr %119, align 4
-  %947 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %944, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %23, i32 noundef %946, i32 noundef 7, i32 noundef 65535), !range !7
+  %947 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %944, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %23, i32 noundef %946, i32 noundef 7, i32 noundef 65535)
   %.not.i450 = icmp eq i32 %947, 0
   br i1 %.not.i450, label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, label %948
 
@@ -11693,7 +11699,7 @@ ssl_dissect_hnd_hello_ext_key_share.exit:         ; preds = %902, %903, %906, %9
   %953 = load i32, ptr %120, align 4
   %954 = call ptr @proto_tree_add_subtree(ptr noundef %944, ptr noundef %1, i32 noundef %.07180.i, i32 noundef 4, i32 noundef %953, ptr noundef null, ptr noundef nonnull @.str.1606) #23
   %955 = load i32, ptr %121, align 4
-  %956 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %954, i32 noundef %.07180.i, i32 noundef %951, ptr noundef nonnull %25, i32 noundef %955, i32 noundef 1, i32 noundef 65535), !range !7
+  %956 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %954, i32 noundef %.07180.i, i32 noundef %951, ptr noundef nonnull %25, i32 noundef %955, i32 noundef 1, i32 noundef 65535)
   %.not76.i = icmp eq i32 %956, 0
   br i1 %.not76.i, label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, label %957
 
@@ -11710,7 +11716,7 @@ ssl_dissect_hnd_hello_ext_key_share.exit:         ; preds = %902, %903, %906, %9
   %966 = add i32 %959, 6
   call void @proto_item_set_len(ptr noundef %954, i32 noundef %966) #23
   %967 = icmp ult i32 %965, %951
-  br i1 %967, label %.lr.ph.i453, label %._crit_edge.i451, !llvm.loop !43
+  br i1 %967, label %.lr.ph.i453, label %._crit_edge.i451, !llvm.loop !41
 
 ._crit_edge.i451:                                 ; preds = %957, %948
   %.071.lcssa.i = phi i32 [ %949, %948 ], [ %965, %957 ]
@@ -11727,7 +11733,7 @@ ssl_dissect_hnd_hello_ext_key_share.exit:         ; preds = %902, %903, %906, %9
 ssl_end_vector.exit.i452:                         ; preds = %969, %._crit_edge.i451
   %974 = phi i32 [ %951, %969 ], [ %.071.lcssa.i, %._crit_edge.i451 ]
   %975 = load i32, ptr %124, align 4
-  %976 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %944, i32 noundef %974, i32 noundef %277, ptr noundef nonnull %24, i32 noundef %975, i32 noundef 33, i32 noundef 65535), !range !7
+  %976 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %944, i32 noundef %974, i32 noundef %277, ptr noundef nonnull %24, i32 noundef %975, i32 noundef 33, i32 noundef 65535)
   %.not75.i = icmp eq i32 %976, 0
   br i1 %.not75.i, label %ssl_dissect_hnd_hello_ext_pre_shared_key.exit, label %977
 
@@ -11783,7 +11789,7 @@ ssl_dissect_hnd_hello_ext_pre_shared_key.exit:    ; preds = %.lr.ph.i453, %942, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
   %996 = load i32, ptr %109, align 4
-  %997 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %21, i32 noundef %996, i32 noundef 2, i32 noundef 254), !range !7
+  %997 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %21, i32 noundef %996, i32 noundef 2, i32 noundef 254)
   %.not.i456 = icmp eq i32 %997, 0
   br i1 %.not.i456, label %ssl_dissect_hnd_hello_ext_supported_versions.exit, label %998
 
@@ -11916,7 +11922,7 @@ tls_try_get_version.exit.i:                       ; preds = %.thread30.i.i, %102
 1048:                                             ; preds = %1046, %1041, %1036
   %1049 = add i32 %1003, 2
   %.not67.i = icmp ugt i32 %1049, %1001
-  br i1 %.not67.i, label %._crit_edge.i459, label %.lr.ph.i457, !llvm.loop !44
+  br i1 %.not67.i, label %._crit_edge.i459, label %.lr.ph.i457, !llvm.loop !42
 
 ._crit_edge.i459:                                 ; preds = %1048
   %1050 = icmp ne i32 %.157.i, 0
@@ -11982,7 +11988,7 @@ ssl_dissect_hnd_hello_ext_supported_versions.exit: ; preds = %995, %ssl_end_vect
 1077:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   %1078 = load i32, ptr %106, align 4
-  %1079 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %20, i32 noundef %1078, i32 noundef 1, i32 noundef 65535), !range !7
+  %1079 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %20, i32 noundef %1078, i32 noundef 1, i32 noundef 65535)
   %.not.i463 = icmp eq i32 %1079, 0
   br i1 %.not.i463, label %ssl_dissect_hnd_hello_ext_cookie.exit, label %1080
 
@@ -12002,7 +12008,7 @@ ssl_dissect_hnd_hello_ext_cookie.exit:            ; preds = %1077, %1080
 1086:                                             ; preds = %274
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   %1087 = load i32, ptr %104, align 4
-  %1088 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %19, i32 noundef %1087, i32 noundef 1, i32 noundef 255), !range !7
+  %1088 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %19, i32 noundef %1087, i32 noundef 1, i32 noundef 255)
   %.not.i465 = icmp eq i32 %1088, 0
   br i1 %.not.i465, label %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, label %1089
 
@@ -12019,7 +12025,7 @@ ssl_dissect_hnd_hello_ext_cookie.exit:            ; preds = %1077, %1080
   %1095 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %1094, ptr noundef %1, i32 noundef %.01819.i, i32 noundef 1, i32 noundef 0) #23
   %1096 = add i32 %.01819.i, 1
   %exitcond.not.i469 = icmp eq i32 %1096, %1092
-  br i1 %exitcond.not.i469, label %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, label %.lr.ph.i468, !llvm.loop !45
+  br i1 %exitcond.not.i469, label %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, label %.lr.ph.i468, !llvm.loop !43
 
 ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit: ; preds = %.lr.ph.i468, %1086, %1089
   %.0.i467 = phi i32 [ %277, %1086 ], [ %1090, %1089 ], [ %1092, %.lr.ph.i468 ]
@@ -12048,7 +12054,7 @@ ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit: ; preds = %.lr.ph.i468, %
 .lr.ph.i472:                                      ; preds = %1103, %1109
   %.02629.i = phi i32 [ %1114, %1109 ], [ %275, %1103 ]
   %1107 = load i32, ptr %102, align 4
-  %1108 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1105, i32 noundef %.02629.i, i32 noundef %277, ptr noundef nonnull %18, i32 noundef %1107, i32 noundef 1, i32 noundef 255), !range !7
+  %1108 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1105, i32 noundef %.02629.i, i32 noundef %277, ptr noundef nonnull %18, i32 noundef %1107, i32 noundef 1, i32 noundef 255)
   %.not.i473 = icmp eq i32 %1108, 0
   br i1 %.not.i473, label %ssl_dissect_hnd_hello_ext_npn.exit, label %1109
 
@@ -12059,7 +12065,7 @@ ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit: ; preds = %.lr.ph.i468, %
   %1113 = call ptr @proto_tree_add_item(ptr noundef %1105, i32 noundef %1111, ptr noundef %1, i32 noundef %1110, i32 noundef %1112, i32 noundef 0) #23
   %1114 = add i32 %1112, %1110
   %1115 = icmp ult i32 %1114, %277
-  br i1 %1115, label %.lr.ph.i472, label %ssl_dissect_hnd_hello_ext_npn.exit, !llvm.loop !46
+  br i1 %1115, label %.lr.ph.i472, label %ssl_dissect_hnd_hello_ext_npn.exit, !llvm.loop !44
 
 ssl_dissect_hnd_hello_ext_npn.exit:               ; preds = %.lr.ph.i472, %1109, %1101, %1103
   %.0.i471 = phi i32 [ %275, %1101 ], [ %275, %1103 ], [ %1114, %1109 ], [ %277, %.lr.ph.i472 ]
@@ -12073,7 +12079,7 @@ ssl_dissect_hnd_hello_ext_npn.exit:               ; preds = %.lr.ph.i472, %1109,
 
 1117:                                             ; preds = %1116
   %1118 = load i32, ptr %96, align 4
-  %1119 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %16, i32 noundef %1118, i32 noundef 2, i32 noundef 65535), !range !7
+  %1119 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %16, i32 noundef %1118, i32 noundef 2, i32 noundef 65535)
   %.not.i477 = icmp eq i32 %1119, 0
   br i1 %.not.i477, label %ssl_dissect_hnd_hello_ext_alps.exit, label %1120
 
@@ -12091,7 +12097,7 @@ ssl_dissect_hnd_hello_ext_npn.exit:               ; preds = %.lr.ph.i472, %1109,
 .lr.ph.i478:                                      ; preds = %1120, %1131
   %.04144.i = phi i32 [ %1136, %1131 ], [ %1121, %1120 ]
   %1129 = load i32, ptr %99, align 4
-  %1130 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1127, i32 noundef %.04144.i, i32 noundef %1123, ptr noundef nonnull %17, i32 noundef %1129, i32 noundef 1, i32 noundef 255), !range !7
+  %1130 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1127, i32 noundef %.04144.i, i32 noundef %1123, ptr noundef nonnull %17, i32 noundef %1129, i32 noundef 1, i32 noundef 255)
   %.not43.i = icmp eq i32 %1130, 0
   br i1 %.not43.i, label %ssl_dissect_hnd_hello_ext_alps.exit, label %1131
 
@@ -12102,7 +12108,7 @@ ssl_dissect_hnd_hello_ext_npn.exit:               ; preds = %.lr.ph.i472, %1109,
   %1135 = call ptr @proto_tree_add_item(ptr noundef %1127, i32 noundef %1133, ptr noundef %1, i32 noundef %1132, i32 noundef %1134, i32 noundef 0) #23
   %1136 = add i32 %1134, %1132
   %1137 = icmp ult i32 %1136, %1123
-  br i1 %1137, label %.lr.ph.i478, label %ssl_dissect_hnd_hello_ext_alps.exit, !llvm.loop !47
+  br i1 %1137, label %.lr.ph.i478, label %ssl_dissect_hnd_hello_ext_alps.exit, !llvm.loop !45
 
 ssl_dissect_hnd_hello_ext_alps.exit:              ; preds = %.lr.ph.i478, %1131, %1116, %1117, %1120
   %.0.i476 = phi i32 [ %277, %1117 ], [ %277, %1116 ], [ %1121, %1120 ], [ %1136, %1131 ], [ %1123, %.lr.ph.i478 ]
@@ -12115,7 +12121,7 @@ ssl_dissect_hnd_hello_ext_alps.exit:              ; preds = %.lr.ph.i478, %1131,
   %1139 = load i32, ptr %93, align 4
   %1140 = call ptr @proto_tree_add_subtree(ptr noundef %260, ptr noundef %1, i32 noundef %275, i32 noundef %276, i32 noundef %1139, ptr noundef null, ptr noundef nonnull @.str.1612) #23
   %1141 = load i32, ptr %94, align 4
-  %1142 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1140, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %15, i32 noundef %1141, i32 noundef 0, i32 noundef 255), !range !7
+  %1142 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %1140, i32 noundef %275, i32 noundef %277, ptr noundef nonnull %15, i32 noundef %1141, i32 noundef 0, i32 noundef 255)
   %.not.i479 = icmp eq i32 %1142, 0
   br i1 %.not.i479, label %ssl_dissect_hnd_hello_ext_reneg_info.exit, label %1143
 
@@ -12150,7 +12156,7 @@ ssl_dissect_hnd_hello_ext_reneg_info.exit:        ; preds = %1138, %1143, %1146
   %1154 = add i32 %.0401517, 6
   %1155 = call fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %1154, i32 noundef %277, ptr noundef null)
   %1156 = load i32, ptr %89, align 4
-  %1157 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %1155, i32 noundef %277, ptr noundef nonnull %13, i32 noundef %1156, i32 noundef 0, i32 noundef 65535), !range !7
+  %1157 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %1155, i32 noundef %277, ptr noundef nonnull %13, i32 noundef %1156, i32 noundef 0, i32 noundef 65535)
   %.not.i482 = icmp eq i32 %1157, 0
   br i1 %.not.i482, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1158
 
@@ -12169,7 +12175,7 @@ ssl_dissect_hnd_hello_ext_reneg_info.exit:        ; preds = %1138, %1143, %1146
 1165:                                             ; preds = %1161, %1158
   %.046.i = phi i32 [ %1164, %1161 ], [ %1159, %1158 ]
   %1166 = load i32, ptr %91, align 4
-  %1167 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %.046.i, i32 noundef %277, ptr noundef nonnull %14, i32 noundef %1166, i32 noundef 0, i32 noundef 65535), !range !7
+  %1167 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, ptr noundef %260, i32 noundef %.046.i, i32 noundef %277, ptr noundef nonnull %14, i32 noundef %1166, i32 noundef 0, i32 noundef 65535)
   %.not50.i = icmp eq i32 %1167, 0
   br i1 %.not50.i, label %ssl_dissect_hnd_hello_ext_esni.exit, label %1168
 
@@ -12293,7 +12299,7 @@ ssl_end_vector.exit:                              ; preds = %1209, %ssl_dissect_
   %1225 = phi i32 [ %.1402, %1218 ], [ %277, %1213 ], [ %277, %1220 ], [ %277, %546 ], [ %277, %ssl_dissect_hnd_hello_ext_session_ticket.exit ], [ %277, %1209 ]
   %1226 = sub i32 %73, %1225
   %1227 = icmp ugt i32 %1226, 3
-  br i1 %1227, label %237, label %._crit_edge, !llvm.loop !48
+  br i1 %1227, label %237, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %ssl_end_vector.exit, %76
   %.0401.lcssa = phi i32 [ %71, %76 ], [ %1225, %ssl_end_vector.exit ]
@@ -12632,7 +12638,7 @@ define hidden void @ssl_dissect_hnd_new_ses_ticket(ptr noundef %0, ptr noundef %
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %0, i64 536
   %42 = load i32, ptr %41, align 4
-  %43 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %22, i32 noundef %38, i32 noundef %5, ptr noundef nonnull %13, i32 noundef %42, i32 noundef 0, i32 noundef 255), !range !7
+  %43 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %22, i32 noundef %38, i32 noundef %5, ptr noundef nonnull %13, i32 noundef %42, i32 noundef 0, i32 noundef 255)
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %78, label %44
 
@@ -12650,7 +12656,7 @@ define hidden void @ssl_dissect_hnd_new_ses_ticket(ptr noundef %0, ptr noundef %
   %52 = getelementptr inbounds i8, ptr %0, i64 544
   %53 = load i32, ptr %52, align 4
   %54 = zext i1 %16 to i32
-  %55 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %22, i32 noundef %.0, i32 noundef %5, ptr noundef nonnull %11, i32 noundef %53, i32 noundef %54, i32 noundef 65535), !range !7
+  %55 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %22, i32 noundef %.0, i32 noundef %5, ptr noundef nonnull %11, i32 noundef %53, i32 noundef %54, i32 noundef 65535)
   %.not80 = icmp eq i32 %55, 0
   br i1 %.not80, label %78, label %56
 
@@ -12788,7 +12794,7 @@ define hidden void @ssl_dissect_hnd_cert(ptr noundef %0, ptr noundef %1, ptr nou
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %0, i64 596
   %40 = load i32, ptr %39, align 4
-  %41 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %18, i32 noundef %40, i32 noundef 0, i32 noundef 255), !range !7
+  %41 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %18, i32 noundef %40, i32 noundef 0, i32 noundef 255)
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %.loopexit, label %42
 
@@ -12819,7 +12825,7 @@ define hidden void @ssl_dissect_hnd_cert(ptr noundef %0, ptr noundef %1, ptr nou
 55:                                               ; preds = %50
   %56 = getelementptr inbounds i8, ptr %0, i64 428
   %57 = load i32, ptr %56, align 4
-  %58 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, i32 noundef %.0, i32 noundef %4, ptr noundef nonnull %16, i32 noundef %57, i32 noundef 0, i32 noundef 16777215), !range !7
+  %58 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, i32 noundef %.0, i32 noundef %4, ptr noundef nonnull %16, i32 noundef %57, i32 noundef 0, i32 noundef 16777215)
   %.not100 = icmp eq i32 %58, 0
   br i1 %.not100, label %.loopexit, label %59
 
@@ -12862,7 +12868,7 @@ define hidden void @ssl_dissect_hnd_cert(ptr noundef %0, ptr noundef %1, ptr nou
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %92
   %.2104.us = phi i32 [ %.4.us, %92 ], [ %.1, %.lr.ph ]
   %80 = load i32, ptr %74, align 4
-  %81 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %.092, i32 noundef %.2104.us, i32 noundef %.093, ptr noundef nonnull %17, i32 noundef %80, i32 noundef 1, i32 noundef 16777215), !range !7
+  %81 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %.092, i32 noundef %.2104.us, i32 noundef %.093, ptr noundef nonnull %17, i32 noundef %80, i32 noundef 1, i32 noundef 16777215)
   %.not102.us = icmp eq i32 %81, 0
   br i1 %.not102.us, label %.loopexit, label %82
 
@@ -12883,7 +12889,7 @@ define hidden void @ssl_dissect_hnd_cert(ptr noundef %0, ptr noundef %1, ptr nou
 92:                                               ; preds = %90, %82
   %.4.us = phi i32 [ %91, %90 ], [ %87, %82 ]
   %93 = icmp ult i32 %.4.us, %.093
-  br i1 %93, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !49
+  br i1 %93, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !47
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %or.cond5 = and i1 %31, %19
@@ -12892,7 +12898,7 @@ define hidden void @ssl_dissect_hnd_cert(ptr noundef %0, ptr noundef %1, ptr nou
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %106
   %.2104.us107 = phi i32 [ %.4.us109, %106 ], [ %.1, %.lr.ph.split ]
   %94 = load i32, ptr %74, align 4
-  %95 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %.092, i32 noundef %.2104.us107, i32 noundef %.093, ptr noundef nonnull %17, i32 noundef %94, i32 noundef 1, i32 noundef 16777215), !range !7
+  %95 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %.092, i32 noundef %.2104.us107, i32 noundef %.093, ptr noundef nonnull %17, i32 noundef %94, i32 noundef 1, i32 noundef 16777215)
   %.not101.us = icmp eq i32 %95, 0
   br i1 %.not101.us, label %.loopexit, label %96
 
@@ -12913,13 +12919,13 @@ define hidden void @ssl_dissect_hnd_cert(ptr noundef %0, ptr noundef %1, ptr nou
 106:                                              ; preds = %104, %96
   %.4.us109 = phi i32 [ %105, %104 ], [ %101, %96 ]
   %107 = icmp ult i32 %.4.us109, %.093
-  br i1 %107, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !49
+  br i1 %107, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !47
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %154
   %.2104 = phi i32 [ %.4, %154 ], [ %.1, %.lr.ph.split ]
   %.094103 = phi i32 [ %155, %154 ], [ 0, %.lr.ph.split ]
   %108 = load i32, ptr %74, align 4
-  %109 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %.092, i32 noundef %.2104, i32 noundef %.093, ptr noundef nonnull %17, i32 noundef %108, i32 noundef 1, i32 noundef 16777215), !range !7
+  %109 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %.092, i32 noundef %.2104, i32 noundef %.093, ptr noundef nonnull %17, i32 noundef %108, i32 noundef 1, i32 noundef 16777215)
   %.not101 = icmp eq i32 %109, 0
   br i1 %.not101, label %.loopexit, label %110
 
@@ -13030,7 +13036,7 @@ ssl_find_private_key_by_pubkey.exit:              ; preds = %117, %121, %145
   %.4 = phi i32 [ %153, %152 ], [ %149, %147 ]
   %155 = add i32 %.094103, 1
   %156 = icmp ult i32 %.4, %.093
-  br i1 %156, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !49
+  br i1 %156, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %106, %.lr.ph.split.split.us, %154, %.lr.ph.split.split, %92, %.lr.ph.split.us, %73, %55, %38
   ret void
@@ -13062,7 +13068,7 @@ define hidden void @ssl_dissect_hnd_cert_req(ptr noundef %0, ptr noundef %1, ptr
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %0, i64 596
   %20 = load i32, ptr %19, align 4
-  %21 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %10, i32 noundef %20, i32 noundef 0, i32 noundef 255), !range !7
+  %21 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %10, i32 noundef %20, i32 noundef 0, i32 noundef 255)
   %.not96 = icmp eq i32 %21, 0
   br i1 %.not96, label %67, label %22
 
@@ -13082,7 +13088,7 @@ define hidden void @ssl_dissect_hnd_cert_req(ptr noundef %0, ptr noundef %1, ptr
 30:                                               ; preds = %17
   %31 = getelementptr inbounds i8, ptr %0, i64 444
   %32 = load i32, ptr %31, align 4
-  %33 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %11, i32 noundef %32, i32 noundef 1, i32 noundef 255), !range !7
+  %33 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %11, i32 noundef %32, i32 noundef 1, i32 noundef 255)
   %.not95 = icmp eq i32 %33, 0
   br i1 %.not95, label %67, label %34
 
@@ -13111,7 +13117,7 @@ define hidden void @ssl_dissect_hnd_cert_req(ptr noundef %0, ptr noundef %1, ptr
   %50 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %49, ptr noundef %1, i32 noundef %.098, i32 noundef 1, i32 noundef 0) #23
   %51 = add nuw i32 %.098, 1
   %exitcond.not = icmp eq i32 %51, %37
-  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !48
 
 .loopexit:                                        ; preds = %48, %34, %22, %25
   %.1 = phi i32 [ %29, %25 ], [ %23, %22 ], [ %35, %34 ], [ %37, %48 ]
@@ -13161,7 +13167,7 @@ define internal fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef %0, ptr nounde
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 260
   %10 = load i32, ptr %9, align 4
-  %11 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %10, i32 noundef 2, i32 noundef 65534), !range !7
+  %11 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %10, i32 noundef 2, i32 noundef 65534)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %ssl_end_vector.exit, label %12
 
@@ -13188,7 +13194,7 @@ define internal fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef %0, ptr nounde
   tail call fastcc void @tls_dissect_signature_algorithm(ptr noundef %0, ptr noundef %1, ptr noundef %24, i32 noundef %.03240, ptr noundef %6)
   %27 = add i32 %26, 2
   %.not35 = icmp ugt i32 %27, %15
-  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   %.032.lcssa = phi i32 [ %13, %12 ], [ %26, %.lr.ph ]
@@ -13227,7 +13233,7 @@ define internal fastcc i32 @tls_dissect_certificate_authorities(ptr noundef %0, 
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 456
   %11 = load i32, ptr %10, align 4
-  %12 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %7, i32 noundef %11, i32 noundef 0, i32 noundef 65535), !range !7
+  %12 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %7, i32 noundef %11, i32 noundef 0, i32 noundef 65535)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %proto_item_set_generated.exit, label %13
 
@@ -13286,7 +13292,7 @@ define internal fastcc i32 @tls_dissect_certificate_authorities(ptr noundef %0, 
 
 44:                                               ; preds = %29
   %45 = load i32, ptr %27, align 4
-  %46 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %25, i32 noundef %.04450, i32 noundef %16, ptr noundef nonnull %9, i32 noundef %45, i32 noundef 1, i32 noundef 65535), !range !7
+  %46 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %25, i32 noundef %.04450, i32 noundef %16, ptr noundef nonnull %9, i32 noundef %45, i32 noundef 1, i32 noundef 65535)
   %.not48 = icmp eq i32 %46, 0
   br i1 %.not48, label %proto_item_set_generated.exit, label %47
 
@@ -13297,7 +13303,7 @@ define internal fastcc i32 @tls_dissect_certificate_authorities(ptr noundef %0, 
   %51 = load i32, ptr %9, align 4
   %52 = add i32 %51, %48
   %53 = icmp ult i32 %52, %16
-  br i1 %53, label %29, label %proto_item_set_generated.exit, !llvm.loop !52
+  br i1 %53, label %29, label %proto_item_set_generated.exit, !llvm.loop !50
 
 proto_item_set_generated.exit:                    ; preds = %44, %47, %17, %40, %37, %32, %13, %6
   %.043 = phi i32 [ %5, %6 ], [ %14, %13 ], [ %16, %32 ], [ %16, %37 ], [ %16, %40 ], [ %14, %17 ], [ %16, %44 ], [ %52, %47 ]
@@ -13313,7 +13319,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_oid_filters(ptr noundef %0
   %11 = alloca ptr, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 588
   %13 = load i32, ptr %12, align 4
-  %14 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %7, i32 noundef %13, i32 noundef 0, i32 noundef 65535), !range !7
+  %14 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %7, i32 noundef %13, i32 noundef 0, i32 noundef 65535)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.loopexit, label %15
 
@@ -13339,7 +13345,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_oid_filters(ptr noundef %0
   %27 = load i32, ptr %20, align 4
   %28 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %1, i32 noundef %.06268, i32 noundef %26, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.1565) #23
   %29 = load i32, ptr %21, align 4
-  %30 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %28, i32 noundef %.06268, i32 noundef %18, ptr noundef nonnull %8, i32 noundef %29, i32 noundef 1, i32 noundef 255), !range !7
+  %30 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %28, i32 noundef %.06268, i32 noundef %18, ptr noundef nonnull %8, i32 noundef %29, i32 noundef 1, i32 noundef 255)
   %.not64 = icmp eq i32 %30, 0
   br i1 %.not64, label %.loopexit, label %31
 
@@ -13357,7 +13363,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_oid_filters(ptr noundef %0
   %41 = select i1 %.not65, ptr %40, ptr %39
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.743, ptr noundef %41) #23
   %42 = load i32, ptr %24, align 4
-  %43 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %28, i32 noundef %36, i32 noundef %18, ptr noundef nonnull %9, i32 noundef %42, i32 noundef 0, i32 noundef 65535), !range !7
+  %43 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %28, i32 noundef %36, i32 noundef %18, ptr noundef nonnull %9, i32 noundef %42, i32 noundef 0, i32 noundef 65535)
   %.not66 = icmp eq i32 %43, 0
   br i1 %.not66, label %.loopexit, label %44
 
@@ -13380,7 +13386,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_oid_filters(ptr noundef %0
 54:                                               ; preds = %49, %44
   %55 = add i32 %47, %45
   %56 = icmp ult i32 %55, %18
-  br i1 %56, label %25, label %.loopexit, !llvm.loop !53
+  br i1 %56, label %25, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %25, %31, %54, %15, %6
   %.0 = phi i32 [ %5, %6 ], [ %16, %15 ], [ %18, %25 ], [ %18, %31 ], [ %55, %54 ]
@@ -13408,7 +13414,7 @@ define hidden void @ssl_dissect_hnd_cli_cert_verify(ptr noundef %0, ptr noundef 
 
 15:                                               ; preds = %13, %7
   %.021.i = phi i32 [ %4, %7 ], [ %14, %13 ]
-  %16 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.021.i, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %10, i32 noundef 0, i32 noundef 65535), !range !7
+  %16 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.021.i, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %10, i32 noundef 0, i32 noundef 65535)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %ssl_dissect_digitally_signed.exit, label %17
 
@@ -13504,7 +13510,7 @@ define hidden void @ssl_dissect_hnd_cert_url(ptr nocapture noundef readonly %0, 
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %37, ptr noundef %1, i32 noundef %36, i32 noundef 20, i32 noundef 0) #23
   %39 = add i32 %33, 21
   %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %20, %4
   ret void
@@ -13525,7 +13531,7 @@ define hidden void @ssl_dissect_hnd_compress_certificate(ptr noundef %0, ptr nou
   %21 = add i32 %3, 5
   %22 = getelementptr inbounds i8, ptr %0, i64 696
   %23 = load i32, ptr %22, align 4
-  %24 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, i32 noundef %21, i32 noundef %4, ptr noundef nonnull %13, i32 noundef %23, i32 noundef 1, i32 noundef 16777215), !range !7
+  %24 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, i32 noundef %21, i32 noundef %4, ptr noundef nonnull %13, i32 noundef %23, i32 noundef 1, i32 noundef 16777215)
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %.thread, label %25
 
@@ -13578,7 +13584,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define hidden void @ssl_dissect_hnd_cli_keyex(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #1 {
   %7 = load i32, ptr %5, align 8
-  %8 = tail call i32 @ssl_get_keyex_alg(i32 noundef %7), !range !55
+  %8 = tail call i32 @ssl_get_keyex_alg(i32 noundef %7)
   switch i32 %8, label %133 [
     i32 19, label %9
     i32 20, label %9
@@ -13755,7 +13761,7 @@ define hidden void @ssl_dissect_hnd_srv_keyex(ptr noundef %0, ptr noundef %1, pt
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load i32, ptr %6, align 8
-  %11 = tail call i32 @ssl_get_keyex_alg(i32 noundef %10), !range !55
+  %11 = tail call i32 @ssl_get_keyex_alg(i32 noundef %10)
   switch i32 %11, label %dissect_ssl3_hnd_srv_keyex_psk.exit [
     i32 19, label %12
     i32 36, label %98
@@ -13862,7 +13868,7 @@ define hidden void @ssl_dissect_hnd_srv_keyex(ptr noundef %0, ptr noundef %1, pt
 
 73:                                               ; preds = %71, %40
   %.021.i.i.i = phi i32 [ %66, %40 ], [ %72, %71 ]
-  %74 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %46, i32 noundef %.021.i.i.i, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %68, i32 noundef 0, i32 noundef 65535), !range !7
+  %74 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %46, i32 noundef %.021.i.i.i, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %68, i32 noundef 0, i32 noundef 65535)
   %.not.i.i.i = icmp eq i32 %74, 0
   br i1 %.not.i.i.i, label %dissect_ssl3_hnd_srv_keyex_rsa.exit, label %75
 
@@ -13901,7 +13907,7 @@ dissect_ssl3_hnd_srv_keyex_rsa.exit:              ; preds = %73, %75
 
 92:                                               ; preds = %90, %79
   %.021.i.i.i53 = phi i32 [ %4, %79 ], [ %91, %90 ]
-  %93 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %85, i32 noundef %.021.i.i.i53, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %87, i32 noundef 0, i32 noundef 65535), !range !7
+  %93 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %85, i32 noundef %.021.i.i.i53, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %87, i32 noundef 0, i32 noundef 65535)
   %.not.i.i.i54 = icmp eq i32 %93, 0
   br i1 %.not.i.i.i54, label %dissect_ssl3_hnd_srv_keyex_ecc_sm2.exit, label %94
 
@@ -14031,7 +14037,7 @@ define internal fastcc void @dissect_ssl3_hnd_srv_keyex_dhe(ptr noundef %0, ptr 
 
 51:                                               ; preds = %49, %43
   %.021.i.i = phi i32 [ %44, %43 ], [ %50, %49 ]
-  %52 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %13, i32 noundef %.021.i.i, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %46, i32 noundef 0, i32 noundef 65535), !range !7
+  %52 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %13, i32 noundef %.021.i.i, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %46, i32 noundef 0, i32 noundef 65535)
   %.not.i.i = icmp eq i32 %52, 0
   br i1 %.not.i.i, label %dissect_ssl3_hnd_srv_keyex_sig.exit, label %53
 
@@ -14105,7 +14111,7 @@ dissect_tls_ecparameters.exit:                    ; preds = %8
 
 41:                                               ; preds = %39, %33
   %.021.i.i = phi i32 [ %34, %33 ], [ %40, %39 ]
-  %42 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %13, i32 noundef %.021.i.i, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %36, i32 noundef 0, i32 noundef 65535), !range !7
+  %42 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %13, i32 noundef %.021.i.i, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %36, i32 noundef 0, i32 noundef 65535)
   %.not.i.i = icmp eq i32 %42, 0
   br i1 %.not.i.i, label %dissect_ssl3_hnd_srv_keyex_sig.exit, label %43
 
@@ -14271,7 +14277,7 @@ declare void @gcry_md_close(ptr noundef) local_unnamed_addr #0
 declare i32 @gcry_md_get_algo(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tls12_prf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @tls12_prf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca %struct._StringInfo, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %9
@@ -14328,7 +14334,7 @@ define internal fastcc noundef i32 @tls12_prf(i32 noundef %0, ptr nocapture noun
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   %39 = load i32, ptr %38, align 8
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1203, ptr noundef %37, i32 noundef %39, i32 noundef %24)
-  %40 = call fastcc i32 @tls_hash(ptr noundef %1, ptr noundef nonnull %8, i32 noundef %0, ptr noundef %5, i32 noundef %6), !range !9
+  %40 = call fastcc i32 @tls_hash(ptr noundef %1, ptr noundef nonnull %8, i32 noundef %0, ptr noundef %5, i32 noundef %6)
   tail call void @g_free(ptr noundef %21) #23
   %.not26 = icmp eq i32 %40, -1
   br i1 %.not26, label %46, label %41
@@ -14349,7 +14355,7 @@ define internal fastcc noundef i32 @tls12_prf(i32 noundef %0, ptr nocapture noun
 declare void @gcry_md_reset(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tls_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @tls_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca [48 x i8], align 16
   %7 = alloca [48 x i8], align 16
   %8 = alloca ptr, align 8
@@ -14465,7 +14471,7 @@ ssl_hmac_final.exit45:                            ; preds = %ssl_hmac_setkey.exi
   %57 = getelementptr i8, ptr %.02955, i64 %56
   %58 = sub i32 %.02856, %55
   %.not30 = icmp eq i32 %58, 0
-  br i1 %.not30, label %ssl_hmac_init.exit._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not30, label %ssl_hmac_init.exit._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ssl_hmac_init.exit._crit_edge:                    ; preds = %ssl_hmac_final.exit45, %ssl_hmac_init.exit.preheader
   %.val37 = load ptr, ptr %8, align 8
@@ -14705,7 +14711,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_status_request(ptr noundef
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %0, i64 60
   %23 = load i32, ptr %22, align 4
-  %24 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.045, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %23, i32 noundef 0, i32 noundef 65535), !range !7
+  %24 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.045, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %23, i32 noundef 0, i32 noundef 65535)
   %.not48 = icmp eq i32 %24, 0
   br i1 %.not48, label %44, label %25
 
@@ -14724,7 +14730,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_status_request(ptr noundef
   %32 = add i32 %27, %26
   %33 = getelementptr inbounds i8, ptr %0, i64 64
   %34 = load i32, ptr %33, align 4
-  %35 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %32, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %34, i32 noundef 0, i32 noundef 65535), !range !7
+  %35 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %32, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %34, i32 noundef 0, i32 noundef 65535)
   %.not50 = icmp eq i32 %35, 0
   br i1 %.not50, label %44, label %36
 
@@ -14791,7 +14797,7 @@ define internal fastcc noundef i32 @ssl_dissect_hnd_hello_ext_cert_type(ptr noca
   %28 = add i32 %.05056, 1
   %29 = add i8 %.05155, -1
   %.not53 = icmp eq i8 %29, 0
-  br i1 %.not53, label %.loopexit, label %25, !llvm.loop !57
+  br i1 %.not53, label %.loopexit, label %25, !llvm.loop !54
 
 30:                                               ; preds = %8, %8, %8
   %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #23
@@ -14827,7 +14833,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_supported_groups(ptr nound
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 124
   %11 = load i32, ptr %10, align 4
-  %12 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %11, i32 noundef 2, i32 noundef 65535), !range !7
+  %12 = call i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %11, i32 noundef 2, i32 noundef 65535)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %ssl_end_vector.exit, label %13
 
@@ -14873,7 +14879,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_supported_groups(ptr nound
   %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %25, i32 noundef %32, ptr noundef %1, i32 noundef %.03748.us, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #23
   %34 = add i32 %31, 2
   %.not43.us = icmp ugt i32 %34, %5
-  br i1 %.not43.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !58
+  br i1 %.not43.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !55
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %47
   %35 = phi i32 [ %48, %47 ], [ %28, %.lr.ph.split.preheader ]
@@ -14901,7 +14907,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_supported_groups(ptr nound
   %.1 = phi ptr [ %.049, %41 ], [ @.str.681, %46 ]
   %48 = add i32 %35, 2
   %.not43 = icmp ugt i32 %48, %5
-  br i1 %.not43, label %._crit_edge, label %.lr.ph.split, !llvm.loop !58
+  br i1 %.not43, label %._crit_edge, label %.lr.ph.split, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %47, %.lr.ph.split.us, %.thread, %26
   %.037.lcssa = phi i32 [ %14, %26 ], [ %14, %.thread ], [ %31, %.lr.ph.split.us ], [ %35, %47 ]
@@ -14976,7 +14982,7 @@ define internal fastcc noundef i32 @ssl_dissect_hnd_hello_ext_ec_point_formats(p
   %24 = add i32 %.034.us, 1
   %25 = add i8 %.02833.us, -1
   %.not30.us = icmp eq i8 %25, 0
-  br i1 %.not30.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !59
+  br i1 %.not30.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !56
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %31
   %.034 = phi i32 [ %28, %31 ], [ %11, %.lr.ph.split.preheader ]
@@ -15070,7 +15076,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr nounde
 31:                                               ; preds = %29, %7
   %32 = getelementptr inbounds i8, ptr %0, i64 160
   %33 = load i32, ptr %32, align 4
-  %34 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %12, i32 noundef %16, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %33, i32 noundef 1, i32 noundef 65535), !range !7
+  %34 = call i32 @ssl_add_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %12, i32 noundef %16, i32 noundef %5, ptr noundef nonnull %8, i32 noundef %33, i32 noundef 1, i32 noundef 65535)
   %.not32 = icmp eq i32 %34, 0
   br i1 %.not32, label %43, label %35
 
@@ -15162,9 +15168,9 @@ attributes #27 = { nounwind willreturn memory(none) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -15210,8 +15216,5 @@ attributes #27 = { nounwind willreturn memory(none) }
 !52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
-!55 = !{i32 0, i32 39}
+!55 = distinct !{!55, !5}
 !56 = distinct !{!56, !5}
-!57 = distinct !{!57, !5}
-!58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}

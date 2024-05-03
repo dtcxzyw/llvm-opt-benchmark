@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [6 x i8] c"%d-%d\00", align 1
 @.str.12 = private unnamed_addr constant [7 x i8] c"%016lx\00", align 1
 @.str.13 = private unnamed_addr constant [6 x i8] c"0x%lx\00", align 1
-@.str.14 = private unnamed_addr constant [3 x i8] c"0x\00", align 1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @hwloc_bitmap_alloc() local_unnamed_addr #0 {
@@ -225,7 +224,7 @@ hwloc_bitmap_tma_dup.exit:                        ; preds = %1, %2, %11, %12
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @hwloc_bitmap_copy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_copy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8
   %4 = zext i32 %3 to i64
   %5 = add nsw i64 %4, -1
@@ -307,7 +306,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %26, %hwloc_flsl_man
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_snprintf(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2) local_unnamed_addr #6 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %4
 
@@ -493,8 +492,8 @@ define i32 @hwloc_bitmap_snprintf(ptr noalias nocapture noundef writeonly %0, i6
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_asprintf(ptr nocapture noundef writeonly %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #6 {
-  %3 = tail call i32 @hwloc_bitmap_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1), !range !8
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_asprintf(ptr nocapture noundef writeonly %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #6 {
+  %3 = tail call i32 @hwloc_bitmap_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1)
   %4 = add nsw i32 %3, 1
   %5 = zext nneg i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #15
@@ -503,7 +502,7 @@ define i32 @hwloc_bitmap_asprintf(ptr nocapture noundef writeonly %0, ptr noalia
 
 7:                                                ; preds = %2
   store ptr %6, ptr %0, align 8
-  %8 = tail call i32 @hwloc_bitmap_snprintf(ptr noundef nonnull %6, i64 noundef %5, ptr noundef %1), !range !8
+  %8 = tail call i32 @hwloc_bitmap_snprintf(ptr noundef nonnull %6, i64 noundef %5, ptr noundef %1)
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -512,7 +511,7 @@ define i32 @hwloc_bitmap_asprintf(ptr nocapture noundef writeonly %0, ptr noalia
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_sscanf(ptr nocapture noundef %0, ptr noalias noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_sscanf(ptr nocapture noundef %0, ptr noalias noundef %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   br label %4
 
@@ -523,7 +522,7 @@ define noundef i32 @hwloc_bitmap_sscanf(ptr nocapture noundef %0, ptr noalias no
   %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 44) #18
   %.not = icmp eq ptr %6, null
   %7 = add nuw nsw i32 %.030, 1
-  br i1 %.not, label %8, label %4, !llvm.loop !9
+  br i1 %.not, label %8, label %4, !llvm.loop !8
 
 8:                                                ; preds = %4
   %9 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 7) #18
@@ -576,7 +575,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i:              ; preds = %17
   %26 = load i32, ptr %0, align 8
   %27 = zext i32 %26 to i64
   %28 = icmp ult i64 %indvars.iv.next.i.i, %27
-  br i1 %28, label %23, label %hwloc_bitmap_fill.exit, !llvm.loop !10
+  br i1 %28, label %23, label %hwloc_bitmap_fill.exit, !llvm.loop !9
 
 hwloc_bitmap_fill.exit:                           ; preds = %23, %hwloc_bitmap_reset_by_ulongs.exit.i
   %29 = getelementptr inbounds i8, ptr %0, i64 16
@@ -669,7 +668,7 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %37, %33
   %67 = getelementptr inbounds i8, ptr %84, i64 1
   %68 = load i8, ptr %67, align 1
   %.not40 = icmp eq i8 %68, 0
-  br i1 %.not40, label %.loopexit, label %69, !llvm.loop !11
+  br i1 %.not40, label %.loopexit, label %69, !llvm.loop !10
 
 69:                                               ; preds = %.lr.ph, %66
   %.258 = phi i32 [ %.1, %.lr.ph ], [ %71, %66 ]
@@ -748,7 +747,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i50:            ; preds = %92
   %98 = load i32, ptr %0, align 8
   %99 = zext i32 %98 to i64
   %100 = icmp ult i64 %indvars.iv.next.i.i48, %99
-  br i1 %100, label %.lr.ph.i.i46, label %hwloc_bitmap_zero.exit, !llvm.loop !12
+  br i1 %100, label %.lr.ph.i.i46, label %hwloc_bitmap_zero.exit, !llvm.loop !11
 
 hwloc_bitmap_zero.exit:                           ; preds = %.lr.ph.i.i46, %hwloc_bitmap_reset_by_ulongs.exit.i50
   store i32 0, ptr %63, align 8
@@ -806,7 +805,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %5
   %14 = load i32, ptr %0, align 8
   %15 = zext i32 %14 to i64
   %16 = icmp ult i64 %indvars.iv.next.i, %15
-  br i1 %16, label %11, label %hwloc_bitmap__fill.exit, !llvm.loop !10
+  br i1 %16, label %11, label %hwloc_bitmap__fill.exit, !llvm.loop !9
 
 hwloc_bitmap__fill.exit:                          ; preds = %11, %hwloc_bitmap_reset_by_ulongs.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 16
@@ -858,7 +857,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %5
   %14 = load i32, ptr %0, align 8
   %15 = zext i32 %14 to i64
   %16 = icmp ult i64 %indvars.iv.next.i, %15
-  br i1 %16, label %11, label %hwloc_bitmap__zero.exit, !llvm.loop !12
+  br i1 %16, label %11, label %hwloc_bitmap__zero.exit, !llvm.loop !11
 
 hwloc_bitmap__zero.exit:                          ; preds = %11, %hwloc_bitmap_reset_by_ulongs.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 16
@@ -867,7 +866,7 @@ hwloc_bitmap__zero.exit:                          ; preds = %11, %hwloc_bitmap_r
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_list_snprintf(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_snprintf(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2) local_unnamed_addr #6 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %4
 
@@ -926,7 +925,7 @@ define i32 @hwloc_bitmap_list_snprintf(ptr noalias nocapture noundef writeonly %
 26:                                               ; preds = %.preheader.split.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.split33.us.i, label %.preheader.split.us.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.split33.us.i, label %.preheader.split.us.i, !llvm.loop !12
 
 27:                                               ; preds = %10
   %28 = load i32, ptr %6, align 8
@@ -947,7 +946,7 @@ define i32 @hwloc_bitmap_list_snprintf(ptr noalias nocapture noundef writeonly %
   %.us-phi.i = phi i64 [ %spec.select34.i, %.preheader.split.i ], [ %25, %.preheader.split.us.i ]
   %.us-phi31.in.i = phi i64 [ %indvars.iv42.i, %.preheader.split.i ], [ %indvars.iv.i, %.preheader.split.us.i ]
   %.us-phi31.i = trunc i64 %.us-phi31.in.i to i32
-  %33 = tail call i64 @llvm.cttz.i64(i64 %.us-phi.i, i1 true), !range !14
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.us-phi.i, i1 true)
   %34 = trunc nuw nsw i64 %33 to i32
   %35 = shl i32 %.us-phi31.i, 6
   %36 = or disjoint i32 %35, %34
@@ -956,7 +955,7 @@ define i32 @hwloc_bitmap_list_snprintf(ptr noalias nocapture noundef writeonly %
 37:                                               ; preds = %.preheader.split.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond46.not.i = icmp eq i64 %indvars.iv.next43.i, %wide.trip.count.i
-  br i1 %exitcond46.not.i, label %.split33.us.i, label %.preheader.split.i, !llvm.loop !13
+  br i1 %exitcond46.not.i, label %.split33.us.i, label %.preheader.split.i, !llvm.loop !12
 
 .split33.us.i:                                    ; preds = %26, %37
   %38 = load i32, ptr %6, align 8
@@ -1005,7 +1004,7 @@ hwloc_bitmap_next.exit.thread82:                  ; preds = %.split33.us.i, %hwl
 55:                                               ; preds = %.preheader.split.us.i60
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i
-  br i1 %exitcond.not.i68, label %.split33.us.i69, label %.preheader.split.us.i60, !llvm.loop !15
+  br i1 %exitcond.not.i68, label %.split33.us.i69, label %.preheader.split.us.i60, !llvm.loop !13
 
 56:                                               ; preds = %hwloc_bitmap_next.exit.thread82
   %57 = load i32, ptr %6, align 8
@@ -1032,7 +1031,7 @@ hwloc_bitmap_next.exit.thread82:                  ; preds = %.split33.us.i, %hwl
   %.us-phi.i64 = phi i64 [ %63, %.split.us.loopexit35.i ], [ %spec.select34.i76, %.preheader.split.i74 ]
   %.us-phi31.in.i65 = phi i64 [ %indvars.iv.i61, %.split.us.loopexit35.i ], [ %indvars.iv42.i75, %.preheader.split.i74 ]
   %.us-phi31.i66 = trunc i64 %.us-phi31.in.i65 to i32
-  %64 = tail call i64 @llvm.cttz.i64(i64 %.us-phi.i64, i1 true), !range !14
+  %64 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.us-phi.i64, i1 true)
   %65 = trunc nuw nsw i64 %64 to i32
   %66 = shl i32 %.us-phi31.i66, 6
   %67 = or disjoint i32 %66, %65
@@ -1041,7 +1040,7 @@ hwloc_bitmap_next.exit.thread82:                  ; preds = %.split33.us.i, %hwl
 68:                                               ; preds = %.preheader.split.i74
   %indvars.iv.next43.i78 = add nuw nsw i64 %indvars.iv42.i75, 1
   %exitcond46.not.i79 = icmp eq i64 %indvars.iv.next43.i78, %wide.trip.count.i
-  br i1 %exitcond46.not.i79, label %.split33.us.i69, label %.preheader.split.i74, !llvm.loop !15
+  br i1 %exitcond46.not.i79, label %.split33.us.i69, label %.preheader.split.i74, !llvm.loop !13
 
 .split33.us.i69:                                  ; preds = %55, %68
   %69 = load i32, ptr %6, align 8
@@ -1144,7 +1143,7 @@ define i32 @hwloc_bitmap_next(ptr nocapture noundef readonly %0, i32 noundef %1)
 20:                                               ; preds = %.preheader.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.split33.us, label %.preheader.split.us, !llvm.loop !13
+  br i1 %exitcond.not, label %.split33.us, label %.preheader.split.us, !llvm.loop !12
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1167,7 +1166,7 @@ define i32 @hwloc_bitmap_next(ptr nocapture noundef readonly %0, i32 noundef %1)
   %.us-phi = phi i64 [ %spec.select34, %.preheader.split ], [ %19, %.preheader.split.us ]
   %.us-phi31.in = phi i64 [ %indvars.iv42, %.preheader.split ], [ %indvars.iv, %.preheader.split.us ]
   %.us-phi31 = trunc i64 %.us-phi31.in to i32
-  %28 = tail call i64 @llvm.cttz.i64(i64 %.us-phi, i1 true), !range !14
+  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.us-phi, i1 true)
   %29 = trunc nuw nsw i64 %28 to i32
   %30 = shl i32 %.us-phi31, 6
   %31 = or disjoint i32 %30, %29
@@ -1176,7 +1175,7 @@ define i32 @hwloc_bitmap_next(ptr nocapture noundef readonly %0, i32 noundef %1)
 32:                                               ; preds = %.preheader.split
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %.split33.us, label %.preheader.split, !llvm.loop !13
+  br i1 %exitcond46.not, label %.split33.us, label %.preheader.split, !llvm.loop !12
 
 .split33.us:                                      ; preds = %20, %32
   %33 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1232,7 +1231,7 @@ define i32 @hwloc_bitmap_next_unset(ptr nocapture noundef readonly %0, i32 nound
 20:                                               ; preds = %.preheader.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.split33.us, label %.preheader.split.us, !llvm.loop !15
+  br i1 %exitcond.not, label %.split33.us, label %.preheader.split.us, !llvm.loop !13
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1260,7 +1259,7 @@ define i32 @hwloc_bitmap_next_unset(ptr nocapture noundef readonly %0, i32 nound
   %.us-phi = phi i64 [ %29, %.split.us.loopexit35 ], [ %spec.select34, %.preheader.split ]
   %.us-phi31.in = phi i64 [ %indvars.iv, %.split.us.loopexit35 ], [ %indvars.iv42, %.preheader.split ]
   %.us-phi31 = trunc i64 %.us-phi31.in to i32
-  %30 = tail call i64 @llvm.cttz.i64(i64 %.us-phi, i1 true), !range !14
+  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.us-phi, i1 true)
   %31 = trunc nuw nsw i64 %30 to i32
   %32 = shl i32 %.us-phi31, 6
   %33 = or disjoint i32 %32, %31
@@ -1269,7 +1268,7 @@ define i32 @hwloc_bitmap_next_unset(ptr nocapture noundef readonly %0, i32 nound
 34:                                               ; preds = %.preheader.split
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %.split33.us, label %.preheader.split, !llvm.loop !15
+  br i1 %exitcond46.not, label %.split33.us, label %.preheader.split, !llvm.loop !13
 
 .split33.us:                                      ; preds = %20, %34
   %35 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1285,8 +1284,8 @@ define i32 @hwloc_bitmap_next_unset(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_list_asprintf(ptr nocapture noundef writeonly %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #6 {
-  %3 = tail call i32 @hwloc_bitmap_list_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1), !range !8
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_asprintf(ptr nocapture noundef writeonly %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #6 {
+  %3 = tail call i32 @hwloc_bitmap_list_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1)
   %4 = add nsw i32 %3, 1
   %5 = zext nneg i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #15
@@ -1295,7 +1294,7 @@ define i32 @hwloc_bitmap_list_asprintf(ptr nocapture noundef writeonly %0, ptr n
 
 7:                                                ; preds = %2
   store ptr %6, ptr %0, align 8
-  %8 = tail call i32 @hwloc_bitmap_list_snprintf(ptr noundef nonnull %6, i64 noundef %5, ptr noundef %1), !range !8
+  %8 = tail call i32 @hwloc_bitmap_list_snprintf(ptr noundef nonnull %6, i64 noundef %5, ptr noundef %1)
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -1304,7 +1303,7 @@ define i32 @hwloc_bitmap_list_asprintf(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_list_sscanf(ptr nocapture noundef %0, ptr noalias noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_list_sscanf(ptr nocapture noundef %0, ptr noalias noundef %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1345,7 +1344,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i:              ; preds = %7
   %16 = load i32, ptr %0, align 8
   %17 = zext i32 %16 to i64
   %18 = icmp ult i64 %indvars.iv.next.i.i, %17
-  br i1 %18, label %13, label %hwloc_bitmap_zero.exit, !llvm.loop !12
+  br i1 %18, label %13, label %hwloc_bitmap_zero.exit, !llvm.loop !11
 
 hwloc_bitmap_zero.exit:                           ; preds = %13, %hwloc_bitmap_reset_by_ulongs.exit.i
   %19 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1375,7 +1374,7 @@ hwloc_bitmap_zero.exit:                           ; preds = %13, %hwloc_bitmap_r
 .critedge:                                        ; preds = %23, %23
   %25 = getelementptr inbounds i8, ptr %.120, i64 1
   %.pr = load i8, ptr %25, align 1
-  br label %23, !llvm.loop !16
+  br label %23, !llvm.loop !14
 
 26:                                               ; preds = %23
   %27 = call i64 @strtoul(ptr noundef nonnull %.120, ptr noundef nonnull %3, i32 noundef 0) #16
@@ -1390,7 +1389,7 @@ hwloc_bitmap_zero.exit:                           ; preds = %13, %hwloc_bitmap_r
 31:                                               ; preds = %30
   %32 = trunc i64 %.01842 to i32
   %33 = trunc i64 %27 to i32
-  %34 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %0, i32 noundef %32, i32 noundef %33), !range !17
+  %34 = tail call i32 @hwloc_bitmap_set_range(ptr noundef %0, i32 noundef %32, i32 noundef %33)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %hwloc_bitmap_set_range.exit, label %hwloc_bitmap_set.exitthread-pre-split
 
@@ -1424,7 +1423,7 @@ hwloc_bitmap_zero.exit:                           ; preds = %13, %hwloc_bitmap_r
 .thread.i:                                        ; preds = %45, %42
   %48 = lshr i32 %43, 6
   %49 = add nuw nsw i32 %48, 1
-  %50 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %49), !range !17
+  %50 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %49)
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %hwloc_bitmap_set_range.exit, label %52
 
@@ -1454,7 +1453,7 @@ hwloc_bitmap_zero.exit:                           ; preds = %13, %hwloc_bitmap_r
   %65 = load i32, ptr %0, align 8
   %66 = zext i32 %65 to i64
   %67 = icmp ult i64 %indvars.iv.next63.i, %66
-  br i1 %67, label %.lr.ph61.i, label %hwloc_bitmap_set_range.exit.thread.sink.split, !llvm.loop !18
+  br i1 %67, label %.lr.ph61.i, label %hwloc_bitmap_set_range.exit.thread.sink.split, !llvm.loop !15
 
 68:                                               ; preds = %36, %36, %36
   %69 = trunc i64 %27 to i32
@@ -1471,7 +1470,7 @@ hwloc_bitmap_zero.exit:                           ; preds = %13, %hwloc_bitmap_r
 
 75:                                               ; preds = %72, %68
   %76 = add nuw nsw i32 %70, 1
-  %77 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %76), !range !17
+  %77 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %76)
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %hwloc_bitmap_set.exitthread-pre-split, label %79
 
@@ -1505,7 +1504,7 @@ hwloc_bitmap_set.exit.thread:                     ; preds = %hwloc_bitmap_set.ex
   %.138 = phi i64 [ -1, %hwloc_bitmap_set.exit.hwloc_bitmap_set.exit.thread_crit_edge ], [ %27, %38 ]
   %90 = getelementptr inbounds i8, ptr %28, i64 1
   %.not = icmp eq i8 %89, 0
-  br i1 %.not, label %hwloc_bitmap_set_range.exit.thread, label %.preheader, !llvm.loop !19
+  br i1 %.not, label %hwloc_bitmap_set_range.exit.thread, label %.preheader, !llvm.loop !16
 
 hwloc_bitmap_set_range.exit:                      ; preds = %31, %26, %.thread.i
   %91 = load i32, ptr %4, align 4
@@ -1544,7 +1543,7 @@ hwloc_bitmap_reset_by_ulongs.exit.i31:            ; preds = %93
   %99 = load i32, ptr %0, align 8
   %100 = zext i32 %99 to i64
   %101 = icmp ult i64 %indvars.iv.next.i.i29, %100
-  br i1 %101, label %.lr.ph.i.i27, label %hwloc_bitmap_set_range.exit.thread.sink.split, !llvm.loop !12
+  br i1 %101, label %.lr.ph.i.i27, label %hwloc_bitmap_set_range.exit.thread.sink.split, !llvm.loop !11
 
 hwloc_bitmap_set_range.exit.thread.sink.split:    ; preds = %.lr.ph61.i, %.lr.ph.i.i27, %hwloc_bitmap_reset_by_ulongs.exit.i31, %52
   %.sink = phi i32 [ 1, %52 ], [ 0, %hwloc_bitmap_reset_by_ulongs.exit.i31 ], [ 0, %.lr.ph.i.i27 ], [ 1, %.lr.ph61.i ]
@@ -1558,7 +1557,7 @@ hwloc_bitmap_set_range.exit.thread:               ; preds = %hwloc_bitmap_set.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp ult i32 %2, %1
   br i1 %4, label %.loopexit, label %5
 
@@ -1585,7 +1584,7 @@ define noundef i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i32 noundef
 14:                                               ; preds = %.thread, %11
   %15 = lshr i32 %1, 6
   %16 = add nuw nsw i32 %15, 1
-  %17 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %16), !range !17
+  %17 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %16)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.loopexit, label %19
 
@@ -1619,7 +1618,7 @@ define noundef i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i32 noundef
   %35 = load i32, ptr %0, align 8
   %36 = zext i32 %35 to i64
   %37 = icmp ult i64 %indvars.iv.next63, %36
-  br i1 %37, label %.lr.ph61, label %._crit_edge, !llvm.loop !18
+  br i1 %37, label %.lr.ph61, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph61, %19
   store i32 1, ptr %6, align 8
@@ -1635,7 +1634,7 @@ define noundef i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i32 noundef
   %.0 = phi i32 [ %spec.select, %38 ], [ %2, %11 ]
   %41 = lshr i32 %.0, 6
   %42 = add nuw nsw i32 %41, 1
-  %43 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %42), !range !17
+  %43 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %42)
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %.loopexit, label %45
 
@@ -1703,7 +1702,7 @@ define noundef i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i32 noundef
   store i64 -1, ptr %86, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %84, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %84, !llvm.loop !17
 
 .loopexit:                                        ; preds = %84, %72, %._crit_edge, %40, %14, %8, %3
   %.046 = phi i32 [ 0, %3 ], [ 0, %8 ], [ -1, %14 ], [ -1, %40 ], [ 0, %._crit_edge ], [ 0, %72 ], [ 0, %84 ]
@@ -1711,7 +1710,7 @@ define noundef i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_set(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_set(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = lshr i32 %1, 6
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1726,7 +1725,7 @@ define noundef i32 @hwloc_bitmap_set(ptr nocapture noundef %0, i32 noundef %1) l
 
 9:                                                ; preds = %6, %2
   %10 = add nuw nsw i32 %3, 1
-  %11 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %10), !range !17
+  %11 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %10)
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %23, label %13
 
@@ -1749,7 +1748,7 @@ define noundef i32 @hwloc_bitmap_set(ptr nocapture noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_taskset_snprintf(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2) local_unnamed_addr #6 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %4
 
@@ -1811,7 +1810,7 @@ define i32 @hwloc_bitmap_taskset_snprintf(ptr noalias nocapture noundef writeonl
 34:                                               ; preds = %29
   %35 = add nsw i32 %.06193, -1
   %36 = icmp sgt i32 %.06193, 0
-  br i1 %36, label %29, label %._crit_edge, !llvm.loop !21
+  br i1 %36, label %29, label %._crit_edge, !llvm.loop !18
 
 37:                                               ; preds = %.lr.ph97, %42
   %.196 = phi i32 [ %25, %.lr.ph97 ], [ %43, %42 ]
@@ -1824,7 +1823,7 @@ define i32 @hwloc_bitmap_taskset_snprintf(ptr noalias nocapture noundef writeonl
 42:                                               ; preds = %37
   %43 = add nsw i32 %.196, -1
   %44 = icmp sgt i32 %.196, 1
-  br i1 %44, label %37, label %.lr.ph107, !llvm.loop !22
+  br i1 %44, label %37, label %.lr.ph107, !llvm.loop !19
 
 .critedge:                                        ; preds = %.preheader
   %45 = icmp sgt i32 %25, -1
@@ -1880,7 +1879,7 @@ define i32 @hwloc_bitmap_taskset_snprintf(ptr noalias nocapture noundef writeonl
   %65 = getelementptr inbounds i8, ptr %.172102, i64 %64
   %66 = sub nsw i64 %.174101, %64
   %.not158 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not158, label %._crit_edge, label %49, !llvm.loop !23
+  br i1 %.not158, label %._crit_edge, label %49, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %34, %.thread, %.preheader88
   %.174.lcssa = phi i64 [ %18, %.preheader88 ], [ %66, %.thread ], [ %18, %34 ]
@@ -1902,8 +1901,8 @@ define i32 @hwloc_bitmap_taskset_snprintf(ptr noalias nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_taskset_asprintf(ptr nocapture noundef writeonly %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #6 {
-  %3 = tail call i32 @hwloc_bitmap_taskset_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1), !range !8
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_asprintf(ptr nocapture noundef writeonly %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #6 {
+  %3 = tail call i32 @hwloc_bitmap_taskset_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1)
   %4 = add nsw i32 %3, 1
   %5 = zext nneg i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #15
@@ -1912,7 +1911,7 @@ define i32 @hwloc_bitmap_taskset_asprintf(ptr nocapture noundef writeonly %0, pt
 
 7:                                                ; preds = %2
   store ptr %6, ptr %0, align 8
-  %8 = tail call i32 @hwloc_bitmap_taskset_snprintf(ptr noundef nonnull %6, i64 noundef %5, ptr noundef %1), !range !8
+  %8 = tail call i32 @hwloc_bitmap_taskset_snprintf(ptr noundef nonnull %6, i64 noundef %5, ptr noundef %1)
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -1921,18 +1920,18 @@ define i32 @hwloc_bitmap_taskset_asprintf(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_taskset_sscanf(ptr nocapture noundef %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_taskset_sscanf(ptr nocapture noundef %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = alloca [17 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 7) #18
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %27
+  br i1 %.not, label %6, label %sub_0
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 7
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %48
+  br i1 %9, label %10, label %54
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1974,198 +1973,212 @@ hwloc_bitmap_reset_by_ulongs.exit.i:              ; preds = %14
   %23 = load i32, ptr %0, align 8
   %24 = zext i32 %23 to i64
   %25 = icmp ult i64 %indvars.iv.next.i.i, %24
-  br i1 %25, label %20, label %hwloc_bitmap_fill.exit, !llvm.loop !10
+  br i1 %25, label %20, label %hwloc_bitmap_fill.exit, !llvm.loop !9
 
 hwloc_bitmap_fill.exit:                           ; preds = %20, %hwloc_bitmap_reset_by_ulongs.exit.i
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 1, ptr %26, align 8
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-27:                                               ; preds = %2
-  %28 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(3) @.str.14, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 2) #18
-  %.not35 = icmp eq i32 %28, 0
+sub_0:                                            ; preds = %2
+  %27 = load i8, ptr %1, align 1
+  %28 = zext i8 %27 to i32
+  %29 = sub nsw i32 48, %28
+  %.not63 = icmp eq i8 %27, 48
+  br i1 %.not63, label %sub_1, label %.tail
+
+sub_1:                                            ; preds = %sub_0
+  %30 = getelementptr inbounds i8, ptr %1, i64 1
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = sub nsw i32 120, %32
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %34 = phi i32 [ %29, %sub_0 ], [ %33, %sub_1 ]
+  %.not35 = icmp eq i32 %34, 0
   %spec.select.idx = select i1 %.not35, i64 2, i64 0
   %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
-  %29 = load i8, ptr %spec.select, align 1
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %48
+  %35 = load i8, ptr %spec.select, align 1
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %37, label %54
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %hwloc_bitmap_reset_by_ulongs.exit.thread.i39
+37:                                               ; preds = %.tail
+  %38 = getelementptr inbounds i8, ptr %0, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %hwloc_bitmap_reset_by_ulongs.exit.thread.i39
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call dereferenceable_or_null(8) ptr @realloc(ptr noundef %37, i64 noundef 8) #17
-  %.not.i.i.i43 = icmp eq ptr %38, null
-  br i1 %.not.i.i.i43, label %hwloc_bitmap_reset_by_ulongs.exit.i44, label %39
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call dereferenceable_or_null(8) ptr @realloc(ptr noundef %43, i64 noundef 8) #17
+  %.not.i.i.i43 = icmp eq ptr %44, null
+  br i1 %.not.i.i.i43, label %hwloc_bitmap_reset_by_ulongs.exit.i44, label %45
 
-39:                                               ; preds = %35
-  store ptr %38, ptr %36, align 8
-  store i32 1, ptr %32, align 4
+45:                                               ; preds = %41
+  store ptr %44, ptr %42, align 8
+  store i32 1, ptr %38, align 4
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread.i39
 
-hwloc_bitmap_reset_by_ulongs.exit.thread.i39:     ; preds = %39, %31
+hwloc_bitmap_reset_by_ulongs.exit.thread.i39:     ; preds = %45, %37
   store i32 1, ptr %0, align 8
   br label %.lr.ph.i.i40
 
-hwloc_bitmap_reset_by_ulongs.exit.i44:            ; preds = %35
+hwloc_bitmap_reset_by_ulongs.exit.i44:            ; preds = %41
   %.pr.i45 = load i32, ptr %0, align 8
   %.not.i.i46 = icmp eq i32 %.pr.i45, 0
   br i1 %.not.i.i46, label %hwloc_bitmap_zero.exit, label %.lr.ph.i.i40
 
 .lr.ph.i.i40:                                     ; preds = %hwloc_bitmap_reset_by_ulongs.exit.i44, %hwloc_bitmap_reset_by_ulongs.exit.thread.i39
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %41
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %47
 
-41:                                               ; preds = %41, %.lr.ph.i.i40
-  %indvars.iv.i.i41 = phi i64 [ 0, %.lr.ph.i.i40 ], [ %indvars.iv.next.i.i42, %41 ]
-  %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds i64, ptr %42, i64 %indvars.iv.i.i41
-  store i64 0, ptr %43, align 8
+47:                                               ; preds = %47, %.lr.ph.i.i40
+  %indvars.iv.i.i41 = phi i64 [ 0, %.lr.ph.i.i40 ], [ %indvars.iv.next.i.i42, %47 ]
+  %48 = load ptr, ptr %46, align 8
+  %49 = getelementptr inbounds i64, ptr %48, i64 %indvars.iv.i.i41
+  store i64 0, ptr %49, align 8
   %indvars.iv.next.i.i42 = add nuw nsw i64 %indvars.iv.i.i41, 1
-  %44 = load i32, ptr %0, align 8
-  %45 = zext i32 %44 to i64
-  %46 = icmp ult i64 %indvars.iv.next.i.i42, %45
-  br i1 %46, label %41, label %hwloc_bitmap_zero.exit, !llvm.loop !12
+  %50 = load i32, ptr %0, align 8
+  %51 = zext i32 %50 to i64
+  %52 = icmp ult i64 %indvars.iv.next.i.i42, %51
+  br i1 %52, label %47, label %hwloc_bitmap_zero.exit, !llvm.loop !11
 
-hwloc_bitmap_zero.exit:                           ; preds = %41, %hwloc_bitmap_reset_by_ulongs.exit.i44
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 0, ptr %47, align 8
+hwloc_bitmap_zero.exit:                           ; preds = %47, %hwloc_bitmap_reset_by_ulongs.exit.i44
+  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %53, align 8
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-48:                                               ; preds = %27, %6
-  %.1 = phi ptr [ %spec.select, %27 ], [ %7, %6 ]
-  %.031 = phi i32 [ 0, %27 ], [ 1, %6 ]
-  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #18
-  %50 = trunc i64 %49 to i32
-  %51 = shl nsw i32 %50, 2
-  %52 = add nsw i32 %51, 63
-  %53 = sdiv i32 %52, 64
-  %54 = zext i32 %53 to i64
-  %55 = add nsw i64 %54, -1
-  %.not.i.i.i47 = icmp eq i64 %55, 0
-  br i1 %.not.i.i.i47, label %hwloc_flsl_manual.exit.i.i, label %56
+54:                                               ; preds = %.tail, %6
+  %.1 = phi ptr [ %spec.select, %.tail ], [ %7, %6 ]
+  %.031 = phi i32 [ 0, %.tail ], [ 1, %6 ]
+  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #18
+  %56 = trunc i64 %55 to i32
+  %57 = shl nsw i32 %56, 2
+  %58 = add nsw i32 %57, 63
+  %59 = sdiv i32 %58, 64
+  %60 = zext i32 %59 to i64
+  %61 = add nsw i64 %60, -1
+  %.not.i.i.i47 = icmp eq i64 %61, 0
+  br i1 %.not.i.i.i47, label %hwloc_flsl_manual.exit.i.i, label %62
 
-56:                                               ; preds = %48
-  %.not28.i.i.i = icmp ult i64 %55, 4294967296
-  %57 = lshr i64 %55, 32
-  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %55, i64 %57
+62:                                               ; preds = %54
+  %.not28.i.i.i = icmp ult i64 %61, 4294967296
+  %63 = lshr i64 %61, 32
+  %spec.select.i.i.i = select i1 %.not28.i.i.i, i64 %61, i64 %63
   %spec.select34.i.i.i = select i1 %.not28.i.i.i, i32 1, i32 33
   %.not29.i.i.i = icmp ult i64 %spec.select.i.i.i, 65536
-  %58 = lshr i64 %spec.select.i.i.i, 16
-  %59 = or disjoint i32 %spec.select34.i.i.i, 16
-  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %58
-  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %59
+  %64 = lshr i64 %spec.select.i.i.i, 16
+  %65 = or disjoint i32 %spec.select34.i.i.i, 16
+  %.122.i.i.i = select i1 %.not29.i.i.i, i64 %spec.select.i.i.i, i64 %64
+  %.1.i.i.i = select i1 %.not29.i.i.i, i32 %spec.select34.i.i.i, i32 %65
   %.not30.i.i.i = icmp ult i64 %.122.i.i.i, 256
-  %60 = lshr i64 %.122.i.i.i, 8
-  %61 = or disjoint i32 %.1.i.i.i, 8
-  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %60
-  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %61
+  %66 = lshr i64 %.122.i.i.i, 8
+  %67 = or disjoint i32 %.1.i.i.i, 8
+  %.223.i.i.i = select i1 %.not30.i.i.i, i64 %.122.i.i.i, i64 %66
+  %.2.i.i.i = select i1 %.not30.i.i.i, i32 %.1.i.i.i, i32 %67
   %.not31.i.i.i = icmp ult i64 %.223.i.i.i, 16
-  %62 = lshr i64 %.223.i.i.i, 4
-  %63 = or disjoint i32 %.2.i.i.i, 4
-  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %62
-  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %63
-  %64 = and i64 %.324.i.i.i, 12
-  %.not32.i.i.i = icmp eq i64 %64, 0
-  %65 = lshr i64 %.324.i.i.i, 2
-  %66 = add nuw nsw i32 %.3.i.i.i, 2
-  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %65
-  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %66
-  %67 = trunc i64 %.425.i.i.i to i32
-  %68 = lshr i32 %67, 1
-  %69 = and i32 %68, 1
-  %.5.i.i.i = add nuw nsw i32 %69, %.4.i.i.i
+  %68 = lshr i64 %.223.i.i.i, 4
+  %69 = or disjoint i32 %.2.i.i.i, 4
+  %.324.i.i.i = select i1 %.not31.i.i.i, i64 %.223.i.i.i, i64 %68
+  %.3.i.i.i = select i1 %.not31.i.i.i, i32 %.2.i.i.i, i32 %69
+  %70 = and i64 %.324.i.i.i, 12
+  %.not32.i.i.i = icmp eq i64 %70, 0
+  %71 = lshr i64 %.324.i.i.i, 2
+  %72 = add nuw nsw i32 %.3.i.i.i, 2
+  %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %71
+  %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %72
+  %73 = trunc i64 %.425.i.i.i to i32
+  %74 = lshr i32 %73, 1
+  %75 = and i32 %74, 1
+  %.5.i.i.i = add nuw nsw i32 %75, %.4.i.i.i
   br label %hwloc_flsl_manual.exit.i.i
 
-hwloc_flsl_manual.exit.i.i:                       ; preds = %56, %48
-  %.026.i.i.i = phi i32 [ %.5.i.i.i, %56 ], [ 0, %48 ]
-  %70 = shl nuw i32 1, %.026.i.i.i
-  %71 = getelementptr inbounds i8, ptr %0, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp ugt i32 %70, %72
-  br i1 %73, label %74, label %.lr.ph
+hwloc_flsl_manual.exit.i.i:                       ; preds = %62, %54
+  %.026.i.i.i = phi i32 [ %.5.i.i.i, %62 ], [ 0, %54 ]
+  %76 = shl nuw i32 1, %.026.i.i.i
+  %77 = getelementptr inbounds i8, ptr %0, i64 4
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp ugt i32 %76, %78
+  br i1 %79, label %80, label %.lr.ph
 
-74:                                               ; preds = %hwloc_flsl_manual.exit.i.i
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = zext i32 %70 to i64
-  %78 = shl nuw nsw i64 %77, 3
-  %79 = tail call ptr @realloc(ptr noundef %76, i64 noundef %78) #17
-  %.not.i.i48 = icmp eq ptr %79, null
-  br i1 %.not.i.i48, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %80
+80:                                               ; preds = %hwloc_flsl_manual.exit.i.i
+  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = zext i32 %76 to i64
+  %84 = shl nuw nsw i64 %83, 3
+  %85 = tail call ptr @realloc(ptr noundef %82, i64 noundef %84) #17
+  %.not.i.i48 = icmp eq ptr %85, null
+  br i1 %.not.i.i48, label %hwloc_bitmap_reset_by_ulongs.exit.thread, label %86
 
-80:                                               ; preds = %74
-  store ptr %79, ptr %75, align 8
-  store i32 %70, ptr %71, align 4
+86:                                               ; preds = %80
+  store ptr %85, ptr %81, align 8
+  store i32 %76, ptr %77, align 4
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %hwloc_flsl_manual.exit.i.i, %80
-  store i32 %53, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 0, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
-  %83 = sext i32 %53 to i64
-  br label %84
+.lr.ph:                                           ; preds = %hwloc_flsl_manual.exit.i.i, %86
+  store i32 %59, ptr %0, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  %89 = sext i32 %59 to i64
+  br label %90
 
-84:                                               ; preds = %.lr.ph, %91
-  %indvars.iv = phi i64 [ %83, %.lr.ph ], [ %indvars.iv.next, %91 ]
-  %.03361 = phi i32 [ %50, %.lr.ph ], [ %96, %91 ]
-  %.260 = phi ptr [ %.1, %.lr.ph ], [ %95, %91 ]
-  %85 = srem i32 %.03361, 16
-  %.not37 = icmp eq i32 %85, 0
-  %spec.store.select = select i1 %.not37, i32 16, i32 %85
-  %86 = sext i32 %spec.store.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %.260, i64 %86, i1 false)
-  %87 = getelementptr inbounds [17 x i8], ptr %3, i64 0, i64 %86
-  store i8 0, ptr %87, align 1
-  %88 = call i64 @strtoul(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 16) #16
-  %89 = load ptr, ptr %4, align 8
-  %90 = load i8, ptr %89, align 1
-  %.not38 = icmp eq i8 %90, 0
-  br i1 %.not38, label %91, label %98
+90:                                               ; preds = %.lr.ph, %97
+  %indvars.iv = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next, %97 ]
+  %.03361 = phi i32 [ %56, %.lr.ph ], [ %102, %97 ]
+  %.260 = phi ptr [ %.1, %.lr.ph ], [ %101, %97 ]
+  %91 = srem i32 %.03361, 16
+  %.not37 = icmp eq i32 %91, 0
+  %spec.store.select = select i1 %.not37, i32 16, i32 %91
+  %92 = sext i32 %spec.store.select to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %.260, i64 %92, i1 false)
+  %93 = getelementptr inbounds [17 x i8], ptr %3, i64 0, i64 %92
+  store i8 0, ptr %93, align 1
+  %94 = call i64 @strtoul(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 16) #16
+  %95 = load ptr, ptr %4, align 8
+  %96 = load i8, ptr %95, align 1
+  %.not38 = icmp eq i8 %96, 0
+  br i1 %.not38, label %97, label %104
 
-91:                                               ; preds = %84
-  %92 = load ptr, ptr %82, align 8
-  %93 = getelementptr i64, ptr %92, i64 %indvars.iv
-  %94 = getelementptr i8, ptr %93, i64 -8
-  store i64 %88, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %.260, i64 %86
-  %96 = sub nsw i32 %.03361, %spec.store.select
+97:                                               ; preds = %90
+  %98 = load ptr, ptr %88, align 8
+  %99 = getelementptr i64, ptr %98, i64 %indvars.iv
+  %100 = getelementptr i8, ptr %99, i64 -8
+  store i64 %94, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %.260, i64 %92
+  %102 = sub nsw i32 %.03361, %spec.store.select
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %97 = load i8, ptr %95, align 1
-  %.not36 = icmp eq i8 %97, 0
-  br i1 %.not36, label %._crit_edge, label %84, !llvm.loop !24
+  %103 = load i8, ptr %101, align 1
+  %.not36 = icmp eq i8 %103, 0
+  br i1 %.not36, label %._crit_edge, label %90, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %91
-  store i32 %.031, ptr %81, align 8
+._crit_edge:                                      ; preds = %97
+  store i32 %.031, ptr %87, align 8
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-98:                                               ; preds = %84
-  %99 = load i32, ptr %71, align 4
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %hwloc_bitmap_reset_by_ulongs.exit.thread.i49
+104:                                              ; preds = %90
+  %105 = load i32, ptr %77, align 4
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %hwloc_bitmap_reset_by_ulongs.exit.thread.i49
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %82, align 8
-  %103 = call dereferenceable_or_null(8) ptr @realloc(ptr noundef %102, i64 noundef 8) #17
-  %.not.i.i.i53 = icmp eq ptr %103, null
-  br i1 %.not.i.i.i53, label %hwloc_bitmap_reset_by_ulongs.exit.i54, label %104
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %88, align 8
+  %109 = call dereferenceable_or_null(8) ptr @realloc(ptr noundef %108, i64 noundef 8) #17
+  %.not.i.i.i53 = icmp eq ptr %109, null
+  br i1 %.not.i.i.i53, label %hwloc_bitmap_reset_by_ulongs.exit.i54, label %110
 
-104:                                              ; preds = %101
-  store ptr %103, ptr %82, align 8
-  store i32 1, ptr %71, align 4
+110:                                              ; preds = %107
+  store ptr %109, ptr %88, align 8
+  store i32 1, ptr %77, align 4
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread.i49
 
-hwloc_bitmap_reset_by_ulongs.exit.thread.i49:     ; preds = %104, %98
+hwloc_bitmap_reset_by_ulongs.exit.thread.i49:     ; preds = %110, %104
   store i32 1, ptr %0, align 8
   br label %.lr.ph.i.i50.preheader
 
-hwloc_bitmap_reset_by_ulongs.exit.i54:            ; preds = %101
+hwloc_bitmap_reset_by_ulongs.exit.i54:            ; preds = %107
   %.pr.i55 = load i32, ptr %0, align 8
   %.not.i.i56 = icmp eq i32 %.pr.i55, 0
   br i1 %.not.i.i56, label %hwloc_bitmap_zero.exit57, label %.lr.ph.i.i50.preheader
@@ -2175,21 +2188,21 @@ hwloc_bitmap_reset_by_ulongs.exit.i54:            ; preds = %101
 
 .lr.ph.i.i50:                                     ; preds = %.lr.ph.i.i50.preheader, %.lr.ph.i.i50
   %indvars.iv.i.i51 = phi i64 [ %indvars.iv.next.i.i52, %.lr.ph.i.i50 ], [ 0, %.lr.ph.i.i50.preheader ]
-  %105 = load ptr, ptr %82, align 8
-  %106 = getelementptr inbounds i64, ptr %105, i64 %indvars.iv.i.i51
-  store i64 0, ptr %106, align 8
+  %111 = load ptr, ptr %88, align 8
+  %112 = getelementptr inbounds i64, ptr %111, i64 %indvars.iv.i.i51
+  store i64 0, ptr %112, align 8
   %indvars.iv.next.i.i52 = add nuw nsw i64 %indvars.iv.i.i51, 1
-  %107 = load i32, ptr %0, align 8
-  %108 = zext i32 %107 to i64
-  %109 = icmp ult i64 %indvars.iv.next.i.i52, %108
-  br i1 %109, label %.lr.ph.i.i50, label %hwloc_bitmap_zero.exit57, !llvm.loop !12
+  %113 = load i32, ptr %0, align 8
+  %114 = zext i32 %113 to i64
+  %115 = icmp ult i64 %indvars.iv.next.i.i52, %114
+  br i1 %115, label %.lr.ph.i.i50, label %hwloc_bitmap_zero.exit57, !llvm.loop !11
 
 hwloc_bitmap_zero.exit57:                         ; preds = %.lr.ph.i.i50, %hwloc_bitmap_reset_by_ulongs.exit.i54
-  store i32 0, ptr %81, align 8
+  store i32 0, ptr %87, align 8
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %74, %hwloc_bitmap_zero.exit57, %._crit_edge, %hwloc_bitmap_zero.exit, %hwloc_bitmap_fill.exit
-  %.0 = phi i32 [ 0, %hwloc_bitmap_zero.exit ], [ -1, %hwloc_bitmap_zero.exit57 ], [ 0, %._crit_edge ], [ 0, %hwloc_bitmap_fill.exit ], [ -1, %74 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %80, %hwloc_bitmap_zero.exit57, %._crit_edge, %hwloc_bitmap_zero.exit, %hwloc_bitmap_fill.exit
+  %.0 = phi i32 [ 0, %hwloc_bitmap_zero.exit ], [ -1, %hwloc_bitmap_zero.exit57 ], [ 0, %._crit_edge ], [ 0, %hwloc_bitmap_fill.exit ], [ -1, %80 ]
   ret i32 %.0
 }
 
@@ -2229,7 +2242,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %6, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_from_ith_ulong(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_from_ith_ulong(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = add i32 %1, 1
   %5 = zext i32 %4 to i64
   %6 = add nsw i64 %5, -1
@@ -2307,7 +2320,7 @@ hwloc_flsl_manual.exit.i.i._crit_edge:            ; preds = %hwloc_flsl_manual.e
   store i64 0, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %hwloc_flsl_manual.exit.i.i._crit_edge
   %38 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2320,7 +2333,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %27, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_from_ulongs(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_from_ulongs(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = zext i32 %1 to i64
   %5 = add nsw i64 %4, -1
   %.not.i.i.i = icmp eq i64 %5, 0
@@ -2398,7 +2411,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   store i64 %34, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %32, %hwloc_bitmap_reset_by_ulongs.exit
   %37 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2480,14 +2493,14 @@ define noundef i32 @hwloc_bitmap_to_ulongs(ptr nocapture noundef readonly %0, i3
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %17, %3
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_nr_ulongs(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 -1, 67108864) i32 @hwloc_bitmap_nr_ulongs(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -2511,7 +2524,7 @@ define i32 @hwloc_bitmap_nr_ulongs(ptr nocapture noundef readonly %0) local_unna
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
   %.not11.i = icmp eq i64 %15, 0
-  br i1 %.not11.i, label %8, label %hwloc_flsl_manual.exit.i, !llvm.loop !28
+  br i1 %.not11.i, label %8, label %hwloc_flsl_manual.exit.i, !llvm.loop !25
 
 hwloc_flsl_manual.exit.i:                         ; preds = %11
   %16 = trunc i64 %12 to i32
@@ -2580,7 +2593,7 @@ define i32 @hwloc_bitmap_last(ptr nocapture noundef readonly %0) local_unnamed_a
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
   %.not11 = icmp eq i64 %15, 0
-  br i1 %.not11, label %8, label %hwloc_flsl_manual.exit, !llvm.loop !28
+  br i1 %.not11, label %8, label %hwloc_flsl_manual.exit, !llvm.loop !25
 
 hwloc_flsl_manual.exit:                           ; preds = %11
   %16 = trunc i64 %12 to i32
@@ -2624,7 +2637,7 @@ hwloc_flsl_manual.exit:                           ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_only(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_only(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = lshr i32 %1, 6
   %4 = add nuw nsw i32 %3, 1
   %.not.i.i.i = icmp ult i32 %1, 64
@@ -2694,7 +2707,7 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %5, %2
   %33 = load i32, ptr %0, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp ult i64 %indvars.iv.next.i, %34
-  br i1 %35, label %30, label %hwloc_bitmap__zero.exit, !llvm.loop !12
+  br i1 %35, label %30, label %hwloc_bitmap__zero.exit, !llvm.loop !11
 
 hwloc_bitmap__zero.exit:                          ; preds = %30
   %36 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2716,7 +2729,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %22, %hwloc_bitmap__
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_allbut(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_allbut(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = lshr i32 %1, 6
   %4 = add nuw nsw i32 %3, 1
   %.not.i.i.i = icmp ult i32 %1, 64
@@ -2786,7 +2799,7 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %5, %2
   %33 = load i32, ptr %0, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp ult i64 %indvars.iv.next.i, %34
-  br i1 %35, label %30, label %hwloc_bitmap__fill.exit, !llvm.loop !10
+  br i1 %35, label %30, label %hwloc_bitmap__fill.exit, !llvm.loop !9
 
 hwloc_bitmap__fill.exit:                          ; preds = %30
   %36 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2809,7 +2822,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %22, %hwloc_bitmap__
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hwloc_bitmap_realloc_by_ulongs(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_bitmap_realloc_by_ulongs(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp ult i32 %3, %1
   br i1 %.not, label %4, label %hwloc_bitmap_enlarge_by_ulongs.exit
@@ -2891,7 +2904,7 @@ hwloc_flsl_manual.exit.i:                         ; preds = %7, %4
   store i64 %38, ptr %40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %36, %30
   store i32 %1, ptr %0, align 8
@@ -2903,9 +2916,9 @@ hwloc_bitmap_enlarge_by_ulongs.exit:              ; preds = %23, %2, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_set_ith_ulong(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_set_ith_ulong(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = add i32 %1, 1
-  %5 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef %0, i32 noundef %4), !range !17
+  %5 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef %0, i32 noundef %4)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %12, label %7
 
@@ -2923,7 +2936,7 @@ define noundef i32 @hwloc_bitmap_set_ith_ulong(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_clr(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_clr(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = lshr i32 %1, 6
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -2938,7 +2951,7 @@ define noundef i32 @hwloc_bitmap_clr(ptr nocapture noundef %0, i32 noundef %1) l
 
 9:                                                ; preds = %6, %2
   %10 = add nuw nsw i32 %3, 1
-  %11 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %10), !range !17
+  %11 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %10)
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %24, label %13
 
@@ -2962,7 +2975,7 @@ define noundef i32 @hwloc_bitmap_clr(ptr nocapture noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp ult i32 %2, %1
   br i1 %4, label %.loopexit, label %5
 
@@ -2989,7 +3002,7 @@ define noundef i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i32 noundef
 14:                                               ; preds = %.thread, %11
   %15 = lshr i32 %1, 6
   %16 = add nuw nsw i32 %15, 1
-  %17 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %16), !range !17
+  %17 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %16)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.loopexit, label %19
 
@@ -3024,7 +3037,7 @@ define noundef i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i32 noundef
   %36 = load i32, ptr %0, align 8
   %37 = zext i32 %36 to i64
   %38 = icmp ult i64 %indvars.iv.next63, %37
-  br i1 %38, label %.lr.ph61, label %._crit_edge, !llvm.loop !30
+  br i1 %38, label %.lr.ph61, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph61, %19
   store i32 0, ptr %6, align 8
@@ -3040,7 +3053,7 @@ define noundef i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i32 noundef
   %.0 = phi i32 [ %spec.select, %39 ], [ %2, %.thread ]
   %41 = lshr i32 %.0, 6
   %42 = add nuw nsw i32 %41, 1
-  %43 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %42), !range !17
+  %43 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %42)
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %.loopexit, label %45
 
@@ -3110,7 +3123,7 @@ define noundef i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i32 noundef
   store i64 0, ptr %87, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %85, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %85, !llvm.loop !28
 
 .loopexit:                                        ; preds = %85, %73, %._crit_edge, %.thread57, %14, %8, %3
   %.046 = phi i32 [ 0, %3 ], [ 0, %8 ], [ -1, %14 ], [ -1, %.thread57 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %85 ]
@@ -3118,7 +3131,7 @@ define noundef i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_isset(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_isset(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = lshr i32 %1, 6
   %4 = load i32, ptr %0, align 8
   %5 = icmp ult i32 %3, %4
@@ -3151,7 +3164,7 @@ define i32 @hwloc_bitmap_isset(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @hwloc_bitmap_iszero(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_iszero(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -3171,7 +3184,7 @@ define noundef i32 @hwloc_bitmap_iszero(ptr nocapture noundef readonly %0) local
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !29
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
@@ -3186,7 +3199,7 @@ define noundef i32 @hwloc_bitmap_iszero(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @hwloc_bitmap_isfull(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_isfull(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -3206,7 +3219,7 @@ define noundef i32 @hwloc_bitmap_isfull(ptr nocapture noundef readonly %0) local
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !30
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
@@ -3221,7 +3234,7 @@ define noundef i32 @hwloc_bitmap_isfull(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_isequal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_isequal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -3239,7 +3252,7 @@ define i32 @hwloc_bitmap_isequal(ptr nocapture noundef readonly %0, ptr nocaptur
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !31
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -3281,7 +3294,7 @@ define i32 @hwloc_bitmap_isequal(ptr nocapture noundef readonly %0, ptr nocaptur
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next57 to i32
   %exitcond58.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond58.not, label %.preheader, label %30, !llvm.loop !35
+  br i1 %exitcond58.not, label %.preheader, label %30, !llvm.loop !32
 
 .preheader:                                       ; preds = %25, %16
   %26 = icmp ult i32 %3, %4
@@ -3304,7 +3317,7 @@ define i32 @hwloc_bitmap_isequal(ptr nocapture noundef readonly %0, ptr nocaptur
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %lftr.wideiv62 = trunc i64 %indvars.iv.next61 to i32
   %exitcond63.not = icmp eq i32 %4, %lftr.wideiv62
-  br i1 %exitcond63.not, label %.loopexit, label %34, !llvm.loop !36
+  br i1 %exitcond63.not, label %.loopexit, label %34, !llvm.loop !33
 
 34:                                               ; preds = %.lr.ph51, %33
   %indvars.iv60 = phi i64 [ %29, %.lr.ph51 ], [ %indvars.iv.next61, %33 ]
@@ -3325,7 +3338,7 @@ define i32 @hwloc_bitmap_isequal(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -3343,7 +3356,7 @@ define noundef i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, p
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !34
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -3382,7 +3395,7 @@ define noundef i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, p
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next56 to i32
   %exitcond57.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond57.not, label %.loopexit42, label %25, !llvm.loop !38
+  br i1 %exitcond57.not, label %.loopexit42, label %25, !llvm.loop !35
 
 25:                                               ; preds = %.lr.ph47, %24
   %indvars.iv55 = phi i64 [ %23, %.lr.ph47 ], [ %indvars.iv.next56, %24 ]
@@ -3409,7 +3422,7 @@ define noundef i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, p
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %lftr.wideiv61 = trunc i64 %indvars.iv.next60 to i32
   %exitcond62.not = icmp eq i32 %4, %lftr.wideiv61
-  br i1 %exitcond62.not, label %.loopexit.thread, label %35, !llvm.loop !39
+  br i1 %exitcond62.not, label %.loopexit.thread, label %35, !llvm.loop !36
 
 35:                                               ; preds = %.lr.ph49, %34
   %indvars.iv59 = phi i64 [ %33, %.lr.ph49 ], [ %indvars.iv.next60, %34 ]
@@ -3438,7 +3451,7 @@ define noundef i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %1, align 8
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -3456,7 +3469,7 @@ define noundef i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, p
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !37
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -3495,7 +3508,7 @@ define noundef i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, p
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next60 to i32
   %exitcond61.not = icmp eq i32 %4, %lftr.wideiv
-  br i1 %exitcond61.not, label %.loopexit46, label %25, !llvm.loop !41
+  br i1 %exitcond61.not, label %.loopexit46, label %25, !llvm.loop !38
 
 25:                                               ; preds = %.lr.ph51, %24
   %indvars.iv59 = phi i64 [ %23, %.lr.ph51 ], [ %indvars.iv.next60, %24 ]
@@ -3522,7 +3535,7 @@ define noundef i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, p
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %lftr.wideiv65 = trunc i64 %indvars.iv.next64 to i32
   %exitcond66.not = icmp eq i32 %3, %lftr.wideiv65
-  br i1 %exitcond66.not, label %.loopexit.thread, label %35, !llvm.loop !42
+  br i1 %exitcond66.not, label %.loopexit.thread, label %35, !llvm.loop !39
 
 35:                                               ; preds = %.lr.ph53, %34
   %indvars.iv63 = phi i64 [ %33, %.lr.ph53 ], [ %indvars.iv.next64, %34 ]
@@ -3551,7 +3564,7 @@ define noundef i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_or(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_or(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
@@ -3641,7 +3654,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   store i64 %45, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %38, %hwloc_bitmap_reset_by_ulongs.exit
   %.not = icmp eq i32 %4, %5
@@ -3676,7 +3689,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %lftr.wideiv72 = trunc i64 %indvars.iv.next71 to i32
   %exitcond73.not = icmp eq i32 %56, %lftr.wideiv72
-  br i1 %exitcond73.not, label %.loopexit, label %57, !llvm.loop !44
+  br i1 %exitcond73.not, label %.loopexit, label %57, !llvm.loop !41
 
 63:                                               ; preds = %48
   %64 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3707,7 +3720,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next67 to i32
   %exitcond68.not = icmp eq i32 %70, %lftr.wideiv
-  br i1 %exitcond68.not, label %.loopexit, label %71, !llvm.loop !45
+  br i1 %exitcond68.not, label %.loopexit, label %71, !llvm.loop !42
 
 .loopexit.sink.split:                             ; preds = %63, %50
   store i32 %7, ptr %0, align 8
@@ -3738,7 +3751,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
@@ -3828,7 +3841,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   store i64 %45, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %38, %hwloc_bitmap_reset_by_ulongs.exit
   %.not = icmp eq i32 %4, %5
@@ -3863,7 +3876,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %lftr.wideiv72 = trunc i64 %indvars.iv.next71 to i32
   %exitcond73.not = icmp eq i32 %56, %lftr.wideiv72
-  br i1 %exitcond73.not, label %.loopexit, label %57, !llvm.loop !47
+  br i1 %exitcond73.not, label %.loopexit, label %57, !llvm.loop !44
 
 63:                                               ; preds = %48
   %64 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3894,7 +3907,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next67 to i32
   %exitcond68.not = icmp eq i32 %70, %lftr.wideiv
-  br i1 %exitcond68.not, label %.loopexit, label %71, !llvm.loop !48
+  br i1 %exitcond68.not, label %.loopexit, label %71, !llvm.loop !45
 
 .loopexit.sink.split:                             ; preds = %63, %50
   store i32 %7, ptr %0, align 8
@@ -3925,7 +3938,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_andnot(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_andnot(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
@@ -4016,7 +4029,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   store i64 %46, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %38, %hwloc_bitmap_reset_by_ulongs.exit
   %.not = icmp eq i32 %4, %5
@@ -4051,7 +4064,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %lftr.wideiv73 = trunc i64 %indvars.iv.next72 to i32
   %exitcond74.not = icmp eq i32 %57, %lftr.wideiv73
-  br i1 %exitcond74.not, label %.loopexit, label %58, !llvm.loop !50
+  br i1 %exitcond74.not, label %.loopexit, label %58, !llvm.loop !47
 
 64:                                               ; preds = %49
   %65 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4083,7 +4096,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next68 to i32
   %exitcond69.not = icmp eq i32 %71, %lftr.wideiv
-  br i1 %exitcond69.not, label %.loopexit, label %72, !llvm.loop !51
+  br i1 %exitcond69.not, label %.loopexit, label %72, !llvm.loop !48
 
 .loopexit.sink.split:                             ; preds = %64, %51
   store i32 %7, ptr %0, align 8
@@ -4114,7 +4127,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %85
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_xor(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_xor(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
@@ -4204,7 +4217,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   store i64 %45, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %38, %hwloc_bitmap_reset_by_ulongs.exit
   %.not = icmp eq i32 %4, %5
@@ -4238,7 +4251,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %lftr.wideiv70 = trunc i64 %indvars.iv.next69 to i32
   %exitcond71.not = icmp eq i32 %58, %lftr.wideiv70
-  br i1 %exitcond71.not, label %.loopexit, label %59, !llvm.loop !53
+  br i1 %exitcond71.not, label %.loopexit, label %59, !llvm.loop !50
 
 66:                                               ; preds = %48
   %67 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4268,7 +4281,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next65 to i32
   %exitcond66.not = icmp eq i32 %75, %lftr.wideiv
-  br i1 %exitcond66.not, label %.loopexit, label %76, !llvm.loop !54
+  br i1 %exitcond66.not, label %.loopexit, label %76, !llvm.loop !51
 
 .loopexit:                                        ; preds = %76, %59, %66, %._crit_edge
   %83 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4289,7 +4302,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_not(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_not(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %1, align 8
   %4 = zext i32 %3 to i64
   %5 = add nsw i64 %4, -1
@@ -4371,7 +4384,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
   store i64 %37, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %33, %hwloc_bitmap_reset_by_ulongs.exit
   %40 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4408,7 +4421,7 @@ define i32 @hwloc_bitmap_first(ptr nocapture noundef readonly %0) local_unnamed_
 
 8:                                                ; preds = %5
   %9 = trunc nuw i64 %indvars.iv to i32
-  %10 = tail call i64 @llvm.cttz.i64(i64 %7, i1 true), !range !14
+  %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %7, i1 true)
   %11 = trunc nuw nsw i64 %10 to i32
   %12 = shl i32 %9, 6
   %13 = or disjoint i32 %12, %11
@@ -4417,7 +4430,7 @@ define i32 @hwloc_bitmap_first(ptr nocapture noundef readonly %0) local_unnamed_
 14:                                               ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %14, %1
   %15 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4457,7 +4470,7 @@ define i32 @hwloc_bitmap_first_unset(ptr nocapture noundef readonly %0) local_un
 8:                                                ; preds = %5
   %9 = trunc nuw i64 %indvars.iv to i32
   %10 = xor i64 %7, -1
-  %11 = tail call i64 @llvm.cttz.i64(i64 %10, i1 true), !range !14
+  %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %10, i1 true)
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = shl i32 %9, 6
   %14 = or disjoint i32 %13, %12
@@ -4466,7 +4479,7 @@ define i32 @hwloc_bitmap_first_unset(ptr nocapture noundef readonly %0) local_un
 15:                                               ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %15, %1
   %16 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4506,7 +4519,7 @@ define i32 @hwloc_bitmap_last_unset(ptr nocapture noundef readonly %0) local_unn
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
   %.not11 = icmp eq i64 %15, -1
-  br i1 %.not11, label %8, label %hwloc_flsl_manual.exit, !llvm.loop !58
+  br i1 %.not11, label %8, label %hwloc_flsl_manual.exit, !llvm.loop !55
 
 hwloc_flsl_manual.exit:                           ; preds = %11
   %16 = trunc i64 %12 to i32
@@ -4551,7 +4564,7 @@ hwloc_flsl_manual.exit:                           ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_bitmap_singlify(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_singlify(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %.not30 = icmp eq i32 %2, 0
   br i1 %.not30, label %._crit_edge.thread, label %.lr.ph
@@ -4590,7 +4603,7 @@ define noundef i32 @hwloc_bitmap_singlify(ptr nocapture noundef %0) local_unname
   %13 = load i32, ptr %0, align 8
   %14 = zext i32 %13 to i64
   %15 = icmp ult i64 %indvars.iv.next, %14
-  br i1 %15, label %4, label %._crit_edge, !llvm.loop !59
+  br i1 %15, label %4, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %11
   %16 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4617,7 +4630,7 @@ define noundef i32 @hwloc_bitmap_singlify(ptr nocapture noundef %0) local_unname
   %23 = phi ptr [ %16, %20 ], [ %18, %._crit_edge.thread ]
   store i32 0, ptr %23, align 8
   %24 = add nuw nsw i32 %.lcssa3740, 1
-  %25 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %24), !range !17
+  %25 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef nonnull %0, i32 noundef %24)
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %hwloc_bitmap_set.exit, label %27
 
@@ -4637,7 +4650,7 @@ hwloc_bitmap_set.exit:                            ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_compare_first(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 -64, 65) i32 @hwloc_bitmap_compare_first(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -4655,7 +4668,7 @@ define i32 @hwloc_bitmap_compare_first(ptr nocapture noundef readonly %0, ptr no
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !57
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -4669,9 +4682,9 @@ define i32 @hwloc_bitmap_compare_first(ptr nocapture noundef readonly %0, ptr no
   br i1 %or.cond, label %18, label %10
 
 18:                                               ; preds = %11
-  %19 = tail call i64 @llvm.cttz.i64(i64 %13, i1 true), !range !14
+  %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %13, i1 true)
   %20 = trunc nuw nsw i64 %19 to i32
-  %21 = tail call i64 @llvm.cttz.i64(i64 %15, i1 true), !range !14
+  %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
   %22 = trunc nuw nsw i64 %21 to i32
   %or.cond3 = select i1 %16, i1 %17, i1 false
   br i1 %or.cond3, label %23, label %25
@@ -4726,7 +4739,7 @@ define i32 @hwloc_bitmap_compare_first(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next95 to i32
   %exitcond96.not = icmp eq i32 %38, %lftr.wideiv
-  br i1 %exitcond96.not, label %.loopexit, label %.lr.ph79.split.us, !llvm.loop !61
+  br i1 %exitcond96.not, label %.loopexit, label %.lr.ph79.split.us, !llvm.loop !58
 
 .preheader:                                       ; preds = %29
   %42 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4754,7 +4767,7 @@ define i32 @hwloc_bitmap_compare_first(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %lftr.wideiv100 = trunc i64 %indvars.iv.next99 to i32
   %exitcond101.not = icmp eq i32 %48, %lftr.wideiv100
-  br i1 %exitcond101.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !62
+  br i1 %exitcond101.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !59
 
 .preheader.split:                                 ; preds = %.preheader
   %52 = zext i32 %5 to i64
@@ -4792,7 +4805,7 @@ define i32 @hwloc_bitmap_compare_first(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 -1, 2) i32 @hwloc_bitmap_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = tail call i32 @llvm.umax.i32(i32 %3, i32 %4)
@@ -4838,7 +4851,7 @@ define i32 @hwloc_bitmap_compare(ptr nocapture noundef readonly %0, ptr nocaptur
   %28 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv.next73
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, %23
-  br i1 %30, label %25, label %31, !llvm.loop !63
+  br i1 %30, label %25, label %31, !llvm.loop !60
 
 31:                                               ; preds = %26
   %32 = icmp ugt i64 %29, %23
@@ -4861,7 +4874,7 @@ define i32 @hwloc_bitmap_compare(ptr nocapture noundef readonly %0, ptr nocaptur
   %40 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv.next
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, %35
-  br i1 %42, label %37, label %43, !llvm.loop !64
+  br i1 %42, label %37, label %43, !llvm.loop !61
 
 43:                                               ; preds = %38
   %44 = icmp ult i64 %41, %35
@@ -4890,7 +4903,7 @@ define i32 @hwloc_bitmap_compare(ptr nocapture noundef readonly %0, ptr nocaptur
   %58 = getelementptr inbounds i64, ptr %57, i64 %53
   %59 = load i64, ptr %58, align 8
   %60 = icmp eq i64 %56, %59
-  br i1 %60, label %49, label %61, !llvm.loop !65
+  br i1 %60, label %49, label %61, !llvm.loop !62
 
 61:                                               ; preds = %52
   %62 = icmp ult i64 %56, %59
@@ -4925,12 +4938,12 @@ define i32 @hwloc_bitmap_weight(ptr nocapture noundef readonly %0) local_unnamed
   %.0810 = phi i32 [ 0, %.lr.ph ], [ %12, %7 ]
   %8 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
-  %10 = tail call i64 @llvm.ctpop.i64(i64 %9), !range !14
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
   %11 = trunc nuw nsw i64 %10 to i32
   %12 = add nuw nsw i32 %.0810, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !63
 
 .loopexit:                                        ; preds = %7, %.preheader, %1
   %.09 = phi i32 [ -1, %1 ], [ 0, %.preheader ], [ %12, %7 ]
@@ -5089,7 +5102,7 @@ define i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef readonly %0, pt
   %.2 = phi i32 [ %.1, %61 ], [ %.074104, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !64
 
 ._crit_edge.loopexit:                             ; preds = %66
   %67 = icmp eq i32 %.179, 0
@@ -5195,16 +5208,16 @@ attributes #18 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 -2147483648}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i64 0, i64 65}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 -1, i32 1}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -5252,6 +5265,3 @@ attributes #18 = { nounwind willreturn memory(read) }
 !62 = distinct !{!62, !5}
 !63 = distinct !{!63, !5}
 !64 = distinct !{!64, !5}
-!65 = distinct !{!65, !5}
-!66 = distinct !{!66, !5}
-!67 = distinct !{!67, !5}

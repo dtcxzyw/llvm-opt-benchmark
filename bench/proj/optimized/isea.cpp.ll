@@ -22,8 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [7 x i8] c"rlat_0\00", align 1
 @.str.10 = private unnamed_addr constant [6 x i8] c"smode\00", align 1
 @.str.11 = private unnamed_addr constant [6 x i8] c"plane\00", align 1
-@.str.12 = private unnamed_addr constant [3 x i8] c"di\00", align 1
-@.str.13 = private unnamed_addr constant [3 x i8] c"dd\00", align 1
 @.str.14 = private unnamed_addr constant [4 x i8] c"hex\00", align 1
 @.str.15 = private unnamed_addr constant [64 x i8] c"Invalid value for mode: only plane, di, dd or hex are supported\00", align 1
 @.str.16 = private unnamed_addr constant [9 x i8] c"trescale\00", align 1
@@ -82,7 +80,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr n
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %95
+  br label %101
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
@@ -135,7 +133,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr n
 27:                                               ; preds = %24
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.3)
   %28 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %95
+  br label %101
 
 29:                                               ; preds = %23, %26, %6
   %30 = load ptr, ptr %0, align 8
@@ -188,89 +186,108 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr n
   %59 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %57, ptr noundef %58, ptr noundef nonnull @.str.10)
   %.sroa.09.0..sroa.09.0..cast = inttoptr i64 %59 to ptr
   %.not86 = icmp eq i64 %59, 0
-  br i1 %.not86, label %70, label %60
+  br i1 %.not86, label %76, label %60
 
 60:                                               ; preds = %56
   %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(6) @.str.11) #15
   %.not87 = icmp eq i32 %61, 0
-  br i1 %.not87, label %.sink.split, label %62
+  br i1 %.not87, label %.sink.split, label %sub_0
 
-62:                                               ; preds = %60
-  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(3) @.str.12) #15
-  %.not88 = icmp eq i32 %63, 0
-  br i1 %.not88, label %.sink.split, label %64
+sub_0:                                            ; preds = %60
+  %62 = load i8, ptr %.sroa.09.0..sroa.09.0..cast, align 1
+  %.not99 = icmp eq i8 %62, 100
+  br i1 %.not99, label %sub_1, label %.tail94.thread
 
-64:                                               ; preds = %62
-  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(3) @.str.13) #15
-  %.not89 = icmp eq i32 %65, 0
-  br i1 %.not89, label %.sink.split, label %66
+sub_1:                                            ; preds = %sub_0
+  %63 = getelementptr inbounds i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 1
+  %64 = load i8, ptr %63, align 1
+  %.not100 = icmp eq i8 %64, 105
+  br i1 %.not100, label %.tail, label %sub_196
 
-66:                                               ; preds = %64
-  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(4) @.str.14) #15
-  %.not90 = icmp eq i32 %67, 0
-  br i1 %.not90, label %.sink.split, label %68
+.tail:                                            ; preds = %sub_1
+  %65 = getelementptr inbounds i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 2
+  %66 = load i8, ptr %65, align 1
+  %67 = icmp eq i8 %66, 0
+  br i1 %67, label %.sink.split, label %sub_196
 
-68:                                               ; preds = %66
+sub_196:                                          ; preds = %.tail, %sub_1
+  %68 = getelementptr inbounds i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 1
+  %69 = load i8, ptr %68, align 1
+  %.not102 = icmp eq i8 %69, 100
+  br i1 %.not102, label %.tail94, label %.tail94.thread
+
+.tail94:                                          ; preds = %sub_196
+  %70 = getelementptr inbounds i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 2
+  %71 = load i8, ptr %70, align 1
+  %72 = icmp eq i8 %71, 0
+  br i1 %72, label %.sink.split, label %.tail94.thread
+
+.tail94.thread:                                   ; preds = %sub_0, %sub_196, %.tail94
+  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(4) @.str.14) #15
+  %.not90 = icmp eq i32 %73, 0
+  br i1 %.not90, label %.sink.split, label %74
+
+74:                                               ; preds = %.tail94.thread
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
-  %69 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %95
+  %75 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  br label %101
 
-.sink.split:                                      ; preds = %66, %64, %62, %60
-  %.sink = phi i32 [ 4, %60 ], [ 1, %62 ], [ 5, %64 ], [ 8, %66 ]
+.sink.split:                                      ; preds = %.tail94.thread, %.tail94, %.tail, %60
+  %.sink = phi i32 [ 4, %60 ], [ 1, %.tail ], [ 5, %.tail94 ], [ 8, %.tail94.thread ]
   store i32 %.sink, ptr %16, align 8
-  br label %70
-
-70:                                               ; preds = %.sink.split, %56
-  %71 = load ptr, ptr %0, align 8
-  %72 = load ptr, ptr %18, align 8
-  %73 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %71, ptr noundef %72, ptr noundef nonnull @.str.16)
-  %74 = and i64 %73, 4294967295
-  %.not91 = icmp eq i64 %74, 0
-  br i1 %.not91, label %76, label %75
-
-75:                                               ; preds = %70
-  store double 0x3FEA90A6031F46A3, ptr %14, align 8
   br label %76
 
-76:                                               ; preds = %75, %70
+76:                                               ; preds = %.sink.split, %56
   %77 = load ptr, ptr %0, align 8
   %78 = load ptr, ptr %18, align 8
-  %79 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %77, ptr noundef %78, ptr noundef nonnull @.str.17)
+  %79 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %77, ptr noundef %78, ptr noundef nonnull @.str.16)
   %80 = and i64 %79, 4294967295
-  %.not92 = icmp eq i64 %80, 0
-  br i1 %.not92, label %85, label %81
+  %.not91 = icmp eq i64 %80, 0
+  br i1 %.not91, label %82, label %81
 
 81:                                               ; preds = %76
-  %82 = load ptr, ptr %0, align 8
-  %83 = load ptr, ptr %18, align 8
-  %84 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %82, ptr noundef %83, ptr noundef nonnull @.str.18)
-  %.sroa.03.0.extract.trunc = trunc i64 %84 to i32
-  br label %85
+  store double 0x3FEA90A6031F46A3, ptr %14, align 8
+  br label %82
 
-85:                                               ; preds = %76, %81
-  %storemerge = phi i32 [ %.sroa.03.0.extract.trunc, %81 ], [ 4, %76 ]
+82:                                               ; preds = %81, %76
+  %83 = load ptr, ptr %0, align 8
+  %84 = load ptr, ptr %18, align 8
+  %85 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %83, ptr noundef %84, ptr noundef nonnull @.str.17)
+  %86 = and i64 %85, 4294967295
+  %.not92 = icmp eq i64 %86, 0
+  br i1 %.not92, label %91, label %87
+
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %0, align 8
+  %89 = load ptr, ptr %18, align 8
+  %90 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %88, ptr noundef %89, ptr noundef nonnull @.str.18)
+  %.sroa.03.0.extract.trunc = trunc i64 %90 to i32
+  br label %91
+
+91:                                               ; preds = %82, %87
+  %storemerge = phi i32 [ %.sroa.03.0.extract.trunc, %87 ], [ 4, %82 ]
   store i32 %storemerge, ptr %13, align 8
-  %86 = load ptr, ptr %0, align 8
-  %87 = load ptr, ptr %18, align 8
-  %88 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %86, ptr noundef %87, ptr noundef nonnull @.str.19)
-  %89 = and i64 %88, 4294967295
-  %.not93 = icmp eq i64 %89, 0
-  br i1 %.not93, label %94, label %90
+  %92 = load ptr, ptr %0, align 8
+  %93 = load ptr, ptr %18, align 8
+  %94 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %92, ptr noundef %93, ptr noundef nonnull @.str.19)
+  %95 = and i64 %94, 4294967295
+  %.not93 = icmp eq i64 %95, 0
+  br i1 %.not93, label %100, label %96
 
-90:                                               ; preds = %85
-  %91 = load ptr, ptr %0, align 8
-  %92 = load ptr, ptr %18, align 8
-  %93 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %91, ptr noundef %92, ptr noundef nonnull @.str.20)
-  %.sroa.0.0.extract.trunc = trunc i64 %93 to i32
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %0, align 8
+  %98 = load ptr, ptr %18, align 8
+  %99 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %97, ptr noundef %98, ptr noundef nonnull @.str.20)
+  %.sroa.0.0.extract.trunc = trunc i64 %99 to i32
   store i32 %.sroa.0.0.extract.trunc, ptr %12, align 4
-  br label %95
+  br label %101
 
-94:                                               ; preds = %85
+100:                                              ; preds = %91
   store i32 3, ptr %12, align 4
-  br label %95
+  br label %101
 
-95:                                               ; preds = %90, %94, %68, %27, %4
-  %.0 = phi ptr [ %5, %4 ], [ %28, %27 ], [ %69, %68 ], [ %0, %94 ], [ %0, %90 ]
+101:                                              ; preds = %96, %100, %74, %27, %4
+  %.0 = phi ptr [ %5, %4 ], [ %28, %27 ], [ %75, %74 ], [ %0, %100 ], [ %0, %96 ]
   ret ptr %.0
 }
 

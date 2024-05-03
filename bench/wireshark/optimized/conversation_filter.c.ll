@@ -64,7 +64,7 @@ add_conversation_filter_protocol.exit8:           ; preds = %.lr.ph.i3, %._crit_
   %.not7.i10 = icmp eq ptr %.06.i17.pr, null
   br i1 %.not7.i10, label %._crit_edge.i15, label %.lr.ph.i11
 
-13:                                               ; preds = %.lr.ph.i11
+13:                                               ; preds = %.lr.ph.i11.tail
   %14 = getelementptr inbounds i8, ptr %.08.i12, i64 8
   %.0.i13 = load ptr, ptr %14, align 8
   %.not.i14 = icmp eq ptr %.0.i13, null
@@ -73,59 +73,81 @@ add_conversation_filter_protocol.exit8:           ; preds = %.lr.ph.i3, %._crit_
 .lr.ph.i11:                                       ; preds = %add_conversation_filter_protocol.exit8, %13
   %.08.i12 = phi ptr [ %.0.i13, %13 ], [ %.06.i17.pr, %add_conversation_filter_protocol.exit8 ]
   %15 = load ptr, ptr %.08.i12, align 8
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(3) @.str.2, ptr noundef nonnull dereferenceable(1) %15) #4
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %add_conversation_filter_protocol.exit16, label %13
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i32
+  %18 = sub nsw i32 105, %17
+  %.not = icmp eq i8 %16, 105
+  br i1 %.not, label %sub_1, label %.lr.ph.i11.tail
+
+sub_1:                                            ; preds = %.lr.ph.i11
+  %19 = getelementptr inbounds i8, ptr %15, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  %22 = sub nsw i32 112, %21
+  %.not33 = icmp eq i8 %20, 112
+  br i1 %.not33, label %sub_2, label %.lr.ph.i11.tail
+
+sub_2:                                            ; preds = %sub_1
+  %23 = getelementptr inbounds i8, ptr %15, i64 2
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  %26 = sub nsw i32 0, %25
+  br label %.lr.ph.i11.tail
+
+.lr.ph.i11.tail:                                  ; preds = %.lr.ph.i11, %sub_1, %sub_2
+  %27 = phi i32 [ %18, %.lr.ph.i11 ], [ %22, %sub_1 ], [ %26, %sub_2 ]
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %add_conversation_filter_protocol.exit16, label %13
 
 ._crit_edge.i15:                                  ; preds = %13, %add_conversation_filter_protocol.exit8
-  %18 = tail call ptr @g_slist_prepend(ptr noundef %.06.i17.pr, ptr noundef nonnull @.str.2) #5
-  store ptr %18, ptr @conversation_proto_names, align 8
+  %29 = tail call ptr @g_slist_prepend(ptr noundef %.06.i17.pr, ptr noundef nonnull @.str.2) #5
+  store ptr %29, ptr @conversation_proto_names, align 8
   br label %add_conversation_filter_protocol.exit16
 
-add_conversation_filter_protocol.exit16:          ; preds = %.lr.ph.i11, %._crit_edge.i15
-  %.06.i25.pr = phi ptr [ %18, %._crit_edge.i15 ], [ %.06.i17.pr, %.lr.ph.i11 ]
+add_conversation_filter_protocol.exit16:          ; preds = %.lr.ph.i11.tail, %._crit_edge.i15
+  %.06.i25.pr = phi ptr [ %29, %._crit_edge.i15 ], [ %.06.i17.pr, %.lr.ph.i11.tail ]
   %.not7.i18 = icmp eq ptr %.06.i25.pr, null
   br i1 %.not7.i18, label %._crit_edge.i23, label %.lr.ph.i19
 
-19:                                               ; preds = %.lr.ph.i19
-  %20 = getelementptr inbounds i8, ptr %.08.i20, i64 8
-  %.0.i21 = load ptr, ptr %20, align 8
+30:                                               ; preds = %.lr.ph.i19
+  %31 = getelementptr inbounds i8, ptr %.08.i20, i64 8
+  %.0.i21 = load ptr, ptr %31, align 8
   %.not.i22 = icmp eq ptr %.0.i21, null
   br i1 %.not.i22, label %._crit_edge.i23, label %.lr.ph.i19, !llvm.loop !4
 
-.lr.ph.i19:                                       ; preds = %add_conversation_filter_protocol.exit16, %19
-  %.08.i20 = phi ptr [ %.0.i21, %19 ], [ %.06.i25.pr, %add_conversation_filter_protocol.exit16 ]
-  %21 = load ptr, ptr %.08.i20, align 8
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.3, ptr noundef nonnull dereferenceable(1) %21) #4
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %add_conversation_filter_protocol.exit24, label %19
+.lr.ph.i19:                                       ; preds = %add_conversation_filter_protocol.exit16, %30
+  %.08.i20 = phi ptr [ %.0.i21, %30 ], [ %.06.i25.pr, %add_conversation_filter_protocol.exit16 ]
+  %32 = load ptr, ptr %.08.i20, align 8
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.3, ptr noundef nonnull dereferenceable(1) %32) #4
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %add_conversation_filter_protocol.exit24, label %30
 
-._crit_edge.i23:                                  ; preds = %19, %add_conversation_filter_protocol.exit16
-  %24 = tail call ptr @g_slist_prepend(ptr noundef %.06.i25.pr, ptr noundef nonnull @.str.3) #5
-  store ptr %24, ptr @conversation_proto_names, align 8
+._crit_edge.i23:                                  ; preds = %30, %add_conversation_filter_protocol.exit16
+  %35 = tail call ptr @g_slist_prepend(ptr noundef %.06.i25.pr, ptr noundef nonnull @.str.3) #5
+  store ptr %35, ptr @conversation_proto_names, align 8
   br label %add_conversation_filter_protocol.exit24
 
 add_conversation_filter_protocol.exit24:          ; preds = %.lr.ph.i19, %._crit_edge.i23
-  %.06.i25 = phi ptr [ %24, %._crit_edge.i23 ], [ %.06.i25.pr, %.lr.ph.i19 ]
+  %.06.i25 = phi ptr [ %35, %._crit_edge.i23 ], [ %.06.i25.pr, %.lr.ph.i19 ]
   %.not7.i26 = icmp eq ptr %.06.i25, null
   br i1 %.not7.i26, label %._crit_edge.i31, label %.lr.ph.i27
 
-25:                                               ; preds = %.lr.ph.i27
-  %26 = getelementptr inbounds i8, ptr %.08.i28, i64 8
-  %.0.i29 = load ptr, ptr %26, align 8
+36:                                               ; preds = %.lr.ph.i27
+  %37 = getelementptr inbounds i8, ptr %.08.i28, i64 8
+  %.0.i29 = load ptr, ptr %37, align 8
   %.not.i30 = icmp eq ptr %.0.i29, null
   br i1 %.not.i30, label %._crit_edge.i31, label %.lr.ph.i27, !llvm.loop !4
 
-.lr.ph.i27:                                       ; preds = %add_conversation_filter_protocol.exit24, %25
-  %.08.i28 = phi ptr [ %.0.i29, %25 ], [ %.06.i25, %add_conversation_filter_protocol.exit24 ]
-  %27 = load ptr, ptr %.08.i28, align 8
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.4, ptr noundef nonnull dereferenceable(1) %27) #4
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %add_conversation_filter_protocol.exit32, label %25
+.lr.ph.i27:                                       ; preds = %add_conversation_filter_protocol.exit24, %36
+  %.08.i28 = phi ptr [ %.0.i29, %36 ], [ %.06.i25, %add_conversation_filter_protocol.exit24 ]
+  %38 = load ptr, ptr %.08.i28, align 8
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.4, ptr noundef nonnull dereferenceable(1) %38) #4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %add_conversation_filter_protocol.exit32, label %36
 
-._crit_edge.i31:                                  ; preds = %25, %add_conversation_filter_protocol.exit24
-  %30 = tail call ptr @g_slist_prepend(ptr noundef %.06.i25, ptr noundef nonnull @.str.4) #5
-  store ptr %30, ptr @conversation_proto_names, align 8
+._crit_edge.i31:                                  ; preds = %36, %add_conversation_filter_protocol.exit24
+  %41 = tail call ptr @g_slist_prepend(ptr noundef %.06.i25, ptr noundef nonnull @.str.4) #5
+  store ptr %41, ptr @conversation_proto_names, align 8
   br label %add_conversation_filter_protocol.exit32
 
 add_conversation_filter_protocol.exit32:          ; preds = %.lr.ph.i27, %._crit_edge.i31

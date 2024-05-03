@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"no output directory specified\00", align 1
-@.str.2 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.4 = private unnamed_addr constant [34 x i8] c"could not read directory \22%s\22: %m\00", align 1
 @.str.5 = private unnamed_addr constant [35 x i8] c"could not close directory \22%s\22: %m\00", align 1
 @.str.6 = private unnamed_addr constant [36 x i8] c"could not create directory \22%s\22: %m\00", align 1
@@ -125,7 +123,7 @@ define dso_local void @InitArchiveFmt_Directory(ptr noundef %0) local_unnamed_ad
   %39 = getelementptr inbounds i8, ptr %0, i64 584
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %75
+  br i1 %41, label %42, label %85
 
 42:                                               ; preds = %38
   %43 = call i32 @stat(ptr noundef nonnull %34, ptr noundef nonnull %2) #14
@@ -149,98 +147,120 @@ define dso_local void @InitArchiveFmt_Directory(ptr noundef %0) local_unnamed_ad
   %53 = tail call ptr @__errno_location() #16
   store i32 0, ptr %53, align 4
   %54 = tail call ptr @readdir(ptr noundef nonnull %52) #14
-  %.not6065 = icmp eq ptr %54, null
-  br i1 %.not6065, label %._crit_edge, label %.lr.ph
+  %.not6069 = icmp eq ptr %54, null
+  br i1 %.not6069, label %.tail65._crit_edge, label %sub_0
 
-.lr.ph:                                           ; preds = %.preheader, %60
-  %55 = phi ptr [ %61, %60 ], [ %54, %.preheader ]
+sub_0:                                            ; preds = %.preheader, %70
+  %55 = phi ptr [ %71, %70 ], [ %54, %.preheader ]
   %56 = getelementptr inbounds i8, ptr %55, i64 19
-  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(2) @.str.2) #17
-  %.not61 = icmp eq i32 %57, 0
-  br i1 %.not61, label %60, label %58
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = add nsw i32 %58, -46
+  %.not74 = icmp eq i32 %59, 0
+  br i1 %.not74, label %.tail, label %.tail65
 
-58:                                               ; preds = %.lr.ph
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(3) @.str.3) #17
-  %.not62 = icmp eq i32 %59, 0
-  br i1 %.not62, label %60, label %._crit_edge
+.tail:                                            ; preds = %sub_0
+  %60 = getelementptr inbounds i8, ptr %55, i64 20
+  %61 = load i8, ptr %60, align 1
+  %.not61 = icmp eq i8 %61, 0
+  br i1 %.not61, label %70, label %sub_167
 
-60:                                               ; preds = %58, %.lr.ph
+sub_167:                                          ; preds = %.tail
+  %62 = getelementptr inbounds i8, ptr %55, i64 20
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  %65 = add nsw i32 %64, -46
+  %.not76 = icmp eq i32 %65, 0
+  br i1 %.not76, label %sub_2, label %.tail65
+
+sub_2:                                            ; preds = %sub_167
+  %66 = getelementptr inbounds i8, ptr %55, i64 21
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i32
+  br label %.tail65
+
+.tail65:                                          ; preds = %sub_0, %sub_167, %sub_2
+  %69 = phi i32 [ %65, %sub_167 ], [ %68, %sub_2 ], [ %59, %sub_0 ]
+  %.not62 = icmp eq i32 %69, 0
+  br i1 %.not62, label %70, label %.tail65._crit_edge
+
+70:                                               ; preds = %.tail65, %.tail
   store i32 0, ptr %53, align 4
-  %61 = tail call ptr @readdir(ptr noundef nonnull %52) #14
-  %.not60 = icmp eq ptr %61, null
-  br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  %71 = tail call ptr @readdir(ptr noundef nonnull %52) #14
+  %.not60 = icmp eq ptr %71, null
+  br i1 %.not60, label %.tail65._crit_edge, label %sub_0, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %60, %58, %.preheader
-  %.not60.lcssa = phi i1 [ true, %.preheader ], [ false, %58 ], [ true, %60 ]
-  %62 = load i32, ptr %53, align 4
-  %.not63 = icmp eq i32 %62, 0
-  br i1 %.not63, label %65, label %63
+.tail65._crit_edge:                               ; preds = %70, %.tail65, %.preheader
+  %.not60.lcssa = phi i1 [ true, %.preheader ], [ false, %.tail65 ], [ true, %70 ]
+  %72 = load i32, ptr %53, align 4
+  %.not63 = icmp eq i32 %72, 0
+  br i1 %.not63, label %75, label %73
 
-63:                                               ; preds = %._crit_edge
-  %64 = load ptr, ptr %27, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %64) #14
-  tail call void @exit_nicely(i32 noundef 1) #15
-  unreachable
-
-65:                                               ; preds = %._crit_edge
-  %66 = tail call i32 @closedir(ptr noundef nonnull %52)
-  %.not64 = icmp eq i32 %66, 0
-  br i1 %.not64, label %69, label %67
-
-67:                                               ; preds = %65
-  %68 = load ptr, ptr %27, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %68) #14
-  tail call void @exit_nicely(i32 noundef 1) #15
-  unreachable
-
-69:                                               ; preds = %65
-  br i1 %.not60.lcssa, label %84, label %.critedge
-
-.critedge:                                        ; preds = %50, %45, %42, %69
-  %70 = load ptr, ptr %27, align 8
-  %71 = tail call i32 @mkdir(ptr noundef %70, i32 noundef 448) #14
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %84
-
-73:                                               ; preds = %.critedge
+73:                                               ; preds = %.tail65._crit_edge
   %74 = load ptr, ptr %27, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %74) #14
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %74) #14
   tail call void @exit_nicely(i32 noundef 1) #15
   unreachable
 
-75:                                               ; preds = %38
+75:                                               ; preds = %.tail65._crit_edge
+  %76 = tail call i32 @closedir(ptr noundef nonnull %52)
+  %.not64 = icmp eq i32 %76, 0
+  br i1 %.not64, label %79, label %77
+
+77:                                               ; preds = %75
+  %78 = load ptr, ptr %27, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %78) #14
+  tail call void @exit_nicely(i32 noundef 1) #15
+  unreachable
+
+79:                                               ; preds = %75
+  br i1 %.not60.lcssa, label %94, label %.critedge
+
+.critedge:                                        ; preds = %50, %45, %42, %79
+  %80 = load ptr, ptr %27, align 8
+  %81 = tail call i32 @mkdir(ptr noundef %80, i32 noundef 448) #14
+  %82 = icmp slt i32 %81, 0
+  br i1 %82, label %83, label %94
+
+83:                                               ; preds = %.critedge
+  %84 = load ptr, ptr %27, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %84) #14
+  tail call void @exit_nicely(i32 noundef 1) #15
+  unreachable
+
+85:                                               ; preds = %38
   %.val = load ptr, ptr %28, align 8
   %.val.val = load ptr, ptr %.val, align 8
   call fastcc void @setFilePath(ptr %.val.val, ptr noundef nonnull %3, ptr noundef nonnull @.str.7)
-  %76 = call ptr @InitDiscoverCompressFileHandle(ptr noundef nonnull %3, ptr noundef nonnull @.str.8) #14
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %78, label %79
+  %86 = call ptr @InitDiscoverCompressFileHandle(ptr noundef nonnull %3, ptr noundef nonnull @.str.8) #14
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %88, label %89
 
-78:                                               ; preds = %75
+88:                                               ; preds = %85
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #14
   call void @exit_nicely(i32 noundef 1) #15
   unreachable
 
-79:                                               ; preds = %75
-  store ptr %76, ptr %29, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 3, ptr %80, align 8
+89:                                               ; preds = %85
+  store ptr %86, ptr %29, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 3, ptr %90, align 8
   call void @ReadHead(ptr noundef nonnull %0) #14
-  store i32 5, ptr %80, align 8
+  store i32 5, ptr %90, align 8
   call void @ReadToc(ptr noundef nonnull %0) #14
-  %81 = call zeroext i1 @EndCompressFileHandle(ptr noundef nonnull %76) #14
-  br i1 %81, label %83, label %82
+  %91 = call zeroext i1 @EndCompressFileHandle(ptr noundef nonnull %86) #14
+  br i1 %91, label %93, label %92
 
-82:                                               ; preds = %79
+92:                                               ; preds = %89
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.10) #14
   call void @exit_nicely(i32 noundef 1) #15
   unreachable
 
-83:                                               ; preds = %79
+93:                                               ; preds = %89
   store ptr null, ptr %29, align 8
-  br label %84
+  br label %94
 
-84:                                               ; preds = %69, %.critedge, %83
+94:                                               ; preds = %79, %.critedge, %93
   ret void
 }
 

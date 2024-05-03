@@ -15,7 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @key_type_asymmetric = external dso_local global %struct.key_type, align 8
 @ca_keyid = internal unnamed_addr global ptr null, align 8
 @use_builtin_keys = internal unnamed_addr global i1 false, align 1
-@.str = private unnamed_addr constant [4 x i8] c"id:\00", align 1
 @cakey = internal global %struct.anon.9 zeroinitializer, align 2
 @.str.1 = private unnamed_addr constant [39 x i8] c"\013ASYM: Missing or invalid ca_keys id\0A\00", align 1
 @.str.2 = private unnamed_addr constant [42 x i8] c"\013ASYM: Unparsable ca_keys id hex string\0A\00", align 1
@@ -26,49 +25,61 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @ca_keys_setup(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %25, label %3
+  br i1 %2, label %27, label %sub_0
 
-3:                                                ; preds = %1
-  %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str, i64 noundef 3) #7
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %21
+sub_0:                                            ; preds = %1
+  %3 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %3, 105
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
-  %8 = add i64 %7, -25
-  %9 = icmp ult i64 %8, -20
-  br i1 %9, label %10, label %12
+sub_1:                                            ; preds = %sub_0
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = load i8, ptr %4, align 1
+  %.not1 = icmp eq i8 %5, 100
+  br i1 %.not1, label %.tail, label %.tail.thread
 
-10:                                               ; preds = %6
-  %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #8
-  br label %25
+.tail:                                            ; preds = %sub_1
+  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 58
+  br i1 %8, label %9, label %.tail.thread
 
-12:                                               ; preds = %6
-  %13 = add nsw i64 %7, -3
-  %14 = lshr i64 %13, 1
-  %15 = getelementptr i8, ptr %0, i64 3
-  %16 = tail call i32 @__asymmetric_key_hex_to_key_id(ptr noundef %15, ptr noundef nonnull @cakey, i64 noundef %14) #7
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %20
+9:                                                ; preds = %.tail
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
+  %11 = add i64 %10, -25
+  %12 = icmp ult i64 %11, -20
+  br i1 %12, label %13, label %15
 
-18:                                               ; preds = %12
-  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #8
-  br label %25
+13:                                               ; preds = %9
+  %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #8
+  br label %27
 
-20:                                               ; preds = %12
+15:                                               ; preds = %9
+  %16 = add nsw i64 %10, -3
+  %17 = lshr i64 %16, 1
+  %18 = getelementptr i8, ptr %0, i64 3
+  %19 = tail call i32 @__asymmetric_key_hex_to_key_id(ptr noundef %18, ptr noundef nonnull @cakey, i64 noundef %17) #7
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %15
+  %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #8
+  br label %27
+
+23:                                               ; preds = %15
   store ptr @cakey, ptr @ca_keyid, align 8
-  br label %25
+  br label %27
 
-21:                                               ; preds = %3
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.3) #7
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %25
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.3) #7
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %27
 
-24:                                               ; preds = %21
+26:                                               ; preds = %.tail.thread
   store i1 true, ptr @use_builtin_keys, align 1
-  br label %25
+  br label %27
 
-25:                                               ; preds = %24, %21, %20, %18, %10, %1
+27:                                               ; preds = %26, %.tail.thread, %23, %21, %13, %1
   ret i32 1
 }
 
@@ -167,7 +178,7 @@ declare dso_local i32 @verify_signature(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @key_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local noundef i32 @restrict_link_by_ca(ptr nocapture noundef readnone %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -126, 1) i32 @restrict_link_by_ca(ptr nocapture noundef readnone %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #3 align 16 {
   %5 = icmp eq ptr %1, @key_type_asymmetric
   br i1 %5, label %6, label %19
 
@@ -393,9 +404,6 @@ define dso_local i32 @restrict_link_by_key_or_keyring_chain(ptr noundef %0, ptr 
   %5 = tail call fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
   ret i32 %5
 }
-
-; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4

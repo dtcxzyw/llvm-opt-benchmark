@@ -74,7 +74,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_led_init_def
 @__UNIQUE_ID___addressable_led_compose_name331 = internal global ptr @led_compose_name, section ".discard.addressable", align 8
 @.str.20 = private unnamed_addr constant [14 x i8] c"default-state\00", align 1
 @.str.21 = private unnamed_addr constant [5 x i8] c"keep\00", align 1
-@.str.22 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @__UNIQUE_ID___addressable_led_init_default_state_get332 = internal global ptr @led_init_default_state_get, section ".discard.addressable", align 8
 @.str.23 = private unnamed_addr constant [41 x i8] c"Setting an LED's brightness failed (%d)\0A\00", align 1
 @jiffies = external dso_local global i64, section ".data..cacheline_aligned", align 64
@@ -899,7 +898,7 @@ define dso_local i32 @led_set_brightness_sync(ptr noundef %0, i32 noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @led_update_brightness(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @led_update_brightness(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -980,7 +979,7 @@ define dso_local void @led_sysfs_enable(ptr nocapture noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @led_compose_name(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @led_compose_name(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.led_properties, align 8
   %5 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
@@ -1194,32 +1193,44 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @led_init_default_state_get(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 3) i32 @led_init_default_state_get(ptr noundef %0) #0 align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store ptr null, ptr %2, align 8
   %3 = call i32 @fwnode_property_read_string(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %2) #11
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %12
+  br i1 %4, label %5, label %.tail.thread
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
   %7 = call i32 @strcmp(ptr noundef %6, ptr noundef nonnull dereferenceable(5) @.str.21) #11
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %13, label %9
+  br i1 %8, label %15, label %sub_0
 
-9:                                                ; preds = %5
-  %10 = call i32 @strcmp(ptr noundef %6, ptr noundef nonnull dereferenceable(3) @.str.22) #11
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %13, label %12
+sub_0:                                            ; preds = %5
+  %9 = load i8, ptr %6, align 1
+  %.not = icmp eq i8 %9, 111
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-12:                                               ; preds = %9, %1
-  br label %13
+sub_1:                                            ; preds = %sub_0
+  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %11 = load i8, ptr %10, align 1
+  %.not1 = icmp eq i8 %11, 110
+  br i1 %.not1, label %.tail, label %.tail.thread
 
-13:                                               ; preds = %12, %9, %5
-  %14 = phi i32 [ 0, %12 ], [ 2, %5 ], [ 1, %9 ]
+.tail:                                            ; preds = %sub_1
+  %12 = getelementptr inbounds i8, ptr %6, i64 2
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %15, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail, %1
+  br label %15
+
+15:                                               ; preds = %.tail.thread, %.tail, %5
+  %16 = phi i32 [ 0, %.tail.thread ], [ 2, %5 ], [ 1, %.tail ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
-  ret i32 %14
+  ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid

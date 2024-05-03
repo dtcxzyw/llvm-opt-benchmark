@@ -246,13 +246,12 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.203 = private unnamed_addr constant [4 x i8] c"@%s\00", align 1
 @.str.204 = private unnamed_addr constant [121 x i8] c"AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?\00", align 1
 @.str.205 = private unnamed_addr constant [2 x i8] c">\00", align 1
-@.str.206 = private unnamed_addr constant [2 x i8] c"*\00", align 1
 @switch.table.ACLUpdateInfoMetrics = private unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 399, i32 1), ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 399, i32 2), ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 399), ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 399, i32 3)], align 8
 @switch.table.aclCommand = private unnamed_addr constant [4 x ptr] [ptr @.str.155, ptr @.str.156, ptr @.str.158, ptr @.str.157], align 8
 @switch.table.aclCommand.1 = private unnamed_addr constant [4 x ptr] [ptr @.str.161, ptr @.str.163, ptr @.str.162, ptr @.str.164], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLAddCommandCategory(ptr noundef %name, i64 noundef %flag) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ACLAddCommandCategory(ptr noundef %name, i64 noundef %flag) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @nextCommandCategory, align 8
   %cmp = icmp ugt i64 %0, 63
@@ -450,7 +449,7 @@ declare void @sha256_final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef i32 @ACLCheckPasswordHash(ptr nocapture noundef readonly %hash, i32 noundef %hashlen) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @ACLCheckPasswordHash(ptr nocapture noundef readonly %hash, i32 noundef %hashlen) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq i32 %hashlen, 64
   br i1 %cmp.not, label %for.body, label %return
@@ -477,7 +476,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @ACLStringHasSpaces(ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @ACLStringHasSpaces(ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp6.not = icmp eq i64 %len, 0
   br i1 %cmp6.not, label %return, label %for.body.lr.ph
@@ -552,7 +551,7 @@ return:                                           ; preds = %for.cond, %for.body
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ACLListMatchLoadedUser(ptr nocapture noundef readonly %definition, ptr noundef %user) #0 {
+define dso_local range(i32 0, 2) i32 @ACLListMatchLoadedUser(ptr nocapture noundef readonly %definition, ptr noundef %user) #0 {
 entry:
   %0 = load ptr, ptr %definition, align 8
   %call = tail call i32 @sdscmp(ptr noundef %0, ptr noundef %user) #23
@@ -564,7 +563,7 @@ entry:
 declare i32 @sdscmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ACLListMatchSds(ptr noundef %a, ptr noundef %b) #0 {
+define dso_local range(i32 0, 2) i32 @ACLListMatchSds(ptr noundef %a, ptr noundef %b) #0 {
 entry:
   %call = tail call i32 @sdscmp(ptr noundef %a, ptr noundef %b) #23
   %cmp = icmp eq i32 %call, 0
@@ -614,7 +613,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ACLListMatchKeyPattern(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define dso_local range(i32 0, 2) i32 @ACLListMatchKeyPattern(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
   %pattern = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %pattern, align 8
@@ -949,8 +948,8 @@ if.end15.i:                                       ; preds = %if.end14.i, %while.
   %arrayidx25.i = getelementptr inbounds ptr, ptr %17, i64 %items.1.i
   store ptr %call21.i, ptr %arrayidx25.i, align 8
   %18 = load ptr, ptr %arrayidx.i, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %items.1.i
-  %arrayidx29.i = getelementptr i8, ptr %19, i64 8
+  %19 = getelementptr inbounds ptr, ptr %18, i64 %items.1.i
+  %arrayidx29.i = getelementptr inbounds i8, ptr %19, i64 8
   store ptr null, ptr %arrayidx29.i, align 8
   br label %ACLAddAllowedFirstArg.exit
 
@@ -1041,8 +1040,8 @@ if.end15:                                         ; preds = %if.end14, %while.co
   %9 = load ptr, ptr %allowed_firstargs, align 8
   %arrayidx27 = getelementptr inbounds ptr, ptr %9, i64 %id
   %10 = load ptr, ptr %arrayidx27, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %items.1
-  %arrayidx29 = getelementptr i8, ptr %11, i64 8
+  %11 = getelementptr inbounds ptr, ptr %10, i64 %items.1
+  %arrayidx29 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr null, ptr %arrayidx29, align 8
   br label %return
 
@@ -1372,7 +1371,7 @@ entry:
 declare void @raxFreeWithCallback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @ACLGetCommandBitCoordinates(i64 noundef %id, ptr nocapture noundef writeonly %word, ptr nocapture noundef writeonly %bit) local_unnamed_addr #13 {
+define dso_local range(i32 -1, 1) i32 @ACLGetCommandBitCoordinates(i64 noundef %id, ptr nocapture noundef writeonly %word, ptr nocapture noundef writeonly %bit) local_unnamed_addr #13 {
 entry:
   %cmp = icmp ugt i64 %id, 1023
   br i1 %cmp, label %return, label %if.end
@@ -1391,7 +1390,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @ACLGetSelectorCommandBit(ptr nocapture noundef readonly %selector, i64 noundef %id) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @ACLGetSelectorCommandBit(ptr nocapture noundef readonly %selector, i64 noundef %id) local_unnamed_addr #14 {
 entry:
   %cmp.i = icmp ugt i64 %id, 1023
   br i1 %cmp.i, label %return, label %if.end
@@ -1414,7 +1413,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @ACLSelectorCanExecuteFutureCommands(ptr nocapture noundef readonly %selector) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @ACLSelectorCanExecuteFutureCommands(ptr nocapture noundef readonly %selector) local_unnamed_addr #14 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %selector, i64 128
   %0 = load i64, ptr %arrayidx.i, align 8
@@ -2010,7 +2009,7 @@ cond.end:                                         ; preds = %while.body5
   br i1 %tobool10.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %call11 = call i32 @ACLSetSelector(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i64 noundef -1), !range !24
+  %call11 = call i32 @ACLSetSelector(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i64 noundef -1)
   %cmp12 = icmp eq i32 %call11, 0
   br i1 %cmp12, label %if.end, label %cond.false21
 
@@ -2020,7 +2019,7 @@ cond.false21:                                     ; preds = %if.then
   unreachable
 
 if.else:                                          ; preds = %cond.end
-  %call24 = call i32 @ACLSetSelector(ptr noundef nonnull %3, ptr noundef nonnull @.str.47, i64 noundef -1), !range !24
+  %call24 = call i32 @ACLSetSelector(ptr noundef nonnull %3, ptr noundef nonnull @.str.47, i64 noundef -1)
   %cmp25 = icmp eq i32 %call24, 0
   br i1 %cmp25, label %if.end, label %cond.false34
 
@@ -2039,7 +2038,7 @@ for.cond:                                         ; preds = %sdslen.exit
   %7 = load i32, ptr %argc, align 4
   %8 = sext i32 %7 to i64
   %cmp36 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %cmp36, label %for.body, label %for.end, !llvm.loop !25
+  br i1 %cmp36, label %for.body, label %for.end, !llvm.loop !24
 
 for.body:                                         ; preds = %if.end, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %if.end ]
@@ -2087,7 +2086,7 @@ sw.bb13.i:                                        ; preds = %for.body
 
 sdslen.exit:                                      ; preds = %for.body, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %14, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body ]
-  %call42 = call i32 @ACLSetSelector(ptr noundef %3, ptr noundef nonnull %9, i64 noundef %retval.0.i), !range !24
+  %call42 = call i32 @ACLSetSelector(ptr noundef %3, ptr noundef nonnull %9, i64 noundef %retval.0.i)
   %cmp43 = icmp eq i32 %call42, 0
   br i1 %cmp43, label %for.cond, label %cond.false52
 
@@ -2101,7 +2100,7 @@ for.end:                                          ; preds = %for.cond, %if.end
   call void @sdsfreesplitres(ptr noundef nonnull %call6, i32 noundef %.lcssa) #23
   %call3 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool4.not = icmp eq ptr %call3, null
-  br i1 %tobool4.not, label %while.cond.loopexit, label %while.body5, !llvm.loop !26
+  br i1 %tobool4.not, label %while.cond.loopexit, label %while.body5, !llvm.loop !25
 
 while.end54:                                      ; preds = %while.cond.loopexit, %entry
   call void @raxStop(ptr noundef nonnull %ri) #23
@@ -2117,7 +2116,7 @@ declare i32 @raxNext(ptr noundef) local_unnamed_addr #1
 declare ptr @sdssplitargs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLSetSelector(ptr nocapture noundef %selector, ptr noundef %op, i64 noundef %oplen) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr nocapture noundef %selector, ptr noundef %op, i64 noundef %oplen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @strcasecmp(ptr noundef %op, ptr noundef nonnull @.str.28) #27
   %tobool.not = icmp eq i32 %call, 0
@@ -2339,14 +2338,14 @@ for.inc:                                          ; preds = %if.else75, %for.bod
   %or74 = or disjoint i32 %flags58.0117, %.sink
   %inc96 = add nuw i64 %offset.0116, 1
   %exitcond.not = icmp eq i64 %inc96, %oplen
-  br i1 %exitcond.not, label %if.end98, label %for.body, !llvm.loop !27
+  br i1 %exitcond.not, label %if.end98, label %for.body, !llvm.loop !26
 
 if.end98:                                         ; preds = %for.inc, %for.cond.preheader, %if.end, %if.then91
   %offset.1 = phi i64 [ %inc, %if.then91 ], [ 1, %if.end ], [ 1, %for.cond.preheader ], [ %oplen, %for.inc ]
   %flags58.2 = phi i32 [ %flags58.0117, %if.then91 ], [ 3, %if.end ], [ 0, %for.cond.preheader ], [ %or74, %for.inc ]
   %add.ptr = getelementptr inbounds i8, ptr %op, i64 %offset.1
   %sub = sub i64 %oplen, %offset.1
-  %call99 = tail call i32 @ACLStringHasSpaces(ptr noundef nonnull %add.ptr, i64 noundef %sub), !range !28
+  %call99 = tail call i32 @ACLStringHasSpaces(ptr noundef nonnull %add.ptr, i64 noundef %sub)
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %if.end103, label %if.then101
 
@@ -2403,7 +2402,7 @@ if.then130:                                       ; preds = %if.then126
 if.end132:                                        ; preds = %if.then126
   %add.ptr133 = getelementptr inbounds i8, ptr %op, i64 1
   %sub134 = add i64 %oplen, -1
-  %call135 = tail call i32 @ACLStringHasSpaces(ptr noundef nonnull %add.ptr133, i64 noundef %sub134), !range !28
+  %call135 = tail call i32 @ACLStringHasSpaces(ptr noundef nonnull %add.ptr133, i64 noundef %sub134)
   %tobool136.not = icmp eq i32 %call135, 0
   br i1 %tobool136.not, label %if.end139, label %if.then137
 
@@ -2570,7 +2569,7 @@ if.then255:                                       ; preds = %land.lhs.true225, %
   %arrayidx251 = getelementptr inbounds i8, ptr %op, i64 1
   %cmp258 = icmp eq i8 %21, 43
   %cond = zext i1 %cmp258 to i32
-  %call261 = tail call i32 @ACLSetSelectorCategory(ptr noundef %selector, ptr noundef nonnull %arrayidx251, i32 noundef %cond), !range !24
+  %call261 = tail call i32 @ACLSetSelectorCategory(ptr noundef %selector, ptr noundef nonnull %arrayidx251, i32 noundef %cond)
   %cmp262 = icmp eq i32 %call261, -1
   br i1 %cmp262, label %if.then264, label %return
 
@@ -2594,7 +2593,7 @@ declare void @sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @raxStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLSetSelectorCategory(ptr nocapture noundef %selector, ptr noundef %category, i32 noundef %allow) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLSetSelectorCategory(ptr nocapture noundef %selector, ptr noundef %category, i32 noundef %allow) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %category, i64 1
   %0 = load ptr, ptr @ACLCommandCategories, align 8
@@ -2697,7 +2696,7 @@ if.then9:                                         ; preds = %if.end7
 if.end11:                                         ; preds = %if.then9, %if.end7
   %call1 = tail call ptr @dictNext(ptr noundef %call) #23
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !29
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !27
 
 while.end:                                        ; preds = %if.end11, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #23
@@ -2705,7 +2704,7 @@ while.end:                                        ; preds = %if.end11, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLCountCategoryBitsForSelector(ptr nocapture noundef readonly %selector, ptr nocapture noundef %on, ptr nocapture noundef %off, ptr nocapture noundef readonly %category) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLCountCategoryBitsForSelector(ptr nocapture noundef readonly %selector, ptr nocapture noundef %on, ptr nocapture noundef %off, ptr nocapture noundef readonly %category) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @ACLCommandCategories, align 8
   %flag4.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -2786,7 +2785,7 @@ entry:
   %.str.49..str.48 = select i1 %tobool.not, ptr @.str.49, ptr @.str.48
   %.str.47..str.45 = select i1 %tobool.not, ptr @.str.47, ptr @.str.45
   %call5 = tail call ptr @sdscat(ptr noundef %call, ptr noundef nonnull %.str.49..str.48) #23
-  %call6 = tail call i32 @ACLSetSelector(ptr noundef nonnull %call.i, ptr noundef nonnull %.str.47..str.45, i64 noundef -1), !range !24
+  %call6 = tail call i32 @ACLSetSelector(ptr noundef nonnull %call.i, ptr noundef nonnull %.str.47..str.45, i64 noundef -1)
   store i32 0, ptr %argc, align 4
   %command_rules = getelementptr inbounds i8, ptr %selector, i64 160
   %2 = load ptr, ptr %command_rules, align 8
@@ -2809,13 +2808,13 @@ for.cond:                                         ; preds = %for.body
   %4 = load i32, ptr %argc, align 4
   %5 = sext i32 %4 to i64
   %cmp10 = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !30
+  br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !28
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.cond.preheader ]
   %arrayidx = getelementptr inbounds ptr, ptr %call7, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
-  %call12 = call i32 @ACLSetSelector(ptr noundef nonnull %call.i, ptr noundef %6, i64 noundef -1), !range !24
+  %call12 = call i32 @ACLSetSelector(ptr noundef nonnull %call.i, ptr noundef %6, i64 noundef -1)
   %cmp13 = icmp eq i32 %call12, 0
   br i1 %cmp13, label %for.cond, label %cond.false22
 
@@ -2941,7 +2940,7 @@ while.body:                                       ; preds = %if.else, %while.bod
   %call5 = call ptr @sdscatlen(ptr noundef %call4, ptr noundef nonnull @.str.40, i64 noundef 1) #23
   %call2 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool3.not = icmp eq ptr %call2, null
-  br i1 %tobool3.not, label %if.end, label %while.body, !llvm.loop !31
+  br i1 %tobool3.not, label %if.end, label %while.body, !llvm.loop !29
 
 if.end:                                           ; preds = %while.body, %if.else, %if.then
   %res.1 = phi ptr [ %call1, %if.then ], [ %call, %if.else ], [ %call5, %while.body ]
@@ -2973,7 +2972,7 @@ while.body16:                                     ; preds = %if.else11, %while.b
   %call21 = call ptr @sdscatlen(ptr noundef %call20, ptr noundef nonnull @.str.40, i64 noundef 1) #23
   %call14 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool15.not = icmp eq ptr %call14, null
-  br i1 %tobool15.not, label %if.end23, label %while.body16, !llvm.loop !32
+  br i1 %tobool15.not, label %if.end23, label %while.body16, !llvm.loop !30
 
 if.end23:                                         ; preds = %while.body16, %if.else11, %if.then9
   %res.3 = phi ptr [ %call10, %if.then9 ], [ %call12, %if.else11 ], [ %call21, %while.body16 ]
@@ -3030,7 +3029,7 @@ for.inc:                                          ; preds = %for.body, %if.then8
   %flag = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i64, ptr %flag, align 8
   %tobool3.not = icmp eq i64 %5, 0
-  br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !33
+  br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc, %if.end
   %res.0.lcssa = phi ptr [ %call, %if.end ], [ %res.1, %for.inc ]
@@ -3051,7 +3050,7 @@ while.body:                                       ; preds = %for.end, %while.bod
   %call18 = call ptr @sdscatlen(ptr noundef %call17, ptr noundef nonnull @.str.40, i64 noundef 1) #23
   %call14 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool15.not = icmp eq ptr %call14, null
-  br i1 %tobool15.not, label %while.end, label %while.body, !llvm.loop !34
+  br i1 %tobool15.not, label %while.end, label %while.body, !llvm.loop !32
 
 while.end:                                        ; preds = %while.body, %for.end
   %res.2.lcssa = phi ptr [ %res.0.lcssa, %for.end ], [ %call18, %while.body ]
@@ -3076,7 +3075,7 @@ while.body22:                                     ; preds = %while.end, %while.b
   call void @sdsfree(ptr noundef %call24) #23
   %call20 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool21.not = icmp eq ptr %call20, null
-  br i1 %tobool21.not, label %while.end32, label %while.body22, !llvm.loop !35
+  br i1 %tobool21.not, label %while.end32, label %while.body22, !llvm.loop !33
 
 while.end32:                                      ; preds = %while.body22, %while.end
   %res.3.lcssa = phi ptr [ %res.2.lcssa, %while.end ], [ %call30, %while.body22 ]
@@ -3170,7 +3169,7 @@ for.cond:                                         ; preds = %sdslen.exit
   %5 = load i32, ptr %argc, align 4
   %6 = sext i32 %5 to i64
   %cmp11 = icmp slt i64 %indvars.iv.next, %6
-  br i1 %cmp11, label %for.body, label %cleanup, !llvm.loop !36
+  br i1 %cmp11, label %for.body, label %cleanup, !llvm.loop !34
 
 for.body:                                         ; preds = %cond.end, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %cond.end ]
@@ -3218,7 +3217,7 @@ sw.bb13.i:                                        ; preds = %for.body
 
 sdslen.exit:                                      ; preds = %for.body, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %12, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body ]
-  %call17 = call i32 @ACLSetSelector(ptr noundef nonnull %call.i, ptr noundef nonnull %7, i64 noundef %retval.0.i), !range !24
+  %call17 = call i32 @ACLSetSelector(ptr noundef nonnull %call.i, ptr noundef nonnull %7, i64 noundef %retval.0.i)
   %cmp18 = icmp eq i32 %call17, -1
   br i1 %cmp18, label %if.then, label %for.cond
 
@@ -3253,7 +3252,7 @@ declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLSetUser(ptr noundef %u, ptr noundef %op, i64 noundef %oplen) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLSetUser(ptr noundef %u, ptr noundef %op, i64 noundef %oplen) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %acl_string = getelementptr inbounds i8, ptr %u, i64 32
@@ -3537,7 +3536,7 @@ while.body:                                       ; preds = %while.cond.preheade
   call void @listDelNode(ptr noundef %27, ptr noundef nonnull %call15689) #23
   %call156 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool157.not = icmp eq ptr %call156, null
-  br i1 %tobool157.not, label %return, label %while.body, !llvm.loop !37
+  br i1 %tobool157.not, label %return, label %while.body, !llvm.loop !35
 
 if.else159:                                       ; preds = %if.else145
   %call160 = tail call i32 @strcasecmp(ptr noundef nonnull %op, ptr noundef nonnull @.str.70) #27
@@ -3545,7 +3544,7 @@ if.else159:                                       ; preds = %if.else145
   br i1 %tobool161.not, label %if.then162, label %if.else263
 
 if.then162:                                       ; preds = %if.else159
-  %call163 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.67, i64 noundef -1), !range !24
+  %call163 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.67, i64 noundef -1)
   %cmp164 = icmp eq i32 %call163, 0
   br i1 %cmp164, label %cond.end174, label %cond.false173
 
@@ -3555,7 +3554,7 @@ cond.false173:                                    ; preds = %if.then162
   unreachable
 
 cond.end174:                                      ; preds = %if.then162
-  %call175 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.62, i64 noundef -1), !range !24
+  %call175 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.62, i64 noundef -1)
   %cmp176 = icmp eq i32 %call175, 0
   br i1 %cmp176, label %cond.end186, label %cond.false185
 
@@ -3565,7 +3564,7 @@ cond.false185:                                    ; preds = %cond.end174
   unreachable
 
 cond.end186:                                      ; preds = %cond.end174
-  %call187 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.64, i64 noundef -1), !range !24
+  %call187 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.64, i64 noundef -1)
   %cmp188 = icmp eq i32 %call187, 0
   br i1 %cmp188, label %cond.end198, label %cond.false197
 
@@ -3581,7 +3580,7 @@ cond.end198:                                      ; preds = %cond.end186
   br i1 %tobool200.not, label %if.end214, label %if.then201
 
 if.then201:                                       ; preds = %cond.end198
-  %call202 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.29, i64 noundef -1), !range !24
+  %call202 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.29, i64 noundef -1)
   %cmp203 = icmp eq i32 %call202, 0
   br i1 %cmp203, label %if.end214, label %cond.false212
 
@@ -3591,7 +3590,7 @@ cond.false212:                                    ; preds = %if.then201
   unreachable
 
 if.end214:                                        ; preds = %if.then201, %cond.end198
-  %call215 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.24, i64 noundef -1), !range !24
+  %call215 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.24, i64 noundef -1)
   %cmp216 = icmp eq i32 %call215, 0
   br i1 %cmp216, label %cond.end226, label %cond.false225
 
@@ -3601,7 +3600,7 @@ cond.false225:                                    ; preds = %if.end214
   unreachable
 
 cond.end226:                                      ; preds = %if.end214
-  %call227 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.27, i64 noundef -1), !range !24
+  %call227 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.27, i64 noundef -1)
   %cmp228 = icmp eq i32 %call227, 0
   br i1 %cmp228, label %cond.end238, label %cond.false237
 
@@ -3611,7 +3610,7 @@ cond.false237:                                    ; preds = %cond.end226
   unreachable
 
 cond.end238:                                      ; preds = %cond.end226
-  %call239 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.68, i64 noundef -1), !range !24
+  %call239 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.68, i64 noundef -1)
   %cmp240 = icmp eq i32 %call239, 0
   br i1 %cmp240, label %cond.end250, label %cond.false249
 
@@ -3621,7 +3620,7 @@ cond.false249:                                    ; preds = %cond.end238
   unreachable
 
 cond.end250:                                      ; preds = %cond.end238
-  %call251 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.47, i64 noundef -1), !range !24
+  %call251 = tail call i32 @ACLSetUser(ptr noundef nonnull %u, ptr noundef nonnull @.str.47, i64 noundef -1)
   %cmp252 = icmp eq i32 %call251, 0
   br i1 %cmp252, label %if.end281, label %cond.false261
 
@@ -3632,7 +3631,7 @@ cond.false261:                                    ; preds = %cond.end250
 
 if.else263:                                       ; preds = %if.else159
   %call265 = tail call ptr @ACLUserGetRootSelector(ptr noundef nonnull %u)
-  %call266 = tail call i32 @ACLSetSelector(ptr noundef %call265, ptr noundef nonnull %op, i64 noundef %oplen.addr.0), !range !24
+  %call266 = tail call i32 @ACLSetSelector(ptr noundef %call265, ptr noundef nonnull %op, i64 noundef %oplen.addr.0)
   %cmp267 = icmp eq i32 %call266, -1
   br i1 %cmp267, label %return, label %if.end281
 
@@ -3695,11 +3694,11 @@ if.end34:                                         ; preds = %entry, %if.end34.fo
 define dso_local noundef ptr @ACLCreateDefaultUser() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ACLCreateUser(ptr noundef nonnull @.str.88, i64 noundef 7)
-  %call1 = tail call i32 @ACLSetUser(ptr noundef %call, ptr noundef nonnull @.str.45, i64 noundef -1), !range !24
-  %call2 = tail call i32 @ACLSetUser(ptr noundef %call, ptr noundef nonnull @.str.61, i64 noundef -1), !range !24
-  %call3 = tail call i32 @ACLSetUser(ptr noundef %call, ptr noundef nonnull @.str.63, i64 noundef -1), !range !24
-  %call4 = tail call i32 @ACLSetUser(ptr noundef %call, ptr noundef nonnull @.str.23, i64 noundef -1), !range !24
-  %call5 = tail call i32 @ACLSetUser(ptr noundef %call, ptr noundef nonnull @.str.25, i64 noundef -1), !range !24
+  %call1 = tail call i32 @ACLSetUser(ptr noundef %call, ptr noundef nonnull @.str.45, i64 noundef -1)
+  %call2 = tail call i32 @ACLSetUser(ptr noundef %call, ptr noundef nonnull @.str.61, i64 noundef -1)
+  %call3 = tail call i32 @ACLSetUser(ptr noundef %call, ptr noundef nonnull @.str.63, i64 noundef -1)
+  %call4 = tail call i32 @ACLSetUser(ptr noundef %call, ptr noundef nonnull @.str.23, i64 noundef -1)
+  %call5 = tail call i32 @ACLSetUser(ptr noundef %call, ptr noundef nonnull @.str.25, i64 noundef -1)
   ret ptr %call
 }
 
@@ -3758,11 +3757,11 @@ ACLInitCommandCategories.exit:                    ; preds = %for.inc.i, %entry
   %call2 = tail call ptr @listCreate() #23
   store ptr %call2, ptr @ACLLog, align 8
   %call.i1 = tail call ptr @ACLCreateUser(ptr noundef nonnull @.str.88, i64 noundef 7)
-  %call1.i = tail call i32 @ACLSetUser(ptr noundef %call.i1, ptr noundef nonnull @.str.45, i64 noundef -1), !range !24
-  %call2.i = tail call i32 @ACLSetUser(ptr noundef %call.i1, ptr noundef nonnull @.str.61, i64 noundef -1), !range !24
-  %call3.i = tail call i32 @ACLSetUser(ptr noundef %call.i1, ptr noundef nonnull @.str.63, i64 noundef -1), !range !24
-  %call4.i = tail call i32 @ACLSetUser(ptr noundef %call.i1, ptr noundef nonnull @.str.23, i64 noundef -1), !range !24
-  %call5.i = tail call i32 @ACLSetUser(ptr noundef %call.i1, ptr noundef nonnull @.str.25, i64 noundef -1), !range !24
+  %call1.i = tail call i32 @ACLSetUser(ptr noundef %call.i1, ptr noundef nonnull @.str.45, i64 noundef -1)
+  %call2.i = tail call i32 @ACLSetUser(ptr noundef %call.i1, ptr noundef nonnull @.str.61, i64 noundef -1)
+  %call3.i = tail call i32 @ACLSetUser(ptr noundef %call.i1, ptr noundef nonnull @.str.63, i64 noundef -1)
+  %call4.i = tail call i32 @ACLSetUser(ptr noundef %call.i1, ptr noundef nonnull @.str.23, i64 noundef -1)
+  %call5.i = tail call i32 @ACLSetUser(ptr noundef %call.i1, ptr noundef nonnull @.str.25, i64 noundef -1)
   store ptr %call.i1, ptr @DefaultUser, align 8
   ret void
 }
@@ -3770,7 +3769,7 @@ ACLInitCommandCategories.exit:                    ; preds = %for.inc.i, %entry
 declare ptr @raxNew() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLCheckUserCredentials(ptr nocapture noundef readonly %username, ptr nocapture noundef readonly %password) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLCheckUserCredentials(ptr nocapture noundef readonly %username, ptr nocapture noundef readonly %password) local_unnamed_addr #0 {
 entry:
   %ctx.i = alloca %struct.SHA256_CTX, align 8
   %hash.i = alloca [32 x i8], align 16
@@ -3963,7 +3962,7 @@ for.body.i29:                                     ; preds = %for.body.i29, %whil
 
 time_independent_strcmp.exit:                     ; preds = %for.body.i29
   %tobool19.not = icmp eq i32 %or.i, 0
-  br i1 %tobool19.not, label %if.then20, label %while.cond, !llvm.loop !38
+  br i1 %tobool19.not, label %if.then20, label %while.cond, !llvm.loop !36
 
 if.then20:                                        ; preds = %time_independent_strcmp.exit
   call void @sdsfree(ptr noundef nonnull %call.i28) #23
@@ -4021,10 +4020,10 @@ declare i32 @clientHasPendingReplies(ptr noundef) local_unnamed_addr #1
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @checkPasswordBasedAuth(ptr noundef %c, ptr nocapture noundef readonly %username, ptr nocapture noundef readonly %password) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @checkPasswordBasedAuth(ptr noundef %c, ptr nocapture noundef readonly %username, ptr nocapture noundef readonly %password) local_unnamed_addr #0 {
 entry:
   %myuser.i = alloca ptr, align 8
-  %call = tail call i32 @ACLCheckUserCredentials(ptr noundef %username, ptr noundef %password), !range !24
+  %call = tail call i32 @ACLCheckUserCredentials(ptr noundef %username, ptr noundef %password)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -4278,7 +4277,7 @@ if.end17.i:                                       ; preds = %if.end13.i
 ACLLogMatchEntry.exit:                            ; preds = %while.body, %if.end.i, %if.end5.i, %if.end13.i, %if.end17.i
   %retval.0.i = phi i32 [ 0, %while.body ], [ 0, %if.end.i ], [ 0, %if.end5.i ], [ 0, %if.end13.i ], [ %..i, %if.end17.i ]
   %tobool39.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool39.not, label %while.cond, label %if.then44, !llvm.loop !39
+  br i1 %tobool39.not, label %while.cond, label %if.then44, !llvm.loop !37
 
 if.then44:                                        ; preds = %ACLLogMatchEntry.exit
   %30 = load ptr, ptr @ACLLog, align 8
@@ -4342,21 +4341,21 @@ while.body57:                                     ; preds = %if.else52, %while.b
   %52 = load i64, ptr %len, align 8
   %53 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 396), align 8
   %cmp56 = icmp ugt i64 %52, %53
-  br i1 %cmp56, label %while.body57, label %if.end62, !llvm.loop !40
+  br i1 %cmp56, label %while.body57, label %if.end62, !llvm.loop !38
 
 if.end62:                                         ; preds = %while.body57, %if.else52, %if.then44
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ACLAuthenticateUser(ptr noundef %c, ptr noundef %username, ptr noundef %password, ptr noundef %err) local_unnamed_addr #0 {
+define dso_local range(i32 3, 2) i32 @ACLAuthenticateUser(ptr noundef %c, ptr noundef %username, ptr noundef %password, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @checkModuleAuthentication(ptr noundef %c, ptr noundef %username, ptr noundef %password, ptr noundef %err) #23
   %cmp = icmp eq i32 %call, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @checkPasswordBasedAuth(ptr noundef %c, ptr noundef %username, ptr noundef %password), !range !28
+  %call1 = tail call i32 @checkPasswordBasedAuth(ptr noundef %c, ptr noundef %username, ptr noundef %password)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -4499,7 +4498,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @getKeysFreeResult(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLUserCheckKeyPerm(ptr noundef readonly %u, ptr noundef %key, i32 noundef %keylen, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @ACLUserCheckKeyPerm(ptr noundef readonly %u, ptr noundef %key, i32 noundef %keylen, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %cmp = icmp eq ptr %u, null
@@ -4519,9 +4518,9 @@ while.cond:                                       ; preds = %while.body, %if.end
 while.body:                                       ; preds = %while.cond
   %value = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %value, align 8
-  %call1 = call fastcc i32 @ACLSelectorCheckKey(ptr noundef %1, ptr noundef %key, i32 noundef %keylen, i32 noundef %flags), !range !41
+  %call1 = call fastcc i32 @ACLSelectorCheckKey(ptr noundef %1, ptr noundef %key, i32 noundef %keylen, i32 noundef %flags)
   %cmp2 = icmp eq i32 %call1, 0
-  br i1 %cmp2, label %return, label %while.cond, !llvm.loop !42
+  br i1 %cmp2, label %return, label %while.cond, !llvm.loop !39
 
 return:                                           ; preds = %while.cond, %while.body, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 2, %while.cond ], [ 0, %while.body ]
@@ -4529,7 +4528,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ACLSelectorCheckKey(ptr nocapture noundef readonly %selector, ptr noundef %key, i32 noundef %keylen, i32 noundef %keyspec_flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @ACLSelectorCheckKey(ptr nocapture noundef readonly %selector, ptr noundef %key, i32 noundef %keylen, i32 noundef %keyspec_flags) unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load i32, ptr %selector, align 8
@@ -4565,7 +4564,7 @@ while.body:                                       ; preds = %if.end, %while.cond
 while.cond.backedge:                              ; preds = %while.body, %sdslen.exit
   %call = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool23.not = icmp eq ptr %call, null
-  br i1 %tobool23.not, label %return, label %while.body, !llvm.loop !43
+  br i1 %tobool23.not, label %return, label %while.body, !llvm.loop !40
 
 if.end28:                                         ; preds = %while.body
   %pattern29 = getelementptr inbounds i8, ptr %7, i64 8
@@ -4623,7 +4622,7 @@ return:                                           ; preds = %sdslen.exit, %while
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLUserCheckCmdWithUnrestrictedKeyAccess(ptr noundef readonly %u, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ACLUserCheckCmdWithUnrestrictedKeyAccess(ptr noundef readonly %u, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %li = alloca %struct.listIter, align 8
@@ -4684,37 +4683,50 @@ while.body.i:                                     ; preds = %if.end.i, %while.co
   %cmp.not.i = icmp eq i32 %and26.i, %access_flags.3.i
   br i1 %cmp.not.i, label %if.end29.i, label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %if.end29.i, %while.body.i
+while.cond.backedge.i:                            ; preds = %if.end29.tail.i, %while.body.i
   %call.i = call ptr @listNext(ptr noundef nonnull %li.i) #23
   %tobool24.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool24.not.i, label %ACLSelectorHasUnrestrictedKeyAccess.exit.thread, label %while.body.i, !llvm.loop !44
+  br i1 %tobool24.not.i, label %ACLSelectorHasUnrestrictedKeyAccess.exit.thread, label %while.body.i, !llvm.loop !41
 
 if.end29.i:                                       ; preds = %while.body.i
   %pattern30.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %pattern30.i, align 8
-  %call31.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(2) @.str.206) #27
-  %tobool32.not.i = icmp eq i32 %call31.i, 0
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = add nsw i32 %13, -42
+  %.not.i = icmp eq i32 %14, 0
+  br i1 %.not.i, label %sub_1.i, label %if.end29.tail.i
+
+sub_1.i:                                          ; preds = %if.end29.i
+  %15 = getelementptr inbounds i8, ptr %11, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i32
+  br label %if.end29.tail.i
+
+if.end29.tail.i:                                  ; preds = %sub_1.i, %if.end29.i
+  %18 = phi i32 [ %14, %if.end29.i ], [ %17, %sub_1.i ]
+  %tobool32.not.i = icmp eq i32 %18, 0
   br i1 %tobool32.not.i, label %if.then5, label %while.cond.backedge.i
 
 ACLSelectorHasUnrestrictedKeyAccess.exit.thread:  ; preds = %while.cond.backedge.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
   br label %if.end6
 
-if.then5:                                         ; preds = %land.lhs.true, %if.end29.i
+if.then5:                                         ; preds = %land.lhs.true, %if.end29.tail.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
-  %12 = load i32, ptr %cache, align 8
-  %tobool.not.i3 = icmp eq i32 %12, 0
+  %19 = load i32, ptr %cache, align 8
+  %tobool.not.i3 = icmp eq i32 %19, 0
   br i1 %tobool.not.i3, label %return, label %return.sink.split
 
 if.end6:                                          ; preds = %ACLSelectorHasUnrestrictedKeyAccess.exit.thread, %while.body
   %call = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !45
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !42
 
 while.end:                                        ; preds = %if.end6
   %.pre = load i32, ptr %cache, align 8
-  %13 = icmp eq i32 %.pre, 0
-  br i1 %13, label %return, label %return.sink.split
+  %20 = icmp eq i32 %.pre, 0
+  br i1 %20, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %while.end, %if.then5
   %retval.0.ph = phi i32 [ 1, %if.then5 ], [ 0, %while.end ]
@@ -4728,7 +4740,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ACLSelectorCheckCmd(ptr nocapture noundef readonly %selector, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef writeonly %keyidxptr, ptr noundef %cache) unnamed_addr #0 {
+define internal fastcc i32 @ACLSelectorCheckCmd(ptr nocapture noundef readonly %selector, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef writeonly %keyidxptr, ptr noundef %cache) unnamed_addr #0 {
 entry:
   %channels = alloca %struct.getKeysResult, align 8
   %id1 = getelementptr inbounds i8, ptr %cmd, i64 208
@@ -4844,7 +4856,7 @@ for.cond:                                         ; preds = %sdslen.exit
   %15 = load i32, ptr %numkeys, align 8
   %16 = sext i32 %15 to i64
   %cmp51 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %cmp51, label %for.body, label %if.end79, !llvm.loop !46
+  br i1 %cmp51, label %for.body, label %if.end79, !llvm.loop !43
 
 for.body:                                         ; preds = %if.end48, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %if.end48 ]
@@ -4900,7 +4912,7 @@ sdslen.exit:                                      ; preds = %for.body, %sw.bb.i,
   %conv63 = trunc i64 %retval.0.i59 to i32
   %flags66 = getelementptr inbounds i8, ptr %arrayidx55, i64 4
   %25 = load i32, ptr %flags66, align 4
-  %call67 = tail call fastcc i32 @ACLSelectorCheckKey(ptr noundef nonnull %selector, ptr noundef nonnull %19, i32 noundef %conv63, i32 noundef %25), !range !41
+  %call67 = tail call fastcc i32 @ACLSelectorCheckKey(ptr noundef nonnull %selector, ptr noundef nonnull %19, i32 noundef %conv63, i32 noundef %25)
   %cmp68.not = icmp eq i32 %call67, 0
   br i1 %cmp68.not, label %for.cond, label %if.then70
 
@@ -5002,7 +5014,7 @@ sw.bb13.i63:                                      ; preds = %if.end105
 sdslen.exit78:                                    ; preds = %if.end105, %sw.bb.i75, %sw.bb3.i72, %sw.bb5.i69, %sw.bb9.i66, %sw.bb13.i63
   %retval.0.i65 = phi i64 [ %42, %sw.bb13.i63 ], [ %conv12.i68, %sw.bb9.i66 ], [ %conv8.i71, %sw.bb5.i69 ], [ %conv4.i74, %sw.bb3.i72 ], [ %conv2.i77, %sw.bb.i75 ], [ 0, %if.end105 ]
   %conv121 = trunc i64 %retval.0.i65 to i32
-  %call122 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %35, ptr noundef nonnull %37, i32 noundef %conv121, i32 noundef %34), !range !47
+  %call122 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %35, ptr noundef nonnull %37, i32 noundef %conv121, i32 noundef %34)
   %cmp123.not = icmp eq i32 %call122, 0
   br i1 %cmp123.not, label %sdslen.exit78.for.inc133_crit_edge, label %if.then125
 
@@ -5028,7 +5040,7 @@ for.inc133:                                       ; preds = %sdslen.exit78.for.i
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %45 = sext i32 %44 to i64
   %cmp92 = icmp slt i64 %indvars.iv.next92, %45
-  br i1 %cmp92, label %for.body94, label %for.end135, !llvm.loop !48
+  br i1 %cmp92, label %for.body94, label %for.end135, !llvm.loop !44
 
 for.end135:                                       ; preds = %for.inc133, %if.then86
   call void @getKeysFreeResult(ptr noundef nonnull %channels) #23
@@ -5040,7 +5052,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLUserCheckChannelPerm(ptr noundef readonly %u, ptr noundef %channel, i32 noundef %is_pattern) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ACLUserCheckChannelPerm(ptr noundef readonly %u, ptr noundef %channel, i32 noundef %is_pattern) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %cmp = icmp eq ptr %u, null
@@ -5111,9 +5123,9 @@ sw.bb13.i:                                        ; preds = %if.end3
 sdslen.exit:                                      ; preds = %if.end3, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %8, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end3 ]
   %conv = trunc i64 %retval.0.i to i32
-  %call5 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %3, ptr noundef nonnull %channel, i32 noundef %conv, i32 noundef %is_pattern), !range !47
+  %call5 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %3, ptr noundef nonnull %channel, i32 noundef %conv, i32 noundef %is_pattern)
   %cmp6 = icmp eq i32 %call5, 0
-  br i1 %cmp6, label %return, label %while.cond, !llvm.loop !49
+  br i1 %cmp6, label %return, label %while.cond, !llvm.loop !45
 
 return:                                           ; preds = %while.cond, %sdslen.exit, %while.body, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 4, %while.cond ], [ 0, %sdslen.exit ], [ 0, %while.body ]
@@ -5121,7 +5133,7 @@ return:                                           ; preds = %while.cond, %sdslen
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ACLCheckChannelAgainstList(ptr noundef %reference, ptr noundef %channel, i32 noundef %channellen, i32 noundef %is_pattern) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @ACLCheckChannelAgainstList(ptr noundef %reference, ptr noundef %channel, i32 noundef %channellen, i32 noundef %is_pattern) unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   call void @listRewind(ptr noundef %reference, ptr noundef nonnull %li) #23
@@ -5187,7 +5199,7 @@ sdslen.exit.us:                                   ; preds = %sw.bb.i.us, %sw.bb3
 if.end.us:                                        ; preds = %sdslen.exit.us
   %call.us = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool.not.us = icmp eq ptr %call.us, null
-  br i1 %tobool.not.us, label %return, label %while.body.us, !llvm.loop !50
+  br i1 %tobool.not.us, label %return, label %while.body.us, !llvm.loop !46
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %call8 = phi ptr [ %call, %if.end ], [ %call5, %while.body.lr.ph ]
@@ -5200,7 +5212,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.end:                                           ; preds = %while.body
   %call = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !50
+  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !46
 
 return:                                           ; preds = %while.body, %if.end, %sdslen.exit.us, %if.end.us, %entry
   %retval.0 = phi i32 [ 4, %entry ], [ 4, %if.end.us ], [ 0, %sdslen.exit.us ], [ 4, %if.end ], [ 0, %while.body ]
@@ -5269,7 +5281,7 @@ if.end9:                                          ; preds = %if.then8, %lor.lhs.
   %relevant_error.1 = phi i32 [ %call1, %if.then8 ], [ %relevant_error.017, %lor.lhs.false ]
   %call = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !51
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !47
 
 while.end:                                        ; preds = %if.end9
   %.pre20 = load i32, ptr %cache, align 8
@@ -5354,7 +5366,7 @@ while.body:                                       ; preds = %while.cond
   %11 = load i32, ptr %10, align 8
   %and = and i32 %11, 8
   %tobool17.not = icmp eq i32 %and, 0
-  br i1 %tobool17.not, label %while.cond, label %return, !llvm.loop !52
+  br i1 %tobool17.not, label %while.cond, label %return, !llvm.loop !48
 
 while.end:                                        ; preds = %while.cond
   %call20 = call ptr @listCreate() #23
@@ -5367,7 +5379,7 @@ while.end:                                        ; preds = %while.cond
 while.cond22.loopexit:                            ; preds = %while.body31, %while.body25
   %call23 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool24.not = icmp eq ptr %call23, null
-  br i1 %tobool24.not, label %while.end35, label %while.body25, !llvm.loop !53
+  br i1 %tobool24.not, label %while.end35, label %while.body25, !llvm.loop !49
 
 while.body25:                                     ; preds = %while.end, %while.cond22.loopexit
   %call2393 = phi ptr [ %call23, %while.cond22.loopexit ], [ %call2391, %while.end ]
@@ -5387,7 +5399,7 @@ while.body31:                                     ; preds = %while.body25, %whil
   %call33 = call ptr @listAddNodeTail(ptr noundef %call20, ptr noundef %15) #23
   %call29 = call ptr @listNext(ptr noundef nonnull %lpi) #23
   %tobool30.not = icmp eq ptr %call29, null
-  br i1 %tobool30.not, label %while.cond22.loopexit, label %while.body31, !llvm.loop !54
+  br i1 %tobool30.not, label %while.cond22.loopexit, label %while.body31, !llvm.loop !50
 
 while.end35:                                      ; preds = %while.cond22.loopexit, %while.end
   %selectors36 = getelementptr inbounds i8, ptr %original, i64 24
@@ -5422,7 +5434,7 @@ while.body56:                                     ; preds = %while.cond50
   %20 = load ptr, ptr %value57, align 8
   %call58 = call ptr @listSearchKey(ptr noundef %call20, ptr noundef %20) #23
   %tobool59.not = icmp eq ptr %call58, null
-  br i1 %tobool59.not, label %while.end63.thread103, label %while.cond50, !llvm.loop !55
+  br i1 %tobool59.not, label %while.end63.thread103, label %while.cond50, !llvm.loop !51
 
 while.end63.thread103:                            ; preds = %while.body56
   %call38100 = call ptr @listNext(ptr noundef nonnull %li) #23
@@ -5432,7 +5444,7 @@ while.end62:                                      ; preds = %while.cond50
   %call38 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool39 = icmp ne ptr %call38, null
   %21 = and i1 %tobool52.not, %tobool39
-  br i1 %21, label %while.body41, label %return.sink.split, !llvm.loop !56
+  br i1 %21, label %while.body41, label %return.sink.split, !llvm.loop !52
 
 if.end66:                                         ; preds = %while.body41, %while.end63.thread103
   %22 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 55), align 8
@@ -5485,7 +5497,7 @@ while.body.i:                                     ; preds = %while.body83, %if.e
 if.end.i:                                         ; preds = %while.body.i
   %call.i = call ptr @listNext(ptr noundef nonnull %li.i) #23
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.end112.thread, label %while.body.i, !llvm.loop !50
+  br i1 %tobool.not.i, label %if.end112.thread, label %while.body.i, !llvm.loop !46
 
 ACLCheckChannelAgainstList.exit:                  ; preds = %while.body.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
@@ -5552,9 +5564,9 @@ sw.bb13.i42:                                      ; preds = %while.body101
 sdslen.exit57:                                    ; preds = %while.body101, %sw.bb.i54, %sw.bb3.i51, %sw.bb5.i48, %sw.bb9.i45, %sw.bb13.i42
   %retval.0.i44 = phi i64 [ %34, %sw.bb13.i42 ], [ %conv12.i47, %sw.bb9.i45 ], [ %conv8.i50, %sw.bb5.i48 ], [ %conv4.i53, %sw.bb3.i51 ], [ %conv2.i56, %sw.bb.i54 ], [ 0, %while.body101 ]
   %conv107 = trunc i64 %retval.0.i44 to i32
-  %call108 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %call20, ptr noundef nonnull %29, i32 noundef %conv107, i32 noundef 0), !range !47
+  %call108 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %call20, ptr noundef nonnull %29, i32 noundef %conv107, i32 noundef 0)
   %cmp109.not = icmp eq i32 %call108, 4
-  br i1 %cmp109.not, label %if.then136, label %land.rhs96, !llvm.loop !57
+  br i1 %cmp109.not, label %if.then136, label %land.rhs96, !llvm.loop !53
 
 if.end112.thread:                                 ; preds = %while.body83, %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
@@ -5623,9 +5635,9 @@ sw.bb13.i61:                                      ; preds = %while.body123
 sdslen.exit76:                                    ; preds = %while.body123, %sw.bb.i73, %sw.bb3.i70, %sw.bb5.i67, %sw.bb9.i64, %sw.bb13.i61
   %retval.0.i63 = phi i64 [ %41, %sw.bb13.i61 ], [ %conv12.i66, %sw.bb9.i64 ], [ %conv8.i69, %sw.bb5.i67 ], [ %conv4.i72, %sw.bb3.i70 ], [ %conv2.i75, %sw.bb.i73 ], [ 0, %while.body123 ]
   %conv129 = trunc i64 %retval.0.i63 to i32
-  %call130 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %call20, ptr noundef nonnull %36, i32 noundef %conv129, i32 noundef 0), !range !47
+  %call130 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %call20, ptr noundef nonnull %36, i32 noundef %conv129, i32 noundef 0)
   %cmp131.not = icmp eq i32 %call130, 4
-  br i1 %cmp131.not, label %if.then136, label %land.rhs118, !llvm.loop !58
+  br i1 %cmp131.not, label %if.then136, label %land.rhs118, !llvm.loop !54
 
 if.then136:                                       ; preds = %sdslen.exit57, %sdslen.exit76, %if.end112.thread
   %call76.sink = phi ptr [ %call76, %if.end112.thread ], [ %call115, %sdslen.exit76 ], [ %call93, %sdslen.exit57 ]
@@ -5636,7 +5648,7 @@ if.then136:                                       ; preds = %sdslen.exit57, %sds
 if.end138:                                        ; preds = %if.end134.thread85, %if.then136, %land.lhs.true72, %while.body69
   %call68 = call ptr @listNext(ptr noundef nonnull %li) #23
   %cmp.not = icmp eq ptr %call68, null
-  br i1 %cmp.not, label %return.sink.split, label %while.body69, !llvm.loop !59
+  br i1 %cmp.not, label %return.sink.split, label %while.body69, !llvm.loop !55
 
 return.sink.split:                                ; preds = %while.end62, %if.end138, %if.end66, %while.end35
   call void @listRelease(ptr noundef %call20) #23
@@ -5808,7 +5820,7 @@ for.inc:                                          ; preds = %sdslen.exit49, %if.
   %selector.1 = phi ptr [ %call16, %if.then ], [ %call20, %if.then27 ], [ %call20, %sdslen.exit49 ], [ %selector.052, %if.end31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !60
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !56
 
 for.end:                                          ; preds = %for.inc
   %cmp39.not = icmp eq i32 %open_bracket_start.1, -1
@@ -5828,7 +5840,7 @@ for.body45:                                       ; preds = %for.cond42.preheade
   %21 = load i32, ptr %merged_argc, align 4
   %22 = sext i32 %21 to i64
   %cmp43 = icmp slt i64 %indvars.iv.next60, %22
-  br i1 %cmp43, label %for.body45, label %for.end50, !llvm.loop !61
+  br i1 %cmp43, label %for.body45, label %for.end50, !llvm.loop !57
 
 for.end50:                                        ; preds = %for.body45, %for.cond42.preheader
   tail call void @zfree(ptr noundef %call) #23
@@ -5931,7 +5943,7 @@ for.body.preheader:                               ; preds = %if.end9
 for.cond:                                         ; preds = %sdslen.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !62
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !58
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
@@ -5979,7 +5991,7 @@ sw.bb13.i:                                        ; preds = %for.body
 
 sdslen.exit:                                      ; preds = %for.body, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %16, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body ]
-  %call17 = call i32 @ACLSetUser(ptr noundef %call6, ptr noundef nonnull %11, i64 noundef %retval.0.i), !range !24
+  %call17 = call i32 @ACLSetUser(ptr noundef %call6, ptr noundef nonnull %11, i64 noundef %retval.0.i)
   %cmp18.not = icmp eq i32 %call17, 0
   br i1 %cmp18.not, label %for.cond, label %if.then20
 
@@ -6163,7 +6175,7 @@ for.body49:                                       ; preds = %for.body49.preheade
   call void @sdsfree(ptr noundef %35) #23
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %for.end54, label %for.body49, !llvm.loop !63
+  br i1 %exitcond82.not, label %for.end54, label %for.body49, !llvm.loop !59
 
 for.end54:                                        ; preds = %for.body49, %ACLFreeUser.exit
   call void @zfree(ptr noundef nonnull %call) #23
@@ -6175,7 +6187,7 @@ return:                                           ; preds = %for.end54, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLAppendUserForLoading(ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr noundef %argc_err) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr noundef %argc_err) local_unnamed_addr #0 {
 entry:
   %merged_argc = alloca i32, align 4
   %cmp = icmp slt i32 %argc, 2
@@ -6279,7 +6291,7 @@ sw.bb13.i:                                        ; preds = %for.body
 
 sdslen.exit:                                      ; preds = %for.body, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %9, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body ]
-  %call23 = tail call i32 @ACLSetUser(ptr noundef %call17, ptr noundef nonnull %4, i64 noundef %retval.0.i), !range !24
+  %call23 = tail call i32 @ACLSetUser(ptr noundef %call17, ptr noundef nonnull %4, i64 noundef %retval.0.i)
   %cmp24 = icmp eq i32 %call23, -1
   br i1 %cmp24, label %if.then25, label %for.inc39
 
@@ -6311,7 +6323,7 @@ for.body34:                                       ; preds = %for.body34.preheade
   tail call void @sdsfree(ptr noundef %12) #23
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %for.end, label %for.body34, !llvm.loop !64
+  br i1 %exitcond51.not, label %for.end, label %for.body34, !llvm.loop !60
 
 for.end:                                          ; preds = %for.body34
   tail call void @zfree(ptr noundef nonnull %call13) #23
@@ -6320,7 +6332,7 @@ for.end:                                          ; preds = %for.body34
 for.inc39:                                        ; preds = %sdslen.exit, %if.then25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end41, label %for.body, !llvm.loop !65
+  br i1 %exitcond.not, label %for.end41, label %for.body, !llvm.loop !61
 
 for.end41:                                        ; preds = %for.inc39, %if.end16
   %add = add nsw i32 %3, 2
@@ -6345,7 +6357,7 @@ for.body50:                                       ; preds = %for.body50.preheade
   %arrayidx56 = getelementptr inbounds ptr, ptr %call42, i64 %indvars.iv.next53
   store ptr %call53, ptr %arrayidx56, align 8
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %for.end59, label %for.body50, !llvm.loop !66
+  br i1 %exitcond56.not, label %for.end59, label %for.body50, !llvm.loop !62
 
 for.end59:                                        ; preds = %for.body50, %for.end41
   %15 = sext i32 %3 to i64
@@ -6387,7 +6399,7 @@ for.body68:                                       ; preds = %for.body68.preheade
   tail call void @sdsfree(ptr noundef %22) #23
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %for.end73, label %for.body68, !llvm.loop !67
+  br i1 %exitcond61.not, label %for.end73, label %for.body68, !llvm.loop !63
 
 for.end73:                                        ; preds = %for.body68, %ACLFreeUser.exit
   tail call void @zfree(ptr noundef nonnull %call13) #23
@@ -6399,7 +6411,7 @@ return:                                           ; preds = %if.end12, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLLoadConfiguredUsers() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLLoadConfiguredUsers() local_unnamed_addr #0 {
 entry:
   %myuser.i = alloca ptr, align 8
   %li = alloca %struct.listIter, align 8
@@ -6551,7 +6563,7 @@ cond.end:                                         ; preds = %if.then11
   %call.i39 = call i32 @raxFind(ptr noundef %17, ptr noundef nonnull @.str.88, i64 noundef 7, ptr noundef nonnull %myuser.i) #23
   %18 = load ptr, ptr %myuser.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %myuser.i)
-  %call18 = call i32 @ACLSetUser(ptr noundef %18, ptr noundef nonnull @.str.70, i64 noundef -1), !range !24
+  %call18 = call i32 @ACLSetUser(ptr noundef %18, ptr noundef nonnull @.str.70, i64 noundef -1)
   br label %if.end19
 
 if.end19:                                         ; preds = %cond.end, %sdslen.exit38
@@ -6566,7 +6578,7 @@ for.cond:                                         ; preds = %sdslen.exit58
   %arrayidx20 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
   %20 = load ptr, ptr %arrayidx20, align 8
   %tobool21.not = icmp eq ptr %20, null
-  br i1 %tobool21.not, label %for.end, label %for.body, !llvm.loop !68
+  br i1 %tobool21.not, label %for.end, label %for.body, !llvm.loop !64
 
 for.body:                                         ; preds = %if.end19, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 1, %if.end19 ]
@@ -6613,7 +6625,7 @@ sw.bb13.i43:                                      ; preds = %for.body
 
 sdslen.exit58:                                    ; preds = %for.body, %sw.bb.i55, %sw.bb3.i52, %sw.bb5.i49, %sw.bb9.i46, %sw.bb13.i43
   %retval.0.i45 = phi i64 [ %26, %sw.bb13.i43 ], [ %conv12.i48, %sw.bb9.i46 ], [ %conv8.i51, %sw.bb5.i49 ], [ %conv4.i54, %sw.bb3.i52 ], [ %conv2.i57, %sw.bb.i55 ], [ 0, %for.body ]
-  %call27 = call i32 @ACLSetUser(ptr noundef %u.0, ptr noundef nonnull %21, i64 noundef %retval.0.i45), !range !24
+  %call27 = call i32 @ACLSetUser(ptr noundef %u.0, ptr noundef nonnull %21, i64 noundef %retval.0.i45)
   %cmp28.not = icmp eq i32 %call27, 0
   br i1 %cmp28.not, label %for.cond, label %if.then30
 
@@ -6686,7 +6698,7 @@ if.end48:                                         ; preds = %for.end
 if.end51:                                         ; preds = %if.end48, %for.end
   %call = call ptr @listNext(ptr noundef nonnull %li) #23
   %cmp.not = icmp eq ptr %call, null
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !69
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !65
 
 return:                                           ; preds = %if.end51, %entry, %if.end36, %ACLSetUserStringError.exit, %if.end, %do.body
   %retval.0 = phi i32 [ -1, %do.body ], [ -1, %if.end ], [ -1, %ACLSetUserStringError.exit ], [ -1, %if.end36 ], [ 0, %entry ], [ 0, %if.end51 ]
@@ -6726,7 +6738,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %call9 = call ptr @sdscat(ptr noundef %acls.0198, ptr noundef nonnull %buf) #23
   %call6 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 1024, ptr noundef nonnull %call)
   %cmp7.not = icmp eq ptr %call6, null
-  br i1 %cmp7.not, label %while.end, label %while.body, !llvm.loop !70
+  br i1 %cmp7.not, label %while.end, label %while.body, !llvm.loop !66
 
 while.end:                                        ; preds = %while.body, %if.end
   %acls.0.lcssa = phi ptr [ %call1, %if.end ], [ %call9, %while.body ]
@@ -7045,7 +7057,7 @@ sw.bb13.i114:                                     ; preds = %for.body75
 
 sdslen.exit129:                                   ; preds = %for.body75, %sw.bb.i126, %sw.bb3.i123, %sw.bb5.i120, %sw.bb9.i117, %sw.bb13.i114
   %retval.0.i116 = phi i64 [ %48, %sw.bb13.i114 ], [ %conv12.i119, %sw.bb9.i117 ], [ %conv8.i122, %sw.bb5.i120 ], [ %conv4.i125, %sw.bb3.i123 ], [ %conv2.i128, %sw.bb.i126 ], [ 0, %for.body75 ]
-  %call86 = call i32 @ACLSetUser(ptr noundef nonnull %call61, ptr noundef nonnull %call78, i64 noundef %retval.0.i116), !range !24
+  %call86 = call i32 @ACLSetUser(ptr noundef nonnull %call61, ptr noundef nonnull %call78, i64 noundef %retval.0.i116)
   %cmp87.not = icmp eq i32 %call86, 0
   br i1 %cmp87.not, label %for.inc, label %if.then89
 
@@ -7107,7 +7119,7 @@ for.inc:                                          ; preds = %sdslen.exit129, %if
   %53 = load i32, ptr %merged_argc, align 4
   %54 = sext i32 %53 to i64
   %cmp73 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %cmp73, label %for.body75, label %for.cond106.preheader, !llvm.loop !71
+  br i1 %cmp73, label %for.body75, label %for.cond106.preheader, !llvm.loop !67
 
 for.body109:                                      ; preds = %for.body109.preheader, %for.body109
   %indvars.iv215 = phi i64 [ 0, %for.body109.preheader ], [ %indvars.iv.next216, %for.body109 ]
@@ -7116,7 +7128,7 @@ for.body109:                                      ; preds = %for.body109.prehead
   call void @sdsfree(ptr noundef %55) #23
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count
-  br i1 %exitcond.not, label %for.end114, label %for.body109, !llvm.loop !72
+  br i1 %exitcond.not, label %for.end114, label %for.body109, !llvm.loop !68
 
 for.end114:                                       ; preds = %for.body109, %if.end71, %for.cond106.preheader
   %errors11.2.lcssa224 = phi ptr [ %errors11.3, %for.cond106.preheader ], [ %errors11.1, %if.end71 ], [ %errors11.3, %for.body109 ]
@@ -7181,7 +7193,7 @@ for.inc120:                                       ; preds = %for.body, %if.end11
   %63 = load i32, ptr %totlines, align 4
   %64 = sext i32 %63 to i64
   %cmp16 = icmp slt i64 %indvars.iv.next219, %64
-  br i1 %cmp16, label %for.body, label %for.end122, !llvm.loop !73
+  br i1 %cmp16, label %for.body, label %for.end122, !llvm.loop !69
 
 for.end122:                                       ; preds = %for.inc120, %while.end
   %errors11.0.lcssa = phi ptr [ %call12, %while.end ], [ %errors11.4, %for.inc120 ]
@@ -7244,11 +7256,11 @@ if.then126:                                       ; preds = %for.end122, %sdslen
 
 if.then129:                                       ; preds = %if.then126
   %call.i170 = call ptr @ACLCreateUser(ptr noundef nonnull @.str.88, i64 noundef 7)
-  %call1.i = call i32 @ACLSetUser(ptr noundef %call.i170, ptr noundef nonnull @.str.45, i64 noundef -1), !range !24
-  %call2.i = call i32 @ACLSetUser(ptr noundef %call.i170, ptr noundef nonnull @.str.61, i64 noundef -1), !range !24
-  %call3.i = call i32 @ACLSetUser(ptr noundef %call.i170, ptr noundef nonnull @.str.63, i64 noundef -1), !range !24
-  %call4.i = call i32 @ACLSetUser(ptr noundef %call.i170, ptr noundef nonnull @.str.23, i64 noundef -1), !range !24
-  %call5.i = call i32 @ACLSetUser(ptr noundef %call.i170, ptr noundef nonnull @.str.25, i64 noundef -1), !range !24
+  %call1.i = call i32 @ACLSetUser(ptr noundef %call.i170, ptr noundef nonnull @.str.45, i64 noundef -1)
+  %call2.i = call i32 @ACLSetUser(ptr noundef %call.i170, ptr noundef nonnull @.str.61, i64 noundef -1)
+  %call3.i = call i32 @ACLSetUser(ptr noundef %call.i170, ptr noundef nonnull @.str.63, i64 noundef -1)
+  %call4.i = call i32 @ACLSetUser(ptr noundef %call.i170, ptr noundef nonnull @.str.23, i64 noundef -1)
+  %call5.i = call i32 @ACLSetUser(ptr noundef %call.i170, ptr noundef nonnull @.str.25, i64 noundef -1)
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then129, %if.then126
@@ -7349,7 +7361,7 @@ declare ptr @sdssplitlen(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr
 declare ptr @sdstrim(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ACLSaveToFile(ptr noundef %filename) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLSaveToFile(ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
   %call = tail call ptr @sdsempty() #23
@@ -7381,7 +7393,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @sdsfree(ptr noundef %call8) #23
   %call3 = call i32 @raxNext(ptr noundef nonnull %ri) #23
   %tobool.not = icmp eq i32 %call3, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !74
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !70
 
 while.end:                                        ; preds = %while.body, %entry
   %acl.0.lcssa = phi ptr [ %call, %entry ], [ %call10, %while.body ]
@@ -7499,7 +7511,7 @@ if.then28:                                        ; preds = %sdslen.exit46
   %call29 = tail call ptr @__errno_location() #26
   %15 = load i32, ptr %call29, align 4
   %cmp30 = icmp eq i32 %15, 4
-  br i1 %cmp30, label %while.cond21, label %do.body33, !llvm.loop !75
+  br i1 %cmp30, label %while.cond21, label %do.body33, !llvm.loop !71
 
 do.body33:                                        ; preds = %if.then28
   %16 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
@@ -7508,7 +7520,7 @@ do.body33:                                        ; preds = %if.then28
 
 if.end40:                                         ; preds = %sdslen.exit46
   %add = add i64 %call26, %offset.0.ph
-  br label %while.cond21.outer, !llvm.loop !75
+  br label %while.cond21.outer, !llvm.loop !71
 
 while.cond21.outer:                               ; preds = %while.cond21.preheader, %if.end40
   %offset.0.ph = phi i64 [ 0, %while.cond21.preheader ], [ %add, %if.end40 ]
@@ -7648,7 +7660,7 @@ do.end:                                           ; preds = %do.body, %if.end
   unreachable
 
 if.end7:                                          ; preds = %land.lhs.true, %entry
-  %call = tail call i32 @ACLLoadConfiguredUsers(), !range !24
+  %call = tail call i32 @ACLLoadConfiguredUsers()
   %cmp8 = icmp eq i32 %call, -1
   br i1 %cmp8, label %do.body11, label %if.end17
 
@@ -7698,7 +7710,7 @@ if.end32:                                         ; preds = %if.then22, %if.end1
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ACLLogMatchEntry(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ACLLogMatchEntry(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %reason = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %reason, align 8
@@ -7932,7 +7944,7 @@ if.then10:                                        ; preds = %if.end8
 while.cond.backedge:                              ; preds = %if.end8, %if.then10, %while.body
   %call1 = tail call ptr @dictNext(ptr noundef %call) #23
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !76
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !72
 
 while.end:                                        ; preds = %while.cond.backedge, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #23
@@ -7986,7 +7998,7 @@ if.end:                                           ; preds = %if.then5, %while.bo
   %call7 = call ptr @sdsCatPatternString(ptr noundef %dsl.1, ptr noundef %2)
   %call2 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool3.not = icmp eq ptr %call2, null
-  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !77
+  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !73
 
 while.end:                                        ; preds = %if.end, %if.else
   %dsl.0.lcssa = phi ptr [ %call1, %if.else ], [ %call7, %if.end ]
@@ -8032,7 +8044,7 @@ if.end27:                                         ; preds = %if.then25, %while.b
   %call28 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %dsl14.1, ptr noundef nonnull @.str.133, ptr noundef %7) #23
   %call17 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool18.not = icmp eq ptr %call17, null
-  br i1 %tobool18.not, label %while.end29, label %while.body19, !llvm.loop !78
+  br i1 %tobool18.not, label %while.end29, label %while.body19, !llvm.loop !74
 
 while.end29:                                      ; preds = %if.end27, %if.else13
   %dsl14.0.lcssa = phi ptr [ %call15, %if.else13 ], [ %call28, %if.end27 ]
@@ -8085,7 +8097,7 @@ for.body:                                         ; preds = %land.lhs.true, %for
   %inc = add nuw nsw i32 %j.0444, 1
   %4 = load i32, ptr %argc, align 8
   %cmp2 = icmp slt i32 %inc, %4
-  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !79
+  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !75
 
 for.end:                                          ; preds = %for.body
   %.pre469 = load ptr, ptr %argv, align 8
@@ -8234,7 +8246,7 @@ for.body18:                                       ; preds = %for.body18.lr.ph, %
   store ptr %25, ptr %gep, align 8
   %indvars.iv.next463 = add nuw nsw i64 %indvars.iv462, 1
   %exitcond466.not = icmp eq i64 %indvars.iv.next463, %wide.trip.count465
-  br i1 %exitcond466.not, label %for.end27, label %for.body18, !llvm.loop !80
+  br i1 %exitcond466.not, label %for.end27, label %for.body18, !llvm.loop !76
 
 for.end27:                                        ; preds = %for.body18, %sdslen.exit238
   %sub29 = add nsw i32 %22, -3
@@ -8278,12 +8290,12 @@ for.body48:                                       ; preds = %land.lhs.true38, %f
   %inc50 = add nuw nsw i32 %j43.0435, 1
   %29 = load i32, ptr %argc39, align 8
   %cmp46 = icmp slt i32 %inc50, %29
-  br i1 %cmp46, label %for.body48, label %for.cond53.preheader, !llvm.loop !81
+  br i1 %cmp46, label %for.body48, label %for.cond53.preheader, !llvm.loop !77
 
 for.cond53:                                       ; preds = %for.body57
   %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next457, %wide.trip.count
-  br i1 %exitcond.not, label %for.body75, label %for.body57, !llvm.loop !82
+  br i1 %exitcond.not, label %for.body75, label %for.body57, !llvm.loop !78
 
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.cond53
   %indvars.iv456 = phi i64 [ 2, %for.body57.lr.ph ], [ %indvars.iv.next457, %for.cond53 ]
@@ -8366,7 +8378,7 @@ for.inc88:                                        ; preds = %sdslen.exit258, %if
   %42 = load i32, ptr %argc39, align 8
   %43 = sext i32 %42 to i64
   %cmp73 = icmp slt i64 %indvars.iv.next460, %43
-  br i1 %cmp73, label %for.body75, label %for.end90.loopexit, !llvm.loop !83
+  br i1 %cmp73, label %for.body75, label %for.end90.loopexit, !llvm.loop !79
 
 for.end90.loopexit:                               ; preds = %for.inc88
   %44 = sext i32 %deleted.1 to i64
@@ -8486,7 +8498,7 @@ for.inc131:                                       ; preds = %for.body120, %if.th
   %flag = getelementptr inbounds i8, ptr %arrayidx118, i64 8
   %60 = load i64, ptr %flag, align 8
   %tobool119.not = icmp eq i64 %60, 0
-  br i1 %tobool119.not, label %for.end133.loopexit, label %for.body120, !llvm.loop !84
+  br i1 %tobool119.not, label %for.end133.loopexit, label %for.body120, !llvm.loop !80
 
 for.end133.loopexit:                              ; preds = %for.inc131
   %61 = sext i32 %numflags.1 to i64
@@ -8556,7 +8568,7 @@ sdslen.exit298:                                   ; preds = %while.body, %sw.bb.
   call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %65, i64 noundef %retval.0.i285) #23
   %call136 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool137.not = icmp eq ptr %call136, null
-  br i1 %tobool137.not, label %while.end, label %while.body, !llvm.loop !85
+  br i1 %tobool137.not, label %while.end, label %while.body, !llvm.loop !81
 
 while.end:                                        ; preds = %sdslen.exit298, %for.end133
   %selectors.i = getelementptr inbounds i8, ptr %55, i64 24
@@ -8618,7 +8630,7 @@ while.body152:                                    ; preds = %while.cond149.prehe
   call void @setDeferredMapLen(ptr noundef %c, ptr noundef %call153, i64 noundef 3) #23
   %call150 = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool151.not = icmp eq ptr %call150, null
-  br i1 %tobool151.not, label %while.end157, label %while.body152, !llvm.loop !86
+  br i1 %tobool151.not, label %while.end157, label %while.body152, !llvm.loop !82
 
 while.end157:                                     ; preds = %while.body152, %while.cond149.preheader
   call void @setDeferredMapLen(ptr noundef %c, ptr noundef %call113, i64 noundef 6) #23
@@ -8705,7 +8717,7 @@ sdslen.exit319.us:                                ; preds = %sw.bb.i316.us, %sw.
   call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %84, i64 noundef %retval.0.i306.us) #23
   %call176.us = call i32 @raxNext(ptr noundef nonnull %ri) #23
   %tobool177.not.us = icmp eq i32 %call176.us, 0
-  br i1 %tobool177.not.us, label %while.end194, label %while.body178.us, !llvm.loop !87
+  br i1 %tobool177.not.us, label %while.end194, label %while.body178.us, !llvm.loop !83
 
 while.body178:                                    ; preds = %while.body178.lr.ph, %while.body178
   %90 = load ptr, ptr %data, align 8
@@ -8721,7 +8733,7 @@ while.body178:                                    ; preds = %while.body178.lr.ph
   call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call192) #23
   %call176 = call i32 @raxNext(ptr noundef nonnull %ri) #23
   %tobool177.not = icmp eq i32 %call176, 0
-  br i1 %tobool177.not, label %while.end194, label %while.body178, !llvm.loop !87
+  br i1 %tobool177.not, label %while.end194, label %while.body178, !llvm.loop !83
 
 while.end194:                                     ; preds = %while.body178, %sdslen.exit319.us, %if.then168
   call void @raxStop(ptr noundef nonnull %ri) #23
@@ -8853,7 +8865,7 @@ land.lhs.true242:                                 ; preds = %if.else239
   br i1 %cmp244, label %if.then246, label %if.else253
 
 if.then246:                                       ; preds = %land.lhs.true242
-  %call247 = tail call i32 @ACLSaveToFile(ptr noundef nonnull %101), !range !24
+  %call247 = tail call i32 @ACLSaveToFile(ptr noundef nonnull %101)
   %cmp248 = icmp eq i32 %call247, 0
   br i1 %cmp248, label %if.then250, label %if.else251
 
@@ -8898,7 +8910,7 @@ for.body269:                                      ; preds = %if.then260, %for.bo
   %flag266 = getelementptr inbounds i8, ptr %arrayidx265, i64 8
   %112 = load i64, ptr %flag266, align 8
   %cmp267.not = icmp eq i64 %112, 0
-  br i1 %cmp267.not, label %for.end275, label %for.body269, !llvm.loop !88
+  br i1 %cmp267.not, label %for.end275, label %for.body269, !llvm.loop !84
 
 for.end275:                                       ; preds = %for.body269, %if.then260
   %idxprom264.lcssa = phi i64 [ 0, %if.then260 ], [ %indvars.iv.next, %for.body269 ]
@@ -9273,7 +9285,7 @@ sdslen.exit399:                                   ; preds = %sdslen.exit380, %sw
   %dec = add nsw i64 %171, -1
   store i64 %dec, ptr %count, align 8
   %tobool378.not = icmp eq i64 %171, 0
-  br i1 %tobool378.not, label %if.end496, label %land.rhs, !llvm.loop !89
+  br i1 %tobool378.not, label %if.end496, label %land.rhs, !llvm.loop !85
 
 if.else406:                                       ; preds = %land.lhs.true334, %if.else331
   %call407 = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull @.str.172) #27
@@ -9469,7 +9481,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %flag = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = load i64, ptr %flag, align 8
   %cmp.not = icmp eq i64 %7, 0
-  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !90
+  br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !86
 
 for.end.loopexit:                                 ; preds = %for.inc
   %8 = sext i32 %flagcount.1 to i64
@@ -9542,7 +9554,7 @@ if.end10:                                         ; preds = %if.else, %if.end5
   br i1 %cmp.i, label %if.then.i, label %ACLAuthenticateUser.exit
 
 if.then.i:                                        ; preds = %if.end10
-  %call1.i = call i32 @checkPasswordBasedAuth(ptr noundef nonnull %c, ptr noundef %username.0, ptr noundef %password.0), !range !28
+  %call1.i = call i32 @checkPasswordBasedAuth(ptr noundef nonnull %c, ptr noundef %username.0, ptr noundef %password.0)
   br label %ACLAuthenticateUser.exit
 
 ACLAuthenticateUser.exit:                         ; preds = %if.end10, %if.then.i
@@ -9596,7 +9608,7 @@ declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #
 define dso_local void @ACLUpdateDefaultUserPassword(ptr noundef %password) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @DefaultUser, align 8
-  %call = tail call i32 @ACLSetUser(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef -1), !range !24
+  %call = tail call i32 @ACLSetUser(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef -1)
   %tobool.not = icmp eq ptr %password, null
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -9688,13 +9700,13 @@ sw.bb13.i8:                                       ; preds = %sdslen.exit
 
 sdslen.exit23:                                    ; preds = %sdslen.exit, %sw.bb.i20, %sw.bb3.i17, %sw.bb5.i14, %sw.bb9.i11, %sw.bb13.i8
   %retval.0.i10 = phi i64 [ %11, %sw.bb13.i8 ], [ %conv12.i13, %sw.bb9.i11 ], [ %conv8.i16, %sw.bb5.i14 ], [ %conv4.i19, %sw.bb3.i17 ], [ %conv2.i22, %sw.bb.i20 ], [ 0, %sdslen.exit ]
-  %call5 = tail call i32 @ACLSetUser(ptr noundef %6, ptr noundef nonnull %call3, i64 noundef %retval.0.i10), !range !24
+  %call5 = tail call i32 @ACLSetUser(ptr noundef %6, ptr noundef nonnull %call3, i64 noundef %retval.0.i10)
   tail call void @sdsfree(ptr noundef nonnull %call3) #23
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %12 = load ptr, ptr @DefaultUser, align 8
-  %call6 = tail call i32 @ACLSetUser(ptr noundef %12, ptr noundef nonnull @.str.25, i64 noundef -1), !range !24
+  %call6 = tail call i32 @ACLSetUser(ptr noundef %12, ptr noundef nonnull @.str.25, i64 noundef -1)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %sdslen.exit23
@@ -9785,11 +9797,11 @@ attributes #28 = { nounwind allocsize(1) }
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
-!24 = !{i32 -1, i32 1}
+!24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
-!28 = !{i32 0, i32 2}
+!28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
@@ -9802,13 +9814,13 @@ attributes #28 = { nounwind allocsize(1) }
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
-!41 = !{i32 0, i32 3}
+!41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}
-!47 = !{i32 0, i32 5}
+!47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}
 !49 = distinct !{!49, !6}
 !50 = distinct !{!50, !6}
@@ -9848,7 +9860,3 @@ attributes #28 = { nounwind allocsize(1) }
 !84 = distinct !{!84, !6}
 !85 = distinct !{!85, !6}
 !86 = distinct !{!86, !6}
-!87 = distinct !{!87, !6}
-!88 = distinct !{!88, !6}
-!89 = distinct !{!89, !6}
-!90 = distinct !{!90, !6}

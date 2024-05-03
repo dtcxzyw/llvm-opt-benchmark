@@ -46,8 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [56 x i8] c"xmin: %u, xmax: %u, oldest running: %u, oldest xmin: %u\00", align 1
 @__func__.SnapBuildProcessRunningXacts = private unnamed_addr constant [29 x i8] c"SnapBuildProcessRunningXacts\00", align 1
 @.str.20 = private unnamed_addr constant [21 x i8] c"pg_logical/snapshots\00", align 1
-@.str.21 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.22 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.23 = private unnamed_addr constant [24 x i8] c"pg_logical/snapshots/%s\00", align 1
 @.str.24 = private unnamed_addr constant [32 x i8] c"only regular files expected: %s\00", align 1
 @__func__.CheckPointSnapBuild = private unnamed_addr constant [20 x i8] c"CheckPointSnapBuild\00", align 1
@@ -99,10 +97,10 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @AllocateSnapshotBuilder(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = zext i1 %3 to i8
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
-  %8 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
+  %8 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #14
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
-  %10 = tail call ptr @palloc0(i64 noundef 128) #15
+  %10 = tail call ptr @palloc0(i64 noundef 128) #14
   store i32 -1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %8, ptr %11, align 8
@@ -112,7 +110,7 @@ define dso_local noundef ptr @AllocateSnapshotBuilder(ptr noundef %0, i32 nounde
   store i64 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 88
   store i64 128, ptr %14, align 8
-  %15 = tail call ptr @palloc0(i64 noundef 512) #15
+  %15 = tail call ptr @palloc0(i64 noundef 512) #14
   %16 = getelementptr inbounds i8, ptr %10, i64 104
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %10, i64 96
@@ -151,10 +149,10 @@ define dso_local void @FreeSnapshotBuilder(ptr nocapture noundef %0) local_unnam
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__func__.SnapBuildSnapDecRefcount) #15
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__func__.SnapBuildSnapDecRefcount) #14
   unreachable
 
 13:                                               ; preds = %6
@@ -166,7 +164,7 @@ define dso_local void @FreeSnapshotBuilder(ptr nocapture noundef %0) local_unnam
   br i1 %17, label %SnapBuildFreeSnapshot.exit.i, label %SnapBuildSnapDecRefcount.exit
 
 SnapBuildFreeSnapshot.exit.i:                     ; preds = %13
-  tail call void @pfree(ptr noundef nonnull %5) #15
+  tail call void @pfree(ptr noundef nonnull %5) #14
   br label %SnapBuildSnapDecRefcount.exit
 
 SnapBuildSnapDecRefcount.exit:                    ; preds = %13, %SnapBuildFreeSnapshot.exit.i
@@ -174,7 +172,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %13, %SnapBuildFreeS
   br label %18
 
 18:                                               ; preds = %SnapBuildSnapDecRefcount.exit, %1
-  tail call void @MemoryContextDelete(ptr noundef %3) #15
+  tail call void @MemoryContextDelete(ptr noundef %3) #14
   ret void
 }
 
@@ -186,10 +184,10 @@ define dso_local void @SnapBuildSnapDecRefcount(ptr noundef %0) local_unnamed_ad
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__func__.SnapBuildSnapDecRefcount) #15
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__func__.SnapBuildSnapDecRefcount) #14
   unreachable
 
 8:                                                ; preds = %1
@@ -201,7 +199,7 @@ define dso_local void @SnapBuildSnapDecRefcount(ptr noundef %0) local_unnamed_ad
   br i1 %12, label %SnapBuildFreeSnapshot.exit, label %13
 
 SnapBuildFreeSnapshot.exit:                       ; preds = %8
-  tail call void @pfree(ptr noundef nonnull %0) #15
+  tail call void @pfree(ptr noundef nonnull %0) #14
   br label %13
 
 13:                                               ; preds = %SnapBuildFreeSnapshot.exit, %8
@@ -250,15 +248,15 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  tail call void @InvalidateCatalogSnapshot() #15
-  %3 = tail call zeroext i1 @HaveRegisteredOrActiveSnapshot() #15
+  tail call void @InvalidateCatalogSnapshot() #14
+  %3 = tail call zeroext i1 @HaveRegisteredOrActiveSnapshot() #14
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 584, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #15
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 584, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #14
   unreachable
 
 7:                                                ; preds = %1
@@ -267,10 +265,10 @@ define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef rea
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 588, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #15
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 588, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #14
   unreachable
 
 12:                                               ; preds = %7
@@ -280,10 +278,10 @@ define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef rea
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 591, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #15
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 591, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #14
   unreachable
 
 19:                                               ; preds = %12
@@ -294,10 +292,10 @@ define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef rea
   br i1 %.not21, label %26, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 595, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #15
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 595, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #14
   unreachable
 
 26:                                               ; preds = %19
@@ -307,7 +305,7 @@ define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef rea
   %30 = add i64 %29, 124
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr @MemoryContextAllocZero(ptr noundef %32, i64 noundef %30) #15
+  %33 = tail call ptr @MemoryContextAllocZero(ptr noundef %32, i64 noundef %30) #14
   store i32 5, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 16
   %35 = load i32, ptr %34, align 8
@@ -330,7 +328,7 @@ define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef rea
   %48 = shl i64 %47, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %46, i64 %48, i1 false)
   %49 = and i64 %42, 4294967295
-  tail call void @pg_qsort(ptr noundef %40, i64 noundef %49, i64 noundef 4, ptr noundef nonnull @xidComparator) #15
+  tail call void @pg_qsort(ptr noundef %40, i64 noundef %49, i64 noundef 4, ptr noundef nonnull @xidComparator) #14
   %50 = getelementptr inbounds i8, ptr %33, i64 32
   %51 = getelementptr inbounds i8, ptr %33, i64 48
   store i32 0, ptr %51, align 8
@@ -343,21 +341,21 @@ define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef rea
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %50, i8 0, i64 15, i1 false)
   %55 = load ptr, ptr @MainLWLockArray, align 8
   %56 = getelementptr i8, ptr %55, i64 512
-  %57 = tail call zeroext i1 @LWLockAcquire(ptr noundef %56, i32 noundef 1) #15
-  %58 = tail call i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext false) #15
+  %57 = tail call zeroext i1 @LWLockAcquire(ptr noundef %56, i32 noundef 1) #14
+  %58 = tail call i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext false) #14
   %59 = load ptr, ptr @MainLWLockArray, align 8
   %60 = getelementptr i8, ptr %59, i64 512
-  tail call void @LWLockRelease(ptr noundef %60) #15
+  tail call void @LWLockRelease(ptr noundef %60) #14
   %61 = load i32, ptr %36, align 4
-  %62 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %58, i32 noundef %61) #15
+  %62 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %58, i32 noundef %61) #14
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %26
-  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %64)
   %65 = load i32, ptr %36, align 4
-  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %58, i32 noundef %65) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 614, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #15
+  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %58, i32 noundef %65) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 614, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #14
   unreachable
 
 67:                                               ; preds = %26
@@ -365,10 +363,10 @@ define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef rea
   %69 = load ptr, ptr @MyProc, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 56
   store i32 %68, ptr %70, align 8
-  %71 = tail call i32 @GetMaxSnapshotXidCount() #15
+  %71 = tail call i32 @GetMaxSnapshotXidCount() #14
   %72 = sext i32 %71 to i64
   %73 = shl nsw i64 %72, 2
-  %74 = tail call ptr @palloc(i64 noundef %73) #15
+  %74 = tail call ptr @palloc(i64 noundef %73) #14
   %75 = load i32, ptr %36, align 4
   store i32 %75, ptr %2, align 4
   %76 = load i32, ptr %39, align 8
@@ -381,7 +379,7 @@ define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef rea
   %79 = load ptr, ptr %41, align 8
   %80 = load i32, ptr %44, align 8
   %81 = zext i32 %80 to i64
-  %82 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef %79, i64 noundef %81, i64 noundef 4, ptr noundef nonnull @xidComparator) #15
+  %82 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef %79, i64 noundef %81, i64 noundef 4, ptr noundef nonnull @xidComparator) #14
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %.lr.ph._crit_edge
 
@@ -390,16 +388,16 @@ define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr nocapture noundef rea
   br label %95
 
 84:                                               ; preds = %.lr.ph
-  %85 = call i32 @GetMaxSnapshotXidCount() #15
+  %85 = call i32 @GetMaxSnapshotXidCount() #14
   %.not22 = icmp slt i32 %.024, %85
   br i1 %.not22, label %90, label %86
 
 86:                                               ; preds = %84
-  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %87)
-  %88 = call i32 @errcode(i32 noundef 16777220) #15
-  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 644, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #15
+  %88 = call i32 @errcode(i32 noundef 16777220) #14
+  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 644, ptr noundef nonnull @__func__.SnapBuildInitialSnapshot) #14
   unreachable
 
 90:                                               ; preds = %84
@@ -455,14 +453,14 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SnapBuildExportSnapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @IsTransactionOrTransactionBlock() #15
+  %2 = tail call zeroext i1 @IsTransactionOrTransactionBlock() #14
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 675, ptr noundef nonnull @__func__.SnapBuildExportSnapshot) #15
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 675, ptr noundef nonnull @__func__.SnapBuildExportSnapshot) #14
   unreachable
 
 6:                                                ; preds = %1
@@ -471,30 +469,30 @@ define dso_local ptr @SnapBuildExportSnapshot(ptr nocapture noundef readonly %0)
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 678, ptr noundef nonnull @__func__.SnapBuildExportSnapshot) #15
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 678, ptr noundef nonnull @__func__.SnapBuildExportSnapshot) #14
   unreachable
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr @CurrentResourceOwner, align 8
   store ptr %12, ptr @SavedResourceOwnerDuringExport, align 8
   store i1 true, ptr @ExportInProgress, align 1
-  tail call void @StartTransactionCommand() #15
+  tail call void @StartTransactionCommand() #14
   store i32 2, ptr @XactIsoLevel, align 4
   store i8 1, ptr @XactReadOnly, align 1
   %13 = tail call ptr @SnapBuildInitialSnapshot(ptr noundef %0)
-  %14 = tail call ptr @ExportSnapshot(ptr noundef %13) #15
-  %15 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %14 = tail call ptr @ExportSnapshot(ptr noundef %13) #14
+  %15 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i64 noundef %19, ptr noundef %14, i32 noundef %18) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 701, ptr noundef nonnull @__func__.SnapBuildExportSnapshot) #15
+  %20 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i64 noundef %19, ptr noundef %14, i32 noundef %18) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 701, ptr noundef nonnull @__func__.SnapBuildExportSnapshot) #14
   br label %21
 
 21:                                               ; preds = %11, %16
@@ -523,7 +521,7 @@ define dso_local ptr @SnapBuildGetOrBuildSnapshot(ptr nocapture noundef %0) loca
   %9 = add i64 %8, 124
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr @MemoryContextAllocZero(ptr noundef %11, i64 noundef %9) #15
+  %12 = tail call ptr @MemoryContextAllocZero(ptr noundef %11, i64 noundef %9) #14
   store i32 5, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
@@ -546,7 +544,7 @@ define dso_local ptr @SnapBuildGetOrBuildSnapshot(ptr nocapture noundef %0) loca
   %27 = shl i64 %26, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 4 %25, i64 %27, i1 false)
   %28 = and i64 %21, 4294967295
-  tail call void @pg_qsort(ptr noundef %19, i64 noundef %28, i64 noundef 4, ptr noundef nonnull @xidComparator) #15
+  tail call void @pg_qsort(ptr noundef %19, i64 noundef %28, i64 noundef 4, ptr noundef nonnull @xidComparator) #14
   %29 = getelementptr inbounds i8, ptr %12, i64 32
   %30 = getelementptr inbounds i8, ptr %12, i64 48
   store i32 0, ptr %30, align 8
@@ -575,19 +573,19 @@ define dso_local void @SnapBuildClearExportedSnapshot() local_unnamed_addr #0 {
   br i1 %.b1, label %1, label %8
 
 1:                                                ; preds = %0
-  %2 = tail call zeroext i1 @IsTransactionState() #15
+  %2 = tail call zeroext i1 @IsTransactionState() #14
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 739, ptr noundef nonnull @__func__.SnapBuildClearExportedSnapshot) #15
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 739, ptr noundef nonnull @__func__.SnapBuildClearExportedSnapshot) #14
   unreachable
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @SavedResourceOwnerDuringExport, align 8
-  tail call void @AbortCurrentTransaction() #15
+  tail call void @AbortCurrentTransaction() #14
   store ptr %7, ptr @CurrentResourceOwner, align 8
   br label %8
 
@@ -619,13 +617,13 @@ define dso_local noundef zeroext i1 @SnapBuildProcessChange(ptr nocapture nounde
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
-  %11 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %1, i32 noundef %10) #15
+  %11 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %1, i32 noundef %10) #14
   br i1 %11, label %58, label %12
 
 12:                                               ; preds = %8, %6
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef %14, i32 noundef %1) #15
+  %15 = tail call zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef %14, i32 noundef %1) #14
   br i1 %15, label %58, label %16
 
 16:                                               ; preds = %12
@@ -641,7 +639,7 @@ define dso_local noundef zeroext i1 @SnapBuildProcessChange(ptr nocapture nounde
   %24 = add i64 %23, 124
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr @MemoryContextAllocZero(ptr noundef %26, i64 noundef %24) #15
+  %27 = tail call ptr @MemoryContextAllocZero(ptr noundef %26, i64 noundef %24) #14
   store i32 5, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load i32, ptr %28, align 8
@@ -664,7 +662,7 @@ define dso_local noundef zeroext i1 @SnapBuildProcessChange(ptr nocapture nounde
   %42 = shl i64 %41, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %34, ptr align 4 %40, i64 %42, i1 false)
   %43 = and i64 %36, 4294967295
-  tail call void @pg_qsort(ptr noundef %34, i64 noundef %43, i64 noundef 4, ptr noundef nonnull @xidComparator) #15
+  tail call void @pg_qsort(ptr noundef %34, i64 noundef %43, i64 noundef 4, ptr noundef nonnull @xidComparator) #14
   %44 = getelementptr inbounds i8, ptr %27, i64 32
   %45 = getelementptr inbounds i8, ptr %27, i64 48
   store i32 0, ptr %45, align 8
@@ -690,7 +688,7 @@ define dso_local noundef zeroext i1 @SnapBuildProcessChange(ptr nocapture nounde
   store i32 %55, ptr %53, align 8
   %56 = load ptr, ptr %13, align 8
   %57 = load ptr, ptr %17, align 8
-  tail call void @ReorderBufferSetBaseSnapshot(ptr noundef %56, i32 noundef %1, i64 noundef %2, ptr noundef %57) #15
+  tail call void @ReorderBufferSetBaseSnapshot(ptr noundef %56, i32 noundef %1, i64 noundef %2, ptr noundef %57) #14
   br label %58
 
 58:                                               ; preds = %12, %51, %8, %3
@@ -708,7 +706,7 @@ declare void @ReorderBufferSetBaseSnapshot(ptr noundef, i32 noundef, i64 noundef
 define dso_local void @SnapBuildProcessNewCid(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  tail call void @ReorderBufferXidSetCatalogChanges(ptr noundef %6, i32 noundef %1, i64 noundef %2) #15
+  tail call void @ReorderBufferXidSetCatalogChanges(ptr noundef %6, i32 noundef %1, i64 noundef %2) #14
   %7 = load ptr, ptr %5, align 8
   %8 = load i32, ptr %3, align 4
   %9 = getelementptr inbounds i8, ptr %3, i64 16
@@ -723,7 +721,7 @@ define dso_local void @SnapBuildProcessNewCid(ptr nocapture noundef readonly %0,
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.0.copyload = load i48, ptr %10, align 4
-  tail call void @ReorderBufferAddNewTupleCids(ptr noundef %7, i32 noundef %8, i64 noundef %2, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i48 %.0.copyload, i32 noundef %12, i32 noundef %14, i32 noundef %16) #15
+  tail call void @ReorderBufferAddNewTupleCids(ptr noundef %7, i32 noundef %8, i64 noundef %2, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i48 %.0.copyload, i32 noundef %12, i32 noundef %14, i32 noundef %16) #14
   %17 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %17, -1
   %.pr = load i32, ptr %13, align 4
@@ -741,17 +739,17 @@ define dso_local void @SnapBuildProcessNewCid(ptr nocapture noundef readonly %0,
   br i1 %.not30, label %21, label %24
 
 21:                                               ; preds = %20
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 846, ptr noundef nonnull @__func__.SnapBuildProcessNewCid) #15
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 846, ptr noundef nonnull @__func__.SnapBuildProcessNewCid) #14
   unreachable
 
 24:                                               ; preds = %18, %20, %19
   %.0 = phi i32 [ %., %19 ], [ %.pr, %20 ], [ %17, %18 ]
   %25 = load ptr, ptr %5, align 8
   %26 = add nuw i32 %.0, 1
-  tail call void @ReorderBufferAddNewCommandId(ptr noundef %25, i32 noundef %1, i64 noundef %2, i32 noundef %26) #15
+  tail call void @ReorderBufferAddNewCommandId(ptr noundef %25, i32 noundef %1, i64 noundef %2, i32 noundef %26) #14
   ret void
 }
 
@@ -777,7 +775,7 @@ define dso_local void @SnapBuildCommitTxn(ptr noundef %0, i64 noundef %1, i32 no
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
-  %13 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %2, i32 noundef %12) #15
+  %13 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %2, i32 noundef %12) #14
   br i1 %13, label %14, label %thread-pre-split
 
 14:                                               ; preds = %6, %10
@@ -844,7 +842,7 @@ thread-pre-split:                                 ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %41, ptr %8, align 4
   %42 = load ptr, ptr %32, align 8
-  %43 = call zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef %42, i32 noundef %41) #15
+  %43 = call zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef %42, i32 noundef %41) #14
   br i1 %43, label %SnapBuildXidHasCatalogChanges.exit.thread120, label %44
 
 SnapBuildXidHasCatalogChanges.exit.thread120:     ; preds = %39
@@ -865,18 +863,18 @@ SnapBuildXidHasCatalogChanges.exit.thread:        ; preds = %44, %45
 
 SnapBuildXidHasCatalogChanges.exit:               ; preds = %45
   %47 = load ptr, ptr %35, align 8
-  %48 = call ptr @bsearch(ptr noundef nonnull %8, ptr noundef %47, i64 noundef %46, i64 noundef 4, ptr noundef nonnull @xidComparator) #15
+  %48 = call ptr @bsearch(ptr noundef nonnull %8, ptr noundef %47, i64 noundef %46, i64 noundef 4, ptr noundef nonnull @xidComparator) #14
   %.not130 = icmp eq ptr %48, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br i1 %.not130, label %74, label %49
 
 49:                                               ; preds = %SnapBuildXidHasCatalogChanges.exit.thread120, %SnapBuildXidHasCatalogChanges.exit
-  %50 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  %50 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %2, i32 noundef %41) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1080, ptr noundef nonnull @__func__.SnapBuildCommitTxn) #15
+  %52 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %2, i32 noundef %41) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1080, ptr noundef nonnull @__func__.SnapBuildCommitTxn) #14
   br label %53
 
 53:                                               ; preds = %49, %51
@@ -893,21 +891,21 @@ SnapBuildXidHasCatalogChanges.exit:               ; preds = %45
   %58 = shl i64 %54, 1
   %59 = or disjoint i64 %58, 1
   store i64 %59, ptr %38, align 8
-  %60 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  %60 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %57
   %62 = load i64, ptr %38, align 8
   %63 = trunc i64 %62 to i32
-  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %63) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.SnapBuildAddCommittedTxn) #15
+  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %63) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.SnapBuildAddCommittedTxn) #14
   br label %65
 
 65:                                               ; preds = %61, %57
   %66 = load ptr, ptr %.phi.trans.insert.i94, align 8
   %67 = load i64, ptr %38, align 8
   %68 = shl i64 %67, 2
-  %69 = call ptr @repalloc(ptr noundef %66, i64 noundef %68) #15
+  %69 = call ptr @repalloc(ptr noundef %66, i64 noundef %68) #14
   store ptr %69, ptr %.phi.trans.insert.i94, align 8
   %.pre10.i = load i64, ptr %37, align 8
   br label %SnapBuildAddCommittedTxn.exit
@@ -937,21 +935,21 @@ SnapBuildAddCommittedTxn.exit:                    ; preds = %._crit_edge.i, %65
   %80 = shl i64 %76, 1
   %81 = or disjoint i64 %80, 1
   store i64 %81, ptr %38, align 8
-  %82 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  %82 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %79
   %84 = load i64, ptr %38, align 8
   %85 = trunc i64 %84 to i32
-  %86 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %85) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.SnapBuildAddCommittedTxn) #15
+  %86 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %85) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.SnapBuildAddCommittedTxn) #14
   br label %87
 
 87:                                               ; preds = %83, %79
   %88 = load ptr, ptr %.phi.trans.insert.i94, align 8
   %89 = load i64, ptr %38, align 8
   %90 = shl i64 %89, 2
-  %91 = call ptr @repalloc(ptr noundef %88, i64 noundef %90) #15
+  %91 = call ptr @repalloc(ptr noundef %88, i64 noundef %90) #14
   store ptr %91, ptr %.phi.trans.insert.i94, align 8
   %.pre10.i96 = load i64, ptr %37, align 8
   br label %SnapBuildAddCommittedTxn.exit97
@@ -990,7 +988,7 @@ SnapBuildAddCommittedTxn.exit97:                  ; preds = %._crit_edge.i93, %8
   store i32 %2, ptr %7, align 4
   %99 = getelementptr inbounds i8, ptr %0, i64 64
   %100 = load ptr, ptr %99, align 8
-  %101 = call zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef %100, i32 noundef %2) #15
+  %101 = call zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef %100, i32 noundef %2) #14
   br i1 %101, label %SnapBuildXidHasCatalogChanges.exit101.thread123, label %102
 
 SnapBuildXidHasCatalogChanges.exit101.thread123:  ; preds = %._crit_edge
@@ -1015,18 +1013,18 @@ SnapBuildXidHasCatalogChanges.exit101.thread:     ; preds = %102, %104
 SnapBuildXidHasCatalogChanges.exit101:            ; preds = %104
   %107 = getelementptr inbounds i8, ptr %0, i64 120
   %108 = load ptr, ptr %107, align 8
-  %109 = call ptr @bsearch(ptr noundef nonnull %7, ptr noundef %108, i64 noundef %106, i64 noundef 4, ptr noundef nonnull @xidComparator) #15
+  %109 = call ptr @bsearch(ptr noundef nonnull %7, ptr noundef %108, i64 noundef %106, i64 noundef 4, ptr noundef nonnull @xidComparator) #14
   %.not129 = icmp eq ptr %109, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br i1 %.not129, label %138, label %110
 
 110:                                              ; preds = %SnapBuildXidHasCatalogChanges.exit101.thread123, %SnapBuildXidHasCatalogChanges.exit101
-  %111 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #15
+  %111 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #14
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %110
-  %113 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %2) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1106, ptr noundef nonnull @__func__.SnapBuildCommitTxn) #15
+  %113 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %2) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1106, ptr noundef nonnull @__func__.SnapBuildCommitTxn) #14
   br label %114
 
 114:                                              ; preds = %110, %112
@@ -1046,14 +1044,14 @@ SnapBuildXidHasCatalogChanges.exit101:            ; preds = %104
   %121 = shl i64 %116, 1
   %122 = or disjoint i64 %121, 1
   store i64 %122, ptr %117, align 8
-  %123 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  %123 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %123, label %124, label %128
 
 124:                                              ; preds = %120
   %125 = load i64, ptr %117, align 8
   %126 = trunc i64 %125 to i32
-  %127 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %126) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.SnapBuildAddCommittedTxn) #15
+  %127 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %126) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.SnapBuildAddCommittedTxn) #14
   br label %128
 
 128:                                              ; preds = %124, %120
@@ -1061,7 +1059,7 @@ SnapBuildXidHasCatalogChanges.exit101:            ; preds = %104
   %130 = load ptr, ptr %129, align 8
   %131 = load i64, ptr %117, align 8
   %132 = shl i64 %131, 2
-  %133 = call ptr @repalloc(ptr noundef %130, i64 noundef %132) #15
+  %133 = call ptr @repalloc(ptr noundef %130, i64 noundef %132) #14
   store ptr %133, ptr %129, align 8
   %.pre10.i105 = load i64, ptr %115, align 8
   br label %SnapBuildAddCommittedTxn.exit106
@@ -1078,12 +1076,12 @@ SnapBuildAddCommittedTxn.exit106:                 ; preds = %._crit_edge.i102, %
   br i1 %.077.lcssa, label %139, label %167
 
 139:                                              ; preds = %138
-  %140 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #15
+  %140 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #14
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %139
-  %142 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %2) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1115, ptr noundef nonnull @__func__.SnapBuildCommitTxn) #15
+  %142 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %2) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1115, ptr noundef nonnull @__func__.SnapBuildCommitTxn) #14
   br label %143
 
 143:                                              ; preds = %139, %141
@@ -1103,14 +1101,14 @@ SnapBuildAddCommittedTxn.exit106:                 ; preds = %._crit_edge.i102, %
   %150 = shl i64 %145, 1
   %151 = or disjoint i64 %150, 1
   store i64 %151, ptr %146, align 8
-  %152 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  %152 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %152, label %153, label %157
 
 153:                                              ; preds = %149
   %154 = load i64, ptr %146, align 8
   %155 = trunc i64 %154 to i32
-  %156 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %155) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.SnapBuildAddCommittedTxn) #15
+  %156 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %155) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.SnapBuildAddCommittedTxn) #14
   br label %157
 
 157:                                              ; preds = %153, %149
@@ -1118,7 +1116,7 @@ SnapBuildAddCommittedTxn.exit106:                 ; preds = %._crit_edge.i102, %
   %159 = load ptr, ptr %158, align 8
   %160 = load i64, ptr %146, align 8
   %161 = shl i64 %160, 2
-  %162 = call ptr @repalloc(ptr noundef %159, i64 noundef %161) #15
+  %162 = call ptr @repalloc(ptr noundef %159, i64 noundef %161) #14
   store ptr %162, ptr %158, align 8
   %.pre10.i110 = load i64, ptr %144, align 8
   br label %SnapBuildAddCommittedTxn.exit111
@@ -1136,12 +1134,12 @@ SnapBuildAddCommittedTxn.exit111:                 ; preds = %._crit_edge.i107, %
   br i1 %168, label %169, label %197
 
 169:                                              ; preds = %167
-  %170 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #15
+  %170 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #14
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %169
-  %172 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %2) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1121, ptr noundef nonnull @__func__.SnapBuildCommitTxn) #15
+  %172 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %2) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1121, ptr noundef nonnull @__func__.SnapBuildCommitTxn) #14
   br label %173
 
 173:                                              ; preds = %169, %171
@@ -1161,14 +1159,14 @@ SnapBuildAddCommittedTxn.exit111:                 ; preds = %._crit_edge.i107, %
   %180 = shl i64 %175, 1
   %181 = or disjoint i64 %180, 1
   store i64 %181, ptr %176, align 8
-  %182 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  %182 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %182, label %183, label %187
 
 183:                                              ; preds = %179
   %184 = load i64, ptr %176, align 8
   %185 = trunc i64 %184 to i32
-  %186 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %185) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.SnapBuildAddCommittedTxn) #15
+  %186 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %185) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 923, ptr noundef nonnull @__func__.SnapBuildAddCommittedTxn) #14
   br label %187
 
 187:                                              ; preds = %183, %179
@@ -1176,7 +1174,7 @@ SnapBuildAddCommittedTxn.exit111:                 ; preds = %._crit_edge.i107, %
   %189 = load ptr, ptr %188, align 8
   %190 = load i64, ptr %176, align 8
   %191 = shl i64 %190, 2
-  %192 = call ptr @repalloc(ptr noundef %189, i64 noundef %191) #15
+  %192 = call ptr @repalloc(ptr noundef %189, i64 noundef %191) #14
   store ptr %192, ptr %188, align 8
   %.pre10.i115 = load i64, ptr %174, align 8
   br label %.thread
@@ -1204,7 +1202,7 @@ SnapBuildAddCommittedTxn.exit111:                 ; preds = %._crit_edge.i107, %
   br i1 %.not88, label %203, label %201
 
 201:                                              ; preds = %.critedge
-  %202 = call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %.076.lcssa, i32 noundef %200) #15
+  %202 = call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %.076.lcssa, i32 noundef %200) #14
   br i1 %202, label %203, label %205
 
 203:                                              ; preds = %201, %.critedge
@@ -1234,10 +1232,10 @@ SnapBuildAddCommittedTxn.exit111:                 ; preds = %._crit_edge.i107, %
   br i1 %215, label %216, label %219
 
 216:                                              ; preds = %212
-  %217 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %217 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %217)
-  %218 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__func__.SnapBuildSnapDecRefcount) #15
+  %218 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__func__.SnapBuildSnapDecRefcount) #14
   unreachable
 
 219:                                              ; preds = %212
@@ -1249,7 +1247,7 @@ SnapBuildAddCommittedTxn.exit111:                 ; preds = %._crit_edge.i107, %
   br i1 %223, label %SnapBuildFreeSnapshot.exit.i, label %SnapBuildSnapDecRefcount.exit
 
 SnapBuildFreeSnapshot.exit.i:                     ; preds = %219
-  call void @pfree(ptr noundef nonnull %211) #15
+  call void @pfree(ptr noundef nonnull %211) #14
   br label %SnapBuildSnapDecRefcount.exit
 
 SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapshot.exit.i, %219, %209
@@ -1259,7 +1257,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   %227 = add i64 %226, 124
   %228 = getelementptr inbounds i8, ptr %0, i64 8
   %229 = load ptr, ptr %228, align 8
-  %230 = call ptr @MemoryContextAllocZero(ptr noundef %229, i64 noundef %227) #15
+  %230 = call ptr @MemoryContextAllocZero(ptr noundef %229, i64 noundef %227) #14
   store i32 5, ptr %230, align 8
   %231 = getelementptr inbounds i8, ptr %0, i64 16
   %232 = load i32, ptr %231, align 8
@@ -1282,7 +1280,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   %245 = shl i64 %244, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %237, ptr align 4 %243, i64 %245, i1 false)
   %246 = and i64 %239, 4294967295
-  call void @pg_qsort(ptr noundef %237, i64 noundef %246, i64 noundef 4, ptr noundef nonnull @xidComparator) #15
+  call void @pg_qsort(ptr noundef %237, i64 noundef %246, i64 noundef 4, ptr noundef nonnull @xidComparator) #14
   %247 = getelementptr inbounds i8, ptr %230, i64 32
   %248 = getelementptr inbounds i8, ptr %230, i64 48
   store i32 0, ptr %248, align 8
@@ -1295,7 +1293,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %247, i8 0, i64 15, i1 false)
   store ptr %230, ptr %210, align 8
   %252 = load ptr, ptr %99, align 8
-  %253 = call zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef %252, i32 noundef %2) #15
+  %253 = call zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef %252, i32 noundef %2) #14
   br i1 %253, label %261, label %254
 
 254:                                              ; preds = %SnapBuildSnapDecRefcount.exit
@@ -1306,7 +1304,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   store i32 %258, ptr %256, align 8
   %259 = load ptr, ptr %99, align 8
   %260 = load ptr, ptr %210, align 8
-  call void @ReorderBufferSetBaseSnapshot(ptr noundef %259, i32 noundef %2, i64 noundef %1, ptr noundef %260) #15
+  call void @ReorderBufferSetBaseSnapshot(ptr noundef %259, i32 noundef %2, i64 noundef %1, ptr noundef %260) #14
   br label %261
 
 261:                                              ; preds = %254, %SnapBuildSnapDecRefcount.exit
@@ -1326,7 +1324,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
 
 .lr.ph.i:                                         ; preds = %261
   %270 = lshr i64 %1, 32
-  %271 = trunc i64 %270 to i32
+  %271 = trunc nuw i64 %270 to i32
   %272 = trunc i64 %1 to i32
   br label %273
 
@@ -1335,7 +1333,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   %274 = load ptr, ptr %99, align 8
   %275 = getelementptr i8, ptr %.sroa.0.021.i, i64 -236
   %276 = load i32, ptr %275, align 4
-  %277 = call zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef %274, i32 noundef %276) #15
+  %277 = call zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef %274, i32 noundef %276) #14
   br i1 %277, label %278, label %295
 
 278:                                              ; preds = %273
@@ -1346,13 +1344,13 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   br i1 %or.cond.i, label %282, label %295
 
 282:                                              ; preds = %278
-  %283 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #15
+  %283 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #14
   br i1 %283, label %284, label %287
 
 284:                                              ; preds = %282
   %285 = load i32, ptr %275, align 4
-  %286 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %285, i32 noundef %271, i32 noundef %272) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 898, ptr noundef nonnull @__func__.SnapBuildDistributeNewCatalogSnapshot) #15
+  %286 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %285, i32 noundef %271, i32 noundef %272) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 898, ptr noundef nonnull @__func__.SnapBuildDistributeNewCatalogSnapshot) #14
   br label %287
 
 287:                                              ; preds = %284, %282
@@ -1364,7 +1362,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   %292 = load ptr, ptr %99, align 8
   %293 = load i32, ptr %275, align 4
   %294 = load ptr, ptr %210, align 8
-  call void @ReorderBufferAddSnapshot(ptr noundef %292, i32 noundef %293, i64 noundef %1, ptr noundef %294) #15
+  call void @ReorderBufferAddSnapshot(ptr noundef %292, i32 noundef %293, i64 noundef %1, ptr noundef %294) #14
   br label %295
 
 295:                                              ; preds = %287, %278, %273
@@ -1397,18 +1395,18 @@ define dso_local void @SnapBuildProcessRunningXacts(ptr nocapture noundef %0, i6
   br i1 %or.cond.i, label %14, label %._crit_edge.i
 
 14:                                               ; preds = %6
-  %15 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  %15 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %14
   %17 = lshr i64 %1, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = trunc i64 %1 to i32
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, i32 noundef %18, i32 noundef %19) #15
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, i32 noundef %18, i32 noundef %19) #14
   %21 = load i32, ptr %7, align 8
   %22 = load i32, ptr %10, align 4
-  %23 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.35, i32 noundef %21, i32 noundef %22) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1357, ptr noundef nonnull @__func__.SnapBuildFindSnapshot) #15
+  %23 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.35, i32 noundef %21, i32 noundef %22) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1357, ptr noundef nonnull @__func__.SnapBuildFindSnapshot) #14
   br label %24
 
 24:                                               ; preds = %16, %14
@@ -1444,16 +1442,16 @@ define dso_local void @SnapBuildProcessRunningXacts(ptr nocapture noundef %0, i6
   store i32 2, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %39, align 8
-  %40 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %40 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %40, label %41, label %SnapBuildFindSnapshot.exit
 
 41:                                               ; preds = %34
   %42 = lshr i64 %1, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = trunc i64 %1 to i32
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, i32 noundef %43, i32 noundef %44) #15
-  %46 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.37) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1395, ptr noundef nonnull @__func__.SnapBuildFindSnapshot) #15
+  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, i32 noundef %43, i32 noundef %44) #14
+  %46 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.37) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1395, ptr noundef nonnull @__func__.SnapBuildFindSnapshot) #14
   br label %SnapBuildFindSnapshot.exit
 
 47:                                               ; preds = %._crit_edge.i
@@ -1487,18 +1485,18 @@ define dso_local void @SnapBuildProcessRunningXacts(ptr nocapture noundef %0, i6
   %59 = load i32, ptr %26, align 4
   %60 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %59, ptr %60, align 4
-  %61 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %61 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %61, label %62, label %70
 
 62:                                               ; preds = %55
   %63 = lshr i64 %1, 32
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw i64 %63 to i32
   %65 = trunc i64 %1 to i32
-  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, i32 noundef %64, i32 noundef %65) #15
+  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, i32 noundef %64, i32 noundef %65) #14
   %67 = load i32, ptr %2, align 4
   %68 = load i32, ptr %26, align 4
-  %69 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.39, i32 noundef %67, i32 noundef %68) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1440, ptr noundef nonnull @__func__.SnapBuildFindSnapshot) #15
+  %69 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.39, i32 noundef %67, i32 noundef %68) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1440, ptr noundef nonnull @__func__.SnapBuildFindSnapshot) #14
   br label %70
 
 70:                                               ; preds = %62, %55
@@ -1510,25 +1508,25 @@ define dso_local void @SnapBuildProcessRunningXacts(ptr nocapture noundef %0, i6
   %73 = getelementptr inbounds i8, ptr %0, i64 72
   %74 = load i32, ptr %73, align 8
   %75 = load i32, ptr %10, align 4
-  %76 = tail call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %74, i32 noundef %75) #15
+  %76 = tail call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %74, i32 noundef %75) #14
   br i1 %76, label %77, label %thread-pre-split.i
 
 77:                                               ; preds = %72
   store i32 1, ptr %0, align 8
   %78 = load i32, ptr %26, align 4
   store i32 %78, ptr %73, align 8
-  %79 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %79 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %79, label %80, label %88
 
 80:                                               ; preds = %77
   %81 = lshr i64 %1, 32
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw i64 %81 to i32
   %83 = trunc i64 %1 to i32
-  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, i32 noundef %82, i32 noundef %83) #15
+  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, i32 noundef %82, i32 noundef %83) #14
   %85 = load i32, ptr %2, align 4
   %86 = load i32, ptr %26, align 4
-  %87 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.39, i32 noundef %85, i32 noundef %86) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1464, ptr noundef nonnull @__func__.SnapBuildFindSnapshot) #15
+  %87 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.39, i32 noundef %85, i32 noundef %86) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1464, ptr noundef nonnull @__func__.SnapBuildFindSnapshot) #14
   br label %88
 
 88:                                               ; preds = %80, %77
@@ -1549,22 +1547,22 @@ thread-pre-split.i:                               ; preds = %72
   %94 = getelementptr inbounds i8, ptr %0, i64 72
   %95 = load i32, ptr %94, align 8
   %96 = load i32, ptr %10, align 4
-  %97 = tail call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %95, i32 noundef %96) #15
+  %97 = tail call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %95, i32 noundef %96) #14
   br i1 %97, label %98, label %SnapBuildFindSnapshot.exit.thread
 
 98:                                               ; preds = %93
   store i32 2, ptr %0, align 8
   store i32 0, ptr %94, align 8
-  %99 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %99 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %99, label %100, label %SnapBuildFindSnapshot.exit.thread
 
 100:                                              ; preds = %98
   %101 = lshr i64 %1, 32
-  %102 = trunc i64 %101 to i32
+  %102 = trunc nuw i64 %101 to i32
   %103 = trunc i64 %1 to i32
-  %104 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, i32 noundef %102, i32 noundef %103) #15
-  %105 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.41) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1487, ptr noundef nonnull @__func__.SnapBuildFindSnapshot) #15
+  %104 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, i32 noundef %102, i32 noundef %103) #14
+  %105 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.41) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1487, ptr noundef nonnull @__func__.SnapBuildFindSnapshot) #14
   br label %SnapBuildFindSnapshot.exit.thread
 
 106:                                              ; preds = %3
@@ -1585,7 +1583,7 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %70, %90, %93, %98, 
   %114 = getelementptr inbounds i8, ptr %0, i64 80
   %115 = load i64, ptr %114, align 8
   %116 = shl i64 %115, 2
-  %117 = tail call ptr @MemoryContextAlloc(ptr noundef %113, i64 noundef %116) #15
+  %117 = tail call ptr @MemoryContextAlloc(ptr noundef %113, i64 noundef %116) #14
   %118 = load i64, ptr %114, align 8
   %.not59.i = icmp eq i64 %118, 0
   br i1 %.not59.i, label %._crit_edge.i35, label %.lr.ph.i
@@ -1630,7 +1628,7 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %70, %90, %93, %98, 
   %140 = sext i32 %.0.lcssa.i to i64
   %141 = shl nsw i64 %140, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %139, ptr align 4 %117, i64 %141, i1 false)
-  %142 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #15
+  %142 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #14
   br i1 %142, label %143, label %150
 
 143:                                              ; preds = %._crit_edge.i35
@@ -1639,13 +1637,13 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %70, %90, %93, %98, 
   %146 = load i32, ptr %109, align 8
   %147 = getelementptr inbounds i8, ptr %0, i64 20
   %148 = load i32, ptr %147, align 4
-  %149 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, i32 noundef %145, i32 noundef %.0.lcssa.i, i32 noundef %146, i32 noundef %148) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 979, ptr noundef nonnull @__func__.SnapBuildPurgeOlderTxn) #15
+  %149 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, i32 noundef %145, i32 noundef %.0.lcssa.i, i32 noundef %146, i32 noundef %148) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 979, ptr noundef nonnull @__func__.SnapBuildPurgeOlderTxn) #14
   br label %150
 
 150:                                              ; preds = %143, %._crit_edge.i35
   store i64 %140, ptr %114, align 8
-  tail call void @pfree(ptr noundef %117) #15
+  tail call void @pfree(ptr noundef %117) #14
   %151 = getelementptr inbounds i8, ptr %0, i64 112
   %152 = load i64, ptr %151, align 8
   %.not.i36 = icmp eq i64 %152, 0
@@ -1662,7 +1660,7 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %70, %90, %93, %98, 
   %157 = getelementptr i32, ptr %156, i64 %155
   %158 = load i32, ptr %157, align 4
   %159 = load i32, ptr %109, align 8
-  %160 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %158, i32 noundef %159) #15
+  %160 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %158, i32 noundef %159) #14
   %.pre61.pre.i = load i64, ptr %151, align 8
   br i1 %160, label %._crit_edge53.i, label %161
 
@@ -1689,12 +1687,12 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %70, %90, %93, %98, 
   br label %174
 
 173:                                              ; preds = %._crit_edge53.i
-  tail call void @pfree(ptr noundef %168) #15
+  tail call void @pfree(ptr noundef %168) #14
   store ptr null, ptr %153, align 8
   br label %174
 
 174:                                              ; preds = %173, %169
-  %175 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #15
+  %175 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #14
   br i1 %175, label %176, label %183
 
 176:                                              ; preds = %174
@@ -1703,8 +1701,8 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %70, %90, %93, %98, 
   %179 = load i32, ptr %109, align 8
   %180 = getelementptr inbounds i8, ptr %0, i64 20
   %181 = load i32, ptr %180, align 4
-  %182 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %178, i32 noundef %166, i32 noundef %179, i32 noundef %181) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1016, ptr noundef nonnull @__func__.SnapBuildPurgeOlderTxn) #15
+  %182 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %178, i32 noundef %166, i32 noundef %179, i32 noundef %181) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1016, ptr noundef nonnull @__func__.SnapBuildPurgeOlderTxn) #14
   br label %183
 
 183:                                              ; preds = %176, %174
@@ -1715,7 +1713,7 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %70, %90, %93, %98, 
 SnapBuildPurgeOlderTxn.exit:                      ; preds = %SnapBuildFindSnapshot.exit.thread, %150, %183
   %185 = getelementptr inbounds i8, ptr %0, i64 64
   %186 = load ptr, ptr %185, align 8
-  %187 = tail call i32 @ReorderBufferGetOldestXmin(ptr noundef %186) #15
+  %187 = tail call i32 @ReorderBufferGetOldestXmin(ptr noundef %186) #14
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %189, label %191
 
@@ -1725,7 +1723,7 @@ SnapBuildPurgeOlderTxn.exit:                      ; preds = %SnapBuildFindSnapsh
 
 191:                                              ; preds = %189, %SnapBuildPurgeOlderTxn.exit
   %.0 = phi i32 [ %190, %189 ], [ %187, %SnapBuildPurgeOlderTxn.exit ]
-  %192 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #15
+  %192 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #14
   br i1 %192, label %193, label %199
 
 193:                                              ; preds = %191
@@ -1733,19 +1731,19 @@ SnapBuildPurgeOlderTxn.exit:                      ; preds = %SnapBuildFindSnapsh
   %195 = getelementptr inbounds i8, ptr %0, i64 20
   %196 = load i32, ptr %195, align 4
   %197 = load i32, ptr %107, align 4
-  %198 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, i32 noundef %194, i32 noundef %196, i32 noundef %197, i32 noundef %.0) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1267, ptr noundef nonnull @__func__.SnapBuildProcessRunningXacts) #15
+  %198 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, i32 noundef %194, i32 noundef %196, i32 noundef %197, i32 noundef %.0) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1267, ptr noundef nonnull @__func__.SnapBuildProcessRunningXacts) #14
   br label %199
 
 199:                                              ; preds = %191, %193
-  tail call void @LogicalIncreaseXminForSlot(i64 noundef %1, i32 noundef %.0) #15
+  tail call void @LogicalIncreaseXminForSlot(i64 noundef %1, i32 noundef %.0) #14
   %200 = load i32, ptr %0, align 8
   %201 = icmp slt i32 %200, 2
   br i1 %201, label %SnapBuildFindSnapshot.exit, label %202
 
 202:                                              ; preds = %199
   %203 = load ptr, ptr %185, align 8
-  %204 = tail call ptr @ReorderBufferGetOldestTXN(ptr noundef %203) #15
+  %204 = tail call ptr @ReorderBufferGetOldestTXN(ptr noundef %203) #14
   %cond = icmp eq ptr %204, null
   br i1 %cond, label %209, label %205
 
@@ -1756,7 +1754,7 @@ SnapBuildPurgeOlderTxn.exit:                      ; preds = %SnapBuildFindSnapsh
   br i1 %.not32, label %SnapBuildFindSnapshot.exit, label %208
 
 208:                                              ; preds = %205
-  tail call void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %1, i64 noundef %207) #15
+  tail call void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %1, i64 noundef %207) #14
   br label %SnapBuildFindSnapshot.exit
 
 209:                                              ; preds = %202
@@ -1773,7 +1771,7 @@ SnapBuildPurgeOlderTxn.exit:                      ; preds = %SnapBuildFindSnapsh
   br i1 %.not34, label %SnapBuildFindSnapshot.exit, label %216
 
 216:                                              ; preds = %213
-  tail call void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %1, i64 noundef %215) #15
+  tail call void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %1, i64 noundef %215) #14
   br label %SnapBuildFindSnapshot.exit
 
 SnapBuildFindSnapshot.exit:                       ; preds = %205, %51, %41, %34, %209, %213, %216, %199, %208
@@ -1791,50 +1789,50 @@ define internal fastcc void @SnapBuildSerialize(ptr nocapture noundef %0, i64 no
 
 8:                                                ; preds = %2
   %9 = lshr i64 %1, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = trunc i64 %1 to i32
-  %12 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.43, i32 noundef %10, i32 noundef %11) #15
-  %13 = call i32 @stat(ptr noundef nonnull %4, ptr noundef nonnull %5) #15
+  %12 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.43, i32 noundef %10, i32 noundef %11) #14
+  %13 = call i32 @stat(ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %cond = icmp eq i32 %13, 0
   br i1 %cond, label %.thread101, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @__errno_location() #17
+  %15 = tail call ptr @__errno_location() #16
   %16 = load i32, ptr %15, align 4
   %.not85 = icmp eq i32 %16, 2
   br i1 %.not85, label %24, label %17
 
 17:                                               ; preds = %14
-  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %18)
-  %19 = call i32 @errcode_for_file_access() #15
-  %20 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1654, ptr noundef nonnull @__func__.SnapBuildSerialize) #15
+  %19 = call i32 @errcode_for_file_access() #14
+  %20 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %4) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1654, ptr noundef nonnull @__func__.SnapBuildSerialize) #14
   unreachable
 
 .thread101:                                       ; preds = %8
-  call void @fsync_fname(ptr noundef nonnull %4, i1 noundef zeroext false) #15
-  call void @fsync_fname(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #15
+  call void @fsync_fname(ptr noundef nonnull %4, i1 noundef zeroext false) #14
+  call void @fsync_fname(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #14
   %21 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %1, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 64
   %23 = load ptr, ptr %22, align 8
-  call void @ReorderBufferSetRestartPoint(ptr noundef %23, i64 noundef %1) #15
+  call void @ReorderBufferSetRestartPoint(ptr noundef %23, i64 noundef %1) #14
   br label %132
 
 24:                                               ; preds = %14
-  %25 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  %25 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
-  %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1681, ptr noundef nonnull @__func__.SnapBuildSerialize) #15
+  %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, ptr noundef nonnull %4) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1681, ptr noundef nonnull @__func__.SnapBuildSerialize) #14
   br label %28
 
 28:                                               ; preds = %24, %26
   %29 = load i32, ptr @MyProcPid, align 4
-  %30 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %10, i32 noundef %11, i32 noundef %29) #15
-  %31 = call i32 @unlink(ptr noundef nonnull %3) #15
+  %30 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %10, i32 noundef %11, i32 noundef %29) #14
+  %31 = call i32 @unlink(ptr noundef nonnull %3) #14
   %.not86 = icmp eq i32 %31, 0
   br i1 %.not86, label %38, label %32
 
@@ -1844,11 +1842,11 @@ define internal fastcc void @SnapBuildSerialize(ptr nocapture noundef %0, i64 no
   br i1 %.not87, label %38, label %34
 
 34:                                               ; preds = %32
-  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %35)
-  %36 = call i32 @errcode_for_file_access() #15
-  %37 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %3) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1696, ptr noundef nonnull @__func__.SnapBuildSerialize) #15
+  %36 = call i32 @errcode_for_file_access() #14
+  %37 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %3) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1696, ptr noundef nonnull @__func__.SnapBuildSerialize) #14
   unreachable
 
 38:                                               ; preds = %32, %28
@@ -1858,7 +1856,7 @@ define internal fastcc void @SnapBuildSerialize(ptr nocapture noundef %0, i64 no
   store ptr %40, ptr @CurrentMemoryContext, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 64
   %43 = load ptr, ptr %42, align 8
-  %44 = call ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef %43) #15
+  %44 = call ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef %43) #14
   %45 = load ptr, ptr %42, align 8
   %46 = getelementptr i8, ptr %45, i64 56
   %.val = load i32, ptr %46, align 8
@@ -1868,7 +1866,7 @@ define internal fastcc void @SnapBuildSerialize(ptr nocapture noundef %0, i64 no
   %50 = add i64 %49, %47
   %51 = shl i64 %50, 2
   %52 = add i64 %51, 144
-  %53 = call ptr @palloc0(i64 noundef %52) #15
+  %53 = call ptr @palloc0(i64 noundef %52) #14
   store i32 1369563137, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   store i32 5, ptr %54, align 8
@@ -1878,7 +1876,7 @@ define internal fastcc void @SnapBuildSerialize(ptr nocapture noundef %0, i64 no
   %57 = getelementptr inbounds i8, ptr %53, i64 4
   store i32 -1, ptr %57, align 4
   %58 = load ptr, ptr @pg_comp_crc32c, align 8
-  %59 = call i32 %58(i32 noundef -1, ptr noundef nonnull %54, i64 noundef 8) #15
+  %59 = call i32 %58(i32 noundef -1, ptr noundef nonnull %54, i64 noundef 8) #14
   store i32 %59, ptr %57, align 4
   %60 = getelementptr i8, ptr %53, i64 144
   %61 = getelementptr inbounds i8, ptr %53, i64 16
@@ -1896,7 +1894,7 @@ define internal fastcc void @SnapBuildSerialize(ptr nocapture noundef %0, i64 no
   store ptr null, ptr %67, align 8
   store i64 %47, ptr %66, align 8
   %68 = load ptr, ptr @pg_comp_crc32c, align 8
-  %69 = call i32 %68(i32 noundef %59, ptr noundef nonnull %61, i64 noundef 128) #15
+  %69 = call i32 %68(i32 noundef %59, ptr noundef nonnull %61, i64 noundef 128) #14
   store i32 %69, ptr %57, align 4
   %70 = load i64, ptr %48, align 8
   %.not88 = icmp eq i64 %70, 0
@@ -1908,7 +1906,7 @@ define internal fastcc void @SnapBuildSerialize(ptr nocapture noundef %0, i64 no
   %74 = load ptr, ptr %73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 4 %74, i64 %72, i1 false)
   %75 = load ptr, ptr @pg_comp_crc32c, align 8
-  %76 = call i32 %75(i32 noundef %69, ptr noundef %60, i64 noundef %72) #15
+  %76 = call i32 %75(i32 noundef %69, ptr noundef %60, i64 noundef %72) #14
   store i32 %76, ptr %57, align 4
   %77 = getelementptr i8, ptr %60, i64 %72
   br label %78
@@ -1924,44 +1922,44 @@ define internal fastcc void @SnapBuildSerialize(ptr nocapture noundef %0, i64 no
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.081, ptr align 4 %44, i64 %81, i1 false)
   %82 = load ptr, ptr @pg_comp_crc32c, align 8
   %83 = load i32, ptr %57, align 4
-  %84 = call i32 %82(i32 noundef %83, ptr noundef %.081, i64 noundef %81) #15
+  %84 = call i32 %82(i32 noundef %83, ptr noundef %.081, i64 noundef %81) #14
   br label %85
 
 85:                                               ; preds = %80, %78
   %86 = phi i32 [ %84, %80 ], [ %79, %78 ]
   %87 = xor i32 %86, -1
   store i32 %87, ptr %57, align 4
-  %88 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 193) #15
+  %88 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 193) #14
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %85
-  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %91)
-  %92 = call i32 @errcode_for_file_access() #15
-  %93 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %3) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1758, ptr noundef nonnull @__func__.SnapBuildSerialize) #15
+  %92 = call i32 @errcode_for_file_access() #14
+  %93 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %3) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1758, ptr noundef nonnull @__func__.SnapBuildSerialize) #14
   unreachable
 
 94:                                               ; preds = %85
   store i32 0, ptr %15, align 4
   %95 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772212, ptr %95, align 4
-  %96 = call i64 @write(i32 noundef %88, ptr noundef nonnull %53, i64 noundef %52) #15
+  %96 = call i64 @write(i32 noundef %88, ptr noundef nonnull %53, i64 noundef %52) #14
   %.not90 = icmp eq i64 %96, %52
   br i1 %.not90, label %104, label %97
 
 97:                                               ; preds = %94
   %98 = load i32, ptr %15, align 4
-  %99 = call i32 @CloseTransientFile(i32 noundef %88) #15
+  %99 = call i32 @CloseTransientFile(i32 noundef %88) #14
   %.not94 = icmp eq i32 %98, 0
   %100 = select i1 %.not94, i32 28, i32 %98
   store i32 %100, ptr %15, align 4
-  %101 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %101 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %101)
-  %102 = call i32 @errcode_for_file_access() #15
-  %103 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48, ptr noundef nonnull %3) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1772, ptr noundef nonnull @__func__.SnapBuildSerialize) #15
+  %102 = call i32 @errcode_for_file_access() #14
+  %103 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48, ptr noundef nonnull %3) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1772, ptr noundef nonnull @__func__.SnapBuildSerialize) #14
   unreachable
 
 104:                                              ; preds = %94
@@ -1969,65 +1967,65 @@ define internal fastcc void @SnapBuildSerialize(ptr nocapture noundef %0, i64 no
   store volatile i32 0, ptr %105, align 4
   %106 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772211, ptr %106, align 4
-  %107 = call i32 @pg_fsync(i32 noundef %88) #15
+  %107 = call i32 @pg_fsync(i32 noundef %88) #14
   %.not91 = icmp eq i32 %107, 0
   br i1 %.not91, label %114, label %108
 
 108:                                              ; preds = %104
   %109 = load i32, ptr %15, align 4
-  %110 = call i32 @CloseTransientFile(i32 noundef %88) #15
+  %110 = call i32 @CloseTransientFile(i32 noundef %88) #14
   store i32 %109, ptr %15, align 4
-  %111 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %111 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %111)
-  %112 = call i32 @errcode_for_file_access() #15
-  %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, ptr noundef nonnull %3) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1796, ptr noundef nonnull @__func__.SnapBuildSerialize) #15
+  %112 = call i32 @errcode_for_file_access() #14
+  %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, ptr noundef nonnull %3) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1796, ptr noundef nonnull @__func__.SnapBuildSerialize) #14
   unreachable
 
 114:                                              ; preds = %104
   %115 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %115, align 4
-  %116 = call i32 @CloseTransientFile(i32 noundef %88) #15
+  %116 = call i32 @CloseTransientFile(i32 noundef %88) #14
   %.not92 = icmp eq i32 %116, 0
   br i1 %.not92, label %121, label %117
 
 117:                                              ; preds = %114
-  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %118)
-  %119 = call i32 @errcode_for_file_access() #15
-  %120 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef nonnull %3) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1803, ptr noundef nonnull @__func__.SnapBuildSerialize) #15
+  %119 = call i32 @errcode_for_file_access() #14
+  %120 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef nonnull %3) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1803, ptr noundef nonnull @__func__.SnapBuildSerialize) #14
   unreachable
 
 121:                                              ; preds = %114
-  call void @fsync_fname(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #15
-  %122 = call i32 @rename(ptr noundef nonnull %3, ptr noundef nonnull %4) #15
+  call void @fsync_fname(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #14
+  %122 = call i32 @rename(ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %.not93 = icmp eq i32 %122, 0
   br i1 %.not93, label %127, label %123
 
 123:                                              ; preds = %121
-  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %124)
-  %125 = call i32 @errcode_for_file_access() #15
-  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1816, ptr noundef nonnull @__func__.SnapBuildSerialize) #15
+  %125 = call i32 @errcode_for_file_access() #14
+  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1816, ptr noundef nonnull @__func__.SnapBuildSerialize) #14
   unreachable
 
 127:                                              ; preds = %121
-  call void @fsync_fname(ptr noundef nonnull %4, i1 noundef zeroext false) #15
-  call void @fsync_fname(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #15
+  call void @fsync_fname(ptr noundef nonnull %4, i1 noundef zeroext false) #14
+  call void @fsync_fname(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #14
   %128 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %1, ptr %128, align 8
   store ptr %41, ptr @CurrentMemoryContext, align 8
   %129 = getelementptr inbounds i8, ptr %0, i64 64
   %130 = load ptr, ptr %129, align 8
-  call void @ReorderBufferSetRestartPoint(ptr noundef %130, i64 noundef %1) #15
-  call void @pfree(ptr noundef nonnull %53) #15
+  call void @ReorderBufferSetRestartPoint(ptr noundef %130, i64 noundef %1) #14
+  call void @pfree(ptr noundef nonnull %53) #14
   %.not96 = icmp eq ptr %44, null
   br i1 %.not96, label %132, label %131
 
 131:                                              ; preds = %127
-  call void @pfree(ptr noundef nonnull %44) #15
+  call void @pfree(ptr noundef nonnull %44) #14
   br label %132
 
 132:                                              ; preds = %.thread101, %2, %131, %127
@@ -2070,41 +2068,41 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
 
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = trunc i64 %1 to i32
-  %11 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.43, i32 noundef %9, i32 noundef %10) #15
-  %12 = call i32 @OpenTransientFile(ptr noundef nonnull %4, i32 noundef 0) #15
+  %11 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.43, i32 noundef %9, i32 noundef %10) #14
+  %12 = call i32 @OpenTransientFile(ptr noundef nonnull %4, i32 noundef 0) #14
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %7
-  %15 = tail call ptr @__errno_location() #17
+  %15 = tail call ptr @__errno_location() #16
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 2
   br i1 %17, label %168, label %18
 
 18:                                               ; preds = %14
-  %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %19)
-  %20 = call i32 @errcode_for_file_access() #15
-  %21 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1868, ptr noundef nonnull @__func__.SnapBuildRestore) #15
+  %20 = call i32 @errcode_for_file_access() #14
+  %21 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %4) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1868, ptr noundef nonnull @__func__.SnapBuildRestore) #14
   unreachable
 
 .critedge:                                        ; preds = %7
-  call void @fsync_fname(ptr noundef nonnull %4, i1 noundef zeroext false) #15
-  call void @fsync_fname(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #15
+  call void @fsync_fname(ptr noundef nonnull %4, i1 noundef zeroext false) #14
+  call void @fsync_fname(ptr noundef nonnull @.str.20, i1 noundef zeroext true) #14
   call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef nonnull %3, i64 noundef 16, ptr noundef nonnull %4)
   %22 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %22, 1369563137
   br i1 %.not, label %27, label %23
 
 23:                                               ; preds = %.critedge
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %24)
-  %25 = call i32 @errcode(i32 noundef 16779816) #15
-  %26 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef nonnull %4, i32 noundef %22, i32 noundef 1369563137) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1889, ptr noundef nonnull @__func__.SnapBuildRestore) #15
+  %25 = call i32 @errcode(i32 noundef 16779816) #14
+  %26 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef nonnull %4, i32 noundef %22, i32 noundef 1369563137) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1889, ptr noundef nonnull @__func__.SnapBuildRestore) #14
   unreachable
 
 27:                                               ; preds = %.critedge
@@ -2114,20 +2112,20 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   br i1 %.not57, label %34, label %30
 
 30:                                               ; preds = %27
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %31)
-  %32 = call i32 @errcode(i32 noundef 16779816) #15
-  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef nonnull %4, i32 noundef %29, i32 noundef 5) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1895, ptr noundef nonnull @__func__.SnapBuildRestore) #15
+  %32 = call i32 @errcode(i32 noundef 16779816) #14
+  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef nonnull %4, i32 noundef %29, i32 noundef 5) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1895, ptr noundef nonnull @__func__.SnapBuildRestore) #14
   unreachable
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr @pg_comp_crc32c, align 8
-  %36 = call i32 %35(i32 noundef -1, ptr noundef nonnull %28, i64 noundef 8) #15
+  %36 = call i32 %35(i32 noundef -1, ptr noundef nonnull %28, i64 noundef 8) #14
   %37 = getelementptr inbounds i8, ptr %3, i64 16
   call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef nonnull %37, i64 noundef 128, ptr noundef nonnull %4)
   %38 = load ptr, ptr @pg_comp_crc32c, align 8
-  %39 = call i32 %38(i32 noundef %36, ptr noundef nonnull %37, i64 noundef 128) #15
+  %39 = call i32 %38(i32 noundef %36, ptr noundef nonnull %37, i64 noundef 128) #14
   %40 = getelementptr inbounds i8, ptr %3, i64 96
   %41 = load i64, ptr %40, align 8
   %.not58 = icmp eq i64 %41, 0
@@ -2137,13 +2135,13 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   %43 = shl i64 %41, 2
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = call ptr @MemoryContextAllocZero(ptr noundef %45, i64 noundef %43) #15
+  %46 = call ptr @MemoryContextAllocZero(ptr noundef %45, i64 noundef %43) #14
   %47 = getelementptr inbounds i8, ptr %3, i64 120
   store ptr %46, ptr %47, align 8
   call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef %46, i64 noundef %43, ptr noundef nonnull %4)
   %48 = load ptr, ptr @pg_comp_crc32c, align 8
   %49 = load ptr, ptr %47, align 8
-  %50 = call i32 %48(i32 noundef %39, ptr noundef %49, i64 noundef %43) #15
+  %50 = call i32 %48(i32 noundef %39, ptr noundef %49, i64 noundef %43) #14
   br label %51
 
 51:                                               ; preds = %42, %34
@@ -2157,27 +2155,27 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   %55 = shl i64 %53, 2
   %56 = getelementptr inbounds i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = call ptr @MemoryContextAllocZero(ptr noundef %57, i64 noundef %55) #15
+  %58 = call ptr @MemoryContextAllocZero(ptr noundef %57, i64 noundef %55) #14
   %59 = getelementptr inbounds i8, ptr %3, i64 136
   store ptr %58, ptr %59, align 8
   call fastcc void @SnapBuildRestoreContents(i32 noundef %12, ptr noundef %58, i64 noundef %55, ptr noundef nonnull %4)
   %60 = load ptr, ptr @pg_comp_crc32c, align 8
   %61 = load ptr, ptr %59, align 8
-  %62 = call i32 %60(i32 noundef %.048, ptr noundef %61, i64 noundef %55) #15
+  %62 = call i32 %60(i32 noundef %.048, ptr noundef %61, i64 noundef %55) #14
   br label %63
 
 63:                                               ; preds = %54, %51
   %.1 = phi i32 [ %62, %54 ], [ %.048, %51 ]
-  %64 = call i32 @CloseTransientFile(i32 noundef %12) #15
+  %64 = call i32 @CloseTransientFile(i32 noundef %12) #14
   %.not60 = icmp eq i32 %64, 0
   br i1 %.not60, label %69, label %65
 
 65:                                               ; preds = %63
-  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %66)
-  %67 = call i32 @errcode_for_file_access() #15
-  %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1927, ptr noundef nonnull @__func__.SnapBuildRestore) #15
+  %67 = call i32 @errcode_for_file_access() #14
+  %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef nonnull %4) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1927, ptr noundef nonnull @__func__.SnapBuildRestore) #14
   unreachable
 
 69:                                               ; preds = %63
@@ -2188,12 +2186,12 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   br i1 %73, label %79, label %74
 
 74:                                               ; preds = %69
-  %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %75)
-  %76 = call i32 @errcode(i32 noundef 16779816) #15
+  %76 = call i32 @errcode(i32 noundef 16779816) #14
   %77 = load i32, ptr %71, align 4
-  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, ptr noundef nonnull %4, i32 noundef %70, i32 noundef %77) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1936, ptr noundef nonnull @__func__.SnapBuildRestore) #15
+  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, ptr noundef nonnull %4, i32 noundef %70, i32 noundef %77) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1936, ptr noundef nonnull @__func__.SnapBuildRestore) #14
   unreachable
 
 79:                                               ; preds = %69
@@ -2206,7 +2204,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   %84 = load i32, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 40
   %86 = load i32, ptr %85, align 8
-  %87 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %84, i32 noundef %86) #15
+  %87 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %84, i32 noundef %86) #14
   br i1 %87, label %160, label %88
 
 88:                                               ; preds = %82
@@ -2227,7 +2225,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
 96:                                               ; preds = %88
   %97 = getelementptr inbounds i8, ptr %0, i64 104
   %98 = load ptr, ptr %97, align 8
-  call void @pfree(ptr noundef %98) #15
+  call void @pfree(ptr noundef %98) #14
   %99 = load i64, ptr %40, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %99, ptr %100, align 8
@@ -2246,7 +2244,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   br i1 %.not62, label %109, label %108
 
 108:                                              ; preds = %103
-  call void @pfree(ptr noundef nonnull %107) #15
+  call void @pfree(ptr noundef nonnull %107) #14
   br label %109
 
 109:                                              ; preds = %108, %103
@@ -2268,10 +2266,10 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   br i1 %118, label %119, label %122
 
 119:                                              ; preds = %115
-  %120 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %120 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %120)
-  %121 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__func__.SnapBuildSnapDecRefcount) #15
+  %121 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__func__.SnapBuildSnapDecRefcount) #14
   unreachable
 
 122:                                              ; preds = %115
@@ -2283,7 +2281,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   br i1 %126, label %SnapBuildFreeSnapshot.exit.i, label %SnapBuildSnapDecRefcount.exit
 
 SnapBuildFreeSnapshot.exit.i:                     ; preds = %122
-  call void @pfree(ptr noundef nonnull %114) #15
+  call void @pfree(ptr noundef nonnull %114) #14
   br label %SnapBuildSnapDecRefcount.exit
 
 SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapshot.exit.i, %122, %109
@@ -2292,7 +2290,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   %129 = add i64 %128, 124
   %130 = getelementptr inbounds i8, ptr %0, i64 8
   %131 = load ptr, ptr %130, align 8
-  %132 = call ptr @MemoryContextAllocZero(ptr noundef %131, i64 noundef %129) #15
+  %132 = call ptr @MemoryContextAllocZero(ptr noundef %131, i64 noundef %129) #14
   store i32 5, ptr %132, align 8
   %133 = load i32, ptr %90, align 8
   %134 = getelementptr inbounds i8, ptr %132, i64 4
@@ -2313,7 +2311,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   %145 = shl i64 %144, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %137, ptr align 4 %143, i64 %145, i1 false)
   %146 = and i64 %139, 4294967295
-  call void @pg_qsort(ptr noundef %137, i64 noundef %146, i64 noundef 4, ptr noundef nonnull @xidComparator) #15
+  call void @pg_qsort(ptr noundef %137, i64 noundef %146, i64 noundef 4, ptr noundef nonnull @xidComparator) #14
   %147 = getelementptr inbounds i8, ptr %132, i64 32
   %148 = getelementptr inbounds i8, ptr %132, i64 48
   store i32 0, ptr %148, align 8
@@ -2330,14 +2328,14 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   store i32 %153, ptr %149, align 8
   %154 = getelementptr inbounds i8, ptr %0, i64 64
   %155 = load ptr, ptr %154, align 8
-  call void @ReorderBufferSetRestartPoint(ptr noundef %155, i64 noundef %1) #15
-  %156 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  call void @ReorderBufferSetRestartPoint(ptr noundef %155, i64 noundef %1) #14
+  %156 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %156, label %157, label %168
 
 157:                                              ; preds = %SnapBuildSnapDecRefcount.exit
-  %158 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, i32 noundef %9, i32 noundef %10) #15
-  %159 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.55) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2003, ptr noundef nonnull @__func__.SnapBuildRestore) #15
+  %158 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, i32 noundef %9, i32 noundef %10) #14
+  %159 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.55) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2003, ptr noundef nonnull @__func__.SnapBuildRestore) #14
   br label %168
 
 160:                                              ; preds = %82, %79
@@ -2347,7 +2345,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   br i1 %.not64, label %164, label %163
 
 163:                                              ; preds = %160
-  call void @pfree(ptr noundef nonnull %162) #15
+  call void @pfree(ptr noundef nonnull %162) #14
   br label %164
 
 164:                                              ; preds = %163, %160
@@ -2357,7 +2355,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   br i1 %.not65, label %168, label %167
 
 167:                                              ; preds = %164
-  call void @pfree(ptr noundef nonnull %166) #15
+  call void @pfree(ptr noundef nonnull %166) #14
   br label %168
 
 168:                                              ; preds = %164, %167, %157, %SnapBuildSnapDecRefcount.exit, %14, %2
@@ -2370,103 +2368,125 @@ define dso_local void @CheckPointSnapBuild() local_unnamed_addr #0 {
   %1 = alloca [1045 x i8], align 16
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  %4 = tail call i64 @GetRedoRecPtr() #15
-  %5 = tail call i64 @ReplicationSlotsComputeLogicalRestartLSN() #15
-  %6 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.20) #15
-  %7 = tail call ptr @ReadDir(ptr noundef %6, ptr noundef nonnull @.str.20) #15
-  %.not21 = icmp eq ptr %7, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %4 = tail call i64 @GetRedoRecPtr() #14
+  %5 = tail call i64 @ReplicationSlotsComputeLogicalRestartLSN() #14
+  %6 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.20) #14
+  %7 = tail call ptr @ReadDir(ptr noundef %6, ptr noundef nonnull @.str.20) #14
+  %.not25 = icmp eq ptr %7, null
+  br i1 %.not25, label %._crit_edge, label %sub_0.lr.ph
 
-.lr.ph:                                           ; preds = %0
+sub_0.lr.ph:                                      ; preds = %0
   %spec.select = tail call i64 @llvm.umin.i64(i64 %4, i64 %5)
   %8 = add i64 %spec.select, -1
-  br label %9
+  br label %sub_0
 
-9:                                                ; preds = %.lr.ph, %.backedge
-  %10 = phi ptr [ %7, %.lr.ph ], [ %17, %.backedge ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 19
-  %12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(2) @.str.21) #18
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.backedge, label %14
+sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
+  %9 = phi ptr [ %7, %sub_0.lr.ph ], [ %26, %.backedge ]
+  %10 = getelementptr inbounds i8, ptr %9, i64 19
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i32
+  %13 = add nsw i32 %12, -46
+  %.not26 = icmp eq i32 %13, 0
+  br i1 %.not26, label %.tail, label %.tail21
 
-14:                                               ; preds = %9
-  %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(3) @.str.22) #18
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.backedge, label %18
+.tail:                                            ; preds = %sub_0
+  %14 = getelementptr inbounds i8, ptr %9, i64 20
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %.backedge, label %sub_123
 
-.backedge.sink.split:                             ; preds = %24, %30, %48
-  %.sink = phi i32 [ 2131, %48 ], [ 2110, %30 ], [ 2094, %24 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.CheckPointSnapBuild) #15
+sub_123:                                          ; preds = %.tail
+  %17 = getelementptr inbounds i8, ptr %9, i64 20
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i32
+  %20 = add nsw i32 %19, -46
+  %.not28 = icmp eq i32 %20, 0
+  br i1 %.not28, label %sub_2, label %.tail21
+
+sub_2:                                            ; preds = %sub_123
+  %21 = getelementptr inbounds i8, ptr %9, i64 21
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i32
+  br label %.tail21
+
+.tail21:                                          ; preds = %sub_0, %sub_123, %sub_2
+  %24 = phi i32 [ %20, %sub_123 ], [ %23, %sub_2 ], [ %13, %sub_0 ]
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %.backedge, label %27
+
+.backedge.sink.split:                             ; preds = %33, %39, %57
+  %.sink = phi i32 [ 2131, %57 ], [ 2110, %39 ], [ 2094, %33 ]
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.CheckPointSnapBuild) #14
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %32, %43, %46, %28, %22, %9, %14
-  %17 = call ptr @ReadDir(ptr noundef %6, ptr noundef nonnull @.str.20) #15
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !11
+.backedge:                                        ; preds = %.backedge.sink.split, %41, %52, %55, %37, %31, %.tail, %.tail21
+  %26 = call ptr @ReadDir(ptr noundef %6, ptr noundef nonnull @.str.20) #14
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !11
 
-18:                                               ; preds = %14
-  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1045, ptr noundef nonnull @.str.23, ptr noundef nonnull %11) #15
-  %20 = call i32 @get_dirent_type(ptr noundef nonnull %1, ptr noundef nonnull %10, i1 noundef zeroext false, i32 noundef 14) #15
-  %21 = and i32 %20, -3
-  %or.cond.not = icmp eq i32 %21, 0
-  br i1 %or.cond.not, label %26, label %22
+27:                                               ; preds = %.tail21
+  %28 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1045, ptr noundef nonnull @.str.23, ptr noundef nonnull %10) #14
+  %29 = call i32 @get_dirent_type(ptr noundef nonnull %1, ptr noundef nonnull %9, i1 noundef zeroext false, i32 noundef 14) #14
+  %30 = and i32 %29, -3
+  %or.cond.not = icmp eq i32 %30, 0
+  br i1 %or.cond.not, label %35, label %31
 
-22:                                               ; preds = %18
-  %23 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
-  br i1 %23, label %24, label %.backedge
+31:                                               ; preds = %27
+  %32 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  br i1 %32, label %33, label %.backedge
 
-24:                                               ; preds = %22
-  %25 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, ptr noundef nonnull %1) #15
+33:                                               ; preds = %31
+  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, ptr noundef nonnull %1) #14
   br label %.backedge.sink.split
 
-26:                                               ; preds = %18
-  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %11, ptr noundef nonnull @.str.25, ptr noundef nonnull %2, ptr noundef nonnull %3) #15
-  %.not20 = icmp eq i32 %27, 2
-  br i1 %.not20, label %32, label %28
+35:                                               ; preds = %27
+  %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %10, ptr noundef nonnull @.str.25, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
+  %.not20 = icmp eq i32 %36, 2
+  br i1 %.not20, label %41, label %37
 
-28:                                               ; preds = %26
-  %29 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
-  br i1 %29, label %30, label %.backedge
+37:                                               ; preds = %35
+  %38 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  br i1 %38, label %39, label %.backedge
 
-30:                                               ; preds = %28
-  %31 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %1) #15
+39:                                               ; preds = %37
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %1) #14
   br label %.backedge.sink.split
 
-32:                                               ; preds = %26
-  %33 = load i32, ptr %2, align 4
-  %34 = zext i32 %33 to i64
-  %35 = shl nuw i64 %34, 32
-  %36 = load i32, ptr %3, align 4
-  %37 = zext i32 %36 to i64
-  %38 = or disjoint i64 %35, %37
-  %or.cond3.not = icmp ult i64 %8, %38
-  br i1 %or.cond3.not, label %.backedge, label %39
+41:                                               ; preds = %35
+  %42 = load i32, ptr %2, align 4
+  %43 = zext i32 %42 to i64
+  %44 = shl nuw i64 %43, 32
+  %45 = load i32, ptr %3, align 4
+  %46 = zext i32 %45 to i64
+  %47 = or disjoint i64 %44, %46
+  %or.cond3.not = icmp ult i64 %8, %47
+  br i1 %or.cond3.not, label %.backedge, label %48
 
-39:                                               ; preds = %32
-  %40 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
-  br i1 %40, label %41, label %43
+48:                                               ; preds = %41
+  %49 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  br i1 %49, label %50, label %52
 
-41:                                               ; preds = %39
-  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, ptr noundef nonnull %1) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2119, ptr noundef nonnull @__func__.CheckPointSnapBuild) #15
-  br label %43
+50:                                               ; preds = %48
+  %51 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, ptr noundef nonnull %1) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2119, ptr noundef nonnull @__func__.CheckPointSnapBuild) #14
+  br label %52
 
-43:                                               ; preds = %39, %41
-  %44 = call i32 @unlink(ptr noundef nonnull %1) #15
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %.backedge
+52:                                               ; preds = %48, %50
+  %53 = call i32 @unlink(ptr noundef nonnull %1) #14
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %55, label %.backedge
 
-46:                                               ; preds = %43
-  %47 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
-  br i1 %47, label %48, label %.backedge
+55:                                               ; preds = %52
+  %56 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  br i1 %56, label %57, label %.backedge
 
-48:                                               ; preds = %46
-  %49 = call i32 @errcode_for_file_access() #15
-  %50 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %1) #15
+57:                                               ; preds = %55
+  %58 = call i32 @errcode_for_file_access() #14
+  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %1) #14
   br label %.backedge.sink.split
 
 ._crit_edge:                                      ; preds = %.backedge, %0
-  %51 = call i32 @FreeDir(ptr noundef %6) #15
+  %60 = call i32 @FreeDir(ptr noundef %6) #14
   ret void
 }
 
@@ -2478,18 +2498,15 @@ declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #1
 
 declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
-
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @get_dirent_type(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
 
 declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
@@ -2528,22 +2545,22 @@ define internal fastcc void @SnapBuildWaitSnapshot(ptr nocapture noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %7 = getelementptr [0 x i32], ptr %5, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %8) #15
+  %9 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %8) #14
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1524, ptr noundef nonnull @__func__.SnapBuildWaitSnapshot) #15
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1524, ptr noundef nonnull @__func__.SnapBuildWaitSnapshot) #14
   unreachable
 
 13:                                               ; preds = %6
-  %14 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %8, i32 noundef %1) #15
+  %14 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %8, i32 noundef %1) #14
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %13
-  tail call void @XactLockTableWait(i32 noundef %8, ptr noundef null, ptr noundef null, i32 noundef 0) #15
+  tail call void @XactLockTableWait(i32 noundef %8, ptr noundef null, ptr noundef null, i32 noundef 0) #14
   br label %16
 
 16:                                               ; preds = %13, %15
@@ -2554,11 +2571,11 @@ define internal fastcc void @SnapBuildWaitSnapshot(ptr nocapture noundef readonl
   br i1 %19, label %6, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %16, %2
-  %20 = tail call zeroext i1 @RecoveryInProgress() #15
+  %20 = tail call zeroext i1 @RecoveryInProgress() #14
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %._crit_edge
-  %22 = tail call i64 @LogStandbySnapshot() #15
+  %22 = tail call i64 @LogStandbySnapshot() #14
   br label %23
 
 23:                                               ; preds = %21, %._crit_edge
@@ -2580,10 +2597,10 @@ declare i64 @LogStandbySnapshot() local_unnamed_addr #1
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
 declare void @fsync_fname(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -2592,14 +2609,14 @@ declare ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef) local_unnamed_addr
 declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
 
 declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #1
 
 declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
 
 declare void @ReorderBufferSetRestartPoint(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2607,7 +2624,7 @@ declare void @ReorderBufferSetRestartPoint(ptr noundef, i64 noundef) local_unnam
 define internal fastcc void @SnapBuildRestoreContents(i32 noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772210, ptr %5, align 4
-  %6 = tail call i64 @read(i32 noundef %0, ptr noundef %1, i64 noundef %2) #15
+  %6 = tail call i64 @read(i32 noundef %0, ptr noundef %1, i64 noundef %2) #14
   %7 = trunc i64 %6 to i32
   %8 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %8, align 4
@@ -2617,27 +2634,27 @@ define internal fastcc void @SnapBuildRestoreContents(i32 noundef %0, ptr nocapt
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @__errno_location() #17
+  %11 = tail call ptr @__errno_location() #16
   %12 = load i32, ptr %11, align 4
-  %13 = tail call i32 @CloseTransientFile(i32 noundef %0) #15
+  %13 = tail call i32 @CloseTransientFile(i32 noundef %0) #14
   %14 = icmp slt i32 %7, 0
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %10
   store i32 %12, ptr %11, align 4
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 @errcode_for_file_access() #15
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, ptr noundef %3) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2036, ptr noundef nonnull @__func__.SnapBuildRestoreContents) #15
+  %17 = tail call i32 @errcode_for_file_access() #14
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, ptr noundef %3) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2036, ptr noundef nonnull @__func__.SnapBuildRestoreContents) #14
   unreachable
 
 19:                                               ; preds = %10
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 16779816) #15
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, ptr noundef %3, i32 noundef %7, i64 noundef %2) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2042, ptr noundef nonnull @__func__.SnapBuildRestoreContents) #15
+  %21 = tail call i32 @errcode(i32 noundef 16779816) #14
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, ptr noundef %3, i32 noundef %7, i64 noundef %2) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2042, ptr noundef nonnull @__func__.SnapBuildRestoreContents) #14
   unreachable
 
 23:                                               ; preds = %4
@@ -2645,25 +2662,25 @@ define internal fastcc void @SnapBuildRestoreContents(i32 noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2672,18 +2689,16 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { cold nounwind }
-attributes #17 = { nounwind willreturn memory(none) }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

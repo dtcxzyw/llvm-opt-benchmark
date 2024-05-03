@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 @ruby_initial_gc_stress_ptr = external local_unnamed_addr global ptr, align 8
 @.str.5 = private unnamed_addr constant [5 x i8] c"core\00", align 1
 @ruby_enable_coredump = external local_unnamed_addr global i32, align 4
-@.str.6 = private unnamed_addr constant [3 x i8] c"ci\00", align 1
 @ruby_on_ci = external local_unnamed_addr global i32, align 4
 @.str.7 = private unnamed_addr constant [7 x i8] c"rgengc\00", align 1
 @ruby_rgengc_debug = external local_unnamed_addr global i32, align 4
@@ -26,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [31 x i8] c"unexpected debug option: %.*s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local noundef i32 @ruby_debug_print_indent(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ruby_debug_print_indent(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %0, %1
   br i1 %4, label %5, label %10
 
@@ -51,24 +50,18 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @ruby_debug_printf(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8
   %4 = call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #8
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
-
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @ruby_debug_print_value(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef returned %3) local_unnamed_addr #3 {
+define dso_local noundef i64 @ruby_debug_print_value(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef returned %3) local_unnamed_addr #2 {
   %5 = alloca [256 x i8], align 16
   %6 = icmp slt i32 %0, %1
   br i1 %6, label %7, label %13
@@ -85,10 +78,10 @@ define dso_local noundef i64 @ruby_debug_print_value(i32 noundef %0, i32 noundef
   ret i64 %3
 }
 
-declare ptr @rb_raw_obj_info(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @rb_raw_obj_info(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ruby_debug_print_v(i64 noundef %0) local_unnamed_addr #3 {
+define dso_local void @ruby_debug_print_v(i64 noundef %0) local_unnamed_addr #2 {
   %2 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
   %3 = call ptr @rb_raw_obj_info(ptr noundef nonnull %2, i64 noundef 256, i64 noundef %0) #9
@@ -101,7 +94,7 @@ define dso_local void @ruby_debug_print_v(i64 noundef %0) local_unnamed_addr #3 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @ruby_debug_print_id(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef returned %3) local_unnamed_addr #3 {
+define dso_local noundef i64 @ruby_debug_print_id(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef returned %3) local_unnamed_addr #2 {
   %5 = icmp slt i32 %0, %1
   br i1 %5, label %6, label %12
 
@@ -117,10 +110,10 @@ define dso_local noundef i64 @ruby_debug_print_id(i32 noundef %0, i32 noundef %1
   ret i64 %3
 }
 
-declare ptr @rb_id2name(i64 noundef) local_unnamed_addr #4
+declare ptr @rb_id2name(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @ruby_debug_print_node(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly returned %3) local_unnamed_addr #3 {
+define dso_local noundef ptr @ruby_debug_print_node(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly returned %3) local_unnamed_addr #2 {
   %5 = icmp slt i32 %0, %1
   br i1 %5, label %6, label %27
 
@@ -151,10 +144,10 @@ define dso_local noundef ptr @ruby_debug_print_node(i32 noundef %0, i32 noundef 
   ret ptr %3
 }
 
-declare ptr @ruby_node_name(i32 noundef) local_unnamed_addr #4
+declare ptr @ruby_node_name(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ruby_debug_print_n(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local void @ruby_debug_print_n(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = load i64, ptr %0, align 8
   %4 = trunc i64 %3 to i32
@@ -179,18 +172,18 @@ define dso_local void @ruby_debug_print_n(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @ruby_debug_breakpoint() local_unnamed_addr #5 {
+define dso_local void @ruby_debug_breakpoint() local_unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @ruby_env_debug_option(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @ruby_env_debug_option(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) local_unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
-  switch i32 %1, label %19 [
+  switch i32 %1, label %20 [
     i32 9, label %6
     i32 4, label %11
-    i32 2, label %15
+    i32 2, label %sub_0
   ]
 
 6:                                                ; preds = %3
@@ -212,107 +205,113 @@ define hidden noundef i32 @ruby_env_debug_option(ptr noundef %0, i32 noundef %1,
   store i32 1, ptr @ruby_enable_coredump, align 4
   br label %.thread
 
-15:                                               ; preds = %3
-  %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.6, i64 noundef 2) #10
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %.thread
+sub_0:                                            ; preds = %3
+  %15 = load i8, ptr %0, align 1
+  %.not56 = icmp eq i8 %15, 99
+  br i1 %.not56, label %.tail, label %.thread
 
-18:                                               ; preds = %15
+.tail:                                            ; preds = %sub_0
+  %16 = getelementptr inbounds i8, ptr %0, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 105
+  br i1 %18, label %19, label %.thread
+
+19:                                               ; preds = %.tail
   store i32 1, ptr @ruby_on_ci, align 4
   br label %.thread
 
-19:                                               ; preds = %3
-  %20 = icmp ugt i32 %1, 5
-  br i1 %20, label %21, label %.thread
+20:                                               ; preds = %3
+  %21 = icmp ugt i32 %1, 5
+  br i1 %21, label %22, label %.thread
 
-21:                                               ; preds = %19
-  %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.7, i64 noundef 6) #10
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %26, label %.thread
+22:                                               ; preds = %20
+  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.7, i64 noundef 6) #10
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %27, label %.thread
 
 .thread45:                                        ; preds = %6
-  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.7, i64 noundef 6) #10
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.thread46, label %.thread
+  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.7, i64 noundef 6) #10
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.thread46, label %.thread
 
-26:                                               ; preds = %21
-  %27 = icmp eq i32 %1, 6
-  br i1 %27, label %.thread47, label %.thread46
+27:                                               ; preds = %22
+  %28 = icmp eq i32 %1, 6
+  br i1 %28, label %.thread47, label %.thread46
 
-.thread46:                                        ; preds = %.thread45, %26
-  %28 = getelementptr i8, ptr %0, i64 6
-  %29 = load i8, ptr %28, align 1
-  %30 = icmp eq i8 %29, 61
-  br i1 %30, label %31, label %.thread
+.thread46:                                        ; preds = %.thread45, %27
+  %29 = getelementptr i8, ptr %0, i64 6
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 61
+  br i1 %31, label %32, label %.thread
 
-31:                                               ; preds = %.thread46
-  %32 = getelementptr i8, ptr %0, i64 7
-  %33 = add i32 %1, -7
-  %.not = icmp eq i32 %33, 0
+32:                                               ; preds = %.thread46
+  %33 = getelementptr i8, ptr %0, i64 7
+  %34 = add i32 %1, -7
+  %.not = icmp eq i32 %34, 0
   br i1 %.not, label %.thread47, label %.preheader
 
-.thread47:                                        ; preds = %26, %31
+.thread47:                                        ; preds = %27, %32
   store i32 1, ptr @ruby_rgengc_debug, align 4
   br label %.thread
 
-.preheader:                                       ; preds = %31
-  %34 = sext i32 %33 to i64
-  %35 = call i64 @ruby_scan_digits(ptr noundef %32, i64 noundef %34, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
-  %36 = load i32, ptr %4, align 4
-  %37 = icmp eq i32 %36, 0
-  %38 = load i64, ptr %5, align 8
-  %39 = icmp ne i64 %38, 0
-  %or.cond = select i1 %37, i1 %39, i1 false
-  br i1 %or.cond, label %40, label %42
+.preheader:                                       ; preds = %32
+  %35 = sext i32 %34 to i64
+  %36 = call i64 @ruby_scan_digits(ptr noundef %33, i64 noundef %35, i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
+  %37 = load i32, ptr %4, align 4
+  %38 = icmp eq i32 %37, 0
+  %39 = load i64, ptr %5, align 8
+  %40 = icmp ne i64 %39, 0
+  %or.cond = select i1 %38, i1 %40, i1 false
+  br i1 %or.cond, label %41, label %43
 
-40:                                               ; preds = %.preheader
-  %41 = trunc i64 %35 to i32
-  store i32 %41, ptr @ruby_rgengc_debug, align 4
-  br label %42
+41:                                               ; preds = %.preheader
+  %42 = trunc i64 %36 to i32
+  store i32 %42, ptr @ruby_rgengc_debug, align 4
+  br label %43
 
-42:                                               ; preds = %40, %.preheader
-  %43 = trunc i64 %38 to i32
-  %.not42 = icmp eq i32 %33, %43
-  br i1 %.not42, label %.thread, label %44
+43:                                               ; preds = %41, %.preheader
+  %44 = trunc i64 %39 to i32
+  %.not42 = icmp eq i32 %34, %44
+  br i1 %.not42, label %.thread, label %45
 
-44:                                               ; preds = %42
-  %45 = sub i32 %33, %43
-  %46 = getelementptr i8, ptr %32, i64 %38
-  %47 = load i8, ptr %46, align 1
-  %.not43 = icmp eq i8 %47, 58
-  %48 = sext i1 %.not43 to i32
-  %.236 = add i32 %45, %48
-  %49 = icmp sgt i32 %.236, 0
-  br i1 %49, label %50, label %.thread
+45:                                               ; preds = %43
+  %46 = sub i32 %34, %44
+  %47 = getelementptr i8, ptr %33, i64 %39
+  %48 = load i8, ptr %47, align 1
+  %.not43 = icmp eq i8 %48, 58
+  %49 = sext i1 %.not43 to i32
+  %.236 = add i32 %46, %49
+  %50 = icmp sgt i32 %.236, 0
+  br i1 %50, label %51, label %.thread
 
-50:                                               ; preds = %44
+51:                                               ; preds = %45
   %.2.idx = zext i1 %.not43 to i64
-  %.2 = getelementptr i8, ptr %46, i64 %.2.idx
-  %51 = load ptr, ptr @stderr, align 8
-  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.8, i32 noundef %.236, ptr noundef %.2) #8
+  %.2 = getelementptr i8, ptr %47, i64 %.2.idx
+  %52 = load ptr, ptr @stderr, align 8
+  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.8, i32 noundef %.236, ptr noundef %.2) #8
   br label %.thread
 
-.thread:                                          ; preds = %42, %15, %11, %.thread45, %19, %21, %.thread46, %.thread47, %44, %50, %18, %14, %9
-  %.032 = phi i32 [ 1, %9 ], [ 1, %14 ], [ 1, %18 ], [ 1, %50 ], [ 1, %44 ], [ 1, %.thread47 ], [ 0, %.thread46 ], [ 0, %21 ], [ 0, %19 ], [ 0, %.thread45 ], [ 0, %11 ], [ 0, %15 ], [ 1, %42 ]
+.thread:                                          ; preds = %sub_0, %43, %.tail, %11, %.thread45, %20, %22, %.thread46, %.thread47, %45, %51, %19, %14, %9
+  %.032 = phi i32 [ 1, %9 ], [ 1, %14 ], [ 1, %19 ], [ 1, %51 ], [ 1, %45 ], [ 1, %.thread47 ], [ 0, %.thread46 ], [ 0, %22 ], [ 0, %20 ], [ 0, %.thread45 ], [ 0, %11 ], [ 0, %.tail ], [ 1, %43 ], [ 0, %sub_0 ]
   ret i32 %.032
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
-declare i64 @ruby_scan_digits(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @ruby_scan_digits(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ruby_set_debug_option(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local void @ruby_set_debug_option(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @ruby_each_words(ptr noundef %0, ptr noundef nonnull @set_debug_option, ptr noundef null) #9
   ret void
 }
 
-declare void @ruby_each_words(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @ruby_each_words(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_debug_option(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #3 {
-  %4 = tail call i32 @ruby_env_debug_option(ptr noundef %0, i32 noundef %1, ptr poison), !range !7
+define internal void @set_debug_option(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #2 {
+  %4 = tail call i32 @ruby_env_debug_option(ptr noundef %0, i32 noundef %1, ptr poison)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
 
@@ -325,6 +324,12 @@ define internal void @set_debug_option(ptr noundef %0, i32 noundef %1, ptr nocap
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
@@ -333,11 +338,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { cold nounwind }
 attributes #9 = { nounwind }
@@ -352,4 +357,3 @@ attributes #10 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

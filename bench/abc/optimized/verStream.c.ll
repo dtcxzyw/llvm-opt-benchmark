@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [57 x i8] c"Ver_StreamSkipToSymbol() failed to parse the file \22%s\22.\0A\00", align 1
 @.str.5 = private unnamed_addr constant [52 x i8] c"Ver_StreamGetWord() failed to parse the file \22%s\22.\0A\00", align 1
 @.str.6 = private unnamed_addr constant [5 x i8] c"z_g_\00", align 1
-@.str.7 = private unnamed_addr constant [5 x i8] c"co_g\00", align 1
 @str = private unnamed_addr constant [50 x i8] c"Ver_StreamGetWord(): The buffer size is exceeded.\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
@@ -155,7 +154,7 @@ define i32 @Ver_StreamGetLineNumber(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Ver_StreamIsOkey(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Ver_StreamIsOkey(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 65628
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -673,27 +672,39 @@ define void @Ver_StreamMove(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #15
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %8, label %6
+  br i1 %.not, label %12, label %sub_0
 
-6:                                                ; preds = %1
-  %7 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.7, i64 noundef 3) #15
-  %.not4 = icmp eq i32 %7, 0
-  br i1 %.not4, label %8, label %.loopexit
+sub_0:                                            ; preds = %1
+  %6 = load i8, ptr %4, align 1
+  %.not7 = icmp eq i8 %6, 99
+  br i1 %.not7, label %sub_1, label %.loopexit
 
-8:                                                ; preds = %6, %1
-  %9 = load i8, ptr %3, align 1
-  %.not56 = icmp eq i8 %9, 40
+sub_1:                                            ; preds = %sub_0
+  %7 = getelementptr inbounds i8, ptr %3, i64 2
+  %8 = load i8, ptr %7, align 1
+  %.not8 = icmp eq i8 %8, 111
+  br i1 %.not8, label %.tail, label %.loopexit
+
+.tail:                                            ; preds = %sub_1
+  %9 = getelementptr inbounds i8, ptr %3, i64 3
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp eq i8 %10, 95
+  br i1 %11, label %12, label %.loopexit
+
+12:                                               ; preds = %.tail, %1
+  %13 = load i8, ptr %3, align 1
+  %.not56 = icmp eq i8 %13, 40
   br i1 %.not56, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %8, %.lr.ph
-  %10 = phi ptr [ %11, %.lr.ph ], [ %3, %8 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
-  store ptr %11, ptr %2, align 8
-  %12 = load i8, ptr %11, align 1
-  %.not5 = icmp eq i8 %12, 40
+.lr.ph:                                           ; preds = %12, %.lr.ph
+  %14 = phi ptr [ %15, %.lr.ph ], [ %3, %12 ]
+  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  store ptr %15, ptr %2, align 8
+  %16 = load i8, ptr %15, align 1
+  %.not5 = icmp eq i8 %16, 40
   br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.lr.ph, %8, %6
+.loopexit:                                        ; preds = %.lr.ph, %sub_1, %sub_0, %12, %.tail
   ret void
 }
 

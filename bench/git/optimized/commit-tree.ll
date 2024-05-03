@@ -20,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [7 x i8] c"key-id\00", align 1
 @.str.8 = private unnamed_addr constant [16 x i8] c"GPG sign commit\00", align 1
 @.str.9 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.10 = private unnamed_addr constant [3 x i8] c"-h\00", align 1
 @commit_tree_usage = internal constant [3 x ptr] [ptr @.str.22, ptr @.str.23, ptr null], align 16
 @.str.11 = private unnamed_addr constant [27 x i8] c"must give exactly one tree\00", align 1
 @the_repository = external local_unnamed_addr global ptr, align 8
@@ -30,7 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [41 x i8] c"option callback does not expect negation\00", align 1
 @.str.17 = private unnamed_addr constant [36 x i8] c"option callback expects an argument\00", align 1
 @.str.18 = private unnamed_addr constant [28 x i8] c"duplicate parent %s ignored\00", align 1
-@.str.19 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.20 = private unnamed_addr constant [37 x i8] c"git commit-tree: failed to read '%s'\00", align 1
 @.str.21 = private unnamed_addr constant [38 x i8] c"git commit-tree: failed to close '%s'\00", align 1
 @.str.22 = private unnamed_addr constant [42 x i8] c"git commit-tree <tree> [(-p <parent>)...]\00", align 1
@@ -38,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cmd_commit_tree(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_commit_tree(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %parents = alloca ptr, align 8
   %tree_oid = alloca %struct.object_id, align 4
@@ -125,40 +123,52 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.10) #8
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %1 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %1, 45
+  br i1 %.not, label %sub_1, label %if.end
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  call void @usage_with_options(ptr noundef nonnull @commit_tree_usage, ptr noundef nonnull %options) #9
+sub_1:                                            ; preds = %lor.lhs.false
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not6 = icmp eq i8 %3, 104
+  br i1 %.not6, label %lor.lhs.false.tail, label %if.end
+
+lor.lhs.false.tail:                               ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.then, label %if.end
+
+if.then:                                          ; preds = %lor.lhs.false.tail, %entry
+  call void @usage_with_options(ptr noundef nonnull @commit_tree_usage, ptr noundef nonnull %options) #8
   unreachable
 
-if.end:                                           ; preds = %lor.lhs.false
+if.end:                                           ; preds = %sub_1, %lor.lhs.false, %lor.lhs.false.tail
   %call53 = call i32 @parse_options(i32 noundef %argc, ptr noundef nonnull %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @commit_tree_usage, i32 noundef 0) #7
   %cmp54.not = icmp eq i32 %call53, 1
   br i1 %cmp54.not, label %if.end57, label %if.then55
 
 if.then55:                                        ; preds = %if.end
   %call56 = call fastcc ptr @_(ptr noundef nonnull @.str.11)
-  call void (ptr, ...) @die(ptr noundef %call56) #9
+  call void (ptr, ...) @die(ptr noundef %call56) #8
   unreachable
 
 if.end57:                                         ; preds = %if.end
-  %1 = load ptr, ptr @the_repository, align 8
-  %2 = load ptr, ptr %argv, align 8
-  %call59 = call i32 @repo_get_oid_tree(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %tree_oid) #7
+  %7 = load ptr, ptr @the_repository, align 8
+  %8 = load ptr, ptr %argv, align 8
+  %call59 = call i32 @repo_get_oid_tree(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %tree_oid) #7
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %if.end64, label %if.then61
 
 if.then61:                                        ; preds = %if.end57
   %call62 = call fastcc ptr @_(ptr noundef nonnull @.str.12)
-  %3 = load ptr, ptr %argv, align 8
-  call void (ptr, ...) @die(ptr noundef %call62, ptr noundef %3) #9
+  %9 = load ptr, ptr %argv, align 8
+  call void (ptr, ...) @die(ptr noundef %call62, ptr noundef %9) #8
   unreachable
 
 if.end64:                                         ; preds = %if.end57
-  %4 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @cmd_commit_tree.buffer, i64 0, i32 1), align 8
-  %tobool65.not = icmp eq i64 %4, 0
+  %10 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @cmd_commit_tree.buffer, i64 0, i32 1), align 8
+  %tobool65.not = icmp eq i64 %10, 0
   br i1 %tobool65.not, label %if.then66, label %if.end72
 
 if.then66:                                        ; preds = %if.end64
@@ -172,15 +182,15 @@ if.then66.if.end72_crit_edge:                     ; preds = %if.then66
 
 if.then69:                                        ; preds = %if.then66
   %call70 = call fastcc ptr @_(ptr noundef nonnull @.str.13)
-  call void (ptr, ...) @die_errno(ptr noundef %call70) #9
+  call void (ptr, ...) @die_errno(ptr noundef %call70) #8
   unreachable
 
 if.end72:                                         ; preds = %if.then66.if.end72_crit_edge, %if.end64
-  %5 = phi i64 [ %.pre, %if.then66.if.end72_crit_edge ], [ %4, %if.end64 ]
-  %6 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @cmd_commit_tree.buffer, i64 0, i32 2), align 8
-  %7 = load ptr, ptr %parents, align 8
-  %8 = load ptr, ptr @sign_commit, align 8
-  %call73 = call i32 @commit_tree(ptr noundef %6, i64 noundef %5, ptr noundef nonnull %tree_oid, ptr noundef %7, ptr noundef nonnull %commit_oid, ptr noundef null, ptr noundef %8) #7
+  %11 = phi i64 [ %.pre, %if.then66.if.end72_crit_edge ], [ %10, %if.end64 ]
+  %12 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @cmd_commit_tree.buffer, i64 0, i32 2), align 8
+  %13 = load ptr, ptr %parents, align 8
+  %14 = load ptr, ptr @sign_commit, align 8
+  %call73 = call i32 @commit_tree(ptr noundef %12, i64 noundef %11, ptr noundef nonnull %tree_oid, ptr noundef %13, ptr noundef nonnull %commit_oid, ptr noundef null, ptr noundef %14) #7
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %if.end76, label %return
 
@@ -205,7 +215,7 @@ entry:
   br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 45, ptr noundef nonnull @.str.16) #9
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 45, ptr noundef nonnull @.str.16) #8
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -213,7 +223,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.then3, label %do.end5
 
 if.then3:                                         ; preds = %do.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 45, ptr noundef nonnull @.str.17) #9
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 45, ptr noundef nonnull @.str.17) #8
   unreachable
 
 do.end5:                                          ; preds = %do.end
@@ -224,7 +234,7 @@ do.end5:                                          ; preds = %do.end
 
 if.then7:                                         ; preds = %do.end5
   %call8 = call fastcc ptr @_(ptr noundef nonnull @.str.12)
-  call void (ptr, ...) @die(ptr noundef %call8, ptr noundef nonnull %arg) #9
+  call void (ptr, ...) @die(ptr noundef %call8, ptr noundef nonnull %arg) #8
   unreachable
 
 if.end9:                                          ; preds = %do.end5
@@ -285,7 +295,7 @@ entry:
   br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 60, ptr noundef nonnull @.str.16) #9
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 60, ptr noundef nonnull @.str.16) #8
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -293,7 +303,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.then3, label %do.end5
 
 if.then3:                                         ; preds = %do.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 60, ptr noundef nonnull @.str.17) #9
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 60, ptr noundef nonnull @.str.17) #8
   unreachable
 
 do.end5:                                          ; preds = %do.end
@@ -331,7 +341,7 @@ strbuf_addch.exit:                                ; preds = %if.then7, %if.then.
   br label %if.end8
 
 if.end8:                                          ; preds = %strbuf_addch.exit, %do.end5
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #8
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #9
   tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %arg, i64 noundef %call.i) #7
   %7 = load i64, ptr %len, align 8
   %tobool.not.i.i6 = icmp eq i64 %7, 0
@@ -387,7 +397,7 @@ entry:
   br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 76, ptr noundef nonnull @.str.16) #9
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 76, ptr noundef nonnull @.str.16) #8
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -395,14 +405,14 @@ do.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.then3, label %do.end5
 
 if.then3:                                         ; preds = %do.end
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 76, ptr noundef nonnull @.str.17) #9
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 76, ptr noundef nonnull @.str.17) #8
   unreachable
 
 do.end5:                                          ; preds = %do.end
   %len = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %len, align 8
   %tobool6.not = icmp eq i64 %1, 0
-  br i1 %tobool6.not, label %if.end8, label %if.then7
+  br i1 %tobool6.not, label %sub_0, label %if.then7
 
 if.then7:                                         ; preds = %do.end5
   %2 = load i64, ptr %0, align 8
@@ -430,27 +440,33 @@ strbuf_addch.exit:                                ; preds = %if.then7, %if.then.
   %6 = load i64, ptr %len, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %5, i64 %6
   store i8 0, ptr %arrayidx3.i, align 1
-  br label %if.end8
+  br label %sub_0
 
-if.end8:                                          ; preds = %strbuf_addch.exit, %do.end5
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(2) @.str.19) #8
-  %tobool9.not = icmp eq i32 %call, 0
-  br i1 %tobool9.not, label %if.end12.thread, label %if.end12
+sub_0:                                            ; preds = %do.end5, %strbuf_addch.exit
+  %7 = load i8, ptr %arg, align 1
+  %.not = icmp eq i8 %7, 45
+  br i1 %.not, label %if.end8.tail, label %if.end12
 
-if.end12:                                         ; preds = %if.end8
+if.end8.tail:                                     ; preds = %sub_0
+  %8 = getelementptr inbounds i8, ptr %arg, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %if.end12.thread, label %if.end12
+
+if.end12:                                         ; preds = %sub_0, %if.end8.tail
   %call11 = tail call i32 (ptr, i32, ...) @xopen(ptr noundef nonnull %arg, i32 noundef 0) #7
   %call13 = tail call i64 @strbuf_read(ptr noundef nonnull %0, i32 noundef %call11, i64 noundef 0) #7
   %cmp = icmp slt i64 %call13, 0
   br i1 %cmp, label %if.then14, label %if.end16
 
-if.end12.thread:                                  ; preds = %if.end8
+if.end12.thread:                                  ; preds = %if.end8.tail
   %call1310 = tail call i64 @strbuf_read(ptr noundef nonnull %0, i32 noundef 0, i64 noundef 0) #7
   %cmp11 = icmp slt i64 %call1310, 0
   br i1 %cmp11, label %if.then14, label %if.end22
 
 if.then14:                                        ; preds = %if.end12.thread, %if.end12
   %call15 = tail call fastcc ptr @_(ptr noundef nonnull @.str.20)
-  tail call void (ptr, ...) @die_errno(ptr noundef %call15, ptr noundef nonnull %arg) #9
+  tail call void (ptr, ...) @die_errno(ptr noundef %call15, ptr noundef nonnull %arg) #8
   unreachable
 
 if.end16:                                         ; preds = %if.end12
@@ -464,7 +480,7 @@ land.lhs.true:                                    ; preds = %if.end16
 
 if.then20:                                        ; preds = %land.lhs.true
   %call21 = tail call fastcc ptr @_(ptr noundef nonnull @.str.21)
-  tail call void (ptr, ...) @die_errno(ptr noundef %call21, ptr noundef nonnull %arg) #9
+  tail call void (ptr, ...) @die_errno(ptr noundef %call21, ptr noundef nonnull %arg) #8
   unreachable
 
 if.end22:                                         ; preds = %if.end12.thread, %land.lhs.true, %if.end16
@@ -478,16 +494,13 @@ declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @git_default_config(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
-
 ; Function Attrs: noreturn
-declare void @usage_with_options(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @usage_with_options(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #4
+declare void @die(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %msgid) unnamed_addr #0 {
@@ -515,7 +528,7 @@ declare i32 @repo_get_oid_tree(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i64 @strbuf_read(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @die_errno(ptr noundef, ...) local_unnamed_addr #4
+declare void @die_errno(ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @commit_tree(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -524,7 +537,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @repo_get_oid_commit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -541,7 +554,7 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 declare i32 @xopen(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
@@ -556,13 +569,13 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { noreturn nounwind }
+attributes #8 = { noreturn nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -10,11 +10,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [19 x i8] c"help-opal-util.txt\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"dir-mode\00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"mkdir-failed\00", align 1
-@.str.3 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.4 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -17, 1) i32 @opal_os_dirpath_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %74, label %5
@@ -212,7 +210,7 @@ define i32 @opal_os_dirpath_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr n
   %.05.i = select i1 %9, i32 %..i, i32 -13
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   %.not = icmp eq i32 %.05.i, 0
-  br i1 %.not, label %14, label %69
+  br i1 %.not, label %14, label %87
 
 14:                                               ; preds = %7
   %15 = tail call ptr @opendir(ptr noundef nonnull %0)
@@ -221,197 +219,261 @@ define i32 @opal_os_dirpath_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr n
 
 .preheader:                                       ; preds = %14
   %17 = tail call ptr @readdir(ptr noundef nonnull %15) #11
-  %.not425563 = icmp eq ptr %17, null
-  br i1 %.not425563, label %.sink.split, label %.lr.ph.lr.ph
+  %.not425967 = icmp eq ptr %17, null
+  br i1 %.not425967, label %.sink.split, label %sub_0.lr.ph.lr.ph
 
-.lr.ph.lr.ph:                                     ; preds = %.preheader
+sub_0.lr.ph.lr.ph:                                ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %5, i64 24
   %.not43 = icmp eq ptr %2, null
-  br i1 %.not43, label %.lr.ph.us, label %.lr.ph
+  br i1 %.not43, label %sub_0.lr.ph.us, label %sub_0.lr.ph
 
-.lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %.outer.backedge.us
-  %19 = phi ptr [ %24, %.outer.backedge.us ], [ %17, %.lr.ph.lr.ph ]
-  %.035.ph64.us = phi i32 [ %.035.ph.be.us, %.outer.backedge.us ], [ 0, %.lr.ph.lr.ph ]
-  br label %25
+sub_0.lr.ph.us:                                   ; preds = %sub_0.lr.ph.lr.ph, %.outer.backedge.us
+  %19 = phi ptr [ %24, %.outer.backedge.us ], [ %17, %sub_0.lr.ph.lr.ph ]
+  %.035.ph68.us = phi i32 [ %.035.ph.be.us, %.outer.backedge.us ], [ 0, %sub_0.lr.ph.lr.ph ]
+  br label %sub_0.us.us
 
-20:                                               ; preds = %.split58.us.us
-  %21 = tail call i32 @opal_os_dirpath_destroy(ptr noundef %34, i1 noundef zeroext %1, ptr noundef null)
-  tail call void @free(ptr noundef %34) #11
+20:                                               ; preds = %.split62.us.us
+  %21 = tail call i32 @opal_os_dirpath_destroy(ptr noundef %43, i1 noundef zeroext %1, ptr noundef null)
+  tail call void @free(ptr noundef %43) #11
   %.not45.us = icmp eq i32 %21, 0
   br i1 %.not45.us, label %.outer.backedge.us, label %.sink.split
 
-22:                                               ; preds = %.split58.us.us
-  %23 = tail call i32 @unlink(ptr noundef %34) #11
+22:                                               ; preds = %.split62.us.us
+  %23 = tail call i32 @unlink(ptr noundef %43) #11
   %.not44.us = icmp eq i32 %23, 0
-  %spec.select.us = select i1 %.not44.us, i32 %.035.ph64.us, i32 -1
+  %spec.select.us = select i1 %.not44.us, i32 %.035.ph68.us, i32 -1
   br label %.outer.backedge.us.sink.split
 
-.outer.backedge.us.sink.split:                    ; preds = %39, %22
-  %.035.ph.be.us.ph = phi i32 [ %spec.select.us, %22 ], [ -1, %39 ]
-  tail call void @free(ptr noundef %34) #11
+.outer.backedge.us.sink.split:                    ; preds = %48, %22
+  %.035.ph.be.us.ph = phi i32 [ %spec.select.us, %22 ], [ -1, %48 ]
+  tail call void @free(ptr noundef %43) #11
   br label %.outer.backedge.us
 
 .outer.backedge.us:                               ; preds = %.outer.backedge.us.sink.split, %20
-  %.035.ph.be.us = phi i32 [ %.035.ph64.us, %20 ], [ %.035.ph.be.us.ph, %.outer.backedge.us.sink.split ]
+  %.035.ph.be.us = phi i32 [ %.035.ph68.us, %20 ], [ %.035.ph.be.us.ph, %.outer.backedge.us.sink.split ]
   %24 = tail call ptr @readdir(ptr noundef nonnull %15) #11
-  %.not4255.us = icmp eq ptr %24, null
-  br i1 %.not4255.us, label %.sink.split, label %.lr.ph.us, !llvm.loop !6
+  %.not4259.us = icmp eq ptr %24, null
+  br i1 %.not4259.us, label %.sink.split, label %sub_0.lr.ph.us, !llvm.loop !6
 
-25:                                               ; preds = %.backedge.us.us, %.lr.ph.us
-  %26 = phi ptr [ %19, %.lr.ph.us ], [ %38, %.backedge.us.us ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 19
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(2) @.str.3) #13
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.backedge.us.us, label %30
+sub_0.us.us:                                      ; preds = %.backedge.us.us, %sub_0.lr.ph.us
+  %25 = phi ptr [ %19, %sub_0.lr.ph.us ], [ %47, %.backedge.us.us ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 19
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  %29 = add nsw i32 %28, -46
+  %.not78 = icmp eq i32 %29, 0
+  br i1 %.not78, label %.tail.us.us, label %.tail50.us.us
 
-30:                                               ; preds = %25
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(3) @.str.4) #13
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.backedge.us.us, label %33
+.tail.us.us:                                      ; preds = %sub_0.us.us
+  %30 = getelementptr inbounds i8, ptr %25, i64 20
+  %31 = load i8, ptr %30, align 1
+  %32 = icmp eq i8 %31, 0
+  br i1 %32, label %.backedge.us.us, label %sub_152.us.us
 
-33:                                               ; preds = %30
-  %34 = tail call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef null) #11
-  %35 = call i32 @stat(ptr noundef %34, ptr noundef nonnull %5) #11
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %37, label %39
+sub_152.us.us:                                    ; preds = %.tail.us.us
+  %33 = getelementptr inbounds i8, ptr %25, i64 20
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = add nsw i32 %35, -46
+  %.not80 = icmp eq i32 %36, 0
+  br i1 %.not80, label %sub_2.us.us, label %.tail50.us.us
 
-37:                                               ; preds = %33
-  tail call void @free(ptr noundef %34) #11
+sub_2.us.us:                                      ; preds = %sub_152.us.us
+  %37 = getelementptr inbounds i8, ptr %25, i64 21
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
+  br label %.tail50.us.us
+
+.tail50.us.us:                                    ; preds = %sub_0.us.us, %sub_2.us.us, %sub_152.us.us
+  %40 = phi i32 [ %36, %sub_152.us.us ], [ %39, %sub_2.us.us ], [ %29, %sub_0.us.us ]
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %.backedge.us.us, label %42
+
+42:                                               ; preds = %.tail50.us.us
+  %43 = tail call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %26, ptr noundef null) #11
+  %44 = call i32 @stat(ptr noundef %43, ptr noundef nonnull %5) #11
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %46, label %48
+
+46:                                               ; preds = %42
+  tail call void @free(ptr noundef %43) #11
   br label %.backedge.us.us
 
-.backedge.us.us:                                  ; preds = %25, %30, %37
-  %38 = tail call ptr @readdir(ptr noundef nonnull %15) #11
-  %.not42.us.us = icmp eq ptr %38, null
-  br i1 %.not42.us.us, label %.sink.split, label %25, !llvm.loop !6
+.backedge.us.us:                                  ; preds = %.tail.us.us, %.tail50.us.us, %46
+  %47 = tail call ptr @readdir(ptr noundef nonnull %15) #11
+  %.not42.us.us = icmp eq ptr %47, null
+  br i1 %.not42.us.us, label %.sink.split, label %sub_0.us.us, !llvm.loop !6
 
-39:                                               ; preds = %33
-  %40 = load i32, ptr %18, align 8
-  %41 = and i32 %40, 61440
-  %42 = icmp ne i32 %41, 16384
-  %brmerge.us.us = or i1 %42, %1
-  br i1 %brmerge.us.us, label %.split58.us.us, label %.outer.backedge.us.sink.split
+48:                                               ; preds = %42
+  %49 = load i32, ptr %18, align 8
+  %50 = and i32 %49, 61440
+  %51 = icmp ne i32 %50, 16384
+  %brmerge.us.us = or i1 %51, %1
+  br i1 %brmerge.us.us, label %.split62.us.us, label %.outer.backedge.us.sink.split
 
-.split58.us.us:                                   ; preds = %39
-  br i1 %42, label %22, label %20
+.split62.us.us:                                   ; preds = %48
+  br i1 %51, label %22, label %20
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
-  %43 = phi ptr [ %67, %.outer.backedge ], [ %17, %.lr.ph.lr.ph ]
-  %.035.ph64 = phi i32 [ %.035.ph.be, %.outer.backedge ], [ 0, %.lr.ph.lr.ph ]
-  br label %44
+sub_0.lr.ph:                                      ; preds = %sub_0.lr.ph.lr.ph, %.outer.backedge
+  %52 = phi ptr [ %85, %.outer.backedge ], [ %17, %sub_0.lr.ph.lr.ph ]
+  %.035.ph68 = phi i32 [ %.035.ph.be, %.outer.backedge ], [ 0, %sub_0.lr.ph.lr.ph ]
+  br label %sub_0
 
-44:                                               ; preds = %.lr.ph, %.backedge
-  %45 = phi ptr [ %43, %.lr.ph ], [ %52, %.backedge ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 19
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(2) @.str.3) #13
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.backedge, label %49
+sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
+  %53 = phi ptr [ %52, %sub_0.lr.ph ], [ %70, %.backedge ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 19
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = add nsw i32 %56, -46
+  %.not75 = icmp eq i32 %57, 0
+  br i1 %.not75, label %.tail, label %.tail50
 
-49:                                               ; preds = %44
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(3) @.str.4) #13
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.backedge, label %53
+.tail:                                            ; preds = %sub_0
+  %58 = getelementptr inbounds i8, ptr %53, i64 20
+  %59 = load i8, ptr %58, align 1
+  %60 = icmp eq i8 %59, 0
+  br i1 %60, label %.backedge, label %sub_152
 
-.backedge.sink.split:                             ; preds = %61, %53
-  tail call void @free(ptr noundef %54) #11
+sub_152:                                          ; preds = %.tail
+  %61 = getelementptr inbounds i8, ptr %53, i64 20
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i32
+  %64 = add nsw i32 %63, -46
+  %.not77 = icmp eq i32 %64, 0
+  br i1 %.not77, label %sub_2, label %.tail50
+
+sub_2:                                            ; preds = %sub_152
+  %65 = getelementptr inbounds i8, ptr %53, i64 21
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i32
+  br label %.tail50
+
+.tail50:                                          ; preds = %sub_0, %sub_152, %sub_2
+  %68 = phi i32 [ %64, %sub_152 ], [ %67, %sub_2 ], [ %57, %sub_0 ]
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %.backedge, label %71
+
+.backedge.sink.split:                             ; preds = %79, %71
+  tail call void @free(ptr noundef %72) #11
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %44, %49
-  %52 = tail call ptr @readdir(ptr noundef nonnull %15) #11
-  %.not42 = icmp eq ptr %52, null
-  br i1 %.not42, label %.sink.split, label %44, !llvm.loop !6
+.backedge:                                        ; preds = %.backedge.sink.split, %.tail, %.tail50
+  %70 = tail call ptr @readdir(ptr noundef nonnull %15) #11
+  %.not42 = icmp eq ptr %70, null
+  br i1 %.not42, label %.sink.split, label %sub_0, !llvm.loop !6
 
-53:                                               ; preds = %49
-  %54 = tail call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %46, ptr noundef null) #11
-  %55 = call i32 @stat(ptr noundef %54, ptr noundef nonnull %5) #11
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %.backedge.sink.split, label %57
+71:                                               ; preds = %.tail50
+  %72 = tail call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %54, ptr noundef null) #11
+  %73 = call i32 @stat(ptr noundef %72, ptr noundef nonnull %5) #11
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %.backedge.sink.split, label %75
 
-57:                                               ; preds = %53
-  %58 = load i32, ptr %18, align 8
-  %59 = and i32 %58, 61440
-  %60 = icmp ne i32 %59, 16384
-  %brmerge = or i1 %60, %1
-  br i1 %brmerge, label %61, label %.outer.backedge.sink.split
+75:                                               ; preds = %71
+  %76 = load i32, ptr %18, align 8
+  %77 = and i32 %76, 61440
+  %78 = icmp ne i32 %77, 16384
+  %brmerge = or i1 %78, %1
+  br i1 %brmerge, label %79, label %.outer.backedge.sink.split
 
-61:                                               ; preds = %57
-  %62 = tail call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef nonnull %46) #11
-  br i1 %62, label %.split58, label %.backedge.sink.split
+79:                                               ; preds = %75
+  %80 = tail call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef nonnull %54) #11
+  br i1 %80, label %.split62, label %.backedge.sink.split
 
-.split58:                                         ; preds = %61
-  br i1 %60, label %65, label %63
+.split62:                                         ; preds = %79
+  br i1 %78, label %83, label %81
 
-63:                                               ; preds = %.split58
-  %64 = tail call i32 @opal_os_dirpath_destroy(ptr noundef %54, i1 noundef zeroext %1, ptr noundef nonnull %2)
-  tail call void @free(ptr noundef %54) #11
-  %.not45 = icmp eq i32 %64, 0
+81:                                               ; preds = %.split62
+  %82 = tail call i32 @opal_os_dirpath_destroy(ptr noundef %72, i1 noundef zeroext %1, ptr noundef nonnull %2)
+  tail call void @free(ptr noundef %72) #11
+  %.not45 = icmp eq i32 %82, 0
   br i1 %.not45, label %.outer.backedge, label %.sink.split
 
-65:                                               ; preds = %.split58
-  %66 = tail call i32 @unlink(ptr noundef %54) #11
-  %.not44 = icmp eq i32 %66, 0
-  %spec.select = select i1 %.not44, i32 %.035.ph64, i32 -1
+83:                                               ; preds = %.split62
+  %84 = tail call i32 @unlink(ptr noundef %72) #11
+  %.not44 = icmp eq i32 %84, 0
+  %spec.select = select i1 %.not44, i32 %.035.ph68, i32 -1
   br label %.outer.backedge.sink.split
 
-.outer.backedge.sink.split:                       ; preds = %57, %65
-  %.035.ph.be.ph = phi i32 [ %spec.select, %65 ], [ -1, %57 ]
-  tail call void @free(ptr noundef %54) #11
+.outer.backedge.sink.split:                       ; preds = %75, %83
+  %.035.ph.be.ph = phi i32 [ %spec.select, %83 ], [ -1, %75 ]
+  tail call void @free(ptr noundef %72) #11
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %.outer.backedge.sink.split, %63
-  %.035.ph.be = phi i32 [ %.035.ph64, %63 ], [ %.035.ph.be.ph, %.outer.backedge.sink.split ]
-  %67 = tail call ptr @readdir(ptr noundef nonnull %15) #11
-  %.not4255 = icmp eq ptr %67, null
-  br i1 %.not4255, label %.sink.split, label %.lr.ph, !llvm.loop !6
+.outer.backedge:                                  ; preds = %.outer.backedge.sink.split, %81
+  %.035.ph.be = phi i32 [ %.035.ph68, %81 ], [ %.035.ph.be.ph, %.outer.backedge.sink.split ]
+  %85 = tail call ptr @readdir(ptr noundef nonnull %15) #11
+  %.not4259 = icmp eq ptr %85, null
+  br i1 %.not4259, label %.sink.split, label %sub_0.lr.ph, !llvm.loop !6
 
-.sink.split:                                      ; preds = %.outer.backedge, %63, %.backedge, %.outer.backedge.us, %20, %.backedge.us.us, %.preheader
-  %.3.ph = phi i32 [ 0, %.preheader ], [ %.035.ph64.us, %.backedge.us.us ], [ %21, %20 ], [ %.035.ph.be.us, %.outer.backedge.us ], [ %.035.ph64, %.backedge ], [ %64, %63 ], [ %.035.ph.be, %.outer.backedge ]
-  %68 = tail call i32 @closedir(ptr noundef nonnull %15)
-  br label %69
+.sink.split:                                      ; preds = %.outer.backedge, %81, %.backedge, %.outer.backedge.us, %20, %.backedge.us.us, %.preheader
+  %.3.ph = phi i32 [ 0, %.preheader ], [ %.035.ph68.us, %.backedge.us.us ], [ %21, %20 ], [ %.035.ph.be.us, %.outer.backedge.us ], [ %.035.ph68, %.backedge ], [ %82, %81 ], [ %.035.ph.be, %.outer.backedge ]
+  %86 = tail call i32 @closedir(ptr noundef nonnull %15)
+  br label %87
 
-69:                                               ; preds = %.sink.split, %7
+87:                                               ; preds = %.sink.split, %7
   %.3 = phi i32 [ %.05.i, %7 ], [ %.3.ph, %.sink.split ]
-  %70 = tail call ptr @opendir(ptr noundef nonnull %0)
-  %.not11.i = icmp eq ptr %70, null
+  %88 = tail call ptr @opendir(ptr noundef nonnull %0)
+  %.not11.i = icmp eq ptr %88, null
   br i1 %.not11.i, label %opal_os_dirpath_is_empty.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %69
-  %71 = tail call ptr @readdir(ptr noundef nonnull %70) #11
-  %.not1215.i = icmp eq ptr %71, null
-  br i1 %.not1215.i, label %.loopexit, label %.lr.ph.i
+.preheader.i:                                     ; preds = %87
+  %89 = tail call ptr @readdir(ptr noundef nonnull %88) #11
+  %.not1219.i = icmp eq ptr %89, null
+  br i1 %.not1219.i, label %.loopexit, label %sub_0.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %77
-  %72 = phi ptr [ %78, %77 ], [ %71, %.preheader.i ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 19
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(2) @.str.3) #13
-  %.not13.i = icmp eq i32 %74, 0
-  br i1 %.not13.i, label %77, label %75
+sub_0.i:                                          ; preds = %.preheader.i, %103
+  %90 = phi ptr [ %104, %103 ], [ %89, %.preheader.i ]
+  %91 = getelementptr inbounds i8, ptr %90, i64 19
+  %92 = load i8, ptr %91, align 1
+  %93 = zext i8 %92 to i32
+  %94 = add nsw i32 %93, -46
+  %.not20.i = icmp eq i32 %94, 0
+  br i1 %.not20.i, label %.tail.i, label %.tail15.i
 
-75:                                               ; preds = %.lr.ph.i
-  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(3) @.str.4) #13
-  %.not14.i = icmp eq i32 %76, 0
-  br i1 %.not14.i, label %77, label %opal_os_dirpath_is_empty.exit
+.tail.i:                                          ; preds = %sub_0.i
+  %95 = getelementptr inbounds i8, ptr %90, i64 20
+  %96 = load i8, ptr %95, align 1
+  %.not13.i = icmp eq i8 %96, 0
+  br i1 %.not13.i, label %103, label %sub_117.i
 
-77:                                               ; preds = %75, %.lr.ph.i
-  %78 = tail call ptr @readdir(ptr noundef nonnull %70) #11
-  %.not12.i = icmp eq ptr %78, null
-  br i1 %.not12.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
+sub_117.i:                                        ; preds = %.tail.i
+  %97 = zext i8 %96 to i32
+  %98 = add nsw i32 %97, -46
+  %.not22.i = icmp eq i32 %98, 0
+  br i1 %.not22.i, label %sub_2.i, label %.tail15.i
 
-opal_os_dirpath_is_empty.exit:                    ; preds = %75
-  %79 = tail call i32 @closedir(ptr noundef nonnull %70)
+sub_2.i:                                          ; preds = %sub_117.i
+  %99 = getelementptr inbounds i8, ptr %90, i64 21
+  %100 = load i8, ptr %99, align 1
+  %101 = zext i8 %100 to i32
+  br label %.tail15.i
+
+.tail15.i:                                        ; preds = %sub_2.i, %sub_117.i, %sub_0.i
+  %102 = phi i32 [ %98, %sub_117.i ], [ %101, %sub_2.i ], [ %94, %sub_0.i ]
+  %.not14.i = icmp eq i32 %102, 0
+  br i1 %.not14.i, label %103, label %opal_os_dirpath_is_empty.exit
+
+103:                                              ; preds = %.tail15.i, %.tail.i
+  %104 = tail call ptr @readdir(ptr noundef nonnull %88) #11
+  %.not12.i = icmp eq ptr %104, null
+  br i1 %.not12.i, label %.loopexit, label %sub_0.i, !llvm.loop !7
+
+opal_os_dirpath_is_empty.exit:                    ; preds = %.tail15.i
+  %105 = tail call i32 @closedir(ptr noundef nonnull %88)
   br label %opal_os_dirpath_is_empty.exit.thread
 
-.loopexit:                                        ; preds = %77, %.preheader.i
-  %80 = tail call i32 @closedir(ptr noundef nonnull %70)
-  %81 = tail call i32 @rmdir(ptr noundef nonnull %0) #11
+.loopexit:                                        ; preds = %103, %.preheader.i
+  %106 = tail call i32 @closedir(ptr noundef nonnull %88)
+  %107 = tail call i32 @rmdir(ptr noundef nonnull %0) #11
   br label %opal_os_dirpath_is_empty.exit.thread
 
-opal_os_dirpath_is_empty.exit.thread:             ; preds = %69, %opal_os_dirpath_is_empty.exit, %.loopexit, %14, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %14 ], [ %.3, %.loopexit ], [ %.3, %opal_os_dirpath_is_empty.exit ], [ %.3, %69 ]
+opal_os_dirpath_is_empty.exit.thread:             ; preds = %87, %opal_os_dirpath_is_empty.exit, %.loopexit, %14, %3
+  %.0 = phi i32 [ -1, %3 ], [ -1, %14 ], [ %.3, %.loopexit ], [ %.3, %opal_os_dirpath_is_empty.exit ], [ %.3, %87 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @opal_os_dirpath_access(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define range(i32 -13, 1) i32 @opal_os_dirpath_access(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = alloca %struct.stat, align 8
   %.not = icmp eq i32 %1, 0
   %spec.select = select i1 %.not, i32 448, i32 %1
@@ -431,9 +493,6 @@ declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnam
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
-
 declare noalias ptr @opal_os_path(i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
@@ -445,41 +504,63 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @opal_os_dirpath_is_empty(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %13, label %2
+  br i1 %.not, label %23, label %2
 
 2:                                                ; preds = %1
   %3 = tail call ptr @opendir(ptr noundef nonnull %0)
   %.not11 = icmp eq ptr %3, null
-  br i1 %.not11, label %13, label %.preheader
+  br i1 %.not11, label %23, label %.preheader
 
 .preheader:                                       ; preds = %2
   %4 = tail call ptr @readdir(ptr noundef nonnull %3) #11
-  %.not1215 = icmp eq ptr %4, null
-  br i1 %.not1215, label %.sink.split, label %.lr.ph
+  %.not1219 = icmp eq ptr %4, null
+  br i1 %.not1219, label %.sink.split, label %sub_0
 
-.lr.ph:                                           ; preds = %.preheader, %10
-  %5 = phi ptr [ %11, %10 ], [ %4, %.preheader ]
+sub_0:                                            ; preds = %.preheader, %20
+  %5 = phi ptr [ %21, %20 ], [ %4, %.preheader ]
   %6 = getelementptr inbounds i8, ptr %5, i64 19
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(2) @.str.3) #13
-  %.not13 = icmp eq i32 %7, 0
-  br i1 %.not13, label %10, label %8
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  %9 = add nsw i32 %8, -46
+  %.not20 = icmp eq i32 %9, 0
+  br i1 %.not20, label %.tail, label %.tail15
 
-8:                                                ; preds = %.lr.ph
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(3) @.str.4) #13
-  %.not14 = icmp eq i32 %9, 0
-  br i1 %.not14, label %10, label %.sink.split
+.tail:                                            ; preds = %sub_0
+  %10 = getelementptr inbounds i8, ptr %5, i64 20
+  %11 = load i8, ptr %10, align 1
+  %.not13 = icmp eq i8 %11, 0
+  br i1 %.not13, label %20, label %sub_117
 
-10:                                               ; preds = %8, %.lr.ph
-  %11 = tail call ptr @readdir(ptr noundef nonnull %3) #11
-  %.not12 = icmp eq ptr %11, null
-  br i1 %.not12, label %.sink.split, label %.lr.ph, !llvm.loop !7
+sub_117:                                          ; preds = %.tail
+  %12 = getelementptr inbounds i8, ptr %5, i64 20
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i32
+  %15 = add nsw i32 %14, -46
+  %.not22 = icmp eq i32 %15, 0
+  br i1 %.not22, label %sub_2, label %.tail15
 
-.sink.split:                                      ; preds = %10, %8, %.preheader
-  %.0.ph = phi i1 [ true, %.preheader ], [ false, %8 ], [ true, %10 ]
-  %12 = tail call i32 @closedir(ptr noundef nonnull %3)
-  br label %13
+sub_2:                                            ; preds = %sub_117
+  %16 = getelementptr inbounds i8, ptr %5, i64 21
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i32
+  br label %.tail15
 
-13:                                               ; preds = %.sink.split, %1, %2
+.tail15:                                          ; preds = %sub_0, %sub_117, %sub_2
+  %19 = phi i32 [ %15, %sub_117 ], [ %18, %sub_2 ], [ %9, %sub_0 ]
+  %.not14 = icmp eq i32 %19, 0
+  br i1 %.not14, label %20, label %.sink.split
+
+20:                                               ; preds = %.tail15, %.tail
+  %21 = tail call ptr @readdir(ptr noundef nonnull %3) #11
+  %.not12 = icmp eq ptr %21, null
+  br i1 %.not12, label %.sink.split, label %sub_0, !llvm.loop !7
+
+.sink.split:                                      ; preds = %20, %.tail15, %.preheader
+  %.0.ph = phi i1 [ true, %.preheader ], [ false, %.tail15 ], [ true, %20 ]
+  %22 = tail call i32 @closedir(ptr noundef nonnull %3)
+  br label %23
+
+23:                                               ; preds = %.sink.split, %1, %2
   %.0 = phi i1 [ false, %2 ], [ true, %1 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }

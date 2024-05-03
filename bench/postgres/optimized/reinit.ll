@@ -12,8 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str.2 = private unnamed_addr constant [5 x i8] c"base\00", align 1
 @.str.3 = private unnamed_addr constant [10 x i8] c"pg_tblspc\00", align 1
-@.str.4 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.5 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.6 = private unnamed_addr constant [16 x i8] c"pg_tblspc/%s/%s\00", align 1
 @.str.7 = private unnamed_addr constant [16 x i8] c"PG_17_202402291\00", align 1
 @.str.8 = private unnamed_addr constant [34 x i8] c"could not open directory \22%s\22: %m\00", align 1
@@ -53,33 +51,55 @@ define dso_local void @ResetUnloggedRelations(i32 noundef %0) local_unnamed_addr
   tail call fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef nonnull @.str.2, i32 noundef %0)
   %12 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.3) #9
   %13 = tail call ptr @ReadDir(ptr noundef %12, ptr noundef nonnull @.str.3) #9
-  %.not11 = icmp eq ptr %13, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not15 = icmp eq ptr %13, null
+  br i1 %.not15, label %._crit_edge, label %sub_0
 
-.lr.ph:                                           ; preds = %8, %.backedge
-  %14 = phi ptr [ %21, %.backedge ], [ %13, %8 ]
+sub_0:                                            ; preds = %8, %.backedge
+  %14 = phi ptr [ %31, %.backedge ], [ %13, %8 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 19
-  %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(2) @.str.4) #10
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.backedge, label %18
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i32
+  %18 = add nsw i32 %17, -46
+  %.not16 = icmp eq i32 %18, 0
+  br i1 %.not16, label %.tail, label %.tail11
 
-18:                                               ; preds = %.lr.ph
-  %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(3) @.str.5) #10
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.backedge, label %22
+.tail:                                            ; preds = %sub_0
+  %19 = getelementptr inbounds i8, ptr %14, i64 20
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %.backedge, label %sub_113
 
-.backedge:                                        ; preds = %.lr.ph, %18, %22
-  %21 = call ptr @ReadDir(ptr noundef %12, ptr noundef nonnull @.str.3) #9
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+sub_113:                                          ; preds = %.tail
+  %22 = getelementptr inbounds i8, ptr %14, i64 20
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = add nsw i32 %24, -46
+  %.not18 = icmp eq i32 %25, 0
+  br i1 %.not18, label %sub_2, label %.tail11
 
-22:                                               ; preds = %18
-  %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1050, ptr noundef nonnull @.str.6, ptr noundef nonnull %15, ptr noundef nonnull @.str.7) #9
+sub_2:                                            ; preds = %sub_113
+  %26 = getelementptr inbounds i8, ptr %14, i64 21
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  br label %.tail11
+
+.tail11:                                          ; preds = %sub_0, %sub_113, %sub_2
+  %29 = phi i32 [ %25, %sub_113 ], [ %28, %sub_2 ], [ %18, %sub_0 ]
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %.backedge, label %32
+
+.backedge:                                        ; preds = %.tail, %.tail11, %32
+  %31 = call ptr @ReadDir(ptr noundef %12, ptr noundef nonnull @.str.3) #9
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !5
+
+32:                                               ; preds = %.tail11
+  %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1050, ptr noundef nonnull @.str.6, ptr noundef nonnull %15, ptr noundef nonnull @.str.7) #9
   call fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef nonnull %2, i32 noundef %0)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %8
-  %24 = call i32 @FreeDir(ptr noundef %12) #9
+  %34 = call i32 @FreeDir(ptr noundef %12) #9
   store ptr %11, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %10) #9
   ret void
@@ -125,7 +145,7 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %2
-  %26 = tail call ptr @__errno_location() #11
+  %26 = tail call ptr @__errno_location() #10
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 2
   br i1 %28, label %29, label %34
@@ -158,8 +178,8 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
 41:                                               ; preds = %.lr.ph, %.backedge
   %42 = phi ptr [ %35, %.lr.ph ], [ %303, %.backedge ]
   %43 = getelementptr inbounds i8, ptr %42, i64 19
-  %44 = call i64 @strspn(ptr noundef nonnull %43, ptr noundef nonnull @.str.9) #10
-  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #10
+  %44 = call i64 @strspn(ptr noundef nonnull %43, ptr noundef nonnull @.str.9) #11
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #11
   %.not12 = icmp eq i64 %44, %45
   br i1 %.not12, label %46, label %.backedge
 
@@ -255,7 +275,7 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   br i1 %or.cond.i45, label %parse_filename_for_nontemp_relation.exit59.thread, label %77
 
 77:                                               ; preds = %.lr.ph.i
-  %78 = tail call ptr @__errno_location() #11
+  %78 = tail call ptr @__errno_location() #10
   store i32 0, ptr %78, align 4
   %79 = call i64 @strtoul(ptr noundef nonnull %74, ptr noundef nonnull %4, i32 noundef 10) #9
   %80 = load i32, ptr %78, align 4
@@ -335,7 +355,7 @@ parse_filename_for_nontemp_relation.exit59.thread: ; preds = %.lr.ph.i, %81, %77
   br label %.backedge63.i
 
 parse_filename_for_nontemp_relation.exit59:       ; preds = %112
-  %114 = trunc i64 %79 to i32
+  %114 = trunc nuw i64 %79 to i32
   store i32 %114, ptr %13, align 4
   %115 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -380,7 +400,7 @@ parse_filename_for_nontemp_relation.exit59:       ; preds = %112
   br i1 %or.cond.i30, label %parse_filename_for_nontemp_relation.exit44.thread, label %131
 
 131:                                              ; preds = %.lr.ph67.i
-  %132 = tail call ptr @__errno_location() #11
+  %132 = tail call ptr @__errno_location() #10
   store i32 0, ptr %132, align 4
   %133 = call i64 @strtoul(ptr noundef nonnull %128, ptr noundef nonnull %6, i32 noundef 10) #9
   %134 = load i32, ptr %132, align 4
@@ -460,7 +480,7 @@ parse_filename_for_nontemp_relation.exit44.thread: ; preds = %.lr.ph67.i, %135, 
   br label %.backedge62.i
 
 parse_filename_for_nontemp_relation.exit44:       ; preds = %166
-  %168 = trunc i64 %133 to i32
+  %168 = trunc nuw i64 %133 to i32
   store i32 %168, ptr %14, align 4
   %169 = load i32, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -523,7 +543,7 @@ parse_filename_for_nontemp_relation.exit44:       ; preds = %166
   br i1 %or.cond.i15, label %parse_filename_for_nontemp_relation.exit29.thread, label %192
 
 192:                                              ; preds = %.lr.ph71.i
-  %193 = tail call ptr @__errno_location() #11
+  %193 = tail call ptr @__errno_location() #10
   store i32 0, ptr %193, align 4
   %194 = call i64 @strtoul(ptr noundef nonnull %189, ptr noundef nonnull %8, i32 noundef 10) #9
   %195 = load i32, ptr %193, align 4
@@ -589,7 +609,7 @@ parse_filename_for_nontemp_relation.exit44:       ; preds = %166
   br i1 %or.cond7.i26, label %parse_filename_for_nontemp_relation.exit29.thread, label %226
 
 226:                                              ; preds = %221
-  %227 = trunc i64 %219 to i32
+  %227 = trunc nuw i64 %219 to i32
   %.pr.i27 = load i8, ptr %222, align 1
   br label %228
 
@@ -605,7 +625,7 @@ parse_filename_for_nontemp_relation.exit29.thread: ; preds = %.lr.ph71.i, %196, 
   br label %.backedge61.i
 
 parse_filename_for_nontemp_relation.exit29:       ; preds = %228
-  %230 = trunc i64 %194 to i32
+  %230 = trunc nuw i64 %194 to i32
   %231 = load i32, ptr %7, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -661,7 +681,7 @@ parse_filename_for_nontemp_relation.exit29:       ; preds = %228
   br i1 %or.cond.i, label %parse_filename_for_nontemp_relation.exit.thread, label %253
 
 253:                                              ; preds = %.lr.ph75.i
-  %254 = tail call ptr @__errno_location() #11
+  %254 = tail call ptr @__errno_location() #10
   store i32 0, ptr %254, align 4
   %255 = call i64 @strtoul(ptr noundef nonnull %250, ptr noundef nonnull %10, i32 noundef 10) #9
   %256 = load i32, ptr %254, align 4
@@ -727,7 +747,7 @@ parse_filename_for_nontemp_relation.exit29:       ; preds = %228
   br i1 %or.cond7.i, label %parse_filename_for_nontemp_relation.exit.thread, label %287
 
 287:                                              ; preds = %282
-  %288 = trunc i64 %280 to i32
+  %288 = trunc nuw i64 %280 to i32
   %.pr.i = load i8, ptr %283, align 1
   br label %289
 
@@ -743,7 +763,7 @@ parse_filename_for_nontemp_relation.exit.thread:  ; preds = %.lr.ph75.i, %257, %
   br label %.backedge.i
 
 parse_filename_for_nontemp_relation.exit:         ; preds = %289
-  %291 = trunc i64 %255 to i32
+  %291 = trunc nuw i64 %255 to i32
   %292 = load i32, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -803,9 +823,6 @@ declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #2
 
 declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
-
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #2
@@ -825,7 +842,7 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
   br i1 %or.cond, label %50, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @__errno_location() #11
+  %10 = tail call ptr @__errno_location() #10
   store i32 0, ptr %10, align 4
   %11 = call i64 @strtoul(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 10) #9
   %12 = load i32, ptr %10, align 4
@@ -891,7 +908,7 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
   br i1 %or.cond7, label %50, label %43
 
 43:                                               ; preds = %38
-  %44 = trunc i64 %36 to i32
+  %44 = trunc nuw i64 %36 to i32
   %.pr = load i8, ptr %39, align 1
   br label %45
 
@@ -902,7 +919,7 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
   br i1 %.not46, label %47, label %50
 
 47:                                               ; preds = %45
-  %48 = trunc i64 %11 to i32
+  %48 = trunc nuw i64 %11 to i32
   store i32 %48, ptr %1, align 4
   %49 = load i32, ptr %5, align 4
   store i32 %49, ptr %2, align 4
@@ -915,10 +932,10 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
 
 declare i32 @forkname_chars(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -927,10 +944,10 @@ declare i32 @errcode_for_file_access() local_unnamed_addr #2
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 declare zeroext i1 @has_startup_progress_timeout_expired(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -961,15 +978,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind willreturn memory(none) }
+attributes #10 = { nounwind willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

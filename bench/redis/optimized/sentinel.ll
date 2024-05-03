@@ -767,7 +767,7 @@ sentinelGenerateInitialMonitorEvents.exit:        ; preds = %while.body.i, %do.e
 declare void @getRandomHexChars(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sentinelFlushConfig() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sentinelFlushConfig() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 8), align 4
   store i32 10, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 8), align 4
@@ -930,7 +930,7 @@ declare void @sdsfree(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @sentinelAddrOrHostnameEqual(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @sentinelAddrOrHostnameEqual(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #9 {
 entry:
   %port = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %port, align 8
@@ -968,7 +968,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sentinelAddrEqualsHostname(ptr nocapture noundef readonly %a, ptr noundef %hostname) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sentinelAddrEqualsHostname(ptr nocapture noundef readonly %a, ptr noundef %hostname) local_unnamed_addr #0 {
 entry:
   %ip = alloca [46 x i8], align 16
   %0 = load i32, ptr getelementptr inbounds (%struct.sentinelState, ptr @sentinel, i64 0, i32 14), align 8
@@ -2148,7 +2148,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sentinelTryConnectionSharing(ptr noundef %ri) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sentinelTryConnectionSharing(ptr noundef %ri) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %and = and i32 %0, 4
@@ -3395,7 +3395,7 @@ while.end:                                        ; preds = %if.end7, %entry
 declare i32 @stringmatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sentinelResetMasterAndChangeAddress(ptr noundef %master, ptr noundef %hostname, i32 noundef %port) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sentinelResetMasterAndChangeAddress(ptr noundef %master, ptr noundef %hostname, i32 noundef %port) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @createSentinelAddr(ptr noundef %hostname, i32 noundef %port, i32 noundef 0)
   %cmp = icmp eq ptr %call, null
@@ -3606,7 +3606,7 @@ return:                                           ; preds = %if.end8.i, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sentinelRedisInstanceNoDownFor(ptr nocapture noundef readonly %ri, i64 noundef %ms) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sentinelRedisInstanceNoDownFor(ptr nocapture noundef readonly %ri, i64 noundef %ms) local_unnamed_addr #0 {
 entry:
   %s_down_since_time = getelementptr inbounds i8, ptr %ri, i64 72
   %0 = load i64, ptr %s_down_since_time, align 8
@@ -3835,7 +3835,7 @@ entry:
 declare void @listRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local noundef i32 @searchPreMonitorCfgName(ptr nocapture noundef readonly %name) local_unnamed_addr #19 {
+define dso_local range(i32 0, 2) i32 @searchPreMonitorCfgName(ptr nocapture noundef readonly %name) local_unnamed_addr #19 {
 entry:
   br label %for.body
 
@@ -4483,7 +4483,7 @@ if.end260:                                        ; preds = %if.end249
   %call262 = tail call ptr @sdsnew(ptr noundef %49) #28
   %runid = getelementptr inbounds i8, ptr %call255, i64 16
   store ptr %call262, ptr %runid, align 8
-  %call263 = tail call i32 @sentinelTryConnectionSharing(ptr noundef nonnull %call255), !range !36
+  %call263 = tail call i32 @sentinelTryConnectionSharing(ptr noundef nonnull %call255)
   br label %if.end428
 
 if.else265:                                       ; preds = %if.else231
@@ -4945,7 +4945,7 @@ if.else:                                          ; preds = %if.end115
 if.end127:                                        ; preds = %if.else, %if.then125
   %call106 = tail call ptr @dictNext(ptr noundef %call104) #28
   %cmp107.not = icmp eq ptr %call106, null
-  br i1 %cmp107.not, label %while.end, label %while.body109, !llvm.loop !37
+  br i1 %cmp107.not, label %while.end, label %while.body109, !llvm.loop !36
 
 while.end:                                        ; preds = %if.end127, %if.end95
   tail call void @dictReleaseIterator(ptr noundef %call104) #28
@@ -4984,7 +4984,7 @@ if.end138:                                        ; preds = %while.body133
 while.cond129.backedge:                           ; preds = %if.end138, %while.body133
   %call130 = tail call ptr @dictNext(ptr noundef %call128) #28
   %cmp131.not = icmp eq ptr %call130, null
-  br i1 %cmp131.not, label %while.end148, label %while.body133, !llvm.loop !38
+  br i1 %cmp131.not, label %while.end148, label %while.body133, !llvm.loop !37
 
 while.end148:                                     ; preds = %while.cond129.backedge, %while.end
   tail call void @dictReleaseIterator(ptr noundef %call128) #28
@@ -5005,13 +5005,13 @@ while.body154:                                    ; preds = %while.end148, %whil
   %call160 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %state, ptr noundef nonnull @.str.133, ptr noundef %call159, i32 noundef 1) #28
   %call151 = tail call ptr @dictNext(ptr noundef %call149) #28
   %cmp152.not = icmp eq ptr %call151, null
-  br i1 %cmp152.not, label %while.end161, label %while.body154, !llvm.loop !39
+  br i1 %cmp152.not, label %while.end161, label %while.body154, !llvm.loop !38
 
 while.end161:                                     ; preds = %while.body154, %while.end148
   tail call void @dictReleaseIterator(ptr noundef %call149) #28
   %call21 = tail call ptr @dictNext(ptr noundef %call20) #28
   %cmp22.not = icmp eq ptr %call21, null
-  br i1 %cmp22.not, label %while.end162, label %while.body, !llvm.loop !40
+  br i1 %cmp22.not, label %while.end162, label %while.body, !llvm.loop !39
 
 while.end162:                                     ; preds = %while.end161, %entry
   %call163 = tail call ptr @sdsempty() #28
@@ -5485,7 +5485,7 @@ if.else59:                                        ; preds = %if.else
   tail call void @sentinelSendAuthIfNeeded(ptr noundef nonnull %ri, ptr noundef %28)
   %29 = load ptr, ptr %cc, align 8
   tail call void @sentinelSetClientName(ptr noundef nonnull %ri, ptr noundef %29, ptr noundef nonnull @.str.155)
-  %call70 = tail call i32 @sentinelSendPing(ptr noundef nonnull %ri), !range !41
+  %call70 = tail call i32 @sentinelSendPing(ptr noundef nonnull %ri)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.end8.i, %if.then56, %if.then40, %if.else59, %if.end9
@@ -5646,7 +5646,7 @@ declare i32 @redisAsyncSetConnectCallback(ptr noundef, ptr noundef) local_unname
 declare i32 @redisAsyncSetDisconnectCallback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sentinelSendPing(ptr noundef %ri) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sentinelSendPing(ptr noundef %ri) local_unnamed_addr #0 {
 entry:
   %link = getelementptr inbounds i8, ptr %ri, i64 40
   %0 = load ptr, ptr %link, align 8
@@ -5768,7 +5768,7 @@ return:                                           ; preds = %if.end, %if.end25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sentinelMasterLooksSane(ptr nocapture noundef readonly %master) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sentinelMasterLooksSane(ptr nocapture noundef readonly %master) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %master, align 8
   %and = and i32 %0, 1
@@ -6608,7 +6608,7 @@ for.inc:                                          ; preds = %land.lhs.true121, %
   %69 = load i32, ptr %numlines, align 4
   %70 = sext i32 %69 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %70
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !42
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !40
 
 for.end:                                          ; preds = %for.inc, %entry
   %role.0.lcssa = phi i32 [ 0, %entry ], [ %role.2, %for.inc ]
@@ -6772,7 +6772,7 @@ sentinelCallClientReconfScript.exit:              ; preds = %if.end273, %if.end.
   %97 = phi ptr [ %88, %if.end273 ], [ %.pre488, %if.end.i380 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %fromport.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %toport.i)
-  %call279 = call i32 @sentinelForceHelloUpdateForMaster(ptr noundef %97), !range !36
+  %call279 = call i32 @sentinelForceHelloUpdateForMaster(ptr noundef %97)
   br label %if.end352
 
 land.lhs.true285:                                 ; preds = %if.then250
@@ -6831,7 +6831,7 @@ if.then297:                                       ; preds = %land.lhs.true292
   %107 = load ptr, ptr %master286, align 8
   %addr299 = getelementptr inbounds i8, ptr %107, i64 32
   %108 = load ptr, ptr %addr299, align 8
-  %call300 = call i32 @sentinelSendSlaveOf(ptr noundef nonnull %ri, ptr noundef %108), !range !36
+  %call300 = call i32 @sentinelSendSlaveOf(ptr noundef nonnull %ri, ptr noundef %108)
   %cmp301 = icmp eq i32 %call300, 0
   br i1 %cmp301, label %if.then303, label %if.end352
 
@@ -6946,7 +6946,7 @@ if.then342:                                       ; preds = %land.lhs.true336
   %126 = load ptr, ptr %master316, align 8
   %addr345 = getelementptr inbounds i8, ptr %126, i64 32
   %127 = load ptr, ptr %addr345, align 8
-  %call346 = call i32 @sentinelSendSlaveOf(ptr noundef nonnull %ri, ptr noundef %127), !range !36
+  %call346 = call i32 @sentinelSendSlaveOf(ptr noundef nonnull %ri, ptr noundef %127)
   %cmp347 = icmp eq i32 %call346, 0
   br i1 %cmp347, label %if.then349, label %if.end352
 
@@ -7077,7 +7077,7 @@ do.end:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sentinelForceHelloUpdateForMaster(ptr nocapture noundef %master) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sentinelForceHelloUpdateForMaster(ptr nocapture noundef %master) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %master, align 8
   %and = and i32 %0, 1
@@ -7123,7 +7123,7 @@ if.then.i:                                        ; preds = %while.body.i
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %call1.i = tail call ptr @dictNext(ptr noundef %call.i) #28
   %cmp.not.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.not.i, label %sentinelForceHelloUpdateDictOfRedisInstances.exit, label %while.body.i, !llvm.loop !43
+  br i1 %cmp.not.i, label %sentinelForceHelloUpdateDictOfRedisInstances.exit, label %while.body.i, !llvm.loop !41
 
 sentinelForceHelloUpdateDictOfRedisInstances.exit: ; preds = %if.end.i, %if.end4
   tail call void @dictReleaseIterator(ptr noundef %call.i) #28
@@ -7152,7 +7152,7 @@ if.then.i16:                                      ; preds = %while.body.i8
 if.end.i13:                                       ; preds = %if.then.i16, %while.body.i8
   %call1.i14 = tail call ptr @dictNext(ptr noundef %call.i5) #28
   %cmp.not.i15 = icmp eq ptr %call1.i14, null
-  br i1 %cmp.not.i15, label %sentinelForceHelloUpdateDictOfRedisInstances.exit19, label %while.body.i8, !llvm.loop !43
+  br i1 %cmp.not.i15, label %sentinelForceHelloUpdateDictOfRedisInstances.exit19, label %while.body.i8, !llvm.loop !41
 
 sentinelForceHelloUpdateDictOfRedisInstances.exit19: ; preds = %if.end.i13, %sentinelForceHelloUpdateDictOfRedisInstances.exit
   tail call void @dictReleaseIterator(ptr noundef %call.i5) #28
@@ -7164,7 +7164,7 @@ return:                                           ; preds = %entry, %sentinelFor
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sentinelSendSlaveOf(ptr noundef %ri, ptr noundef readonly %addr) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sentinelSendSlaveOf(ptr noundef %ri, ptr noundef readonly %addr) local_unnamed_addr #0 {
 entry:
   %portstr = alloca [32 x i8], align 16
   %tobool.not = icmp eq ptr %addr, null
@@ -7287,7 +7287,7 @@ if.end44:                                         ; preds = %for.body
   %25 = load i32, ptr %pending_commands46, align 8
   %inc47 = add nsw i32 %25, 1
   store i32 %inc47, ptr %pending_commands46, align 8
-  br i1 %cmp38, label %for.body, label %for.end, !llvm.loop !44
+  br i1 %cmp38, label %for.body, label %for.end, !llvm.loop !42
 
 for.end:                                          ; preds = %if.end44
   %26 = load ptr, ptr %link, align 8
@@ -7568,7 +7568,7 @@ while.body:                                       ; preds = %if.then27, %while.b
   %call35 = call i32 @removeMatchingSentinelFromMaster(ptr noundef %call34, ptr noundef %call28)
   %call30 = call ptr @dictNext(ptr noundef %call29) #28
   %cmp31.not = icmp eq ptr %call30, null
-  br i1 %cmp31.not, label %while.end, label %while.body, !llvm.loop !45
+  br i1 %cmp31.not, label %while.end, label %while.body, !llvm.loop !43
 
 while.end:                                        ; preds = %while.body, %if.then27
   call void @dictReleaseIterator(ptr noundef %call29) #28
@@ -7593,7 +7593,7 @@ if.then44:                                        ; preds = %if.then42
   %call47 = call ptr @sdsnew(ptr noundef %20) #28
   %runid48 = getelementptr inbounds i8, ptr %call40, i64 16
   store ptr %call47, ptr %runid48, align 8
-  %call49 = call i32 @sentinelTryConnectionSharing(ptr noundef nonnull %call40), !range !36
+  %call49 = call i32 @sentinelTryConnectionSharing(ptr noundef nonnull %call40)
   br label %if.end53
 
 if.then51.critedge:                               ; preds = %if.then42
@@ -7601,7 +7601,7 @@ if.then51.critedge:                               ; preds = %if.then42
   %call47.c = call ptr @sdsnew(ptr noundef %21) #28
   %runid48.c = getelementptr inbounds i8, ptr %call40, i64 16
   store ptr %call47.c, ptr %runid48.c, align 8
-  %call49.c = call i32 @sentinelTryConnectionSharing(ptr noundef nonnull %call40), !range !36
+  %call49.c = call i32 @sentinelTryConnectionSharing(ptr noundef nonnull %call40)
   %call52 = call i32 @sentinelUpdateSentinelAddressInAllMasters(ptr noundef nonnull %call40)
   br label %if.end53
 
@@ -7756,7 +7756,7 @@ if.then74:                                        ; preds = %sentinelAddrEqualsH
   %port5.i = getelementptr inbounds i8, ptr %call.i79, i64 16
   store i32 %47, ptr %port5.i, align 8
   %48 = load ptr, ptr %arrayidx79, align 8
-  %call83 = call i32 @sentinelResetMasterAndChangeAddress(ptr noundef nonnull %call1.i, ptr noundef %48, i32 noundef %call7), !range !36
+  %call83 = call i32 @sentinelResetMasterAndChangeAddress(ptr noundef nonnull %call1.i, ptr noundef %48, i32 noundef %call7)
   %49 = load ptr, ptr %addr, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fromport.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %toport.i)
@@ -7805,7 +7805,7 @@ cleanup:                                          ; preds = %if.end61, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sentinelSendHello(ptr noundef %ri) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sentinelSendHello(ptr noundef %ri) local_unnamed_addr #0 {
 entry:
   %ip = alloca [46 x i8], align 16
   %payload = alloca [1070 x i8], align 16
@@ -7957,7 +7957,7 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %if.then, %while.body
   %call1 = tail call ptr @dictNext(ptr noundef %call) #28
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !43
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !41
 
 while.end:                                        ; preds = %if.end, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #28
@@ -8070,7 +8070,7 @@ land.lhs.true36:                                  ; preds = %if.end32
   br i1 %cmp39, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %land.lhs.true36
-  %call41 = tail call i32 @sentinelSendPing(ptr noundef nonnull %ri), !range !41
+  %call41 = tail call i32 @sentinelSendPing(ptr noundef nonnull %ri)
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then40, %land.lhs.true36, %if.end32
@@ -8082,7 +8082,7 @@ if.end42:                                         ; preds = %if.then40, %land.lh
   br i1 %cmp44, label %if.then45, label %if.end47
 
 if.then45:                                        ; preds = %if.end42
-  %call46 = tail call i32 @sentinelSendHello(ptr noundef nonnull %ri), !range !36
+  %call46 = tail call i32 @sentinelSendHello(ptr noundef nonnull %ri)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end, %entry, %if.then45, %if.end42
@@ -8137,7 +8137,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %arrayidx.i = getelementptr inbounds ptr, ptr @__const.sentinelConfigSetCommand.options, i64 %indvars.iv.next.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %exitcond = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond, label %if.end, label %for.body.i, !llvm.loop !46
+  br i1 %exitcond, label %if.end, label %for.body.i, !llvm.loop !44
 
 if.end:                                           ; preds = %for.inc.i, %entry
   %call1 = tail call ptr @dictCreate(ptr noundef nonnull @stringSetDictType) #28
@@ -8282,7 +8282,7 @@ for.inc:                                          ; preds = %if.then25, %if.then
   %18 = load i32, ptr %argc, align 8
   %19 = trunc nuw i64 %indvars.iv.next to i32
   %cmp = icmp sgt i32 %18, %19
-  br i1 %cmp, label %for.body, label %for.cond86.preheader, !llvm.loop !47
+  br i1 %cmp, label %for.body, label %for.cond86.preheader, !llvm.loop !45
 
 for.body90:                                       ; preds = %for.body90.lr.ph, %for.inc243
   %20 = phi i32 [ %18, %for.body90.lr.ph ], [ %52, %for.inc243 ]
@@ -8582,7 +8582,7 @@ for.inc243:                                       ; preds = %if.then114, %if.the
   %inc244 = add nsw i32 %i85.1, 1
   %52 = load i32, ptr %argc, align 8
   %cmp88 = icmp slt i32 %inc244, %52
-  br i1 %cmp88, label %for.body90, label %for.end245, !llvm.loop !48
+  br i1 %cmp88, label %for.body90, label %for.end245, !llvm.loop !46
 
 for.end245.thread:                                ; preds = %for.cond86.preheader, %if.end
   call fastcc void @sentinelFlushConfigAndReply(ptr noundef nonnull %c)
@@ -8847,7 +8847,7 @@ for.inc:                                          ; preds = %if.end72, %land.lhs
   %13 = load i32, ptr %argc, align 8
   %14 = sext i32 %13 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %14
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !49
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !47
 
 for.end.loopexit:                                 ; preds = %for.inc
   %15 = sext i32 %matches.7 to i64
@@ -9765,7 +9765,7 @@ for.inc:                                          ; preds = %if.end, %if.end43, 
   %inc228 = add nsw i32 %j.1, 1
   %32 = load i32, ptr %argc, align 8
   %cmp = icmp slt i32 %inc228, %32
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !50
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !48
 
 for.end:                                          ; preds = %for.inc, %entry
   %33 = load ptr, ptr @shared, align 8
@@ -9862,12 +9862,12 @@ land.lhs.true:                                    ; preds = %while.body
   %replica_announced = getelementptr inbounds i8, ptr %call3, i64 204
   %1 = load i32, ptr %replica_announced, align 4
   %tobool4.not = icmp eq i32 %1, 0
-  br i1 %tobool4.not, label %while.cond, label %if.end, !llvm.loop !51
+  br i1 %tobool4.not, label %while.cond, label %if.end, !llvm.loop !49
 
 if.end:                                           ; preds = %land.lhs.true, %while.body
   tail call void @addReplySentinelRedisInstance(ptr noundef %c, ptr noundef nonnull %call3)
   %inc = add nuw nsw i64 %slaves.0.ph, 1
-  br label %while.cond.outer, !llvm.loop !51
+  br label %while.cond.outer, !llvm.loop !49
 
 while.end:                                        ; preds = %while.cond
   tail call void @dictReleaseIterator(ptr noundef %call1) #28
@@ -9898,7 +9898,7 @@ return:                                           ; preds = %entry, %if.then
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sentinelIsQuorumReachable(ptr nocapture noundef readonly %master, ptr noundef writeonly %usableptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @sentinelIsQuorumReachable(ptr nocapture noundef readonly %master, ptr noundef writeonly %usableptr) local_unnamed_addr #0 {
 entry:
   %sentinels = getelementptr inbounds i8, ptr %master, i64 152
   %0 = load ptr, ptr %sentinels, align 8
@@ -9922,7 +9922,7 @@ while.body:                                       ; preds = %entry, %while.body
   %spec.select = add nuw nsw i32 %usable.014, %inc
   %call6 = tail call ptr @dictNext(ptr noundef %call) #28
   %cmp.not = icmp eq ptr %call6, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !52
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !50
 
 while.end:                                        ; preds = %while.body, %entry
   %usable.0.lcssa = phi i32 [ 1, %entry ], [ %spec.select, %while.body ]
@@ -10494,7 +10494,7 @@ if.end339:                                        ; preds = %if.then333
   br i1 %cmp343, label %return, label %if.end346
 
 if.end346:                                        ; preds = %if.end339
-  %call347 = call i32 @sentinelIsQuorumReachable(ptr noundef nonnull %call342, ptr noundef nonnull %usable), !range !53
+  %call347 = call i32 @sentinelIsQuorumReachable(ptr noundef nonnull %call342, ptr noundef nonnull %usable)
   %cmp348 = icmp eq i32 %call347, 0
   %call351 = call ptr @sdsempty() #28
   %71 = load i32, ptr %usable, align 4
@@ -10627,7 +10627,7 @@ for.inc:                                          ; preds = %for.body, %if.end44
   %81 = load i32, ptr %argc, align 8
   %82 = sext i32 %81 to i64
   %cmp434 = icmp slt i64 %indvars.iv.next222, %82
-  br i1 %cmp434, label %for.body, label %if.end446, !llvm.loop !54
+  br i1 %cmp434, label %for.body, label %if.end446, !llvm.loop !51
 
 if.end446:                                        ; preds = %for.inc, %if.then431, %if.end426
   %masters_local.0 = phi ptr [ %74, %if.end426 ], [ %call432, %if.then431 ], [ %call432, %for.inc ]
@@ -10762,13 +10762,13 @@ if.else502:                                       ; preds = %cond.end494
 if.end503:                                        ; preds = %if.else502, %sdslen.exit
   %call483 = call ptr @dictNext(ptr noundef %call481) #28
   %cmp484.not = icmp eq ptr %call483, null
-  br i1 %cmp484.not, label %while.end, label %while.body486, !llvm.loop !55
+  br i1 %cmp484.not, label %while.end, label %while.body486, !llvm.loop !52
 
 while.end:                                        ; preds = %if.end503, %if.end479
   call void @dictReleaseIterator(ptr noundef %call481) #28
   %call451 = call ptr @dictNext(ptr noundef %call450) #28
   %cmp452.not = icmp eq ptr %call451, null
-  br i1 %cmp452.not, label %while.end504, label %while.body, !llvm.loop !56
+  br i1 %cmp452.not, label %while.end504, label %while.body, !llvm.loop !53
 
 while.end504:                                     ; preds = %while.end, %if.end446
   call void @dictReleaseIterator(ptr noundef %call450) #28
@@ -10848,7 +10848,7 @@ for.inc561:                                       ; preds = %for.inc561.sink.spl
   %109 = load i32, ptr %argc, align 8
   %110 = sext i32 %109 to i64
   %cmp518 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %cmp518, label %for.body520, label %for.end563, !llvm.loop !57
+  br i1 %cmp518, label %for.body520, label %for.end563, !llvm.loop !54
 
 for.end563:                                       ; preds = %for.inc561, %if.then515
   %111 = load ptr, ptr @shared, align 8
@@ -11075,7 +11075,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 while.cond.backedge:                              ; preds = %while.body, %if.end16, %if.end19, %if.end26, %if.end29, %if.end41
   %call10 = tail call ptr @dictNext(ptr noundef %call9) #28
   %cmp.not = icmp eq ptr %call10, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !58
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !55
 
 if.end16:                                         ; preds = %while.body
   %link = getelementptr inbounds i8, ptr %call11, i64 40
@@ -11128,7 +11128,7 @@ if.end44:                                         ; preds = %if.end41
   store ptr %call11, ptr %arrayidx45, align 8
   %call1021 = tail call ptr @dictNext(ptr noundef %call9) #28
   %cmp.not22 = icmp eq ptr %call1021, null
-  br i1 %cmp.not22, label %while.end.thread36, label %while.body.lr.ph, !llvm.loop !58
+  br i1 %cmp.not22, label %while.end.thread36, label %while.body.lr.ph, !llvm.loop !55
 
 while.end.thread36:                               ; preds = %if.end44
   tail call void @dictReleaseIterator(ptr noundef %call9) #28
@@ -11666,7 +11666,7 @@ for.inc:                                          ; preds = %cond.end269, %sw.bb
   %inc290 = add nsw i32 %j.1, 1
   %55 = load i32, ptr %argc, align 8
   %cmp1 = icmp slt i32 %inc290, %55
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !59
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !56
 
 for.end:                                          ; preds = %for.inc
   br i1 %cmp1171, label %if.end301, label %if.then292
@@ -11767,7 +11767,7 @@ for.cond:                                         ; preds = %for.body
   %arrayidx = getelementptr inbounds [6 x ptr], ptr %sentinel_sections, i64 0, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %if.then11, label %for.body, !llvm.loop !60
+  br i1 %tobool.not, label %if.then11, label %for.body, !llvm.loop !57
 
 for.body:                                         ; preds = %while.body, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %while.body ]
@@ -11783,7 +11783,7 @@ if.then11:                                        ; preds = %for.cond, %while.bo
 if.end13:                                         ; preds = %for.body, %if.then11
   %call2 = call ptr @dictNext(ptr noundef %call1) #28
   %cmp.not = icmp eq ptr %call2, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !61
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !58
 
 while.end:                                        ; preds = %if.end13, %entry
   call void @dictReleaseIterator(ptr noundef %call1) #28
@@ -11944,7 +11944,7 @@ while.body47:                                     ; preds = %cond.end, %while.bo
   %call73 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.136, ptr noundef nonnull @.str.392, i32 noundef %master_id.037, ptr noundef %25, ptr noundef nonnull %status.0, ptr noundef %cond.i, i32 noundef %28, i64 noundef %add65, i64 noundef %add72) #28
   %call45 = call ptr @dictNext(ptr noundef %call43) #28
   %cmp46.not = icmp eq ptr %call45, null
-  br i1 %cmp46.not, label %while.end74, label %while.body47, !llvm.loop !62
+  br i1 %cmp46.not, label %while.end74, label %while.body47, !llvm.loop !59
 
 while.end74:                                      ; preds = %while.body47, %cond.end
   %info.1.lcssa = phi ptr [ %call42, %cond.end ], [ %call73, %while.body47 ]
@@ -12002,7 +12002,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %4) #28
   %call3 = tail call ptr @dictNext(ptr noundef %call) #28
   %cmp.not = icmp eq ptr %call3, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !63
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !60
 
 while.end:                                        ; preds = %while.body, %entry
   tail call void @dictReleaseIterator(ptr noundef %call) #28
@@ -12364,7 +12364,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %spec.select = add i32 %3, %quorum.019
   %call1 = tail call ptr @dictNext(ptr noundef %call) #28
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %if.end11, label %while.body, !llvm.loop !64
+  br i1 %cmp.not, label %if.end11, label %while.body, !llvm.loop !61
 
 if.end11:                                         ; preds = %while.body, %if.then
   %quorum.0.lcssa = phi i32 [ 1, %if.then ], [ %spec.select, %while.body ]
@@ -12473,55 +12473,61 @@ if.then16:                                        ; preds = %land.lhs.true11
   %16 = load ptr, ptr %arrayidx24, align 8
   %str = getelementptr inbounds i8, ptr %16, i64 32
   %17 = load ptr, ptr %str, align 8
-  %call25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(2) @.str.354) #32
-  %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %if.end53, label %if.then27
+  %18 = load i8, ptr %17, align 1
+  %.not = icmp eq i8 %18, 42
+  br i1 %.not, label %if.end22.tail, label %if.then27
 
-if.then27:                                        ; preds = %if.then16
+if.end22.tail:                                    ; preds = %if.then16
+  %19 = getelementptr inbounds i8, ptr %17, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %if.end53, label %if.then27
+
+if.then27:                                        ; preds = %if.then16, %if.end22.tail
   %leader = getelementptr inbounds i8, ptr %privdata, i64 248
-  %18 = load ptr, ptr %leader, align 8
-  tail call void @sdsfree(ptr noundef %18) #28
+  %22 = load ptr, ptr %leader, align 8
+  tail call void @sdsfree(ptr noundef %22) #28
   %leader_epoch = getelementptr inbounds i8, ptr %privdata, i64 256
-  %19 = load i64, ptr %leader_epoch, align 8
-  %20 = load ptr, ptr %element, align 8
-  %arrayidx29 = getelementptr inbounds i8, ptr %20, i64 16
-  %21 = load ptr, ptr %arrayidx29, align 8
-  %integer30 = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load i64, ptr %integer30, align 8
-  %cmp31 = icmp eq i64 %19, %22
-  %23 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
-  %cmp33 = icmp sgt i32 %23, 2
+  %23 = load i64, ptr %leader_epoch, align 8
+  %24 = load ptr, ptr %element, align 8
+  %arrayidx29 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = load ptr, ptr %arrayidx29, align 8
+  %integer30 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load i64, ptr %integer30, align 8
+  %cmp31 = icmp eq i64 %23, %26
+  %27 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %cmp33 = icmp sgt i32 %27, 2
   %or.cond1 = select i1 %cmp31, i1 true, i1 %cmp33
   br i1 %or.cond1, label %if.end42, label %if.end35
 
 if.end35:                                         ; preds = %if.then27
   %name = getelementptr inbounds i8, ptr %privdata, i64 8
-  %24 = load ptr, ptr %name, align 8
-  %arrayidx37 = getelementptr inbounds i8, ptr %20, i64 8
-  %25 = load ptr, ptr %arrayidx37, align 8
-  %str38 = getelementptr inbounds i8, ptr %25, i64 32
-  %26 = load ptr, ptr %str38, align 8
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.409, ptr noundef %24, ptr noundef %26, i64 noundef %22) #28
+  %28 = load ptr, ptr %name, align 8
+  %arrayidx37 = getelementptr inbounds i8, ptr %24, i64 8
+  %29 = load ptr, ptr %arrayidx37, align 8
+  %str38 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = load ptr, ptr %str38, align 8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.409, ptr noundef %28, ptr noundef %30, i64 noundef %26) #28
   %.pre = load ptr, ptr %element, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end35, %if.then27
-  %27 = phi ptr [ %.pre, %if.end35 ], [ %20, %if.then27 ]
-  %arrayidx44 = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load ptr, ptr %arrayidx44, align 8
-  %str45 = getelementptr inbounds i8, ptr %28, i64 32
-  %29 = load ptr, ptr %str45, align 8
-  %call46 = tail call ptr @sdsnew(ptr noundef %29) #28
+  %31 = phi ptr [ %.pre, %if.end35 ], [ %24, %if.then27 ]
+  %arrayidx44 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = load ptr, ptr %arrayidx44, align 8
+  %str45 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = load ptr, ptr %str45, align 8
+  %call46 = tail call ptr @sdsnew(ptr noundef %33) #28
   store ptr %call46, ptr %leader, align 8
-  %30 = load ptr, ptr %element, align 8
-  %arrayidx49 = getelementptr inbounds i8, ptr %30, i64 16
-  %31 = load ptr, ptr %arrayidx49, align 8
-  %integer50 = getelementptr inbounds i8, ptr %31, i64 8
-  %32 = load i64, ptr %integer50, align 8
-  store i64 %32, ptr %leader_epoch, align 8
+  %34 = load ptr, ptr %element, align 8
+  %arrayidx49 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = load ptr, ptr %arrayidx49, align 8
+  %integer50 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = load i64, ptr %integer50, align 8
+  store i64 %36, ptr %leader_epoch, align 8
   br label %if.end53
 
-if.end53:                                         ; preds = %if.then16, %if.end42, %entry, %land.lhs.true11, %land.lhs.true6, %land.lhs.true3, %land.lhs.true, %if.end
+if.end53:                                         ; preds = %if.end22.tail, %if.end42, %entry, %land.lhs.true11, %land.lhs.true6, %land.lhs.true3, %land.lhs.true, %if.end
   ret void
 }
 
@@ -12635,7 +12641,7 @@ if.then34:                                        ; preds = %if.end21
 while.cond.backedge:                              ; preds = %if.end21, %if.then34, %if.end, %if.end11, %land.lhs.true
   %call1 = call ptr @dictNext(ptr noundef %call) #28
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !65
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !62
 
 while.end:                                        ; preds = %while.cond.backedge, %entry
   call void @dictReleaseIterator(ptr noundef %call) #28
@@ -12767,7 +12773,7 @@ sentinelLeaderIncr.exit:                          ; preds = %if.then.i, %cond.en
 if.end:                                           ; preds = %sentinelLeaderIncr.exit, %land.lhs.true, %while.body
   %call10 = call ptr @dictNext(ptr noundef %call9) #28
   %cmp.not = icmp eq ptr %call10, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !66
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !63
 
 while.end:                                        ; preds = %if.end, %cond.end
   call void @dictReleaseIterator(ptr noundef %call9) #28
@@ -12797,7 +12803,7 @@ if.end31:                                         ; preds = %if.then29, %while.b
   %max_votes.1 = phi i64 [ %call26, %if.then29 ], [ %max_votes.060, %while.body25 ]
   %call22 = call ptr @dictNext(ptr noundef %call20) #28
   %cmp23.not = icmp eq ptr %call22, null
-  br i1 %cmp23.not, label %while.end32, label %while.body25, !llvm.loop !67
+  br i1 %cmp23.not, label %while.end32, label %while.body25, !llvm.loop !64
 
 while.end32:                                      ; preds = %if.end31
   call void @dictReleaseIterator(ptr noundef %call20) #28
@@ -12888,7 +12894,7 @@ cond.end66:                                       ; preds = %sentinelLeaderIncr.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sentinelStartFailoverIfNeeded(ptr noundef %master) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sentinelStartFailoverIfNeeded(ptr noundef %master) local_unnamed_addr #0 {
 entry:
   %clock = alloca i64, align 8
   %ctimebuf = alloca [26 x i8], align 16
@@ -13287,7 +13293,7 @@ if.then.i:                                        ; preds = %cond.end12.i
   br label %return
 
 if.end2:                                          ; preds = %entry
-  %call4 = tail call i32 @sentinelSendSlaveOf(ptr noundef nonnull %0, ptr noundef null), !range !36
+  %call4 = tail call i32 @sentinelSendSlaveOf(ptr noundef nonnull %0, ptr noundef null)
   %cmp5.not = icmp eq i32 %call4, 0
   br i1 %cmp5.not, label %if.end7, label %return
 
@@ -13399,7 +13405,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %spec.select = add nuw nsw i32 %not_reconfigured.023, %inc
   %call3 = tail call ptr @dictNext(ptr noundef %call2) #28
   %cmp4.not = icmp eq ptr %call3, null
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !68
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !65
 
 while.end:                                        ; preds = %while.body
   tail call void @dictReleaseIterator(ptr noundef %call2) #28
@@ -13452,7 +13458,7 @@ if.end43:                                         ; preds = %if.end40
   %13 = load ptr, ptr %promoted_slave, align 8
   %addr = getelementptr inbounds i8, ptr %13, i64 32
   %14 = load ptr, ptr %addr, align 8
-  %call45 = tail call i32 @sentinelSendSlaveOf(ptr noundef nonnull %call35, ptr noundef %14), !range !36
+  %call45 = tail call i32 @sentinelSendSlaveOf(ptr noundef nonnull %call35, ptr noundef %14)
   %cmp46 = icmp eq i32 %call45, 0
   br i1 %cmp46, label %if.then47, label %while.cond30.backedge
 
@@ -13466,7 +13472,7 @@ if.then47:                                        ; preds = %if.end43
 while.cond30.backedge:                            ; preds = %if.end43, %if.then47, %while.body33, %if.end40
   %call31 = tail call ptr @dictNext(ptr noundef %call29) #28
   %cmp32.not = icmp eq ptr %call31, null
-  br i1 %cmp32.not, label %while.end50, label %while.body33, !llvm.loop !69
+  br i1 %cmp32.not, label %while.end50, label %while.body33, !llvm.loop !66
 
 while.end50:                                      ; preds = %while.cond30.backedge, %if.end18.thread
   tail call void @dictReleaseIterator(ptr noundef %call29) #28
@@ -13505,7 +13511,7 @@ while.body:                                       ; preds = %entry, %while.body
   %spec.select = add nuw nsw i32 %in_progress.024, %inc
   %call1 = tail call ptr @dictNext(ptr noundef %call) #28
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !70
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !67
 
 while.end:                                        ; preds = %while.body, %entry
   %in_progress.0.lcssa = phi i32 [ 0, %entry ], [ %spec.select, %while.body ]
@@ -13540,7 +13546,7 @@ while.body9:                                      ; preds = %land.rhs
 while.cond5.backedge:                             ; preds = %while.body9, %if.end26, %if.end31
   %5 = load i32, ptr %parallel_syncs, align 4
   %cmp6 = icmp slt i32 %in_progress.2.ph28, %5
-  br i1 %cmp6, label %land.rhs, label %while.end44, !llvm.loop !71
+  br i1 %cmp6, label %land.rhs, label %while.end44, !llvm.loop !68
 
 if.end16:                                         ; preds = %while.body9
   %and18 = and i32 %4, 256
@@ -13586,7 +13592,7 @@ if.end34:                                         ; preds = %if.end31
   %12 = load ptr, ptr %promoted_slave, align 8
   %addr = getelementptr inbounds i8, ptr %12, i64 32
   %13 = load ptr, ptr %addr, align 8
-  %call35 = tail call i32 @sentinelSendSlaveOf(ptr noundef nonnull %call11, ptr noundef %13), !range !36
+  %call35 = tail call i32 @sentinelSendSlaveOf(ptr noundef nonnull %call11, ptr noundef %13)
   %cmp36 = icmp eq i32 %call35, 0
   br i1 %cmp36, label %if.then37, label %if.end43
 
@@ -13605,7 +13611,7 @@ if.end43:                                         ; preds = %if.then37, %if.end3
   %in_progress.3 = phi i32 [ %inc42, %if.then37 ], [ %in_progress.2.ph28, %if.end34 ]
   %15 = load i32, ptr %parallel_syncs, align 4
   %cmp626 = icmp slt i32 %in_progress.3, %15
-  br i1 %cmp626, label %land.rhs.lr.ph, label %while.end44, !llvm.loop !71
+  br i1 %cmp626, label %land.rhs.lr.ph, label %while.end44, !llvm.loop !68
 
 while.end44:                                      ; preds = %if.end43, %land.rhs, %while.cond5.backedge, %while.end
   tail call void @dictReleaseIterator(ptr noundef %call4) #28
@@ -13642,7 +13648,7 @@ entry:
   %8 = load ptr, ptr %7, align 8
   %port9 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i32, ptr %port9, align 8
-  %call10 = tail call i32 @sentinelResetMasterAndChangeAddress(ptr noundef %master, ptr noundef %8, i32 noundef %9), !range !36
+  %call10 = tail call i32 @sentinelResetMasterAndChangeAddress(ptr noundef %master, ptr noundef %8, i32 noundef %9)
   ret void
 }
 
@@ -13829,7 +13835,7 @@ if.end5:                                          ; preds = %if.then, %while.bod
   %switch_to_promoted.1 = phi ptr [ %switch_to_promoted.010, %while.body ], [ %spec.select, %if.then ]
   %call1 = tail call ptr @dictNext(ptr noundef %call) #28
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !72
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !69
 
 while.end:                                        ; preds = %if.end5
   %tobool6.not = icmp eq ptr %switch_to_promoted.1, null
@@ -13862,7 +13868,7 @@ if.then7:                                         ; preds = %while.end
   %12 = load ptr, ptr %11, align 8
   %port9.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i32, ptr %port9.i, align 8
-  %call10.i = tail call i32 @sentinelResetMasterAndChangeAddress(ptr noundef nonnull %switch_to_promoted.1, ptr noundef %12, i32 noundef %13), !range !36
+  %call10.i = tail call i32 @sentinelResetMasterAndChangeAddress(ptr noundef nonnull %switch_to_promoted.1, ptr noundef %12, i32 noundef %13)
   br label %if.end8
 
 if.end8:                                          ; preds = %entry, %if.then7, %while.end
@@ -14165,12 +14171,12 @@ attributes #33 = { cold nounwind }
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
-!36 = !{i32 -1, i32 1}
+!36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
-!41 = !{i32 0, i32 2}
+!41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
@@ -14182,7 +14188,7 @@ attributes #33 = { cold nounwind }
 !50 = distinct !{!50, !6}
 !51 = distinct !{!51, !6}
 !52 = distinct !{!52, !6}
-!53 = !{i32 0, i32 4}
+!53 = distinct !{!53, !6}
 !54 = distinct !{!54, !6}
 !55 = distinct !{!55, !6}
 !56 = distinct !{!56, !6}
@@ -14199,6 +14205,3 @@ attributes #33 = { cold nounwind }
 !67 = distinct !{!67, !6}
 !68 = distinct !{!68, !6}
 !69 = distinct !{!69, !6}
-!70 = distinct !{!70, !6}
-!71 = distinct !{!71, !6}
-!72 = distinct !{!72, !6}

@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.packet_command = type { [12 x i8], ptr, i32, i32, ptr, i8, i32, i32, [1 x ptr] }
 
-@.str = private unnamed_addr constant [4 x i8] c"NEC\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"CD-ROM DRIVE:25\00", align 1
 @.str.2 = private unnamed_addr constant [16 x i8] c"CD-ROM DRIVE:36\00", align 1
 @.str.3 = private unnamed_addr constant [16 x i8] c"CD-ROM DRIVE:83\00", align 1
@@ -35,79 +34,91 @@ define dso_local void @sr_vendor_init(ptr nocapture noundef %0) local_unnamed_ad
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 8
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %51
+  br i1 %12, label %13, label %53
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds i8, ptr %3, i64 176
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 4
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %sub_0
 
 17:                                               ; preds = %13
   store i32 4, ptr %8, align 8
-  br label %51
+  br label %53
 
-18:                                               ; preds = %13
-  %19 = tail call i32 @strncmp(ptr noundef %5, ptr noundef nonnull dereferenceable(4) @.str, i64 noundef 3) #8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %37
+sub_0:                                            ; preds = %13
+  %18 = load i8, ptr %5, align 1
+  %.not = icmp eq i8 %18, 78
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-21:                                               ; preds = %18
+sub_1:                                            ; preds = %sub_0
+  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %20 = load i8, ptr %19, align 1
+  %.not1 = icmp eq i8 %20, 69
+  br i1 %.not1, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %21 = getelementptr inbounds i8, ptr %5, i64 2
+  %22 = load i8, ptr %21, align 1
+  %23 = icmp eq i8 %22, 67
+  br i1 %23, label %24, label %.tail.thread
+
+24:                                               ; preds = %.tail
   store i32 2, ptr %8, align 8
-  %22 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(16) @.str.1, i64 noundef 15) #8
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %33, label %24
-
-24:                                               ; preds = %21
-  %25 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(16) @.str.2, i64 noundef 15) #8
+  %25 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(16) @.str.1, i64 noundef 15) #8
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %33, label %27
+  br i1 %26, label %36, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(16) @.str.3, i64 noundef 15) #8
+  %28 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(16) @.str.2, i64 noundef 15) #8
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %33, label %30
+  br i1 %29, label %36, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(17) @.str.4, i64 noundef 16) #8
+  %31 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(16) @.str.3, i64 noundef 15) #8
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %51
+  br i1 %32, label %36, label %33
 
-33:                                               ; preds = %30, %27, %24, %21
-  %34 = getelementptr inbounds i8, ptr %0, i64 88
-  %35 = load i32, ptr %34, align 8
-  %36 = or i32 %35, 32
-  store i32 %36, ptr %34, align 8
-  br label %51
+33:                                               ; preds = %30
+  %34 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(17) @.str.4, i64 noundef 16) #8
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %53
 
-37:                                               ; preds = %18
-  %38 = tail call i32 @strncmp(ptr noundef %5, ptr noundef nonnull dereferenceable(8) @.str.5, i64 noundef 7) #8
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %41
+36:                                               ; preds = %33, %30, %27, %24
+  %37 = getelementptr inbounds i8, ptr %0, i64 88
+  %38 = load i32, ptr %37, align 8
+  %39 = or i32 %38, 32
+  store i32 %39, ptr %37, align 8
+  br label %53
 
-40:                                               ; preds = %37
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %40 = tail call i32 @strncmp(ptr noundef %5, ptr noundef nonnull dereferenceable(8) @.str.5, i64 noundef 7) #8
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %.tail.thread
   store i32 3, ptr %8, align 8
-  br label %51
+  br label %53
 
-41:                                               ; preds = %37
-  %42 = tail call i32 @strncmp(ptr noundef %5, ptr noundef nonnull dereferenceable(7) @.str.6, i64 noundef 6) #8
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %51
+43:                                               ; preds = %.tail.thread
+  %44 = tail call i32 @strncmp(ptr noundef %5, ptr noundef nonnull dereferenceable(7) @.str.6, i64 noundef 6) #8
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %53
 
-44:                                               ; preds = %41
-  %45 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(13) @.str.7, i64 noundef 12) #8
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %51
+46:                                               ; preds = %43
+  %47 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(13) @.str.7, i64 noundef 12) #8
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %53
 
-47:                                               ; preds = %44
+49:                                               ; preds = %46
   store i32 5, ptr %8, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 88
-  %49 = load i32, ptr %48, align 8
-  %50 = or i32 %49, 4391
-  store i32 %50, ptr %48, align 8
-  br label %51
+  %50 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = load i32, ptr %50, align 8
+  %52 = or i32 %51, 4391
+  store i32 %52, ptr %50, align 8
+  br label %53
 
-51:                                               ; preds = %47, %44, %41, %40, %33, %30, %17, %1
+53:                                               ; preds = %49, %46, %43, %42, %36, %33, %17, %1
   ret void
 }
 

@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @set_to_default = internal unnamed_addr global ptr @set_separate, align 8
 @suppress_m_parsing = internal unnamed_addr global i1 false, align 4
-@.str = private unnamed_addr constant [3 x i8] c"-m\00", align 1
-@.str.1 = private unnamed_addr constant [3 x i8] c"-c\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"--cc\00", align 1
 @.str.3 = private unnamed_addr constant [5 x i8] c"--dd\00", align 1
 @.str.4 = private unnamed_addr constant [15 x i8] c"--remerge-diff\00", align 1
@@ -16,23 +14,17 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [55 x i8] c"--combined-all-paths makes no sense without -c or --cc\00", align 1
 @.str.9 = private unnamed_addr constant [4 x i8] c"off\00", align 1
 @.str.10 = private unnamed_addr constant [5 x i8] c"none\00", align 1
-@.str.11 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @.str.12 = private unnamed_addr constant [13 x i8] c"first-parent\00", align 1
 @.str.13 = private unnamed_addr constant [9 x i8] c"separate\00", align 1
-@.str.14 = private unnamed_addr constant [2 x i8] c"c\00", align 1
 @.str.15 = private unnamed_addr constant [9 x i8] c"combined\00", align 1
-@.str.16 = private unnamed_addr constant [3 x i8] c"cc\00", align 1
 @.str.17 = private unnamed_addr constant [15 x i8] c"dense-combined\00", align 1
-@.str.18 = private unnamed_addr constant [2 x i8] c"r\00", align 1
 @.str.19 = private unnamed_addr constant [8 x i8] c"remerge\00", align 1
-@.str.20 = private unnamed_addr constant [2 x i8] c"m\00", align 1
-@.str.21 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.22 = private unnamed_addr constant [29 x i8] c"invalid value for '%s': '%s'\00", align 1
 @.str.23 = private unnamed_addr constant [14 x i8] c"--diff-merges\00", align 1
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @diff_merges_config(ptr nocapture noundef readonly %value) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @diff_merges_config(ptr nocapture noundef readonly %value) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @func_by_opt(ptr noundef %value)
   %tobool.not = icmp eq ptr %call, null
@@ -57,14 +49,20 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(5) @.str.10) #9
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %return, label %if.end
+  br i1 %tobool2.not, label %return, label %sub_0
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(2) @.str.11) #9
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %return, label %lor.lhs.false5
+sub_0:                                            ; preds = %lor.lhs.false
+  %0 = load i8, ptr %optarg, align 1
+  %.not = icmp eq i8 %0, 49
+  br i1 %.not, label %if.end.tail, label %lor.lhs.false5
 
-lor.lhs.false5:                                   ; preds = %if.end
+if.end.tail:                                      ; preds = %sub_0
+  %1 = getelementptr inbounds i8, ptr %optarg, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %return, label %lor.lhs.false5
+
+lor.lhs.false5:                                   ; preds = %sub_0, %if.end.tail
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(13) @.str.12) #9
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %if.end9
@@ -72,54 +70,98 @@ lor.lhs.false5:                                   ; preds = %if.end
 if.end9:                                          ; preds = %lor.lhs.false5
   %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(9) @.str.13) #9
   %tobool11.not = icmp eq i32 %call10, 0
-  br i1 %tobool11.not, label %return, label %if.end13
+  br i1 %tobool11.not, label %return, label %sub_013
 
-if.end13:                                         ; preds = %if.end9
-  %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(2) @.str.14) #9
-  %tobool15.not = icmp eq i32 %call14, 0
-  br i1 %tobool15.not, label %return, label %lor.lhs.false16
+sub_013:                                          ; preds = %if.end9
+  %.not29 = icmp eq i8 %0, 99
+  br i1 %.not29, label %if.end13.tail, label %lor.lhs.false16.thread
 
-lor.lhs.false16:                                  ; preds = %if.end13
+if.end13.tail:                                    ; preds = %sub_013
+  %4 = getelementptr inbounds i8, ptr %optarg, i64 1
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %return, label %lor.lhs.false16
+
+lor.lhs.false16:                                  ; preds = %if.end13.tail
   %call17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(9) @.str.15) #9
   %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %return, label %if.end20
+  br i1 %tobool18.not, label %return, label %sub_117
 
-if.end20:                                         ; preds = %lor.lhs.false16
-  %call21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(3) @.str.16) #9
-  %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %return, label %lor.lhs.false23
+lor.lhs.false16.thread:                           ; preds = %sub_013
+  %call1738 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(9) @.str.15) #9
+  %tobool18.not39 = icmp eq i32 %call1738, 0
+  br i1 %tobool18.not39, label %return, label %lor.lhs.false23
 
-lor.lhs.false23:                                  ; preds = %if.end20
+sub_117:                                          ; preds = %lor.lhs.false16
+  %7 = getelementptr inbounds i8, ptr %optarg, i64 1
+  %8 = load i8, ptr %7, align 1
+  %.not31 = icmp eq i8 %8, 99
+  br i1 %.not31, label %if.end20.tail, label %lor.lhs.false23
+
+if.end20.tail:                                    ; preds = %sub_117
+  %9 = getelementptr inbounds i8, ptr %optarg, i64 2
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %return, label %lor.lhs.false23
+
+lor.lhs.false23:                                  ; preds = %lor.lhs.false16.thread, %sub_117, %if.end20.tail
   %call24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(15) @.str.17) #9
   %tobool25.not = icmp eq i32 %call24, 0
-  br i1 %tobool25.not, label %return, label %if.end27
+  br i1 %tobool25.not, label %return, label %sub_019
 
-if.end27:                                         ; preds = %lor.lhs.false23
-  %call28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(2) @.str.18) #9
-  %tobool29.not = icmp eq i32 %call28, 0
-  br i1 %tobool29.not, label %return, label %lor.lhs.false30
+sub_019:                                          ; preds = %lor.lhs.false23
+  %.not32 = icmp eq i8 %0, 114
+  br i1 %.not32, label %if.end27.tail, label %lor.lhs.false30
 
-lor.lhs.false30:                                  ; preds = %if.end27
+if.end27.tail:                                    ; preds = %sub_019
+  %12 = getelementptr inbounds i8, ptr %optarg, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %return, label %lor.lhs.false30.thread
+
+lor.lhs.false30:                                  ; preds = %sub_019
   %call31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(8) @.str.19) #9
   %tobool32.not = icmp eq i32 %call31, 0
-  br i1 %tobool32.not, label %return, label %if.end34
+  br i1 %tobool32.not, label %return, label %sub_022
 
-if.end34:                                         ; preds = %lor.lhs.false30
-  %call35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(2) @.str.20) #9
-  %tobool36.not = icmp eq i32 %call35, 0
-  br i1 %tobool36.not, label %if.then40, label %lor.lhs.false37
+lor.lhs.false30.thread:                           ; preds = %if.end27.tail
+  %call3142 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(8) @.str.19) #9
+  %tobool32.not43 = icmp eq i32 %call3142, 0
+  br i1 %tobool32.not43, label %return, label %lor.lhs.false37.tail.thread
 
-lor.lhs.false37:                                  ; preds = %if.end34
-  %call38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(3) @.str.21) #9
-  %tobool39.not = icmp eq i32 %call38, 0
-  br i1 %tobool39.not, label %if.then40, label %return
+sub_022:                                          ; preds = %lor.lhs.false30
+  switch i8 %0, label %lor.lhs.false37.tail.thread [
+    i8 109, label %if.end34.tail
+    i8 111, label %sub_126
+  ]
 
-if.then40:                                        ; preds = %lor.lhs.false37, %if.end34
-  %0 = load ptr, ptr @set_to_default, align 8
+if.end34.tail:                                    ; preds = %sub_022
+  %15 = getelementptr inbounds i8, ptr %optarg, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %if.then40, label %lor.lhs.false37.tail.thread
+
+sub_126:                                          ; preds = %sub_022
+  %18 = getelementptr inbounds i8, ptr %optarg, i64 1
+  %19 = load i8, ptr %18, align 1
+  %.not35 = icmp eq i8 %19, 110
+  br i1 %.not35, label %lor.lhs.false37.tail, label %lor.lhs.false37.tail.thread
+
+lor.lhs.false37.tail.thread:                      ; preds = %sub_022, %sub_126, %lor.lhs.false30.thread, %if.end34.tail
   br label %return
 
-return:                                           ; preds = %lor.lhs.false37, %if.end27, %lor.lhs.false30, %if.end20, %lor.lhs.false23, %if.end13, %lor.lhs.false16, %if.end9, %if.end, %lor.lhs.false5, %entry, %lor.lhs.false, %if.then40
-  %retval.0 = phi ptr [ %0, %if.then40 ], [ @set_none, %lor.lhs.false ], [ @set_none, %entry ], [ @set_first_parent, %lor.lhs.false5 ], [ @set_first_parent, %if.end ], [ @set_separate, %if.end9 ], [ @set_combined, %lor.lhs.false16 ], [ @set_combined, %if.end13 ], [ @set_dense_combined, %lor.lhs.false23 ], [ @set_dense_combined, %if.end20 ], [ @set_remerge_diff, %lor.lhs.false30 ], [ @set_remerge_diff, %if.end27 ], [ null, %lor.lhs.false37 ]
+lor.lhs.false37.tail:                             ; preds = %sub_126
+  %20 = getelementptr inbounds i8, ptr %optarg, i64 2
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %if.then40, label %return
+
+if.then40:                                        ; preds = %lor.lhs.false37.tail, %if.end34.tail
+  %23 = load ptr, ptr @set_to_default, align 8
+  br label %return
+
+return:                                           ; preds = %lor.lhs.false37.tail.thread, %lor.lhs.false30.thread, %lor.lhs.false16.thread, %lor.lhs.false37.tail, %if.end27.tail, %lor.lhs.false30, %if.end20.tail, %lor.lhs.false23, %if.end13.tail, %lor.lhs.false16, %if.end9, %if.end.tail, %lor.lhs.false5, %entry, %lor.lhs.false, %if.then40
+  %retval.0 = phi ptr [ %23, %if.then40 ], [ @set_none, %lor.lhs.false ], [ @set_none, %entry ], [ @set_first_parent, %lor.lhs.false5 ], [ @set_first_parent, %if.end.tail ], [ @set_separate, %if.end9 ], [ @set_combined, %lor.lhs.false16 ], [ @set_combined, %if.end13.tail ], [ @set_dense_combined, %lor.lhs.false23 ], [ @set_dense_combined, %if.end20.tail ], [ @set_remerge_diff, %lor.lhs.false30 ], [ @set_remerge_diff, %if.end27.tail ], [ null, %lor.lhs.false37.tail ], [ @set_combined, %lor.lhs.false16.thread ], [ @set_remerge_diff, %lor.lhs.false30.thread ], [ null, %lor.lhs.false37.tail.thread ]
   ret ptr %retval.0
 }
 
@@ -136,34 +178,56 @@ entry:
   %optarg = alloca ptr, align 8
   %0 = load ptr, ptr %argv, align 8
   %.b = load i1, ptr @suppress_m_parsing, align 4
-  br i1 %.b, label %if.else, label %land.lhs.true
+  %.pre = load i8, ptr %0, align 1
+  %.not33 = icmp eq i8 %.pre, 45
+  br i1 %.b, label %sub_028, label %sub_0
 
-land.lhs.true:                                    ; preds = %entry
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str) #9
-  %tobool1.not = icmp eq i32 %call, 0
-  br i1 %tobool1.not, label %if.then, label %if.else
+sub_0:                                            ; preds = %entry
+  br i1 %.not33, label %sub_1, label %if.else8
 
-if.then:                                          ; preds = %land.lhs.true
-  %1 = load ptr, ptr @set_to_default, align 8
-  tail call void %1(ptr noundef %revs) #10
+sub_1:                                            ; preds = %sub_0
+  %1 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = load i8, ptr %1, align 1
+  %.not32 = icmp eq i8 %2, 109
+  br i1 %.not32, label %land.lhs.true.tail, label %sub_129
+
+land.lhs.true.tail:                               ; preds = %sub_1
+  %3 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %if.then, label %sub_129
+
+if.then:                                          ; preds = %land.lhs.true.tail
+  %6 = load ptr, ptr @set_to_default, align 8
+  tail call void %6(ptr noundef %revs) #10
   %merges_need_diff = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %merges_need_diff, align 8
   %bf.clear = and i64 %bf.load, -4503599627370497
   br label %if.end54
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.1) #9
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %if.then4, label %if.else8
+sub_028:                                          ; preds = %entry
+  br i1 %.not33, label %sub_129, label %if.else8
 
-if.then4:                                         ; preds = %if.else
+sub_129:                                          ; preds = %sub_1, %land.lhs.true.tail, %sub_028
+  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = load i8, ptr %7, align 1
+  %.not34 = icmp eq i8 %8, 99
+  br i1 %.not34, label %if.else.tail, label %if.else8
+
+if.else.tail:                                     ; preds = %sub_129
+  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %if.then4, label %if.else8
+
+if.then4:                                         ; preds = %if.else.tail
   %separate_merges.i.i.i = getelementptr inbounds i8, ptr %revs, i64 280
   %bf.load.i.i.i = load i64, ptr %separate_merges.i.i.i, align 8
   %bf.clear20.i.i.i = and i64 %bf.load.i.i.i, -1148417904979476481
   %bf.set7 = or disjoint i64 %bf.clear20.i.i.i, 49539595901075456
   br label %if.end54
 
-if.else8:                                         ; preds = %if.else
+if.else8:                                         ; preds = %sub_0, %sub_129, %sub_028, %if.else.tail
   %call9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.2) #9
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.then11, label %if.else16
@@ -227,14 +291,14 @@ if.else43:                                        ; preds = %if.else36
   br i1 %tobool45.not, label %return, label %if.then46
 
 if.then46:                                        ; preds = %if.else43
-  %2 = load ptr, ptr %optarg, align 8
-  %call.i = call fastcc ptr @func_by_opt(ptr noundef %2)
+  %12 = load ptr, ptr %optarg, align 8
+  %call.i = call fastcc ptr @func_by_opt(ptr noundef %12)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %set_diff_merges.exit
 
 if.then.i:                                        ; preds = %if.then46
   %call1.i = call fastcc ptr @_()
-  call void (ptr, ...) @die(ptr noundef %call1.i, ptr noundef nonnull @.str.23, ptr noundef %2) #11
+  call void (ptr, ...) @die(ptr noundef %call1.i, ptr noundef nonnull @.str.23, ptr noundef %12) #11
   unreachable
 
 set_diff_merges.exit:                             ; preds = %if.then46

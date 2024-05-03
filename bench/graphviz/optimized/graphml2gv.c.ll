@@ -45,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [6 x i8] c"graph\00", align 1
 @.str.16 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.17 = private unnamed_addr constant [45 x i8] c"Warning: Node contains more than one graph.\0A\00", align 1
-@.str.18 = private unnamed_addr constant [3 x i8] c"id\00", align 1
 @.str.19 = private unnamed_addr constant [12 x i8] c"edgedefault\00", align 1
 @.str.20 = private unnamed_addr constant [9 x i8] c"directed\00", align 1
 @Agdirected = external local_unnamed_addr global %struct.Agdesc_s, align 4
@@ -592,7 +591,7 @@ define internal void @startElementHandler(ptr nocapture noundef %0, ptr noundef 
 7:                                                ; preds = %3
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.15) #19
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %82
+  br i1 %9, label %10, label %93
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 32
@@ -614,389 +613,455 @@ get_xml_attr.exit.thread.thread:                  ; preds = %17
   %.060116 = load ptr, ptr %0, align 8
   br label %get_xml_attr.exit73.thread
 
-.lr.ph.i:                                         ; preds = %17, %22
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %17 ]
-  %19 = phi ptr [ %24, %22 ], [ %18, %17 ]
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(3) @.str.18, ptr noundef nonnull dereferenceable(1) %19) #19
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %get_xml_attr.exit, label %22
+.lr.ph.i:                                         ; preds = %17, %33
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %17 ]
+  %19 = phi ptr [ %35, %33 ], [ %18, %17 ]
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  %22 = sub nsw i32 105, %21
+  %.not141 = icmp eq i8 %20, 105
+  br i1 %.not141, label %sub_1, label %.lr.ph.i.tail
 
-22:                                               ; preds = %.lr.ph.i
+sub_1:                                            ; preds = %.lr.ph.i
+  %23 = getelementptr inbounds i8, ptr %19, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  %26 = sub nsw i32 100, %25
+  %.not142 = icmp eq i8 %24, 100
+  br i1 %.not142, label %sub_2, label %.lr.ph.i.tail
+
+sub_2:                                            ; preds = %sub_1
+  %27 = getelementptr inbounds i8, ptr %19, i64 2
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i32
+  %30 = sub nsw i32 0, %29
+  br label %.lr.ph.i.tail
+
+.lr.ph.i.tail:                                    ; preds = %.lr.ph.i, %sub_1, %sub_2
+  %31 = phi i32 [ %22, %.lr.ph.i ], [ %26, %sub_1 ], [ %30, %sub_2 ]
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %get_xml_attr.exit, label %33
+
+33:                                               ; preds = %.lr.ph.i.tail
   %indvars.iv.next.i = add i64 %indvars.iv.i, 2
-  %23 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i
-  %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %24, null
+  %34 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i
+  %35 = load ptr, ptr %34, align 8
+  %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %get_xml_attr.exit.thread, label %.lr.ph.i
 
-get_xml_attr.exit:                                ; preds = %.lr.ph.i
-  %25 = and i64 %indvars.iv.i, 2147483648
-  %26 = icmp eq i64 %25, 0
-  %27 = and i64 %indvars.iv.i, 4294967294
-  %28 = or disjoint i64 %27, 1
-  %29 = getelementptr inbounds ptr, ptr %2, i64 %28
-  %spec.select = select i1 %26, ptr %29, ptr %0
+get_xml_attr.exit:                                ; preds = %.lr.ph.i.tail
+  %36 = and i64 %indvars.iv.i, 2147483648
+  %37 = icmp eq i64 %36, 0
+  %38 = and i64 %indvars.iv.i, 4294967294
+  %39 = or disjoint i64 %38, 1
+  %40 = getelementptr inbounds ptr, ptr %2, i64 %39
+  %spec.select = select i1 %37, ptr %40, ptr %0
   br label %get_xml_attr.exit.thread
 
-get_xml_attr.exit.thread:                         ; preds = %22, %get_xml_attr.exit
-  %30 = phi ptr [ %spec.select, %get_xml_attr.exit ], [ %0, %22 ]
-  %.060 = load ptr, ptr %30, align 8
+get_xml_attr.exit.thread:                         ; preds = %33, %get_xml_attr.exit
+  %41 = phi ptr [ %spec.select, %get_xml_attr.exit ], [ %0, %33 ]
+  %.060 = load ptr, ptr %41, align 8
   br label %.lr.ph.i68
 
-.lr.ph.i68:                                       ; preds = %get_xml_attr.exit.thread, %34
-  %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %34 ], [ 0, %get_xml_attr.exit.thread ]
-  %31 = phi ptr [ %36, %34 ], [ %18, %get_xml_attr.exit.thread ]
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.19, ptr noundef nonnull dereferenceable(1) %31) #19
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %get_xml_attr.exit73, label %34
+.lr.ph.i68:                                       ; preds = %get_xml_attr.exit.thread, %45
+  %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %45 ], [ 0, %get_xml_attr.exit.thread ]
+  %42 = phi ptr [ %47, %45 ], [ %18, %get_xml_attr.exit.thread ]
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.19, ptr noundef nonnull dereferenceable(1) %42) #19
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %get_xml_attr.exit73, label %45
 
-34:                                               ; preds = %.lr.ph.i68
+45:                                               ; preds = %.lr.ph.i68
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 2
-  %35 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i70
-  %36 = load ptr, ptr %35, align 8
-  %.not.i71 = icmp eq ptr %36, null
+  %46 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i70
+  %47 = load ptr, ptr %46, align 8
+  %.not.i71 = icmp eq ptr %47, null
   br i1 %.not.i71, label %get_xml_attr.exit73.thread, label %.lr.ph.i68
 
 get_xml_attr.exit73:                              ; preds = %.lr.ph.i68
-  %37 = and i64 %indvars.iv.i69, 2147483648
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %get_xml_attr.exit73.thread
+  %48 = and i64 %indvars.iv.i69, 2147483648
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %get_xml_attr.exit73.thread
 
-39:                                               ; preds = %get_xml_attr.exit73
-  %40 = and i64 %indvars.iv.i69, 2147483646
-  %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds ptr, ptr %2, i64 %41
-  %43 = load ptr, ptr %42, align 8
+50:                                               ; preds = %get_xml_attr.exit73
+  %51 = and i64 %indvars.iv.i69, 2147483646
+  %52 = or disjoint i64 %51, 1
+  %53 = getelementptr inbounds ptr, ptr %2, i64 %52
+  %54 = load ptr, ptr %53, align 8
   br label %get_xml_attr.exit73.thread
 
-get_xml_attr.exit73.thread:                       ; preds = %34, %get_xml_attr.exit.thread.thread, %39, %get_xml_attr.exit73
-  %.060117 = phi ptr [ %.060, %39 ], [ %.060, %get_xml_attr.exit73 ], [ %.060116, %get_xml_attr.exit.thread.thread ], [ %.060, %34 ]
-  %.059 = phi ptr [ %43, %39 ], [ @.str.16, %get_xml_attr.exit73 ], [ @.str.16, %get_xml_attr.exit.thread.thread ], [ @.str.16, %34 ]
+get_xml_attr.exit73.thread:                       ; preds = %45, %get_xml_attr.exit.thread.thread, %50, %get_xml_attr.exit73
+  %.060117 = phi ptr [ %.060, %50 ], [ %.060, %get_xml_attr.exit73 ], [ %.060116, %get_xml_attr.exit.thread.thread ], [ %.060, %45 ]
+  %.059 = phi ptr [ %54, %50 ], [ @.str.16, %get_xml_attr.exit73 ], [ @.str.16, %get_xml_attr.exit.thread.thread ], [ @.str.16, %45 ]
   %Gstack.val = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
-  %44 = icmp eq i64 %Gstack.val, 0
-  br i1 %44, label %45, label %59
+  %55 = icmp eq i64 %Gstack.val, 0
+  br i1 %55, label %56, label %70
 
-45:                                               ; preds = %get_xml_attr.exit73.thread
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.059, ptr noundef nonnull dereferenceable(9) @.str.20) #19
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %55, label %48
+56:                                               ; preds = %get_xml_attr.exit73.thread
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.059, ptr noundef nonnull dereferenceable(9) @.str.20) #19
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %66, label %59
 
-48:                                               ; preds = %45
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.059, ptr noundef nonnull dereferenceable(11) @.str.21) #19
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %55, label %51
+59:                                               ; preds = %56
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.059, ptr noundef nonnull dereferenceable(11) @.str.21) #19
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %66, label %62
 
-51:                                               ; preds = %48
+62:                                               ; preds = %59
   %.b = load i1, ptr @Verbose, align 4
-  br i1 %.b, label %52, label %55
+  br i1 %.b, label %63, label %66
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr @stderr, align 8
-  %54 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 62, i64 1, ptr %53) #22
-  br label %55
+63:                                               ; preds = %62
+  %64 = load ptr, ptr @stderr, align 8
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 62, i64 1, ptr %64) #22
+  br label %66
 
-55:                                               ; preds = %51, %52, %48, %45
-  %.sroa.0.0.in = phi ptr [ @Agdirected, %45 ], [ @Agundirected, %48 ], [ @Agdirected, %52 ], [ @Agdirected, %51 ]
+66:                                               ; preds = %62, %63, %59, %56
+  %.sroa.0.0.in = phi ptr [ @Agdirected, %56 ], [ @Agundirected, %59 ], [ @Agdirected, %63 ], [ @Agdirected, %62 ]
   %.sroa.0.0 = load i32, ptr %.sroa.0.0.in, align 4
-  %56 = tail call ptr @agopen(ptr noundef %.060117, i32 %.sroa.0.0, ptr noundef nonnull @AgDefaultDisc) #20
+  %67 = tail call ptr @agopen(ptr noundef %.060117, i32 %.sroa.0.0, ptr noundef nonnull @AgDefaultDisc) #20
   %Gstack.val.i = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
-  %57 = icmp eq i64 %Gstack.val.i, 0
-  br i1 %57, label %58, label %push_subg.exit
+  %68 = icmp eq i64 %Gstack.val.i, 0
+  br i1 %68, label %69, label %push_subg.exit
 
-58:                                               ; preds = %55
-  store ptr %56, ptr @root, align 8
+69:                                               ; preds = %66
+  store ptr %67, ptr @root, align 8
   br label %push_subg.exit
 
-push_subg.exit:                                   ; preds = %55, %58
-  tail call fastcc void @stack_push(ptr noundef nonnull @Gstack, ptr noundef %56)
-  br label %73
+push_subg.exit:                                   ; preds = %66, %69
+  tail call fastcc void @stack_push(ptr noundef nonnull @Gstack, ptr noundef %67)
+  br label %84
 
-59:                                               ; preds = %get_xml_attr.exit73.thread
-  %60 = load i8, ptr %.060117, align 1
-  %.not.i74 = icmp eq i8 %60, 37
+70:                                               ; preds = %get_xml_attr.exit73.thread
+  %71 = load i8, ptr %.060117, align 1
+  %.not.i74 = icmp eq i8 %71, 37
   br i1 %.not.i74, label %.preheader.i, label %isAnonGraph.exit.thread
 
-.preheader.i:                                     ; preds = %59, %.preheader.i
-  %.pn.i = phi ptr [ %.0.i, %.preheader.i ], [ %.060117, %59 ]
+.preheader.i:                                     ; preds = %70, %.preheader.i
+  %.pn.i = phi ptr [ %.0.i, %.preheader.i ], [ %.060117, %70 ]
   %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
-  %61 = load i8, ptr %.0.i, align 1
-  %62 = sext i8 %61 to i32
-  %63 = add nsw i32 %62, -48
-  %64 = icmp ult i32 %63, 10
-  br i1 %64, label %.preheader.i, label %isAnonGraph.exit
+  %72 = load i8, ptr %.0.i, align 1
+  %73 = sext i8 %72 to i32
+  %74 = add nsw i32 %73, -48
+  %75 = icmp ult i32 %74, 10
+  br i1 %75, label %.preheader.i, label %isAnonGraph.exit
 
 isAnonGraph.exit:                                 ; preds = %.preheader.i
-  %.not = icmp eq i8 %61, 0
-  br i1 %.not, label %65, label %isAnonGraph.exit.thread
+  %.not = icmp eq i8 %72, 0
+  br i1 %.not, label %76, label %isAnonGraph.exit.thread
 
-65:                                               ; preds = %isAnonGraph.exit
-  %66 = load i32, ptr @startElementHandler.anon_id, align 4
-  %67 = add nsw i32 %66, 1
-  store i32 %67, ptr @startElementHandler.anon_id, align 4
-  %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.23, i32 noundef %66) #20
+76:                                               ; preds = %isAnonGraph.exit
+  %77 = load i32, ptr @startElementHandler.anon_id, align 4
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr @startElementHandler.anon_id, align 4
+  %79 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.23, i32 noundef %77) #20
   br label %isAnonGraph.exit.thread
 
-isAnonGraph.exit.thread:                          ; preds = %59, %65, %isAnonGraph.exit
-  %.1 = phi ptr [ %4, %65 ], [ %.060117, %isAnonGraph.exit ], [ %.060117, %59 ]
-  %69 = load ptr, ptr @G, align 8
-  %70 = call ptr @agsubg(ptr noundef %69, ptr noundef nonnull %.1, i32 noundef 1) #20
+isAnonGraph.exit.thread:                          ; preds = %70, %76, %isAnonGraph.exit
+  %.1 = phi ptr [ %4, %76 ], [ %.060117, %isAnonGraph.exit ], [ %.060117, %70 ]
+  %80 = load ptr, ptr @G, align 8
+  %81 = call ptr @agsubg(ptr noundef %80, ptr noundef nonnull %.1, i32 noundef 1) #20
   %Gstack.val.i75 = load i64, ptr getelementptr inbounds (%struct.gv_stack_t, ptr @Gstack, i64 0, i32 1), align 8
-  %71 = icmp eq i64 %Gstack.val.i75, 0
-  br i1 %71, label %72, label %push_subg.exit76
+  %82 = icmp eq i64 %Gstack.val.i75, 0
+  br i1 %82, label %83, label %push_subg.exit76
 
-72:                                               ; preds = %isAnonGraph.exit.thread
-  store ptr %70, ptr @root, align 8
+83:                                               ; preds = %isAnonGraph.exit.thread
+  store ptr %81, ptr @root, align 8
   br label %push_subg.exit76
 
-push_subg.exit76:                                 ; preds = %isAnonGraph.exit.thread, %72
-  call fastcc void @stack_push(ptr noundef nonnull @Gstack, ptr noundef %70)
-  br label %73
+push_subg.exit76:                                 ; preds = %isAnonGraph.exit.thread, %83
+  call fastcc void @stack_push(ptr noundef nonnull @Gstack, ptr noundef %81)
+  br label %84
 
-73:                                               ; preds = %push_subg.exit76, %push_subg.exit
-  %storemerge = phi ptr [ %70, %push_subg.exit76 ], [ %56, %push_subg.exit ]
+84:                                               ; preds = %push_subg.exit76, %push_subg.exit
+  %storemerge = phi ptr [ %81, %push_subg.exit76 ], [ %67, %push_subg.exit ]
   %.2 = phi ptr [ %.1, %push_subg.exit76 ], [ %.060117, %push_subg.exit ]
   store ptr %storemerge, ptr @G, align 8
-  %74 = call noalias ptr @strdup(ptr noundef %.2) #20
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %pushString.exit
+  %85 = call noalias ptr @strdup(ptr noundef %.2) #20
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %87, label %pushString.exit
 
-76:                                               ; preds = %73
-  %77 = load ptr, ptr @stderr, align 8
-  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #19
-  %79 = add i64 %78, 1
-  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.33, i64 noundef %79) #21
+87:                                               ; preds = %84
+  %88 = load ptr, ptr @stderr, align 8
+  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #19
+  %90 = add i64 %89, 1
+  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.33, i64 noundef %90) #21
   call fastcc void @graphviz_exit(i32 noundef 1) #23
   unreachable
 
-pushString.exit:                                  ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
-  call fastcc void @stack_push(ptr noundef nonnull %81, ptr noundef nonnull %74)
+pushString.exit:                                  ; preds = %84
+  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  call fastcc void @stack_push(ptr noundef nonnull %92, ptr noundef nonnull %85)
   br label %get_xml_attr.exit83.thread
 
-82:                                               ; preds = %7
-  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.24) #19
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %116
+93:                                               ; preds = %7
+  %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.24) #19
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %138
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %2, align 8
-  %.not10.i77 = icmp eq ptr %86, null
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %2, align 8
+  %.not10.i77 = icmp eq ptr %97, null
   br i1 %.not10.i77, label %get_xml_attr.exit83.thread, label %.lr.ph.i78
 
-.lr.ph.i78:                                       ; preds = %85, %90
-  %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %90 ], [ 0, %85 ]
-  %87 = phi ptr [ %92, %90 ], [ %86, %85 ]
-  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(3) @.str.18, ptr noundef nonnull dereferenceable(1) %87) #19
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %get_xml_attr.exit83, label %90
+.lr.ph.i78:                                       ; preds = %96, %112
+  %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %112 ], [ 0, %96 ]
+  %98 = phi ptr [ %114, %112 ], [ %97, %96 ]
+  %99 = load i8, ptr %98, align 1
+  %100 = zext i8 %99 to i32
+  %101 = sub nsw i32 105, %100
+  %.not139 = icmp eq i8 %99, 105
+  br i1 %.not139, label %sub_1123, label %.lr.ph.i78.tail
 
-90:                                               ; preds = %.lr.ph.i78
+sub_1123:                                         ; preds = %.lr.ph.i78
+  %102 = getelementptr inbounds i8, ptr %98, i64 1
+  %103 = load i8, ptr %102, align 1
+  %104 = zext i8 %103 to i32
+  %105 = sub nsw i32 100, %104
+  %.not140 = icmp eq i8 %103, 100
+  br i1 %.not140, label %sub_2124, label %.lr.ph.i78.tail
+
+sub_2124:                                         ; preds = %sub_1123
+  %106 = getelementptr inbounds i8, ptr %98, i64 2
+  %107 = load i8, ptr %106, align 1
+  %108 = zext i8 %107 to i32
+  %109 = sub nsw i32 0, %108
+  br label %.lr.ph.i78.tail
+
+.lr.ph.i78.tail:                                  ; preds = %.lr.ph.i78, %sub_1123, %sub_2124
+  %110 = phi i32 [ %101, %.lr.ph.i78 ], [ %105, %sub_1123 ], [ %109, %sub_2124 ]
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %get_xml_attr.exit83, label %112
+
+112:                                              ; preds = %.lr.ph.i78.tail
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 2
-  %91 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i80
-  %92 = load ptr, ptr %91, align 8
-  %.not.i81 = icmp eq ptr %92, null
+  %113 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i80
+  %114 = load ptr, ptr %113, align 8
+  %.not.i81 = icmp eq ptr %114, null
   br i1 %.not.i81, label %get_xml_attr.exit83.thread, label %.lr.ph.i78
 
-get_xml_attr.exit83:                              ; preds = %.lr.ph.i78
-  %93 = and i64 %indvars.iv.i79, 2147483648
-  %94 = icmp eq i64 %93, 0
-  br i1 %94, label %95, label %get_xml_attr.exit83.thread
+get_xml_attr.exit83:                              ; preds = %.lr.ph.i78.tail
+  %115 = and i64 %indvars.iv.i79, 2147483648
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %117, label %get_xml_attr.exit83.thread
 
-95:                                               ; preds = %get_xml_attr.exit83
-  %96 = and i64 %indvars.iv.i79, 2147483646
-  %97 = or disjoint i64 %96, 1
-  %98 = getelementptr inbounds ptr, ptr %2, i64 %97
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr @G, align 8
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %102, label %105
+117:                                              ; preds = %get_xml_attr.exit83
+  %118 = and i64 %indvars.iv.i79, 2147483646
+  %119 = or disjoint i64 %118, 1
+  %120 = getelementptr inbounds ptr, ptr %2, i64 %119
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr @G, align 8
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %124, label %127
 
-102:                                              ; preds = %95
-  %103 = load ptr, ptr @stderr, align 8
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.25, ptr noundef %99) #21
-  br label %107
+124:                                              ; preds = %117
+  %125 = load ptr, ptr @stderr, align 8
+  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.25, ptr noundef %121) #21
+  br label %129
 
-105:                                              ; preds = %95
-  %106 = tail call ptr @agnode(ptr noundef nonnull %100, ptr noundef %99, i32 noundef 1) #20
-  store ptr %106, ptr @N, align 8
-  br label %107
+127:                                              ; preds = %117
+  %128 = tail call ptr @agnode(ptr noundef nonnull %122, ptr noundef %121, i32 noundef 1) #20
+  store ptr %128, ptr @N, align 8
+  br label %129
 
-107:                                              ; preds = %105, %102
-  %108 = tail call noalias ptr @strdup(ptr noundef %99) #20
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %110, label %pushString.exit84
+129:                                              ; preds = %127, %124
+  %130 = tail call noalias ptr @strdup(ptr noundef %121) #20
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %132, label %pushString.exit84
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr @stderr, align 8
-  %112 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #19
-  %113 = add i64 %112, 1
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef nonnull @.str.33, i64 noundef %113) #21
+132:                                              ; preds = %129
+  %133 = load ptr, ptr @stderr, align 8
+  %134 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %121) #19
+  %135 = add i64 %134, 1
+  %136 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.33, i64 noundef %135) #21
   tail call fastcc void @graphviz_exit(i32 noundef 1) #23
   unreachable
 
-pushString.exit84:                                ; preds = %107
-  %115 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @stack_push(ptr noundef nonnull %115, ptr noundef nonnull %108)
+pushString.exit84:                                ; preds = %129
+  %137 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call fastcc void @stack_push(ptr noundef nonnull %137, ptr noundef nonnull %130)
   br label %get_xml_attr.exit83.thread
 
-116:                                              ; preds = %82
-  %117 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.26) #19
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %119, label %193
+138:                                              ; preds = %93
+  %139 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.26) #19
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %226
 
-119:                                              ; preds = %116
-  %120 = load ptr, ptr %2, align 8
-  %.not10.i85 = icmp eq ptr %120, null
+141:                                              ; preds = %138
+  %142 = load ptr, ptr %2, align 8
+  %.not10.i85 = icmp eq ptr %142, null
   br i1 %.not10.i85, label %get_xml_attr.exit98.thread, label %.lr.ph.i86
 
-.lr.ph.i86:                                       ; preds = %119, %124
-  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %124 ], [ 0, %119 ]
-  %121 = phi ptr [ %126, %124 ], [ %120, %119 ]
-  %122 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.27, ptr noundef nonnull dereferenceable(1) %121) #19
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %get_xml_attr.exit91, label %124
+.lr.ph.i86:                                       ; preds = %141, %146
+  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %146 ], [ 0, %141 ]
+  %143 = phi ptr [ %148, %146 ], [ %142, %141 ]
+  %144 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.27, ptr noundef nonnull dereferenceable(1) %143) #19
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %get_xml_attr.exit91, label %146
 
-124:                                              ; preds = %.lr.ph.i86
+146:                                              ; preds = %.lr.ph.i86
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 2
-  %125 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i88
-  %126 = load ptr, ptr %125, align 8
-  %.not.i89 = icmp eq ptr %126, null
+  %147 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i88
+  %148 = load ptr, ptr %147, align 8
+  %.not.i89 = icmp eq ptr %148, null
   br i1 %.not.i89, label %.lr.ph.i93.preheader, label %.lr.ph.i86
 
 get_xml_attr.exit91:                              ; preds = %.lr.ph.i86
-  %127 = and i64 %indvars.iv.i87, 2147483648
-  %128 = icmp eq i64 %127, 0
-  br i1 %128, label %129, label %.lr.ph.i93.preheader
+  %149 = and i64 %indvars.iv.i87, 2147483648
+  %150 = icmp eq i64 %149, 0
+  br i1 %150, label %151, label %.lr.ph.i93.preheader
 
-129:                                              ; preds = %get_xml_attr.exit91
-  %130 = and i64 %indvars.iv.i87, 2147483646
-  %131 = or disjoint i64 %130, 1
-  %132 = getelementptr inbounds ptr, ptr %2, i64 %131
-  %133 = load ptr, ptr %132, align 8
+151:                                              ; preds = %get_xml_attr.exit91
+  %152 = and i64 %indvars.iv.i87, 2147483646
+  %153 = or disjoint i64 %152, 1
+  %154 = getelementptr inbounds ptr, ptr %2, i64 %153
+  %155 = load ptr, ptr %154, align 8
   br label %.lr.ph.i93.preheader
 
-.lr.ph.i93.preheader:                             ; preds = %124, %get_xml_attr.exit91, %129
-  %.0 = phi ptr [ %133, %129 ], [ @.str.16, %get_xml_attr.exit91 ], [ @.str.16, %124 ]
+.lr.ph.i93.preheader:                             ; preds = %146, %get_xml_attr.exit91, %151
+  %.0 = phi ptr [ %155, %151 ], [ @.str.16, %get_xml_attr.exit91 ], [ @.str.16, %146 ]
   br label %.lr.ph.i93
 
-.lr.ph.i93:                                       ; preds = %.lr.ph.i93.preheader, %137
-  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %137 ], [ 0, %.lr.ph.i93.preheader ]
-  %134 = phi ptr [ %139, %137 ], [ %120, %.lr.ph.i93.preheader ]
-  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.28, ptr noundef nonnull dereferenceable(1) %134) #19
-  %136 = icmp eq i32 %135, 0
-  br i1 %136, label %get_xml_attr.exit98, label %137
+.lr.ph.i93:                                       ; preds = %.lr.ph.i93.preheader, %159
+  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %159 ], [ 0, %.lr.ph.i93.preheader ]
+  %156 = phi ptr [ %161, %159 ], [ %142, %.lr.ph.i93.preheader ]
+  %157 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.28, ptr noundef nonnull dereferenceable(1) %156) #19
+  %158 = icmp eq i32 %157, 0
+  br i1 %158, label %get_xml_attr.exit98, label %159
 
-137:                                              ; preds = %.lr.ph.i93
+159:                                              ; preds = %.lr.ph.i93
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 2
-  %138 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i95
-  %139 = load ptr, ptr %138, align 8
-  %.not.i96 = icmp eq ptr %139, null
+  %160 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i95
+  %161 = load ptr, ptr %160, align 8
+  %.not.i96 = icmp eq ptr %161, null
   br i1 %.not.i96, label %get_xml_attr.exit98.thread, label %.lr.ph.i93
 
 get_xml_attr.exit98:                              ; preds = %.lr.ph.i93
-  %140 = and i64 %indvars.iv.i94, 2147483648
-  %141 = icmp eq i64 %140, 0
-  br i1 %141, label %142, label %get_xml_attr.exit98.thread
+  %162 = and i64 %indvars.iv.i94, 2147483648
+  %163 = icmp eq i64 %162, 0
+  br i1 %163, label %164, label %get_xml_attr.exit98.thread
 
-142:                                              ; preds = %get_xml_attr.exit98
-  %143 = and i64 %indvars.iv.i94, 2147483646
-  %144 = or disjoint i64 %143, 1
-  %145 = getelementptr inbounds ptr, ptr %2, i64 %144
-  %146 = load ptr, ptr %145, align 8
+164:                                              ; preds = %get_xml_attr.exit98
+  %165 = and i64 %indvars.iv.i94, 2147483646
+  %166 = or disjoint i64 %165, 1
+  %167 = getelementptr inbounds ptr, ptr %2, i64 %166
+  %168 = load ptr, ptr %167, align 8
   br label %get_xml_attr.exit98.thread
 
-get_xml_attr.exit98.thread:                       ; preds = %137, %119, %142, %get_xml_attr.exit98
-  %.0120 = phi ptr [ %.0, %142 ], [ %.0, %get_xml_attr.exit98 ], [ @.str.16, %119 ], [ %.0, %137 ]
-  %.058 = phi ptr [ %146, %142 ], [ @.str.16, %get_xml_attr.exit98 ], [ @.str.16, %119 ], [ @.str.16, %137 ]
-  %147 = load ptr, ptr @G, align 8
-  %148 = icmp eq ptr %147, null
-  br i1 %148, label %149, label %152
+get_xml_attr.exit98.thread:                       ; preds = %159, %141, %164, %get_xml_attr.exit98
+  %.0120 = phi ptr [ %.0, %164 ], [ %.0, %get_xml_attr.exit98 ], [ @.str.16, %141 ], [ %.0, %159 ]
+  %.058 = phi ptr [ %168, %164 ], [ @.str.16, %get_xml_attr.exit98 ], [ @.str.16, %141 ], [ @.str.16, %159 ]
+  %169 = load ptr, ptr @G, align 8
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %171, label %174
 
-149:                                              ; preds = %get_xml_attr.exit98.thread
-  %150 = load ptr, ptr @stderr, align 8
-  %151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str.29, ptr noundef %.0120, ptr noundef %.058) #21
+171:                                              ; preds = %get_xml_attr.exit98.thread
+  %172 = load ptr, ptr @stderr, align 8
+  %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.29, ptr noundef %.0120, ptr noundef %.058) #21
   br label %get_xml_attr.exit83.thread
 
-152:                                              ; preds = %get_xml_attr.exit98.thread
-  %153 = tail call ptr @agnode(ptr noundef nonnull %147, ptr noundef %.0120, i32 noundef 1) #20
-  %154 = load ptr, ptr @G, align 8
-  %155 = tail call ptr @agnode(ptr noundef %154, ptr noundef %.058, i32 noundef 1) #20
-  %156 = load ptr, ptr @G, align 8
-  %157 = tail call ptr @agedge(ptr noundef %156, ptr noundef %153, ptr noundef %155, ptr noundef null, i32 noundef 1) #20
-  store ptr %157, ptr @E, align 8
-  %158 = load i32, ptr %157, align 8
-  %159 = and i32 %158, 3
-  %160 = icmp eq i32 %159, 3
-  %.idx = select i1 %160, i64 0, i64 64
-  %161 = getelementptr inbounds i8, ptr %157, i64 %.idx
-  %162 = getelementptr inbounds i8, ptr %161, i64 56
-  %163 = load ptr, ptr %162, align 8
-  %164 = tail call ptr @agnameof(ptr noundef %163) #20
-  %165 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) %.0120) #19
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %.sink.split, label %167
+174:                                              ; preds = %get_xml_attr.exit98.thread
+  %175 = tail call ptr @agnode(ptr noundef nonnull %169, ptr noundef %.0120, i32 noundef 1) #20
+  %176 = load ptr, ptr @G, align 8
+  %177 = tail call ptr @agnode(ptr noundef %176, ptr noundef %.058, i32 noundef 1) #20
+  %178 = load ptr, ptr @G, align 8
+  %179 = tail call ptr @agedge(ptr noundef %178, ptr noundef %175, ptr noundef %177, ptr noundef null, i32 noundef 1) #20
+  store ptr %179, ptr @E, align 8
+  %180 = load i32, ptr %179, align 8
+  %181 = and i32 %180, 3
+  %182 = icmp eq i32 %181, 3
+  %.idx = select i1 %182, i64 0, i64 64
+  %183 = getelementptr inbounds i8, ptr %179, i64 %.idx
+  %184 = getelementptr inbounds i8, ptr %183, i64 56
+  %185 = load ptr, ptr %184, align 8
+  %186 = tail call ptr @agnameof(ptr noundef %185) #20
+  %187 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %186, ptr noundef nonnull dereferenceable(1) %.0120) #19
+  %188 = icmp eq i32 %187, 0
+  br i1 %188, label %.sink.split, label %189
 
-167:                                              ; preds = %152
-  %168 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) %.058) #19
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %.sink.split, label %171
+189:                                              ; preds = %174
+  %190 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %186, ptr noundef nonnull dereferenceable(1) %.058) #19
+  %191 = icmp eq i32 %190, 0
+  br i1 %191, label %.sink.split, label %193
 
-.sink.split:                                      ; preds = %167, %152
-  %.sink = phi i8 [ 0, %152 ], [ 1, %167 ]
-  %170 = getelementptr inbounds i8, ptr %0, i64 36
-  store i8 %.sink, ptr %170, align 4
-  br label %171
+.sink.split:                                      ; preds = %189, %174
+  %.sink = phi i8 [ 0, %174 ], [ 1, %189 ]
+  %192 = getelementptr inbounds i8, ptr %0, i64 36
+  store i8 %.sink, ptr %192, align 4
+  br label %193
 
-171:                                              ; preds = %.sink.split, %167
-  %172 = load ptr, ptr %2, align 8
-  %.not10.i99 = icmp eq ptr %172, null
+193:                                              ; preds = %.sink.split, %189
+  %194 = load ptr, ptr %2, align 8
+  %.not10.i99 = icmp eq ptr %194, null
   br i1 %.not10.i99, label %get_xml_attr.exit83.thread, label %.lr.ph.i100
 
-.lr.ph.i100:                                      ; preds = %171, %176
-  %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i102, %176 ], [ 0, %171 ]
-  %173 = phi ptr [ %178, %176 ], [ %172, %171 ]
-  %174 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(3) @.str.18, ptr noundef nonnull dereferenceable(1) %173) #19
-  %175 = icmp eq i32 %174, 0
-  br i1 %175, label %get_xml_attr.exit105, label %176
+.lr.ph.i100:                                      ; preds = %193, %209
+  %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i102, %209 ], [ 0, %193 ]
+  %195 = phi ptr [ %211, %209 ], [ %194, %193 ]
+  %196 = load i8, ptr %195, align 1
+  %197 = zext i8 %196 to i32
+  %198 = sub nsw i32 105, %197
+  %.not137 = icmp eq i8 %196, 105
+  br i1 %.not137, label %sub_1127, label %.lr.ph.i100.tail
 
-176:                                              ; preds = %.lr.ph.i100
+sub_1127:                                         ; preds = %.lr.ph.i100
+  %199 = getelementptr inbounds i8, ptr %195, i64 1
+  %200 = load i8, ptr %199, align 1
+  %201 = zext i8 %200 to i32
+  %202 = sub nsw i32 100, %201
+  %.not138 = icmp eq i8 %200, 100
+  br i1 %.not138, label %sub_2128, label %.lr.ph.i100.tail
+
+sub_2128:                                         ; preds = %sub_1127
+  %203 = getelementptr inbounds i8, ptr %195, i64 2
+  %204 = load i8, ptr %203, align 1
+  %205 = zext i8 %204 to i32
+  %206 = sub nsw i32 0, %205
+  br label %.lr.ph.i100.tail
+
+.lr.ph.i100.tail:                                 ; preds = %.lr.ph.i100, %sub_1127, %sub_2128
+  %207 = phi i32 [ %198, %.lr.ph.i100 ], [ %202, %sub_1127 ], [ %206, %sub_2128 ]
+  %208 = icmp eq i32 %207, 0
+  br i1 %208, label %get_xml_attr.exit105, label %209
+
+209:                                              ; preds = %.lr.ph.i100.tail
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i101, 2
-  %177 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i102
-  %178 = load ptr, ptr %177, align 8
-  %.not.i103 = icmp eq ptr %178, null
+  %210 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i102
+  %211 = load ptr, ptr %210, align 8
+  %.not.i103 = icmp eq ptr %211, null
   br i1 %.not.i103, label %get_xml_attr.exit83.thread, label %.lr.ph.i100
 
-get_xml_attr.exit105:                             ; preds = %.lr.ph.i100
-  %179 = and i64 %indvars.iv.i101, 2147483648
-  %180 = icmp eq i64 %179, 0
-  br i1 %180, label %181, label %get_xml_attr.exit83.thread
+get_xml_attr.exit105:                             ; preds = %.lr.ph.i100.tail
+  %212 = and i64 %indvars.iv.i101, 2147483648
+  %213 = icmp eq i64 %212, 0
+  br i1 %213, label %214, label %get_xml_attr.exit83.thread
 
-181:                                              ; preds = %get_xml_attr.exit105
-  %182 = load ptr, ptr @E, align 8
-  %183 = and i64 %indvars.iv.i101, 2147483646
-  %184 = or disjoint i64 %183, 1
-  %185 = getelementptr inbounds ptr, ptr %2, i64 %184
-  %186 = load ptr, ptr %185, align 8
-  %187 = load ptr, ptr @root, align 8
-  %188 = tail call ptr @agattr(ptr noundef %187, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef null) #20
-  %.not.i106 = icmp eq ptr %188, null
-  br i1 %.not.i106, label %189, label %setEdgeAttr.exit
+214:                                              ; preds = %get_xml_attr.exit105
+  %215 = load ptr, ptr @E, align 8
+  %216 = and i64 %indvars.iv.i101, 2147483646
+  %217 = or disjoint i64 %216, 1
+  %218 = getelementptr inbounds ptr, ptr %2, i64 %217
+  %219 = load ptr, ptr %218, align 8
+  %220 = load ptr, ptr @root, align 8
+  %221 = tail call ptr @agattr(ptr noundef %220, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef null) #20
+  %.not.i106 = icmp eq ptr %221, null
+  br i1 %.not.i106, label %222, label %setEdgeAttr.exit
 
-189:                                              ; preds = %181
-  %190 = load ptr, ptr @root, align 8
-  %191 = tail call ptr @agattr(ptr noundef %190, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.16) #20
+222:                                              ; preds = %214
+  %223 = load ptr, ptr @root, align 8
+  %224 = tail call ptr @agattr(ptr noundef %223, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.16) #20
   br label %setEdgeAttr.exit
 
-setEdgeAttr.exit:                                 ; preds = %181, %189
-  %.2.i = phi ptr [ %188, %181 ], [ %191, %189 ]
-  %192 = tail call i32 @agxset(ptr noundef %182, ptr noundef %.2.i, ptr noundef %186) #20
+setEdgeAttr.exit:                                 ; preds = %214, %222
+  %.2.i = phi ptr [ %221, %214 ], [ %224, %222 ]
+  %225 = tail call i32 @agxset(ptr noundef %215, ptr noundef %.2.i, ptr noundef %219) #20
   br label %get_xml_attr.exit83.thread
 
-193:                                              ; preds = %116
-  %194 = load ptr, ptr @stderr, align 8
-  %195 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.31, ptr noundef %1) #21
+226:                                              ; preds = %138
+  %227 = load ptr, ptr @stderr, align 8
+  %228 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %227, ptr noundef nonnull @.str.31, ptr noundef %1) #21
   br label %get_xml_attr.exit83.thread
 
-get_xml_attr.exit83.thread:                       ; preds = %176, %90, %171, %85, %pushString.exit, %193, %get_xml_attr.exit105, %setEdgeAttr.exit, %149, %get_xml_attr.exit83, %pushString.exit84, %3
+get_xml_attr.exit83.thread:                       ; preds = %209, %112, %193, %96, %pushString.exit, %226, %get_xml_attr.exit105, %setEdgeAttr.exit, %171, %get_xml_attr.exit83, %pushString.exit84, %3
   ret void
 }
 
@@ -1244,16 +1309,16 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #9 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_copy(ptr nonnull %3, ptr nonnull %4)
+  call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %3) #20
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %vagxbprint.exit
 
 8:                                                ; preds = %2
@@ -1332,18 +1397,9 @@ agxbnext.exit.i:                                  ; preds = %25, %22
 
 vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
@@ -1424,10 +1480,19 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
@@ -1455,8 +1520,8 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nofree nounwind }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [14 x i8] c"HWP5_CERT_DRM\00", align 1
 @.str.20 = private unnamed_addr constant [9 x i8] c"HWP5_CCL\00", align 1
 @.str.21 = private unnamed_addr constant [42 x i8] c"HWP5.x: Invalid file descriptor argument\0A\00", align 1
-@.str.22 = private unnamed_addr constant [4 x i8] c"bin\00", align 1
 @.str.23 = private unnamed_addr constant [15 x i8] c"jscriptversion\00", align 1
 @.str.24 = private unnamed_addr constant [15 x i8] c"defaultjscript\00", align 1
 @.str.25 = private unnamed_addr constant [8 x i8] c"section\00", align 1
@@ -244,7 +243,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @cli_magic_scan_nested_fmap_type(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_hwp5header(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_hwp5header(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -436,117 +435,129 @@ define i32 @cli_scanhwp5_stream(ptr noundef %0, ptr nocapture noundef readonly %
 
 8:                                                ; preds = %5
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.21) #9
-  br label %58
+  br label %61
 
 9:                                                ; preds = %5
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %56, label %10
+  br i1 %.not, label %59, label %sub_0
 
-10:                                               ; preds = %9
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.22, i64 noundef 3) #10
-  %.not35 = icmp eq i32 %11, 0
-  br i1 %.not35, label %22, label %12
+sub_0:                                            ; preds = %9
+  %10 = load i8, ptr %2, align 1
+  %.not47 = icmp eq i8 %10, 98
+  br i1 %.not47, label %sub_1, label %.tail.thread
 
-12:                                               ; preds = %10
-  %13 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(15) @.str.23, i64 noundef 14) #10
-  %.not36 = icmp eq i32 %13, 0
-  br i1 %.not36, label %22, label %14
+sub_1:                                            ; preds = %sub_0
+  %11 = getelementptr inbounds i8, ptr %2, i64 1
+  %12 = load i8, ptr %11, align 1
+  %.not48 = icmp eq i8 %12, 105
+  br i1 %.not48, label %.tail, label %.tail.thread
 
-14:                                               ; preds = %12
-  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(15) @.str.24, i64 noundef 14) #10
-  %.not37 = icmp eq i32 %15, 0
-  br i1 %.not37, label %22, label %16
+.tail:                                            ; preds = %sub_1
+  %13 = getelementptr inbounds i8, ptr %2, i64 2
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 110
+  br i1 %15, label %25, label %.tail.thread
 
-16:                                               ; preds = %14
-  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.25, i64 noundef 7) #10
-  %.not38 = icmp eq i32 %17, 0
-  br i1 %.not38, label %22, label %18
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(15) @.str.23, i64 noundef 14) #10
+  %.not36 = icmp eq i32 %16, 0
+  br i1 %.not36, label %25, label %17
 
-18:                                               ; preds = %16
-  %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(9) @.str.26, i64 noundef 8) #10
-  %.not39 = icmp eq i32 %19, 0
-  br i1 %.not39, label %22, label %20
+17:                                               ; preds = %.tail.thread
+  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(15) @.str.24, i64 noundef 14) #10
+  %.not37 = icmp eq i32 %18, 0
+  br i1 %.not37, label %25, label %19
 
-20:                                               ; preds = %18
-  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.27, i64 noundef 7) #10
-  %.not40 = icmp eq i32 %21, 0
-  br i1 %.not40, label %22, label %43
+19:                                               ; preds = %17
+  %20 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.25, i64 noundef 7) #10
+  %.not38 = icmp eq i32 %20, 0
+  br i1 %.not38, label %25, label %21
 
-22:                                               ; preds = %20, %18, %16, %14, %12, %10
-  %23 = getelementptr inbounds i8, ptr %1, i64 36
-  %24 = load i32, ptr %23, align 4
-  %25 = and i32 %24, 2
-  %.not41 = icmp eq i32 %25, 0
-  br i1 %.not41, label %28, label %26
+21:                                               ; preds = %19
+  %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(9) @.str.26, i64 noundef 8) #10
+  %.not39 = icmp eq i32 %22, 0
+  br i1 %.not39, label %25, label %23
 
-26:                                               ; preds = %22
+23:                                               ; preds = %21
+  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.27, i64 noundef 7) #10
+  %.not40 = icmp eq i32 %24, 0
+  br i1 %.not40, label %25, label %46
+
+25:                                               ; preds = %23, %21, %19, %17, %.tail.thread, %.tail
+  %26 = getelementptr inbounds i8, ptr %1, i64 36
+  %27 = load i32, ptr %26, align 4
+  %28 = and i32 %27, 2
+  %.not41 = icmp eq i32 %28, 0
+  br i1 %.not41, label %31, label %29
+
+29:                                               ; preds = %25
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28) #9
-  %27 = tail call i32 @cli_magic_scan_desc(i32 noundef %3, ptr noundef %4, ptr noundef %0, ptr noundef nonnull %2, i32 noundef 0) #9
-  br label %58
+  %30 = tail call i32 @cli_magic_scan_desc(i32 noundef %3, ptr noundef %4, ptr noundef %0, ptr noundef nonnull %2, i32 noundef 0) #9
+  br label %61
 
-28:                                               ; preds = %22
-  %29 = and i32 %24, 1
-  %.not42 = icmp eq i32 %29, 0
-  br i1 %.not42, label %43, label %30
+31:                                               ; preds = %25
+  %32 = and i32 %27, 1
+  %.not42 = icmp eq i32 %32, 0
+  br i1 %.not42, label %46, label %33
 
-30:                                               ; preds = %28
-  %31 = call i32 @fstat(i32 noundef %3, ptr noundef nonnull %6) #9
-  %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %34
+33:                                               ; preds = %31
+  %34 = call i32 @fstat(i32 noundef %3, ptr noundef nonnull %6) #9
+  %35 = icmp eq i32 %34, -1
+  br i1 %35, label %36, label %37
 
-33:                                               ; preds = %30
+36:                                               ; preds = %33
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.29) #9
-  br label %58
+  br label %61
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %6, i64 48
-  %36 = load i64, ptr %35, align 8
-  %37 = tail call ptr @fmap(i32 noundef %3, i64 noundef 0, i64 noundef %36, ptr noundef null) #9
-  %.not43 = icmp eq ptr %37, null
-  br i1 %.not43, label %38, label %39
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %6, i64 48
+  %39 = load i64, ptr %38, align 8
+  %40 = tail call ptr @fmap(i32 noundef %3, i64 noundef 0, i64 noundef %39, ptr noundef null) #9
+  %.not43 = icmp eq ptr %40, null
+  br i1 %.not43, label %41, label %42
 
-38:                                               ; preds = %34
+41:                                               ; preds = %37
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.30) #9
-  br label %58
+  br label %61
 
-39:                                               ; preds = %34
-  %40 = tail call fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef nonnull %37, i64 noundef 0, ptr noundef nonnull @.str.31, ptr noundef nonnull @hwp5_cb)
-  %41 = getelementptr inbounds i8, ptr %37, i64 96
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull %37) #9
-  br label %58
-
-43:                                               ; preds = %28, %20
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+42:                                               ; preds = %37
+  %43 = tail call fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef nonnull %40, i64 noundef 0, ptr noundef nonnull @.str.31, ptr noundef nonnull @hwp5_cb)
+  %44 = getelementptr inbounds i8, ptr %40, i64 96
   %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %45, align 4
-  %47 = and i32 %46, 2
-  %.not44 = icmp eq i32 %47, 0
-  br i1 %.not44, label %56, label %48
+  tail call void %45(ptr noundef nonnull %40) #9
+  br label %61
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 152
-  %50 = load ptr, ptr %49, align 8
-  %.not45 = icmp eq ptr %50, null
-  br i1 %.not45, label %56, label %51
+46:                                               ; preds = %31, %23
+  %47 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %48, align 4
+  %50 = and i32 %49, 2
+  %.not44 = icmp eq i32 %50, 0
+  br i1 %.not44, label %59, label %51
 
-51:                                               ; preds = %48
-  %52 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(25) @.str.32, i64 noundef 24) #10
-  %.not46 = icmp eq i32 %52, 0
-  br i1 %.not46, label %53, label %56
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %0, i64 152
+  %53 = load ptr, ptr %52, align 8
+  %.not45 = icmp eq ptr %53, null
+  br i1 %.not45, label %59, label %54
 
-53:                                               ; preds = %51
+54:                                               ; preds = %51
+  %55 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(25) @.str.32, i64 noundef 24) #10
+  %.not46 = icmp eq i32 %55, 0
+  br i1 %.not46, label %56, label %59
+
+56:                                               ; preds = %54
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33) #9
-  %54 = tail call i32 @cli_ole2_summary_json(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 2) #9
-  %55 = icmp eq i32 %54, 21
-  br i1 %55, label %58, label %56
+  %57 = tail call i32 @cli_ole2_summary_json(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 2) #9
+  %58 = icmp eq i32 %57, 21
+  br i1 %58, label %61, label %59
 
-56:                                               ; preds = %43, %48, %53, %51, %9
-  %57 = tail call i32 @cli_magic_scan_desc(i32 noundef %3, ptr noundef %4, ptr noundef %0, ptr noundef %2, i32 noundef 0) #9
-  br label %58
+59:                                               ; preds = %46, %51, %56, %54, %9
+  %60 = tail call i32 @cli_magic_scan_desc(i32 noundef %3, ptr noundef %4, ptr noundef %0, ptr noundef %2, i32 noundef 0) #9
+  br label %61
 
-58:                                               ; preds = %53, %56, %39, %38, %33, %26, %8
-  %.0 = phi i32 [ 2, %8 ], [ %57, %56 ], [ %27, %26 ], [ 11, %33 ], [ %40, %39 ], [ 19, %38 ], [ 21, %53 ]
+61:                                               ; preds = %56, %59, %42, %41, %36, %29, %8
+  %.0 = phi i32 [ 2, %8 ], [ %60, %59 ], [ %30, %29 ], [ 11, %36 ], [ %43, %42 ], [ 19, %41 ], [ 21, %56 ]
   ret i32 %.0
 }
 
@@ -1252,7 +1263,7 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
 102:                                              ; preds = %101, %102
   %.060 = phi i32 [ 0, %101 ], [ %103, %102 ]
   %103 = add nuw nsw i32 %.060, 1
-  %104 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %3, ptr noundef %.065, i32 noundef %.060, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9), !range !5
+  %104 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %3, ptr noundef %.065, i32 noundef %.060, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %105 = icmp ne i32 %104, 0
   %106 = load i32, ptr %9, align 4
   %107 = icmp ne i32 %106, 0
@@ -2039,7 +2050,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
@@ -2424,7 +2435,7 @@ fmap_readn.exit224:                               ; preds = %135
 152:                                              ; preds = %.lr.ph, %152
   %.2 = phi i32 [ %.1132315, %.lr.ph ], [ %153, %152 ]
   %153 = add nsw i32 %.2, 1
-  %154 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.2, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11), !range !5
+  %154 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.2, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11)
   %155 = icmp ne i32 %154, 0
   %156 = load i32, ptr %11, align 4
   %157 = icmp ne i32 %156, 0
@@ -2443,7 +2454,7 @@ fmap_readn.exit224:                               ; preds = %135
 158:                                              ; preds = %._crit_edge, %158
   %.4 = phi i32 [ %.1132.lcssa, %._crit_edge ], [ %159, %158 ]
   %159 = add nsw i32 %.4, 1
-  %160 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.4, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11), !range !5
+  %160 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.4, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11)
   %161 = icmp ne i32 %160, 0
   %162 = load i32, ptr %11, align 4
   %163 = icmp ne i32 %162, 0
@@ -2498,7 +2509,7 @@ fmap_readn.exit229:                               ; preds = %167
 179:                                              ; preds = %178, %179
   %.6 = phi i32 [ %.0131316416, %178 ], [ %180, %179 ]
   %180 = add nsw i32 %.6, 1
-  %181 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.6, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11), !range !5
+  %181 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.6, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11)
   %182 = icmp ne i32 %181, 0
   %183 = load i32, ptr %11, align 4
   %184 = icmp ne i32 %183, 0
@@ -2523,7 +2534,7 @@ fmap_readn.exit229:                               ; preds = %167
 189:                                              ; preds = %187, %189
   %.8 = phi i32 [ %.0131316416, %187 ], [ %190, %189 ]
   %190 = add nsw i32 %.8, 1
-  %191 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.8, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11), !range !5
+  %191 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.8, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11)
   %192 = icmp ne i32 %191, 0
   %193 = load i32, ptr %11, align 4
   %194 = icmp ne i32 %193, 0
@@ -2543,7 +2554,7 @@ fmap_readn.exit229:                               ; preds = %167
 197:                                              ; preds = %195, %197
   %.10 = phi i32 [ %.0131316416, %195 ], [ %198, %197 ]
   %198 = add nsw i32 %.10, 1
-  %199 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.10, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11), !range !5
+  %199 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.10, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11)
   %200 = icmp ne i32 %199, 0
   %201 = load i32, ptr %11, align 4
   %202 = icmp ne i32 %201, 0
@@ -2563,7 +2574,7 @@ fmap_readn.exit229:                               ; preds = %167
 205:                                              ; preds = %203, %205
   %.12 = phi i32 [ %.0131316416, %203 ], [ %206, %205 ]
   %206 = add nsw i32 %.12, 1
-  %207 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.12, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11), !range !5
+  %207 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.12, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %11)
   %208 = icmp ne i32 %207, 0
   %209 = load i32, ptr %11, align 4
   %210 = icmp ne i32 %209, 0
@@ -2759,4 +2770,3 @@ attributes #10 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{ptr @hwp3_cb, ptr @hwp5_cb, ptr @hwpml_scan_cb}
-!5 = !{i32 0, i32 28}

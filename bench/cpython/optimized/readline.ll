@@ -224,18 +224,24 @@ if.end5.i:                                        ; preds = %if.then3.i, %if.end
 land.lhs.true.i:                                  ; preds = %if.end5.i
   %3 = load ptr, ptr %call10.i, align 8
   %tobool12.not.i = icmp eq ptr %3, null
-  br i1 %tobool12.not.i, label %if.else18.i, label %land.lhs.true13.i
+  br i1 %tobool12.not.i, label %if.else18.i, label %sub_0.i
 
-land.lhs.true13.i:                                ; preds = %land.lhs.true.i
-  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(2) @.str.51) #13
-  %tobool16.not.i = icmp eq i32 %call15.i, 0
-  br i1 %tobool16.not.i, label %if.else18.i, label %if.end19.i
+sub_0.i:                                          ; preds = %land.lhs.true.i
+  %4 = load i8, ptr %3, align 1
+  %.not.i = icmp eq i8 %4, 88
+  br i1 %.not.i, label %land.lhs.true13.tail.i, label %if.end19.i
 
-if.else18.i:                                      ; preds = %land.lhs.true13.i, %land.lhs.true.i, %if.end5.i
+land.lhs.true13.tail.i:                           ; preds = %sub_0.i
+  %5 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %if.else18.i, label %if.end19.i
+
+if.else18.i:                                      ; preds = %land.lhs.true13.tail.i, %land.lhs.true.i, %if.end5.i
   br label %if.end19.i
 
-if.end19.i:                                       ; preds = %if.else18.i, %land.lhs.true13.i
-  %storemerge.i = phi i1 [ true, %if.else18.i ], [ false, %land.lhs.true13.i ]
+if.end19.i:                                       ; preds = %if.else18.i, %land.lhs.true13.tail.i, %sub_0.i
+  %storemerge.i = phi i1 [ true, %if.else18.i ], [ false, %land.lhs.true13.tail.i ], [ false, %sub_0.i ]
   store i1 %storemerge.i, ptr @libedit_append_replace_history_offset, align 1
   tail call void @clear_history() #14
   tail call void @using_history() #14
@@ -308,13 +314,13 @@ if.end36:                                         ; preds = %if.then.i.i, %if.en
   br i1 %tobool38.not, label %return, label %error
 
 error:                                            ; preds = %if.end36, %if.end25, %if.end20, %if.end15, %if.end10, %if.end6, %if.then34
-  %4 = load i64, ptr %call3, align 8
-  %5 = and i64 %4, 2147483648
-  %cmp.i42.not = icmp eq i64 %5, 0
+  %8 = load i64, ptr %call3, align 8
+  %9 = and i64 %8, 2147483648
+  %cmp.i42.not = icmp eq i64 %9, 0
   br i1 %cmp.i42.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %error
-  %dec.i = add i64 %4, -1
+  %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %call3, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return

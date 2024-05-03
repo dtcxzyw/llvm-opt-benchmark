@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 @_ZN5folly11portabilityL10mutableDotE = internal global [2 x i8] c".\00", align 1
-@.str.1 = private unnamed_addr constant [2 x i8] c"/\00", align 1
-@.str.2 = private unnamed_addr constant [2 x i8] c"\\\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN5folly11portability16internal_dirnameEPc(ptr noundef %path) local_unnamed_addr #0 {
@@ -15,25 +13,30 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %strcmpload = load i8, ptr %path, align 1
-  %tobool.not = icmp eq i8 %strcmpload, 0
-  br i1 %tobool.not, label %return, label %if.end
+  switch i8 %strcmpload, label %if.end7 [
+    i8 0, label %return
+    i8 47, label %if.end.tail
+    i8 92, label %lor.lhs.false3.tail
+  ]
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(2) @.str.1) #2
-  %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %return, label %lor.lhs.false3
+if.end.tail:                                      ; preds = %lor.lhs.false
+  %0 = getelementptr inbounds i8, ptr %path, i64 1
+  %1 = load i8, ptr %0, align 1
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %return, label %if.end7
 
-lor.lhs.false3:                                   ; preds = %if.end
-  %call4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(2) @.str.2) #2
-  %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %return, label %if.end7
+lor.lhs.false3.tail:                              ; preds = %lor.lhs.false
+  %3 = getelementptr inbounds i8, ptr %path, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %return, label %if.end7
 
-if.end7:                                          ; preds = %lor.lhs.false3
+if.end7:                                          ; preds = %lor.lhs.false, %if.end.tail, %lor.lhs.false3.tail
   %call8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #2
-  %0 = getelementptr i8, ptr %path, i64 %call8
-  %arrayidx = getelementptr i8, ptr %0, i64 -1
-  %1 = load i8, ptr %arrayidx, align 1, !tbaa !7
-  switch i8 %1, label %if.end18 [
+  %6 = getelementptr i8, ptr %path, i64 %call8
+  %arrayidx = getelementptr i8, ptr %6, i64 -1
+  %7 = load i8, ptr %arrayidx, align 1, !tbaa !7
+  switch i8 %7, label %if.end18 [
     i8 47, label %if.then15
     i8 92, label %if.then15
   ]
@@ -57,13 +60,10 @@ if.end27:                                         ; preds = %if.end18
   store i8 0, ptr %spec.select.sink, align 1, !tbaa !7
   br label %return
 
-return:                                           ; preds = %if.end27, %if.end18, %lor.lhs.false3, %if.end, %lor.lhs.false, %entry
-  %retval.1 = phi ptr [ @_ZN5folly11portabilityL10mutableDotE, %lor.lhs.false ], [ @_ZN5folly11portabilityL10mutableDotE, %entry ], [ %path, %lor.lhs.false3 ], [ %path, %if.end ], [ @_ZN5folly11portabilityL10mutableDotE, %if.end18 ], [ %path, %if.end27 ]
+return:                                           ; preds = %lor.lhs.false, %if.end27, %if.end18, %lor.lhs.false3.tail, %if.end.tail, %entry
+  %retval.1 = phi ptr [ @_ZN5folly11portabilityL10mutableDotE, %lor.lhs.false ], [ @_ZN5folly11portabilityL10mutableDotE, %entry ], [ %path, %lor.lhs.false3.tail ], [ %path, %if.end.tail ], [ @_ZN5folly11portabilityL10mutableDotE, %if.end18 ], [ %path, %if.end27 ]
   ret ptr %retval.1
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1

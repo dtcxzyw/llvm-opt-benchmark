@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [56 x i8] c"SELECT pg_catalog.set_config('search_path', '', false);\00", align 1
 @.str.6 = private unnamed_addr constant [32 x i8] c"could not clear search_path: %s\00", align 1
 @.str.7 = private unnamed_addr constant [22 x i8] c"SHOW full_page_writes\00", align 1
-@.str.8 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.9 = private unnamed_addr constant [54 x i8] c"full_page_writes must be enabled in the source server\00", align 1
 @.str.10 = private unnamed_addr constant [18 x i8] c"fetch_chunks_stmt\00", align 1
 @.str.11 = private unnamed_addr constant [147 x i8] c"SELECT path, begin,\0A  pg_read_binary_file(path, begin, len, true) AS chunk\0AFROM unnest ($1::text[], $2::int8[], $3::int4[]) as x(path, begin, len)\00", align 1
@@ -27,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [752 x i8] c"WITH RECURSIVE files (path, filename, size, isdir) AS (\0A  SELECT '' AS path, filename, size, isdir FROM\0A  (SELECT pg_ls_dir('.', true, false) AS filename) AS fn,\0A        pg_stat_file(fn.filename, true) AS this\0A  UNION ALL\0A  SELECT parent.path || parent.filename || '/' AS path,\0A         fn, this.size, this.isdir\0A  FROM files AS parent,\0A       pg_ls_dir(parent.path || parent.filename, true, false) AS fn,\0A       pg_stat_file(parent.path || parent.filename || '/' || fn, true) AS this\0A       WHERE parent.isdir = 't'\0A)\0ASELECT path || filename, size, isdir,\0A       pg_tablespace_location(pg_tablespace.oid) AS link_target\0AFROM files\0ALEFT OUTER JOIN pg_tablespace ON files.path = 'pg_tblspc/'\0A                             AND oid::text = files.filename\0A\00", align 1
 @.str.20 = private unnamed_addr constant [30 x i8] c"could not fetch file list: %s\00", align 1
 @.str.21 = private unnamed_addr constant [47 x i8] c"unexpected result set while fetching file list\00", align 1
-@.str.22 = private unnamed_addr constant [2 x i8] c"t\00", align 1
 @__pg_log_level = external local_unnamed_addr global i32, align 4
 @.str.23 = private unnamed_addr constant [23 x i8] c"getting %d file chunks\00", align 1
 @.str.24 = private unnamed_addr constant [4 x i8] c"%ld\00", align 1
@@ -121,7 +119,7 @@ run_simple_command.exit25.i:                      ; preds = %run_simple_command.
   %22 = tail call ptr @PQexec(ptr noundef %0, ptr noundef nonnull @.str.5) #9
   %23 = tail call i32 @PQresultStatus(ptr noundef %22) #9
   %.not.i = icmp eq i32 %23, 2
-  br i1 %.not.i, label %26, label %24
+  br i1 %.not.i, label %sub_0.i, label %24
 
 24:                                               ; preds = %run_simple_command.exit25.i
   %25 = tail call ptr @PQresultErrorMessage(ptr noundef %22) #9
@@ -129,56 +127,68 @@ run_simple_command.exit25.i:                      ; preds = %run_simple_command.
   tail call void @exit(i32 noundef 1) #10
   unreachable
 
-26:                                               ; preds = %run_simple_command.exit25.i
+sub_0.i:                                          ; preds = %run_simple_command.exit25.i
   tail call void @PQclear(ptr noundef %22) #9
-  %27 = tail call fastcc ptr @run_simple_query(ptr noundef %0, ptr noundef nonnull @.str.7)
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(3) @.str.8) #11
-  %.not16.i = icmp eq i32 %28, 0
-  br i1 %.not16.i, label %30, label %29
+  %26 = tail call fastcc ptr @run_simple_query(ptr noundef %0, ptr noundef nonnull @.str.7)
+  %27 = load i8, ptr %26, align 1
+  %.not26.i = icmp eq i8 %27, 111
+  br i1 %.not26.i, label %sub_1.i, label %.tail.thread.i
 
-29:                                               ; preds = %26
+sub_1.i:                                          ; preds = %sub_0.i
+  %28 = getelementptr inbounds i8, ptr %26, i64 1
+  %29 = load i8, ptr %28, align 1
+  %.not27.i = icmp eq i8 %29, 110
+  br i1 %.not27.i, label %.tail.i, label %.tail.thread.i
+
+.tail.i:                                          ; preds = %sub_1.i
+  %30 = getelementptr inbounds i8, ptr %26, i64 2
+  %31 = load i8, ptr %30, align 1
+  %32 = icmp eq i8 %31, 0
+  br i1 %32, label %33, label %.tail.thread.i
+
+.tail.thread.i:                                   ; preds = %.tail.i, %sub_1.i, %sub_0.i
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9) #9
   tail call void @exit(i32 noundef 1) #10
   unreachable
 
-30:                                               ; preds = %26
-  tail call void @pg_free(ptr noundef %27) #9
-  %31 = tail call ptr @PQprepare(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 3, ptr noundef null) #9
-  %32 = tail call i32 @PQresultStatus(ptr noundef %31) #9
-  %.not17.i = icmp eq i32 %32, 1
-  br i1 %.not17.i, label %init_libpq_conn.exit, label %33
+33:                                               ; preds = %.tail.i
+  tail call void @pg_free(ptr noundef nonnull %26) #9
+  %34 = tail call ptr @PQprepare(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 3, ptr noundef null) #9
+  %35 = tail call i32 @PQresultStatus(ptr noundef %34) #9
+  %.not17.i = icmp eq i32 %35, 1
+  br i1 %.not17.i, label %init_libpq_conn.exit, label %36
 
-33:                                               ; preds = %30
-  %34 = tail call ptr @PQresultErrorMessage(ptr noundef %31) #9
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef %34) #9
+36:                                               ; preds = %33
+  %37 = tail call ptr @PQresultErrorMessage(ptr noundef %34) #9
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef %37) #9
   tail call void @exit(i32 noundef 1) #10
   unreachable
 
-init_libpq_conn.exit:                             ; preds = %30
-  tail call void @PQclear(ptr noundef %31) #9
-  %35 = tail call ptr @pg_malloc0(i64 noundef 24144) #9
-  store ptr @libpq_traverse_files, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
-  store ptr @libpq_fetch_file, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 24
-  store ptr @libpq_queue_fetch_file, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr @libpq_queue_fetch_range, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 32
-  store ptr @libpq_finish_fetch, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 40
-  store ptr @libpq_get_current_wal_insert_lsn, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 48
-  store ptr @libpq_destroy, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 56
-  store ptr %0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 24072
-  tail call void @initStringInfo(ptr noundef nonnull %43) #9
-  %44 = getelementptr inbounds i8, ptr %35, i64 24096
-  tail call void @initStringInfo(ptr noundef nonnull %44) #9
-  %45 = getelementptr inbounds i8, ptr %35, i64 24120
-  tail call void @initStringInfo(ptr noundef nonnull %45) #9
-  ret ptr %35
+init_libpq_conn.exit:                             ; preds = %33
+  tail call void @PQclear(ptr noundef %34) #9
+  %38 = tail call ptr @pg_malloc0(i64 noundef 24144) #9
+  store ptr @libpq_traverse_files, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  store ptr @libpq_fetch_file, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %38, i64 24
+  store ptr @libpq_queue_fetch_file, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  store ptr @libpq_queue_fetch_range, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %38, i64 32
+  store ptr @libpq_finish_fetch, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %38, i64 40
+  store ptr @libpq_get_current_wal_insert_lsn, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %38, i64 48
+  store ptr @libpq_destroy, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %38, i64 56
+  store ptr %0, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %38, i64 24072
+  tail call void @initStringInfo(ptr noundef nonnull %46) #9
+  %47 = getelementptr inbounds i8, ptr %38, i64 24096
+  tail call void @initStringInfo(ptr noundef nonnull %47) #9
+  %48 = getelementptr inbounds i8, ptr %38, i64 24120
+  tail call void @initStringInfo(ptr noundef nonnull %48) #9
+  ret ptr %38
 }
 
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
@@ -213,45 +223,58 @@ define internal void @libpq_traverse_files(ptr nocapture noundef readonly %0, pt
   tail call void @exit(i32 noundef 1) #10
   unreachable
 
-.lr.ph:                                           ; preds = %.preheader, %27
-  %.02732 = phi i32 [ %28, %27 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %32
+  %.02732 = phi i32 [ %33, %32 ], [ 0, %.preheader ]
   %14 = tail call i32 @PQgetisnull(ptr noundef %5, i32 noundef %.02732, i32 noundef 1) #9
   %.not30 = icmp eq i32 %14, 0
-  br i1 %.not30, label %15, label %27
+  br i1 %.not30, label %sub_0, label %32
 
-15:                                               ; preds = %.lr.ph
-  %16 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 0) #9
-  %17 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 1) #9
-  %18 = tail call i64 @atol(ptr nocapture noundef %17) #11
-  %19 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 2) #9
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(2) @.str.22) #11
-  %21 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 3) #9
-  %22 = load i8, ptr %21, align 1
-  switch i8 %22, label %23 [
-    i8 0, label %24
-    i8 47, label %26
+sub_0:                                            ; preds = %.lr.ph
+  %15 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 0) #9
+  %16 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 1) #9
+  %17 = tail call i64 @atol(ptr nocapture noundef %16) #11
+  %18 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 2) #9
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i32
+  %21 = add nsw i32 %20, -116
+  %.not33 = icmp eq i32 %21, 0
+  br i1 %.not33, label %sub_1, label %.tail
+
+sub_1:                                            ; preds = %sub_0
+  %22 = getelementptr inbounds i8, ptr %18, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %25 = phi i32 [ %21, %sub_0 ], [ %24, %sub_1 ]
+  %26 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 3) #9
+  %27 = load i8, ptr %26, align 1
+  switch i8 %27, label %28 [
+    i8 0, label %29
+    i8 47, label %31
   ]
 
-23:                                               ; preds = %15
-  br label %26
+28:                                               ; preds = %.tail
+  br label %31
 
-24:                                               ; preds = %15
-  %25 = icmp eq i32 %20, 0
-  %. = select i1 %25, i32 2, i32 1
-  br label %26
+29:                                               ; preds = %.tail
+  %30 = icmp eq i32 %25, 0
+  %. = select i1 %30, i32 2, i32 1
+  br label %31
 
-26:                                               ; preds = %24, %15, %23
-  %.0 = phi i32 [ 2, %23 ], [ 3, %15 ], [ %., %24 ]
-  tail call void %1(ptr noundef %16, i32 noundef %.0, i64 noundef %18, ptr noundef nonnull %21) #9
-  br label %27
+31:                                               ; preds = %29, %.tail, %28
+  %.0 = phi i32 [ 2, %28 ], [ 3, %.tail ], [ %., %29 ]
+  tail call void %1(ptr noundef %15, i32 noundef %.0, i64 noundef %17, ptr noundef nonnull %26) #9
+  br label %32
 
-27:                                               ; preds = %.lr.ph, %26
-  %28 = add nuw nsw i32 %.02732, 1
-  %29 = tail call i32 @PQntuples(ptr noundef %5) #9
-  %30 = icmp slt i32 %28, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+32:                                               ; preds = %.lr.ph, %31
+  %33 = add nuw nsw i32 %.02732, 1
+  %34 = tail call i32 @PQntuples(ptr noundef %5) #9
+  %35 = icmp slt i32 %33, %34
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %27, %.preheader
+._crit_edge:                                      ; preds = %32, %.preheader
   tail call void @PQclear(ptr noundef %5) #9
   ret void
 }

@@ -94,8 +94,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.63 = private unnamed_addr constant [40 x i8] c"I915 probe blocked for Device ID %04x.\0A\00", align 1
 @.str.64 = private unnamed_addr constant [59 x i8] c"Force probing unsupported Device ID %04x, tainting kernel\0A\00", align 1
 @i915_modparams = external dso_local local_unnamed_addr global %struct.i915_params, section ".data..read_mostly", align 8
-@.str.65 = private unnamed_addr constant [3 x i8] c"!*\00", align 1
-@.str.66 = private unnamed_addr constant [2 x i8] c"*\00", align 1
 @.str.67 = private unnamed_addr constant [2 x i8] c",\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -130,7 +128,7 @@ define dso_local zeroext i1 @i915_pci_resource_valid(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @i915_pci_register_driver() local_unnamed_addr #1 align 16 {
-  %1 = tail call i32 @__pci_register_driver(ptr noundef nonnull @i915_pci_driver, ptr noundef null, ptr noundef nonnull @.str) #6
+  %1 = tail call i32 @__pci_register_driver(ptr noundef nonnull @i915_pci_driver, ptr noundef null, ptr noundef nonnull @.str) #5
   ret i32 %1
 }
 
@@ -139,7 +137,7 @@ declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_pci_unregister_driver() local_unnamed_addr #1 align 16 {
-  tail call void @pci_unregister_driver(ptr noundef nonnull @i915_pci_driver) #6
+  tail call void @pci_unregister_driver(ptr noundef nonnull @i915_pci_driver) #5
   ret void
 }
 
@@ -168,7 +166,7 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
   %16 = getelementptr inbounds i8, ptr %0, i64 184
   %17 = load i16, ptr %11, align 2
   %18 = zext i16 %17 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.62, i32 noundef %18, i32 noundef %18, i32 noundef %18) #7
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.62, i32 noundef %18, i32 noundef %18, i32 noundef %18) #6
   br label %66
 
 19:                                               ; preds = %10, %2
@@ -182,7 +180,7 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
   %25 = getelementptr inbounds i8, ptr %0, i64 184
   %26 = load i16, ptr %20, align 2
   %27 = zext i16 %26 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.63, i32 noundef %27) #7
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.63, i32 noundef %27) #6
   br label %66
 
 28:                                               ; preds = %19
@@ -195,8 +193,8 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
   %33 = getelementptr inbounds i8, ptr %0, i64 184
   %34 = load i16, ptr %20, align 2
   %35 = zext i16 %34 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str.64, i32 noundef %35) #7
-  tail call void @add_taint(i32 noundef 6, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str.64, i32 noundef %35) #6
+  tail call void @add_taint(i32 noundef 6, i32 noundef 0) #5
   br label %36
 
 36:                                               ; preds = %32, %28
@@ -234,11 +232,11 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %58
-  %63 = tail call zeroext i1 @intel_display_driver_probe_defer(ptr noundef %0) #6
+  %63 = tail call zeroext i1 @intel_display_driver_probe_defer(ptr noundef %0) #5
   br i1 %63, label %66, label %64
 
 64:                                               ; preds = %62
-  %65 = tail call i32 @i915_driver_probe(ptr noundef %0, ptr noundef %1) #6
+  %65 = tail call i32 @i915_driver_probe(ptr noundef %0, ptr noundef %1) #5
   br label %66
 
 66:                                               ; preds = %64, %62, %58, %54, %41, %36, %24, %15
@@ -254,7 +252,7 @@ define internal void @i915_pci_remove(ptr nocapture noundef %0) #1 align 16 {
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @i915_driver_remove(ptr noundef nonnull %3) #6
+  tail call void @i915_driver_remove(ptr noundef nonnull %3) #5
   store ptr null, ptr %2, align 8
   br label %6
 
@@ -266,7 +264,7 @@ define internal void @i915_pci_remove(ptr nocapture noundef %0) #1 align 16 {
 define internal void @i915_pci_shutdown(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
-  tail call void @i915_driver_shutdown(ptr noundef %3) #6
+  tail call void @i915_driver_shutdown(ptr noundef %3) #5
   ret void
 }
 
@@ -292,108 +290,121 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 define internal fastcc noundef zeroext i1 @device_id_in_list(i16 noundef zeroext %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %45, label %7
+  br i1 %6, label %46, label %7
 
 7:                                                ; preds = %3
   %8 = load i8, ptr %1, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %45, label %10
+  br i1 %9, label %46, label %10
 
 10:                                               ; preds = %7
-  br i1 %2, label %11, label %14
+  br i1 %2, label %sub_0, label %sub_05
 
-11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.65) #6
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %45, label %17
+sub_0:                                            ; preds = %10
+  %.not11 = icmp eq i8 %8, 33
+  br i1 %.not11, label %sub_1, label %.tail.thread
 
-14:                                               ; preds = %10
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.66) #6
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %45, label %17
+sub_1:                                            ; preds = %sub_0
+  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = load i8, ptr %11, align 1
+  %.not12 = icmp eq i8 %12, 42
+  br i1 %.not12, label %.tail, label %.tail.thread
 
-17:                                               ; preds = %11, %14
-  %18 = tail call noalias ptr @kstrdup(ptr noundef nonnull %1, i32 noundef 3264) #6
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %45, label %20
+.tail:                                            ; preds = %sub_1
+  %13 = getelementptr inbounds i8, ptr %1, i64 2
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %46, label %.tail.thread
 
-20:                                               ; preds = %17
-  store ptr %18, ptr %4, align 8
-  %21 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.67) #6
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+sub_05:                                           ; preds = %10
+  %.not = icmp eq i8 %8, 42
+  br i1 %.not, label %.tail4, label %.tail.thread
 
-.lr.ph:                                           ; preds = %20
+.tail4:                                           ; preds = %sub_05
+  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %46, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_05, %sub_1, %sub_0, %.tail, %.tail4
+  %19 = tail call noalias ptr @kstrdup(ptr noundef nonnull %1, i32 noundef 3264) #5
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %46, label %21
+
+21:                                               ; preds = %.tail.thread
+  store ptr %19, ptr %4, align 8
+  %22 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.67) #5
+  %.not15 = icmp eq ptr %22, null
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %21
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %22 = phi ptr [ %33, %.backedge.us ], [ %21, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #6
+  %23 = phi ptr [ %34, %.backedge.us ], [ %22, %.lr.ph ]
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #5
   store i16 0, ptr %5, align 2, !annotation !5
-  %23 = load i8, ptr %22, align 1
-  %24 = icmp eq i8 %23, 33
-  br i1 %24, label %26, label %25
-
-25:                                               ; preds = %.lr.ph.split.us
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #6
-  br label %.backedge.us
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, 33
+  br i1 %25, label %27, label %26
 
 26:                                               ; preds = %.lr.ph.split.us
-  %27 = getelementptr i8, ptr %22, i64 1
-  %28 = call i32 @kstrtou16(ptr noundef %27, i32 noundef 16, ptr noundef nonnull %5) #6
-  %29 = icmp eq i32 %28, 0
-  %30 = load i16, ptr %5, align 2
-  %31 = icmp eq i16 %30, %0
-  %32 = select i1 %29, i1 %31, i1 false
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #6
-  br i1 %32, label %._crit_edge, label %.backedge.us
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #5
+  br label %.backedge.us
 
-.backedge.us:                                     ; preds = %26, %25
-  %33 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.67) #6
-  %.not10 = icmp eq ptr %33, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.split.us
+27:                                               ; preds = %.lr.ph.split.us
+  %28 = getelementptr i8, ptr %23, i64 1
+  %29 = call i32 @kstrtou16(ptr noundef %28, i32 noundef 16, ptr noundef nonnull %5) #5
+  %30 = icmp eq i32 %29, 0
+  %31 = load i16, ptr %5, align 2
+  %32 = icmp eq i16 %31, %0
+  %33 = select i1 %30, i1 %32, i1 false
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #5
+  br i1 %33, label %._crit_edge, label %.backedge.us
+
+.backedge.us:                                     ; preds = %27, %26
+  %34 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.67) #5
+  %.not17 = icmp eq ptr %34, null
+  br i1 %.not17, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
-  %34 = phi ptr [ %43, %.backedge ], [ %21, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #6
+  %35 = phi ptr [ %44, %.backedge ], [ %22, %.lr.ph ]
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #5
   store i16 0, ptr %5, align 2, !annotation !5
-  %35 = load i8, ptr %34, align 1
-  %36 = icmp eq i8 %35, 33
-  br i1 %36, label %44, label %37, !llvm.loop !6
+  %36 = load i8, ptr %35, align 1
+  %37 = icmp eq i8 %36, 33
+  br i1 %37, label %45, label %38, !llvm.loop !6
 
-37:                                               ; preds = %.lr.ph.split
-  %38 = call i32 @kstrtou16(ptr noundef nonnull %34, i32 noundef 16, ptr noundef nonnull %5) #6
-  %39 = icmp eq i32 %38, 0
-  %40 = load i16, ptr %5, align 2
-  %41 = icmp eq i16 %40, %0
-  %42 = select i1 %39, i1 %41, i1 false
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #6
-  br i1 %42, label %._crit_edge, label %.backedge
+38:                                               ; preds = %.lr.ph.split
+  %39 = call i32 @kstrtou16(ptr noundef nonnull %35, i32 noundef 16, ptr noundef nonnull %5) #5
+  %40 = icmp eq i32 %39, 0
+  %41 = load i16, ptr %5, align 2
+  %42 = icmp eq i16 %41, %0
+  %43 = select i1 %40, i1 %42, i1 false
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #5
+  br i1 %43, label %._crit_edge, label %.backedge
 
-.backedge:                                        ; preds = %37, %44
-  %43 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.67) #6
-  %.not9 = icmp eq ptr %43, null
-  br i1 %.not9, label %._crit_edge, label %.lr.ph.split
+.backedge:                                        ; preds = %38, %45
+  %44 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.67) #5
+  %.not16 = icmp eq ptr %44, null
+  br i1 %.not16, label %._crit_edge, label %.lr.ph.split
 
-44:                                               ; preds = %.lr.ph.split
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #6
+45:                                               ; preds = %.lr.ph.split
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #5
   br label %.backedge
 
-._crit_edge:                                      ; preds = %.backedge, %37, %.backedge.us, %26, %20
-  %.lcssa = phi i1 [ false, %20 ], [ true, %26 ], [ false, %.backedge.us ], [ true, %37 ], [ false, %.backedge ]
-  call void @kfree(ptr noundef nonnull %18) #6
-  br label %45
+._crit_edge:                                      ; preds = %.backedge, %38, %.backedge.us, %27, %21
+  %.lcssa = phi i1 [ false, %21 ], [ true, %27 ], [ false, %.backedge.us ], [ true, %38 ], [ false, %.backedge ]
+  call void @kfree(ptr noundef nonnull %19) #5
+  br label %46
 
-45:                                               ; preds = %._crit_edge, %17, %14, %11, %7, %3
-  %46 = phi i1 [ %.lcssa, %._crit_edge ], [ false, %7 ], [ false, %3 ], [ true, %11 ], [ true, %14 ], [ false, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  ret i1 %46
+46:                                               ; preds = %._crit_edge, %.tail.thread, %.tail4, %.tail, %7, %3
+  %47 = phi i1 [ %.lcssa, %._crit_edge ], [ false, %7 ], [ false, %3 ], [ true, %.tail ], [ true, %.tail4 ], [ false, %.tail.thread ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  ret i1 %47
 }
-
-; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -418,9 +429,8 @@ attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -70,7 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.40 = private unnamed_addr constant [13 x i8] c"* Record %lu\00", align 1
 @.str.41 = private unnamed_addr constant [15 x i8] c"[ RECORD %lu ]\00", align 1
 @.str.42 = private unnamed_addr constant [4 x i8] c"\0D\0A\22\00", align 1
-@.str.43 = private unnamed_addr constant [3 x i8] c"\\.\00", align 1
 @.str.44 = private unnamed_addr constant [19 x i8] c"<table border=\22%d\22\00", align 1
 @.str.45 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
 @.str.46 = private unnamed_addr constant [3 x i8] c">\0A\00", align 1
@@ -6813,7 +6812,7 @@ declare i32 @PQntuples(ptr noundef) local_unnamed_addr #3
 declare ptr @PQfname(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef signext i8 @column_type_alignment(i32 noundef %0) local_unnamed_addr #10 {
+define dso_local signext range(i8 108, 115) i8 @column_type_alignment(i32 noundef %0) local_unnamed_addr #10 {
   switch i32 %0, label %2 [
     i32 21, label %3
     i32 23, label %3
@@ -6869,29 +6868,32 @@ define dso_local void @setDecimalLocale() local_unnamed_addr #2 {
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr %12, align 1
   %.not6 = icmp eq i8 %13, 0
-  br i1 %.not6, label %16, label %14
+  br i1 %.not6, label %sub_0, label %14
 
 14:                                               ; preds = %6
   %15 = tail call ptr @pg_strdup(ptr noundef nonnull %12) #18
-  br label %18
+  br label %.tail.thread
 
-16:                                               ; preds = %6
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %storemerge, ptr noundef nonnull dereferenceable(2) @.str.26) #19
-  %.not7 = icmp eq i32 %17, 0
-  %.str.6..str.26 = select i1 %.not7, ptr @.str.6, ptr @.str.26
-  br label %18
+sub_0:                                            ; preds = %6
+  %16 = load i8, ptr %storemerge, align 1
+  %.not8 = icmp eq i8 %16, 44
+  br i1 %.not8, label %.tail, label %.tail.thread
 
-18:                                               ; preds = %16, %14
-  %.str.26.sink = phi ptr [ %15, %14 ], [ %.str.6..str.26, %16 ]
+.tail:                                            ; preds = %sub_0
+  %17 = getelementptr inbounds i8, ptr %storemerge, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  %spec.select = select i1 %19, ptr @.str.6, ptr @.str.26
+  br label %.tail.thread
+
+.tail.thread:                                     ; preds = %.tail, %sub_0, %14
+  %.str.26.sink = phi ptr [ %15, %14 ], [ @.str.26, %sub_0 ], [ %spec.select, %.tail ]
   store ptr %.str.26.sink, ptr @thousands_sep, align 8
   ret void
 }
 
 ; Function Attrs: nounwind
 declare ptr @localeconv() local_unnamed_addr #5
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local nonnull ptr @get_line_style(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
@@ -7364,59 +7366,71 @@ define internal fastcc void @csv_print_field(ptr noundef readonly %0, ptr nocapt
   %4 = sext i8 %2 to i32
   %5 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef %4) #19
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %12
+  br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %3
   %7 = tail call i64 @strcspn(ptr noundef %0, ptr noundef nonnull @.str.42) #19
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %.not15 = icmp eq i64 %7, %8
-  br i1 %.not15, label %9, label %12
+  br i1 %.not15, label %sub_0, label %15
 
-9:                                                ; preds = %6
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.43) #19
-  %.fr = freeze i32 %10
-  %11 = icmp eq i32 %.fr, 0
-  br i1 %11, label %12, label %switch.early.test
+sub_0:                                            ; preds = %6
+  %9 = load i8, ptr %0, align 1
+  %.not16 = icmp eq i8 %9, 92
+  br i1 %.not16, label %sub_1, label %switch.early.test
 
-switch.early.test:                                ; preds = %9
-  switch i8 %2, label %24 [
-    i8 92, label %12
-    i8 46, label %12
+sub_1:                                            ; preds = %sub_0
+  %10 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = load i8, ptr %10, align 1
+  %.not17 = icmp eq i8 %11, 46
+  br i1 %.not17, label %.tail, label %switch.early.test
+
+.tail:                                            ; preds = %sub_1
+  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %13 = load i8, ptr %12, align 1
+  %.fr = freeze i8 %13
+  %14 = icmp eq i8 %.fr, 0
+  br i1 %14, label %15, label %switch.early.test
+
+switch.early.test:                                ; preds = %sub_1, %sub_0, %.tail
+  switch i8 %2, label %27 [
+    i8 92, label %15
+    i8 46, label %15
   ]
 
-12:                                               ; preds = %switch.early.test, %switch.early.test, %9, %6, %3
-  %13 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
-  br label %14
+15:                                               ; preds = %switch.early.test, %switch.early.test, %.tail, %6, %3
+  %16 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
+  br label %17
 
-14:                                               ; preds = %18, %12
-  %.0.i = phi ptr [ %0, %12 ], [ %22, %18 ]
-  %15 = load i8, ptr %.0.i, align 1
-  switch i8 %15, label %18 [
+17:                                               ; preds = %21, %15
+  %.0.i = phi ptr [ %0, %15 ], [ %25, %21 ]
+  %18 = load i8, ptr %.0.i, align 1
+  switch i8 %18, label %21 [
     i8 0, label %csv_escaped_print.exit
-    i8 34, label %16
+    i8 34, label %19
   ]
 
-16:                                               ; preds = %14
-  %17 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
+19:                                               ; preds = %17
+  %20 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
   %.pre.i = load i8, ptr %.0.i, align 1
-  br label %18
+  br label %21
 
-18:                                               ; preds = %16, %14
-  %19 = phi i8 [ %15, %14 ], [ %.pre.i, %16 ]
-  %20 = sext i8 %19 to i32
-  %21 = tail call i32 @fputc(i32 noundef %20, ptr noundef %1)
-  %22 = getelementptr i8, ptr %.0.i, i64 1
-  br label %14, !llvm.loop !82
+21:                                               ; preds = %19, %17
+  %22 = phi i8 [ %18, %17 ], [ %.pre.i, %19 ]
+  %23 = sext i8 %22 to i32
+  %24 = tail call i32 @fputc(i32 noundef %23, ptr noundef %1)
+  %25 = getelementptr i8, ptr %.0.i, i64 1
+  br label %17, !llvm.loop !82
 
-csv_escaped_print.exit:                           ; preds = %14
-  %23 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
-  br label %26
+csv_escaped_print.exit:                           ; preds = %17
+  %26 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
+  br label %29
 
-24:                                               ; preds = %switch.early.test
-  %25 = tail call i32 @fputs(ptr noundef %0, ptr noundef %1)
-  br label %26
+27:                                               ; preds = %switch.early.test
+  %28 = tail call i32 @fputs(ptr noundef nonnull %0, ptr noundef %1)
+  br label %29
 
-26:                                               ; preds = %24, %csv_escaped_print.exit
+29:                                               ; preds = %27, %csv_escaped_print.exit
   ret void
 }
 

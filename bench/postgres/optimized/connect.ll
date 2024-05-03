@@ -14,9 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @actual_connection = internal unnamed_addr global ptr null, align 8
 @connections_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
 @.str.1 = private unnamed_addr constant [56 x i8] c"ECPGsetcommit on line %d: action \22%s\22; connection \22%s\22\0A\00", align 1
-@.str.2 = private unnamed_addr constant [4 x i8] c"off\00", align 1
 @.str.3 = private unnamed_addr constant [18 x i8] c"begin transaction\00", align 1
-@.str.4 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.5 = private unnamed_addr constant [7 x i8] c"commit\00", align 1
 @.str.6 = private unnamed_addr constant [6 x i8] c"YE001\00", align 1
 @.str.7 = private unnamed_addr constant [10 x i8] c"PG_DBPATH\00", align 1
@@ -52,7 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
 @.str.35 = private unnamed_addr constant [6 x i8] c"YE000\00", align 1
 @.str.36 = private unnamed_addr constant [19 x i8] c"empty message text\00", align 1
-@.str.37 = private unnamed_addr constant [3 x i8] c"00\00", align 1
 @.str.38 = private unnamed_addr constant [24 x i8] c"ECPGnoticeReceiver: %s\0A\00", align 1
 @.str.39 = private unnamed_addr constant [6 x i8] c"34000\00", align 1
 @.str.40 = private unnamed_addr constant [6 x i8] c"25001\00", align 1
@@ -160,59 +157,75 @@ define noundef zeroext i1 @ECPGsetcommit(i32 noundef %0, ptr noundef %1, ptr nou
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %24
+  %11 = load i8, ptr %1, align 1
+  %.not30 = icmp eq i8 %11, 111
+  br i1 %10, label %sub_0, label %sub_026
 
-11:                                               ; preds = %6
-  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.2, i64 noundef 3) #9
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %.thread
+sub_0:                                            ; preds = %6
+  br i1 %.not30, label %sub_1, label %.thread
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @PQtransactionStatus(ptr noundef %16) #8
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %.thread.sink.split
+sub_1:                                            ; preds = %sub_0
+  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = load i8, ptr %12, align 1
+  %.not31 = icmp eq i8 %13, 102
+  br i1 %.not31, label %.tail, label %.thread
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %15, align 8
-  %21 = tail call ptr @PQexec(ptr noundef %20, ptr noundef nonnull @.str.3) #8
-  %22 = load ptr, ptr %15, align 8
-  %23 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %21, i32 noundef %0, ptr noundef %22, i32 noundef 0) #8
-  br i1 %23, label %.thread.sink.split.sink.split, label %.thread
+.tail:                                            ; preds = %sub_1
+  %14 = getelementptr inbounds i8, ptr %1, i64 2
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 102
+  br i1 %16, label %17, label %.thread
 
-24:                                               ; preds = %6
-  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.4, i64 noundef 2) #9
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %.thread
+17:                                               ; preds = %.tail
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call i32 @PQtransactionStatus(ptr noundef %19) #8
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %.thread.sink.split
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 @PQtransactionStatus(ptr noundef %29) #8
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %.thread.sink.split, label %31
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %18, align 8
+  %24 = tail call ptr @PQexec(ptr noundef %23, ptr noundef nonnull @.str.3) #8
+  %25 = load ptr, ptr %18, align 8
+  %26 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %24, i32 noundef %0, ptr noundef %25, i32 noundef 0) #8
+  br i1 %26, label %.thread.sink.split.sink.split, label %.thread
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %28, align 8
-  %33 = tail call ptr @PQexec(ptr noundef %32, ptr noundef nonnull @.str.5) #8
-  %34 = load ptr, ptr %28, align 8
-  %35 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %33, i32 noundef %0, ptr noundef %34, i32 noundef 0) #8
-  br i1 %35, label %.thread.sink.split.sink.split, label %.thread
+sub_026:                                          ; preds = %6
+  br i1 %.not30, label %.tail25, label %.thread
 
-.thread.sink.split.sink.split:                    ; preds = %31, %19
-  %.sink25 = phi ptr [ %21, %19 ], [ %33, %31 ]
-  %.sink.ph = phi i8 [ 0, %19 ], [ 1, %31 ]
-  tail call void @PQclear(ptr noundef %.sink25) #8
+.tail25:                                          ; preds = %sub_026
+  %27 = getelementptr inbounds i8, ptr %1, i64 1
+  %28 = load i8, ptr %27, align 1
+  %29 = icmp eq i8 %28, 110
+  br i1 %29, label %30, label %.thread
+
+30:                                               ; preds = %.tail25
+  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call i32 @PQtransactionStatus(ptr noundef %32) #8
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %.thread.sink.split, label %34
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %31, align 8
+  %36 = tail call ptr @PQexec(ptr noundef %35, ptr noundef nonnull @.str.5) #8
+  %37 = load ptr, ptr %31, align 8
+  %38 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %36, i32 noundef %0, ptr noundef %37, i32 noundef 0) #8
+  br i1 %38, label %.thread.sink.split.sink.split, label %.thread
+
+.thread.sink.split.sink.split:                    ; preds = %34, %22
+  %.sink32 = phi ptr [ %24, %22 ], [ %36, %34 ]
+  %.sink.ph = phi i8 [ 0, %22 ], [ 1, %34 ]
+  tail call void @PQclear(ptr noundef %.sink32) #8
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %27, %14
-  %.sink = phi i8 [ 0, %14 ], [ 1, %27 ], [ %.sink.ph, %.thread.sink.split.sink.split ]
+.thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %30, %17
+  %.sink = phi i8 [ 0, %17 ], [ 1, %30 ], [ %.sink.ph, %.thread.sink.split.sink.split ]
   store i8 %.sink, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %11, %24, %31, %19, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %19 ], [ false, %31 ], [ true, %24 ], [ true, %11 ], [ true, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %sub_026, %sub_1, %sub_0, %.tail, %.tail25, %34, %22, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %22 ], [ false, %34 ], [ true, %.tail25 ], [ true, %.tail ], [ true, %sub_0 ], [ true, %sub_1 ], [ true, %sub_026 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -1097,28 +1110,34 @@ define internal void @ECPGnoticeReceiver(ptr nocapture readnone %0, ptr noundef 
   %4 = tail call ptr @PQresultErrorField(ptr noundef %1, i32 noundef 77) #8
   %5 = tail call ptr @ECPGget_sqlca() #8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %8
+  br i1 %6, label %7, label %sub_0
 
 7:                                                ; preds = %2
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.34) #8
   br label %38
 
-8:                                                ; preds = %2
-  %9 = icmp eq ptr %3, null
-  %spec.store.select = select i1 %9, ptr @.str.35, ptr %3
-  %10 = icmp eq ptr %4, null
-  %spec.store.select1 = select i1 %10, ptr @.str.36, ptr %4
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(3) @.str.37, i64 noundef 2) #9
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %38, label %13
+sub_0:                                            ; preds = %2
+  %8 = icmp eq ptr %3, null
+  %spec.store.select = select i1 %8, ptr @.str.35, ptr %3
+  %9 = icmp eq ptr %4, null
+  %spec.store.select1 = select i1 %9, ptr @.str.36, ptr %4
+  %10 = load i8, ptr %spec.store.select, align 1
+  %.not = icmp eq i8 %10, 48
+  br i1 %.not, label %.tail, label %.tail.thread
 
-13:                                               ; preds = %8
+.tail:                                            ; preds = %sub_0
+  %11 = getelementptr inbounds i8, ptr %spec.store.select, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 48
+  br i1 %13, label %38, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_0, %.tail
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.38, ptr noundef nonnull %spec.store.select1) #8
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(6) @.str.39) #9
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %25, label %16
 
-16:                                               ; preds = %13
+16:                                               ; preds = %.tail.thread
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(6) @.str.40) #9
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %25, label %19
@@ -1134,8 +1153,8 @@ define internal void @ECPGnoticeReceiver(ptr nocapture readnone %0, ptr noundef 
   %. = select i1 %24, i32 -605, i32 0
   br label %25
 
-25:                                               ; preds = %22, %19, %16, %13
-  %.0 = phi i32 [ -602, %13 ], [ -603, %16 ], [ -604, %19 ], [ %., %22 ]
+25:                                               ; preds = %22, %19, %16, %.tail.thread
+  %.0 = phi i32 [ -602, %.tail.thread ], [ -603, %16 ], [ -604, %19 ], [ %., %22 ]
   %26 = getelementptr inbounds i8, ptr %5, i64 248
   %27 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %spec.store.select, i64 noundef 5) #8
   %28 = sext i32 %.0 to i64
@@ -1156,7 +1175,7 @@ define internal void @ECPGnoticeReceiver(ptr nocapture readnone %0, ptr noundef 
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.43, i32 noundef %.0) #8
   br label %38
 
-38:                                               ; preds = %8, %25, %7
+38:                                               ; preds = %.tail, %25, %7
   ret void
 }
 

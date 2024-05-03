@@ -61,7 +61,6 @@ module asm ".previous\09\09\09\09\09"
 @ftrace_trace_arrays = external dso_local global %struct.list_head, align 8
 @file_cachep = internal unnamed_addr global ptr null, align 8
 @.str.1 = private unnamed_addr constant [2 x i8] c":\00", align 1
-@.str.2 = private unnamed_addr constant [2 x i8] c"*\00", align 1
 @__UNIQUE_ID___addressable_trace_set_clr_event993 = internal global ptr @trace_set_clr_event, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_trace_array_set_clr_event994 = internal global ptr @trace_array_set_clr_event, section ".discard.addressable", align 8
 @trace_event_sem = external dso_local global %struct.rw_semaphore, align 8
@@ -286,7 +285,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @trace_define_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @trace_define_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -386,7 +385,7 @@ define dso_local i32 @trace_event_get_offsets(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @trace_event_raw_init(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @trace_event_raw_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = tail call i32 @register_trace_event(ptr noundef %2) #19
   %4 = icmp eq i32 %3, 0
@@ -1547,60 +1546,66 @@ define dso_local i32 @ftrace_set_clr_event(ptr noundef %0, ptr noundef %1, i32 n
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %34, label %6
+  br i1 %5, label %30, label %6
 
 6:                                                ; preds = %3
   %7 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.1) #19
   %8 = load ptr, ptr %4, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %25, label %10
+  br i1 %9, label %.tail3.thread, label %10
 
 10:                                               ; preds = %6
   %11 = load i8, ptr %7, align 1
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %16, label %13
+  switch i8 %11, label %.tail.thread [
+    i8 0, label %15
+    i8 42, label %.tail
+  ]
 
-13:                                               ; preds = %10
-  %14 = call i32 @strcmp(ptr noundef %7, ptr noundef nonnull dereferenceable(2) @.str.2) #19
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
+.tail:                                            ; preds = %10
+  %12 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %15, label %.tail.thread
 
-16:                                               ; preds = %13, %10
-  br label %17
+15:                                               ; preds = %10, %.tail
+  br label %.tail.thread
 
-17:                                               ; preds = %16, %13
-  %18 = phi ptr [ null, %16 ], [ %7, %13 ]
-  %19 = load i8, ptr %8, align 1
+.tail.thread:                                     ; preds = %10, %15, %.tail
+  %16 = phi ptr [ null, %15 ], [ %7, %.tail ], [ %7, %10 ]
+  %17 = load i8, ptr %8, align 1
+  switch i8 %17, label %.tail3.thread [
+    i8 0, label %21
+    i8 42, label %.tail3
+  ]
+
+.tail3:                                           ; preds = %.tail.thread
+  %18 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %24, label %21
+  br i1 %20, label %21, label %.tail3.thread
 
-21:                                               ; preds = %17
-  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(2) @.str.2) #19
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %25
+21:                                               ; preds = %.tail.thread, %.tail3
+  br label %.tail3.thread
 
-24:                                               ; preds = %21, %17
-  br label %25
-
-25:                                               ; preds = %24, %21, %6
-  %26 = phi ptr [ null, %24 ], [ %8, %21 ], [ null, %6 ]
-  %27 = phi ptr [ %18, %24 ], [ %18, %21 ], [ null, %6 ]
-  %28 = phi ptr [ null, %24 ], [ null, %21 ], [ %7, %6 ]
+.tail3.thread:                                    ; preds = %.tail.thread, %21, %.tail3, %6
+  %22 = phi ptr [ null, %21 ], [ %8, %.tail3 ], [ null, %6 ], [ %8, %.tail.thread ]
+  %23 = phi ptr [ %16, %21 ], [ %16, %.tail3 ], [ null, %6 ], [ %16, %.tail.thread ]
+  %24 = phi ptr [ null, %21 ], [ null, %.tail3 ], [ %7, %6 ], [ null, %.tail.thread ]
   call void @mutex_lock(ptr noundef nonnull @event_mutex) #19
-  %29 = call fastcc i32 @__ftrace_set_clr_event_nolock(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %27, ptr noundef %26, i32 noundef %2)
+  %25 = call fastcc i32 @__ftrace_set_clr_event_nolock(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %23, ptr noundef %22, i32 noundef %2)
   call void @mutex_unlock(ptr noundef nonnull @event_mutex) #19
-  %30 = load ptr, ptr %4, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %34, label %32
+  %26 = load ptr, ptr %4, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %30, label %28
 
-32:                                               ; preds = %25
-  %33 = getelementptr i8, ptr %30, i64 -1
-  store i8 58, ptr %33, align 1
-  br label %34
+28:                                               ; preds = %.tail3.thread
+  %29 = getelementptr i8, ptr %26, i64 -1
+  store i8 58, ptr %29, align 1
+  br label %30
 
-34:                                               ; preds = %32, %25, %3
-  %35 = phi i32 [ -2, %3 ], [ %29, %32 ], [ %29, %25 ]
-  ret i32 %35
+30:                                               ; preds = %28, %.tail3.thread, %3
+  %31 = phi i32 [ -2, %3 ], [ %25, %28 ], [ %25, %.tail3.thread ]
+  ret i32 %31
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2129,7 +2134,7 @@ define internal noundef i32 @setup_trace_triggers(ptr noundef %0) #4 section ".i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @trace_add_event_call(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @trace_add_event_call(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @trace_types_lock) #19
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
@@ -2257,7 +2262,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @trace_remove_event_call(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @trace_remove_event_call(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @trace_types_lock) #19
   tail call void @down_write(ptr noundef nonnull @trace_event_sem) #19
   %2 = getelementptr inbounds i8, ptr %0, i64 100
@@ -2828,7 +2833,7 @@ define internal noundef i32 @setup_trace_event(ptr noundef %0) #4 section ".init
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @event_trace_add_tracer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @event_trace_add_tracer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call ptr @trace_create_file(ptr noundef nonnull @.str.52, i16 noundef zeroext 416, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ftrace_set_event_fops) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %create_event_toplevel_files.exit.thread, label %5
@@ -3390,7 +3395,7 @@ define dso_local void @early_enable_events(ptr noundef %0, ptr noundef %1, i1 no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @event_trace_enable_again() #4 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @event_trace_enable_again() #4 section ".init.text" align 16 {
   %1 = load volatile ptr, ptr @ftrace_trace_arrays, align 8
   %2 = icmp eq ptr %1, @ftrace_trace_arrays
   br i1 %2, label %.thread, label %3
@@ -3448,7 +3453,7 @@ define dso_local noundef i32 @event_trace_init() local_unnamed_addr #4 section "
 
 12:                                               ; preds = %10
   %13 = tail call ptr @trace_create_file(ptr noundef nonnull @.str.6, i16 noundef zeroext 288, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @ftrace_avail_fops) #19
-  %14 = tail call fastcc i32 @early_event_add_tracer(ptr noundef nonnull %4) #23, !range !86
+  %14 = tail call fastcc i32 @early_event_add_tracer(ptr noundef nonnull %4) #23
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.thread
 
@@ -3474,7 +3479,7 @@ define dso_local noundef i32 @event_trace_init() local_unnamed_addr #4 section "
 declare dso_local ptr @trace_create_file(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @early_event_add_tracer(ptr noundef %0) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @early_event_add_tracer(ptr noundef %0) unnamed_addr #4 section ".init.text" align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @event_mutex) #19
   %2 = tail call ptr @trace_create_file(ptr noundef nonnull @.str.52, i16 noundef zeroext 416, ptr noundef null, ptr noundef %0, ptr noundef nonnull @ftrace_set_event_fops) #19
   %3 = icmp eq ptr %2, null
@@ -4521,7 +4526,7 @@ define internal fastcc ptr @trace_create_new_event(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @event_define_fields(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @event_define_fields(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
@@ -4671,7 +4676,7 @@ declare dso_local i32 @trace_pid_list_first(ptr noundef, ptr noundef) local_unna
 declare dso_local i32 @trigger_process_regex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @event_create_dir(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -2147483648, 1) i32 @event_create_dir(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -4909,7 +4914,7 @@ define internal fastcc noundef i32 @event_create_dir(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @event_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #12 align 16 {
+define internal noundef range(i32 0, 2) i32 @event_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #12 align 16 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -4921,7 +4926,7 @@ define internal noundef i32 @event_callback(ptr nocapture noundef readonly %0, p
   store i16 288, ptr %1, align 2
   store ptr @ftrace_event_format_fops, ptr %3, align 8
   store ptr %7, ptr %2, align 8
-  br label %70
+  br label %.tail.thread
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %7, i64 96
@@ -4946,7 +4951,7 @@ define internal noundef i32 @event_callback(ptr nocapture noundef readonly %0, p
 25:                                               ; preds = %22
   store i16 416, ptr %1, align 2
   store ptr @ftrace_enable_fops, ptr %3, align 8
-  br label %70
+  br label %.tail.thread
 
 26:                                               ; preds = %22, %16
   %27 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str.27) #19
@@ -4956,7 +4961,7 @@ define internal noundef i32 @event_callback(ptr nocapture noundef readonly %0, p
 29:                                               ; preds = %26
   store i16 416, ptr %1, align 2
   store ptr @ftrace_event_filter_fops, ptr %3, align 8
-  br label %70
+  br label %.tail.thread
 
 30:                                               ; preds = %11
   %31 = and i32 %13, 1024
@@ -4997,13 +5002,13 @@ define internal noundef i32 @event_callback(ptr nocapture noundef readonly %0, p
 52:                                               ; preds = %49
   store i16 416, ptr %1, align 2
   store ptr @event_trigger_fops, ptr %3, align 8
-  br label %70
+  br label %.tail.thread
 
 53:                                               ; preds = %49, %45
   %54 = getelementptr inbounds i8, ptr %7, i64 48
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %70, label %57
+  br i1 %56, label %.tail.thread, label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %7, i64 16
@@ -5011,25 +5016,37 @@ define internal noundef i32 @event_callback(ptr nocapture noundef readonly %0, p
   %60 = getelementptr inbounds i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %70, label %63
+  br i1 %62, label %.tail.thread, label %sub_0
 
-63:                                               ; preds = %57
-  %64 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(3) @.str.30) #19
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %70
+sub_0:                                            ; preds = %57
+  %63 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %63, 105
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-66:                                               ; preds = %63
+sub_1:                                            ; preds = %sub_0
+  %64 = getelementptr inbounds i8, ptr %0, i64 1
+  %65 = load i8, ptr %64, align 1
+  %.not1 = icmp eq i8 %65, 100
+  br i1 %.not1, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %66 = getelementptr inbounds i8, ptr %0, i64 2
+  %67 = load i8, ptr %66, align 1
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %69, label %.tail.thread
+
+69:                                               ; preds = %.tail
   store i16 288, ptr %1, align 2
-  %67 = load i32, ptr %54, align 8
-  %68 = sext i32 %67 to i64
-  %69 = inttoptr i64 %68 to ptr
-  store ptr %69, ptr %2, align 8
+  %70 = load i32, ptr %54, align 8
+  %71 = sext i32 %70 to i64
+  %72 = inttoptr i64 %71 to ptr
+  store ptr %72, ptr %2, align 8
   store ptr @ftrace_event_id_fops, ptr %3, align 8
-  br label %70
+  br label %.tail.thread
 
-70:                                               ; preds = %66, %63, %57, %53, %52, %29, %25, %10
-  %71 = phi i32 [ 1, %10 ], [ 1, %52 ], [ 1, %66 ], [ 1, %25 ], [ 1, %29 ], [ 0, %63 ], [ 0, %57 ], [ 0, %53 ]
-  ret i32 %71
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %69, %.tail, %57, %53, %52, %29, %25, %10
+  %73 = phi i32 [ 1, %10 ], [ 1, %52 ], [ 1, %69 ], [ 1, %25 ], [ 1, %29 ], [ 0, %.tail ], [ 0, %57 ], [ 0, %53 ], [ 0, %sub_0 ], [ 0, %sub_1 ]
+  ret i32 %73
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5042,7 +5059,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #2
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_format_open(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @trace_format_open(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @seq_open(ptr noundef %1, ptr noundef nonnull @trace_format_seq_ops) #19
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %9, label %5
@@ -5485,7 +5502,7 @@ declare dso_local i32 @kstrtoul_from_user(ptr noundef, i64 noundef, i32 noundef,
 declare dso_local i32 @tracing_update_buffers(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @event_filter_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @event_filter_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = load i64, ptr %3, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %37
@@ -5639,7 +5656,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @system_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #14 align 16 {
+define internal noundef range(i32 0, 2) i32 @system_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #14 align 16 {
   %5 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str.27) #19
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7
@@ -5661,7 +5678,7 @@ define internal noundef i32 @system_callback(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @subsystem_filter_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @subsystem_filter_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -5998,7 +6015,7 @@ __put_system.exit:                                ; preds = %27, %42
 declare dso_local i32 @tracing_open_generic(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @system_enable_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @system_enable_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [2 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #19
@@ -6422,7 +6439,7 @@ __ftrace_set_clr_event_nolock.exit:               ; preds = %.thread.i, %.thread
 declare dso_local ptr @kstrdup_const(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @events_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #14 align 16 {
+define internal noundef range(i32 0, 2) i32 @events_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #14 align 16 {
   %5 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str.26) #19
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %13, label %7
@@ -6453,7 +6470,7 @@ define internal noundef i32 @events_callback(ptr nocapture noundef readonly %0, 
 declare dso_local ptr @eventfs_create_events_dir(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @system_tr_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @system_tr_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
@@ -6486,7 +6503,7 @@ define internal i32 @system_tr_open(ptr noundef %0, ptr noundef %1) #0 align 16 
 declare dso_local i32 @tracing_open_generic_tr(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_header_page_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_header_page_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %3, align 8
@@ -6532,7 +6549,7 @@ declare dso_local i32 @tracing_release_generic_tr(ptr noundef, ptr noundef) #2
 declare dso_local i32 @ring_buffer_print_page_header(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_header_event_file(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_header_event_file(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = load i64, ptr %3, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %23
@@ -6571,7 +6588,7 @@ define internal i64 @show_header_event_file(ptr nocapture readnone %0, ptr nound
 declare dso_local i32 @ring_buffer_print_entry_header(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ftrace_event_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ftrace_event_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca %struct.trace_parser, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19
   %6 = getelementptr inbounds i8, ptr %0, i64 200
@@ -6855,7 +6872,7 @@ define internal noundef i32 @t_show(ptr noundef %0, ptr nocapture noundef readon
 declare dso_local i32 @security_locked_down(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ftrace_event_pid_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ftrace_event_pid_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val, i64 112
@@ -6925,7 +6942,7 @@ define internal i32 @ftrace_event_set_pid_open(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @event_pid_write(ptr %.200.val.112.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @event_pid_write(ptr %.200.val.112.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   %6 = icmp eq i64 %1, 0
@@ -7216,7 +7233,7 @@ declare void @llvm.write_register.i64(metadata, i64) #17
 declare dso_local ptr @trace_pid_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ftrace_event_npid_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ftrace_event_npid_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val, i64 112

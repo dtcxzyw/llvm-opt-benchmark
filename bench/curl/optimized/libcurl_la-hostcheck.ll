@@ -3,8 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-hostcheck.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@.str = private unnamed_addr constant [3 x i8] c"*.\00", align 1
-
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @Curl_cert_hostcheck(ptr noundef %match, i64 noundef %matchlen, ptr noundef %hostname, i64 noundef %hostlen) local_unnamed_addr #0 {
 entry:
@@ -36,30 +34,35 @@ if.then:                                          ; preds = %land.lhs.true4
   %cmp11.i = icmp eq i8 %5, 46
   %dec14.i = sext i1 %cmp11.i to i64
   %patternlen.addr.0.i = add i64 %dec14.i, %matchlen
-  %call.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %match, ptr noundef nonnull dereferenceable(3) @.str, i64 noundef 2) #3
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then16.i
+  %.not.i = icmp eq i8 %0, 42
+  br i1 %.not.i, label %entry.tail.i, label %if.then16.i
 
-if.then16.i:                                      ; preds = %if.then
+entry.tail.i:                                     ; preds = %if.then
+  %6 = getelementptr inbounds i8, ptr %match, i64 1
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 46
+  br i1 %8, label %if.else.i, label %if.then16.i
+
+if.then16.i:                                      ; preds = %entry.tail.i, %if.then
   %cmp.not.i.i = icmp eq i64 %spec.select.i, %patternlen.addr.0.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.then16.i
-  %call.i.i = tail call i32 @curl_strnequal(ptr noundef nonnull %hostname, ptr noundef nonnull %match, i64 noundef %spec.select.i) #4
+  %call.i.i = tail call i32 @curl_strnequal(ptr noundef nonnull %hostname, ptr noundef nonnull %match, i64 noundef %spec.select.i) #3
   %tobool.i.i = icmp ne i32 %call.i.i, 0
   br label %return
 
-if.else.i:                                        ; preds = %if.then
-  %call18.i = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef nonnull %hostname) #4
+if.else.i:                                        ; preds = %entry.tail.i
+  %call18.i = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef nonnull %hostname) #3
   br i1 %call18.i, label %return, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i
-  %call22.i = tail call ptr @memchr(ptr noundef nonnull %match, i32 noundef 46, i64 noundef %patternlen.addr.0.i) #3
+  %call22.i = tail call ptr @memchr(ptr noundef nonnull %match, i32 noundef 46, i64 noundef %patternlen.addr.0.i) #4
   %tobool23.not.i = icmp eq ptr %call22.i, null
   br i1 %tobool23.not.i, label %if.then27.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end21.i
-  %call24.i = tail call ptr @Curl_memrchr(ptr noundef nonnull %match, i32 noundef 46, i64 noundef %patternlen.addr.0.i) #4
+  %call24.i = tail call ptr @Curl_memrchr(ptr noundef nonnull %match, i32 noundef 46, i64 noundef %patternlen.addr.0.i) #3
   %cmp25.i = icmp eq ptr %call24.i, %call22.i
   br i1 %cmp25.i, label %if.then27.i, label %if.else29.i
 
@@ -68,12 +71,12 @@ if.then27.i:                                      ; preds = %lor.lhs.false.i, %i
   br i1 %cmp.not.i28.i, label %if.end.i30.i, label %return
 
 if.end.i30.i:                                     ; preds = %if.then27.i
-  %call.i31.i = tail call i32 @curl_strnequal(ptr noundef nonnull %hostname, ptr noundef nonnull %match, i64 noundef %spec.select.i) #4
+  %call.i31.i = tail call i32 @curl_strnequal(ptr noundef nonnull %hostname, ptr noundef nonnull %match, i64 noundef %spec.select.i) #3
   %tobool.i32.i = icmp ne i32 %call.i31.i, 0
   br label %return
 
 if.else29.i:                                      ; preds = %lor.lhs.false.i
-  %call30.i = tail call ptr @memchr(ptr noundef nonnull %hostname, i32 noundef 46, i64 noundef %spec.select.i) #3
+  %call30.i = tail call ptr @memchr(ptr noundef nonnull %hostname, i32 noundef 46, i64 noundef %spec.select.i) #4
   %tobool31.not.i = icmp eq ptr %call30.i, null
   br i1 %tobool31.not.i, label %return, label %if.then32.i
 
@@ -90,7 +93,7 @@ if.then32.i:                                      ; preds = %if.else29.i
   br i1 %cmp.not.i34.i, label %if.end.i36.i, label %return
 
 if.end.i36.i:                                     ; preds = %if.then32.i
-  %call.i37.i = tail call i32 @curl_strnequal(ptr noundef nonnull %call30.i, ptr noundef nonnull %call22.i, i64 noundef %sub36.i) #4
+  %call.i37.i = tail call i32 @curl_strnequal(ptr noundef nonnull %call30.i, ptr noundef nonnull %call22.i, i64 noundef %sub36.i) #3
   %tobool.i38.i = icmp ne i32 %call.i37.i, 0
   br label %return
 
@@ -99,23 +102,20 @@ return:                                           ; preds = %if.end.i36.i, %if.t
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
-
-declare zeroext i1 @Curl_host_is_ipnum(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Curl_host_is_ipnum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @Curl_memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @Curl_memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
-attributes #4 = { nounwind }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+attributes #4 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

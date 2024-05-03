@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [25 x i8] c"show password_encryption\00", align 1
 @.str.13 = private unnamed_addr constant [49 x i8] c"unexpected shape of result set returned for SHOW\00", align 1
 @.str.14 = private unnamed_addr constant [35 x i8] c"password_encryption value too long\00", align 1
-@.str.15 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.16 = private unnamed_addr constant [4 x i8] c"off\00", align 1
 @.str.17 = private unnamed_addr constant [4 x i8] c"md5\00", align 1
 @.str.18 = private unnamed_addr constant [14 x i8] c"scram-sha-256\00", align 1
@@ -57,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.pg_fe_sendauth = private unnamed_addr constant [10 x ptr] [ptr @.str.28, ptr @.str.33, ptr @.str.29, ptr @.str.33, ptr @.str.30, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.32, ptr @.str.32], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
@@ -846,7 +845,7 @@ define ptr @PQencryptPasswordConn(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %10 = getelementptr inbounds i8, ptr %0, i64 1024
   store i32 0, ptr %10, align 8
   %11 = icmp eq ptr %3, null
-  br i1 %11, label %12, label %30
+  br i1 %11, label %12, label %sub_0
 
 12:                                               ; preds = %8
   %13 = tail call ptr @PQexec(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #9
@@ -891,24 +890,36 @@ define ptr @PQencryptPasswordConn(ptr noundef %0, ptr noundef %1, ptr noundef %2
 28:                                               ; preds = %23
   %29 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %24) #9
   call void @PQclear(ptr noundef nonnull %13) #9
-  br label %30
+  br label %sub_0
 
-30:                                               ; preds = %28, %8
+sub_0:                                            ; preds = %8, %28
   %.038 = phi ptr [ %5, %28 ], [ %3, %8 ]
-  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.038, ptr noundef nonnull dereferenceable(3) @.str.15) #11
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %36, label %33
+  %.038.sroa.phi = getelementptr inbounds i8, ptr %.038, i64 2
+  %30 = load i8, ptr %.038, align 1
+  %.not52 = icmp eq i8 %30, 111
+  br i1 %.not52, label %sub_1, label %.tail.thread
 
-33:                                               ; preds = %30
+sub_1:                                            ; preds = %sub_0
+  %.038.sroa.phi58 = getelementptr inbounds i8, ptr %.038, i64 1
+  %31 = load i8, ptr %.038.sroa.phi58, align 1
+  %.not53 = icmp eq i8 %31, 110
+  br i1 %.not53, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %32 = load i8, ptr %.038.sroa.phi, align 1
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %36, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.038, ptr noundef nonnull dereferenceable(4) @.str.16) #11
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %37
 
-36:                                               ; preds = %33, %30
+36:                                               ; preds = %.tail.thread, %.tail
   br label %37
 
-37:                                               ; preds = %36, %33
-  %.1 = phi ptr [ @.str.17, %36 ], [ %.038, %33 ]
+37:                                               ; preds = %36, %.tail.thread
+  %.1 = phi ptr [ @.str.17, %36 ], [ %.038, %.tail.thread ]
   %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(14) @.str.18) #11
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %46
@@ -953,7 +964,7 @@ define ptr @PQencryptPasswordConn(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %58
 
 57:                                               ; preds = %46
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, ptr noundef %.1) #9
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %.1) #9
   br label %58
 
 58:                                               ; preds = %44, %40, %56, %54, %51, %12, %4, %57, %27, %22, %17

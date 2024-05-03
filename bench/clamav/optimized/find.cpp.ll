@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 @.str = private unnamed_addr constant [2 x i32] [i32 46, i32 0], align 4
-@.str.1 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.2 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.3 = private unnamed_addr constant [1 x i32] zeroinitializer, align 4
 @ErrHandler = external global %class.ErrorHandler, align 4
 @.str.4 = private unnamed_addr constant [3 x i32] [i32 46, i32 46, i32 0], align 4
@@ -115,50 +113,72 @@ define noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull ali
   %33 = getelementptr inbounds i8, ptr %0, i64 8200
   %34 = call ptr @readdir64(ptr noundef %32)
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.loopexit, label %.lr.ph
+  br i1 %35, label %.loopexit, label %sub_0.lr.ph
 
-.lr.ph:                                           ; preds = %31
+sub_0.lr.ph:                                      ; preds = %31
   %36 = getelementptr inbounds i8, ptr %5, i64 64
   %37 = getelementptr inbounds i8, ptr %5, i64 104
   %38 = getelementptr inbounds i8, ptr %5, i64 96
   %39 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %40
+  br label %sub_0
 
-40:                                               ; preds = %.lr.ph, %.backedge
-  %41 = phi ptr [ %34, %.lr.ph ], [ %49, %.backedge ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 19
-  %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(2) @.str.1) #11
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.backedge, label %45
+sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
+  %40 = phi ptr [ %34, %sub_0.lr.ph ], [ %58, %.backedge ]
+  %41 = getelementptr inbounds i8, ptr %40, i64 19
+  %42 = load i8, ptr %41, align 1
+  %43 = zext i8 %42 to i32
+  %44 = add nsw i32 %43, -46
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %.tail, label %.tail23
 
-45:                                               ; preds = %40
-  %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(3) @.str.2) #11
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %.backedge, label %51
+.tail:                                            ; preds = %sub_0
+  %45 = getelementptr inbounds i8, ptr %40, i64 20
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %.backedge, label %sub_125
 
-.backedge:                                        ; preds = %40, %45, %74, %56
-  %48 = load ptr, ptr %33, align 8
-  %49 = call ptr @readdir64(ptr noundef %48)
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %.loopexit, label %40, !llvm.loop !4
+sub_125:                                          ; preds = %.tail
+  %48 = getelementptr inbounds i8, ptr %40, i64 20
+  %49 = load i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  %51 = add nsw i32 %50, -46
+  %.not28 = icmp eq i32 %51, 0
+  br i1 %.not28, label %sub_2, label %.tail23
 
-51:                                               ; preds = %45
-  %52 = call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %42, ptr noundef nonnull %8, i64 noundef 2048)
-  br i1 %52, label %56, label %53
+sub_2:                                            ; preds = %sub_125
+  %52 = getelementptr inbounds i8, ptr %40, i64 21
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  br label %.tail23
 
-53:                                               ; preds = %51
+.tail23:                                          ; preds = %sub_0, %sub_125, %sub_2
+  %55 = phi i32 [ %51, %sub_125 ], [ %54, %sub_2 ], [ %44, %sub_0 ]
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %.backedge, label %60
+
+.backedge:                                        ; preds = %.tail, %.tail23, %83, %65
+  %57 = load ptr, ptr %33, align 8
+  %58 = call ptr @readdir64(ptr noundef %57)
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %.loopexit, label %sub_0, !llvm.loop !4
+
+60:                                               ; preds = %.tail23
+  %61 = call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %41, ptr noundef nonnull %8, i64 noundef 2048)
+  br i1 %61, label %65, label %62
+
+62:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5)
-  br label %54
+  br label %63
 
-54:                                               ; preds = %54, %53
-  %indvars.iv.i.i = phi i64 [ 0, %53 ], [ %indvars.iv.next.i.i, %54 ]
-  %55 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i
-  store ptr @.str.3, ptr %55, align 8
+63:                                               ; preds = %63, %62
+  %indvars.iv.i.i = phi i64 [ 0, %62 ], [ %indvars.iv.next.i.i, %63 ]
+  %64 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i
+  store ptr @.str.3, ptr %64, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %54, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %63, !llvm.loop !6
 
-_Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %54
+_Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 40, i1 false)
   store i32 59, ptr %37, align 8
   store ptr null, ptr %5, align 8
@@ -166,91 +186,91 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %54
   store ptr %8, ptr %39, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %5)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5)
-  br label %56
-
-56:                                               ; preds = %_Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, %51
-  %57 = call noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0)
-  br i1 %57, label %58, label %.backedge
-
-58:                                               ; preds = %56
-  call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %9, ptr noundef nonnull %0, i64 noundef 2048)
-  %59 = call noundef ptr @_Z11PointToNamePKw(ptr noundef nonnull %9)
-  store i32 0, ptr %59, align 4
-  %60 = call i64 @wcslen(ptr noundef nonnull %9) #11
-  %61 = call i64 @wcslen(ptr noundef nonnull %8) #11
-  %62 = add i64 %61, %60
-  %63 = icmp ugt i64 %62, 2046
-  br i1 %63, label %64, label %72
-
-64:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   br label %65
 
-65:                                               ; preds = %65, %64
-  %indvars.iv.i.i20 = phi i64 [ 0, %64 ], [ %indvars.iv.next.i.i21, %65 ]
-  %66 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i20
-  store ptr @.str.3, ptr %66, align 8
+65:                                               ; preds = %_Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, %60
+  %66 = call noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0)
+  br i1 %66, label %67, label %.backedge
+
+67:                                               ; preds = %65
+  call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %9, ptr noundef nonnull %0, i64 noundef 2048)
+  %68 = call noundef ptr @_Z11PointToNamePKw(ptr noundef nonnull %9)
+  store i32 0, ptr %68, align 4
+  %69 = call i64 @wcslen(ptr noundef nonnull %9) #11
+  %70 = call i64 @wcslen(ptr noundef nonnull %8) #11
+  %71 = add i64 %70, %69
+  %72 = icmp ugt i64 %71, 2046
+  br i1 %72, label %73, label %81
+
+73:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
+  br label %74
+
+74:                                               ; preds = %74, %73
+  %indvars.iv.i.i20 = phi i64 [ 0, %73 ], [ %indvars.iv.next.i.i21, %74 ]
+  %75 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i20
+  store ptr @.str.3, ptr %75, align 8
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %exitcond.not.i.i22 = icmp eq i64 %indvars.iv.next.i.i21, 8
-  br i1 %exitcond.not.i.i22, label %_Z5uiMsgIJRA2048_wRA1_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit, label %65, !llvm.loop !6
+  br i1 %exitcond.not.i.i22, label %_Z5uiMsgIJRA2048_wRA1_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit, label %74, !llvm.loop !6
 
-_Z5uiMsgIJRA2048_wRA1_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %4, i64 64
-  %68 = getelementptr inbounds i8, ptr %4, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %67, i8 0, i64 40, i1 false)
-  store i32 86, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 96
+_Z5uiMsgIJRA2048_wRA1_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %74
+  %76 = getelementptr inbounds i8, ptr %4, i64 64
+  %77 = getelementptr inbounds i8, ptr %4, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %76, i8 0, i64 40, i1 false)
+  store i32 86, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %4, i64 96
   store ptr %9, ptr %4, align 8
-  %70 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @.str.3, ptr %70, align 8
-  store i32 3, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %8, ptr %71, align 8
+  %79 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @.str.3, ptr %79, align 8
+  store i32 3, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %8, ptr %80, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
   br label %.loopexit
 
-72:                                               ; preds = %58
+81:                                               ; preds = %67
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 2048)
-  %73 = call noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef nonnull %9, ptr noundef %1, i1 noundef zeroext %2)
-  br i1 %73, label %75, label %74
+  %82 = call noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef nonnull %9, ptr noundef %1, i1 noundef zeroext %2)
+  br i1 %82, label %84, label %83
 
-74:                                               ; preds = %72
+83:                                               ; preds = %81
   call void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %9)
   br label %.backedge
 
-75:                                               ; preds = %72
+84:                                               ; preds = %81
   call void @_Z8wcsncpyzPwPKwm(ptr noundef %1, ptr noundef nonnull %9, i64 noundef 2048)
-  %76 = getelementptr inbounds i8, ptr %1, i64 8232
-  store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 8200
-  %78 = load i32, ptr %77, align 8
-  %79 = call noundef zeroext i1 @_Z5IsDirj(i32 noundef %78)
-  %80 = getelementptr inbounds i8, ptr %1, i64 8204
-  %81 = zext i1 %79 to i8
-  store i8 %81, ptr %80, align 4
-  %82 = load i32, ptr %77, align 8
-  %83 = call noundef zeroext i1 @_Z6IsLinkj(i32 noundef %82)
-  %84 = getelementptr inbounds i8, ptr %1, i64 8205
-  %85 = zext i1 %83 to i8
-  store i8 %85, ptr %84, align 1
+  %85 = getelementptr inbounds i8, ptr %1, i64 8232
+  store i32 0, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %1, i64 8200
+  %87 = load i32, ptr %86, align 8
+  %88 = call noundef zeroext i1 @_Z5IsDirj(i32 noundef %87)
+  %89 = getelementptr inbounds i8, ptr %1, i64 8204
+  %90 = zext i1 %88 to i8
+  store i8 %90, ptr %89, align 4
+  %91 = load i32, ptr %86, align 8
+  %92 = call noundef zeroext i1 @_Z6IsLinkj(i32 noundef %91)
+  %93 = getelementptr inbounds i8, ptr %1, i64 8205
+  %94 = zext i1 %92 to i8
+  store i8 %94, ptr %93, align 1
   store i8 0, ptr %14, align 8
-  %86 = call noundef ptr @_Z11PointToNamePKw(ptr noundef %1)
-  %87 = call i32 @wcscmp(ptr noundef %86, ptr noundef nonnull @.str) #11
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %92, label %89
+  %95 = call noundef ptr @_Z11PointToNamePKw(ptr noundef %1)
+  %96 = call i32 @wcscmp(ptr noundef %95, ptr noundef nonnull @.str) #11
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %101, label %98
 
-89:                                               ; preds = %75
-  %90 = call i32 @wcscmp(ptr noundef %86, ptr noundef nonnull @.str.4) #11
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %.loopexit
+98:                                               ; preds = %84
+  %99 = call i32 @wcscmp(ptr noundef %95, ptr noundef nonnull @.str.4) #11
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %.loopexit
 
-92:                                               ; preds = %89, %75
-  %93 = call noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208) %0, ptr noundef nonnull %1, i1 noundef zeroext false)
+101:                                              ; preds = %98, %84
+  %102 = call noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208) %0, ptr noundef nonnull %1, i1 noundef zeroext false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.backedge, %31, %89, %3, %92, %_Z5uiMsgIJRA2048_wRA1_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit, %26
-  %.0 = phi i1 [ false, %26 ], [ false, %_Z5uiMsgIJRA2048_wRA1_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ %93, %92 ], [ false, %3 ], [ true, %89 ], [ false, %31 ], [ false, %.backedge ]
+.loopexit:                                        ; preds = %.backedge, %31, %98, %3, %101, %_Z5uiMsgIJRA2048_wRA1_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit, %26
+  %.0 = phi i1 [ false, %26 ], [ false, %_Z5uiMsgIJRA2048_wRA1_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ %102, %101 ], [ false, %3 ], [ true, %98 ], [ false, %31 ], [ false, %.backedge ]
   ret i1 %.0
 }
 
@@ -265,9 +285,6 @@ declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnam
 declare ptr @__errno_location() local_unnamed_addr #5
 
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 

@@ -70,7 +70,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.43 = private unnamed_addr constant [29 x i8] c"Failed to connect to '%s:%s'\00", align 1
 @__func__.inet_parse_flag = private unnamed_addr constant [16 x i8] c"inet_parse_flag\00", align 1
 @.str.45 = private unnamed_addr constant [29 x i8] c"error parsing '%s' flag '%s'\00", align 1
-@.str.46 = private unnamed_addr constant [4 x i8] c"=on\00", align 1
 @.str.47 = private unnamed_addr constant [5 x i8] c"=off\00", align 1
 @__func__.unix_listen_saddr = private unnamed_addr constant [18 x i8] c"unix_listen_saddr\00", align 1
 @.str.48 = private unnamed_addr constant [29 x i8] c"Failed to create Unix socket\00", align 1
@@ -117,7 +116,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.79 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @inet_netfamily(i32 noundef %family) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @inet_netfamily(i32 noundef %family) local_unnamed_addr #0 {
 entry:
   switch i32 %family, label %sw.epilog [
     i32 10, label %return
@@ -158,7 +157,7 @@ entry:
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @inet_ai_family_from_address(ptr nocapture noundef readonly %addr, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 0, 11) i32 @inet_ai_family_from_address(ptr nocapture noundef readonly %addr, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %has_ipv6 = getelementptr inbounds i8, ptr %addr, i64 24
   %0 = load i8, ptr %has_ipv6, align 8
@@ -536,7 +535,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @inet_parse(ptr nocapture noundef writeonly %addr, ptr noundef %str, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @inet_parse(ptr nocapture noundef writeonly %addr, ptr noundef %str, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %host = alloca [65 x i8], align 16
   %port = alloca [33 x i8], align 16
@@ -627,7 +626,7 @@ if.end53:                                         ; preds = %if.end50, %if.end27
 if.then56:                                        ; preds = %if.end53
   %add.ptr57 = getelementptr i8, ptr %call54, i64 5
   %ipv4 = getelementptr inbounds i8, ptr %addr, i64 23
-  %call58 = call fastcc i32 @inet_parse_flag(ptr noundef nonnull @.str.14, ptr noundef %add.ptr57, ptr noundef nonnull %ipv4, ptr noundef %errp), !range !8
+  %call58 = call fastcc i32 @inet_parse_flag(ptr noundef nonnull @.str.14, ptr noundef %add.ptr57, ptr noundef nonnull %ipv4, ptr noundef %errp)
   %cmp59 = icmp slt i32 %call58, 0
   br i1 %cmp59, label %return, label %if.end62
 
@@ -644,7 +643,7 @@ if.end63:                                         ; preds = %if.end62, %if.end53
 if.then66:                                        ; preds = %if.end63
   %add.ptr67 = getelementptr i8, ptr %call64, i64 5
   %ipv6 = getelementptr inbounds i8, ptr %addr, i64 25
-  %call68 = call fastcc i32 @inet_parse_flag(ptr noundef nonnull @.str.16, ptr noundef %add.ptr67, ptr noundef nonnull %ipv6, ptr noundef %errp), !range !8
+  %call68 = call fastcc i32 @inet_parse_flag(ptr noundef nonnull @.str.16, ptr noundef %add.ptr67, ptr noundef nonnull %ipv6, ptr noundef %errp)
   %cmp69 = icmp slt i32 %call68, 0
   br i1 %cmp69, label %return, label %if.end72
 
@@ -661,7 +660,7 @@ if.end73:                                         ; preds = %if.end72, %if.end63
 if.then76:                                        ; preds = %if.end73
   %add.ptr77 = getelementptr i8, ptr %call74, i64 11
   %keep_alive = getelementptr inbounds i8, ptr %addr, i64 27
-  %call78 = call fastcc i32 @inet_parse_flag(ptr noundef nonnull @.str.18, ptr noundef %add.ptr77, ptr noundef nonnull %keep_alive, ptr noundef %errp), !range !8
+  %call78 = call fastcc i32 @inet_parse_flag(ptr noundef nonnull @.str.18, ptr noundef %add.ptr77, ptr noundef nonnull %keep_alive, ptr noundef %errp)
   %cmp79 = icmp slt i32 %call78, 0
   br i1 %cmp79, label %return, label %if.end82
 
@@ -678,7 +677,7 @@ if.end83:                                         ; preds = %if.end82, %if.end73
 if.then86:                                        ; preds = %if.end83
   %add.ptr87 = getelementptr i8, ptr %call84, i64 6
   %mptcp = getelementptr inbounds i8, ptr %addr, i64 29
-  %call88 = call fastcc i32 @inet_parse_flag(ptr noundef nonnull @.str.20, ptr noundef %add.ptr87, ptr noundef nonnull %mptcp, ptr noundef %errp), !range !8
+  %call88 = call fastcc i32 @inet_parse_flag(ptr noundef nonnull @.str.20, ptr noundef %add.ptr87, ptr noundef nonnull %mptcp, ptr noundef %errp)
   %cmp89 = icmp slt i32 %call88, 0
   br i1 %cmp89, label %return, label %if.end92
 
@@ -704,7 +703,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @inet_parse_flag(ptr noundef %flagname, ptr noundef %optstr, ptr nocapture noundef writeonly %val, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @inet_parse_flag(ptr noundef %flagname, ptr noundef %optstr, ptr nocapture noundef writeonly %val, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %optstr, i32 44)
   %tobool.not = icmp eq ptr %strchr, null
@@ -734,26 +733,38 @@ if.end4:                                          ; preds = %if.else, %if.end
   %len.0 = phi i64 [ %sub.ptr.sub, %if.end ], [ %call3, %if.else ]
   switch i64 %len.0, label %if.else21 [
     i64 0, label %if.end23
-    i64 3, label %land.lhs.true
+    i64 3, label %sub_0
     i64 4, label %land.lhs.true16
   ]
 
-land.lhs.true:                                    ; preds = %if.end4
-  %call9 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %optstr, ptr noundef nonnull dereferenceable(4) @.str.46, i64 noundef 3) #15
-  %cmp10 = icmp eq i32 %call9, 0
-  br i1 %cmp10, label %if.end23, label %if.else21
+sub_0:                                            ; preds = %if.end4
+  %1 = load i8, ptr %optstr, align 1
+  %.not = icmp eq i8 %1, 61
+  br i1 %.not, label %sub_1, label %if.else21
+
+sub_1:                                            ; preds = %sub_0
+  %2 = getelementptr inbounds i8, ptr %optstr, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not16 = icmp eq i8 %3, 111
+  br i1 %.not16, label %land.lhs.true.tail, label %if.else21
+
+land.lhs.true.tail:                               ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %optstr, i64 2
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 110
+  br i1 %6, label %if.end23, label %if.else21
 
 land.lhs.true16:                                  ; preds = %if.end4
   %call17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %optstr, ptr noundef nonnull dereferenceable(5) @.str.47, i64 noundef 4) #15
   %cmp18 = icmp eq i32 %call17, 0
   br i1 %cmp18, label %if.end23, label %if.else21
 
-if.else21:                                        ; preds = %land.lhs.true, %if.end4, %land.lhs.true16
+if.else21:                                        ; preds = %sub_1, %sub_0, %land.lhs.true.tail, %if.end4, %land.lhs.true16
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 617, ptr noundef nonnull @__func__.inet_parse_flag, ptr noundef nonnull @.str.45, ptr noundef %flagname, ptr noundef %optstr) #13
   br label %return
 
-if.end23:                                         ; preds = %land.lhs.true16, %if.end4, %land.lhs.true
-  %storemerge = phi i8 [ 1, %if.end4 ], [ 1, %land.lhs.true ], [ 0, %land.lhs.true16 ]
+if.end23:                                         ; preds = %land.lhs.true16, %if.end4, %land.lhs.true.tail
+  %storemerge = phi i8 [ 1, %if.end4 ], [ 1, %land.lhs.true.tail ], [ 0, %land.lhs.true16 ]
   store i8 %storemerge, ptr %val, align 1
   br label %return
 
@@ -766,7 +777,7 @@ return:                                           ; preds = %if.end23, %if.else2
 define dso_local i32 @inet_connect(ptr noundef %str, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #16
-  %call1 = tail call i32 @inet_parse(ptr noundef %call, ptr noundef %str, ptr noundef %errp), !range !8
+  %call1 = tail call i32 @inet_parse(ptr noundef %call, ptr noundef %str, ptr noundef %errp)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -786,12 +797,12 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 declare void @qapi_free_InetSocketAddress(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @unix_listen(ptr noundef %str, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, -2147483648) i32 @unix_listen(ptr noundef %str, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %str) #13
   store ptr %call1, ptr %call, align 8
-  %call2 = tail call fastcc i32 @unix_listen_saddr(ptr noundef nonnull %call, i32 noundef 1, ptr noundef %errp), !range !9
+  %call2 = tail call fastcc i32 @unix_listen_saddr(ptr noundef nonnull %call, i32 noundef 1, ptr noundef %errp)
   tail call void @qapi_free_UnixSocketAddress(ptr noundef nonnull %call) #13
   ret i32 %call2
 }
@@ -800,7 +811,7 @@ entry:
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @unix_listen_saddr(ptr nocapture noundef readonly %saddr, i32 noundef %num, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @unix_listen_saddr(ptr nocapture noundef readonly %saddr, i32 noundef %num, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %un = alloca %struct.sockaddr_un, align 2
   %0 = getelementptr i8, ptr %saddr, i64 9
@@ -951,18 +962,18 @@ return:                                           ; preds = %err, %if.end69, %if
 declare void @qapi_free_UnixSocketAddress(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @unix_connect(ptr noundef %path, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, -2147483648) i32 @unix_connect(ptr noundef %path, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %path) #13
   store ptr %call1, ptr %call, align 8
-  %call3 = tail call fastcc i32 @unix_connect_saddr(ptr noundef nonnull %call, ptr noundef %errp), !range !9
+  %call3 = tail call fastcc i32 @unix_connect_saddr(ptr noundef nonnull %call, ptr noundef %errp)
   tail call void @qapi_free_UnixSocketAddress(ptr noundef nonnull %call) #13
   ret i32 %call3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @unix_connect_saddr(ptr nocapture noundef readonly %saddr, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @unix_connect_saddr(ptr nocapture noundef readonly %saddr, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %un = alloca %struct.sockaddr_un, align 2
   %0 = getelementptr i8, ptr %saddr, i64 9
@@ -1045,7 +1056,7 @@ do.cond:                                          ; preds = %do.body
   %call29 = tail call ptr @__errno_location() #14
   %9 = load i32, ptr %call29, align 4
   %cmp31 = icmp eq i32 %9, 4
-  br i1 %cmp31, label %do.body, label %do.end, !llvm.loop !10
+  br i1 %cmp31, label %do.body, label %do.end, !llvm.loop !8
 
 do.end:                                           ; preds = %do.cond
   %notsub = add i32 %9, -1
@@ -1224,12 +1235,12 @@ if.else32:                                        ; preds = %if.else21
 
 if.then35:                                        ; preds = %if.else32
   %add.ptr38 = getelementptr i8, ptr %str, i64 4
-  %call39 = tail call i32 @inet_parse(ptr noundef nonnull %u45, ptr noundef %add.ptr38, ptr noundef %errp), !range !8
+  %call39 = tail call i32 @inet_parse(ptr noundef nonnull %u45, ptr noundef %add.ptr38, ptr noundef %errp)
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %return, label %fail
 
 if.else43:                                        ; preds = %if.else32
-  %call46 = tail call i32 @inet_parse(ptr noundef nonnull %u45, ptr noundef %str, ptr noundef %errp), !range !8
+  %call46 = tail call i32 @inet_parse(ptr noundef nonnull %u45, ptr noundef %str, ptr noundef %errp)
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %return, label %fail
 
@@ -1247,7 +1258,7 @@ declare i32 @strstart(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @qapi_free_SocketAddress(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @socket_address_parse_named_fd(ptr nocapture noundef %addr, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -2147483648, 1) i32 @socket_address_parse_named_fd(ptr nocapture noundef %addr, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %addr, align 8
   %cmp.not = icmp eq i32 %0, 3
@@ -1351,7 +1362,7 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb1:                                           ; preds = %entry
   %u2 = getelementptr inbounds i8, ptr %addr, i64 8
-  %call3 = tail call fastcc i32 @unix_connect_saddr(ptr noundef nonnull %u2, ptr noundef %errp), !range !9
+  %call3 = tail call fastcc i32 @unix_connect_saddr(ptr noundef nonnull %u2, ptr noundef %errp)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
@@ -1425,7 +1436,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %call5.i.i = tail call ptr @__errno_location() #14
   %9 = load i32, ptr %call5.i.i, align 4
   %cmp7.i6.i = icmp eq i32 %9, 4
-  br i1 %cmp7.i6.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !11
+  br i1 %cmp7.i6.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !9
 
 do.end.i.i:                                       ; preds = %do.cond.i.i
   %notsub.i.i = add i32 %9, -1
@@ -1457,7 +1468,7 @@ sw.epilog:                                        ; preds = %vsock_connect_saddr
 declare void @abort() local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @socket_listen(ptr nocapture noundef readonly %addr, i32 noundef %num, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, -2147483648) i32 @socket_listen(ptr nocapture noundef readonly %addr, i32 noundef %num, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %val.i.i = alloca i64, align 8
   %svm.i = alloca %struct.sockaddr_vm, align 4
@@ -1882,14 +1893,14 @@ for.inc.i:                                        ; preds = %if.end123.i, %if.th
   %socket_created.2.i = phi i1 [ %socket_created.1100.i, %if.then95.i ], [ true, %if.end123.i ]
   %inc.i = add nuw nsw i32 %p.099.i, 1
   %exitcond.not.i = icmp eq i32 %p.099.i, %cond87.i
-  br i1 %exitcond.not.i, label %for.inc125.i, label %for.body91.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %for.inc125.i, label %for.body91.i, !llvm.loop !10
 
 for.inc125.i:                                     ; preds = %for.inc.i, %cond.end86.i
   %socket_created.1.lcssa.i = phi i1 [ %socket_created.0103.i, %cond.end86.i ], [ %socket_created.2.i, %for.inc.i ]
   %ai_next.i = getelementptr inbounds i8, ptr %e.0104.i, i64 40
   %e.0.i = load ptr, ptr %ai_next.i, align 8
   %cmp67.not.i = icmp eq ptr %e.0.i, null
-  br i1 %cmp67.not.i, label %for.end126.loopexit.i, label %for.body.i, !llvm.loop !13
+  br i1 %cmp67.not.i, label %for.end126.loopexit.i, label %for.body.i, !llvm.loop !11
 
 for.end126.loopexit.i:                            ; preds = %for.inc125.i
   %56 = select i1 %socket_created.1.lcssa.i, ptr @.str.73, ptr @.str.74
@@ -1937,7 +1948,7 @@ inet_listen_saddr.exit:                           ; preds = %if.then4.i, %inet_a
 
 sw.bb1:                                           ; preds = %trace_socket_listen.exit
   %u2 = getelementptr inbounds i8, ptr %addr, i64 8
-  %call3 = tail call fastcc i32 @unix_listen_saddr(ptr noundef nonnull %u2, i32 noundef %num, ptr noundef %errp), !range !9
+  %call3 = tail call fastcc i32 @unix_listen_saddr(ptr noundef nonnull %u2, i32 noundef %num, ptr noundef %errp)
   br label %return
 
 sw.bb4:                                           ; preds = %trace_socket_listen.exit
@@ -2148,7 +2159,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @socket_dgram(ptr nocapture noundef readonly %remote, ptr noundef readonly %local, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, -2147483648) i32 @socket_dgram(ptr nocapture noundef readonly %remote, ptr noundef readonly %local, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   %ai.i = alloca %struct.addrinfo, align 8
@@ -2754,9 +2765,7 @@ attributes #17 = { noreturn nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}
-!9 = !{i32 -1, i32 -2147483648}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

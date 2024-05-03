@@ -390,11 +390,32 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #4
   %call.i10 = tail call ptr @object_get_class(ptr noundef %obj) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_GET_CLASS) #4
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str, ptr noundef nonnull dereferenceable(3) @.str.12) #5
-  %tobool.not = icmp eq i32 %call2, 0
+  %0 = load i8, ptr %str, align 1
+  %1 = zext i8 %0 to i32
+  %2 = add nsw i32 %1, -111
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %sub_1, label %entry.tail
+
+sub_1:                                            ; preds = %entry
+  %3 = getelementptr inbounds i8, ptr %str, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = zext i8 %4 to i32
+  %6 = add nsw i32 %5, -110
+  %.not11 = icmp eq i32 %6, 0
+  br i1 %.not11, label %sub_2, label %entry.tail
+
+sub_2:                                            ; preds = %sub_1
+  %7 = getelementptr inbounds i8, ptr %str, i64 2
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  br label %entry.tail
+
+entry.tail:                                       ; preds = %entry, %sub_1, %sub_2
+  %10 = phi i32 [ %2, %entry ], [ %6, %sub_1 ], [ %9, %sub_2 ]
+  %tobool.not = icmp eq i32 %10, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %entry
+land.lhs.true:                                    ; preds = %entry.tail
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str, ptr noundef nonnull dereferenceable(4) @.str.13) #5
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end, label %if.then
@@ -403,31 +424,31 @@ if.then:                                          ; preds = %land.lhs.true
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 162, ptr noundef nonnull @__func__.netfilter_set_status, ptr noundef nonnull @.str.15) #4
   br label %if.end21
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %land.lhs.true, %entry.tail
   %on = getelementptr inbounds i8, ptr %call.i, i64 60
-  %0 = load i8, ptr %on, align 4
-  %1 = trunc i8 %0 to i1
-  %2 = icmp ne i32 %call2, 0
-  %cmp = xor i1 %2, %1
+  %11 = load i8, ptr %on, align 4
+  %12 = trunc i8 %11 to i1
+  %13 = icmp ne i32 %10, 0
+  %cmp = xor i1 %13, %12
   br i1 %cmp, label %if.end21, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %lnot13 = and i8 %0, 1
+  %lnot13 = and i8 %11, 1
   %frombool = xor i8 %lnot13, 1
   store i8 %frombool, ptr %on, align 4
   %netdev = getelementptr inbounds i8, ptr %call.i, i64 48
-  %3 = load ptr, ptr %netdev, align 8
-  %tobool16.not = icmp eq ptr %3, null
+  %14 = load ptr, ptr %netdev, align 8
+  %tobool16.not = icmp eq ptr %14, null
   br i1 %tobool16.not, label %if.end21, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %if.end10
   %status_changed = getelementptr inbounds i8, ptr %call1.i, i64 112
-  %4 = load ptr, ptr %status_changed, align 8
-  %tobool18.not = icmp eq ptr %4, null
+  %15 = load ptr, ptr %status_changed, align 8
+  %tobool18.not = icmp eq ptr %15, null
   br i1 %tobool18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true17
-  tail call void %4(ptr noundef nonnull %call.i, ptr noundef %errp) #4
+  tail call void %15(ptr noundef nonnull %call.i, ptr noundef %errp) #4
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end, %if.then19, %land.lhs.true17, %if.end10, %if.then

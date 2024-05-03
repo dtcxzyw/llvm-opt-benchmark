@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [57 x i8] c"hwloc: Ignoring static component with invalid flags %lx\0A\00", align 1
 @.str.2 = private unnamed_addr constant [56 x i8] c"hwloc: Ignoring static component, failed to initialize\0A\00", align 1
-@.str.3 = private unnamed_addr constant [4 x i8] c"all\00", align 1
 @.str.4 = private unnamed_addr constant [33 x i8] c"HWLOC_ANNOTATE_GLOBAL_COMPONENTS\00", align 1
 @.str.5 = private unnamed_addr constant [17 x i8] c"HWLOC_COMPONENTS\00", align 1
 @.str.6 = private unnamed_addr constant [2 x i8] c",\00", align 1
@@ -397,7 +396,7 @@ define hidden void @hwloc_topology_components_init(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_topology_set_components(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @hwloc_topology_set_components(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 8
@@ -407,7 +406,7 @@ define noundef i32 @hwloc_topology_set_components(ptr nocapture noundef %0, i64 
 7:                                                ; preds = %3
   %8 = tail call ptr @__errno_location() #27
   store i32 16, ptr %8, align 4
-  br label %27
+  br label %30
 
 9:                                                ; preds = %3
   %.not9 = icmp ult i64 %1, 2
@@ -416,41 +415,53 @@ define noundef i32 @hwloc_topology_set_components(ptr nocapture noundef %0, i64 
 10:                                               ; preds = %9
   %11 = tail call ptr @__errno_location() #27
   store i32 22, ptr %11, align 4
-  br label %27
+  br label %30
 
 12:                                               ; preds = %9
   %.not10 = icmp eq i64 %1, 1
-  br i1 %.not10, label %15, label %13
+  br i1 %.not10, label %sub_0, label %13
 
 13:                                               ; preds = %12
   %14 = tail call ptr @__errno_location() #27
   store i32 22, ptr %14, align 4
-  br label %27
+  br label %30
 
-15:                                               ; preds = %12
-  %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef 3) #23
-  %.not11 = icmp eq i32 %16, 0
-  br i1 %.not11, label %17, label %25
+sub_0:                                            ; preds = %12
+  %15 = load i8, ptr %2, align 1
+  %.not12 = icmp eq i8 %15, 97
+  br i1 %.not12, label %sub_1, label %.tail.thread
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %2, i64 3
+sub_1:                                            ; preds = %sub_0
+  %16 = getelementptr inbounds i8, ptr %2, i64 1
+  %17 = load i8, ptr %16, align 1
+  %.not13 = icmp eq i8 %17, 108
+  br i1 %.not13, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %18 = getelementptr inbounds i8, ptr %2, i64 2
   %19 = load i8, ptr %18, align 1
-  %20 = icmp eq i8 %19, 58
-  br i1 %20, label %21, label %25
+  %20 = icmp eq i8 %19, 108
+  br i1 %20, label %21, label %.tail.thread
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %2, i64 4
-  %23 = tail call fastcc i32 @hwloc_phases_from_string(ptr noundef nonnull %22)
-  %24 = getelementptr inbounds i8, ptr %0, i64 836
-  store i32 %23, ptr %24, align 4
-  br label %27
+21:                                               ; preds = %.tail
+  %22 = getelementptr inbounds i8, ptr %2, i64 3
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 58
+  br i1 %24, label %25, label %.tail.thread
 
-25:                                               ; preds = %17, %15
-  %26 = tail call fastcc i32 @hwloc_disc_component_blacklist_one(ptr noundef nonnull %0, ptr noundef %2), !range !8
-  br label %27
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %2, i64 4
+  %27 = tail call fastcc i32 @hwloc_phases_from_string(ptr noundef nonnull %26)
+  %28 = getelementptr inbounds i8, ptr %0, i64 836
+  store i32 %27, ptr %28, align 4
+  br label %30
 
-27:                                               ; preds = %25, %21, %13, %10, %7
-  %.0 = phi i32 [ -1, %10 ], [ -1, %13 ], [ %26, %25 ], [ 0, %21 ], [ -1, %7 ]
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %21, %.tail
+  %29 = tail call fastcc i32 @hwloc_disc_component_blacklist_one(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  br label %30
+
+30:                                               ; preds = %.tail.thread, %25, %13, %10, %7
+  %.0 = phi i32 [ -1, %10 ], [ -1, %13 ], [ %29, %.tail.thread ], [ 0, %25 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -523,7 +534,7 @@ define internal fastcc i32 @hwloc_phases_from_string(ptr noundef readonly %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hwloc_disc_component_blacklist_one(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_disc_component_blacklist_one(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.8) #23
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -559,7 +570,7 @@ define internal fastcc noundef i32 @hwloc_disc_component_blacklist_one(ptr nocap
   %15 = getelementptr inbounds i8, ptr %.01726.i, i64 32
   %.017.i = load ptr, ptr %15, align 8
   %.not22.i = icmp eq ptr %.017.i, null
-  br i1 %.not22.i, label %hwloc_disc_component_find.exit.thread, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not22.i, label %hwloc_disc_component_find.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 16:                                               ; preds = %4
   %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #23
@@ -595,7 +606,7 @@ define internal fastcc noundef i32 @hwloc_disc_component_blacklist_one(ptr nocap
   %28 = getelementptr inbounds i8, ptr %.01726.i43, i64 32
   %.017.i45 = load ptr, ptr %28, align 8
   %.not22.i46 = icmp eq ptr %.017.i45, null
-  br i1 %.not22.i46, label %hwloc_disc_component_find.exit.thread59, label %.lr.ph.i42, !llvm.loop !9
+  br i1 %.not22.i46, label %hwloc_disc_component_find.exit.thread59, label %.lr.ph.i42, !llvm.loop !8
 
 hwloc_disc_component_find.exit.thread59:          ; preds = %27, %.sink.split.i
   %29 = tail call fastcc i32 @hwloc_phases_from_string(ptr noundef %.sink.i)
@@ -638,7 +649,7 @@ hwloc_disc_component_find.exit.thread52:          ; preds = %.lr.ph.i, %hwloc_di
 40:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !9
 
 41:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
@@ -681,7 +692,7 @@ hwloc_disc_component_find.exit.thread52:          ; preds = %.lr.ph.i, %hwloc_di
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @hwloc_disc_component_force_enable(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @hwloc_disc_component_force_enable(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 200
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 12
@@ -725,7 +736,7 @@ define hidden noundef i32 @hwloc_disc_component_force_enable(ptr noundef %0, i32
   %24 = getelementptr inbounds i8, ptr %.01726.i, i64 32
   %.017.i = load ptr, ptr %24, align 8
   %.not22.i = icmp eq ptr %.017.i, null
-  br i1 %.not22.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not22.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 .loopexit:                                        ; preds = %23, %20
   %25 = tail call ptr @__errno_location() #27
@@ -776,7 +787,7 @@ hwloc_backend_disable.exit.i:                     ; preds = %45, %42
   tail call void @free(ptr noundef nonnull %33) #22
   store ptr %35, ptr %31, align 8
   %.not.i29 = icmp eq ptr %35, null
-  br i1 %.not.i29, label %hwloc_backends_disable_all.exit, label %.lr.ph.i28, !llvm.loop !11
+  br i1 %.not.i29, label %hwloc_backends_disable_all.exit, label %.lr.ph.i28, !llvm.loop !10
 
 hwloc_backends_disable_all.exit:                  ; preds = %hwloc_backend_disable.exit.i
   store ptr null, ptr %31, align 8
@@ -785,7 +796,7 @@ hwloc_backends_disable_all.exit:                  ; preds = %hwloc_backend_disab
   br label %47
 
 47:                                               ; preds = %hwloc_backends_disable_all.exit, %29
-  %48 = tail call i32 @hwloc_backend_enable(ptr noundef nonnull %28), !range !8
+  %48 = tail call i32 @hwloc_backend_enable(ptr noundef nonnull %28)
   %49 = getelementptr inbounds i8, ptr %.01726.i, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 1
@@ -849,7 +860,7 @@ hwloc_backend_disable.exit:                       ; preds = %13, %16
   tail call void @free(ptr noundef nonnull %4) #22
   store ptr %6, ptr %2, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %hwloc_backend_disable.exit, %1
   store ptr null, ptr %2, align 8
@@ -859,7 +870,7 @@ hwloc_backend_disable.exit:                       ; preds = %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_backend_enable(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @hwloc_backend_enable(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -896,7 +907,7 @@ define noundef i32 @hwloc_backend_enable(ptr noundef %0) local_unnamed_addr #0 {
   %22 = getelementptr inbounds i8, ptr %25, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not32 = icmp eq ptr %23, null
-  br i1 %.not32, label %._crit_edge, label %24, !llvm.loop !12
+  br i1 %.not32, label %._crit_edge, label %24, !llvm.loop !11
 
 24:                                               ; preds = %.lr.ph, %21
   %25 = phi ptr [ %19, %.lr.ph ], [ %23, %21 ]
@@ -957,7 +968,7 @@ hwloc_backend_disable.exit:                       ; preds = %36, %39
   %52 = load ptr, ptr %.1, align 8
   %.not34 = icmp eq ptr %52, null
   %53 = getelementptr inbounds i8, ptr %52, i64 24
-  br i1 %.not34, label %54, label %51, !llvm.loop !13
+  br i1 %.not34, label %54, label %51, !llvm.loop !12
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1014,7 +1025,7 @@ define hidden void @hwloc_disc_components_enable_others(ptr noundef %0) local_un
 10:                                               ; preds = %.lr.ph
   store i8 0, ptr %8, align 1
   %11 = getelementptr inbounds i8, ptr %.098146, i64 1
-  %12 = tail call fastcc i32 @hwloc_disc_component_blacklist_one(ptr noundef %0, ptr noundef nonnull %11), !range !8
+  %12 = tail call fastcc i32 @hwloc_disc_component_blacklist_one(ptr noundef %0, ptr noundef nonnull %11)
   br label %13
 
 13:                                               ; preds = %10, %13
@@ -1025,7 +1036,7 @@ define hidden void @hwloc_disc_components_enable_others(ptr noundef %0) local_un
   %16 = add i32 %.096144, 1
   %17 = zext i32 %16 to i64
   %18 = icmp ugt i64 %7, %17
-  br i1 %18, label %13, label %19, !llvm.loop !14
+  br i1 %18, label %13, label %19, !llvm.loop !13
 
 19:                                               ; preds = %13
   store i8 %9, ptr %8, align 1
@@ -1038,7 +1049,7 @@ define hidden void @hwloc_disc_components_enable_others(ptr noundef %0) local_un
   %spec.select = getelementptr inbounds i8, ptr %20, i64 %spec.select.idx
   %21 = load i8, ptr %spec.select, align 1
   %.not109 = icmp eq i8 %21, 0
-  br i1 %.not109, label %.preheader139, label %.lr.ph, !llvm.loop !15
+  br i1 %.not109, label %.preheader139, label %.lr.ph, !llvm.loop !14
 
 .preheader139:                                    ; preds = %.lr.ph._crit_edge
   %.pre178 = load i8, ptr %4, align 1
@@ -1127,12 +1138,12 @@ hwloc_disc_component_find.exit.preheader:         ; preds = %.lr.ph.i
   %54 = getelementptr inbounds i8, ptr %.01726.i, i64 32
   %.017.i = load ptr, ptr %54, align 8
   %.not22.i = icmp eq ptr %.017.i, null
-  br i1 %.not22.i, label %.loopexit138, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not22.i, label %.loopexit138, label %.lr.ph.i, !llvm.loop !8
 
 hwloc_disc_component_find.exit:                   ; preds = %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit137, label %55, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit137, label %55, !llvm.loop !15
 
 55:                                               ; preds = %.lr.ph148, %hwloc_disc_component_find.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next, %hwloc_disc_component_find.exit ]
@@ -1181,7 +1192,7 @@ hwloc_disc_component_find.exit:                   ; preds = %55
   %spec.select130 = getelementptr inbounds i8, ptr %74, i64 %spec.select130.idx
   %75 = load i8, ptr %spec.select130, align 1
   %.not110 = icmp eq i8 %75, 0
-  br i1 %.not110, label %.critedge131, label %25, !llvm.loop !17
+  br i1 %.not110, label %.critedge131, label %25, !llvm.loop !16
 
 .critedge131:                                     ; preds = %._crit_edge, %.preheader141, %.preheader139, %1, %3
   %76 = phi ptr [ null, %3 ], [ null, %1 ], [ %4, %.preheader139 ], [ %4, %.preheader141 ], [ %4, %._crit_edge ]
@@ -1215,7 +1226,7 @@ hwloc_disc_component_find.exit:                   ; preds = %55
 85:                                               ; preds = %86
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
-  br i1 %exitcond177.not, label %.loopexit, label %86, !llvm.loop !18
+  br i1 %exitcond177.not, label %.loopexit, label %86, !llvm.loop !17
 
 86:                                               ; preds = %.lr.ph154, %85
   %indvars.iv173 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next174, %85 ]
@@ -1293,14 +1304,14 @@ hwloc_disc_component_find.exit:                   ; preds = %55
   store i32 %127, ptr %125, align 8
   %128 = getelementptr inbounds i8, ptr %117, i64 16
   store i32 0, ptr %128, align 8
-  %129 = tail call i32 @hwloc_backend_enable(ptr noundef nonnull %117), !range !8
+  %129 = tail call i32 @hwloc_backend_enable(ptr noundef nonnull %117)
   br label %hwloc_disc_component_try_enable.exit
 
 hwloc_disc_component_try_enable.exit:             ; preds = %124, %120, %110, %108, %118, %97, %99, %80
   %130 = getelementptr inbounds i8, ptr %.092157, i64 32
   %.092 = load ptr, ptr %130, align 8
   %.not114 = icmp eq ptr %.092, null
-  br i1 %.not114, label %.critedge, label %80, !llvm.loop !19
+  br i1 %.not114, label %.critedge, label %80, !llvm.loop !18
 
 .critedge:                                        ; preds = %27, %hwloc_disc_component_try_enable.exit, %.critedge131
   %131 = phi ptr [ %76, %.critedge131 ], [ %76, %hwloc_disc_component_try_enable.exit ], [ %4, %27 ]
@@ -1328,7 +1339,7 @@ hwloc_disc_component_try_enable.exit:             ; preds = %124, %120, %110, %1
   %144 = getelementptr inbounds i8, ptr %.093160, i64 24
   %145 = load ptr, ptr %144, align 8
   %.not116 = icmp eq ptr %145, null
-  br i1 %.not116, label %._crit_edge164, label %.lr.ph163, !llvm.loop !20
+  br i1 %.not116, label %._crit_edge164, label %.lr.ph163, !llvm.loop !19
 
 ._crit_edge164:                                   ; preds = %.lr.ph163, %133
   %146 = load ptr, ptr @stderr, align 8
@@ -1407,7 +1418,7 @@ define internal fastcc void @hwloc_disc_component_try_enable(ptr noundef %0, ptr
   store i32 %36, ptr %34, align 8
   %37 = getelementptr inbounds i8, ptr %21, i64 16
   store i32 %2, ptr %37, align 8
-  %38 = tail call i32 @hwloc_backend_enable(ptr noundef nonnull %21), !range !8
+  %38 = tail call i32 @hwloc_backend_enable(ptr noundef nonnull %21)
   br label %39
 
 39:                                               ; preds = %24, %25, %28, %12, %14, %32
@@ -1444,7 +1455,7 @@ define hidden void @hwloc_components_fini() local_unnamed_addr #0 {
   %12 = add nuw i32 %.04, 1
   %13 = load i32, ptr @hwloc_component_finalize_cb_count, align 4
   %14 = icmp ult i32 %12, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %15 = load ptr, ptr @hwloc_component_finalize_cbs, align 8
@@ -1545,7 +1556,7 @@ define hidden void @hwloc_backends_is_thissystem(ptr nocapture noundef %0) local
   %10 = getelementptr inbounds i8, ptr %.01529, i64 24
   %.015 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.015, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %9
   %11 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1575,7 +1586,7 @@ define hidden void @hwloc_backends_is_thissystem(ptr nocapture noundef %0) local
   %21 = getelementptr inbounds i8, ptr %.11633, i64 24
   %.116 = load ptr, ptr %21, align 8
   %.not19 = icmp eq ptr %.116, null
-  br i1 %.not19, label %._crit_edge36, label %.lr.ph35, !llvm.loop !23
+  br i1 %.not19, label %._crit_edge36, label %.lr.ph35, !llvm.loop !22
 
 ._crit_edge36:                                    ; preds = %20, %1, %._crit_edge
   %.3.lcssa = phi i32 [ %spec.select24, %._crit_edge ], [ 1, %1 ], [ %.4, %20 ]
@@ -1623,7 +1634,7 @@ define hidden void @hwloc_backends_find_callbacks(ptr nocapture noundef %0) loca
   %9 = getelementptr inbounds i8, ptr %.010, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %8, %1, %7
   ret void
@@ -1702,7 +1713,7 @@ attributes #29 = { nounwind allocsize(0) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -1718,4 +1729,3 @@ attributes #29 = { nounwind allocsize(0) }
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}

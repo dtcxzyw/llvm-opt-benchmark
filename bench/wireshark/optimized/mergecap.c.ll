@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [32 x i8] c"          run with -h for help\0A\00", align 1
 @.str.12 = private unnamed_addr constant [41 x i8] c"mergecap: No input files were specified\0A\00", align 1
 @.str.13 = private unnamed_addr constant [86 x i8] c"The IDB merge mode can only be used with an output format that identifies interfaces\0A\00", align 1
-@.str.14 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.15 = private unnamed_addr constant [5 x i8] c"Main\00", align 1
 @.str.16 = private unnamed_addr constant [11 x i8] c"mergecap.c\00", align 1
 @__func__.main = private unnamed_addr constant [5 x i8] c"main\00", align 1
@@ -77,7 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.49 = private unnamed_addr constant [28 x i8] c"mergecap: merging complete\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -87,69 +86,69 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store i32 %0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   store ptr null, ptr %5, align 8
-  tail call void @cmdarg_err_init(ptr noundef nonnull @mergecap_cmdarg_err, ptr noundef nonnull @mergecap_cmdarg_err_cont) #7
-  tail call void @ws_log_init(ptr noundef nonnull @.str.2, ptr noundef nonnull @vcmdarg_err) #7
-  %9 = call i32 @ws_log_parse_args(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull @vcmdarg_err, i32 noundef 1) #7
-  call void @ws_init_version_info(ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef null) #7
-  call void @init_process_policies() #7
+  tail call void @cmdarg_err_init(ptr noundef nonnull @mergecap_cmdarg_err, ptr noundef nonnull @mergecap_cmdarg_err_cont) #6
+  tail call void @ws_log_init(ptr noundef nonnull @.str.2, ptr noundef nonnull @vcmdarg_err) #6
+  %9 = call i32 @ws_log_parse_args(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull @vcmdarg_err, i32 noundef 1) #6
+  call void @ws_init_version_info(ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef null) #6
+  call void @init_process_policies() #6
   %10 = load ptr, ptr %1, align 8
-  %11 = call ptr @configuration_init(ptr noundef %10, ptr noundef null) #7
+  %11 = call ptr @configuration_init(ptr noundef %10, ptr noundef null) #6
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr @stderr, align 8
-  %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef nonnull %11) #8
-  call void @g_free(ptr noundef nonnull %11) #7
+  %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef nonnull %11) #7
+  call void @g_free(ptr noundef nonnull %11) #6
   br label %15
 
 15:                                               ; preds = %12, %2
-  call void @init_report_message(ptr noundef nonnull @.str.2, ptr noundef nonnull @main.mergecap_report_routines) #7
-  call void @wtap_init(i32 noundef 1) #7
+  call void @init_report_message(ptr noundef nonnull @.str.2, ptr noundef nonnull @main.mergecap_report_routines) #6
+  call void @wtap_init(i32 noundef 1) #6
   br label %.outer
 
 .outer:                                           ; preds = %19, %15
   %.056.ph = phi i32 [ %20, %19 ], [ 0, %15 ]
-  %.054.ph = phi i32 [ %.054.ph193, %19 ], [ 0, %15 ]
-  %.052.ph = phi i32 [ %.052.ph199, %19 ], [ 0, %15 ]
-  %.050.ph = phi i32 [ %.050.ph204, %19 ], [ -1, %15 ]
-  %.048.ph = phi ptr [ %.048.ph208, %19 ], [ null, %15 ]
-  %.0.ph = phi i32 [ %.0.ph211, %19 ], [ 3, %15 ]
-  br label %.outer192
+  %.054.ph = phi i32 [ %.054.ph195, %19 ], [ 0, %15 ]
+  %.052.ph = phi i32 [ %.052.ph201, %19 ], [ 0, %15 ]
+  %.050.ph = phi i32 [ %.050.ph206, %19 ], [ -1, %15 ]
+  %.048.ph = phi ptr [ %.048.ph210, %19 ], [ null, %15 ]
+  %.0.ph = phi i32 [ %.0.ph213, %19 ], [ 3, %15 ]
+  br label %.outer194
 
-.outer192:                                        ; preds = %.outer, %42
-  %.054.ph193 = phi i32 [ %.054.ph, %.outer ], [ 1, %42 ]
-  %.052.ph194 = phi i32 [ %.052.ph, %.outer ], [ %.052.ph199, %42 ]
-  %.050.ph195 = phi i32 [ %.050.ph, %.outer ], [ %.050.ph204, %42 ]
-  %.048.ph196 = phi ptr [ %.048.ph, %.outer ], [ %.048.ph208, %42 ]
-  %.0.ph197 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph211, %42 ]
-  br label %.outer198
+.outer194:                                        ; preds = %.outer, %42
+  %.054.ph195 = phi i32 [ %.054.ph, %.outer ], [ 1, %42 ]
+  %.052.ph196 = phi i32 [ %.052.ph, %.outer ], [ %.052.ph201, %42 ]
+  %.050.ph197 = phi i32 [ %.050.ph, %.outer ], [ %.050.ph206, %42 ]
+  %.048.ph198 = phi ptr [ %.048.ph, %.outer ], [ %.048.ph210, %42 ]
+  %.0.ph199 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph213, %42 ]
+  br label %.outer200
 
-.outer198:                                        ; preds = %.outer192, %39
-  %.052.ph199 = phi i32 [ %.052.ph194, %.outer192 ], [ %41, %39 ]
-  %.050.ph200 = phi i32 [ %.050.ph195, %.outer192 ], [ %.050.ph204, %39 ]
-  %.048.ph201 = phi ptr [ %.048.ph196, %.outer192 ], [ %.048.ph208, %39 ]
-  %.0.ph202 = phi i32 [ %.0.ph197, %.outer192 ], [ %.0.ph211, %39 ]
-  br label %.outer203
+.outer200:                                        ; preds = %.outer194, %39
+  %.052.ph201 = phi i32 [ %.052.ph196, %.outer194 ], [ %41, %39 ]
+  %.050.ph202 = phi i32 [ %.050.ph197, %.outer194 ], [ %.050.ph206, %39 ]
+  %.048.ph203 = phi ptr [ %.048.ph198, %.outer194 ], [ %.048.ph210, %39 ]
+  %.0.ph204 = phi i32 [ %.0.ph199, %.outer194 ], [ %.0.ph213, %39 ]
+  br label %.outer205
 
-.outer203:                                        ; preds = %.outer198, %21
-  %.050.ph204 = phi i32 [ %.050.ph200, %.outer198 ], [ %23, %21 ]
-  %.048.ph205 = phi ptr [ %.048.ph201, %.outer198 ], [ %.048.ph208, %21 ]
-  %.0.ph206 = phi i32 [ %.0.ph202, %.outer198 ], [ %.0.ph211, %21 ]
-  br label %.outer207
+.outer205:                                        ; preds = %.outer200, %21
+  %.050.ph206 = phi i32 [ %.050.ph202, %.outer200 ], [ %23, %21 ]
+  %.048.ph207 = phi ptr [ %.048.ph203, %.outer200 ], [ %.048.ph210, %21 ]
+  %.0.ph208 = phi i32 [ %.0.ph204, %.outer200 ], [ %.0.ph213, %21 ]
+  br label %.outer209
 
-.outer207:                                        ; preds = %.outer203, %44
-  %.048.ph208 = phi ptr [ %.048.ph205, %.outer203 ], [ %45, %44 ]
-  %.0.ph209 = phi i32 [ %.0.ph206, %.outer203 ], [ %.0.ph211, %44 ]
-  br label %.outer210
+.outer209:                                        ; preds = %.outer205, %44
+  %.048.ph210 = phi ptr [ %.048.ph207, %.outer205 ], [ %45, %44 ]
+  %.0.ph211 = phi i32 [ %.0.ph208, %.outer205 ], [ %.0.ph213, %44 ]
+  br label %.outer212
 
-.outer210:                                        ; preds = %.outer207, %31
-  %.0.ph211 = phi i32 [ %.0.ph209, %.outer207 ], [ %33, %31 ]
+.outer212:                                        ; preds = %.outer209, %31
+  %.0.ph213 = phi i32 [ %.0.ph211, %.outer209 ], [ %33, %31 ]
   br label %16
 
-16:                                               ; preds = %.outer210, %16
+16:                                               ; preds = %.outer212, %16
   %17 = load i32, ptr %3, align 4
-  %18 = call i32 @ws_getopt_long(i32 noundef %17, ptr noundef nonnull %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @main.long_options, ptr noundef null) #7
+  %18 = call i32 @ws_getopt_long(i32 noundef %17, ptr noundef nonnull %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @main.long_options, ptr noundef null) #6
   switch i32 %18, label %16 [
     i32 -1, label %59
     i32 97, label %19
@@ -169,51 +168,51 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr @ws_optarg, align 8
-  %23 = call i32 @wtap_name_to_file_type_subtype(ptr noundef %22) #7
+  %23 = call i32 @wtap_name_to_file_type_subtype(ptr noundef %22) #6
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %.outer203, !llvm.loop !5
+  br i1 %24, label %25, label %.outer205, !llvm.loop !5
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr @stderr, align 8
   %27 = load ptr, ptr @ws_optarg, align 8
-  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.6, ptr noundef %27) #8
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.6, ptr noundef %27) #7
   call fastcc void @list_capture_types()
   br label %list_idb_merge_modes.exit
 
 29:                                               ; preds = %16
-  call void @show_help_header(ptr noundef nonnull @.str.7) #7
+  call void @show_help_header(ptr noundef nonnull @.str.7) #6
   %30 = load ptr, ptr @stdout, align 8
   call fastcc void @print_usage(ptr noundef %30)
   br label %list_idb_merge_modes.exit
 
 31:                                               ; preds = %16
   %32 = load ptr, ptr @ws_optarg, align 8
-  %33 = call i32 @merge_string_to_idb_merge_mode(ptr noundef %32) #7
+  %33 = call i32 @merge_string_to_idb_merge_mode(ptr noundef %32) #6
   %34 = icmp eq i32 %33, 3
-  br i1 %34, label %35, label %.outer210, !llvm.loop !5
+  br i1 %34, label %35, label %.outer212, !llvm.loop !5
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr @stderr, align 8
   %37 = load ptr, ptr @ws_optarg, align 8
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.8, ptr noundef %37) #8
+  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.8, ptr noundef %37) #7
   call fastcc void @list_idb_merge_modes()
   br label %list_idb_merge_modes.exit
 
 39:                                               ; preds = %16
   %40 = load ptr, ptr @ws_optarg, align 8
-  %41 = call i32 @get_nonzero_guint32(ptr noundef %40, ptr noundef nonnull @.str.9) #7
-  br label %.outer198, !llvm.loop !5
+  %41 = call i32 @get_nonzero_guint32(ptr noundef %40, ptr noundef nonnull @.str.9) #6
+  br label %.outer200, !llvm.loop !5
 
 42:                                               ; preds = %16
-  br label %.outer192, !llvm.loop !5
+  br label %.outer194, !llvm.loop !5
 
 43:                                               ; preds = %16
-  call void @show_version() #7
+  call void @show_version() #6
   br label %list_idb_merge_modes.exit
 
 44:                                               ; preds = %16
   %45 = load ptr, ptr @ws_optarg, align 8
-  br label %.outer207, !llvm.loop !5
+  br label %.outer209, !llvm.loop !5
 
 46:                                               ; preds = %16
   %47 = load i32, ptr @ws_optopt, align 4
@@ -228,14 +227,14 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr @stderr, align 8
-  %51 = call i64 @fwrite(ptr nonnull @.str.40, i64 63, i64 1, ptr %50) #9
+  %51 = call i64 @fwrite(ptr nonnull @.str.40, i64 63, i64 1, ptr %50) #8
   br label %52
 
 52:                                               ; preds = %52, %49
   %.03.i = phi i32 [ 0, %49 ], [ %56, %52 ]
   %53 = load ptr, ptr @stderr, align 8
-  %54 = call ptr @merge_idb_merge_mode_to_string(i32 noundef %.03.i) #7
-  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.41, ptr noundef %54) #8
+  %54 = call ptr @merge_idb_merge_mode_to_string(i32 noundef %.03.i) #6
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.41, ptr noundef %54) #7
   %56 = add nuw nsw i32 %.03.i, 1
   %exitcond.not.i = icmp eq i32 %56, 3
   br i1 %exitcond.not.i, label %list_idb_merge_modes.exit, label %52, !llvm.loop !7
@@ -246,29 +245,29 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br label %list_idb_merge_modes.exit
 
 59:                                               ; preds = %16
-  %60 = icmp eq i32 %.050.ph204, -1
+  %60 = icmp eq i32 %.050.ph206, -1
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
-  %62 = call i32 @wtap_pcapng_file_type_subtype() #7
+  %62 = call i32 @wtap_pcapng_file_type_subtype() #6
   br label %63
 
 63:                                               ; preds = %61, %59
-  %.2 = phi i32 [ %62, %61 ], [ %.050.ph204, %59 ]
+  %.2 = phi i32 [ %62, %61 ], [ %.050.ph206, %59 ]
   store ptr @merge_callback, ptr %8, align 8
   %64 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr null, ptr %64, align 8
   %65 = load i32, ptr %3, align 4
   %66 = load i32, ptr @ws_optind, align 4
   %67 = sub i32 %65, %66
-  %.not66 = icmp eq ptr %.048.ph208, null
+  %.not66 = icmp eq ptr %.048.ph210, null
   br i1 %.not66, label %68, label %73
 
 68:                                               ; preds = %63
   %69 = load ptr, ptr @stderr, align 8
-  %70 = call i64 @fwrite(ptr nonnull @.str.10, i64 49, i64 1, ptr %69) #9
+  %70 = call i64 @fwrite(ptr nonnull @.str.10, i64 49, i64 1, ptr %69) #8
   %71 = load ptr, ptr @stderr, align 8
-  %72 = call i64 @fwrite(ptr nonnull @.str.11, i64 31, i64 1, ptr %71) #9
+  %72 = call i64 @fwrite(ptr nonnull @.str.11, i64 31, i64 1, ptr %71) #8
   br label %list_idb_merge_modes.exit
 
 73:                                               ; preds = %63
@@ -277,145 +276,157 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr @stderr, align 8
-  %77 = call i64 @fwrite(ptr nonnull @.str.12, i64 40, i64 1, ptr %76) #9
-  br label %145
+  %77 = call i64 @fwrite(ptr nonnull @.str.12, i64 40, i64 1, ptr %76) #8
+  br label %149
 
 78:                                               ; preds = %73
-  %.not67 = icmp eq i32 %.0.ph211, 3
-  br i1 %.not67, label %85, label %79
+  %.not67 = icmp eq i32 %.0.ph213, 3
+  br i1 %.not67, label %sub_0, label %79
 
 79:                                               ; preds = %78
-  %80 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %.2, i32 noundef 1) #7
+  %80 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %.2, i32 noundef 1) #6
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %85
+  br i1 %81, label %82, label %sub_0
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr @stderr, align 8
-  %84 = call i64 @fwrite(ptr nonnull @.str.13, i64 85, i64 1, ptr %83) #9
+  %84 = call i64 @fwrite(ptr nonnull @.str.13, i64 85, i64 1, ptr %83) #8
   br label %list_idb_merge_modes.exit
 
-85:                                               ; preds = %79, %78
-  %spec.store.select = phi i32 [ %.0.ph211, %79 ], [ 1, %78 ]
-  %86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.048.ph208, ptr noundef nonnull dereferenceable(2) @.str.14) #10
-  %87 = icmp eq i32 %86, 0
-  %88 = load i32, ptr @ws_optind, align 4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr ptr, ptr %1, i64 %89
-  %91 = call ptr @get_appname_and_version() #7
-  %.not69 = icmp eq i32 %.054.ph193, 0
+sub_0:                                            ; preds = %78, %79
+  %spec.store.select = phi i32 [ %.0.ph213, %79 ], [ 1, %78 ]
+  %85 = load i8, ptr %.048.ph210, align 1
+  %.not102 = icmp eq i8 %85, 45
+  br i1 %.not102, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_0
+  %86 = getelementptr inbounds i8, ptr %.048.ph210, i64 1
+  %87 = load i8, ptr %86, align 1
+  %88 = icmp eq i8 %87, 0
+  br i1 %88, label %89, label %.tail.thread
+
+89:                                               ; preds = %.tail
+  %90 = load i32, ptr @ws_optind, align 4
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr ptr, ptr %1, i64 %91
+  %93 = call ptr @get_appname_and_version() #6
+  %.not69 = icmp eq i32 %.054.ph195, 0
   %. = select i1 %.not69, ptr null, ptr %8
-  br i1 %87, label %92, label %94
+  %94 = call i32 @merge_files_to_stdout(i32 noundef %.2, ptr noundef %92, i32 noundef %67, i32 noundef %.056.ph, i32 noundef %spec.store.select, i32 noundef %.052.ph201, ptr noundef %93, ptr noundef %., ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
+  br label %100
 
-92:                                               ; preds = %85
-  %93 = call i32 @merge_files_to_stdout(i32 noundef %.2, ptr noundef %90, i32 noundef %67, i32 noundef %.056.ph, i32 noundef %spec.store.select, i32 noundef %.052.ph199, ptr noundef %91, ptr noundef %., ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
-  br label %96
+.tail.thread:                                     ; preds = %sub_0, %.tail
+  %95 = load i32, ptr @ws_optind, align 4
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr ptr, ptr %1, i64 %96
+  %98 = call ptr @get_appname_and_version() #6
+  %.not68 = icmp eq i32 %.054.ph195, 0
+  %.1 = select i1 %.not68, ptr null, ptr %8
+  %99 = call i32 @merge_files(ptr noundef nonnull %.048.ph210, i32 noundef %.2, ptr noundef %97, i32 noundef %67, i32 noundef %.056.ph, i32 noundef %spec.store.select, i32 noundef %.052.ph201, ptr noundef %98, ptr noundef %.1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
+  br label %100
 
-94:                                               ; preds = %85
-  %95 = call i32 @merge_files(ptr noundef nonnull %.048.ph208, i32 noundef %.2, ptr noundef %90, i32 noundef %67, i32 noundef %.056.ph, i32 noundef %spec.store.select, i32 noundef %.052.ph199, ptr noundef %91, ptr noundef %., ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
-  br label %96
-
-96:                                               ; preds = %94, %92
-  %.046 = phi i32 [ %93, %92 ], [ %95, %94 ]
-  switch i32 %.046, label %144 [
+100:                                              ; preds = %.tail.thread, %89
+  %.046 = phi i32 [ %94, %89 ], [ %99, %.tail.thread ]
+  switch i32 %.046, label %148 [
     i32 0, label %list_idb_merge_modes.exit
-    i32 1, label %97
-    i32 2, label %98
-    i32 3, label %107
-    i32 4, label %110
-    i32 5, label %119
-    i32 6, label %127
-    i32 7, label %137
-    i32 8, label %140
+    i32 1, label %101
+    i32 2, label %102
+    i32 3, label %111
+    i32 4, label %114
+    i32 5, label %123
+    i32 6, label %131
+    i32 7, label %141
+    i32 8, label %144
   ]
 
-97:                                               ; preds = %96
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.15, i32 noundef 7, ptr noundef nonnull @.str.16, i64 noundef 390, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.17) #11
+101:                                              ; preds = %100
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.15, i32 noundef 7, ptr noundef nonnull @.str.16, i64 noundef 390, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.17) #9
   unreachable
 
-98:                                               ; preds = %96
-  %99 = load i32, ptr @ws_optind, align 4
-  %100 = load i32, ptr %6, align 4
-  %101 = add i32 %100, %99
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr ptr, ptr %1, i64 %102
-  %104 = load ptr, ptr %103, align 8
-  %105 = load i32, ptr %4, align 4
-  %106 = load ptr, ptr %5, align 8
-  call void @cfile_open_failure_message(ptr noundef %104, i32 noundef %105, ptr noundef %106) #7
+102:                                              ; preds = %100
+  %103 = load i32, ptr @ws_optind, align 4
+  %104 = load i32, ptr %6, align 4
+  %105 = add i32 %104, %103
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr ptr, ptr %1, i64 %106
+  %108 = load ptr, ptr %107, align 8
+  %109 = load i32, ptr %4, align 4
+  %110 = load ptr, ptr %5, align 8
+  call void @cfile_open_failure_message(ptr noundef %108, i32 noundef %109, ptr noundef %110) #6
   br label %list_idb_merge_modes.exit
 
-107:                                              ; preds = %96
-  %108 = load i32, ptr %4, align 4
-  %109 = load ptr, ptr %5, align 8
-  call void @cfile_dump_open_failure_message(ptr noundef nonnull %.048.ph208, i32 noundef %108, ptr noundef %109, i32 noundef %.2) #7
+111:                                              ; preds = %100
+  %112 = load i32, ptr %4, align 4
+  %113 = load ptr, ptr %5, align 8
+  call void @cfile_dump_open_failure_message(ptr noundef nonnull %.048.ph210, i32 noundef %112, ptr noundef %113, i32 noundef %.2) #6
   br label %list_idb_merge_modes.exit
 
-110:                                              ; preds = %96
-  %111 = load i32, ptr @ws_optind, align 4
-  %112 = load i32, ptr %6, align 4
-  %113 = add i32 %112, %111
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr ptr, ptr %1, i64 %114
-  %116 = load ptr, ptr %115, align 8
-  %117 = load i32, ptr %4, align 4
-  %118 = load ptr, ptr %5, align 8
-  call void @cfile_read_failure_message(ptr noundef %116, i32 noundef %117, ptr noundef %118) #7
+114:                                              ; preds = %100
+  %115 = load i32, ptr @ws_optind, align 4
+  %116 = load i32, ptr %6, align 4
+  %117 = add i32 %116, %115
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr ptr, ptr %1, i64 %118
+  %120 = load ptr, ptr %119, align 8
+  %121 = load i32, ptr %4, align 4
+  %122 = load ptr, ptr %5, align 8
+  call void @cfile_read_failure_message(ptr noundef %120, i32 noundef %121, ptr noundef %122) #6
   br label %list_idb_merge_modes.exit
 
-119:                                              ; preds = %96
-  %120 = load i32, ptr %7, align 4
-  %121 = load i32, ptr @ws_optind, align 4
-  %122 = load i32, ptr %6, align 4
-  %123 = add i32 %122, %121
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr ptr, ptr %1, i64 %124
-  %126 = load ptr, ptr %125, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.18, i32 noundef %120, ptr noundef %126) #7
+123:                                              ; preds = %100
+  %124 = load i32, ptr %7, align 4
+  %125 = load i32, ptr @ws_optind, align 4
+  %126 = load i32, ptr %6, align 4
+  %127 = add i32 %126, %125
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr ptr, ptr %1, i64 %128
+  %130 = load ptr, ptr %129, align 8
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.18, i32 noundef %124, ptr noundef %130) #6
   br label %list_idb_merge_modes.exit
 
-127:                                              ; preds = %96
-  %128 = load i32, ptr @ws_optind, align 4
-  %129 = load i32, ptr %6, align 4
-  %130 = add i32 %129, %128
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr ptr, ptr %1, i64 %131
-  %133 = load ptr, ptr %132, align 8
-  %134 = load i32, ptr %4, align 4
-  %135 = load ptr, ptr %5, align 8
-  %136 = load i32, ptr %7, align 4
-  call void @cfile_write_failure_message(ptr noundef %133, ptr noundef nonnull %.048.ph208, i32 noundef %134, ptr noundef %135, i32 noundef %136, i32 noundef %.2) #7
-  br label %list_idb_merge_modes.exit
-
-137:                                              ; preds = %96
+131:                                              ; preds = %100
+  %132 = load i32, ptr @ws_optind, align 4
+  %133 = load i32, ptr %6, align 4
+  %134 = add i32 %133, %132
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr ptr, ptr %1, i64 %135
+  %137 = load ptr, ptr %136, align 8
   %138 = load i32, ptr %4, align 4
   %139 = load ptr, ptr %5, align 8
-  call void @cfile_close_failure_message(ptr noundef nonnull %.048.ph208, i32 noundef %138, ptr noundef %139) #7
+  %140 = load i32, ptr %7, align 4
+  call void @cfile_write_failure_message(ptr noundef %137, ptr noundef nonnull %.048.ph210, i32 noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %.2) #6
   br label %list_idb_merge_modes.exit
 
-140:                                              ; preds = %96
-  %141 = load ptr, ptr %5, align 8
-  %.not70 = icmp eq ptr %141, null
-  br i1 %.not70, label %143, label %142
-
-142:                                              ; preds = %140
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.19, ptr noundef nonnull %141) #7
+141:                                              ; preds = %100
+  %142 = load i32, ptr %4, align 4
+  %143 = load ptr, ptr %5, align 8
+  call void @cfile_close_failure_message(ptr noundef nonnull %.048.ph210, i32 noundef %142, ptr noundef %143) #6
   br label %list_idb_merge_modes.exit
 
-143:                                              ; preds = %140
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.20) #7
+144:                                              ; preds = %100
+  %145 = load ptr, ptr %5, align 8
+  %.not70 = icmp eq ptr %145, null
+  br i1 %.not70, label %147, label %146
+
+146:                                              ; preds = %144
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.19, ptr noundef nonnull %145) #6
   br label %list_idb_merge_modes.exit
 
-144:                                              ; preds = %96
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, i32 noundef %.046) #7
+147:                                              ; preds = %144
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.20) #6
   br label %list_idb_merge_modes.exit
 
-list_idb_merge_modes.exit:                        ; preds = %52, %48, %57, %98, %107, %110, %119, %127, %137, %144, %96, %143, %142, %82, %68, %43, %35, %29, %25
-  %.147 = phi i32 [ 0, %43 ], [ 2, %35 ], [ 0, %29 ], [ 2, %25 ], [ 2, %82 ], [ 2, %144 ], [ 2, %142 ], [ 2, %143 ], [ 2, %137 ], [ 2, %127 ], [ 2, %119 ], [ 2, %110 ], [ 2, %107 ], [ 2, %98 ], [ %.046, %96 ], [ 2, %68 ], [ 2, %57 ], [ 2, %48 ], [ 2, %52 ]
-  call void @wtap_cleanup() #7
-  call void @free_progdirs() #7
-  br label %145
+148:                                              ; preds = %100
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, i32 noundef %.046) #6
+  br label %list_idb_merge_modes.exit
 
-145:                                              ; preds = %list_idb_merge_modes.exit, %75
+list_idb_merge_modes.exit:                        ; preds = %52, %48, %57, %102, %111, %114, %123, %131, %141, %148, %100, %147, %146, %82, %68, %43, %35, %29, %25
+  %.147 = phi i32 [ 0, %43 ], [ 2, %35 ], [ 0, %29 ], [ 2, %25 ], [ 2, %82 ], [ 2, %148 ], [ 2, %146 ], [ 2, %147 ], [ 2, %141 ], [ 2, %131 ], [ 2, %123 ], [ 2, %114 ], [ 2, %111 ], [ 2, %102 ], [ %.046, %100 ], [ 2, %68 ], [ 2, %57 ], [ 2, %48 ], [ 2, %52 ]
+  call void @wtap_cleanup() #6
+  call void @free_progdirs() #6
+  br label %149
+
+149:                                              ; preds = %list_idb_merge_modes.exit, %75
   %.058 = phi i32 [ %.147, %list_idb_merge_modes.exit ], [ 1, %75 ]
   ret i32 %.058
 }
@@ -443,9 +454,9 @@ declare void @cmdarg_err_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind uwtable
 define internal void @mergecap_cmdarg_err(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 10, i64 1, ptr %3) #9
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 10, i64 1, ptr %3) #8
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef %1) #8
+  %6 = tail call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef %1) #7
   %7 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %7)
   ret void
@@ -454,7 +465,7 @@ define internal void @mergecap_cmdarg_err(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: nofree nounwind uwtable
 define internal void @mergecap_cmdarg_err_cont(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #8
+  %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #7
   %5 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %5)
   ret void
@@ -488,8 +499,8 @@ declare i32 @wtap_name_to_file_type_subtype(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @list_capture_types() unnamed_addr #0 {
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 66, i64 1, ptr %1) #9
-  %3 = tail call ptr @wtap_get_writable_file_types_subtypes(i32 noundef 0) #7
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 66, i64 1, ptr %1) #8
+  %3 = tail call ptr @wtap_get_writable_file_types_subtypes(i32 noundef 0) #6
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -501,9 +512,9 @@ define internal fastcc void @list_capture_types() unnamed_addr #0 {
   %7 = getelementptr i32, ptr %6, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %8) #7
-  %11 = tail call ptr @wtap_file_type_subtype_description(i32 noundef %8) #7
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.25, ptr noundef %10, ptr noundef %11) #8
+  %10 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %8) #6
+  %11 = tail call ptr @wtap_file_type_subtype_description(i32 noundef %8) #6
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.25, ptr noundef %10, ptr noundef %11) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %4, align 8
   %14 = zext i32 %13 to i64
@@ -511,7 +522,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #0 {
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
-  %16 = tail call ptr @g_array_free(ptr noundef nonnull %3, i32 noundef 1) #7
+  %16 = tail call ptr @g_array_free(ptr noundef nonnull %3, i32 noundef 1) #6
   ret void
 }
 
@@ -544,14 +555,14 @@ declare i32 @merge_string_to_idb_merge_mode(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @list_idb_merge_modes() unnamed_addr #0 {
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 63, i64 1, ptr %1) #9
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 63, i64 1, ptr %1) #8
   br label %3
 
 3:                                                ; preds = %0, %3
   %.03 = phi i32 [ 0, %0 ], [ %7, %3 ]
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call ptr @merge_idb_merge_mode_to_string(i32 noundef %.03) #7
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.41, ptr noundef %5) #8
+  %5 = tail call ptr @merge_idb_merge_mode_to_string(i32 noundef %.03) #6
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.41, ptr noundef %5) #7
   %7 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %7, 3
   br i1 %exitcond.not, label %8, label %3, !llvm.loop !7
@@ -591,9 +602,9 @@ define internal noundef i32 @merge_callback(i32 noundef %0, i32 noundef %1, ptr 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @wtap_file_type_subtype(ptr noundef %10) #7
-  %12 = tail call ptr @wtap_file_type_subtype_description(i32 noundef %11) #7
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.42, ptr noundef %8, ptr noundef %12) #8
+  %11 = tail call i32 @wtap_file_type_subtype(ptr noundef %10) #6
+  %12 = tail call ptr @wtap_file_type_subtype_description(i32 noundef %11) #6
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.42, ptr noundef %8, ptr noundef %12) #7
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
   br i1 %exitcond42.not, label %.loopexit, label %.lr.ph32, !llvm.loop !9
@@ -605,7 +616,7 @@ define internal noundef i32 @merge_callback(i32 noundef %0, i32 noundef %1, ptr 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 @wtap_file_encap(ptr noundef %18) #7
+  %19 = tail call i32 @wtap_file_encap(ptr noundef %18) #6
   %20 = icmp ugt i32 %3, 1
   br i1 %20, label %.lr.ph.preheader, label %.loopexit28
 
@@ -623,47 +634,47 @@ define internal noundef i32 @merge_callback(i32 noundef %0, i32 noundef %1, ptr 
   %22 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @wtap_file_encap(ptr noundef %24) #7
+  %25 = tail call i32 @wtap_file_encap(ptr noundef %24) #6
   %.not = icmp eq i32 %19, %25
   br i1 %.not, label %21, label %26
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 54, i64 1, ptr %27) #9
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 54, i64 1, ptr %27) #8
   %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 46, i64 1, ptr %29) #9
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 46, i64 1, ptr %29) #8
   %31 = load ptr, ptr @stderr, align 8
   %32 = load ptr, ptr %2, align 8
-  %33 = tail call ptr @wtap_encap_description(i32 noundef %19) #7
-  %34 = tail call ptr @wtap_encap_name(i32 noundef %19) #7
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.45, ptr noundef %32, ptr noundef %33, ptr noundef %34) #8
+  %33 = tail call ptr @wtap_encap_description(i32 noundef %19) #6
+  %34 = tail call ptr @wtap_encap_name(i32 noundef %19) #6
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.45, ptr noundef %32, ptr noundef %33, ptr noundef %34) #7
   %36 = load ptr, ptr @stderr, align 8
   %37 = load ptr, ptr %22, align 8
-  %38 = tail call ptr @wtap_encap_description(i32 noundef %25) #7
-  %39 = tail call ptr @wtap_encap_name(i32 noundef %25) #7
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.45, ptr noundef %37, ptr noundef %38, ptr noundef %39) #8
+  %38 = tail call ptr @wtap_encap_description(i32 noundef %25) #6
+  %39 = tail call ptr @wtap_encap_name(i32 noundef %25) #6
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.45, ptr noundef %37, ptr noundef %38, ptr noundef %39) #7
   br label %.loopexit28
 
 .loopexit28:                                      ; preds = %21, %16, %26, %14
   %41 = load ptr, ptr @stderr, align 8
-  %42 = tail call ptr @wtap_encap_description(i32 noundef %1) #7
-  %43 = tail call ptr @wtap_encap_name(i32 noundef %1) #7
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.46, ptr noundef %42, ptr noundef %43) #8
+  %42 = tail call ptr @wtap_encap_description(i32 noundef %1) #6
+  %43 = tail call ptr @wtap_encap_name(i32 noundef %1) #6
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.46, ptr noundef %42, ptr noundef %43) #7
   br label %.loopexit
 
 45:                                               ; preds = %5
   %46 = load ptr, ptr @stderr, align 8
-  %47 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 33, i64 1, ptr %46) #9
+  %47 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 33, i64 1, ptr %46) #8
   br label %.loopexit
 
 48:                                               ; preds = %5
   %49 = load ptr, ptr @stderr, align 8
-  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.48, i32 noundef %1) #8
+  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.48, i32 noundef %1) #7
   br label %.loopexit
 
 51:                                               ; preds = %5
   %52 = load ptr, ptr @stderr, align 8
-  %53 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 27, i64 1, ptr %52) #9
+  %53 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 27, i64 1, ptr %52) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph32, %.preheader, %51, %48, %45, %.loopexit28, %5
@@ -672,9 +683,6 @@ define internal noundef i32 @merge_callback(i32 noundef %0, i32 noundef %1, ptr 
 
 declare i32 @wtap_file_type_subtype_supports_block(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
-
 declare i32 @merge_files_to_stdout(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @get_appname_and_version() local_unnamed_addr #1
@@ -682,7 +690,7 @@ declare ptr @get_appname_and_version() local_unnamed_addr #1
 declare i32 @merge_files(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #1
 
@@ -712,23 +720,21 @@ declare ptr @wtap_encap_description(i32 noundef) local_unnamed_addr #1
 declare ptr @wtap_encap_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
-attributes #9 = { cold }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { noreturn nounwind }
+attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
+attributes #8 = { cold }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

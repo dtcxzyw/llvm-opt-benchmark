@@ -1089,7 +1089,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.199 = private unnamed_addr constant [26 x i8] c"failed to decode TESTHOME\00", align 1
 @.str.200 = private unnamed_addr constant [10 x i8] c"TESTHOME=\00", align 1
 @.str.201 = private unnamed_addr constant [23 x i8] c"NEGATIVE_ISPYTHONBUILD\00", align 1
-@.str.202 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.203 = private unnamed_addr constant [43 x i8] c"PYTHONWARNINGS=ignore:::env1,ignore:::env2\00", align 1
 @.str.204 = private unnamed_addr constant [30 x i32] [i32 105, i32 103, i32 110, i32 111, i32 114, i32 101, i32 58, i32 58, i32 58, i32 80, i32 121, i32 83, i32 121, i32 115, i32 95, i32 65, i32 100, i32 100, i32 87, i32 97, i32 114, i32 110, i32 79, i32 112, i32 116, i32 105, i32 111, i32 110, i32 49, i32 0], align 4
 @.str.205 = private unnamed_addr constant [30 x i32] [i32 105, i32 103, i32 110, i32 111, i32 114, i32 101, i32 58, i32 58, i32 58, i32 80, i32 121, i32 83, i32 121, i32 115, i32 95, i32 65, i32 100, i32 100, i32 87, i32 97, i32 114, i32 110, i32 79, i32 112, i32 116, i32 105, i32 111, i32 110, i32 50, i32 0], align 4
@@ -1251,7 +1250,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_repeated_init_exec() #0 {
+define internal range(i32 0, 2) i32 @test_repeated_init_exec() #0 {
 entry:
   %0 = load i32, ptr @main_argc, align 4
   %cmp = icmp slt i32 %0, 3
@@ -1461,7 +1460,7 @@ return:                                           ; preds = %for.cond, %init_fro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_pre_initialization_api() #0 {
+define internal range(i32 0, 2) i32 @test_pre_initialization_api() #0 {
 entry:
   %call = tail call i32 @putenv(ptr noundef nonnull @.str.85) #16
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -1548,7 +1547,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_bpo20891() #0 {
+define internal range(i32 0, 2) i32 @test_bpo20891() #0 {
 entry:
   %lock = alloca ptr, align 8
   %call = tail call i32 @putenv(ptr noundef nonnull @.str.85) #16
@@ -2678,7 +2677,7 @@ fail:                                             ; preds = %if.end, %config_set
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_init_setpath() #0 {
+define internal range(i32 0, 2) i32 @test_init_setpath() #0 {
 entry:
   %call = tail call ptr @getenv(ptr noundef nonnull @.str.191) #16
   %tobool.not = icmp eq ptr %call, null
@@ -2718,7 +2717,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_init_setpath_config() #0 {
+define internal range(i32 0, 2) i32 @test_init_setpath_config() #0 {
 entry:
   %status.i12 = alloca %struct.PyStatus, align 8
   %status.i7 = alloca %struct.PyStatus, align 8
@@ -2816,7 +2815,7 @@ return:                                           ; preds = %init_from_config_cl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_init_setpythonhome() #0 {
+define internal range(i32 0, 2) i32 @test_init_setpythonhome() #0 {
 entry:
   %call = tail call ptr @getenv(ptr noundef nonnull @.str.197) #16
   %tobool.not = icmp eq ptr %call, null
@@ -2856,7 +2855,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_init_is_python_build() #0 {
+define internal range(i32 0, 2) i32 @test_init_is_python_build() #0 {
 entry:
   %status.i13 = alloca %struct.PyStatus, align 8
   %status.i9 = alloca %struct.PyStatus, align 8
@@ -2922,18 +2921,24 @@ config_set_string.exit:                           ; preds = %config_set_program_
   store i32 2147483647, ptr %_is_python_build, align 8
   %call6 = call ptr @getenv(ptr noundef nonnull @.str.201) #16
   %tobool7.not = icmp eq ptr %call6, null
-  br i1 %tobool7.not, label %if.end12, label %land.lhs.true
+  br i1 %tobool7.not, label %if.end12, label %sub_0
 
-land.lhs.true:                                    ; preds = %config_set_string.exit
-  %call8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call6, ptr noundef nonnull dereferenceable(2) @.str.202) #15
-  %cmp9.not = icmp eq i32 %call8, 0
-  br i1 %cmp9.not, label %if.end12, label %if.then10
+sub_0:                                            ; preds = %config_set_string.exit
+  %4 = load i8, ptr %call6, align 1
+  %.not = icmp eq i8 %4, 48
+  br i1 %.not, label %land.lhs.true.tail, label %if.then10
 
-if.then10:                                        ; preds = %land.lhs.true
+land.lhs.true.tail:                               ; preds = %sub_0
+  %5 = getelementptr inbounds i8, ptr %call6, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %if.end12, label %if.then10
+
+if.then10:                                        ; preds = %sub_0, %land.lhs.true.tail
   store i32 -2147483648, ptr %_is_python_build, align 8
   br label %if.end12
 
-if.end12:                                         ; preds = %if.then10, %land.lhs.true, %config_set_string.exit
+if.end12:                                         ; preds = %if.then10, %land.lhs.true.tail, %config_set_string.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i9)
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i9, ptr noundef nonnull %config) #16
   call void @PyConfig_Clear(ptr noundef nonnull %config) #16
@@ -3086,7 +3091,7 @@ init_from_config_clear.exit:                      ; preds = %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_init_set_config() #0 {
+define internal range(i32 0, 2) i32 @test_init_set_config() #0 {
 entry:
   %config.i = alloca %struct.PyConfig, align 8
   %status.i1 = alloca %struct.PyStatus, align 8
@@ -3333,7 +3338,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %call5 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.214, i32 noundef %6, ptr noundef %5)
   %7 = load ptr, ptr %get_argv, align 8
   %arrayidx7 = getelementptr ptr, ptr %7, i64 %indvars.iv
@@ -3356,7 +3361,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_init_use_frozen_modules() #0 {
+define internal range(i32 -1, 1) i32 @test_init_use_frozen_modules() #0 {
 entry:
   %status.i3.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
@@ -3664,7 +3669,7 @@ _test_audit.exit:                                 ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_audit_tuple() #0 {
+define internal range(i32 0, 32) i32 @test_audit_tuple() #0 {
 entry:
   %sawSet = alloca i64, align 8
   store i64 0, ptr %sawSet, align 8
@@ -4815,7 +4820,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #4
 declare i32 @PySys_AddAuditHook(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_audit_hook(ptr nocapture noundef readonly %event, ptr noundef %args, ptr noundef %userdata) #0 {
+define internal range(i32 -1, 1) i32 @_audit_hook(ptr nocapture noundef readonly %event, ptr noundef %args, ptr noundef %userdata) #0 {
 entry:
   %tobool.not = icmp eq ptr %args, null
   br i1 %tobool.not, label %cond.false, label %land.lhs.true
@@ -4904,7 +4909,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_audit_hook_run(ptr noundef %eventName, ptr noundef %args, ptr nocapture noundef readonly %userData) #0 {
+define internal range(i32 -1, 1) i32 @_audit_hook_run(ptr noundef %eventName, ptr noundef %args, ptr nocapture noundef readonly %userData) #0 {
 entry:
   %0 = load ptr, ptr %userData, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %eventName, ptr noundef nonnull dereferenceable(1) %0) #15

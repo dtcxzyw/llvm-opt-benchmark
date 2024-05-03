@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [34 x i8] c"Output on stderr before test %d.\0A\00", align 1
 @.str.6 = private unnamed_addr constant [33 x i8] c"Output on stdout after test %d.\0A\00", align 1
 @.str.7 = private unnamed_addr constant [33 x i8] c"Output on stderr after test %d.\0A\00", align 1
-@.str.8 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.9 = private unnamed_addr constant [25 x i8] c"Usage: %s <test number>\0A\00", align 1
 @.str.10 = private unnamed_addr constant [30 x i8] c"WaitForData timeout reached.\0A\00", align 1
 @.str.11 = private unnamed_addr constant [30 x i8] c"Poll count reached limit %d.\0A\00", align 1
@@ -824,28 +823,34 @@ test9_grandchild.exit:                            ; preds = %194, %199
 
 305:                                              ; preds = %238
   %306 = icmp sgt i32 %0, 2
-  br i1 %306, label %307, label %315
+  br i1 %306, label %sub_0, label %.tail.thread
 
-307:                                              ; preds = %305
-  %308 = getelementptr inbounds i8, ptr %1, i64 8
-  %309 = load ptr, ptr %308, align 8
-  %310 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %309, ptr noundef nonnull dereferenceable(2) @.str.8) #15
-  %311 = icmp eq i32 %310, 0
-  br i1 %311, label %312, label %315
+sub_0:                                            ; preds = %305
+  %307 = getelementptr inbounds i8, ptr %1, i64 8
+  %308 = load ptr, ptr %307, align 8
+  %309 = load i8, ptr %308, align 1
+  %.not94 = icmp eq i8 %309, 48
+  br i1 %.not94, label %.tail, label %.tail.thread
 
-312:                                              ; preds = %307
-  %313 = getelementptr inbounds i8, ptr %1, i64 16
-  %314 = tail call i32 @runChild(ptr noundef nonnull %313, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 poison, double noundef 0.000000e+00, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+.tail:                                            ; preds = %sub_0
+  %310 = getelementptr inbounds i8, ptr %308, i64 1
+  %311 = load i8, ptr %310, align 1
+  %312 = icmp eq i8 %311, 0
+  br i1 %312, label %313, label %.tail.thread
+
+313:                                              ; preds = %.tail
+  %314 = getelementptr inbounds i8, ptr %1, i64 16
+  %315 = tail call i32 @runChild(ptr noundef nonnull %314, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 poison, double noundef 0.000000e+00, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %319
 
-315:                                              ; preds = %307, %305
+.tail.thread:                                     ; preds = %sub_0, %.tail, %305
   %316 = load ptr, ptr @stdout, align 8
   %317 = load ptr, ptr %1, align 8
   %318 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %316, ptr noundef nonnull @.str.9, ptr noundef %317) #12
   br label %319
 
-319:                                              ; preds = %315, %312, %260, %235, %217, %test9_grandchild.exit, %180, %159, %137, %116, %98, %70, %57, %43, %38, %33
-  %.0 = phi i32 [ 1, %235 ], [ 0, %217 ], [ %.0.i, %test9_grandchild.exit ], [ 0, %180 ], [ %171, %159 ], [ %149, %137 ], [ %128, %116 ], [ 0, %98 ], [ %82, %70 ], [ 0, %57 ], [ 0, %43 ], [ 123, %38 ], [ 0, %33 ], [ %296, %260 ], [ %314, %312 ], [ 1, %315 ]
+319:                                              ; preds = %.tail.thread, %313, %260, %235, %217, %test9_grandchild.exit, %180, %159, %137, %116, %98, %70, %57, %43, %38, %33
+  %.0 = phi i32 [ 1, %235 ], [ 0, %217 ], [ %.0.i, %test9_grandchild.exit ], [ 0, %180 ], [ %171, %159 ], [ %149, %137 ], [ %128, %116 ], [ 0, %98 ], [ %82, %70 ], [ 0, %57 ], [ 0, %43 ], [ 123, %38 ], [ 0, %33 ], [ %296, %260 ], [ %315, %313 ], [ 1, %.tail.thread ]
   ret i32 %.0
 }
 

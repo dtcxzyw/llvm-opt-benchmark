@@ -58,9 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [24 x i8] c"failed waiting for data\00", align 1
 @.str.39 = private unnamed_addr constant [6 x i8] c"HTTP/\00", align 1
 @.str.40 = private unnamed_addr constant [44 x i8] c"%s: HTTP CONNECT failed, non-HTTP response\0A\00", align 1
-@.str.41 = private unnamed_addr constant [3 x i8] c"1.\00", align 1
 @.str.42 = private unnamed_addr constant [48 x i8] c"%s: HTTP CONNECT failed, bad HTTP version %.*s\0A\00", align 1
-@.str.43 = private unnamed_addr constant [3 x i8] c" 2\00", align 1
 @.str.44 = private unnamed_addr constant [10 x i8] c"reason=%s\00", align 1
 @.str.45 = private unnamed_addr constant [36 x i8] c"%s: HTTP CONNECT failed, reason=%s\0A\00", align 1
 @__func__.set1_content = private unnamed_addr constant [13 x i8] c"set1_content\00", align 1
@@ -261,7 +259,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HTTP_REQ_CTX_set_request_line(ptr noundef %rctx, i32 noundef %method_POST, ptr noundef %server, ptr noundef %port, ptr noundef %path) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set_request_line(ptr noundef %rctx, i32 noundef %method_POST, ptr noundef %server, ptr noundef %port, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -369,7 +367,7 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef readonly %rctx, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef readonly %rctx, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rctx, null
   %cmp1 = icmp eq ptr %name, null
@@ -432,7 +430,7 @@ declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HTTP_REQ_CTX_set_expected(ptr noundef %rctx, ptr noundef %content_type, i32 noundef %asn1, i32 noundef %timeout, i32 noundef %keep_alive) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set_expected(ptr noundef %rctx, ptr noundef %content_type, i32 noundef %asn1, i32 noundef %timeout, i32 noundef %keep_alive) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -513,7 +511,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HTTP_REQ_CTX_set1_req(ptr noundef %rctx, ptr noundef %content_type, ptr noundef %it, ptr noundef %req) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set1_req(ptr noundef %rctx, ptr noundef %content_type, ptr noundef %it, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %req, null
   br i1 %cmp.not, label %land.rhs, label %if.end
@@ -525,7 +523,7 @@ if.end:                                           ; preds = %entry
 
 land.rhs:                                         ; preds = %entry, %if.end
   %mem.06 = phi ptr [ %call, %if.end ], [ null, %entry ]
-  %call2 = tail call fastcc i32 @set1_content(ptr noundef %rctx, ptr noundef %content_type, ptr noundef %mem.06), !range !4
+  %call2 = tail call fastcc i32 @set1_content(ptr noundef %rctx, ptr noundef %content_type, ptr noundef %mem.06)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end
@@ -538,7 +536,7 @@ land.end:                                         ; preds = %land.rhs, %if.end
 declare ptr @ASN1_item_i2d_mem_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set1_content(ptr noundef %rctx, ptr noundef %content_type, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set1_content(ptr noundef %rctx, ptr noundef %content_type, ptr noundef %req) unnamed_addr #0 {
 entry:
   %fp = alloca ptr, align 8
   store ptr null, ptr %fp, align 8
@@ -564,7 +562,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp3.not, label %if.end6, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %if.end
-  %call = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull %rctx, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16), !range !4
+  %call = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull %rctx, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end6
 
@@ -675,7 +673,7 @@ return:                                           ; preds = %if.end52, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef %rctx) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef %rctx) local_unnamed_addr #0 {
 entry:
   %end.i = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -1052,7 +1050,7 @@ for.inc.i:                                        ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %code.051.i, i64 1
   %47 = load i8, ptr %incdec.ptr.i, align 1
   %cmp4.not.i = icmp eq i8 %47, 0
-  br i1 %cmp4.not.i, label %err91.i, label %land.rhs.i, !llvm.loop !5
+  br i1 %cmp4.not.i, label %err91.i, label %land.rhs.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %land.rhs.i
   %.pr.i = load i8, ptr %code.051.i, align 1
@@ -1071,7 +1069,7 @@ while.body.i:                                     ; preds = %land.rhs16.i
   %incdec.ptr21.i = getelementptr inbounds i8, ptr %code.152.i, i64 1
   %.pr42.i = load i8, ptr %incdec.ptr21.i, align 1
   %cmp14.not.i = icmp eq i8 %.pr42.i, 0
-  br i1 %cmp14.not.i, label %err91.i, label %land.rhs16.i, !llvm.loop !7
+  br i1 %cmp14.not.i, label %err91.i, label %land.rhs16.i, !llvm.loop !6
 
 while.end.i:                                      ; preds = %land.rhs16.i
   %.pre.i = load i8, ptr %code.152.i, align 1
@@ -1090,7 +1088,7 @@ for.inc38.i:                                      ; preds = %land.rhs31.i
   %incdec.ptr39.i = getelementptr inbounds i8, ptr %reason.053.i, i64 1
   %.pr43.i = load i8, ptr %incdec.ptr39.i, align 1
   %cmp29.not.i = icmp eq i8 %.pr43.i, 0
-  br i1 %cmp29.not.i, label %err91.i, label %land.rhs31.i, !llvm.loop !8
+  br i1 %cmp29.not.i, label %err91.i, label %land.rhs31.i, !llvm.loop !7
 
 for.end40.i:                                      ; preds = %land.rhs31.i
   %.pre65.i = load i8, ptr %reason.053.i, align 1
@@ -1117,7 +1115,7 @@ land.rhs58.i:                                     ; preds = %while.cond54.i
   %conv55.i = sext i8 %53 to i32
   %call60.i = call i32 @ossl_ctype_check(i32 noundef %conv55.i, i32 noundef 8) #9
   %tobool61.not.i = icmp eq i32 %call60.i, 0
-  br i1 %tobool61.not.i, label %while.end65.i, label %while.cond54.i, !llvm.loop !9
+  br i1 %tobool61.not.i, label %while.end65.i, label %while.cond54.i, !llvm.loop !8
 
 while.end65.i:                                    ; preds = %land.rhs58.i
   %.pr44.i = load i8, ptr %reason.1.i, align 1
@@ -1143,7 +1141,7 @@ for.body77.i:                                     ; preds = %if.then69.i, %for.b
   %conv74.i = sext i8 %55 to i32
   %call75.i = call i32 @ossl_ctype_check(i32 noundef %conv74.i, i32 noundef 8) #9
   %tobool76.not.i = icmp eq i32 %call75.i, 0
-  br i1 %tobool76.not.i, label %if.end81.i, label %for.body77.i, !llvm.loop !10
+  br i1 %tobool76.not.i, label %if.end81.i, label %for.body77.i, !llvm.loop !9
 
 if.end81.i:                                       ; preds = %while.cond54.i, %for.body77.i, %if.then69.i, %while.end65.i
   switch i32 %conv48.i, label %sw.default.i [
@@ -1195,7 +1193,7 @@ if.then106.i:                                     ; preds = %for.body100.i
 for.inc110.i:                                     ; preds = %if.then106.i, %for.body100.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 60
-  br i1 %exitcond.not.i, label %parse_http_line1.exit.thread, label %land.rhs95.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %parse_http_line1.exit.thread, label %land.rhs95.i, !llvm.loop !10
 
 parse_http_line1.exit.thread:                     ; preds = %land.rhs95.i, %for.inc110.i
   %i.0.lcssa.i = phi i64 [ 60, %for.inc110.i ], [ %indvars.iv.i, %land.rhs95.i ]
@@ -1255,7 +1253,7 @@ while.cond:                                       ; preds = %while.cond, %if.the
   %conv197 = sext i8 %60 to i32
   %call198 = call i32 @ossl_ctype_check(i32 noundef %conv197, i32 noundef 8) #9
   %tobool199.not = icmp eq i32 %call198, 0
-  br i1 %tobool199.not, label %while.end, label %while.cond, !llvm.loop !12
+  br i1 %tobool199.not, label %while.end, label %while.cond, !llvm.loop !11
 
 while.end:                                        ; preds = %while.cond
   %call201 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %value.0, i32 noundef 13) #10
@@ -1377,7 +1375,7 @@ if.then300:                                       ; preds = %lor.lhs.false296, %
   br label %return
 
 if.end301:                                        ; preds = %lor.lhs.false296
-  %call302 = call fastcc i32 @check_set_resp_len(ptr noundef nonnull %rctx, i64 noundef %call293), !range !4
+  %call302 = call fastcc i32 @check_set_resp_len(ptr noundef nonnull %rctx, i64 noundef %call293)
   %tobool303.not = icmp eq i32 %call302, 0
   br i1 %tobool303.not, label %return, label %if.end308
 
@@ -1399,7 +1397,7 @@ for.cond:                                         ; preds = %for.inc, %if.end308
 
 for.inc:                                          ; preds = %for.cond, %for.cond
   %incdec.ptr322 = getelementptr inbounds i8, ptr %storemerge, i64 1
-  br label %for.cond, !llvm.loop !13
+  br label %for.cond, !llvm.loop !12
 
 if.end327:                                        ; preds = %for.cond
   %71 = load i32, ptr %keep_alive, align 8
@@ -1521,7 +1519,7 @@ for.body402:                                      ; preds = %for.body402.prehead
   %or = or disjoint i64 %shl, %conv404
   %inc = add nuw nsw i32 %i.0218, 1
   %exitcond.not = icmp eq i32 %inc, %and388
-  br i1 %exitcond.not, label %for.end406, label %for.body402, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end406, label %for.body402, !llvm.loop !13
 
 for.end406:                                       ; preds = %for.body402
   %narrow = add nuw nsw i32 %and388, 2
@@ -1536,7 +1534,7 @@ if.else408:                                       ; preds = %if.end377
 
 if.end412:                                        ; preds = %if.else408, %for.end406
   %resp_len.1 = phi i64 [ %add407, %for.end406 ], [ %conv411, %if.else408 ]
-  %call413 = call fastcc i32 @check_set_resp_len(ptr noundef nonnull %rctx, i64 noundef %resp_len.1), !range !4
+  %call413 = call fastcc i32 @check_set_resp_len(ptr noundef nonnull %rctx, i64 noundef %resp_len.1)
   %tobool414.not = icmp eq i32 %call413, 0
   br i1 %tobool414.not, label %return, label %if.end416
 
@@ -1608,7 +1606,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_set_resp_len(ptr nocapture noundef %rctx, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_set_resp_len(ptr nocapture noundef %rctx, i64 noundef %len) unnamed_addr #0 {
 entry:
   %max_resp_len = getelementptr inbounds i8, ptr %rctx, i64 152
   %0 = load i64, ptr %max_resp_len, align 8
@@ -1649,11 +1647,11 @@ return:                                           ; preds = %if.end10, %if.then8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_HTTP_REQ_CTX_nbio_d2i(ptr noundef %rctx, ptr nocapture noundef writeonly %pval, ptr noundef %it) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @OSSL_HTTP_REQ_CTX_nbio_d2i(ptr noundef %rctx, ptr nocapture noundef writeonly %pval, ptr noundef %it) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr null, ptr %pval, align 8
-  %call = tail call i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef %rctx), !range !15
+  %call = tail call i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef %rctx)
   %cmp.not = icmp eq i32 %call, 1
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1681,7 +1679,7 @@ entry:
   br i1 %cmp, label %if.then, label %entry.split
 
 entry.split:                                      ; preds = %entry
-  %call10 = tail call i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef nonnull %rctx), !range !15
+  %call10 = tail call i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef nonnull %rctx)
   %rbio = getelementptr inbounds i8, ptr %rctx, i64 32
   %max_time = getelementptr inbounds i8, ptr %rctx, i64 168
   br label %for.cond
@@ -1707,7 +1705,7 @@ if.end3:                                          ; preds = %for.cond
   br i1 %cmp5, label %return, label %if.end3.split
 
 if.end3.split:                                    ; preds = %if.end3
-  %call11 = tail call i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef nonnull %rctx), !range !15
+  %call11 = tail call i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef nonnull %rctx)
   br label %for.cond
 
 if.then9:                                         ; preds = %for.cond
@@ -1749,7 +1747,7 @@ return:                                           ; preds = %if.end3, %if.then9,
 declare i32 @BIO_wait(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @OSSL_HTTP_is_alive(ptr noundef readonly %rctx) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @OSSL_HTTP_is_alive(ptr noundef readonly %rctx) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %rctx, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -2042,7 +2040,7 @@ return:                                           ; preds = %entry, %err, %cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HTTP_set1_request(ptr noundef %rctx, ptr noundef %path, ptr noundef %headers, ptr noundef %content_type, ptr noundef %req, ptr noundef %expected_content_type, i32 noundef %expect_asn1, i64 noundef %max_resp_len, i32 noundef %timeout, i32 noundef %keep_alive) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_set1_request(ptr noundef %rctx, ptr noundef %path, ptr noundef %headers, ptr noundef %content_type, ptr noundef %req, ptr noundef %expected_content_type, i32 noundef %expect_asn1, i64 noundef %max_resp_len, i32 noundef %timeout, i32 noundef %keep_alive) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2085,7 +2083,7 @@ cond.end:                                         ; preds = %land.lhs.true, %if.
   %conv17 = zext i1 %conv17.in to i32
   %port = getelementptr inbounds i8, ptr %rctx, i64 80
   %3 = load ptr, ptr %port, align 8
-  %call = tail call i32 @OSSL_HTTP_REQ_CTX_set_request_line(ptr noundef nonnull %rctx, i32 noundef %conv17, ptr noundef %cond, ptr noundef %3, ptr noundef %path), !range !4
+  %call = tail call i32 @OSSL_HTTP_REQ_CTX_set_request_line(ptr noundef nonnull %rctx, i32 noundef %conv17, ptr noundef %cond, ptr noundef %3, ptr noundef %path)
   %tobool10.not = icmp eq i32 %call, 0
   br i1 %tobool10.not, label %return, label %land.lhs.true11
 
@@ -2111,7 +2109,7 @@ for.cond.i:                                       ; preds = %if.end.i
   %inc.i = add nuw nsw i32 %i.013.i, 1
   %call3.i = tail call i32 @OPENSSL_sk_num(ptr noundef %headers) #9
   %cmp4.i = icmp slt i32 %inc.i, %call3.i
-  br i1 %cmp4.i, label %for.body.i, label %for.end.i, !llvm.loop !16
+  br i1 %cmp4.i, label %for.body.i, label %for.end.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %land.end.i, %for.cond.i
   %add_host.014.i = phi i32 [ %add_host.1.i, %for.cond.i ], [ %land.ext.i, %land.end.i ]
@@ -2134,7 +2132,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %f
   %8 = load ptr, ptr %name11.i, align 8
   %value.i = getelementptr inbounds i8, ptr %call7.i, i64 16
   %9 = load ptr, ptr %value.i, align 8
-  %call12.i = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull %rctx, ptr noundef %8, ptr noundef %9), !range !4
+  %call12.i = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull %rctx, ptr noundef %8, ptr noundef %9)
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %return, label %for.cond.i
 
@@ -2144,17 +2142,17 @@ for.end.i:                                        ; preds = %for.cond.i, %land.e
   br i1 %tobool16.not.i, label %land.lhs.true15, label %land.lhs.true17.i
 
 land.lhs.true17.i:                                ; preds = %for.end.i
-  %call18.i = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull %rctx, ptr noundef nonnull @.str.55, ptr noundef %4), !range !4
+  %call18.i = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull %rctx, ptr noundef nonnull @.str.55, ptr noundef %4)
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %return, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %land.lhs.true17.i, %for.end.i
-  %call16 = tail call i32 @OSSL_HTTP_REQ_CTX_set_expected(ptr noundef nonnull %rctx, ptr noundef %expected_content_type, i32 noundef %expect_asn1, i32 noundef %timeout, i32 noundef %keep_alive), !range !4
+  %call16 = tail call i32 @OSSL_HTTP_REQ_CTX_set_expected(ptr noundef nonnull %rctx, ptr noundef %expected_content_type, i32 noundef %expect_asn1, i32 noundef %timeout, i32 noundef %keep_alive)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %land.rhs18
 
 land.rhs18:                                       ; preds = %land.lhs.true15
-  %call19 = tail call fastcc i32 @set1_content(ptr noundef nonnull %rctx, ptr noundef %content_type, ptr noundef %req), !range !4
+  %call19 = tail call fastcc i32 @set1_content(ptr noundef nonnull %rctx, ptr noundef %content_type, ptr noundef %req)
   br label %return
 
 return:                                           ; preds = %if.end.i, %land.lhs.true17.i, %cond.end, %land.lhs.true15, %land.rhs18, %if.then4, %if.then
@@ -2359,7 +2357,7 @@ new_rpath:                                        ; preds = %if.then37, %if.end1
 
 if.then14:                                        ; preds = %new_rpath
   %3 = load ptr, ptr %path, align 8
-  %call15 = call i32 @OSSL_HTTP_set1_request(ptr noundef nonnull %rctx.0, ptr noundef %3, ptr noundef %headers, ptr noundef null, ptr noundef null, ptr noundef %expected_ct, i32 noundef %expect_asn1, i64 noundef %max_resp_len, i32 noundef -1, i32 noundef 0), !range !4
+  %call15 = call i32 @OSSL_HTTP_set1_request(ptr noundef nonnull %rctx.0, ptr noundef %3, ptr noundef %headers, ptr noundef null, ptr noundef null, ptr noundef %expected_ct, i32 noundef %expect_asn1, i64 noundef %max_resp_len, i32 noundef -1, i32 noundef 0)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.then17, label %if.else
 
@@ -2567,7 +2565,7 @@ return:                                           ; preds = %if.end, %for.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HTTP_close(ptr noundef %rctx, i32 noundef %ok) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_close(ptr noundef %rctx, i32 noundef %ok) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %rctx, null
   br i1 %cmp.not, label %if.end7, label %land.lhs.true
@@ -2616,7 +2614,7 @@ if.end:                                           ; preds = %entry, %cond.end
 if.then3:                                         ; preds = %cond.end, %if.end
   %rctx.021 = phi ptr [ %call, %if.end ], [ %0, %cond.end ]
   %timeout.addr.020 = phi i32 [ -1, %if.end ], [ %timeout, %cond.end ]
-  %call4 = tail call i32 @OSSL_HTTP_set1_request(ptr noundef nonnull %rctx.021, ptr noundef %path, ptr noundef %headers, ptr noundef %content_type, ptr noundef %req, ptr noundef %expected_ct, i32 noundef %expect_asn1, i64 noundef %max_resp_len, i32 noundef %timeout.addr.020, i32 noundef %keep_alive), !range !4
+  %call4 = tail call i32 @OSSL_HTTP_set1_request(ptr noundef nonnull %rctx.021, ptr noundef %path, ptr noundef %headers, ptr noundef %content_type, ptr noundef %req, ptr noundef %expected_ct, i32 noundef %expect_asn1, i64 noundef %max_resp_len, i32 noundef %timeout.addr.020, i32 noundef %keep_alive)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %land.lhs.true.i, label %if.end7
 
@@ -2676,7 +2674,7 @@ if.end23:                                         ; preds = %if.then22, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HTTP_proxy_connect(ptr noundef %bio, ptr noundef %server, ptr noundef %port, ptr noundef %proxyuser, ptr noundef %proxypass, i32 noundef %timeout, ptr noundef %bio_err, ptr noundef %prog) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_proxy_connect(ptr noundef %bio, ptr noundef %server, ptr noundef %port, ptr noundef %proxyuser, ptr noundef %proxypass, i32 noundef %timeout, ptr noundef %bio_err, ptr noundef %prog) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 8192, ptr noundef nonnull @.str, i32 noundef 1356) #9
   %call1 = tail call ptr @BIO_f_buffer() #9
@@ -2836,9 +2834,15 @@ if.end98:                                         ; preds = %if.end93
 
 cond.true102:                                     ; preds = %if.end98
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 5
-  %call107 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(3) @.str.41, i64 noundef 2) #10
-  %cmp108 = icmp eq i32 %call107, 0
-  br i1 %cmp108, label %if.end112, label %if.then110
+  %3 = load i8, ptr %add.ptr, align 1
+  %.not = icmp eq i8 %3, 49
+  br i1 %.not, label %cond.true102.tail, label %if.then110
+
+cond.true102.tail:                                ; preds = %cond.true102
+  %4 = getelementptr inbounds i8, ptr %call, i64 6
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 46
+  br i1 %6, label %if.end112, label %if.then110
 
 if.then104:                                       ; preds = %if.end98
   tail call void @ERR_new() #9
@@ -2847,43 +2851,49 @@ if.then104:                                       ; preds = %if.end98
   %call105 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio_err, ptr noundef nonnull @.str.40, ptr noundef %prog) #9
   br label %end
 
-if.then110:                                       ; preds = %cond.true102
+if.then110:                                       ; preds = %cond.true102, %cond.true102.tail
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1450, ptr noundef nonnull @__func__.OSSL_HTTP_proxy_connect) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 106, ptr noundef null) #9
   %call111 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio_err, ptr noundef nonnull @.str.42, ptr noundef %prog, i32 noundef 3, ptr noundef nonnull %add.ptr) #9
   br label %end
 
-if.end112:                                        ; preds = %cond.true102
+if.end112:                                        ; preds = %cond.true102.tail
   %add.ptr113 = getelementptr inbounds i8, ptr %call, i64 8
-  %call114 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr113, ptr noundef nonnull dereferenceable(3) @.str.43, i64 noundef 2) #10
-  %cmp115 = icmp eq i32 %call114, 0
-  br i1 %cmp115, label %do.body, label %if.then117
+  %7 = load i8, ptr %add.ptr113, align 1
+  %.not81 = icmp eq i8 %7, 32
+  br i1 %.not81, label %if.end112.tail, label %if.then117
 
-if.then117:                                       ; preds = %if.end112
-  %3 = load i8, ptr %add.ptr113, align 1
-  %conv118 = sext i8 %3 to i32
+if.end112.tail:                                   ; preds = %if.end112
+  %8 = getelementptr inbounds i8, ptr %call, i64 9
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 50
+  br i1 %10, label %do.body, label %if.then117
+
+if.then117:                                       ; preds = %if.end112, %if.end112.tail
+  %conv118 = sext i8 %7 to i32
   %call119 = tail call i32 @ossl_ctype_check(i32 noundef %conv118, i32 noundef 8) #9
   %tobool120.not = icmp eq i32 %call119, 0
   %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 9
   %spec.select = select i1 %tobool120.not, ptr %add.ptr113, ptr %incdec.ptr
   %invariant.gep = getelementptr i8, ptr %call, i64 -1
-  %4 = zext nneg i32 %call94 to i64
+  %11 = zext nneg i32 %call94 to i64
   br label %land.rhs
 
 land.rhs:                                         ; preds = %if.then117, %while.body
-  %indvars.iv = phi i64 [ %4, %if.then117 ], [ %indvars.iv.next, %while.body ]
+  %indvars.iv = phi i64 [ %11, %if.then117 ], [ %indvars.iv.next, %while.body ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %5 = load i8, ptr %gep, align 1
-  %conv125 = sext i8 %5 to i32
+  %12 = load i8, ptr %gep, align 1
+  %conv125 = sext i8 %12 to i32
   %call126 = tail call i32 @ossl_ctype_check(i32 noundef %conv125, i32 noundef 8) #9
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
+  %13 = trunc nuw i64 %indvars.iv to i32
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp123 = icmp sgt i64 %indvars.iv, 1
-  br i1 %cmp123, label %land.rhs, label %while.end, !llvm.loop !17
+  %cmp123 = icmp sgt i32 %13, 1
+  br i1 %cmp123, label %land.rhs, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %while.body, %land.rhs
   %read_len.0.lcssa = phi i64 [ 0, %while.body ], [ %indvars.iv, %land.rhs ]
@@ -2897,10 +2907,10 @@ while.end:                                        ; preds = %while.body, %land.r
   %call130 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio_err, ptr noundef nonnull @.str.45, ptr noundef %prog, ptr noundef nonnull %spec.select) #9
   br label %end
 
-do.body:                                          ; preds = %if.end112, %do.body
+do.body:                                          ; preds = %if.end112.tail, %do.body
   %call133 = tail call i32 @BIO_gets(ptr noundef %call2, ptr noundef %call, i32 noundef 8192) #9
   %cmp134 = icmp sgt i32 %call133, 2
-  br i1 %cmp134, label %do.body, label %end, !llvm.loop !18
+  br i1 %cmp134, label %do.body, label %end, !llvm.loop !16
 
 end.critedge:                                     ; preds = %if.end61, %if.then14.i, %if.end48
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %call44, i64 noundef %len.0, ptr noundef nonnull @.str, i32 noundef 1405) #9
@@ -2978,18 +2988,16 @@ attributes #10 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = !{i32 -1, i32 2}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

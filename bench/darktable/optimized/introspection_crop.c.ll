@@ -2713,7 +2713,7 @@ declare void @dt_conf_string_entry_free(ptr noundef) #3
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_aspect_ratio_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
+define internal range(i32 -1, 2) i32 @_aspect_ratio_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !121
   %5 = icmp ult i32 %4, 2
@@ -3521,7 +3521,7 @@ select.unfold:                                    ; preds = %400, %263
 declare i32 @dt_iop_color_picker_is_visible(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_set_max_clip(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_set_max_clip(ptr noundef %0) unnamed_addr #1 {
   %2 = alloca [8 x float], align 16
   %3 = alloca float, align 4
   %4 = alloca float, align 4
@@ -3687,7 +3687,7 @@ declare void @cairo_line_to(ptr noundef, double noundef, double noundef) local_u
 declare void @dt_guides_draw(ptr noundef, float noundef, float noundef, float noundef, float noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #1 {
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 704
@@ -4244,7 +4244,7 @@ declare void @dt_control_change_cursor(i32 noundef) local_unnamed_addr #3
 declare void @dt_control_hinter_message(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_released(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @button_released(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 704
   %8 = load ptr, ptr %7, align 16, !tbaa !80
   %9 = getelementptr inbounds i8, ptr %8, i64 132
@@ -4271,7 +4271,7 @@ define noundef i32 @button_released(ptr noundef %0, float noundef %1, float noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @button_pressed(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) local_unnamed_addr #1 {
   %9 = alloca float, align 4
   %10 = alloca float, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 704
@@ -4535,7 +4535,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !176
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
@@ -4561,56 +4561,90 @@ define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unn
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #20 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.42) #25
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %30, label %5
+sub_0:
+  %2 = load i8, ptr %1, align 1
+  %.not = icmp eq i8 %2, 99
+  br i1 %.not, label %sub_1, label %.tail11.thread
 
-5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.47) #25
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %10
+sub_1:                                            ; preds = %sub_0
+  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %4 = load i8, ptr %3, align 1
+  %.not16 = icmp eq i8 %4, 120
+  br i1 %.not16, label %.tail, label %sub_13
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %30
+.tail:                                            ; preds = %sub_1
+  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %38, label %sub_13
 
-10:                                               ; preds = %5
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.45) #25
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %15
+sub_13:                                           ; preds = %.tail, %sub_1
+  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = load i8, ptr %8, align 1
+  %.not18 = icmp eq i8 %9, 121
+  br i1 %.not18, label %.tail1, label %sub_18
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %30
+.tail1:                                           ; preds = %sub_13
+  %10 = getelementptr inbounds i8, ptr %1, i64 2
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %13, label %sub_18
 
-15:                                               ; preds = %10
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.49) #25
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %20
+13:                                               ; preds = %.tail1
+  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  br label %38
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
-  br label %30
+sub_18:                                           ; preds = %.tail1, %sub_13
+  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = load i8, ptr %15, align 1
+  %.not20 = icmp eq i8 %16, 119
+  br i1 %.not20, label %.tail6, label %sub_113
 
-20:                                               ; preds = %15
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.57) #25
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %25
+.tail6:                                           ; preds = %sub_18
+  %17 = getelementptr inbounds i8, ptr %1, i64 2
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %sub_113
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %30
+20:                                               ; preds = %.tail6
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %38
 
-25:                                               ; preds = %20
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.58) #25
-  %27 = icmp eq i32 %26, 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
-  %29 = select i1 %27, ptr %28, ptr null
-  br label %30
+sub_113:                                          ; preds = %.tail6, %sub_18
+  %22 = getelementptr inbounds i8, ptr %1, i64 1
+  %23 = load i8, ptr %22, align 1
+  %.not22 = icmp eq i8 %23, 104
+  br i1 %.not22, label %.tail11, label %.tail11.thread
 
-30:                                               ; preds = %25, %23, %18, %13, %8, %2
-  %31 = phi ptr [ %24, %23 ], [ %19, %18 ], [ %14, %13 ], [ %9, %8 ], [ %0, %2 ], [ %29, %25 ]
-  ret ptr %31
+.tail11:                                          ; preds = %sub_113
+  %24 = getelementptr inbounds i8, ptr %1, i64 2
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 0
+  br i1 %26, label %27, label %.tail11.thread
+
+27:                                               ; preds = %.tail11
+  %28 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %38
+
+.tail11.thread:                                   ; preds = %sub_0, %sub_113, %.tail11
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.57) #25
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %.tail11.thread
+  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %38
+
+33:                                               ; preds = %.tail11.thread
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.58) #25
+  %35 = icmp eq i32 %34, 0
+  %36 = getelementptr inbounds i8, ptr %0, i64 20
+  %37 = select i1 %35, ptr %36, ptr null
+  br label %38
+
+38:                                               ; preds = %33, %31, %27, %20, %13, %.tail
+  %39 = phi ptr [ %32, %31 ], [ %28, %27 ], [ %21, %20 ], [ %14, %13 ], [ %0, %.tail ], [ %37, %33 ]
+  ret ptr %39
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

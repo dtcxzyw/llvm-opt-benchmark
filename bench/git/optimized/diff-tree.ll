@@ -29,7 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.userformat_want = type { i8, [3 x i8] }
 
 @log_tree_opt = internal global %struct.rev_info zeroinitializer, align 8
-@.str = private unnamed_addr constant [3 x i8] c"-h\00", align 1
 @diff_tree_usage = internal constant [1748 x i8] c"git diff-tree [--stdin] [-m] [-s] [-v] [--no-commit-id] [--pretty]\0A              [-t] [-r] [-c | --cc] [--combined-all-paths] [--root] [--merge-base]\0A              [<common-diff-options>] <tree-ish> [<tree-ish>] [<path>...]\0A\0A  -r            diff recursively\0A  -c            show combined diff for merge commits\0A  --cc          show combined diff for merge commits removing uninteresting hunks\0A  --combined-all-paths\0A                show name of file in all parents for combined diffs\0A  --root        include the initial commit as diff against /dev/null\0A\0Acommon diff options:\0A  -z            output diff-raw with lines terminated with NUL.\0A  -p            output patch format.\0A  -u            synonym for -p.\0A  --patch-with-raw\0A                output both a patch and the diff-raw format.\0A  --stat        show diffstat instead of patch.\0A  --numstat     show numeric diffstat instead of patch.\0A  --patch-with-stat\0A                output a patch and prepend its diffstat.\0A  --name-only   show only names of changed files.\0A  --name-status show names and status of changed files.\0A  --full-index  show full object name on index lines.\0A  --abbrev=<n>  abbreviate object names in diff-tree header and diff-raw.\0A  -R            swap input file pairs.\0A  -B            detect complete rewrites.\0A  -M            detect renames.\0A  -C            detect copies.\0A  --find-copies-harder\0A                try unchanged files as candidate for copy detection.\0A  -l<n>         limit rename attempts up to <n> paths.\0A  -O<file>      reorder diffs according to the <file>.\0A  -S<string>    find filepair whose only one side contains the string.\0A  --pickaxe-all\0A                show all files diff when -S is used and hit is found.\0A  -a  --text    treat all files as text.\0A\00", align 16
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [19 x i8] c"index file corrupt\00", align 1
@@ -67,30 +66,51 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str) #10
-  %tobool.not = icmp eq i32 %call, 0
+  %1 = load i8, ptr %0, align 1
+  %2 = zext i8 %1 to i32
+  %3 = add nsw i32 %2, -45
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %sub_1, label %land.lhs.true.tail
+
+sub_1:                                            ; preds = %land.lhs.true
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = load i8, ptr %4, align 1
+  %6 = zext i8 %5 to i32
+  %7 = add nsw i32 %6, -104
+  %.not36 = icmp eq i32 %7, 0
+  br i1 %.not36, label %sub_2, label %land.lhs.true.tail
+
+sub_2:                                            ; preds = %sub_1
+  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = load i8, ptr %8, align 1
+  %10 = zext i8 %9 to i32
+  br label %land.lhs.true.tail
+
+land.lhs.true.tail:                               ; preds = %land.lhs.true, %sub_1, %sub_2
+  %11 = phi i32 [ %3, %land.lhs.true ], [ %7, %sub_1 ], [ %10, %sub_2 ]
+  %tobool.not = icmp eq i32 %11, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true
-  tail call void @usage(ptr noundef nonnull @diff_tree_usage) #11
+if.then:                                          ; preds = %land.lhs.true.tail
+  tail call void @usage(ptr noundef nonnull @diff_tree_usage) #10
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  tail call void @git_config(ptr noundef nonnull @git_diff_basic_config, ptr noundef null) #12
-  %1 = load ptr, ptr @the_repository, align 8
-  tail call void @prepare_repo_settings(ptr noundef %1) #12
-  %2 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds i8, ptr %2, i64 168
+if.end:                                           ; preds = %land.lhs.true.tail, %entry
+  tail call void @git_config(ptr noundef nonnull @git_diff_basic_config, ptr noundef null) #11
+  %12 = load ptr, ptr @the_repository, align 8
+  tail call void @prepare_repo_settings(ptr noundef %12) #11
+  %13 = load ptr, ptr @the_repository, align 8
+  %command_requires_full_index = getelementptr inbounds i8, ptr %13, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
-  tail call void @repo_init_revisions(ptr noundef %2, ptr noundef nonnull @log_tree_opt, ptr noundef %prefix) #12
-  %3 = load ptr, ptr @the_repository, align 8
-  %call1 = tail call i32 @repo_read_index(ptr noundef %3) #12
+  tail call void @repo_init_revisions(ptr noundef %13, ptr noundef nonnull @log_tree_opt, ptr noundef %prefix) #11
+  %14 = load ptr, ptr @the_repository, align 8
+  %call1 = tail call i32 @repo_read_index(ptr noundef %14) #11
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call fastcc ptr @_(ptr noundef nonnull @.str.1)
-  tail call void (ptr, ...) @die(ptr noundef %call4) #11
+  tail call void (ptr, ...) @die(ptr noundef %call4) #10
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -104,12 +124,12 @@ if.end5:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s_r_opt, i8 0, i64 24, i1 false)
   %tweak = getelementptr inbounds i8, ptr %s_r_opt, i64 8
   store ptr @diff_tree_tweak_rev, ptr %tweak, align 8
-  %call10 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %s_r_opt) #12
+  %call10 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %s_r_opt) #11
   store i32 0, ptr %w, align 4
-  call void @userformat_find_requirements(ptr noundef null, ptr noundef nonnull %w) #12
+  call void @userformat_find_requirements(ptr noundef null, ptr noundef nonnull %w) #11
   %bf.load11 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 16), align 4
-  %4 = and i32 %bf.load11, 8
-  %tobool13.not = icmp eq i32 %4, 0
+  %15 = and i32 %bf.load11, 8
+  %tobool13.not = icmp eq i32 %15, 0
   br i1 %tobool13.not, label %land.lhs.true14, label %if.end19
 
 land.lhs.true14:                                  ; preds = %if.end5
@@ -128,7 +148,7 @@ if.end19:                                         ; preds = %land.lhs.true14, %i
   br i1 %tobool21.not, label %while.cond.outer.preheader, label %if.then22
 
 if.then22:                                        ; preds = %if.end19.thread, %if.end19
-  call void @load_display_notes(ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 58)) #12
+  call void @load_display_notes(ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 58)) #11
   br label %while.cond.outer.preheader
 
 while.cond.outer.preheader:                       ; preds = %if.then22, %if.end19
@@ -151,18 +171,18 @@ while.cond:                                       ; preds = %while.cond.outer, %
 while.body:                                       ; preds = %while.cond
   %dec = add nsw i32 %argc.addr.0, -1
   %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.0, i64 8
-  %5 = load ptr, ptr %incdec.ptr, align 8
-  %call25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(8) @.str.2) #10
+  %16 = load ptr, ptr %incdec.ptr, align 8
+  %call25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(8) @.str.2) #12
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %while.cond, label %if.end28, !llvm.loop !5
 
 if.end28:                                         ; preds = %while.body
-  %call29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(13) @.str.3) #10
+  %call29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(13) @.str.3) #12
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %while.cond.outer, label %if.end32, !llvm.loop !5
 
 if.end32:                                         ; preds = %if.end28
-  call void @usage(ptr noundef nonnull @diff_tree_usage) #11
+  call void @usage(ptr noundef nonnull @diff_tree_usage) #10
   unreachable
 
 while.end:                                        ; preds = %while.cond
@@ -172,23 +192,23 @@ while.end:                                        ; preds = %while.cond
 
 if.then36:                                        ; preds = %while.end
   %call37 = call fastcc ptr @_(ptr noundef nonnull @.str.4)
-  call void (ptr, ...) @die(ptr noundef %call37, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #11
+  call void (ptr, ...) @die(ptr noundef %call37, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #10
   unreachable
 
 if.end38:                                         ; preds = %while.end
-  %6 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 1), align 8
-  %cmp41.not = icmp ne i32 %6, 2
+  %17 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 1), align 8
+  %cmp41.not = icmp ne i32 %17, 2
   %or.cond19.not = select i1 %tobool35, i1 %cmp41.not, i1 false
   br i1 %or.cond19.not, label %if.then42, label %if.end44
 
 if.then42:                                        ; preds = %if.end38
   %call43 = call fastcc ptr @_(ptr noundef nonnull @.str.5)
-  call void (ptr, ...) @die(ptr noundef %call43) #11
+  call void (ptr, ...) @die(ptr noundef %call43) #10
   unreachable
 
 if.end44:                                         ; preds = %if.end38
   store i32 1, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 3), align 4
-  switch i32 %6, label %sw.epilog [
+  switch i32 %17, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb50
     i32 2, label %sw.bb54
@@ -198,50 +218,50 @@ sw.bb:                                            ; preds = %if.end44
   br i1 %tobool33, label %if.then79, label %if.then48
 
 if.then48:                                        ; preds = %sw.bb
-  call void @usage(ptr noundef nonnull @diff_tree_usage) #11
+  call void @usage(ptr noundef nonnull @diff_tree_usage) #10
   unreachable
 
 sw.bb50:                                          ; preds = %if.end44
-  %7 = load ptr, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 1, i32 2), align 8
-  %8 = load ptr, ptr %7, align 8
-  %oid = getelementptr inbounds i8, ptr %8, i64 4
-  %9 = load ptr, ptr @the_repository, align 8
-  %call.i = call ptr @lookup_commit_reference(ptr noundef %9, ptr noundef nonnull %oid) #12
+  %18 = load ptr, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 1, i32 2), align 8
+  %19 = load ptr, ptr %18, align 8
+  %oid = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = load ptr, ptr @the_repository, align 8
+  %call.i = call ptr @lookup_commit_reference(ptr noundef %20, ptr noundef nonnull %oid) #11
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %sw.epilog, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb50
-  %call1.i = call i32 @log_tree_commit(ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %call.i) #12
+  %call1.i = call i32 @log_tree_commit(ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %call.i) #11
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %if.end44
-  %10 = load ptr, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 1, i32 2), align 8
-  %arrayidx61 = getelementptr inbounds i8, ptr %10, i64 32
-  %11 = load ptr, ptr %arrayidx61, align 8
+  %21 = load ptr, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 1, i32 2), align 8
+  %arrayidx61 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = load ptr, ptr %arrayidx61, align 8
   br i1 %tobool35, label %if.then64, label %if.else
 
 if.then64:                                        ; preds = %sw.bb54
-  call void @diff_get_merge_base(ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %oid65) #12
-  %12 = load ptr, ptr @the_repository, align 8
-  %call66 = call ptr @lookup_object(ptr noundef %12, ptr noundef nonnull %oid65) #12
+  call void @diff_get_merge_base(ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %oid65) #11
+  %23 = load ptr, ptr @the_repository, align 8
+  %call66 = call ptr @lookup_object(ptr noundef %23, ptr noundef nonnull %oid65) #11
   br label %if.end73
 
 if.else:                                          ; preds = %sw.bb54
-  %13 = load ptr, ptr %10, align 8
-  %bf.load67 = load i32, ptr %11, align 4
-  %14 = and i32 %bf.load67, 32
-  %tobool69.not = icmp eq i32 %14, 0
-  %spec.select = select i1 %tobool69.not, ptr %13, ptr %11
-  %spec.select20 = select i1 %tobool69.not, ptr %11, ptr %13
+  %24 = load ptr, ptr %21, align 8
+  %bf.load67 = load i32, ptr %22, align 4
+  %25 = and i32 %bf.load67, 32
+  %tobool69.not = icmp eq i32 %25, 0
+  %spec.select = select i1 %tobool69.not, ptr %24, ptr %22
+  %spec.select20 = select i1 %tobool69.not, ptr %22, ptr %24
   br label %if.end73
 
 if.end73:                                         ; preds = %if.else, %if.then64
   %tree1.0 = phi ptr [ %call66, %if.then64 ], [ %spec.select, %if.else ]
-  %tree2.0 = phi ptr [ %11, %if.then64 ], [ %spec.select20, %if.else ]
+  %tree2.0 = phi ptr [ %22, %if.then64 ], [ %spec.select20, %if.else ]
   %oid74 = getelementptr inbounds i8, ptr %tree1.0, i64 4
   %oid75 = getelementptr inbounds i8, ptr %tree2.0, i64 4
-  call void @diff_tree_oid(ptr noundef nonnull %oid74, ptr noundef nonnull %oid75, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #12
-  %call77 = call i32 @log_tree_diff_flush(ptr noundef nonnull @log_tree_opt) #12
+  call void @diff_tree_oid(ptr noundef nonnull %oid74, ptr noundef nonnull %oid75, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #11
+  %call77 = call i32 @log_tree_diff_flush(ptr noundef nonnull @log_tree_opt) #11
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end.i, %sw.bb50, %if.end73, %if.end44
@@ -250,52 +270,52 @@ sw.epilog:                                        ; preds = %if.end.i, %sw.bb50,
 if.then79:                                        ; preds = %sw.bb, %sw.epilog
   store i32 0, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 3), align 4
   store i32 1, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 74), align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 21), align 4
-  %tobool84.not = icmp eq i32 %15, 0
+  %26 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 21), align 4
+  %tobool84.not = icmp eq i32 %26, 0
   br i1 %tobool84.not, label %if.end91, label %if.then85
 
 if.then85:                                        ; preds = %if.then79
-  %16 = load ptr, ptr @the_index, align 8
-  %tobool86.not = icmp eq ptr %16, null
+  %27 = load ptr, ptr @the_index, align 8
+  %tobool86.not = icmp eq ptr %27, null
   br i1 %tobool86.not, label %if.then87, label %if.end89
 
 if.then87:                                        ; preds = %if.then85
-  %17 = load ptr, ptr @the_repository, align 8
-  %call88 = call i32 @repo_read_index(ptr noundef %17) #12
+  %28 = load ptr, ptr @the_repository, align 8
+  %call88 = call i32 @repo_read_index(ptr noundef %28) #11
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then87, %if.then85
-  %18 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 32), align 8
-  %or = or i32 %18, 4
+  %29 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 32), align 8
+  %or = or i32 %29, 4
   store i32 %or, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 32), align 8
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end89, %if.then79
-  %19 = load ptr, ptr @stdin, align 8
-  %call9431 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %19)
+  %30 = load ptr, ptr @stdin, align 8
+  %call9431 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %30)
   %tobool95.not32 = icmp eq ptr %call9431, null
   br i1 %tobool95.not32, label %while.end119, label %while.body96
 
 while.body96:                                     ; preds = %if.end91, %if.end118
   %saved_dcctc.034 = phi i32 [ %saved_dcctc.1, %if.end118 ], [ 0, %if.end91 ]
   %saved_nrl.033 = phi i32 [ %saved_nrl.2, %if.end118 ], [ 0, %if.end91 ]
-  %call99 = call i32 @get_oid_hex(ptr noundef nonnull %line, ptr noundef nonnull %oid97) #12
+  %call99 = call i32 @get_oid_hex(ptr noundef nonnull %line, ptr noundef nonnull %oid97) #11
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %if.else105, label %if.then101
 
 if.then101:                                       ; preds = %while.body96
-  %20 = load ptr, ptr @stdout, align 8
-  %call103 = call i32 @fputs(ptr noundef nonnull %line, ptr noundef %20)
-  %21 = load ptr, ptr @stdout, align 8
-  %call104 = call i32 @fflush(ptr noundef %21)
+  %31 = load ptr, ptr @stdout, align 8
+  %call103 = call i32 @fputs(ptr noundef nonnull %line, ptr noundef %31)
+  %32 = load ptr, ptr @stdout, align 8
+  %call104 = call i32 @fflush(ptr noundef %32)
   br label %if.end118
 
 if.else105:                                       ; preds = %while.body96
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
-  %call.i23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line) #10
-  %22 = and i64 %call.i23, 4294967295
-  %tobool.not.i24 = icmp eq i64 %22, 0
+  %call.i23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line) #12
+  %33 = and i64 %call.i23, 4294967295
+  %tobool.not.i24 = icmp eq i64 %33, 0
   br i1 %tobool.not.i24, label %diff_tree_stdin.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else105
@@ -303,19 +323,19 @@ lor.lhs.false.i:                                  ; preds = %if.else105
   %sext.i = add i64 %sub.i, -4294967296
   %idxprom.i = ashr exact i64 %sext.i, 32
   %arrayidx.i = getelementptr inbounds i8, ptr %line, i64 %idxprom.i
-  %23 = load i8, ptr %arrayidx.i, align 1
-  %cmp.not.i = icmp eq i8 %23, 10
+  %34 = load i8, ptr %arrayidx.i, align 1
+  %cmp.not.i = icmp eq i8 %34, 10
   br i1 %cmp.not.i, label %if.end.i26, label %diff_tree_stdin.exit
 
 if.end.i26:                                       ; preds = %lor.lhs.false.i
   store i8 0, ptr %arrayidx.i, align 1
-  %call6.i = call i32 @parse_oid_hex(ptr noundef nonnull %line, ptr noundef nonnull %oid.i, ptr noundef nonnull %p.i) #12
+  %call6.i = call i32 @parse_oid_hex(ptr noundef nonnull %line, ptr noundef nonnull %oid.i, ptr noundef nonnull %p.i) #11
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %if.end9.i, label %diff_tree_stdin.exit
 
 if.end9.i:                                        ; preds = %if.end.i26
-  %24 = load ptr, ptr @the_repository, align 8
-  %call10.i = call ptr @parse_object(ptr noundef %24, ptr noundef nonnull %oid.i) #12
+  %35 = load ptr, ptr @the_repository, align 8
+  %call10.i = call ptr @parse_object(ptr noundef %35, ptr noundef nonnull %oid.i) #11
   %tobool11.not.i = icmp eq ptr %call10.i, null
   br i1 %tobool11.not.i, label %diff_tree_stdin.exit, label %if.end13.i
 
@@ -329,17 +349,17 @@ if.end13.i:                                       ; preds = %if.end9.i
   ]
 
 if.then16.i:                                      ; preds = %if.end13.i
-  %25 = load ptr, ptr %p.i, align 8
+  %36 = load ptr, ptr %p.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i.i)
-  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %25, i64 1
+  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %36, i64 1
   store ptr %incdec.ptr6.i.i, ptr %p.addr.i.i, align 8
-  %26 = load i8, ptr %25, align 1
-  %idxprom7.i.i = zext i8 %26 to i64
+  %37 = load i8, ptr %36, align 1
+  %idxprom7.i.i = zext i8 %37 to i64
   %arrayidx8.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom7.i.i
-  %27 = load i8, ptr %arrayidx8.i.i, align 1
-  %28 = and i8 %27, 1
-  %cmp.not9.i.i = icmp eq i8 %28, 0
+  %38 = load i8, ptr %arrayidx8.i.i, align 1
+  %39 = and i8 %38, 1
+  %cmp.not9.i.i = icmp eq i8 %39, 0
   br i1 %cmp.not9.i.i, label %stdin_diff_commit.exit.i, label %land.rhs.lr.ph.i.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %if.then16.i
@@ -349,19 +369,19 @@ land.rhs.lr.ph.i.i:                               ; preds = %if.then16.i
 land.rhs.i.i:                                     ; preds = %if.end9.i.i, %land.rhs.lr.ph.i.i
   %incdec.ptr11.i.i = phi ptr [ %incdec.ptr6.i.i, %land.rhs.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end9.i.i ]
   %pptr.010.i.i = phi ptr [ null, %land.rhs.lr.ph.i.i ], [ %pptr.2.i.i, %if.end9.i.i ]
-  %call.i.i = call i32 @parse_oid_hex(ptr noundef nonnull %incdec.ptr11.i.i, ptr noundef nonnull %oid.i.i, ptr noundef nonnull %p.addr.i.i) #12
+  %call.i.i = call i32 @parse_oid_hex(ptr noundef nonnull %incdec.ptr11.i.i, ptr noundef nonnull %oid.i.i, ptr noundef nonnull %p.addr.i.i) #11
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %while.body.i.i, label %stdin_diff_commit.exit.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %29 = load ptr, ptr @the_repository, align 8
-  %call2.i.i = call ptr @lookup_commit(ptr noundef %29, ptr noundef nonnull %oid.i.i) #12
+  %40 = load ptr, ptr @the_repository, align 8
+  %call2.i.i = call ptr @lookup_commit(ptr noundef %40, ptr noundef nonnull %oid.i.i) #11
   %tobool3.not.i.i = icmp eq ptr %pptr.010.i.i, null
   br i1 %tobool3.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  %30 = load ptr, ptr %parents.i.i, align 8
-  call void @free_commit_list(ptr noundef %30) #12
+  %41 = load ptr, ptr %parents.i.i, align 8
+  call void @free_commit_list(ptr noundef %41) #11
   store ptr null, ptr %parents.i.i, align 8
   br label %if.end.i.i
 
@@ -371,77 +391,77 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   br i1 %tobool6.not.i.i, label %if.end9.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end.i.i
-  %call8.i.i = call ptr @commit_list_insert(ptr noundef nonnull %call2.i.i, ptr noundef nonnull %pptr.1.i.i) #12
+  %call8.i.i = call ptr @commit_list_insert(ptr noundef nonnull %call2.i.i, ptr noundef nonnull %pptr.1.i.i) #11
   %next.i.i = getelementptr inbounds i8, ptr %call8.i.i, i64 8
   br label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.then7.i.i, %if.end.i.i
   %pptr.2.i.i = phi ptr [ %next.i.i, %if.then7.i.i ], [ %pptr.1.i.i, %if.end.i.i ]
-  %31 = load ptr, ptr %p.addr.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %31, i64 1
+  %42 = load ptr, ptr %p.addr.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %42, i64 1
   store ptr %incdec.ptr.i.i, ptr %p.addr.i.i, align 8
-  %32 = load i8, ptr %31, align 1
-  %idxprom.i.i = zext i8 %32 to i64
+  %43 = load i8, ptr %42, align 1
+  %idxprom.i.i = zext i8 %43 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i
-  %33 = load i8, ptr %arrayidx.i.i, align 1
-  %34 = and i8 %33, 1
-  %cmp.not.i.i = icmp eq i8 %34, 0
+  %44 = load i8, ptr %arrayidx.i.i, align 1
+  %45 = and i8 %44, 1
+  %cmp.not.i.i = icmp eq i8 %45, 0
   br i1 %cmp.not.i.i, label %stdin_diff_commit.exit.i, label %land.rhs.i.i, !llvm.loop !7
 
 stdin_diff_commit.exit.i:                         ; preds = %if.end9.i.i, %land.rhs.i.i, %if.then16.i
-  %call10.i.i = call i32 @log_tree_commit(ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %call10.i) #12
+  %call10.i.i = call i32 @log_tree_commit(ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %call10.i) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i.i)
   br label %diff_tree_stdin.exit
 
 if.then24.i:                                      ; preds = %if.end13.i
-  %35 = load ptr, ptr %p.i, align 8
+  %46 = load ptr, ptr %p.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i11.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i12.i)
-  %incdec.ptr.i13.i = getelementptr inbounds i8, ptr %35, i64 1
+  %incdec.ptr.i13.i = getelementptr inbounds i8, ptr %46, i64 1
   store ptr %incdec.ptr.i13.i, ptr %p.addr.i11.i, align 8
-  %36 = load i8, ptr %35, align 1
-  %idxprom.i14.i = zext i8 %36 to i64
+  %47 = load i8, ptr %46, align 1
+  %idxprom.i14.i = zext i8 %47 to i64
   %arrayidx.i15.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i14.i
-  %37 = load i8, ptr %arrayidx.i15.i, align 1
-  %38 = and i8 %37, 1
-  %cmp.not.i16.i = icmp eq i8 %38, 0
+  %48 = load i8, ptr %arrayidx.i15.i, align 1
+  %49 = and i8 %48, 1
+  %cmp.not.i16.i = icmp eq i8 %49, 0
   br i1 %cmp.not.i16.i, label %if.then.i19.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then24.i
-  %call.i17.i = call i32 @parse_oid_hex(ptr noundef nonnull %incdec.ptr.i13.i, ptr noundef nonnull %oid.i12.i, ptr noundef nonnull %p.addr.i11.i) #12
+  %call.i17.i = call i32 @parse_oid_hex(ptr noundef nonnull %incdec.ptr.i13.i, ptr noundef nonnull %oid.i12.i, ptr noundef nonnull %p.addr.i11.i) #11
   %tobool.not.i18.i = icmp eq i32 %call.i17.i, 0
   br i1 %tobool.not.i18.i, label %lor.lhs.false2.i.i, label %if.then.i19.i
 
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
-  %39 = load ptr, ptr %p.addr.i11.i, align 8
-  %40 = load i8, ptr %39, align 1
-  %tobool4.not.i.i = icmp eq i8 %40, 0
+  %50 = load ptr, ptr %p.addr.i11.i, align 8
+  %51 = load i8, ptr %50, align 1
+  %tobool4.not.i.i = icmp eq i8 %51, 0
   br i1 %tobool4.not.i.i, label %if.end.i20.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %lor.lhs.false2.i.i, %lor.lhs.false.i.i, %if.then24.i
-  %call5.i.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8) #12
+  %call5.i.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8) #11
   br label %stdin_diff_trees.exit.i
 
 if.end.i20.i:                                     ; preds = %lor.lhs.false2.i.i
-  %41 = load ptr, ptr @the_repository, align 8
-  %call7.i.i = call ptr @lookup_tree(ptr noundef %41, ptr noundef nonnull %oid.i12.i) #12
+  %52 = load ptr, ptr @the_repository, align 8
+  %call7.i.i = call ptr @lookup_tree(ptr noundef %52, ptr noundef nonnull %oid.i12.i) #11
   %tobool8.not.i.i = icmp eq ptr %call7.i.i, null
   br i1 %tobool8.not.i.i, label %stdin_diff_trees.exit.i, label %lor.lhs.false9.i.i
 
 lor.lhs.false9.i.i:                               ; preds = %if.end.i20.i
-  %call.i.i.i = call i32 @parse_tree_gently(ptr noundef nonnull %call7.i.i, i32 noundef 0) #12
+  %call.i.i.i = call i32 @parse_tree_gently(ptr noundef nonnull %call7.i.i, i32 noundef 0) #11
   %tobool11.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool11.not.i.i, label %if.end13.i.i, label %stdin_diff_trees.exit.i
 
 if.end13.i.i:                                     ; preds = %lor.lhs.false9.i.i
   %oid14.i.i = getelementptr inbounds i8, ptr %call10.i, i64 4
-  %call15.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid14.i.i) #12
+  %call15.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid14.i.i) #11
   %oid17.i.i = getelementptr inbounds i8, ptr %call7.i.i, i64 4
-  %call18.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid17.i.i) #12
+  %call18.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid17.i.i) #11
   %call19.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef %call15.i.i, ptr noundef %call18.i.i)
-  call void @diff_tree_oid(ptr noundef nonnull %oid14.i.i, ptr noundef nonnull %oid17.i.i, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #12
-  %call24.i.i = call i32 @log_tree_diff_flush(ptr noundef nonnull @log_tree_opt) #12
+  call void @diff_tree_oid(ptr noundef nonnull %oid14.i.i, ptr noundef nonnull %oid17.i.i, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #11
+  %call24.i.i = call i32 @log_tree_diff_flush(ptr noundef nonnull @log_tree_opt) #11
   br label %stdin_diff_trees.exit.i
 
 stdin_diff_trees.exit.i:                          ; preds = %if.end13.i.i, %lor.lhs.false9.i.i, %if.end.i20.i, %if.then.i19.i
@@ -450,29 +470,29 @@ stdin_diff_trees.exit.i:                          ; preds = %if.end13.i.i, %lor.
   br label %diff_tree_stdin.exit
 
 if.end26.i:                                       ; preds = %if.end13.i
-  %call27.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i) #12
+  %call27.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i) #11
   %bf.load28.i = load i32, ptr %call10.i, align 4
   %bf.lshr29.i = lshr i32 %bf.load28.i, 1
   %bf.clear30.i = and i32 %bf.lshr29.i, 7
-  %call31.i = call ptr @type_name(i32 noundef %bf.clear30.i) #12
-  %call32.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef %call27.i, ptr noundef %call31.i) #12
+  %call31.i = call ptr @type_name(i32 noundef %bf.clear30.i) #11
+  %call32.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef %call27.i, ptr noundef %call31.i) #11
   br label %diff_tree_stdin.exit
 
 diff_tree_stdin.exit:                             ; preds = %if.else105, %lor.lhs.false.i, %if.end.i26, %if.end9.i, %stdin_diff_commit.exit.i, %stdin_diff_trees.exit.i, %if.end26.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %42 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 28), align 8
-  %spec.select21 = call i32 @llvm.smax.i32(i32 %saved_nrl.033, i32 %42)
-  %43 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 29), align 4
-  %tobool115.not = icmp eq i32 %43, 0
+  %53 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 28), align 8
+  %spec.select21 = call i32 @llvm.smax.i32(i32 %saved_nrl.033, i32 %53)
+  %54 = load i32, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 29), align 4
+  %tobool115.not = icmp eq i32 %54, 0
   %spec.select22 = select i1 %tobool115.not, i32 %saved_dcctc.034, i32 1
   br label %if.end118
 
 if.end118:                                        ; preds = %diff_tree_stdin.exit, %if.then101
   %saved_nrl.2 = phi i32 [ %saved_nrl.033, %if.then101 ], [ %spec.select21, %diff_tree_stdin.exit ]
   %saved_dcctc.1 = phi i32 [ %saved_dcctc.034, %if.then101 ], [ %spec.select22, %diff_tree_stdin.exit ]
-  %44 = load ptr, ptr @stdin, align 8
-  %call94 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %44)
+  %55 = load ptr, ptr @stdin, align 8
+  %call94 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %55)
   %tobool95.not = icmp eq ptr %call94, null
   br i1 %tobool95.not, label %while.end119, label %while.body96, !llvm.loop !8
 
@@ -482,11 +502,11 @@ while.end119:                                     ; preds = %if.end118, %if.end9
   store i32 %saved_dcctc.0.lcssa, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 29), align 4
   store i32 %saved_nrl.0.lcssa, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 28), align 8
   store i32 0, ptr getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52, i32 74), align 8
-  call void @diff_free(ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #12
+  call void @diff_free(ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #11
   br label %if.end127
 
 if.end127:                                        ; preds = %while.end119, %sw.epilog
-  %call129 = call i32 @diff_result_code(ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #12
+  %call129 = call i32 @diff_result_code(ptr noundef nonnull getelementptr inbounds (%struct.rev_info, ptr @log_tree_opt, i64 0, i32 52)) #11
   ret i32 %call129
 }
 
@@ -522,7 +542,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call = tail call ptr @gettext(ptr noundef nonnull %msgid) #12
+  %call = tail call ptr @gettext(ptr noundef nonnull %msgid) #11
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end3
@@ -635,9 +655,9 @@ attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

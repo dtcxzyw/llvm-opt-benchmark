@@ -85,7 +85,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, 1
   br i1 %7, label %8, label %16
 
@@ -3480,7 +3480,7 @@ define internal noundef i32 @rawdenoise_draw(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rawdenoise_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
+define internal noundef range(i32 0, 2) i32 @rawdenoise_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
   %4 = alloca [20 x float], align 16
   %5 = alloca [20 x float], align 16
   %6 = alloca %struct._cairo_rectangle_int, align 4
@@ -3792,7 +3792,7 @@ define internal noundef i32 @rawdenoise_button_press(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @rawdenoise_button_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef range(i32 0, 2) i32 @rawdenoise_button_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #11 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !151
   %6 = icmp eq i32 %5, 1
@@ -4002,7 +4002,7 @@ define internal noundef i32 @rawdenoise_leave_notify(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rawdenoise_scrolled(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 {
+define internal noundef range(i32 0, 2) i32 @rawdenoise_scrolled(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 704
   %6 = load ptr, ptr %5, align 16, !tbaa !109
@@ -4103,7 +4103,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !173
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
@@ -4132,7 +4132,7 @@ define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unn
 define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #13 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.23) #26
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %35, label %5
+  br i1 %4, label %.tail1.thread, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.25) #26
@@ -4141,54 +4141,66 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %35
+  br label %.tail1.thread
 
 10:                                               ; preds = %5
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.26) #26
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %15
+  br i1 %12, label %13, label %sub_0
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %35
+  br label %.tail1.thread
 
-15:                                               ; preds = %10
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.27) #26
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %20
+sub_0:                                            ; preds = %10
+  %15 = load i8, ptr %1, align 1
+  %.not = icmp eq i8 %15, 120
+  br i1 %.not, label %.tail, label %.tail.thread
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %35
+.tail:                                            ; preds = %sub_0
+  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %19, label %.tail.thread
 
-20:                                               ; preds = %15
+19:                                               ; preds = %.tail
+  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  br label %.tail1.thread
+
+.tail.thread:                                     ; preds = %sub_0, %.tail
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.28) #26
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
-23:                                               ; preds = %20
+23:                                               ; preds = %.tail.thread
   %24 = getelementptr inbounds i8, ptr %0, i64 84
-  br label %35
+  br label %.tail1.thread
 
-25:                                               ; preds = %20
+25:                                               ; preds = %.tail.thread
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.29) #26
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %30
+  br i1 %27, label %28, label %sub_02
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %0, i64 84
-  br label %35
+  br label %.tail1.thread
 
-30:                                               ; preds = %25
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.30) #26
-  %32 = icmp eq i32 %31, 0
+sub_02:                                           ; preds = %25
+  %.not5 = icmp eq i8 %15, 121
+  br i1 %.not5, label %.tail1, label %.tail1.thread
+
+.tail1:                                           ; preds = %sub_02
+  %30 = getelementptr inbounds i8, ptr %1, i64 1
+  %31 = load i8, ptr %30, align 1
+  %.fr = freeze i8 %31
+  %32 = icmp eq i8 %.fr, 0
   %33 = getelementptr inbounds i8, ptr %0, i64 84
-  %34 = select i1 %32, ptr %33, ptr null
-  br label %35
+  %spec.select = select i1 %32, ptr %33, ptr null
+  br label %.tail1.thread
 
-35:                                               ; preds = %30, %28, %23, %18, %13, %8, %2
-  %36 = phi ptr [ %29, %28 ], [ %24, %23 ], [ %19, %18 ], [ %14, %13 ], [ %9, %8 ], [ %0, %2 ], [ %34, %30 ]
-  ret ptr %36
+.tail1.thread:                                    ; preds = %.tail1, %sub_02, %28, %23, %19, %13, %8, %2
+  %34 = phi ptr [ %29, %28 ], [ %24, %23 ], [ %20, %19 ], [ %14, %13 ], [ %9, %8 ], [ %0, %2 ], [ null, %sub_02 ], [ %spec.select, %.tail1 ]
+  ret ptr %34
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

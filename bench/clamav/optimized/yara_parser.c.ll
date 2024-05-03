@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [35 x i8] c"wrong number of arguments for \22%s\22\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"wrong type for argument %i of \22%s\22\00", align 1
-@.str.2 = private unnamed_addr constant [2 x i8] c"$\00", align 1
 @.str.3 = private unnamed_addr constant [44 x i8] c"yara_parser: no mem for struct _yc_string.\0A\00", align 1
 @.str.4 = private unnamed_addr constant [42 x i8] c"YARA fatal error: terminating rule parse\0A\00", align 1
 @.str.5 = private unnamed_addr constant [42 x i8] c"yara_parser: no mem for struct _yc_rule.\0A\00", align 1
@@ -394,87 +393,99 @@ declare i32 @yr_arena_write_string(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define ptr @yr_parser_reduce_string_declaration(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = alloca ptr, align 8
-  %6 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
-  %8 = load i32, ptr %7, align 4
-  %9 = shl i32 %8, 2
-  %10 = and i32 %9, 4
-  %spec.select = or i32 %10, %1
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(2) @.str.2) #7
-  %12 = icmp eq i32 %11, 0
-  %13 = or i32 %spec.select, 256
-  %.1 = select i1 %12, i32 %13, i32 %spec.select
-  %14 = lshr i32 %.1, 1
-  %15 = and i32 %14, 8
-  %16 = xor i32 %15, 8
-  %.2 = or i32 %.1, %16
-  %17 = or i32 %.2, 512
-  store ptr null, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 240
-  %19 = load ptr, ptr %18, align 8
-  %20 = call i32 (ptr, i64, ptr, ...) @yr_arena_allocate_struct(ptr noundef %19, i64 noundef 48, ptr noundef nonnull %5, i64 noundef 16, i64 noundef 24, i64 noundef 32, i64 noundef -1) #6
-  %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %21, label %_yr_parser_write_string.exit.thread
+sub_0:
+  %4 = alloca ptr, align 8
+  %5 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
+  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = shl i32 %7, 2
+  %9 = and i32 %8, 4
+  %spec.select = or i32 %9, %1
+  %10 = load i8, ptr %2, align 1
+  %.not = icmp eq i8 %10, 36
+  br i1 %.not, label %.tail, label %.tail.thread
 
-21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %6, i64 224
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = call i32 @yr_arena_write_string(ptr noundef %23, ptr noundef %2, ptr noundef nonnull %25) #6
-  %.not23.i = icmp eq i32 %26, 0
+.tail:                                            ; preds = %sub_0
+  %11 = getelementptr inbounds i8, ptr %2, i64 1
+  %12 = load i8, ptr %11, align 1
+  %.fr = freeze i8 %12
+  %13 = icmp eq i8 %.fr, 0
+  %14 = or i32 %spec.select, 256
+  %spec.select36 = select i1 %13, i32 %14, i32 %spec.select
+  br label %.tail.thread
+
+.tail.thread:                                     ; preds = %.tail, %sub_0
+  %15 = phi i32 [ %spec.select, %sub_0 ], [ %spec.select36, %.tail ]
+  %16 = lshr i32 %15, 1
+  %17 = and i32 %16, 8
+  %18 = xor i32 %17, 8
+  %.2 = or i32 %15, %18
+  %19 = or i32 %.2, 512
+  store ptr null, ptr %4, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 240
+  %21 = load ptr, ptr %20, align 8
+  %22 = call i32 (ptr, i64, ptr, ...) @yr_arena_allocate_struct(ptr noundef %21, i64 noundef 48, ptr noundef nonnull %4, i64 noundef 16, i64 noundef 24, i64 noundef 32, i64 noundef -1) #6
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %23, label %_yr_parser_write_string.exit.thread
+
+23:                                               ; preds = %.tail.thread
+  %24 = getelementptr inbounds i8, ptr %5, i64 224
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = call i32 @yr_arena_write_string(ptr noundef %25, ptr noundef nonnull %2, ptr noundef nonnull %27) #6
+  %.not23.i = icmp eq i32 %28, 0
   br i1 %.not23.i, label %_yr_parser_write_string.exit, label %_yr_parser_write_string.exit.thread
 
-_yr_parser_write_string.exit.thread:              ; preds = %4, %21
-  %.0.i.ph = phi i32 [ %26, %21 ], [ %20, %4 ]
-  %27 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 %.0.i.ph, ptr %27, align 8
-  br label %48
+_yr_parser_write_string.exit.thread:              ; preds = %.tail.thread, %23
+  %.0.i.ph = phi i32 [ %28, %23 ], [ %22, %.tail.thread ]
+  %29 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %.0.i.ph, ptr %29, align 8
+  br label %50
 
-_yr_parser_write_string.exit:                     ; preds = %21
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  store i32 %17, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr null, ptr %30, align 8
-  %31 = load i32, ptr %3, align 4
-  %32 = getelementptr inbounds i8, ptr %28, i64 12
-  store i32 %31, ptr %32, align 4
-  %33 = load ptr, ptr %22, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds i8, ptr %28, i64 24
-  %37 = call i32 @yr_arena_write_data(ptr noundef %33, ptr noundef nonnull %34, i64 noundef %35, ptr noundef nonnull %36) #6
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 %37, ptr %38, align 8
-  %.not28 = icmp eq i32 %37, 0
-  %.pre34 = load ptr, ptr %5, align 8
-  br i1 %.not28, label %39, label %48
+_yr_parser_write_string.exit:                     ; preds = %23
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  store i32 %19, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr null, ptr %32, align 8
+  %33 = load i32, ptr %3, align 4
+  %34 = getelementptr inbounds i8, ptr %30, i64 12
+  store i32 %33, ptr %34, align 4
+  %35 = load ptr, ptr %24, align 8
+  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = sext i32 %33 to i64
+  %38 = getelementptr inbounds i8, ptr %30, i64 24
+  %39 = call i32 @yr_arena_write_data(ptr noundef %35, ptr noundef nonnull %36, i64 noundef %37, ptr noundef nonnull %38) #6
+  %40 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %39, ptr %40, align 8
+  %.not28 = icmp eq i32 %39, 0
+  %.pre34 = load ptr, ptr %4, align 8
+  br i1 %.not28, label %41, label %50
 
-39:                                               ; preds = %_yr_parser_write_string.exit
-  %40 = icmp eq ptr %.pre34, null
-  br i1 %40, label %41, label %42
+41:                                               ; preds = %_yr_parser_write_string.exit
+  %42 = icmp eq ptr %.pre34, null
+  br i1 %42, label %43, label %44
 
-41:                                               ; preds = %39
+43:                                               ; preds = %41
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.3) #6
-  store i32 20, ptr %38, align 8
-  br label %48
+  store i32 20, ptr %40, align 8
+  br label %50
 
-42:                                               ; preds = %39
+44:                                               ; preds = %41
   store ptr null, ptr %.pre34, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 3048
-  %45 = load ptr, ptr %44, align 8
-  store ptr %43, ptr %45, align 8
-  store ptr %43, ptr %44, align 8
-  %.pre = load i32, ptr %38, align 8
-  %46 = icmp eq i32 %.pre, 0
-  %47 = select i1 %46, ptr %43, ptr null
-  br label %48
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds i8, ptr %5, i64 3048
+  %47 = load ptr, ptr %46, align 8
+  store ptr %45, ptr %47, align 8
+  store ptr %45, ptr %46, align 8
+  %.pre = load i32, ptr %40, align 8
+  %48 = icmp eq i32 %.pre, 0
+  %49 = select i1 %48, ptr %45, ptr null
+  br label %50
 
-48:                                               ; preds = %42, %_yr_parser_write_string.exit, %_yr_parser_write_string.exit.thread, %41
-  %.0 = phi ptr [ null, %41 ], [ null, %_yr_parser_write_string.exit.thread ], [ null, %_yr_parser_write_string.exit ], [ %47, %42 ]
+50:                                               ; preds = %44, %_yr_parser_write_string.exit, %_yr_parser_write_string.exit.thread, %43
+  %.0 = phi ptr [ null, %43 ], [ null, %_yr_parser_write_string.exit.thread ], [ null, %_yr_parser_write_string.exit ], [ %49, %44 ]
   ret ptr %.0
 }
 
@@ -720,93 +731,100 @@ declare i32 @yr_arena_create(i64 noundef, i32 noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
+sub_0:
+  %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
-  %6 = alloca i8, align 1
-  %7 = alloca i64, align 8
-  %8 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.2) #7
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %47
+  %6 = alloca i64, align 8
+  %7 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
+  %8 = load i8, ptr %1, align 1
+  %.not35 = icmp eq i8 %8, 36
+  br i1 %.not35, label %.tail, label %.tail.thread
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %8, i64 412
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %15, label %45
+.tail:                                            ; preds = %sub_0
+  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %12, label %.tail.thread
 
-15:                                               ; preds = %11
-  %16 = zext nneg i32 %13 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store i8 41, ptr %6, align 1
-  store i64 %16, ptr %7, align 8
-  %17 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
-  %18 = getelementptr inbounds i8, ptr %17, i64 248
-  %19 = load ptr, ptr %18, align 8
-  %20 = call i32 @yr_arena_write_data(ptr noundef %19, ptr noundef nonnull %6, i64 noundef 1, ptr noundef null) #6
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %yr_parser_emit_with_arg.exit
+12:                                               ; preds = %.tail
+  %13 = getelementptr inbounds i8, ptr %7, i64 412
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sgt i32 %14, -1
+  br i1 %15, label %16, label %46
 
-22:                                               ; preds = %15
-  %23 = call ptr @yara_yyget_extra(ptr noundef %0) #6
-  %24 = getelementptr inbounds i8, ptr %23, i64 248
-  %25 = load ptr, ptr %24, align 8
-  %26 = call i32 @yr_arena_write_data(ptr noundef %25, ptr noundef nonnull %7, i64 noundef 8, ptr noundef null) #6
+16:                                               ; preds = %12
+  %17 = zext nneg i32 %14 to i64
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  store i8 41, ptr %5, align 1
+  store i64 %17, ptr %6, align 8
+  %18 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
+  %19 = getelementptr inbounds i8, ptr %18, i64 248
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i32 @yr_arena_write_data(ptr noundef %20, ptr noundef nonnull %5, i64 noundef 1, ptr noundef null) #6
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %yr_parser_emit_with_arg.exit
+
+23:                                               ; preds = %16
+  %24 = call ptr @yara_yyget_extra(ptr noundef %0) #6
+  %25 = getelementptr inbounds i8, ptr %24, i64 248
+  %26 = load ptr, ptr %25, align 8
+  %27 = call i32 @yr_arena_write_data(ptr noundef %26, ptr noundef nonnull %6, i64 noundef 8, ptr noundef null) #6
   br label %yr_parser_emit_with_arg.exit
 
-yr_parser_emit_with_arg.exit:                     ; preds = %15, %22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  store i8 %2, ptr %5, align 1
-  %27 = call ptr @yara_yyget_extra(ptr noundef %0) #6
-  %28 = getelementptr inbounds i8, ptr %27, i64 248
-  %29 = load ptr, ptr %28, align 8
-  %30 = call i32 @yr_arena_write_data(ptr noundef %29, ptr noundef nonnull %5, i64 noundef 1, ptr noundef null) #6
+yr_parser_emit_with_arg.exit:                     ; preds = %16, %23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  store i8 %2, ptr %4, align 1
+  %28 = call ptr @yara_yyget_extra(ptr noundef %0) #6
+  %29 = getelementptr inbounds i8, ptr %28, i64 248
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 @yr_arena_write_data(ptr noundef %30, ptr noundef nonnull %4, i64 noundef 1, ptr noundef null) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.not28 = icmp eq i8 %2, 30
-  br i1 %.not28, label %.critedge, label %31
+  br i1 %.not28, label %.critedge, label %32
 
-31:                                               ; preds = %yr_parser_emit_with_arg.exit
-  %32 = getelementptr inbounds i8, ptr %8, i64 328
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %.critedge, label %.lr.ph
+32:                                               ; preds = %yr_parser_emit_with_arg.exit
+  %33 = getelementptr inbounds i8, ptr %7, i64 328
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %8, i64 240
-  br label %36
+.lr.ph:                                           ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %7, i64 240
+  br label %37
 
-36:                                               ; preds = %.lr.ph, %40
-  %.033 = phi ptr [ %33, %.lr.ph ], [ %43, %40 ]
-  %37 = getelementptr inbounds i8, ptr %.033, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = and i32 %38, 4096
-  %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %40, label %.critedge
+37:                                               ; preds = %.lr.ph, %41
+  %.033 = phi ptr [ %34, %.lr.ph ], [ %44, %41 ]
+  %38 = getelementptr inbounds i8, ptr %.033, i64 8
+  %39 = load i32, ptr %38, align 8
+  %40 = and i32 %39, 4096
+  %.not = icmp eq i32 %40, 0
+  br i1 %.not, label %41, label %.critedge
 
-40:                                               ; preds = %36
-  %41 = and i32 %38, -4609
-  store i32 %41, ptr %37, align 8
-  %42 = load ptr, ptr %35, align 8
-  %43 = call ptr @yr_arena_next_address(ptr noundef %42, ptr noundef nonnull %.033, i64 noundef 48) #6
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %.critedge, label %36
+41:                                               ; preds = %37
+  %42 = and i32 %39, -4609
+  store i32 %42, ptr %38, align 8
+  %43 = load ptr, ptr %36, align 8
+  %44 = call ptr @yr_arena_next_address(ptr noundef %43, ptr noundef nonnull %.033, i64 noundef 48) #6
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.critedge, label %37
 
-45:                                               ; preds = %11
-  %46 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 21, ptr %46, align 8
+46:                                               ; preds = %12
+  %47 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 21, ptr %47, align 8
   br label %.critedge
 
-47:                                               ; preds = %3
+.tail.thread:                                     ; preds = %sub_0, %.tail
   %48 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
   %49 = getelementptr inbounds i8, ptr %48, i64 328
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %yr_parser_lookup_string.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %47
+.lr.ph.i:                                         ; preds = %.tail.thread
   %52 = getelementptr inbounds i8, ptr %48, i64 240
   br label %53
 
@@ -837,9 +855,9 @@ yr_parser_emit_with_arg.exit:                     ; preds = %15, %22
   %69 = icmp eq ptr %68, null
   br i1 %69, label %yr_parser_lookup_string.exit.thread, label %53
 
-yr_parser_lookup_string.exit.thread:              ; preds = %53, %66, %47
+yr_parser_lookup_string.exit.thread:              ; preds = %53, %66, %.tail.thread
   %70 = getelementptr inbounds i8, ptr %48, i64 692
-  %71 = tail call i64 @cli_strlcpy(ptr noundef nonnull %70, ptr noundef %1, i64 noundef 256) #6
+  %71 = tail call i64 @cli_strlcpy(ptr noundef nonnull %70, ptr noundef nonnull %1, i64 noundef 256) #6
   %72 = getelementptr inbounds i8, ptr %48, i64 16
   store i32 19, ptr %72, align 8
   br label %.critedge
@@ -858,20 +876,20 @@ yr_parser_lookup_string.exit:                     ; preds = %62
   br label %79
 
 79:                                               ; preds = %76, %yr_parser_lookup_string.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 %2, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  store i8 %2, ptr %3, align 1
   %80 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
   %81 = getelementptr inbounds i8, ptr %80, i64 248
   %82 = load ptr, ptr %81, align 8
-  %83 = call i32 @yr_arena_write_data(ptr noundef %82, ptr noundef nonnull %4, i64 noundef 1, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  %83 = call i32 @yr_arena_write_data(ptr noundef %82, ptr noundef nonnull %3, i64 noundef 1, ptr noundef null) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %84 = load i32, ptr %73, align 8
   %85 = or i32 %84, 1
   store i32 %85, ptr %73, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %36, %40, %31, %yr_parser_lookup_string.exit.thread, %79, %45, %yr_parser_emit_with_arg.exit
-  %86 = getelementptr inbounds i8, ptr %8, i64 16
+.critedge:                                        ; preds = %37, %41, %32, %yr_parser_lookup_string.exit.thread, %79, %46, %yr_parser_emit_with_arg.exit
+  %86 = getelementptr inbounds i8, ptr %7, i64 16
   %87 = load i32, ptr %86, align 8
   ret i32 %87
 }

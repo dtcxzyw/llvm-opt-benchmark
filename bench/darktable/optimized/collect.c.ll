@@ -125,17 +125,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.97 = private unnamed_addr constant [2 x i8] c"|\00", align 1
 @.str.98 = private unnamed_addr constant [10 x i8] c"sensitive\00", align 1
 @.str.99 = private unnamed_addr constant [2 x i8] c"%\00", align 1
-@.str.100 = private unnamed_addr constant [3 x i8] c"[]\00", align 1
 @.str.101 = private unnamed_addr constant [11 x i8] c"darktable|\00", align 1
 @.str.102 = private unnamed_addr constant [14 x i8] c"uncategorized\00", align 1
 @__FUNCTION__._create_filtered_model = private unnamed_addr constant [23 x i8] c"_create_filtered_model\00", align 1
 @.str.103 = private unnamed_addr constant [52 x i8] c"SELECT id FROM main.film_rolls WHERE folder LIKE ?1\00", align 1
 @.str.104 = private unnamed_addr constant [41 x i8] c"sqlite3 error: %s:%d, function %s(): %s\0A\00", align 1
-@.str.105 = private unnamed_addr constant [2 x i8] c">\00", align 1
-@.str.106 = private unnamed_addr constant [3 x i8] c">=\00", align 1
-@.str.107 = private unnamed_addr constant [2 x i8] c"<\00", align 1
-@.str.108 = private unnamed_addr constant [3 x i8] c"<=\00", align 1
-@.str.109 = private unnamed_addr constant [3 x i8] c"<>\00", align 1
 @.str.110 = private unnamed_addr constant [2 x i8] c"*\00", align 1
 @.str.111 = private unnamed_addr constant [213 x i8] c"SELECT TRIM(cm.maker || ' ' || cm.model) AS camera,       1, COUNT(*) AS count  FROM main.images AS mi, main.cameras AS cm  WHERE mi.camera_id = cm.id    AND %s   GROUP BY LOWER(camera)  ORDER BY LOWER(camera) %s\00", align 1
 @.str.112 = private unnamed_addr constant [5 x i8] c"DESC\00", align 1
@@ -2003,79 +1997,91 @@ define internal fastcc void @_tree_view(ptr noundef %0) unnamed_addr #1 {
 510:                                              ; preds = %508, %496
   %511 = phi i8 [ %509, %508 ], [ %497, %496 ]
   %512 = icmp eq i8 %511, 0
-  br i1 %512, label %542, label %513
+  br i1 %512, label %544, label %513
 
 513:                                              ; preds = %510
   %514 = add i32 %23, -16
   %515 = icmp ult i32 %514, -6
-  br i1 %515, label %541, label %516
+  br i1 %515, label %543, label %sub_0
 
-516:                                              ; preds = %513
-  %517 = getelementptr inbounds i8, ptr %0, i64 80
-  %518 = load ptr, ptr %517, align 8, !tbaa !79
-  %519 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %518, ptr noundef nonnull dereferenceable(3) @.str.100) #20
-  %520 = icmp eq i32 %519, 0
-  br i1 %520, label %521, label %538
+sub_0:                                            ; preds = %513
+  %516 = getelementptr inbounds i8, ptr %0, i64 80
+  %517 = load ptr, ptr %516, align 8, !tbaa !79
+  %518 = load i8, ptr %517, align 1
+  %.not = icmp eq i8 %518, 91
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-521:                                              ; preds = %516
-  %522 = getelementptr inbounds i8, ptr %0, i64 88
-  %523 = getelementptr inbounds i8, ptr %0, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %522, i8 0, i64 16, i1 false)
+sub_1:                                            ; preds = %sub_0
+  %519 = getelementptr inbounds i8, ptr %517, i64 1
+  %520 = load i8, ptr %519, align 1
+  %.not37 = icmp eq i8 %520, 93
+  br i1 %.not37, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %521 = getelementptr inbounds i8, ptr %517, i64 2
+  %522 = load i8, ptr %521, align 1
+  %523 = icmp eq i8 %522, 0
+  br i1 %523, label %524, label %.tail.thread
+
+524:                                              ; preds = %.tail
+  %525 = getelementptr inbounds i8, ptr %0, i64 88
+  %526 = getelementptr inbounds i8, ptr %0, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %525, i8 0, i64 16, i1 false)
   call void @gtk_tree_model_foreach(ptr noundef %51, ptr noundef nonnull @_datetime_range_select, ptr noundef nonnull %0) #17
-  %524 = load ptr, ptr %522, align 8, !tbaa !80
-  %525 = icmp eq ptr %524, null
-  br i1 %525, label %534, label %526
-
-526:                                              ; preds = %521
-  %527 = load ptr, ptr %523, align 8, !tbaa !81
+  %527 = load ptr, ptr %525, align 8, !tbaa !80
   %528 = icmp eq ptr %527, null
-  br i1 %528, label %532, label %529
+  br i1 %528, label %537, label %529
 
-529:                                              ; preds = %526
-  call fastcc void @_expand_select_tree_path(ptr noundef nonnull %524, ptr noundef nonnull %527, ptr noundef nonnull %18)
-  %530 = load ptr, ptr %522, align 8, !tbaa !80
+529:                                              ; preds = %524
+  %530 = load ptr, ptr %526, align 8, !tbaa !81
   %531 = icmp eq ptr %530, null
-  br i1 %531, label %534, label %532
+  br i1 %531, label %535, label %532
 
-532:                                              ; preds = %529, %526
-  %533 = phi ptr [ %530, %529 ], [ %524, %526 ]
-  call void @gtk_tree_path_free(ptr noundef nonnull %533) #17
-  br label %534
+532:                                              ; preds = %529
+  call fastcc void @_expand_select_tree_path(ptr noundef nonnull %527, ptr noundef nonnull %530, ptr noundef nonnull %18)
+  %533 = load ptr, ptr %525, align 8, !tbaa !80
+  %534 = icmp eq ptr %533, null
+  br i1 %534, label %537, label %535
 
-534:                                              ; preds = %532, %529, %521
-  %535 = load ptr, ptr %523, align 8, !tbaa !81
-  %536 = icmp eq ptr %535, null
-  br i1 %536, label %539, label %537
+535:                                              ; preds = %532, %529
+  %536 = phi ptr [ %533, %532 ], [ %527, %529 ]
+  call void @gtk_tree_path_free(ptr noundef nonnull %536) #17
+  br label %537
 
-537:                                              ; preds = %534
-  call void @gtk_tree_path_free(ptr noundef nonnull %535) #17
-  br label %539
+537:                                              ; preds = %535, %532, %524
+  %538 = load ptr, ptr %526, align 8, !tbaa !81
+  %539 = icmp eq ptr %538, null
+  br i1 %539, label %541, label %540
 
-538:                                              ; preds = %516
+540:                                              ; preds = %537
+  call void @gtk_tree_path_free(ptr noundef nonnull %538) #17
+  br label %541
+
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   call void @gtk_tree_model_foreach(ptr noundef %51, ptr noundef nonnull @tree_expand, ptr noundef nonnull %0) #17
-  br label %539
+  br label %541
 
-539:                                              ; preds = %538, %537, %534
-  %540 = load ptr, ptr %517, align 8, !tbaa !79
-  call void @g_free(ptr noundef %540) #17
-  br label %542
+541:                                              ; preds = %.tail.thread, %540, %537
+  %542 = load ptr, ptr %516, align 8, !tbaa !79
+  call void @g_free(ptr noundef %542) #17
+  br label %544
 
-541:                                              ; preds = %513
+543:                                              ; preds = %513
   call void @gtk_tree_model_foreach(ptr noundef %51, ptr noundef nonnull @tree_expand, ptr noundef nonnull %0) #17
-  br label %542
+  br label %544
 
-542:                                              ; preds = %541, %539, %510
-  %543 = load ptr, ptr %504, align 8, !tbaa !78
-  %544 = icmp eq ptr %543, null
-  br i1 %544, label %547, label %545
+544:                                              ; preds = %543, %541, %510
+  %545 = load ptr, ptr %504, align 8, !tbaa !78
+  %546 = icmp eq ptr %545, null
+  br i1 %546, label %549, label %547
 
-545:                                              ; preds = %542
-  call fastcc void @_expand_select_tree_path(ptr noundef nonnull %543, ptr noundef null, ptr noundef nonnull %18)
-  %546 = load ptr, ptr %504, align 8, !tbaa !78
-  call void @gtk_tree_path_free(ptr noundef %546) #17
-  br label %547
+547:                                              ; preds = %544
+  call fastcc void @_expand_select_tree_path(ptr noundef nonnull %545, ptr noundef null, ptr noundef nonnull %18)
+  %548 = load ptr, ptr %504, align 8, !tbaa !78
+  call void @gtk_tree_path_free(ptr noundef %548) #17
+  br label %549
 
-547:                                              ; preds = %545, %542
+549:                                              ; preds = %547, %544
   store ptr null, ptr %503, align 8, !tbaa !77
   call void @g_free(ptr noundef nonnull %489) #17
   ret void
@@ -3762,7 +3768,7 @@ declare void @dtgtk_cairo_paint_presets(ptr noundef, i32 noundef, i32 noundef, i
 declare void @gtk_widget_set_events(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @popup_button_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @popup_button_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !110
   %6 = icmp eq i32 %5, 1
@@ -3842,7 +3848,7 @@ declare i64 @gtk_tree_view_get_type() local_unnamed_addr #10
 declare void @gtk_tree_view_set_headers_visible(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @view_onButtonPressed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @view_onButtonPressed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   store ptr null, ptr %4, align 8, !tbaa !55
@@ -4106,7 +4112,7 @@ thread-pre-split:                                 ; preds = %76, %83, %87, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @view_onPopupMenu(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef range(i32 0, 2) i32 @view_onPopupMenu(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 1136
   %4 = load i32, ptr %3, align 8, !tbaa !30
   %5 = icmp eq i32 %4, 1
@@ -5336,7 +5342,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @gtk_tree_model_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_datetime_range_select(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #1 {
+define internal noundef range(i32 0, 2) i32 @_datetime_range_select(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull %5, i32 noundef -1) #17
@@ -5461,7 +5467,7 @@ define internal fastcc void @_expand_select_tree_path(ptr noundef %0, ptr nounde
 declare void @gtk_tree_path_free(ptr noundef) #9
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tree_expand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #1 {
+define internal noundef range(i32 0, 2) i32 @tree_expand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store ptr null, ptr %5, align 8, !tbaa !55
@@ -5659,7 +5665,7 @@ define internal noundef i32 @tree_match_string(ptr noundef %0, ptr nocapture rea
   %10 = load i32, ptr %6, align 4
   %11 = icmp ne i32 %10, 0
   %12 = select i1 %9, i1 true, i1 %11
-  br i1 %12, label %13, label %112
+  br i1 %12, label %13, label %118
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %3, i64 60
@@ -5685,141 +5691,171 @@ define internal noundef i32 @tree_match_string(ptr noundef %0, ptr nocapture rea
   %28 = trunc i64 %27 to i32
   %29 = add i32 %28, -10
   %30 = icmp ult i32 %29, 6
-  br i1 %30, label %31, label %93
+  br i1 %30, label %31, label %99
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds i8, ptr %3, i64 64
   %33 = load i64, ptr %32, align 8, !tbaa !73
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %110, label %35
+  br i1 %34, label %116, label %35
 
 35:                                               ; preds = %31
   %36 = call i64 @dt_datetime_exif_to_gtimespan(ptr noundef %23) #17
   %37 = getelementptr inbounds i8, ptr %3, i64 80
   %38 = load ptr, ptr %37, align 8, !tbaa !79
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %48
+  br i1 %39, label %40, label %sub_0
 
 40:                                               ; preds = %35
   %41 = load i64, ptr %32, align 8, !tbaa !73
   %42 = icmp slt i64 %36, %41
-  br i1 %42, label %110, label %43
+  br i1 %42, label %116, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %3, i64 72
   %45 = load i64, ptr %44, align 8, !tbaa !74
   %46 = icmp sle i64 %36, %45
   %47 = zext i1 %46 to i32
-  br label %110
+  br label %116
 
-48:                                               ; preds = %35
-  %49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(2) @.str.105) #20
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %55
+sub_0:                                            ; preds = %35
+  %48 = load i8, ptr %38, align 1
+  switch i8 %48, label %.tail17.thread [
+    i8 62, label %.tail
+    i8 60, label %.tail8
+  ]
 
-51:                                               ; preds = %48
-  %52 = load i64, ptr %32, align 8, !tbaa !73
-  %53 = icmp sgt i64 %36, %52
-  %54 = zext i1 %53 to i32
-  br label %110
+.tail:                                            ; preds = %sub_0
+  %49 = getelementptr inbounds i8, ptr %38, i64 1
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp eq i8 %50, 0
+  br i1 %51, label %52, label %sub_16
 
-55:                                               ; preds = %48
-  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(3) @.str.106) #20
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %62
+52:                                               ; preds = %.tail
+  %53 = load i64, ptr %32, align 8, !tbaa !73
+  %54 = icmp sgt i64 %36, %53
+  %55 = zext i1 %54 to i32
+  br label %116
 
-58:                                               ; preds = %55
-  %59 = load i64, ptr %32, align 8, !tbaa !73
-  %60 = icmp sge i64 %36, %59
-  %61 = zext i1 %60 to i32
-  br label %110
+sub_16:                                           ; preds = %.tail
+  %56 = getelementptr inbounds i8, ptr %38, i64 1
+  %57 = load i8, ptr %56, align 1
+  %.not23 = icmp eq i8 %57, 61
+  br i1 %.not23, label %.tail4, label %.tail17.thread
 
-62:                                               ; preds = %55
-  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(2) @.str.107) #20
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %69
+.tail4:                                           ; preds = %sub_16
+  %58 = getelementptr inbounds i8, ptr %38, i64 2
+  %59 = load i8, ptr %58, align 1
+  %60 = icmp eq i8 %59, 0
+  br i1 %60, label %61, label %.tail17.thread
 
-65:                                               ; preds = %62
-  %66 = load i64, ptr %32, align 8, !tbaa !73
-  %67 = icmp slt i64 %36, %66
-  %68 = zext i1 %67 to i32
-  br label %110
+61:                                               ; preds = %.tail4
+  %62 = load i64, ptr %32, align 8, !tbaa !73
+  %63 = icmp sge i64 %36, %62
+  %64 = zext i1 %63 to i32
+  br label %116
 
-69:                                               ; preds = %62
-  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(3) @.str.108) #20
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %76
+.tail8:                                           ; preds = %sub_0
+  %65 = getelementptr inbounds i8, ptr %38, i64 1
+  %66 = load i8, ptr %65, align 1
+  %67 = icmp eq i8 %66, 0
+  br i1 %67, label %68, label %sub_114
 
-72:                                               ; preds = %69
-  %73 = load i64, ptr %32, align 8, !tbaa !73
-  %74 = icmp sle i64 %36, %73
-  %75 = zext i1 %74 to i32
-  br label %110
+68:                                               ; preds = %.tail8
+  %69 = load i64, ptr %32, align 8, !tbaa !73
+  %70 = icmp slt i64 %36, %69
+  %71 = zext i1 %70 to i32
+  br label %116
 
-76:                                               ; preds = %69
-  %77 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(3) @.str.109) #20
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %83
+sub_114:                                          ; preds = %.tail8
+  %72 = getelementptr inbounds i8, ptr %38, i64 1
+  %73 = load i8, ptr %72, align 1
+  %.not26 = icmp eq i8 %73, 61
+  br i1 %.not26, label %.tail12, label %sub_119
 
-79:                                               ; preds = %76
-  %80 = load i64, ptr %32, align 8, !tbaa !73
-  %81 = icmp ne i64 %36, %80
-  %82 = zext i1 %81 to i32
-  br label %110
+.tail12:                                          ; preds = %sub_114
+  %74 = getelementptr inbounds i8, ptr %38, i64 2
+  %75 = load i8, ptr %74, align 1
+  %76 = icmp eq i8 %75, 0
+  br i1 %76, label %77, label %sub_119
 
-83:                                               ; preds = %76
-  %84 = getelementptr inbounds i8, ptr %3, i64 72
-  %85 = load i64, ptr %84, align 8, !tbaa !74
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %110, label %87
+77:                                               ; preds = %.tail12
+  %78 = load i64, ptr %32, align 8, !tbaa !73
+  %79 = icmp sle i64 %36, %78
+  %80 = zext i1 %79 to i32
+  br label %116
 
-87:                                               ; preds = %83
-  %88 = load i64, ptr %32, align 8, !tbaa !73
-  %89 = icmp sge i64 %36, %88
-  %90 = icmp sle i64 %36, %85
-  %91 = and i1 %90, %89
-  %92 = zext i1 %91 to i32
-  br label %110
+sub_119:                                          ; preds = %.tail12, %sub_114
+  %81 = getelementptr inbounds i8, ptr %38, i64 1
+  %82 = load i8, ptr %81, align 1
+  %.not28 = icmp eq i8 %82, 62
+  br i1 %.not28, label %.tail17, label %.tail17.thread
 
-93:                                               ; preds = %22
-  %94 = getelementptr inbounds i8, ptr %3, i64 48
-  %95 = load ptr, ptr %94, align 8, !tbaa !77
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %110, label %97
+.tail17:                                          ; preds = %sub_119
+  %83 = getelementptr inbounds i8, ptr %38, i64 2
+  %84 = load i8, ptr %83, align 1
+  %85 = icmp eq i8 %84, 0
+  br i1 %85, label %86, label %.tail17.thread
 
-97:                                               ; preds = %93
-  %98 = load i8, ptr %95, align 1, !tbaa !61
-  %99 = icmp eq i8 %98, 0
-  br i1 %99, label %110, label %100
+86:                                               ; preds = %.tail17
+  %87 = load i64, ptr %32, align 8, !tbaa !73
+  %88 = icmp ne i64 %36, %87
+  %89 = zext i1 %88 to i32
+  br label %116
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %3, i64 56
-  %102 = load i32, ptr %101, align 8, !tbaa !76
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %108, label %104
+.tail17.thread:                                   ; preds = %sub_0, %sub_16, %.tail4, %sub_119, %.tail17
+  %90 = getelementptr inbounds i8, ptr %3, i64 72
+  %91 = load i64, ptr %90, align 8, !tbaa !74
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %116, label %93
 
-104:                                              ; preds = %100
-  %105 = call ptr @g_strrstr(ptr noundef %23, ptr noundef nonnull %95) #17
-  %106 = icmp ne ptr %105, null
-  %107 = zext i1 %106 to i32
-  br label %110
+93:                                               ; preds = %.tail17.thread
+  %94 = load i64, ptr %32, align 8, !tbaa !73
+  %95 = icmp sge i64 %36, %94
+  %96 = icmp sle i64 %36, %91
+  %97 = and i1 %96, %95
+  %98 = zext i1 %97 to i32
+  br label %116
 
-108:                                              ; preds = %100
-  %109 = call i32 @g_str_has_prefix(ptr noundef %23, ptr noundef nonnull %95) #17
-  br label %110
+99:                                               ; preds = %22
+  %100 = getelementptr inbounds i8, ptr %3, i64 48
+  %101 = load ptr, ptr %100, align 8, !tbaa !77
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %116, label %103
 
-110:                                              ; preds = %108, %104, %97, %93, %87, %83, %79, %72, %65, %58, %51, %43, %40, %31
-  %111 = phi i32 [ 1, %31 ], [ %107, %104 ], [ %109, %108 ], [ %54, %51 ], [ %61, %58 ], [ %68, %65 ], [ %75, %72 ], [ %82, %79 ], [ %92, %87 ], [ 1, %83 ], [ 0, %40 ], [ %47, %43 ], [ 1, %97 ], [ 1, %93 ]
+103:                                              ; preds = %99
+  %104 = load i8, ptr %101, align 1, !tbaa !61
+  %105 = icmp eq i8 %104, 0
+  br i1 %105, label %116, label %106
+
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds i8, ptr %3, i64 56
+  %108 = load i32, ptr %107, align 8, !tbaa !76
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %114, label %110
+
+110:                                              ; preds = %106
+  %111 = call ptr @g_strrstr(ptr noundef %23, ptr noundef nonnull %101) #17
+  %112 = icmp ne ptr %111, null
+  %113 = zext i1 %112 to i32
+  br label %116
+
+114:                                              ; preds = %106
+  %115 = call i32 @g_str_has_prefix(ptr noundef %23, ptr noundef nonnull %101) #17
+  br label %116
+
+116:                                              ; preds = %114, %110, %103, %99, %93, %.tail17.thread, %86, %77, %68, %61, %52, %43, %40, %31
+  %117 = phi i32 [ 1, %31 ], [ %113, %110 ], [ %115, %114 ], [ %55, %52 ], [ %64, %61 ], [ %71, %68 ], [ %80, %77 ], [ %89, %86 ], [ %98, %93 ], [ 1, %.tail17.thread ], [ 0, %40 ], [ %47, %43 ], [ 1, %103 ], [ 1, %99 ]
   call void @g_free(ptr noundef %23) #17
-  br label %112
+  br label %118
 
-112:                                              ; preds = %110, %4
-  %113 = phi i32 [ %111, %110 ], [ 1, %4 ]
-  %114 = load ptr, ptr %5, align 8, !tbaa !55
-  call void @g_free(ptr noundef %114) #17
-  %115 = tail call i64 @gtk_tree_store_get_type() #19
-  %116 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %115) #17
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %116, ptr noundef %2, i32 noundef 4, i32 noundef %113, i32 noundef -1) #17
+118:                                              ; preds = %116, %4
+  %119 = phi i32 [ %117, %116 ], [ 1, %4 ]
+  %120 = load ptr, ptr %5, align 8, !tbaa !55
+  call void @g_free(ptr noundef %120) #17
+  %121 = tail call i64 @gtk_tree_store_get_type() #19
+  %122 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %121) #17
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %122, ptr noundef %2, i32 noundef 4, i32 noundef %119, i32 noundef -1) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   ret i32 0
@@ -5920,12 +5956,12 @@ define internal noundef i32 @list_match_string(ptr noundef %0, ptr nocapture rea
   %16 = call ptr @dt_bauhaus_combobox_get_data(ptr noundef %15) #17
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i32
-  switch i32 %18, label %95 [
+  switch i32 %18, label %102 [
     i32 35, label %19
     i32 9, label %19
     i32 8, label %19
     i32 6, label %19
-    i32 3, label %76
+    i32 3, label %83
   ]
 
 19:                                               ; preds = %4, %4, %4, %4
@@ -5935,7 +5971,7 @@ define internal noundef i32 @list_match_string(ptr noundef %0, ptr nocapture rea
   call void @dt_collection_split_operator_number(ptr noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #17
   %20 = load ptr, ptr %8, align 8, !tbaa !55
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %71, label %22
+  br i1 %21, label %78, label %22
 
 22:                                               ; preds = %19
   %23 = call reassoc nsz arcp contract afn double @g_strtod(ptr noundef nonnull %20, ptr noundef null) #17
@@ -5944,169 +5980,214 @@ define internal noundef i32 @list_match_string(ptr noundef %0, ptr nocapture rea
   %26 = fptrunc double %25 to float
   %27 = load ptr, ptr %7, align 8, !tbaa !55
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %66, label %29
+  br i1 %28, label %.tail25.thread, label %sub_0
 
-29:                                               ; preds = %22
-  %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(2) @.str.105) #20
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %34
+sub_0:                                            ; preds = %22
+  %29 = load i8, ptr %27, align 1
+  switch i8 %29, label %.tail20.thread [
+    i8 62, label %sub_1
+    i8 60, label %.tail11
+  ]
 
-32:                                               ; preds = %29
-  %33 = fcmp reassoc nsz arcp contract afn ogt float %26, %24
-  br label %68
+sub_1:                                            ; preds = %sub_0
+  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %31 = load i8, ptr %30, align 1
+  %32 = icmp eq i8 %31, 0
+  br i1 %32, label %33, label %sub_08
 
-34:                                               ; preds = %29
-  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(3) @.str.106) #20
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %39
+33:                                               ; preds = %sub_1
+  %34 = fcmp reassoc nsz arcp contract afn ogt float %26, %24
+  br label %75
 
-37:                                               ; preds = %34
-  %38 = fcmp reassoc nsz arcp contract afn oge float %26, %24
-  br label %68
+sub_08:                                           ; preds = %sub_1
+  switch i8 %29, label %.tail20.thread [
+    i8 62, label %sub_19
+    i8 60, label %.tail11
+  ]
 
-39:                                               ; preds = %34
-  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(2) @.str.107) #20
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %44
+sub_19:                                           ; preds = %sub_08
+  %35 = getelementptr inbounds i8, ptr %27, i64 1
+  %36 = load i8, ptr %35, align 1
+  %.not31 = icmp eq i8 %36, 61
+  br i1 %.not31, label %.tail7, label %.tail20.thread
 
-42:                                               ; preds = %39
-  %43 = fcmp reassoc nsz arcp contract afn olt float %26, %24
-  br label %68
+.tail7:                                           ; preds = %sub_19
+  %37 = getelementptr inbounds i8, ptr %27, i64 2
+  %38 = load i8, ptr %37, align 1
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %40, label %.tail20.thread
 
-44:                                               ; preds = %39
-  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(3) @.str.108) #20
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %49
+40:                                               ; preds = %.tail7
+  %41 = fcmp reassoc nsz arcp contract afn oge float %26, %24
+  br label %75
 
-47:                                               ; preds = %44
-  %48 = fcmp reassoc nsz arcp contract afn ole float %26, %24
-  br label %68
+.tail11:                                          ; preds = %sub_0, %sub_08
+  %42 = getelementptr inbounds i8, ptr %27, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %45, label %sub_117
 
-49:                                               ; preds = %44
-  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(3) @.str.109) #20
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %54
+45:                                               ; preds = %.tail11
+  %46 = fcmp reassoc nsz arcp contract afn olt float %26, %24
+  br label %75
 
-52:                                               ; preds = %49
-  %53 = fcmp reassoc nsz arcp contract afn une float %24, %26
-  br label %68
+sub_117:                                          ; preds = %.tail11
+  %47 = getelementptr inbounds i8, ptr %27, i64 1
+  %48 = load i8, ptr %47, align 1
+  %.not34 = icmp eq i8 %48, 61
+  br i1 %.not34, label %.tail15, label %sub_122
 
-54:                                               ; preds = %49
-  %55 = load ptr, ptr %9, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %66, label %57
+.tail15:                                          ; preds = %sub_117
+  %49 = getelementptr inbounds i8, ptr %27, i64 2
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp eq i8 %50, 0
+  br i1 %51, label %52, label %sub_122
 
-57:                                               ; preds = %54
-  %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(3) @.str.100) #20
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %66
+52:                                               ; preds = %.tail15
+  %53 = fcmp reassoc nsz arcp contract afn ole float %26, %24
+  br label %75
 
-60:                                               ; preds = %57
-  %61 = call reassoc nsz arcp contract afn double @g_strtod(ptr noundef nonnull %55, ptr noundef null) #17
-  %62 = fptrunc double %61 to float
-  %63 = fcmp reassoc nsz arcp contract afn oge float %26, %24
-  %64 = fcmp reassoc nsz arcp contract afn ole float %26, %62
-  %65 = select i1 %63, i1 %64, i1 false
-  br label %68
+sub_122:                                          ; preds = %.tail15, %sub_117
+  %54 = getelementptr inbounds i8, ptr %27, i64 1
+  %55 = load i8, ptr %54, align 1
+  %.not36 = icmp eq i8 %55, 62
+  br i1 %.not36, label %.tail20, label %.tail20.thread
 
-66:                                               ; preds = %57, %54, %22
-  %67 = fcmp reassoc nsz arcp contract afn oeq float %24, %26
-  br label %68
+.tail20:                                          ; preds = %sub_122
+  %56 = getelementptr inbounds i8, ptr %27, i64 2
+  %57 = load i8, ptr %56, align 1
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %59, label %.tail25.thread
 
-68:                                               ; preds = %66, %60, %52, %47, %42, %37, %32
-  %69 = phi i1 [ %33, %32 ], [ %38, %37 ], [ %43, %42 ], [ %48, %47 ], [ %53, %52 ], [ %65, %60 ], [ %67, %66 ]
-  %70 = zext i1 %69 to i32
-  br label %71
+59:                                               ; preds = %.tail20
+  %60 = fcmp reassoc nsz arcp contract afn une float %24, %26
+  br label %75
 
-71:                                               ; preds = %68, %19
-  %72 = phi i32 [ %70, %68 ], [ 1, %19 ]
-  %73 = load ptr, ptr %7, align 8, !tbaa !55
-  call void @g_free(ptr noundef %73) #17
-  %74 = load ptr, ptr %8, align 8, !tbaa !55
-  call void @g_free(ptr noundef %74) #17
-  %75 = load ptr, ptr %9, align 8, !tbaa !55
-  call void @g_free(ptr noundef %75) #17
+.tail20.thread:                                   ; preds = %sub_0, %sub_08, %sub_19, %.tail7, %sub_122
+  %61 = load ptr, ptr %9, align 8
+  %62 = icmp ne ptr %61, null
+  %.not37 = icmp eq i8 %29, 91
+  %or.cond = and i1 %62, %.not37
+  br i1 %or.cond, label %sub_127, label %.tail25.thread
+
+sub_127:                                          ; preds = %.tail20.thread
+  %63 = getelementptr inbounds i8, ptr %27, i64 1
+  %64 = load i8, ptr %63, align 1
+  %.not38 = icmp eq i8 %64, 93
+  br i1 %.not38, label %.tail25, label %.tail25.thread
+
+.tail25:                                          ; preds = %sub_127
+  %65 = getelementptr inbounds i8, ptr %27, i64 2
+  %66 = load i8, ptr %65, align 1
+  %67 = icmp eq i8 %66, 0
+  br i1 %67, label %68, label %.tail25.thread
+
+68:                                               ; preds = %.tail25
+  %69 = call reassoc nsz arcp contract afn double @g_strtod(ptr noundef nonnull %61, ptr noundef null) #17
+  %70 = fptrunc double %69 to float
+  %71 = fcmp reassoc nsz arcp contract afn oge float %26, %24
+  %72 = fcmp reassoc nsz arcp contract afn ole float %26, %70
+  %73 = select i1 %71, i1 %72, i1 false
+  br label %75
+
+.tail25.thread:                                   ; preds = %.tail20, %sub_127, %.tail25, %.tail20.thread, %22
+  %74 = fcmp reassoc nsz arcp contract afn oeq float %24, %26
+  br label %75
+
+75:                                               ; preds = %.tail25.thread, %68, %59, %52, %45, %40, %33
+  %76 = phi i1 [ %34, %33 ], [ %41, %40 ], [ %46, %45 ], [ %53, %52 ], [ %60, %59 ], [ %73, %68 ], [ %74, %.tail25.thread ]
+  %77 = zext i1 %76 to i32
+  br label %78
+
+78:                                               ; preds = %75, %19
+  %79 = phi i32 [ %77, %75 ], [ 1, %19 ]
+  %80 = load ptr, ptr %7, align 8, !tbaa !55
+  call void @g_free(ptr noundef %80) #17
+  %81 = load ptr, ptr %8, align 8, !tbaa !55
+  call void @g_free(ptr noundef %81) #17
+  %82 = load ptr, ptr %9, align 8, !tbaa !55
+  call void @g_free(ptr noundef %82) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  br label %115
+  br label %122
 
-76:                                               ; preds = %4
-  %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 44) #20
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %95, label %79
+83:                                               ; preds = %4
+  %84 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 44) #20
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %102, label %86
 
-79:                                               ; preds = %76
-  %80 = call ptr @dt_util_str_to_glist(ptr noundef nonnull @.str.166, ptr noundef %13) #17
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %.loopexit, label %.preheader
+86:                                               ; preds = %83
+  %87 = call ptr @dt_util_str_to_glist(ptr noundef nonnull @.str.166, ptr noundef %13) #17
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %79, %90
-  %82 = phi ptr [ %92, %90 ], [ %80, %79 ]
-  %83 = load ptr, ptr %82, align 8, !tbaa !67
-  %84 = load i8, ptr %83, align 1, !tbaa !61
-  %85 = icmp eq i8 %84, 37
-  %86 = zext i1 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %83, i64 %86
-  %88 = call ptr @g_strrstr(ptr noundef %11, ptr noundef nonnull %87) #17
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %.loopexit
+.preheader:                                       ; preds = %86, %97
+  %89 = phi ptr [ %99, %97 ], [ %87, %86 ]
+  %90 = load ptr, ptr %89, align 8, !tbaa !67
+  %91 = load i8, ptr %90, align 1, !tbaa !61
+  %92 = icmp eq i8 %91, 37
+  %93 = zext i1 %92 to i64
+  %94 = getelementptr inbounds i8, ptr %90, i64 %93
+  %95 = call ptr @g_strrstr(ptr noundef %11, ptr noundef nonnull %94) #17
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %.loopexit
 
-90:                                               ; preds = %.preheader
-  %91 = getelementptr inbounds i8, ptr %82, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !69
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %.loopexit, label %.preheader
+97:                                               ; preds = %.preheader
+  %98 = getelementptr inbounds i8, ptr %89, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !69
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %90, %.preheader, %79
-  %94 = phi i32 [ 0, %79 ], [ 1, %.preheader ], [ 0, %90 ]
-  call void @g_list_free_full(ptr noundef %80, ptr noundef nonnull @g_free) #17
-  br label %115
+.loopexit:                                        ; preds = %97, %.preheader, %86
+  %101 = phi i32 [ 0, %86 ], [ 1, %.preheader ], [ 0, %97 ]
+  call void @g_list_free_full(ptr noundef %87, ptr noundef nonnull @g_free) #17
+  br label %122
 
-95:                                               ; preds = %76, %4
-  %96 = load i8, ptr %13, align 1, !tbaa !61
-  %97 = icmp eq i8 %96, 37
-  %98 = zext i1 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %13, i64 %98
-  %100 = load i8, ptr %99, align 1, !tbaa !61
-  %101 = icmp eq i8 %100, 0
-  br i1 %101, label %115, label %102
+102:                                              ; preds = %83, %4
+  %103 = load i8, ptr %13, align 1, !tbaa !61
+  %104 = icmp eq i8 %103, 37
+  %105 = zext i1 %104 to i64
+  %106 = getelementptr inbounds i8, ptr %13, i64 %105
+  %107 = load i8, ptr %106, align 1, !tbaa !61
+  %108 = icmp eq i8 %107, 0
+  br i1 %108, label %122, label %109
 
-102:                                              ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %99, i64 1
-  %104 = load i8, ptr %103, align 1, !tbaa !61
-  %105 = icmp eq i8 %104, 0
-  br i1 %105, label %106, label %111
+109:                                              ; preds = %102
+  %110 = getelementptr inbounds i8, ptr %106, i64 1
+  %111 = load i8, ptr %110, align 1, !tbaa !61
+  %112 = icmp eq i8 %111, 0
+  br i1 %112, label %113, label %118
 
-106:                                              ; preds = %102
-  %107 = sext i8 %100 to i32
-  %108 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef %107) #20
-  %109 = icmp ne ptr %108, null
-  %110 = zext i1 %109 to i32
-  br label %115
+113:                                              ; preds = %109
+  %114 = sext i8 %107 to i32
+  %115 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef %114) #20
+  %116 = icmp ne ptr %115, null
+  %117 = zext i1 %116 to i32
+  br label %122
 
-111:                                              ; preds = %102
-  %112 = call ptr @g_strrstr(ptr noundef %11, ptr noundef nonnull %99) #17
-  %113 = icmp ne ptr %112, null
-  %114 = zext i1 %113 to i32
-  br label %115
+118:                                              ; preds = %109
+  %119 = call ptr @g_strrstr(ptr noundef %11, ptr noundef nonnull %106) #17
+  %120 = icmp ne ptr %119, null
+  %121 = zext i1 %120 to i32
+  br label %122
 
-115:                                              ; preds = %111, %106, %95, %.loopexit, %71
-  %116 = phi i32 [ %72, %71 ], [ %94, %.loopexit ], [ %114, %111 ], [ %110, %106 ], [ 1, %95 ]
+122:                                              ; preds = %118, %113, %102, %.loopexit, %78
+  %123 = phi i32 [ %79, %78 ], [ %101, %.loopexit ], [ %121, %118 ], [ %117, %113 ], [ 1, %102 ]
   call void @g_free(ptr noundef %11) #17
-  %117 = load ptr, ptr %5, align 8, !tbaa !55
-  call void @g_free(ptr noundef %117) #17
-  %118 = load i32, ptr %6, align 4, !tbaa !11
-  %119 = icmp eq i32 %116, %118
-  br i1 %119, label %123, label %120
+  %124 = load ptr, ptr %5, align 8, !tbaa !55
+  call void @g_free(ptr noundef %124) #17
+  %125 = load i32, ptr %6, align 4, !tbaa !11
+  %126 = icmp eq i32 %123, %125
+  br i1 %126, label %130, label %127
 
-120:                                              ; preds = %115
-  %121 = tail call i64 @gtk_list_store_get_type() #19
-  %122 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %121) #17
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %122, ptr noundef %2, i32 noundef 4, i32 noundef %116, i32 noundef -1) #17
-  br label %123
+127:                                              ; preds = %122
+  %128 = tail call i64 @gtk_list_store_get_type() #19
+  %129 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %128) #17
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %129, ptr noundef %2, i32 noundef 4, i32 noundef %123, i32 noundef -1) #17
+  br label %130
 
-123:                                              ; preds = %120, %115
+130:                                              ; preds = %127, %122
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   ret i32 0
@@ -6121,7 +6202,7 @@ declare i32 @g_match_info_get_match_count(ptr noundef) local_unnamed_addr #9
 declare ptr @g_match_info_fetch(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @range_select(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #1 {
+define internal noundef range(i32 0, 2) i32 @range_select(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store ptr null, ptr %5, align 8, !tbaa !55

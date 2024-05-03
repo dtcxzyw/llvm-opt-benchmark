@@ -693,7 +693,7 @@ declare void @llvm.assume(i1 noundef) #4
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @connect_type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @connect_type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %8 [
@@ -722,7 +722,7 @@ define internal noundef i64 @connect_type_show(ptr nocapture noundef readonly %0
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @state_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @state_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 764
   %5 = load volatile i32, ptr %4, align 4
   %6 = tail call ptr @usb_state_string(i32 noundef %5) #10
@@ -738,7 +738,7 @@ declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local ptr @usb_state_string(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @location_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @location_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 776
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %5) #10
@@ -747,7 +747,7 @@ define internal noundef i64 @location_show(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @quirks_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @quirks_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 824
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %5) #10
@@ -780,7 +780,7 @@ define internal noundef i64 @quirks_store(ptr nocapture noundef writeonly %0, pt
 declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @over_current_count_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @over_current_count_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 816
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %5) #10
@@ -789,7 +789,7 @@ define internal noundef i64 @over_current_count_show(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @disable_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @disable_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -850,7 +850,7 @@ define internal i64 @disable_show(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @disable_store(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @disable_store(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = getelementptr i8, ptr %0, i64 -8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -957,7 +957,7 @@ declare dso_local i32 @kstrtobool(ptr noundef, ptr noundef) local_unnamed_addr #
 declare dso_local void @usb_disconnect(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @early_stop_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @early_stop_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 828
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 1
@@ -993,7 +993,7 @@ define internal noundef i64 @early_stop_store(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @usb3_lpm_permit_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @usb3_lpm_permit_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 828
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 8
@@ -1014,86 +1014,90 @@ define internal noundef i64 @usb3_lpm_permit_store(ptr nocapture noundef %0, ptr
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull dereferenceable(6) @.str.27, i64 noundef 5) #10
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %13
+  br i1 %8, label %9, label %sub_0
 
 9:                                                ; preds = %4
   %10 = getelementptr i8, ptr %0, i64 828
   %11 = load i8, ptr %10, align 4
   %12 = or i8 %11, 24
   store i8 %12, ptr %10, align 4
-  br label %36
+  br label %34
 
-13:                                               ; preds = %4
-  %14 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull dereferenceable(3) @.str.28, i64 noundef 2) #10
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %21
+sub_0:                                            ; preds = %4
+  %13 = load i8, ptr %2, align 1
+  switch i8 %13, label %.thread [
+    i8 117, label %.tail
+    i8 48, label %30
+  ]
 
-16:                                               ; preds = %13
-  %17 = getelementptr i8, ptr %0, i64 828
-  %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, -25
-  %20 = or disjoint i8 %19, 8
-  store i8 %20, ptr %17, align 4
-  br label %36
+.tail:                                            ; preds = %sub_0
+  %14 = getelementptr inbounds i8, ptr %2, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 49
+  br i1 %16, label %17, label %.tail2
 
-21:                                               ; preds = %13
-  %22 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull dereferenceable(3) @.str.29, i64 noundef 2) #10
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %29
+17:                                               ; preds = %.tail
+  %18 = getelementptr i8, ptr %0, i64 828
+  %19 = load i8, ptr %18, align 4
+  %20 = and i8 %19, -25
+  %21 = or disjoint i8 %20, 8
+  store i8 %21, ptr %18, align 4
+  br label %34
 
-24:                                               ; preds = %21
-  %25 = getelementptr i8, ptr %0, i64 828
-  %26 = load i8, ptr %25, align 4
-  %27 = and i8 %26, -25
-  %28 = or disjoint i8 %27, 16
-  store i8 %28, ptr %25, align 4
-  br label %36
+.tail2:                                           ; preds = %.tail
+  %22 = getelementptr inbounds i8, ptr %2, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 50
+  br i1 %24, label %25, label %.thread
 
-29:                                               ; preds = %21
-  %30 = load i8, ptr %2, align 1
-  %31 = icmp eq i8 %30, 48
-  br i1 %31, label %32, label %51
+25:                                               ; preds = %.tail2
+  %26 = getelementptr i8, ptr %0, i64 828
+  %27 = load i8, ptr %26, align 4
+  %28 = and i8 %27, -25
+  %29 = or disjoint i8 %28, 16
+  store i8 %29, ptr %26, align 4
+  br label %34
 
-32:                                               ; preds = %29
-  %33 = getelementptr i8, ptr %0, i64 828
-  %34 = load i8, ptr %33, align 4
-  %35 = and i8 %34, -25
-  store i8 %35, ptr %33, align 4
-  br label %36
+30:                                               ; preds = %sub_0
+  %31 = getelementptr i8, ptr %0, i64 828
+  %32 = load i8, ptr %31, align 4
+  %33 = and i8 %32, -25
+  store i8 %33, ptr %31, align 4
+  br label %34
 
-36:                                               ; preds = %32, %24, %16, %9
-  %37 = icmp eq ptr %6, null
-  br i1 %37, label %51, label %38
+34:                                               ; preds = %30, %25, %17, %9
+  %35 = icmp eq ptr %6, null
+  br i1 %35, label %.thread, label %36
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %6, i64 80
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %51, label %42
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds i8, ptr %6, i64 80
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.thread, label %40
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %6, i64 296
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds i8, ptr %6, i64 296
+  tail call void @mutex_lock(ptr noundef %41) #10
+  %42 = getelementptr inbounds i8, ptr %38, i64 536
+  %43 = load ptr, ptr %42, align 8
   tail call void @mutex_lock(ptr noundef %43) #10
-  %44 = getelementptr inbounds i8, ptr %40, i64 536
-  %45 = load ptr, ptr %44, align 8
-  tail call void @mutex_lock(ptr noundef %45) #10
-  %46 = tail call i32 @usb_disable_lpm(ptr noundef nonnull %6) #10
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %49
+  %44 = tail call i32 @usb_disable_lpm(ptr noundef nonnull %6) #10
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %47
 
-48:                                               ; preds = %42
+46:                                               ; preds = %40
   tail call void @usb_enable_lpm(ptr noundef nonnull %6) #10
-  br label %49
+  br label %47
 
-49:                                               ; preds = %48, %42
-  %50 = load ptr, ptr %44, align 8
-  tail call void @mutex_unlock(ptr noundef %50) #10
-  tail call void @mutex_unlock(ptr noundef %43) #10
-  br label %51
+47:                                               ; preds = %46, %40
+  %48 = load ptr, ptr %42, align 8
+  tail call void @mutex_unlock(ptr noundef %48) #10
+  tail call void @mutex_unlock(ptr noundef %41) #10
+  br label %.thread
 
-51:                                               ; preds = %49, %38, %36, %29
-  %52 = phi i64 [ -22, %29 ], [ -22, %38 ], [ %3, %49 ], [ %3, %36 ]
-  ret i64 %52
+.thread:                                          ; preds = %sub_0, %.tail2, %47, %36, %34
+  %49 = phi i64 [ -22, %36 ], [ %3, %47 ], [ %3, %34 ], [ -22, %.tail2 ], [ -22, %sub_0 ]
+  ret i64 %49
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -1209,7 +1213,7 @@ declare dso_local void @sysfs_remove_link(ptr noundef, ptr noundef) local_unname
 declare dso_local i32 @usb_for_each_dev(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @match_location(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @match_location(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @usb_hub_to_struct_hub(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5

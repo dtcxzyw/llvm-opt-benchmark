@@ -134,7 +134,7 @@ define internal noundef i32 @mca_base_var_enum_bool_get_count(ptr nocapture read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mca_base_var_enum_bool_get_value(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -18, 1) i32 @mca_base_var_enum_bool_get_value(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = icmp sgt i32 %1, 1
   br i1 %5, label %9, label %6
 
@@ -152,7 +152,7 @@ define internal noundef i32 @mca_base_var_enum_bool_get_value(ptr nocapture read
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @mca_base_var_enum_bool_vfs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #2 {
+define internal range(i32 -18, 1) i32 @mca_base_var_enum_bool_vfs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #2 {
   %4 = alloca ptr, align 8
   %5 = tail call i64 @strspn(ptr noundef %1, ptr noundef nonnull @.str.6) #17
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -160,67 +160,110 @@ define internal noundef i32 @mca_base_var_enum_bool_vfs(ptr nocapture readnone %
   %8 = load ptr, ptr %4, align 8
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %40, label %10
+  br i1 %.not, label %46, label %10
 
 10:                                               ; preds = %3
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.4) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %40, label %13
+  br i1 %12, label %46, label %sub_0
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(2) @.str.7) #17
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %40, label %16
+sub_0:                                            ; preds = %10
+  %13 = load i8, ptr %6, align 1
+  %.not32 = icmp eq i8 %13, 116
+  br i1 %.not32, label %.tail, label %.tail.thread
 
-16:                                               ; preds = %13
+.tail:                                            ; preds = %sub_0
+  %14 = getelementptr inbounds i8, ptr %6, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %46, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_0, %.tail
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.8) #17
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %40, label %19
+  br i1 %18, label %46, label %19
 
-19:                                               ; preds = %16
+19:                                               ; preds = %.tail.thread
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(4) @.str.9) #17
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %40, label %22
+  br i1 %21, label %46, label %sub_017
 
-22:                                               ; preds = %19
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(2) @.str.10) #17
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %40, label %25
+sub_017:                                          ; preds = %19
+  %.not33 = icmp eq i8 %13, 121
+  br i1 %.not33, label %.tail16, label %.tail16.thread
 
-25:                                               ; preds = %22
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.5) #17
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %40, label %28
+.tail16:                                          ; preds = %sub_017
+  %22 = getelementptr inbounds i8, ptr %6, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %46, label %.thread
 
-28:                                               ; preds = %25
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(2) @.str.11) #17
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %40, label %31
+.tail16.thread:                                   ; preds = %sub_017
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.5) #17
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %46, label %sub_021
 
-31:                                               ; preds = %28
+.thread:                                          ; preds = %.tail16
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.5) #17
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %46, label %.tail20.thread.thread
+
+sub_021:                                          ; preds = %.tail16.thread
+  %.not34 = icmp eq i8 %13, 102
+  br i1 %.not34, label %.tail20, label %.tail20.thread
+
+.tail20:                                          ; preds = %sub_021
+  %29 = getelementptr inbounds i8, ptr %6, i64 1
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %46, label %.thread39
+
+.tail20.thread:                                   ; preds = %sub_021
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.12) #17
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %40, label %34
+  br i1 %33, label %46, label %sub_025
 
-34:                                               ; preds = %31
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(3) @.str.13) #17
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %40, label %37
+.tail20.thread.thread:                            ; preds = %.thread
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.12) #17
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %46, label %.tail28.thread
 
-37:                                               ; preds = %34
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(2) @.str.14) #17
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %43
+.thread39:                                        ; preds = %.tail20
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.12) #17
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %46, label %.tail28.thread
 
-40:                                               ; preds = %25, %28, %31, %34, %37, %10, %13, %16, %19, %22, %3
-  %.0 = phi i64 [ %7, %3 ], [ 1, %22 ], [ 1, %19 ], [ 1, %16 ], [ 1, %13 ], [ 1, %10 ], [ 0, %37 ], [ 0, %34 ], [ 0, %31 ], [ 0, %28 ], [ 0, %25 ]
-  %41 = icmp ne i64 %.0, 0
-  %42 = zext i1 %41 to i32
-  store i32 %42, ptr %2, align 4
-  br label %43
+sub_025:                                          ; preds = %.tail20.thread
+  %.not35 = icmp eq i8 %13, 110
+  br i1 %.not35, label %sub_126, label %.tail28.thread
 
-43:                                               ; preds = %37, %40
-  %.015 = phi i32 [ 0, %40 ], [ -18, %37 ]
+sub_126:                                          ; preds = %sub_025
+  %38 = getelementptr inbounds i8, ptr %6, i64 1
+  %39 = load i8, ptr %38, align 1
+  %.not36 = icmp eq i8 %39, 111
+  br i1 %.not36, label %.tail24, label %.tail28
+
+.tail24:                                          ; preds = %sub_126
+  %40 = getelementptr inbounds i8, ptr %6, i64 2
+  %41 = load i8, ptr %40, align 1
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %46, label %.tail28
+
+.tail28:                                          ; preds = %.tail24, %sub_126
+  %43 = getelementptr inbounds i8, ptr %6, i64 1
+  %44 = load i8, ptr %43, align 1
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %46, label %.tail28.thread
+
+46:                                               ; preds = %.tail20.thread.thread, %.thread39, %.thread, %.tail16.thread, %.tail20, %.tail20.thread, %.tail24, %.tail28, %10, %.tail, %.tail.thread, %19, %.tail16, %3
+  %.0 = phi i64 [ %7, %3 ], [ 1, %.tail16 ], [ 1, %19 ], [ 1, %.tail.thread ], [ 1, %.tail ], [ 1, %10 ], [ 0, %.tail28 ], [ 0, %.tail24 ], [ 0, %.tail20.thread ], [ 0, %.tail20 ], [ 0, %.tail16.thread ], [ 0, %.thread ], [ 0, %.thread39 ], [ 0, %.tail20.thread.thread ]
+  %47 = icmp ne i64 %.0, 0
+  %48 = zext i1 %47 to i32
+  store i32 %48, ptr %2, align 4
+  br label %.tail28.thread
+
+.tail28.thread:                                   ; preds = %.tail20.thread.thread, %sub_025, %.thread39, %.tail28, %46
+  %.015 = phi i32 [ 0, %46 ], [ -18, %.tail28 ], [ -18, %.thread39 ], [ -18, %sub_025 ], [ -18, %.tail20.thread.thread ]
   ret i32 %.015
 }
 
@@ -241,7 +284,7 @@ define internal noundef i32 @mca_base_var_enum_bool_sfv(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_base_var_enum_bool_dump(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @mca_base_var_enum_bool_dump(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = icmp eq i32 %2, 1
   %5 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @opal_var_dump_color, i64 0, i64 2), align 16
   %spec.select = select i1 %4, ptr %5, ptr @.str.15
@@ -266,7 +309,7 @@ define internal noundef i32 @mca_base_var_enum_auto_bool_get_count(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mca_base_var_enum_auto_bool_get_value(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -18, 1) i32 @mca_base_var_enum_auto_bool_get_value(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = icmp sgt i32 %1, 2
   br i1 %5, label %12, label %6
 
@@ -286,7 +329,7 @@ define internal noundef i32 @mca_base_var_enum_auto_bool_get_value(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @mca_base_var_enum_auto_bool_vfs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #2 {
+define internal range(i32 -18, 1) i32 @mca_base_var_enum_auto_bool_vfs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #2 {
   %4 = alloca ptr, align 8
   %5 = tail call i64 @strspn(ptr noundef %1, ptr noundef nonnull @.str.6) #17
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -409,7 +452,7 @@ define internal noundef i32 @mca_base_var_enum_auto_bool_sfv(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_base_var_enum_auto_bool_dump(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @mca_base_var_enum_auto_bool_dump(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = icmp eq i32 %2, 1
   %5 = load ptr, ptr getelementptr inbounds ([3 x ptr], ptr @opal_var_dump_color, i64 0, i64 2), align 16
   %spec.select = select i1 %4, ptr %5, ptr @.str.15
@@ -482,7 +525,7 @@ define internal i32 @enum_get_value(ptr noundef %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @mca_base_var_enum_verbose_vfs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i32 -13, 1) i32 @mca_base_var_enum_verbose_vfs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = alloca ptr, align 8
   %5 = tail call i64 @strspn(ptr noundef %1, ptr noundef nonnull @.str.6) #17
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -538,7 +581,7 @@ define internal noundef i32 @mca_base_var_enum_verbose_vfs(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
+define internal range(i32 -18, 1) i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
   %or.cond = icmp ugt i32 %1, 100
   br i1 %or.cond, label %18, label %.preheader
 
@@ -594,7 +637,7 @@ define internal noundef i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_base_var_enum_verbose_dump(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @mca_base_var_enum_verbose_dump(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %5 = icmp eq ptr %0, null
@@ -670,7 +713,7 @@ enum_dump.exit:                                   ; preds = %23, %.loopexit, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_var_enum_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @mca_base_var_enum_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   store ptr null, ptr %2, align 8
   %4 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_var_enum_t_class, i64 0, i32 8), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #18
@@ -817,7 +860,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_var_enum_create_flag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @mca_base_var_enum_create_flag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   store ptr null, ptr %2, align 8
   %4 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_base_var_enum_flag_t_class, i64 0, i32 8), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #18
@@ -1003,7 +1046,7 @@ opal_obj_new.exit.thread:                         ; preds = %9, %opal_obj_run_de
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_var_enum_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4) local_unnamed_addr #1 {
+define range(i32 -2147483648, 1) i32 @mca_base_var_enum_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call i32 @mca_base_var_group_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null) #16
   %7 = icmp slt i32 %6, -1
   br i1 %7, label %12, label %8
@@ -1040,7 +1083,7 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @enum_dump(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @enum_dump(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
   store ptr null, ptr %1, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.critedge, label %5
@@ -1483,7 +1526,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @enum_dump_flag(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @enum_dump_flag(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
   store ptr null, ptr %1, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5

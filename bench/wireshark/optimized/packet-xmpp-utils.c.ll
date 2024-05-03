@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [30 x i8] c"http://www.google.com/session\00", align 1
 @.str.6 = private unnamed_addr constant [8 x i8] c"message\00", align 1
 @.str.7 = private unnamed_addr constant [5 x i8] c"data\00", align 1
-@.str.8 = private unnamed_addr constant [3 x i8] c"iq\00", align 1
 @.str.9 = private unnamed_addr constant [5 x i8] c"open\00", align 1
 @.str.10 = private unnamed_addr constant [6 x i8] c"close\00", align 1
 @hf_xmpp_unknown = external local_unnamed_addr global i32, align 4
@@ -332,7 +331,7 @@ define hidden void @xmpp_ibb_session_track(ptr nocapture noundef readonly %0, pt
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.6) #9
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %sub_0
 
 7:                                                ; preds = %3
   %8 = tail call ptr @wmem_packet_scope() #8
@@ -346,113 +345,125 @@ define hidden void @xmpp_ibb_session_track(ptr nocapture noundef readonly %0, pt
   %.not31 = icmp eq ptr %14, null
   br i1 %.not31, label %.thread47, label %.thread42
 
-15:                                               ; preds = %3
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(3) @.str.8) #9
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %.thread47
+sub_0:                                            ; preds = %3
+  %15 = load i8, ptr %4, align 1
+  %.not53 = icmp eq i8 %15, 105
+  br i1 %.not53, label %sub_1, label %.thread47
 
-18:                                               ; preds = %15
-  %19 = tail call ptr @wmem_packet_scope() #8
-  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 64) #8
-  %21 = tail call ptr @wmem_packet_scope() #8
-  %22 = tail call noalias ptr @wmem_strdup(ptr noundef %21, ptr noundef nonnull @.str.9) #8
-  store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr @g_list_find_custom(ptr noundef %24, ptr noundef nonnull %20, ptr noundef nonnull @xmpp_element_t_cmp) #8
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %26, label %.thread42
+sub_1:                                            ; preds = %sub_0
+  %16 = getelementptr inbounds i8, ptr %4, i64 1
+  %17 = load i8, ptr %16, align 1
+  %.not54 = icmp eq i8 %17, 113
+  br i1 %.not54, label %.tail, label %.thread47
 
-26:                                               ; preds = %18
-  %27 = tail call ptr @wmem_packet_scope() #8
-  %28 = tail call noalias ptr @wmem_alloc(ptr noundef %27, i64 noundef 64) #8
-  %29 = tail call ptr @wmem_packet_scope() #8
-  %30 = tail call noalias ptr @wmem_strdup(ptr noundef %29, ptr noundef nonnull @.str.10) #8
-  store ptr %30, ptr %28, align 8
-  %31 = load ptr, ptr %23, align 8
-  %32 = tail call ptr @g_list_find_custom(ptr noundef %31, ptr noundef nonnull %28, ptr noundef nonnull @xmpp_element_t_cmp) #8
-  %.not29 = icmp eq ptr %32, null
-  br i1 %.not29, label %33, label %.thread42
+.tail:                                            ; preds = %sub_1
+  %18 = getelementptr inbounds i8, ptr %4, i64 2
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %21, label %.thread47
 
-33:                                               ; preds = %26
-  %34 = tail call ptr @wmem_packet_scope() #8
-  %35 = tail call noalias ptr @wmem_alloc(ptr noundef %34, i64 noundef 64) #8
-  %36 = tail call ptr @wmem_packet_scope() #8
-  %37 = tail call noalias ptr @wmem_strdup(ptr noundef %36, ptr noundef nonnull @.str.7) #8
-  store ptr %37, ptr %35, align 8
-  %38 = load ptr, ptr %23, align 8
-  %39 = tail call ptr @g_list_find_custom(ptr noundef %38, ptr noundef nonnull %35, ptr noundef nonnull @xmpp_element_t_cmp) #8
-  %.not30 = icmp eq ptr %39, null
+21:                                               ; preds = %.tail
+  %22 = tail call ptr @wmem_packet_scope() #8
+  %23 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef 64) #8
+  %24 = tail call ptr @wmem_packet_scope() #8
+  %25 = tail call noalias ptr @wmem_strdup(ptr noundef %24, ptr noundef nonnull @.str.9) #8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call ptr @g_list_find_custom(ptr noundef %27, ptr noundef nonnull %23, ptr noundef nonnull @xmpp_element_t_cmp) #8
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %29, label %.thread42
+
+29:                                               ; preds = %21
+  %30 = tail call ptr @wmem_packet_scope() #8
+  %31 = tail call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef 64) #8
+  %32 = tail call ptr @wmem_packet_scope() #8
+  %33 = tail call noalias ptr @wmem_strdup(ptr noundef %32, ptr noundef nonnull @.str.10) #8
+  store ptr %33, ptr %31, align 8
+  %34 = load ptr, ptr %26, align 8
+  %35 = tail call ptr @g_list_find_custom(ptr noundef %34, ptr noundef nonnull %31, ptr noundef nonnull @xmpp_element_t_cmp) #8
+  %.not29 = icmp eq ptr %35, null
+  br i1 %.not29, label %36, label %.thread42
+
+36:                                               ; preds = %29
+  %37 = tail call ptr @wmem_packet_scope() #8
+  %38 = tail call noalias ptr @wmem_alloc(ptr noundef %37, i64 noundef 64) #8
+  %39 = tail call ptr @wmem_packet_scope() #8
+  %40 = tail call noalias ptr @wmem_strdup(ptr noundef %39, ptr noundef nonnull @.str.7) #8
+  store ptr %40, ptr %38, align 8
+  %41 = load ptr, ptr %26, align 8
+  %42 = tail call ptr @g_list_find_custom(ptr noundef %41, ptr noundef nonnull %38, ptr noundef nonnull @xmpp_element_t_cmp) #8
+  %.not30 = icmp eq ptr %42, null
   br i1 %.not30, label %.thread47, label %.thread42
 
-.thread42:                                        ; preds = %33, %26, %18, %7
-  %.0.in = phi ptr [ %14, %7 ], [ %39, %33 ], [ %32, %26 ], [ %25, %18 ]
+.thread42:                                        ; preds = %36, %29, %21, %7
+  %.0.in = phi ptr [ %14, %7 ], [ %42, %36 ], [ %35, %29 ], [ %28, %21 ]
   %.0 = load ptr, ptr %.0.in, align 8
   %.not32 = icmp eq ptr %.0, null
-  br i1 %.not32, label %.thread47, label %40
+  br i1 %.not32, label %.thread47, label %43
 
-40:                                               ; preds = %.thread42
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 50
-  %44 = load i16, ptr %43, align 2
-  %45 = and i16 %44, 8
-  %.not33 = icmp eq i16 %45, 0
-  br i1 %.not33, label %46, label %.thread47
+43:                                               ; preds = %.thread42
+  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 50
+  %47 = load i16, ptr %46, align 2
+  %48 = and i16 %47, 8
+  %.not33 = icmp eq i16 %48, 0
+  br i1 %.not33, label %49, label %.thread47
 
-46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %1, i64 24
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr @g_hash_table_lookup(ptr noundef %48, ptr noundef nonnull @.str) #8
-  %.not.i = icmp eq ptr %49, null
-  br i1 %.not.i, label %50, label %.thread.i
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call ptr @g_hash_table_lookup(ptr noundef %51, ptr noundef nonnull @.str) #8
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %53, label %.thread.i
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %47, align 8
-  %52 = tail call ptr @g_hash_table_find(ptr noundef %51, ptr noundef nonnull @attr_find_pred, ptr noundef nonnull @.str) #8
-  %.not9.i = icmp eq ptr %52, null
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %50, align 8
+  %55 = tail call ptr @g_hash_table_find(ptr noundef %54, ptr noundef nonnull @attr_find_pred, ptr noundef nonnull @.str) #8
+  %.not9.i = icmp eq ptr %55, null
   br i1 %.not9.i, label %xmpp_get_attr.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %50, %46
-  %.012.i = phi ptr [ %52, %50 ], [ %49, %46 ]
-  %53 = getelementptr inbounds i8, ptr %.012.i, i64 24
-  store i32 1, ptr %53, align 8
+.thread.i:                                        ; preds = %53, %49
+  %.012.i = phi ptr [ %55, %53 ], [ %52, %49 ]
+  %56 = getelementptr inbounds i8, ptr %.012.i, i64 24
+  store i32 1, ptr %56, align 8
   br label %xmpp_get_attr.exit
 
-xmpp_get_attr.exit:                               ; preds = %50, %.thread.i
-  %.013.i = phi ptr [ %.012.i, %.thread.i ], [ null, %50 ]
-  %54 = getelementptr inbounds i8, ptr %.0, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call ptr @g_hash_table_lookup(ptr noundef %55, ptr noundef nonnull @.str.2) #8
-  %.not.i34 = icmp eq ptr %56, null
-  br i1 %.not.i34, label %57, label %xmpp_get_attr.exit39
+xmpp_get_attr.exit:                               ; preds = %53, %.thread.i
+  %.013.i = phi ptr [ %.012.i, %.thread.i ], [ null, %53 ]
+  %57 = getelementptr inbounds i8, ptr %.0, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call ptr @g_hash_table_lookup(ptr noundef %58, ptr noundef nonnull @.str.2) #8
+  %.not.i34 = icmp eq ptr %59, null
+  br i1 %.not.i34, label %60, label %xmpp_get_attr.exit39
 
-57:                                               ; preds = %xmpp_get_attr.exit
-  %58 = load ptr, ptr %54, align 8
-  %59 = tail call ptr @g_hash_table_find(ptr noundef %58, ptr noundef nonnull @attr_find_pred, ptr noundef nonnull @.str.2) #8
-  %.not9.i38 = icmp eq ptr %59, null
+60:                                               ; preds = %xmpp_get_attr.exit
+  %61 = load ptr, ptr %57, align 8
+  %62 = tail call ptr @g_hash_table_find(ptr noundef %61, ptr noundef nonnull @attr_find_pred, ptr noundef nonnull @.str.2) #8
+  %.not9.i38 = icmp eq ptr %62, null
   br i1 %.not9.i38, label %.thread47, label %xmpp_get_attr.exit39
 
-xmpp_get_attr.exit39:                             ; preds = %xmpp_get_attr.exit, %57
-  %.012.i36 = phi ptr [ %59, %57 ], [ %56, %xmpp_get_attr.exit ]
-  %60 = getelementptr inbounds i8, ptr %.012.i36, i64 24
-  store i32 1, ptr %60, align 8
+xmpp_get_attr.exit39:                             ; preds = %xmpp_get_attr.exit, %60
+  %.012.i36 = phi ptr [ %62, %60 ], [ %59, %xmpp_get_attr.exit ]
+  %63 = getelementptr inbounds i8, ptr %.012.i36, i64 24
+  store i32 1, ptr %63, align 8
   %.not52 = icmp eq ptr %.013.i, null
-  br i1 %.not52, label %.thread47, label %61
+  br i1 %.not52, label %.thread47, label %64
 
-61:                                               ; preds = %xmpp_get_attr.exit39
-  %62 = tail call ptr @wmem_file_scope() #8
-  %63 = load ptr, ptr %.013.i, align 8
-  %64 = tail call noalias ptr @wmem_strdup(ptr noundef %62, ptr noundef %63) #8
+64:                                               ; preds = %xmpp_get_attr.exit39
   %65 = tail call ptr @wmem_file_scope() #8
-  %66 = load ptr, ptr %.012.i36, align 8
+  %66 = load ptr, ptr %.013.i, align 8
   %67 = tail call noalias ptr @wmem_strdup(ptr noundef %65, ptr noundef %66) #8
-  %68 = getelementptr inbounds i8, ptr %2, i64 16
-  %69 = load ptr, ptr %68, align 8
-  tail call void @wmem_tree_insert_string(ptr noundef %69, ptr noundef %64, ptr noundef %67, i32 noundef 1) #8
+  %68 = tail call ptr @wmem_file_scope() #8
+  %69 = load ptr, ptr %.012.i36, align 8
+  %70 = tail call noalias ptr @wmem_strdup(ptr noundef %68, ptr noundef %69) #8
+  %71 = getelementptr inbounds i8, ptr %2, i64 16
+  %72 = load ptr, ptr %71, align 8
+  tail call void @wmem_tree_insert_string(ptr noundef %72, ptr noundef %67, ptr noundef %70, i32 noundef 1) #8
   br label %.thread47
 
-.thread47:                                        ; preds = %57, %33, %7, %15, %xmpp_get_attr.exit39, %61, %40, %.thread42
+.thread47:                                        ; preds = %sub_1, %sub_0, %60, %36, %7, %.tail, %xmpp_get_attr.exit39, %64, %43, %.thread42
   ret void
 }
 
@@ -468,13 +479,13 @@ define hidden void @xmpp_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %59
-  %.043 = phi ptr [ %.041, %.lr.ph ], [ %.0, %59 ]
+8:                                                ; preds = %.lr.ph, %69
+  %.043 = phi ptr [ %.041, %.lr.ph ], [ %.0, %69 ]
   %9 = load ptr, ptr %.043, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 56
   %11 = load i32, ptr %10, align 8
   %.not29 = icmp eq i32 %11, 0
-  br i1 %.not29, label %12, label %59
+  br i1 %.not29, label %12, label %69
 
 12:                                               ; preds = %8
   %13 = load i32, ptr @hf_xmpp_unknown, align 4
@@ -516,69 +527,90 @@ xmpp_ep_string_upcase.exit:                       ; preds = %.lr.ph.i, %12
   %32 = load i32, ptr @ett_unknown, align 16
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #8
   %34 = load ptr, ptr %3, align 8
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(3) @.str.8) #9
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %52
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = add nsw i32 %36, -105
+  %.not44 = icmp eq i32 %37, 0
+  br i1 %.not44, label %sub_1, label %xmpp_ep_string_upcase.exit.tail
 
-37:                                               ; preds = %xmpp_ep_string_upcase.exit
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %6, align 8
-  %40 = load ptr, ptr %9, align 8
-  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #9
-  %42 = trunc i64 %41 to i32
-  %43 = shl i64 %41, 32
-  %sext.i31 = add i64 %43, 4294967296
-  %44 = ashr exact i64 %sext.i31, 32
-  %45 = tail call noalias ptr @wmem_alloc0(ptr noundef %39, i64 noundef %44) #8
-  %46 = icmp sgt i32 %42, 0
-  br i1 %46, label %.lr.ph.preheader.i32, label %xmpp_ep_string_upcase.exit40
+sub_1:                                            ; preds = %xmpp_ep_string_upcase.exit
+  %38 = getelementptr inbounds i8, ptr %34, i64 1
+  %39 = load i8, ptr %38, align 1
+  %40 = zext i8 %39 to i32
+  %41 = add nsw i32 %40, -113
+  %.not45 = icmp eq i32 %41, 0
+  br i1 %.not45, label %sub_2, label %xmpp_ep_string_upcase.exit.tail
 
-.lr.ph.preheader.i32:                             ; preds = %37
-  %wide.trip.count.i33 = and i64 %41, 2147483647
+sub_2:                                            ; preds = %sub_1
+  %42 = getelementptr inbounds i8, ptr %34, i64 2
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  br label %xmpp_ep_string_upcase.exit.tail
+
+xmpp_ep_string_upcase.exit.tail:                  ; preds = %xmpp_ep_string_upcase.exit, %sub_1, %sub_2
+  %45 = phi i32 [ %37, %xmpp_ep_string_upcase.exit ], [ %41, %sub_1 ], [ %44, %sub_2 ]
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %62
+
+47:                                               ; preds = %xmpp_ep_string_upcase.exit.tail
+  %48 = load ptr, ptr %7, align 8
+  %49 = load ptr, ptr %6, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #9
+  %52 = trunc i64 %51 to i32
+  %53 = shl i64 %51, 32
+  %sext.i31 = add i64 %53, 4294967296
+  %54 = ashr exact i64 %sext.i31, 32
+  %55 = tail call noalias ptr @wmem_alloc0(ptr noundef %49, i64 noundef %54) #8
+  %56 = icmp sgt i32 %52, 0
+  br i1 %56, label %.lr.ph.preheader.i32, label %xmpp_ep_string_upcase.exit40
+
+.lr.ph.preheader.i32:                             ; preds = %47
+  %wide.trip.count.i33 = and i64 %51, 2147483647
   br label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34, %.lr.ph.preheader.i32
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.preheader.i32 ], [ %indvars.iv.next.i38, %.lr.ph.i34 ]
-  %47 = getelementptr i8, ptr %40, i64 %indvars.iv.i35
-  %48 = load i8, ptr %47, align 1
-  %49 = getelementptr i8, ptr %45, i64 %indvars.iv.i35
-  %50 = add i8 %48, -97
-  %or.cond.i36 = icmp ult i8 %50, 26
-  %51 = add nsw i8 %48, -32
-  %spec.select.i37 = select i1 %or.cond.i36, i8 %51, i8 %48
-  store i8 %spec.select.i37, ptr %49, align 1
+  %57 = getelementptr i8, ptr %50, i64 %indvars.iv.i35
+  %58 = load i8, ptr %57, align 1
+  %59 = getelementptr i8, ptr %55, i64 %indvars.iv.i35
+  %60 = add i8 %58, -97
+  %or.cond.i36 = icmp ult i8 %60, 26
+  %61 = add nsw i8 %58, -32
+  %spec.select.i37 = select i1 %or.cond.i36, i8 %61, i8 %58
+  store i8 %spec.select.i37, ptr %59, align 1
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i33
   br i1 %exitcond.not.i39, label %xmpp_ep_string_upcase.exit40, label %.lr.ph.i34, !llvm.loop !4
 
-xmpp_ep_string_upcase.exit40:                     ; preds = %.lr.ph.i34, %37
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.12, ptr noundef %45) #8
-  br label %52
+xmpp_ep_string_upcase.exit40:                     ; preds = %.lr.ph.i34, %47
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.12, ptr noundef %55) #8
+  br label %62
 
-52:                                               ; preds = %xmpp_ep_string_upcase.exit40, %xmpp_ep_string_upcase.exit
-  %53 = getelementptr inbounds i8, ptr %9, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %.not30 = icmp eq ptr %54, null
-  br i1 %.not30, label %56, label %55
+62:                                               ; preds = %xmpp_ep_string_upcase.exit40, %xmpp_ep_string_upcase.exit.tail
+  %63 = getelementptr inbounds i8, ptr %9, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %.not30 = icmp eq ptr %64, null
+  br i1 %.not30, label %66, label %65
 
-55:                                               ; preds = %52
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.13, ptr noundef nonnull %54) #8
-  br label %56
+65:                                               ; preds = %62
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.13, ptr noundef nonnull %64) #8
+  br label %66
 
-56:                                               ; preds = %55, %52
+66:                                               ; preds = %65, %62
   tail call fastcc void @xmpp_unknown_items(ptr noundef %33, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, i32 noundef 1)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.14) #8
-  %57 = load ptr, ptr %9, align 8
-  %58 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %31, ptr noundef nonnull @ei_xmpp_unknown_element, ptr noundef nonnull @.str.15, ptr noundef %57) #8
-  br label %59
+  %67 = load ptr, ptr %9, align 8
+  %68 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %31, ptr noundef nonnull @ei_xmpp_unknown_element, ptr noundef nonnull @.str.15, ptr noundef %67) #8
+  br label %69
 
-59:                                               ; preds = %56, %8
-  %60 = getelementptr inbounds i8, ptr %.043, i64 8
-  %.0 = load ptr, ptr %60, align 8
+69:                                               ; preds = %66, %8
+  %70 = getelementptr inbounds i8, ptr %.043, i64 8
+  %.0 = load ptr, ptr %70, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %59, %4
+._crit_edge:                                      ; preds = %69, %4
   ret void
 }
 
@@ -1301,7 +1333,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @attr_find_pred(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 0, 2) i32 @attr_find_pred(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.4) #9
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9

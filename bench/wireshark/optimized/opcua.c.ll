@@ -74,7 +74,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [15 x i8] c"%32[^:]: %64s\0A\00", align 1
 @.str.34 = private unnamed_addr constant [2 x i8] c"_\00", align 1
 @.str.35 = private unnamed_addr constant [7 x i8] c"client\00", align 1
-@.str.36 = private unnamed_addr constant [3 x i8] c"iv\00", align 1
 @.str.37 = private unnamed_addr constant [4 x i8] c"key\00", align 1
 @.str.38 = private unnamed_addr constant [7 x i8] c"siglen\00", align 1
 @.str.39 = private unnamed_addr constant [7 x i8] c"server\00", align 1
@@ -349,15 +348,15 @@ define internal fastcc void @opcua_keylog_process_line(ptr nocapture noundef %0,
 
 8:                                                ; preds = %2
   %9 = call ptr @strtok_r(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %6) #11
-  %.not33 = icmp eq ptr %9, null
-  br i1 %.not33, label %hex_to_bin.exit, label %.lr.ph
+  %.not38 = icmp eq ptr %9, null
+  br i1 %.not38, label %hex_to_bin.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
-  %.02631 = phi ptr [ %11, %.lr.ph ], [ %9, %8 ]
+  %.02636 = phi ptr [ %11, %.lr.ph ], [ %9, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  store ptr %.02631, ptr %10, align 8
+  store ptr %.02636, ptr %10, align 8
   %11 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.34, ptr noundef nonnull %6) #11
   %12 = icmp ne ptr %11, null
   %13 = icmp ult i64 %indvars.iv, 3
@@ -402,104 +401,128 @@ thread-pre-split.thread:                          ; preds = %28, %thread-pre-spl
   %34 = load ptr, ptr %5, align 16
   %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(7) @.str.35) #10
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %65
+  br i1 %36, label %sub_0, label %67
 
-37:                                               ; preds = %thread-pre-split.thread
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(3) @.str.36) #10
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %51
+sub_0:                                            ; preds = %thread-pre-split.thread
+  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i8, ptr %38, align 1
+  %.not41 = icmp eq i8 %39, 105
+  br i1 %.not41, label %sub_1, label %.tail.thread
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %33, i64 8
-  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
-  %45 = trunc i64 %44 to i32
-  %.not.i = icmp ult i32 %45, 2
+sub_1:                                            ; preds = %sub_0
+  %40 = getelementptr inbounds i8, ptr %38, i64 1
+  %41 = load i8, ptr %40, align 1
+  %.not42 = icmp eq i8 %41, 118
+  br i1 %.not42, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %42 = getelementptr inbounds i8, ptr %38, i64 2
+  %43 = load i8, ptr %42, align 1
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %45, label %.tail.thread
+
+45:                                               ; preds = %.tail
+  %46 = getelementptr inbounds i8, ptr %33, i64 8
+  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
+  %48 = trunc i64 %47 to i32
+  %.not.i = icmp ult i32 %48, 2
   br i1 %.not.i, label %hex_to_bin.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %42
-  %46 = lshr i32 %45, 1
-  %invariant.umin.i = call i32 @llvm.umin.i32(i32 %46, i32 16)
+.lr.ph.preheader.i:                               ; preds = %45
+  %49 = lshr i32 %48, 1
+  %invariant.umin.i = call i32 @llvm.umin.i32(i32 %49, i32 16)
   %wide.trip.count.i = zext nneg i32 %invariant.umin.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %47 = shl nuw i64 %indvars.iv.i, 1
-  %48 = getelementptr i8, ptr %4, i64 %47
-  %49 = getelementptr i8, ptr %43, i64 %indvars.iv.i
-  %50 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %48, ptr noundef nonnull @.str, ptr noundef %49) #11
+  %50 = shl nuw i64 %indvars.iv.i, 1
+  %51 = getelementptr i8, ptr %4, i64 %50
+  %52 = getelementptr i8, ptr %46, i64 %indvars.iv.i
+  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %51, ptr noundef nonnull @.str, ptr noundef %52) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %hex_to_bin.exit, label %.lr.ph.i, !llvm.loop !4
 
-51:                                               ; preds = %37
-  %52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(4) @.str.37) #10
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %58
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(4) @.str.37) #10
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %60
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %33, i64 40
-  %56 = call i32 @hex_to_bin(ptr noundef nonnull %4, ptr noundef nonnull %55, i32 noundef 32)
-  %57 = getelementptr inbounds i8, ptr %33, i64 104
-  store i32 %56, ptr %57, align 8
+56:                                               ; preds = %.tail.thread
+  %57 = getelementptr inbounds i8, ptr %33, i64 40
+  %58 = call i32 @hex_to_bin(ptr noundef nonnull %4, ptr noundef nonnull %57, i32 noundef 32)
+  %59 = getelementptr inbounds i8, ptr %33, i64 104
+  store i32 %58, ptr %59, align 8
   br label %hex_to_bin.exit
 
-58:                                               ; preds = %51
-  %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(7) @.str.38) #10
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %hex_to_bin.exit
+60:                                               ; preds = %.tail.thread
+  %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.38) #10
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %hex_to_bin.exit
 
-61:                                               ; preds = %58
-  %62 = call i64 @strtoul(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #11
-  %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %33, i64 112
-  store i32 %63, ptr %64, align 8
+63:                                               ; preds = %60
+  %64 = call i64 @strtoul(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #11
+  %65 = trunc i64 %64 to i32
+  %66 = getelementptr inbounds i8, ptr %33, i64 112
+  store i32 %65, ptr %66, align 8
   br label %hex_to_bin.exit
 
-65:                                               ; preds = %thread-pre-split.thread
-  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(7) @.str.39) #10
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %hex_to_bin.exit
+67:                                               ; preds = %thread-pre-split.thread
+  %68 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(7) @.str.39) #10
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %sub_032, label %hex_to_bin.exit
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %5, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(3) @.str.36) #10
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %76
+sub_032:                                          ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %5, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = load i8, ptr %71, align 1
+  %.not39 = icmp eq i8 %72, 105
+  br i1 %.not39, label %sub_133, label %.tail31.thread
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds i8, ptr %33, i64 24
-  %75 = call i32 @hex_to_bin(ptr noundef nonnull %4, ptr noundef nonnull %74, i32 noundef 16)
+sub_133:                                          ; preds = %sub_032
+  %73 = getelementptr inbounds i8, ptr %71, i64 1
+  %74 = load i8, ptr %73, align 1
+  %.not40 = icmp eq i8 %74, 118
+  br i1 %.not40, label %.tail31, label %.tail31.thread
+
+.tail31:                                          ; preds = %sub_133
+  %75 = getelementptr inbounds i8, ptr %71, i64 2
+  %76 = load i8, ptr %75, align 1
+  %77 = icmp eq i8 %76, 0
+  br i1 %77, label %78, label %.tail31.thread
+
+78:                                               ; preds = %.tail31
+  %79 = getelementptr inbounds i8, ptr %33, i64 24
+  %80 = call i32 @hex_to_bin(ptr noundef nonnull %4, ptr noundef nonnull %79, i32 noundef 16)
   br label %hex_to_bin.exit
 
-76:                                               ; preds = %68
-  %77 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(4) @.str.37) #10
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %83
+.tail31.thread:                                   ; preds = %sub_133, %sub_032, %.tail31
+  %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(4) @.str.37) #10
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %87
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %33, i64 72
-  %81 = call i32 @hex_to_bin(ptr noundef nonnull %4, ptr noundef nonnull %80, i32 noundef 32)
-  %82 = getelementptr inbounds i8, ptr %33, i64 108
-  store i32 %81, ptr %82, align 4
+83:                                               ; preds = %.tail31.thread
+  %84 = getelementptr inbounds i8, ptr %33, i64 72
+  %85 = call i32 @hex_to_bin(ptr noundef nonnull %4, ptr noundef nonnull %84, i32 noundef 32)
+  %86 = getelementptr inbounds i8, ptr %33, i64 108
+  store i32 %85, ptr %86, align 4
   br label %hex_to_bin.exit
 
-83:                                               ; preds = %76
-  %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(7) @.str.38) #10
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %hex_to_bin.exit
+87:                                               ; preds = %.tail31.thread
+  %88 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(7) @.str.38) #10
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %hex_to_bin.exit
 
-86:                                               ; preds = %83
-  %87 = call i64 @strtoul(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #11
-  %88 = trunc i64 %87 to i32
-  %89 = getelementptr inbounds i8, ptr %33, i64 116
-  store i32 %88, ptr %89, align 4
+90:                                               ; preds = %87
+  %91 = call i64 @strtoul(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #11
+  %92 = trunc i64 %91 to i32
+  %93 = getelementptr inbounds i8, ptr %33, i64 116
+  store i32 %92, ptr %93, align 4
   br label %hex_to_bin.exit
 
-hex_to_bin.exit:                                  ; preds = %.lr.ph.i, %8, %42, %54, %61, %58, %73, %83, %86, %79, %65, %._crit_edge, %2, %thread-pre-split
+hex_to_bin.exit:                                  ; preds = %.lr.ph.i, %8, %45, %56, %63, %60, %78, %87, %90, %83, %67, %._crit_edge, %2, %thread-pre-split
   ret void
 }
 

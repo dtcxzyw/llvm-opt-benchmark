@@ -15,7 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [2 x i8] c",\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"auto\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"off\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"no\00", align 1
 @.str.4 = private unnamed_addr constant [44 x i8] c"\013Bad \22%s.mitigations=%s\22, '%s' is unknown\0A\00", align 1
 @.str.5 = private unnamed_addr constant [5 x i8] c"i915\00", align 1
 @.str.6 = private unnamed_addr constant [10 x i8] c"residuals\00", align 1
@@ -35,12 +34,12 @@ define dso_local zeroext i1 @i915_mitigate_clear_residuals() local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mitigations_set(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 -22, 1) i32 @mitigations_set(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   %4 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #6
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %52, label %6
+  br i1 %5, label %58, label %6
 
 6:                                                ; preds = %2
   store ptr %4, ptr %3, align 8
@@ -48,88 +47,102 @@ define internal noundef i32 @mitigations_set(ptr noundef %0, ptr nocapture readn
   %8 = icmp eq ptr %7, null
   br i1 %8, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %47
-  %9 = phi ptr [ %50, %47 ], [ %7, %6 ]
-  %10 = phi i8 [ %49, %47 ], [ 1, %6 ]
-  %11 = phi i64 [ %48, %47 ], [ -1, %6 ]
+.lr.ph:                                           ; preds = %6, %53
+  %9 = phi ptr [ %56, %53 ], [ %7, %6 ]
+  %10 = phi i8 [ %55, %53 ], [ 1, %6 ]
+  %11 = phi i64 [ %54, %53 ], [ -1, %6 ]
   %12 = call ptr @strim(ptr noundef nonnull %9) #6
   %13 = and i8 %10, 1
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %21, label %15
+  br i1 %14, label %sub_0, label %15
 
 15:                                               ; preds = %.lr.ph
   %16 = call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(5) @.str.1) #6
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %47, label %18, !llvm.loop !5
+  br i1 %17, label %53, label %18, !llvm.loop !5
 
 18:                                               ; preds = %15
   %19 = call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(4) @.str.2) #6
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %47, label %21, !llvm.loop !5
+  br i1 %20, label %53, label %sub_0, !llvm.loop !5
 
-21:                                               ; preds = %18, %.lr.ph
-  %22 = phi i64 [ 0, %18 ], [ %11, %.lr.ph ]
-  %23 = phi i8 [ 0, %18 ], [ %10, %.lr.ph ]
-  %24 = load i8, ptr %12, align 1
-  %25 = icmp eq i8 %24, 33
-  %26 = zext i1 %25 to i64
-  %27 = getelementptr i8, ptr %12, i64 %26
-  %28 = call i32 @strncmp(ptr noundef %27, ptr noundef nonnull dereferenceable(3) @.str.3, i64 noundef 2) #6
-  %29 = icmp ne i32 %28, 0
-  %30 = select i1 %29, i64 0, i64 2
-  %31 = getelementptr i8, ptr %27, i64 %30
-  %32 = xor i1 %25, %29
-  %33 = load i8, ptr %31, align 1
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %47, label %.preheader, !llvm.loop !5
+sub_0:                                            ; preds = %18, %.lr.ph
+  %21 = phi i64 [ 0, %18 ], [ %11, %.lr.ph ]
+  %22 = phi i8 [ 0, %18 ], [ %10, %.lr.ph ]
+  %23 = load i8, ptr %12, align 1
+  %24 = icmp eq i8 %23, 33
+  %25 = zext i1 %24 to i64
+  %26 = getelementptr i8, ptr %12, i64 %25
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  %29 = add nsw i32 %28, -110
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %sub_1, label %.tail
 
-.preheader:                                       ; preds = %21, %37
-  %35 = phi i1 [ false, %37 ], [ true, %21 ]
-  %36 = phi i1 [ true, %37 ], [ false, %21 ]
-  br i1 %35, label %37, label %.loopexit
+sub_1:                                            ; preds = %sub_0
+  %30 = getelementptr inbounds i8, ptr %26, i64 1
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = add nsw i32 %32, -111
+  br label %.tail
 
-37:                                               ; preds = %.preheader
-  %38 = call i32 @strcmp(ptr noundef %31, ptr noundef nonnull dereferenceable(10) @.str.6) #6
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %.preheader, !llvm.loop !8
+.tail:                                            ; preds = %sub_0, %sub_1
+  %34 = phi i32 [ %29, %sub_0 ], [ %33, %sub_1 ]
+  %35 = icmp ne i32 %34, 0
+  %36 = select i1 %35, i64 0, i64 2
+  %37 = getelementptr i8, ptr %26, i64 %36
+  %38 = xor i1 %24, %35
+  %39 = load i8, ptr %37, align 1
+  %40 = icmp eq i8 %39, 0
+  br i1 %40, label %53, label %.preheader, !llvm.loop !5
 
-40:                                               ; preds = %37
-  br i1 %32, label %41, label %43
+.preheader:                                       ; preds = %.tail, %43
+  %41 = phi i1 [ false, %43 ], [ true, %.tail ]
+  %42 = phi i1 [ true, %43 ], [ false, %.tail ]
+  br i1 %41, label %43, label %.loopexit
 
-41:                                               ; preds = %40
-  %42 = or i64 %22, 1
+43:                                               ; preds = %.preheader
+  %44 = call i32 @strcmp(ptr noundef %37, ptr noundef nonnull dereferenceable(10) @.str.6) #6
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %.preheader, !llvm.loop !8
+
+46:                                               ; preds = %43
+  br i1 %38, label %47, label %49
+
+47:                                               ; preds = %46
+  %48 = or i64 %21, 1
   br label %.loopexit
 
-43:                                               ; preds = %40
-  %44 = and i64 %22, -2
+49:                                               ; preds = %46
+  %50 = and i64 %21, -2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %43, %41
-  %45 = phi i64 [ %42, %41 ], [ %44, %43 ], [ %22, %.preheader ]
-  br i1 %36, label %.thread3, label %47
+.loopexit:                                        ; preds = %.preheader, %49, %47
+  %51 = phi i64 [ %48, %47 ], [ %50, %49 ], [ %21, %.preheader ]
+  br i1 %42, label %.thread3, label %53
 
 .thread3:                                         ; preds = %.loopexit
-  %46 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %31) #7
+  %52 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %37) #7
   call void @kfree(ptr noundef nonnull %4) #6
-  br label %52
+  br label %58
 
-47:                                               ; preds = %.loopexit, %21, %18, %15
-  %48 = phi i64 [ %11, %15 ], [ 0, %18 ], [ %22, %21 ], [ %45, %.loopexit ]
-  %49 = phi i8 [ 0, %15 ], [ 0, %18 ], [ %23, %21 ], [ %23, %.loopexit ]
-  %50 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str) #6
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %._crit_edge, label %.lr.ph
+53:                                               ; preds = %.loopexit, %.tail, %18, %15
+  %54 = phi i64 [ %11, %15 ], [ 0, %18 ], [ %21, %.tail ], [ %51, %.loopexit ]
+  %55 = phi i8 [ 0, %15 ], [ 0, %18 ], [ %22, %.tail ], [ %22, %.loopexit ]
+  %56 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str) #6
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %47, %6
-  %.lcssa5 = phi i64 [ -1, %6 ], [ %48, %47 ]
+._crit_edge:                                      ; preds = %53, %6
+  %.lcssa5 = phi i64 [ -1, %6 ], [ %54, %53 ]
   call void @kfree(ptr noundef nonnull %4) #6
   store volatile i64 %.lcssa5, ptr @mitigations, align 8
-  br label %52
+  br label %58
 
-52:                                               ; preds = %.thread3, %._crit_edge, %2
-  %53 = phi i32 [ 0, %._crit_edge ], [ -12, %2 ], [ -22, %.thread3 ]
+58:                                               ; preds = %.thread3, %._crit_edge, %2
+  %59 = phi i32 [ 0, %._crit_edge ], [ -12, %2 ], [ -22, %.thread3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  ret i32 %53
+  ret i32 %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -194,9 +207,6 @@ declare dso_local ptr @strim(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5

@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [10 x i8] c"--version\00", align 1
 @.str.10 = private unnamed_addr constant [7 x i8] c"%s %s\0A\00", align 1
 @.str.11 = private unnamed_addr constant [12 x i8] c"3.0.0a1-git\00", align 1
-@.str.12 = private unnamed_addr constant [3 x i8] c"-h\00", align 1
 @.str.13 = private unnamed_addr constant [7 x i8] c"--help\00", align 1
 @stdout = external local_unnamed_addr global ptr, align 8
 @.str.14 = private unnamed_addr constant [26 x i8] c"Unrecognized options: %s\0A\00", align 1
@@ -89,25 +88,25 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   %20 = load ptr, ptr %11, align 8
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 45
-  br i1 %22, label %.lr.ph182, label %.critedge
+  br i1 %22, label %.lr.ph185, label %.critedge
 
 .lr.ph:                                           ; preds = %33
-  %23 = getelementptr inbounds i8, ptr %.081123181, i64 16
+  %23 = getelementptr inbounds i8, ptr %.081123184, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 45
-  br i1 %26, label %.lr.ph182, label %.lr.ph..critedge_crit_edge, !llvm.loop !5
+  br i1 %26, label %.lr.ph185, label %.lr.ph..critedge_crit_edge, !llvm.loop !5
 
-.lr.ph182:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph185:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %27 = phi ptr [ %24, %.lr.ph ], [ %20, %.lr.ph.preheader ]
-  %.081123181 = phi ptr [ %23, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.080.in124180 = phi i32 [ %34, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.081123184 = phi ptr [ %23, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %.080.in124183 = phi i32 [ %34, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(10) @.str.8) #10
   %.not99 = icmp eq i32 %28, 0
   br i1 %.not99, label %29, label %35
 
-29:                                               ; preds = %.lr.ph182
-  %30 = icmp slt i32 %.080.in124180, 3
+29:                                               ; preds = %.lr.ph185
+  %30 = icmp slt i32 %.080.in124183, 3
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
@@ -117,267 +116,274 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   unreachable
 
 33:                                               ; preds = %29
-  %34 = add nsw i32 %.080.in124180, -2
+  %34 = add nsw i32 %.080.in124183, -2
   %.not89 = icmp eq i32 %34, 1
   br i1 %.not89, label %.critedge.thread, label %.lr.ph, !llvm.loop !5
 
-35:                                               ; preds = %.lr.ph182
+35:                                               ; preds = %.lr.ph185
   %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(10) @.str.9) #10
   %.not100 = icmp eq i32 %36, 0
-  br i1 %.not100, label %37, label %39
+  br i1 %.not100, label %37, label %sub_1
 
 37:                                               ; preds = %35
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %.082, ptr noundef nonnull @.str.11)
   tail call void @exit(i32 noundef 0) #13
   unreachable
 
-39:                                               ; preds = %35
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(3) @.str.12) #10
-  %.not101 = icmp eq i32 %40, 0
-  br i1 %.not101, label %43, label %41
+sub_1:                                            ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %27, i64 1
+  %40 = load i8, ptr %39, align 1
+  %.not134 = icmp eq i8 %40, 104
+  br i1 %.not134, label %.tail, label %.tail.thread
 
-41:                                               ; preds = %39
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(7) @.str.13) #10
-  %.not102 = icmp eq i32 %42, 0
-  br i1 %.not102, label %43, label %45
+.tail:                                            ; preds = %sub_1
+  %41 = getelementptr inbounds i8, ptr %27, i64 2
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %45, label %.tail.thread
 
-43:                                               ; preds = %41, %39
-  %44 = load ptr, ptr @stdout, align 8
-  tail call void @usage(ptr poison, ptr noundef %44)
+.tail.thread:                                     ; preds = %sub_1, %.tail
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(7) @.str.13) #10
+  %.not102 = icmp eq i32 %44, 0
+  br i1 %.not102, label %45, label %47
+
+45:                                               ; preds = %.tail.thread, %.tail
+  %46 = load ptr, ptr @stdout, align 8
+  tail call void @usage(ptr poison, ptr noundef %46)
   tail call void @exit(i32 noundef 0) #13
   unreachable
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr @stderr, align 8
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.14, ptr noundef nonnull %27) #12
+47:                                               ; preds = %.tail.thread
   %48 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %48)
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.14, ptr noundef nonnull %27) #12
+  %50 = load ptr, ptr @stderr, align 8
+  tail call void @usage(ptr poison, ptr noundef %50)
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
 .lr.ph..critedge_crit_edge:                       ; preds = %.lr.ph
-  %49 = getelementptr inbounds i8, ptr %.081123181, i64 8
-  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %.081123184, i64 8
+  %52 = load ptr, ptr %51, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph..critedge_crit_edge, %.lr.ph.preheader
-  %.076125.lcssa = phi ptr [ %50, %.lr.ph..critedge_crit_edge ], [ null, %.lr.ph.preheader ]
+  %.076125.lcssa = phi ptr [ %52, %.lr.ph..critedge_crit_edge ], [ null, %.lr.ph.preheader ]
   %.080.in124.lcssa = phi i32 [ %34, %.lr.ph..critedge_crit_edge ], [ %0, %.lr.ph.preheader ]
   %.081123.lcssa = phi ptr [ %23, %.lr.ph..critedge_crit_edge ], [ %11, %.lr.ph.preheader ]
-  %.lcssa167 = phi ptr [ %24, %.lr.ph..critedge_crit_edge ], [ %20, %.lr.ph.preheader ]
-  %51 = icmp slt i32 %.080.in124.lcssa, 3
-  br i1 %51, label %.critedge.thread, label %53
+  %.lcssa170 = phi ptr [ %24, %.lr.ph..critedge_crit_edge ], [ %20, %.lr.ph.preheader ]
+  %53 = icmp slt i32 %.080.in124.lcssa, 3
+  br i1 %53, label %.critedge.thread, label %55
 
 .critedge.thread:                                 ; preds = %33, %19, %.critedge
-  %52 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %52)
+  %54 = load ptr, ptr @stderr, align 8
+  tail call void @usage(ptr poison, ptr noundef %54)
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
-53:                                               ; preds = %.critedge
-  %54 = getelementptr inbounds i8, ptr %.081123.lcssa, i64 8
-  %55 = load ptr, ptr %54, align 8
+55:                                               ; preds = %.critedge
+  %56 = getelementptr inbounds i8, ptr %.081123.lcssa, i64 8
+  %57 = load ptr, ptr %56, align 8
   %.not90 = icmp eq i32 %.080.in124.lcssa, 3
-  br i1 %.not90, label %59, label %56
+  br i1 %.not90, label %61, label %58
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %.081123.lcssa, i64 16
-  %58 = load ptr, ptr %57, align 8
-  br label %59
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %.081123.lcssa, i64 16
+  %60 = load ptr, ptr %59, align 8
+  br label %61
 
-59:                                               ; preds = %53, %56
-  %.079 = phi ptr [ %58, %56 ], [ null, %53 ]
-  %.078 = phi ptr [ %58, %56 ], [ @.str.15, %53 ]
-  %60 = call i32 @hwloc_topology_init(ptr noundef nonnull %3) #11
-  %61 = load ptr, ptr %3, align 8
-  %62 = call i32 @hwloc_topology_set_all_types_filter(ptr noundef %61, i32 noundef 0) #11
+61:                                               ; preds = %55, %58
+  %.079 = phi ptr [ %60, %58 ], [ null, %55 ]
+  %.078 = phi ptr [ %60, %58 ], [ @.str.15, %55 ]
+  %62 = call i32 @hwloc_topology_init(ptr noundef nonnull %3) #11
   %63 = load ptr, ptr %3, align 8
-  %64 = call i32 @hwloc_topology_set_flags(ptr noundef %63, i64 noundef 9) #11
+  %64 = call i32 @hwloc_topology_set_all_types_filter(ptr noundef %63, i32 noundef 0) #11
   %65 = load ptr, ptr %3, align 8
-  %66 = call i32 @hwloc_topology_set_xml(ptr noundef %65, ptr noundef nonnull %.lcssa167) #11
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %68, label %71
+  %66 = call i32 @hwloc_topology_set_flags(ptr noundef %65, i64 noundef 9) #11
+  %67 = load ptr, ptr %3, align 8
+  %68 = call i32 @hwloc_topology_set_xml(ptr noundef %67, ptr noundef nonnull %.lcssa170) #11
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %70, label %73
 
-68:                                               ; preds = %59
-  %69 = load ptr, ptr @stderr, align 8
-  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.16, ptr noundef nonnull %.lcssa167) #12
-  br label %152
+70:                                               ; preds = %61
+  %71 = load ptr, ptr @stderr, align 8
+  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.16, ptr noundef nonnull %.lcssa170) #12
+  br label %154
 
-71:                                               ; preds = %59
-  %72 = load ptr, ptr %3, align 8
-  %73 = call i32 @hwloc_topology_load(ptr noundef %72) #11
-  %74 = icmp slt i32 %73, 0
-  br i1 %74, label %75, label %78
+73:                                               ; preds = %61
+  %74 = load ptr, ptr %3, align 8
+  %75 = call i32 @hwloc_topology_load(ptr noundef %74) #11
+  %76 = icmp slt i32 %75, 0
+  br i1 %76, label %77, label %80
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr @stderr, align 8
-  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.17, ptr noundef nonnull %.lcssa167) #12
-  br label %152
+77:                                               ; preds = %73
+  %78 = load ptr, ptr @stderr, align 8
+  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.17, ptr noundef nonnull %.lcssa170) #12
+  br label %154
 
-78:                                               ; preds = %71
-  %79 = call i32 @hwloc_topology_init(ptr noundef nonnull %4) #11
-  %80 = load ptr, ptr %4, align 8
-  %81 = call i32 @hwloc_topology_set_all_types_filter(ptr noundef %80, i32 noundef 0) #11
+80:                                               ; preds = %73
+  %81 = call i32 @hwloc_topology_init(ptr noundef nonnull %4) #11
   %82 = load ptr, ptr %4, align 8
-  %83 = call i32 @hwloc_topology_set_flags(ptr noundef %82, i64 noundef 9) #11
+  %83 = call i32 @hwloc_topology_set_all_types_filter(ptr noundef %82, i32 noundef 0) #11
   %84 = load ptr, ptr %4, align 8
-  %85 = call i32 @hwloc_topology_set_xml(ptr noundef %84, ptr noundef %55) #11
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %87, label %89
+  %85 = call i32 @hwloc_topology_set_flags(ptr noundef %84, i64 noundef 9) #11
+  %86 = load ptr, ptr %4, align 8
+  %87 = call i32 @hwloc_topology_set_xml(ptr noundef %86, ptr noundef %57) #11
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %89, label %91
 
-87:                                               ; preds = %78
-  %88 = load ptr, ptr @stderr, align 8
-  br label %149
+89:                                               ; preds = %80
+  %90 = load ptr, ptr @stderr, align 8
+  br label %151
 
-89:                                               ; preds = %78
-  %90 = load ptr, ptr %4, align 8
-  %91 = call i32 @hwloc_topology_load(ptr noundef %90) #11
-  %92 = icmp slt i32 %91, 0
-  br i1 %92, label %93, label %95
+91:                                               ; preds = %80
+  %92 = load ptr, ptr %4, align 8
+  %93 = call i32 @hwloc_topology_load(ptr noundef %92) #11
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %95, label %97
 
-93:                                               ; preds = %89
-  %94 = load ptr, ptr @stderr, align 8
-  br label %149
+95:                                               ; preds = %91
+  %96 = load ptr, ptr @stderr, align 8
+  br label %151
 
-95:                                               ; preds = %89
+97:                                               ; preds = %91
   %.not91 = icmp eq ptr %.076125.lcssa, null
-  br i1 %.not91, label %96, label %99
+  br i1 %.not91, label %98, label %101
 
-96:                                               ; preds = %95
-  %97 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.lcssa167, i32 noundef 47) #10
-  %.not92 = icmp eq ptr %97, null
-  %98 = getelementptr inbounds i8, ptr %97, i64 1
-  %spec.select105 = select i1 %.not92, ptr %.lcssa167, ptr %98
-  br label %99
+98:                                               ; preds = %97
+  %99 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.lcssa170, i32 noundef 47) #10
+  %.not92 = icmp eq ptr %99, null
+  %100 = getelementptr inbounds i8, ptr %99, i64 1
+  %spec.select105 = select i1 %.not92, ptr %.lcssa170, ptr %100
+  br label %101
 
-99:                                               ; preds = %96, %95
-  %.177 = phi ptr [ %.076125.lcssa, %95 ], [ %spec.select105, %96 ]
-  %100 = load ptr, ptr %3, align 8
-  %101 = load ptr, ptr %4, align 8
-  %102 = call i32 @hwloc_topology_diff_build(ptr noundef %100, ptr noundef %101, i64 noundef 0, ptr noundef nonnull %5) #11
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %106, label %.preheader
+101:                                              ; preds = %98, %97
+  %.177 = phi ptr [ %.076125.lcssa, %97 ], [ %spec.select105, %98 ]
+  %102 = load ptr, ptr %3, align 8
+  %103 = load ptr, ptr %4, align 8
+  %104 = call i32 @hwloc_topology_diff_build(ptr noundef %102, ptr noundef %103, i64 noundef 0, ptr noundef nonnull %5) #11
+  %105 = icmp slt i32 %104, 0
+  br i1 %105, label %108, label %.preheader
 
-.preheader:                                       ; preds = %99
+.preheader:                                       ; preds = %101
   %.083126 = load ptr, ptr %5, align 8
   %.not93127 = icmp eq ptr %.083126, null
-  br i1 %.not93127, label %.thread150, label %.lr.ph131
+  br i1 %.not93127, label %.thread153, label %.lr.ph131
 
-.thread150:                                       ; preds = %.preheader
-  %104 = load ptr, ptr @stderr, align 8
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.21, ptr noundef %.078) #12
-  br label %125
+.thread153:                                       ; preds = %.preheader
+  %106 = load ptr, ptr @stderr, align 8
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.21, ptr noundef %.078) #12
+  br label %127
 
-106:                                              ; preds = %99
-  %107 = load ptr, ptr @stderr, align 8
-  %108 = tail call ptr @__errno_location() #14
-  %109 = load i32, ptr %108, align 4
-  %110 = call ptr @strerror(i32 noundef %109) #11
-  br label %149
+108:                                              ; preds = %101
+  %109 = load ptr, ptr @stderr, align 8
+  %110 = tail call ptr @__errno_location() #14
+  %111 = load i32, ptr %110, align 4
+  %112 = call ptr @strerror(i32 noundef %111) #11
+  br label %151
 
 .lr.ph131:                                        ; preds = %.preheader, %.lr.ph131
   %.083130 = phi ptr [ %.083, %.lr.ph131 ], [ %.083126, %.preheader ]
   %.074129 = phi i32 [ %spec.select, %.lr.ph131 ], [ 0, %.preheader ]
-  %.075128 = phi i32 [ %111, %.lr.ph131 ], [ 0, %.preheader ]
-  %111 = add i32 %.075128, 1
-  %112 = load i32, ptr %.083130, align 8
-  %113 = icmp eq i32 %112, 1
-  %114 = zext i1 %113 to i32
-  %spec.select = add i32 %.074129, %114
-  %115 = getelementptr inbounds i8, ptr %.083130, i64 8
-  %.083 = load ptr, ptr %115, align 8
+  %.075128 = phi i32 [ %113, %.lr.ph131 ], [ 0, %.preheader ]
+  %113 = add i32 %.075128, 1
+  %114 = load i32, ptr %.083130, align 8
+  %115 = icmp eq i32 %114, 1
+  %116 = zext i1 %115 to i32
+  %spec.select = add i32 %.074129, %116
+  %117 = getelementptr inbounds i8, ptr %.083130, i64 8
+  %.083 = load ptr, ptr %117, align 8
   %.not93 = icmp eq ptr %.083, null
   br i1 %.not93, label %._crit_edge, label %.lr.ph131, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph131
-  %.not94 = icmp eq i32 %111, 0
-  br i1 %.not94, label %122, label %116
+  %.not94 = icmp eq i32 %113, 0
+  br i1 %.not94, label %124, label %118
 
-116:                                              ; preds = %._crit_edge
+118:                                              ; preds = %._crit_edge
   %.not95 = icmp eq i32 %spec.select, 0
-  %117 = load ptr, ptr @stderr, align 8
+  %119 = load ptr, ptr @stderr, align 8
   br i1 %.not95, label %.thread, label %.thread107
 
-.thread:                                          ; preds = %116
-  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.22, i32 noundef %111, ptr noundef %.078) #12
-  br label %125
+.thread:                                          ; preds = %118
+  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.22, i32 noundef %113, ptr noundef %.078) #12
+  br label %127
 
-.thread107:                                       ; preds = %116
-  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.23, i32 noundef %111, i32 noundef %spec.select) #12
-  %120 = load ptr, ptr @stderr, align 8
-  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.24, ptr noundef %.078) #12
-  br label %139
+.thread107:                                       ; preds = %118
+  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.23, i32 noundef %113, i32 noundef %spec.select) #12
+  %122 = load ptr, ptr @stderr, align 8
+  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.24, ptr noundef %.078) #12
+  br label %141
 
-122:                                              ; preds = %._crit_edge
-  %123 = load ptr, ptr @stderr, align 8
-  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.21, ptr noundef %.078) #12
+124:                                              ; preds = %._crit_edge
+  %125 = load ptr, ptr @stderr, align 8
+  %126 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.21, ptr noundef %.078) #12
   %.not96 = icmp eq i32 %spec.select, 0
-  br i1 %.not96, label %125, label %139
+  br i1 %.not96, label %127, label %141
 
-125:                                              ; preds = %.thread150, %.thread, %122
+127:                                              ; preds = %.thread153, %.thread, %124
   %.not97 = icmp eq ptr %.079, null
-  %126 = load ptr, ptr %5, align 8
-  br i1 %.not97, label %129, label %127
+  %128 = load ptr, ptr %5, align 8
+  br i1 %.not97, label %131, label %129
 
-127:                                              ; preds = %125
-  %128 = call i32 @hwloc_topology_diff_export_xml(ptr noundef %126, ptr noundef %.177, ptr noundef nonnull %.079) #11
-  br label %134
+129:                                              ; preds = %127
+  %130 = call i32 @hwloc_topology_diff_export_xml(ptr noundef %128, ptr noundef %.177, ptr noundef nonnull %.079) #11
+  br label %136
 
-129:                                              ; preds = %125
-  %130 = call i32 @hwloc_topology_diff_export_xmlbuffer(ptr noundef %126, ptr noundef %.177, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  %.not98 = icmp eq i32 %130, 0
-  br i1 %.not98, label %.thread109, label %134
+131:                                              ; preds = %127
+  %132 = call i32 @hwloc_topology_diff_export_xmlbuffer(ptr noundef %128, ptr noundef %.177, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  %.not98 = icmp eq i32 %132, 0
+  br i1 %.not98, label %.thread109, label %136
 
-.thread109:                                       ; preds = %129
-  %131 = load ptr, ptr %6, align 8
-  %puts = call i32 @puts(ptr nonnull dereferenceable(1) %131)
-  %132 = load ptr, ptr %3, align 8
+.thread109:                                       ; preds = %131
   %133 = load ptr, ptr %6, align 8
-  call void @hwloc_free_xmlbuffer(ptr noundef %132, ptr noundef %133) #11
-  br label %144
+  %puts = call i32 @puts(ptr nonnull dereferenceable(1) %133)
+  %134 = load ptr, ptr %3, align 8
+  %135 = load ptr, ptr %6, align 8
+  call void @hwloc_free_xmlbuffer(ptr noundef %134, ptr noundef %135) #11
+  br label %146
 
-134:                                              ; preds = %129, %127
-  %.0 = phi i32 [ %128, %127 ], [ %130, %129 ]
-  %135 = icmp slt i32 %.0, 0
-  br i1 %135, label %136, label %144
+136:                                              ; preds = %131, %129
+  %.0 = phi i32 [ %130, %129 ], [ %132, %131 ]
+  %137 = icmp slt i32 %.0, 0
+  br i1 %137, label %138, label %146
 
-136:                                              ; preds = %134
-  %137 = load ptr, ptr @stderr, align 8
-  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.26, ptr noundef %.079) #12
-  br label %144
+138:                                              ; preds = %136
+  %139 = load ptr, ptr @stderr, align 8
+  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.26, ptr noundef %.079) #12
+  br label %146
 
-139:                                              ; preds = %122, %.thread107
-  %140 = load ptr, ptr %5, align 8
-  %141 = call i32 @hwloc_topology_diff_destroy(ptr noundef %140) #11
-  %142 = load ptr, ptr %4, align 8
-  call void @hwloc_topology_destroy(ptr noundef %142) #11
-  %143 = load ptr, ptr %3, align 8
-  call void @hwloc_topology_destroy(ptr noundef %143) #11
+141:                                              ; preds = %124, %.thread107
+  %142 = load ptr, ptr %5, align 8
+  %143 = call i32 @hwloc_topology_diff_destroy(ptr noundef %142) #11
+  %144 = load ptr, ptr %4, align 8
+  call void @hwloc_topology_destroy(ptr noundef %144) #11
+  %145 = load ptr, ptr %3, align 8
+  call void @hwloc_topology_destroy(ptr noundef %145) #11
   call void @exit(i32 noundef 1) #13
   unreachable
 
-144:                                              ; preds = %136, %134, %.thread109
-  %145 = load ptr, ptr %5, align 8
-  %146 = call i32 @hwloc_topology_diff_destroy(ptr noundef %145) #11
-  %147 = load ptr, ptr %4, align 8
-  call void @hwloc_topology_destroy(ptr noundef %147) #11
-  %148 = load ptr, ptr %3, align 8
-  call void @hwloc_topology_destroy(ptr noundef %148) #11
+146:                                              ; preds = %138, %136, %.thread109
+  %147 = load ptr, ptr %5, align 8
+  %148 = call i32 @hwloc_topology_diff_destroy(ptr noundef %147) #11
+  %149 = load ptr, ptr %4, align 8
+  call void @hwloc_topology_destroy(ptr noundef %149) #11
+  %150 = load ptr, ptr %3, align 8
+  call void @hwloc_topology_destroy(ptr noundef %150) #11
   call void @exit(i32 noundef 0) #13
   unreachable
 
-149:                                              ; preds = %106, %93, %87
-  %.sink166 = phi ptr [ %110, %106 ], [ %55, %93 ], [ %55, %87 ]
-  %.str.20.sink = phi ptr [ @.str.20, %106 ], [ @.str.19, %93 ], [ @.str.18, %87 ]
-  %.sink = phi ptr [ %107, %106 ], [ %94, %93 ], [ %88, %87 ]
-  %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.sink, ptr noundef nonnull %.str.20.sink, ptr noundef %.sink166) #12
-  %151 = load ptr, ptr %4, align 8
-  call void @hwloc_topology_destroy(ptr noundef %151) #11
-  br label %152
-
-152:                                              ; preds = %149, %75, %68
-  %153 = load ptr, ptr %3, align 8
+151:                                              ; preds = %108, %95, %89
+  %.sink169 = phi ptr [ %112, %108 ], [ %57, %95 ], [ %57, %89 ]
+  %.str.20.sink = phi ptr [ @.str.20, %108 ], [ @.str.19, %95 ], [ @.str.18, %89 ]
+  %.sink = phi ptr [ %109, %108 ], [ %96, %95 ], [ %90, %89 ]
+  %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.sink, ptr noundef nonnull %.str.20.sink, ptr noundef %.sink169) #12
+  %153 = load ptr, ptr %4, align 8
   call void @hwloc_topology_destroy(ptr noundef %153) #11
+  br label %154
+
+154:                                              ; preds = %151, %77, %70
+  %155 = load ptr, ptr %3, align 8
+  call void @hwloc_topology_destroy(ptr noundef %155) #11
   call void @exit(i32 noundef 1) #13
   unreachable
 }

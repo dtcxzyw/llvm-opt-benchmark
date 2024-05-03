@@ -118,9 +118,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.97 = private unnamed_addr constant [6 x i8] c"scale\00", align 1
 @.str.98 = private unnamed_addr constant [4 x i8] c"src\00", align 1
 @.str.99 = private unnamed_addr constant [39 x i8] c"Unknown HTML element <%s> on line %d \0A\00", align 1
-@.str.100 = private unnamed_addr constant [4 x i8] c"!--\00", align 1
 @.str.101 = private unnamed_addr constant [41 x i8] c"Label closed before end of HTML element\0A\00", align 1
-@.str.102 = private unnamed_addr constant [3 x i8] c"--\00", align 1
 @.str.103 = private unnamed_addr constant [18 x i8] c"Unclosed comment\0A\00", align 1
 @.str.104 = private unnamed_addr constant [6 x i8] c"&#93;\00", align 1
 
@@ -1135,103 +1133,125 @@ declare void @XML_ParserFree(ptr noundef) local_unnamed_addr #1
 declare i64 @XML_GetCurrentLineNumber(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @htmllex() local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @htmllex() local_unnamed_addr #0 {
   store i32 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 2), align 8
   br label %1
 
-1:                                                ; preds = %152, %0
-  %.018 = phi ptr [ null, %0 ], [ %.1, %152 ]
+1:                                                ; preds = %155, %0
+  %.018 = phi ptr [ null, %0 ], [ %.1, %155 ]
   %2 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 8), align 1
   switch i8 %2, label %4 [
-    i8 2, label %155
+    i8 2, label %158
     i8 0, label %3
   ]
 
 3:                                                ; preds = %1
   store i8 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 8), align 1
-  br label %59
+  br label %62
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 1), align 8
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %.preheader9.i [
     i8 0, label %7
-    i8 60, label %8
+    i8 60, label %sub_0.i
   ]
 
 7:                                                ; preds = %4
   store i8 2, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 8), align 1
-  br label %59
+  br label %62
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
-  %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(4) @.str.100, i64 noundef 3) #20
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.preheader.i, label %.preheader8.i
+sub_0.i:                                          ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = load i8, ptr %8, align 1
+  %.not15.i = icmp eq i8 %9, 33
+  br i1 %.not15.i, label %sub_1.i, label %.preheader8.i.preheader
 
-.preheader.i:                                     ; preds = %8, %17
-  %.020.i.i = phi i32 [ %.1.i.i, %17 ], [ 1, %8 ]
-  %.01319.i.idx.i = phi i64 [ %.01319.i.add5.i, %17 ], [ 4, %8 ]
+.preheader8.i.preheader:                          ; preds = %.tail.i, %sub_1.i, %sub_0.i
+  br label %.preheader8.i
+
+sub_1.i:                                          ; preds = %sub_0.i
+  %10 = getelementptr inbounds i8, ptr %5, i64 2
+  %11 = load i8, ptr %10, align 1
+  %.not16.i = icmp eq i8 %11, 45
+  br i1 %.not16.i, label %.tail.i, label %.preheader8.i.preheader
+
+.tail.i:                                          ; preds = %sub_1.i
+  %12 = getelementptr inbounds i8, ptr %5, i64 3
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 45
+  br i1 %14, label %.preheader.i, label %.preheader8.i.preheader
+
+.preheader.i:                                     ; preds = %.tail.i, %20
+  %.020.i.i = phi i32 [ %.1.i.i, %20 ], [ 1, %.tail.i ]
+  %.01319.i.idx.i = phi i64 [ %.01319.i.add5.i, %20 ], [ 4, %.tail.i ]
   %.01319.i.ptr.i = getelementptr i8, ptr %5, i64 %.01319.i.idx.i
   %.01319.i.add5.i = add nuw nsw i64 %.01319.i.idx.i, 1
-  %12 = load i8, ptr %.01319.i.ptr.i, align 1
-  switch i8 %12, label %17 [
+  %15 = load i8, ptr %.01319.i.ptr.i, align 1
+  switch i8 %15, label %20 [
     i8 0, label %.critedge.thread.i.loopexit
-    i8 60, label %13
-    i8 62, label %15
+    i8 60, label %16
+    i8 62, label %18
   ]
 
-13:                                               ; preds = %.preheader.i
-  %14 = add nsw i32 %.020.i.i, 1
-  br label %17
+16:                                               ; preds = %.preheader.i
+  %17 = add nsw i32 %.020.i.i, 1
+  br label %20
 
-15:                                               ; preds = %.preheader.i
-  %16 = add nsw i32 %.020.i.i, -1
-  br label %17
+18:                                               ; preds = %.preheader.i
+  %19 = add nsw i32 %.020.i.i, -1
+  br label %20
 
-17:                                               ; preds = %15, %13, %.preheader.i
-  %.1.i.i = phi i32 [ %14, %13 ], [ %16, %15 ], [ %.020.i.i, %.preheader.i ]
+20:                                               ; preds = %18, %16, %.preheader.i
+  %.1.i.i = phi i32 [ %17, %16 ], [ %19, %18 ], [ %.020.i.i, %.preheader.i ]
   %.not.i.i = icmp eq i32 %.1.i.i, 0
   br i1 %.not.i.i, label %.critedge.i.i, label %.preheader.i
 
-.critedge.i.i:                                    ; preds = %17
+.critedge.i.i:                                    ; preds = %20
   %.01319.i.ptr.i.le = getelementptr i8, ptr %5, i64 %.01319.i.idx.i
-  %.not18.i.i = icmp eq i8 %12, 0
-  br i1 %.not18.i.i, label %.critedge.thread.i, label %18
+  %.not18.i.i = icmp eq i8 %15, 0
+  br i1 %.not18.i.i, label %.critedge.thread.i, label %21
 
-18:                                               ; preds = %.critedge.i.i
-  %19 = icmp ult i64 %.01319.i.idx.i, 6
-  br i1 %19, label %23, label %20
+21:                                               ; preds = %.critedge.i.i
+  %22 = icmp ult i64 %.01319.i.idx.i, 6
+  br i1 %22, label %.tail.thread.i.i, label %sub_0.i.i
 
-20:                                               ; preds = %18
+sub_0.i.i:                                        ; preds = %21
   %.ptr.i = getelementptr i8, ptr %.01319.i.ptr.i.le, i64 -2
-  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.ptr.i, ptr noundef nonnull dereferenceable(3) @.str.102, i64 noundef 2) #20
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.critedge.i, label %23
+  %23 = load i8, ptr %.ptr.i, align 1
+  %.not21.i.i = icmp eq i8 %23, 45
+  br i1 %.not21.i.i, label %.tail.i.i, label %.tail.thread.i.i
 
-23:                                               ; preds = %20, %18
-  %24 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.103) #19
+.tail.i.i:                                        ; preds = %sub_0.i.i
+  %24 = getelementptr inbounds i8, ptr %.01319.i.ptr.i.le, i64 -1
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 45
+  br i1 %26, label %.critedge.i, label %.tail.thread.i.i
+
+.tail.thread.i.i:                                 ; preds = %.tail.i.i, %sub_0.i.i, %21
+  %27 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.103) #19
   store i32 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 5), align 8
   %.pr.pre.i = load i8, ptr %.01319.i.ptr.i.le, align 1
   br label %.critedge.i
 
-.preheader8.i:                                    ; preds = %8, %26
-  %.0.i = phi ptr [ %27, %26 ], [ %9, %8 ]
-  %25 = load i8, ptr %.0.i, align 1
-  switch i8 %25, label %26 [
+.preheader8.i:                                    ; preds = %.preheader8.i.preheader, %29
+  %28 = phi i8 [ %.pre.i, %29 ], [ %9, %.preheader8.i.preheader ]
+  %.0.i = phi ptr [ %30, %29 ], [ %8, %.preheader8.i.preheader ]
+  switch i8 %28, label %29 [
     i8 0, label %.critedge.i
     i8 62, label %.critedge.i
   ]
 
-26:                                               ; preds = %.preheader8.i
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 1
+29:                                               ; preds = %.preheader8.i
+  %30 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %.pre.i = load i8, ptr %30, align 1
   br label %.preheader8.i
 
-.critedge.i:                                      ; preds = %.preheader8.i, %.preheader8.i, %23, %20
-  %28 = phi i8 [ %12, %20 ], [ %.pr.pre.i, %23 ], [ %25, %.preheader8.i ], [ %25, %.preheader8.i ]
-  %.1.i = phi ptr [ %.01319.i.ptr.i.le, %20 ], [ %.01319.i.ptr.i.le, %23 ], [ %.0.i, %.preheader8.i ], [ %.0.i, %.preheader8.i ]
-  %.not23.i = icmp eq i8 %28, 62
-  br i1 %.not23.i, label %30, label %.critedge.thread.i
+.critedge.i:                                      ; preds = %.preheader8.i, %.preheader8.i, %.tail.thread.i.i, %.tail.i.i
+  %31 = phi i8 [ %15, %.tail.i.i ], [ %.pr.pre.i, %.tail.thread.i.i ], [ %28, %.preheader8.i ], [ %28, %.preheader8.i ]
+  %.1.i = phi ptr [ %.01319.i.ptr.i.le, %.tail.i.i ], [ %.01319.i.ptr.i.le, %.tail.thread.i.i ], [ %.0.i, %.preheader8.i ], [ %.0.i, %.preheader8.i ]
+  %.not23.i = icmp eq i8 %31, 62
+  br i1 %.not23.i, label %33, label %.critedge.thread.i
 
 .critedge.thread.i.loopexit:                      ; preds = %.preheader.i
   %.01319.i.ptr.i.le63 = getelementptr i8, ptr %5, i64 %.01319.i.idx.i
@@ -1239,368 +1259,368 @@ define i32 @htmllex() local_unnamed_addr #0 {
 
 .critedge.thread.i:                               ; preds = %.critedge.thread.i.loopexit, %.critedge.i, %.critedge.i.i
   %.13.i = phi ptr [ %.1.i, %.critedge.i ], [ %.01319.i.ptr.i.le, %.critedge.i.i ], [ %.01319.i.ptr.i.le63, %.critedge.thread.i.loopexit ]
-  %29 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.101) #19
+  %32 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.101) #19
   store i32 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 5), align 8
   br label %findNext.exit
 
-30:                                               ; preds = %.critedge.i
-  %31 = getelementptr inbounds i8, ptr %.1.i, i64 1
+33:                                               ; preds = %.critedge.i
+  %34 = getelementptr inbounds i8, ptr %.1.i, i64 1
   br label %findNext.exit
 
-.preheader9.i:                                    ; preds = %4, %55
-  %32 = phi i8 [ %.pr4.i, %55 ], [ %6, %4 ]
-  %.2.i = phi ptr [ %.3.i, %55 ], [ %5, %4 ]
-  switch i8 %32, label %agxbsizeof.exit.i.i [
+.preheader9.i:                                    ; preds = %4, %58
+  %35 = phi i8 [ %.pr4.i, %58 ], [ %6, %4 ]
+  %.2.i = phi ptr [ %.3.i, %58 ], [ %5, %4 ]
+  switch i8 %35, label %agxbsizeof.exit.i.i [
     i8 60, label %findNext.exit
     i8 0, label %findNext.exit
-    i8 38, label %33
+    i8 38, label %36
   ]
 
-33:                                               ; preds = %.preheader9.i
-  %34 = getelementptr inbounds i8, ptr %.2.i, i64 1
-  %35 = load i8, ptr %34, align 1
-  %.not.i = icmp eq i8 %35, 35
-  br i1 %.not.i, label %agxbsizeof.exit.i.i, label %36
+36:                                               ; preds = %.preheader9.i
+  %37 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %38 = load i8, ptr %37, align 1
+  %.not.i = icmp eq i8 %38, 35
+  br i1 %.not.i, label %agxbsizeof.exit.i.i, label %39
 
-36:                                               ; preds = %33
-  %37 = tail call ptr @scanEntity(ptr noundef nonnull %34, ptr noundef nonnull getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4)) #19
-  br label %55
+39:                                               ; preds = %36
+  %40 = tail call ptr @scanEntity(ptr noundef nonnull %37, ptr noundef nonnull getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4)) #19
+  br label %58
 
-agxbsizeof.exit.i.i:                              ; preds = %33, %.preheader9.i
+agxbsizeof.exit.i.i:                              ; preds = %36, %.preheader9.i
   %.val.i.i.i = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  %38 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %39 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 2), align 8
-  %40 = zext i8 %.val.i.i.i to i64
-  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %38, i64 %40
-  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %39, i64 31
+  %41 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %42 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 2), align 8
+  %43 = zext i8 %.val.i.i.i to i64
+  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %41, i64 %43
+  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %42, i64 31
   %.not.i24.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
-  br i1 %.not.i24.i, label %42, label %41
+  br i1 %.not.i24.i, label %45, label %44
 
-41:                                               ; preds = %agxbsizeof.exit.i.i
+44:                                               ; preds = %agxbsizeof.exit.i.i
   tail call fastcc void @agxbmore(ptr noundef nonnull getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
-  br label %42
+  br label %45
 
-42:                                               ; preds = %41, %agxbsizeof.exit.i.i
-  %.val.i15.i.i = phi i8 [ %.val.i15.pre.i.i, %41 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
+45:                                               ; preds = %44, %agxbsizeof.exit.i.i
+  %.val.i15.i.i = phi i8 [ %.val.i15.pre.i.i, %44 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
   %.not.i16.i.i = icmp eq i8 %.val.i15.i.i, -1
-  br i1 %.not.i16.i.i, label %48, label %43
+  br i1 %.not.i16.i.i, label %51, label %46
 
-43:                                               ; preds = %42
-  %44 = zext i8 %.val.i15.i.i to i64
-  %45 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 0, i64 %44
-  store i8 %32, ptr %45, align 1
-  %46 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
-  %47 = add i8 %46, 1
-  store i8 %47, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
+46:                                               ; preds = %45
+  %47 = zext i8 %.val.i15.i.i to i64
+  %48 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 0, i64 %47
+  store i8 %35, ptr %48, align 1
+  %49 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
+  %50 = add i8 %49, 1
+  store i8 %50, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   br label %agxbputc.exit.i
 
-48:                                               ; preds = %42
-  %49 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %50 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 %49
-  store i8 %32, ptr %51, align 1
+51:                                               ; preds = %45
   %52 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %53 = add i64 %52, 1
-  store i64 %53, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %53 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 %52
+  store i8 %35, ptr %54, align 1
+  %55 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %56 = add i64 %55, 1
+  store i64 %56, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
   br label %agxbputc.exit.i
 
-agxbputc.exit.i:                                  ; preds = %48, %43
-  %54 = getelementptr inbounds i8, ptr %.2.i, i64 1
-  br label %55
+agxbputc.exit.i:                                  ; preds = %51, %46
+  %57 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  br label %58
 
-55:                                               ; preds = %agxbputc.exit.i, %36
-  %.3.i = phi ptr [ %37, %36 ], [ %54, %agxbputc.exit.i ]
+58:                                               ; preds = %agxbputc.exit.i, %39
+  %.3.i = phi ptr [ %40, %39 ], [ %57, %agxbputc.exit.i ]
   %.pr4.i = load i8, ptr %.3.i, align 1
   br label %.preheader9.i
 
-findNext.exit:                                    ; preds = %.preheader9.i, %.preheader9.i, %.critedge.thread.i, %30
-  %.4.i = phi ptr [ %.13.i, %.critedge.thread.i ], [ %31, %30 ], [ %.2.i, %.preheader9.i ], [ %.2.i, %.preheader9.i ]
-  %56 = ptrtoint ptr %.4.i to i64
-  %57 = ptrtoint ptr %5 to i64
-  %58 = sub i64 %56, %57
-  br label %59
+findNext.exit:                                    ; preds = %.preheader9.i, %.preheader9.i, %.critedge.thread.i, %33
+  %.4.i = phi ptr [ %.13.i, %.critedge.thread.i ], [ %34, %33 ], [ %.2.i, %.preheader9.i ], [ %.2.i, %.preheader9.i ]
+  %59 = ptrtoint ptr %.4.i to i64
+  %60 = ptrtoint ptr %5 to i64
+  %61 = sub i64 %59, %60
+  br label %62
 
-59:                                               ; preds = %7, %findNext.exit, %3
+62:                                               ; preds = %7, %findNext.exit, %3
   %.019 = phi ptr [ @.str.1, %3 ], [ @.str.2, %7 ], [ %5, %findNext.exit ]
   %.1 = phi ptr [ null, %3 ], [ %.018, %7 ], [ %.4.i, %findNext.exit ]
-  %.017 = phi i64 [ 6, %3 ], [ 7, %7 ], [ %58, %findNext.exit ]
+  %.017 = phi i64 [ 6, %3 ], [ 7, %7 ], [ %61, %findNext.exit ]
   %.val.i.i = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   switch i8 %.val.i.i, label %agxblen.exit.i.i.i [
     i8 -1, label %agxblen.exit.i
     i8 0, label %protect_rsqb.exit.thread57
   ]
 
-protect_rsqb.exit.thread57:                       ; preds = %59
-  %60 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 9), align 8
-  store ptr %60, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 10), align 8
-  %61 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 11), align 8
-  store i64 %61, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 12), align 8
+protect_rsqb.exit.thread57:                       ; preds = %62
+  %63 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 9), align 8
+  store ptr %63, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 10), align 8
+  %64 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 11), align 8
+  store i64 %64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 12), align 8
   store ptr %.019, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 9), align 8
   store i64 %.017, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 11), align 8
-  br label %133
+  br label %136
 
-agxblen.exit.i:                                   ; preds = %59
-  %62 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %protect_rsqb.exit.thread, label %67
+agxblen.exit.i:                                   ; preds = %62
+  %65 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %protect_rsqb.exit.thread, label %70
 
 protect_rsqb.exit.thread:                         ; preds = %agxblen.exit.i
-  %64 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 9), align 8
-  store ptr %64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 10), align 8
-  %65 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 11), align 8
-  store i64 %65, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 12), align 8
+  %67 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 9), align 8
+  store ptr %67, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 10), align 8
+  %68 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 11), align 8
+  store i64 %68, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 12), align 8
   store ptr %.019, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 9), align 8
   store i64 %.017, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 11), align 8
   br label %agxblen.exit
 
-agxblen.exit.i.i.i:                               ; preds = %59
-  %66 = zext i8 %.val.i.i to i64
+agxblen.exit.i.i.i:                               ; preds = %62
+  %69 = zext i8 %.val.i.i to i64
   br label %agxbsizeof.exit.i.i.i
 
-67:                                               ; preds = %agxblen.exit.i
-  %68 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 2), align 8
+70:                                               ; preds = %agxblen.exit.i
+  %71 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 2), align 8
   br label %agxbsizeof.exit.i.i.i
 
-agxbsizeof.exit.i.i.i:                            ; preds = %67, %agxblen.exit.i.i.i
-  %.0.i20.i.i.i = phi i64 [ %62, %67 ], [ %66, %agxblen.exit.i.i.i ]
-  %.0.i14.i.i.i = phi i64 [ %68, %67 ], [ 31, %agxblen.exit.i.i.i ]
+agxbsizeof.exit.i.i.i:                            ; preds = %70, %agxblen.exit.i.i.i
+  %.0.i20.i.i.i = phi i64 [ %65, %70 ], [ %69, %agxblen.exit.i.i.i ]
+  %.0.i14.i.i.i = phi i64 [ %71, %70 ], [ 31, %agxblen.exit.i.i.i ]
   %.not.i.i.i25 = icmp ult i64 %.0.i20.i.i.i, %.0.i14.i.i.i
-  br i1 %.not.i.i.i25, label %70, label %69
+  br i1 %.not.i.i.i25, label %73, label %72
 
-69:                                               ; preds = %agxbsizeof.exit.i.i.i
+72:                                               ; preds = %agxbsizeof.exit.i.i.i
   tail call fastcc void @agxbmore(ptr noundef nonnull getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
-  br label %70
+  br label %73
 
-70:                                               ; preds = %69, %agxbsizeof.exit.i.i.i
-  %.val.i15.i.i.i = phi i8 [ %.val.i15.pre.i.i.i, %69 ], [ %.val.i.i, %agxbsizeof.exit.i.i.i ]
+73:                                               ; preds = %72, %agxbsizeof.exit.i.i.i
+  %.val.i15.i.i.i = phi i8 [ %.val.i15.pre.i.i.i, %72 ], [ %.val.i.i, %agxbsizeof.exit.i.i.i ]
   %.not.i16.i.i.i = icmp eq i8 %.val.i15.i.i.i, -1
-  br i1 %.not.i16.i.i.i, label %76, label %71
+  br i1 %.not.i16.i.i.i, label %79, label %74
 
-71:                                               ; preds = %70
-  %72 = zext i8 %.val.i15.i.i.i to i64
-  %73 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 0, i64 %72
-  store i8 0, ptr %73, align 1
-  %74 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
-  %75 = add i8 %74, 1
-  store i8 %75, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
+74:                                               ; preds = %73
+  %75 = zext i8 %.val.i15.i.i.i to i64
+  %76 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 0, i64 %75
+  store i8 0, ptr %76, align 1
+  %77 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
+  %78 = add i8 %77, 1
+  store i8 %78, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   br label %agxbputc.exit.i.i
 
-76:                                               ; preds = %70
-  %77 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %78 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 %77
-  store i8 0, ptr %79, align 1
+79:                                               ; preds = %73
   %80 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %81 = add i64 %80, 1
-  store i64 %81, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %81 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 %80
+  store i8 0, ptr %82, align 1
+  %83 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %84 = add i64 %83, 1
+  store i64 %84, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
   %.val.i.pr.i.i = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   br label %agxbputc.exit.i.i
 
-agxbputc.exit.i.i:                                ; preds = %76, %71
-  %.val.i4.pr.i.i = phi i8 [ %75, %71 ], [ %.val.i.pr.i.i, %76 ]
+agxbputc.exit.i.i:                                ; preds = %79, %74
+  %.val.i4.pr.i.i = phi i8 [ %78, %74 ], [ %.val.i.pr.i.i, %79 ]
   %.not.i3.i.i = icmp eq i8 %.val.i4.pr.i.i, -1
-  br i1 %.not.i3.i.i, label %82, label %agxbclear.exit.thread.i.i
+  br i1 %.not.i3.i.i, label %85, label %agxbclear.exit.thread.i.i
 
 agxbclear.exit.thread.i.i:                        ; preds = %agxbputc.exit.i.i
   store i8 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   br label %agxbuse.exit.i
 
-82:                                               ; preds = %agxbputc.exit.i.i
+85:                                               ; preds = %agxbputc.exit.i.i
   store i64 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %83 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
+  %86 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
   br label %agxbuse.exit.i
 
-agxbuse.exit.i:                                   ; preds = %82, %agxbclear.exit.thread.i.i
-  %84 = phi ptr [ %83, %82 ], [ getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), %agxbclear.exit.thread.i.i ]
-  %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #20
-  %86 = getelementptr i8, ptr %84, i64 %85
-  %87 = getelementptr i8, ptr %86, i64 -1
-  %88 = load i8, ptr %87, align 1
-  %.not.i26 = icmp eq i8 %88, 93
-  br i1 %.not.i26, label %agxblen.exit.i.i11.i, label %89
+agxbuse.exit.i:                                   ; preds = %85, %agxbclear.exit.thread.i.i
+  %87 = phi ptr [ %86, %85 ], [ getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), %agxbclear.exit.thread.i.i ]
+  %88 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #20
+  %89 = getelementptr i8, ptr %87, i64 %88
+  %90 = getelementptr i8, ptr %89, i64 -1
+  %91 = load i8, ptr %90, align 1
+  %.not.i26 = icmp eq i8 %91, 93
+  br i1 %.not.i26, label %agxblen.exit.i.i11.i, label %92
 
-89:                                               ; preds = %agxbuse.exit.i
-  tail call fastcc void @agxbput_move(ptr noundef nonnull %84)
+92:                                               ; preds = %agxbuse.exit.i
+  tail call fastcc void @agxbput_move(ptr noundef nonnull %87)
   br label %protect_rsqb.exitthread-pre-split
 
 agxblen.exit.i.i11.i:                             ; preds = %agxbuse.exit.i
-  store i8 0, ptr %87, align 1
-  tail call fastcc void @agxbput_move(ptr noundef nonnull %84)
+  store i8 0, ptr %90, align 1
+  tail call fastcc void @agxbput_move(ptr noundef nonnull %87)
   %.val.i.i.i12.i = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   %.not.i.i.i13.i = icmp eq i8 %.val.i.i.i12.i, -1
-  %90 = zext i8 %.val.i.i.i12.i to i64
-  %91 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 2), align 8
-  %92 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %.0.i30.i.i.i = select i1 %.not.i.i.i13.i, i64 %91, i64 31
-  %.0.i24.i.i.i = select i1 %.not.i.i.i13.i, i64 %92, i64 %90
-  %93 = sub i64 %.0.i30.i.i.i, %.0.i24.i.i.i
-  %94 = icmp ult i64 %93, 5
-  br i1 %94, label %95, label %96
+  %93 = zext i8 %.val.i.i.i12.i to i64
+  %94 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 2), align 8
+  %95 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %.0.i30.i.i.i = select i1 %.not.i.i.i13.i, i64 %94, i64 31
+  %.0.i24.i.i.i = select i1 %.not.i.i.i13.i, i64 %95, i64 %93
+  %96 = sub i64 %.0.i30.i.i.i, %.0.i24.i.i.i
+  %97 = icmp ult i64 %96, 5
+  br i1 %97, label %98, label %99
 
-95:                                               ; preds = %agxblen.exit.i.i11.i
+98:                                               ; preds = %agxblen.exit.i.i11.i
   tail call fastcc void @agxbmore(ptr noundef nonnull getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 noundef 5)
   %.val.i25.pre.i.i.i = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
-  br label %96
+  br label %99
 
-96:                                               ; preds = %95, %agxblen.exit.i.i11.i
-  %.val.i25.i.i.i = phi i8 [ %.val.i25.pre.i.i.i, %95 ], [ %.val.i.i.i12.i, %agxblen.exit.i.i11.i ]
+99:                                               ; preds = %98, %agxblen.exit.i.i11.i
+  %.val.i25.i.i.i = phi i8 [ %.val.i25.pre.i.i.i, %98 ], [ %.val.i.i.i12.i, %agxblen.exit.i.i11.i ]
   %.not.i26.i.i.i = icmp eq i8 %.val.i25.i.i.i, -1
-  br i1 %.not.i26.i.i.i, label %102, label %97
+  br i1 %.not.i26.i.i.i, label %105, label %100
 
-97:                                               ; preds = %96
-  %98 = zext i8 %.val.i25.i.i.i to i64
-  %99 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 0, i64 %98
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %99, ptr noundef nonnull align 1 dereferenceable(5) @.str.104, i64 5, i1 false)
-  %100 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
-  %101 = add i8 %100, 5
-  store i8 %101, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
+100:                                              ; preds = %99
+  %101 = zext i8 %.val.i25.i.i.i to i64
+  %102 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 0, i64 %101
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %102, ptr noundef nonnull align 1 dereferenceable(5) @.str.104, i64 5, i1 false)
+  %103 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
+  %104 = add i8 %103, 5
+  store i8 %104, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   br label %protect_rsqb.exit
 
-102:                                              ; preds = %96
-  %103 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %104 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 %103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %105, ptr noundef nonnull align 1 dereferenceable(5) @.str.104, i64 5, i1 false)
+105:                                              ; preds = %99
   %106 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %107 = add i64 %106, 5
-  store i64 %107, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %107 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 %106
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %108, ptr noundef nonnull align 1 dereferenceable(5) @.str.104, i64 5, i1 false)
+  %109 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %110 = add i64 %109, 5
+  store i64 %110, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
   br label %protect_rsqb.exitthread-pre-split
 
-protect_rsqb.exitthread-pre-split:                ; preds = %102, %89
+protect_rsqb.exitthread-pre-split:                ; preds = %105, %92
   %.val.i.pr = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   br label %protect_rsqb.exit
 
-protect_rsqb.exit:                                ; preds = %protect_rsqb.exitthread-pre-split, %97
-  %.val.i = phi i8 [ %.val.i.pr, %protect_rsqb.exitthread-pre-split ], [ %101, %97 ]
-  %108 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 9), align 8
-  store ptr %108, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 10), align 8
-  %109 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 11), align 8
-  store i64 %109, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 12), align 8
+protect_rsqb.exit:                                ; preds = %protect_rsqb.exitthread-pre-split, %100
+  %.val.i = phi i8 [ %.val.i.pr, %protect_rsqb.exitthread-pre-split ], [ %104, %100 ]
+  %111 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 9), align 8
+  store ptr %111, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 10), align 8
+  %112 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 11), align 8
+  store i64 %112, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 12), align 8
   store ptr %.019, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 9), align 8
   store i64 %.017, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 11), align 8
   switch i8 %.val.i, label %agxblen.exit.i.i [
     i8 -1, label %agxblen.exit
-    i8 0, label %133
+    i8 0, label %136
   ]
 
 agxblen.exit:                                     ; preds = %protect_rsqb.exit.thread, %protect_rsqb.exit
-  %110 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %.not = icmp eq i64 %110, 0
-  br i1 %.not, label %133, label %112
+  %113 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %.not = icmp eq i64 %113, 0
+  br i1 %.not, label %136, label %115
 
 agxblen.exit.i.i:                                 ; preds = %protect_rsqb.exit
-  %111 = zext i8 %.val.i to i64
+  %114 = zext i8 %.val.i to i64
   br label %agxbsizeof.exit.i.i31
 
-112:                                              ; preds = %agxblen.exit
-  %113 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 2), align 8
+115:                                              ; preds = %agxblen.exit
+  %116 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 2), align 8
   br label %agxbsizeof.exit.i.i31
 
-agxbsizeof.exit.i.i31:                            ; preds = %112, %agxblen.exit.i.i
-  %.val.i55 = phi i8 [ -1, %112 ], [ %.val.i, %agxblen.exit.i.i ]
-  %.0.i284143 = phi i64 [ %110, %112 ], [ %111, %agxblen.exit.i.i ]
-  %.0.i14.i.i33 = phi i64 [ %113, %112 ], [ 31, %agxblen.exit.i.i ]
-  %114 = load ptr, ptr @state, align 8
+agxbsizeof.exit.i.i31:                            ; preds = %115, %agxblen.exit.i.i
+  %.val.i55 = phi i8 [ -1, %115 ], [ %.val.i, %agxblen.exit.i.i ]
+  %.0.i284143 = phi i64 [ %113, %115 ], [ %114, %agxblen.exit.i.i ]
+  %.0.i14.i.i33 = phi i64 [ %116, %115 ], [ 31, %agxblen.exit.i.i ]
+  %117 = load ptr, ptr @state, align 8
   %.not.i.i34 = icmp ult i64 %.0.i284143, %.0.i14.i.i33
-  br i1 %.not.i.i34, label %116, label %115
+  br i1 %.not.i.i34, label %119, label %118
 
-115:                                              ; preds = %agxbsizeof.exit.i.i31
+118:                                              ; preds = %agxbsizeof.exit.i.i31
   tail call fastcc void @agxbmore(ptr noundef nonnull getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 noundef 1)
   %.val.i15.pre.i.i35 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
-  br label %116
+  br label %119
 
-116:                                              ; preds = %115, %agxbsizeof.exit.i.i31
-  %.val.i15.i.i36 = phi i8 [ %.val.i15.pre.i.i35, %115 ], [ %.val.i55, %agxbsizeof.exit.i.i31 ]
+119:                                              ; preds = %118, %agxbsizeof.exit.i.i31
+  %.val.i15.i.i36 = phi i8 [ %.val.i15.pre.i.i35, %118 ], [ %.val.i55, %agxbsizeof.exit.i.i31 ]
   %.not.i16.i.i37 = icmp eq i8 %.val.i15.i.i36, -1
-  br i1 %.not.i16.i.i37, label %122, label %117
+  br i1 %.not.i16.i.i37, label %125, label %120
 
-117:                                              ; preds = %116
-  %118 = zext i8 %.val.i15.i.i36 to i64
-  %119 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 0, i64 %118
-  store i8 0, ptr %119, align 1
-  %120 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
-  %121 = add i8 %120, 1
-  store i8 %121, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
+120:                                              ; preds = %119
+  %121 = zext i8 %.val.i15.i.i36 to i64
+  %122 = getelementptr inbounds [31 x i8], ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), i64 0, i64 %121
+  store i8 0, ptr %122, align 1
+  %123 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
+  %124 = add i8 %123, 1
+  store i8 %124, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   br label %agxbputc.exit.i38
 
-122:                                              ; preds = %116
-  %123 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %124 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 %123
-  store i8 0, ptr %125, align 1
+125:                                              ; preds = %119
   %126 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %127 = add i64 %126, 1
-  store i64 %127, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %127 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 %126
+  store i8 0, ptr %128, align 1
+  %129 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
+  %130 = add i64 %129, 1
+  store i64 %130, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
   %.val.i.pr.i = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   br label %agxbputc.exit.i38
 
-agxbputc.exit.i38:                                ; preds = %122, %117
-  %.val.i4.pr.i = phi i8 [ %121, %117 ], [ %.val.i.pr.i, %122 ]
+agxbputc.exit.i38:                                ; preds = %125, %120
+  %.val.i4.pr.i = phi i8 [ %124, %120 ], [ %.val.i.pr.i, %125 ]
   %.not.i3.i = icmp eq i8 %.val.i4.pr.i, -1
-  br i1 %.not.i3.i, label %128, label %agxbclear.exit.thread.i
+  br i1 %.not.i3.i, label %131, label %agxbclear.exit.thread.i
 
 agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i38
   store i8 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 4), align 1
   br label %agxbuse.exit
 
-128:                                              ; preds = %agxbputc.exit.i38
+131:                                              ; preds = %agxbputc.exit.i38
   store i64 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4, i32 0, i32 0, i32 1), align 8
-  %129 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
+  %132 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), align 8
   br label %agxbuse.exit
 
-agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %128
-  %130 = phi ptr [ %129, %128 ], [ getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), %agxbclear.exit.thread.i ]
-  %131 = trunc i64 %.0.i284143 to i32
-  %132 = tail call i32 @XML_Parse(ptr noundef %114, ptr noundef %130, i32 noundef %131, i32 noundef 0) #19
-  br label %138
+agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %131
+  %133 = phi ptr [ %132, %131 ], [ getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 4), %agxbclear.exit.thread.i ]
+  %134 = trunc i64 %.0.i284143 to i32
+  %135 = tail call i32 @XML_Parse(ptr noundef %117, ptr noundef %133, i32 noundef %134, i32 noundef 0) #19
+  br label %141
 
-133:                                              ; preds = %protect_rsqb.exit.thread57, %protect_rsqb.exit, %agxblen.exit
-  %134 = load ptr, ptr @state, align 8
-  %135 = trunc i64 %.017 to i32
+136:                                              ; preds = %protect_rsqb.exit.thread57, %protect_rsqb.exit, %agxblen.exit
+  %137 = load ptr, ptr @state, align 8
+  %138 = trunc i64 %.017 to i32
   %.not23 = icmp eq i64 %.017, 0
-  %136 = zext i1 %.not23 to i32
-  %137 = tail call i32 @XML_Parse(ptr noundef %134, ptr noundef nonnull %.019, i32 noundef %135, i32 noundef %136) #19
-  br label %138
+  %139 = zext i1 %.not23 to i32
+  %140 = tail call i32 @XML_Parse(ptr noundef %137, ptr noundef nonnull %.019, i32 noundef %138, i32 noundef %139) #19
+  br label %141
 
-138:                                              ; preds = %133, %agxbuse.exit
-  %.0 = phi i32 [ %132, %agxbuse.exit ], [ %137, %133 ]
-  %139 = icmp ne i32 %.0, 0
-  %140 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 6), align 4
-  %141 = icmp ne i32 %140, 0
-  %or.cond = select i1 %139, i1 true, i1 %141
-  br i1 %or.cond, label %150, label %142
+141:                                              ; preds = %136, %agxbuse.exit
+  %.0 = phi i32 [ %135, %agxbuse.exit ], [ %140, %136 ]
+  %142 = icmp ne i32 %.0, 0
+  %143 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 6), align 4
+  %144 = icmp ne i32 %143, 0
+  %or.cond = select i1 %142, i1 true, i1 %144
+  br i1 %or.cond, label %153, label %145
 
-142:                                              ; preds = %138
-  %143 = load ptr, ptr @state, align 8
-  %144 = tail call i32 @XML_GetErrorCode(ptr noundef %143) #19
-  %145 = tail call ptr @XML_ErrorString(i32 noundef %144) #19
+145:                                              ; preds = %141
   %146 = load ptr, ptr @state, align 8
-  %147 = tail call i64 @XML_GetCurrentLineNumber(ptr noundef %146) #19
-  %148 = trunc i64 %147 to i32
-  %149 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef %145, i32 noundef %148) #19
+  %147 = tail call i32 @XML_GetErrorCode(ptr noundef %146) #19
+  %148 = tail call ptr @XML_ErrorString(i32 noundef %147) #19
+  %149 = load ptr, ptr @state, align 8
+  %150 = tail call i64 @XML_GetCurrentLineNumber(ptr noundef %149) #19
+  %151 = trunc i64 %150 to i32
+  %152 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef %148, i32 noundef %151) #19
   tail call fastcc void @error_context()
   store i32 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 6), align 4
   store i32 268, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 2), align 8
-  br label %150
+  br label %153
 
-150:                                              ; preds = %142, %138
+153:                                              ; preds = %145, %141
   %.not24 = icmp eq ptr %.1, null
-  br i1 %.not24, label %152, label %151
+  br i1 %.not24, label %155, label %154
 
-151:                                              ; preds = %150
+154:                                              ; preds = %153
   store ptr %.1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 1), align 8
-  br label %152
+  br label %155
 
-152:                                              ; preds = %150, %151
-  %153 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 2), align 8
-  %154 = icmp eq i32 %153, 0
-  br i1 %154, label %1, label %155
+155:                                              ; preds = %153, %154
+  %156 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i64 0, i32 2), align 8
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %1, label %158
 
-155:                                              ; preds = %152, %1
-  %.016 = phi i32 [ -1, %1 ], [ %153, %152 ]
+158:                                              ; preds = %155, %1
+  %.016 = phi i32 [ -1, %1 ], [ %156, %155 ]
   ret i32 %.016
 }
 
@@ -1823,7 +1843,7 @@ define internal i32 @icmp(ptr nocapture noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @halignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @halignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.47) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -1870,7 +1890,7 @@ define internal noundef i32 @bgcolorfn(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @borderfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @borderfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -1919,7 +1939,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cellborderfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @cellborderfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -1964,7 +1984,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cellpaddingfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @cellpaddingfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2013,7 +2033,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cellspacingfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @cellspacingfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2070,7 +2090,7 @@ define internal noundef i32 @pencolorfn(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @columnsfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @columnsfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %3, 42
   br i1 %.not, label %6, label %4
@@ -2092,7 +2112,7 @@ define internal noundef i32 @columnsfn(ptr nocapture noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fixedsizefn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @fixedsizefn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.59) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -2119,7 +2139,7 @@ define internal noundef i32 @fixedsizefn(ptr nocapture noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gradientanglefn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @gradientanglefn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2164,7 +2184,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @heightfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @heightfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2232,7 +2252,7 @@ define internal noundef i32 @portfn(ptr nocapture noundef writeonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rowsfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @rowsfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %3, 42
   br i1 %.not, label %6, label %4
@@ -2318,7 +2338,7 @@ define internal noundef i32 @sidesfn(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stylefn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @stylefn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %._crit_edge, label %.lr.ph
 
@@ -2450,7 +2470,7 @@ define internal noundef i32 @titlefn(ptr nocapture noundef writeonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @valignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @valignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.75) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -2489,7 +2509,7 @@ define internal noundef i32 @valignfn(ptr nocapture noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @widthfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @widthfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2552,7 +2572,7 @@ declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 nound
 declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cell_halignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @cell_halignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.47) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -2603,7 +2623,7 @@ define internal noundef i32 @cell_halignfn(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @balignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @balignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.47) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -2642,7 +2662,7 @@ define internal noundef i32 @balignfn(ptr nocapture noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @colspanfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @colspanfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2695,7 +2715,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rowspanfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @rowspanfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2761,7 +2781,7 @@ define internal noundef i32 @facefn(ptr nocapture noundef writeonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ptsizefn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @ptsizefn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2806,7 +2826,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @alignfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @alignfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.48) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
@@ -2859,9 +2879,6 @@ define internal noundef i32 @srcfn(ptr nocapture noundef writeonly %0, ptr nocap
 }
 
 declare ptr @scanEntity(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @agxbput_move(ptr nocapture noundef readonly %0) unnamed_addr #0 {

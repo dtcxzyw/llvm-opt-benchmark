@@ -4,9 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"--help\00", align 1
-@.str.1 = private unnamed_addr constant [3 x i8] c"-?\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"--version\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"-V\00", align 1
 @.str.4 = private unnamed_addr constant [25 x i8] c"%s (PostgreSQL) 17devel\0A\00", align 1
 @.str.5 = private unnamed_addr constant [33 x i8] c"invalid value \22%s\22 for option %s\00", align 1
 @.str.6 = private unnamed_addr constant [27 x i8] c"%s must be in range %d..%d\00", align 1
@@ -17,43 +15,72 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @handle_help_version_opts(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %0, 1
-  br i1 %5, label %6, label %25
+  br i1 %5, label %6, label %.tail7.thread
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str) #5
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %14, label %11
+  br i1 %10, label %17, label %sub_0
 
-11:                                               ; preds = %6
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(3) @.str.1) #5
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %17
+sub_0:                                            ; preds = %6
+  %11 = load i8, ptr %8, align 1
+  %.not = icmp eq i8 %11, 45
+  br i1 %.not, label %sub_1, label %.tail.thread.thread
 
-14:                                               ; preds = %11, %6
-  %15 = load ptr, ptr %1, align 8
-  %16 = tail call ptr @get_progname(ptr noundef %15) #6
-  tail call void %3(ptr noundef %16) #6
+sub_1:                                            ; preds = %sub_0
+  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %13 = load i8, ptr %12, align 1
+  %.not12 = icmp eq i8 %13, 63
+  br i1 %.not12, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %14 = getelementptr inbounds i8, ptr %8, i64 2
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %17, label %.thread
+
+17:                                               ; preds = %.tail, %6
+  %18 = load ptr, ptr %1, align 8
+  %19 = tail call ptr @get_progname(ptr noundef %18) #6
+  tail call void %3(ptr noundef %19) #6
   tail call void @exit(i32 noundef 0) #7
   unreachable
 
-17:                                               ; preds = %11
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #5
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %23, label %20
+.tail.thread:                                     ; preds = %sub_1
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #5
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %31, label %sub_19
 
-20:                                               ; preds = %17
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(3) @.str.3) #5
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %25
+.tail.thread.thread:                              ; preds = %sub_0
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #5
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %31, label %.tail7.thread
 
-23:                                               ; preds = %20, %17
-  %24 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4, ptr noundef %2) #6
+.thread:                                          ; preds = %.tail
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #5
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %31, label %sub_19
+
+sub_19:                                           ; preds = %.tail.thread, %.thread
+  %26 = getelementptr inbounds i8, ptr %8, i64 1
+  %27 = load i8, ptr %26, align 1
+  %.not14 = icmp eq i8 %27, 86
+  br i1 %.not14, label %.tail7, label %.tail7.thread
+
+.tail7:                                           ; preds = %sub_19
+  %28 = getelementptr inbounds i8, ptr %8, i64 2
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %31, label %.tail7.thread
+
+31:                                               ; preds = %.tail.thread.thread, %.thread, %.tail7, %.tail.thread
+  %32 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4, ptr noundef %2) #6
   tail call void @exit(i32 noundef 0) #7
   unreachable
 
-25:                                               ; preds = %20, %4
+.tail7.thread:                                    ; preds = %.tail.thread.thread, %sub_19, %.tail7, %4
   ret void
 }
 

@@ -615,11 +615,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.430 = private unnamed_addr constant [11 x i8] c"multipart/\00", align 1
 @http_body_fragment_items = internal constant %struct._fragment_items { ptr @ett_http_body_fragment, ptr @ett_http_body_fragments, ptr @hf_http_body_fragments, ptr @hf_http_body_fragment, ptr @hf_http_body_fragment_overlap, ptr @hf_http_body_fragment_overlap_conflicts, ptr @hf_http_body_fragment_multiple_tails, ptr @hf_http_body_fragment_too_long_fragment, ptr @hf_http_body_fragment_error, ptr @hf_http_body_fragment_count, ptr @hf_http_body_reassembled_in, ptr @hf_http_body_reassembled_length, ptr @hf_http_body_reassembled_data, ptr @.str.515 }, align 8
 @.str.431 = private unnamed_addr constant [4 x i8] c"; \09\00", align 1
-@.str.432 = private unnamed_addr constant [3 x i8] c"M-\00", align 1
 @.str.433 = private unnamed_addr constant [6 x i8] c"HTTP/\00", align 1
-@.str.434 = private unnamed_addr constant [4 x i8] c"ICY\00", align 1
-@.str.435 = private unnamed_addr constant [4 x i8] c"GET\00", align 1
-@.str.436 = private unnamed_addr constant [4 x i8] c"PUT\00", align 1
 @.str.437 = private unnamed_addr constant [5 x i8] c"COPY\00", align 1
 @.str.438 = private unnamed_addr constant [5 x i8] c"LOCK\00", align 1
 @.str.439 = private unnamed_addr constant [5 x i8] c"MOVE\00", align 1
@@ -1633,7 +1629,7 @@ declare i32 @get_tcp_stream_count() #1
 declare i32 @register_export_object(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @http_eo_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @http_eo_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %35, label %6
 
@@ -1874,7 +1870,7 @@ define internal void @http_stats_tree_init(ptr noundef %0) #0 {
 declare void @stats_tree_set_first_column_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @http_req_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @http_req_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1912,7 +1908,7 @@ define internal void @http_req_stats_tree_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @http_reqs_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @http_reqs_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2306,7 +2302,7 @@ define internal i32 @dissect_message_http(ptr noundef %0, ptr nocapture noundef 
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_http_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_http_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 1) #14
   switch i32 %6, label %7 [
@@ -2340,7 +2336,7 @@ define internal noundef i32 @dissect_http_heur_tcp(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_http_heur_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_http_heur_tls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -4913,315 +4909,372 @@ declare i32 @req_resp_hdrs_do_reassembly(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @is_http_request_or_reply(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_http_request_or_reply(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_http, align 4
   %9 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1) #14
   %10 = icmp sgt i32 %2, 1
-  br i1 %10, label %11, label %.thread12
+  br i1 %10, label %sub_0, label %.thread12
 
-11:                                               ; preds = %5
-  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.432, i64 noundef 2) #15
-  %13 = icmp eq i32 %12, 0
-  %14 = add nsw i32 %2, -2
-  %.0131 = select i1 %13, i32 %14, i32 %2
-  %.0130.idx = select i1 %13, i64 2, i64 0
+sub_0:                                            ; preds = %5
+  %11 = load i8, ptr %1, align 1
+  %12 = zext i8 %11 to i32
+  %13 = add nsw i32 %12, -77
+  %.not36 = icmp eq i32 %13, 0
+  br i1 %.not36, label %sub_1, label %.tail
+
+sub_1:                                            ; preds = %sub_0
+  %14 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = zext i8 %15 to i32
+  %17 = add nsw i32 %16, -45
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %18 = phi i32 [ %13, %sub_0 ], [ %17, %sub_1 ]
+  %19 = icmp eq i32 %18, 0
+  %20 = add nsw i32 %2, -2
+  %.0131 = select i1 %19, i32 %20, i32 %2
+  %.0130.idx = select i1 %19, i64 2, i64 0
   %.0130 = getelementptr i8, ptr %1, i64 %.0130.idx
-  %15 = icmp ugt i32 %.0131, 4
-  br i1 %15, label %16, label %19
+  %21 = icmp ugt i32 %.0131, 4
+  br i1 %21, label %22, label %25
 
-16:                                               ; preds = %11
-  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0130, ptr noundef nonnull dereferenceable(6) @.str.433, i64 noundef 5) #15
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %23, label %.thread5
+22:                                               ; preds = %.tail
+  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0130, ptr noundef nonnull dereferenceable(6) @.str.433, i64 noundef 5) #15
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %40, label %sub_019
 
-19:                                               ; preds = %11
-  %20 = icmp ugt i32 %.0131, 2
-  br i1 %20, label %.thread5, label %.thread12
+25:                                               ; preds = %.tail
+  %26 = icmp ugt i32 %.0131, 2
+  br i1 %26, label %sub_019, label %.thread12
 
-.thread5:                                         ; preds = %16, %19
-  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0130, ptr noundef nonnull dereferenceable(4) @.str.434, i64 noundef 3) #15
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %.lr.ph.preheader
+sub_019:                                          ; preds = %25, %22
+  %27 = load i8, ptr %.0130, align 1
+  %28 = zext i8 %27 to i32
+  %29 = add nsw i32 %28, -73
+  %.not37 = icmp eq i32 %29, 0
+  br i1 %.not37, label %sub_120, label %.thread5.tail
 
-23:                                               ; preds = %.thread5, %16
+sub_120:                                          ; preds = %sub_019
+  %30 = getelementptr inbounds i8, ptr %.0130, i64 1
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = add nsw i32 %32, -67
+  %.not38 = icmp eq i32 %33, 0
+  br i1 %.not38, label %sub_2, label %.thread5.tail
+
+sub_2:                                            ; preds = %sub_120
+  %34 = getelementptr inbounds i8, ptr %.0130, i64 2
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = add nsw i32 %36, -89
+  br label %.thread5.tail
+
+.thread5.tail:                                    ; preds = %sub_019, %sub_120, %sub_2
+  %38 = phi i32 [ %29, %sub_019 ], [ %33, %sub_120 ], [ %37, %sub_2 ]
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %.lr.ph.preheader
+
+40:                                               ; preds = %.thread5.tail, %22
   store i32 1, ptr %3, align 4
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.thread15, label %24
+  br i1 %.not, label %.thread15, label %41
 
-24:                                               ; preds = %23
+41:                                               ; preds = %40
   store ptr @basic_response_dissector, ptr %4, align 8
   br label %.thread15
 
-.thread12:                                        ; preds = %5, %19
-  %.0131310 = phi i32 [ %.0131, %19 ], [ %2, %5 ]
-  %.013049 = phi ptr [ %.0130, %19 ], [ %1, %5 ]
-  %25 = icmp sgt i32 %.0131310, 0
-  br i1 %25, label %.lr.ph.preheader, label %.thread15
+.thread12:                                        ; preds = %5, %25
+  %.0131310 = phi i32 [ %.0131, %25 ], [ %2, %5 ]
+  %.013049 = phi ptr [ %.0130, %25 ], [ %1, %5 ]
+  %42 = icmp sgt i32 %.0131310, 0
+  br i1 %42, label %.lr.ph.preheader, label %.thread15
 
-.lr.ph.preheader:                                 ; preds = %.thread5, %.thread12
-  %.01304927 = phi ptr [ %.013049, %.thread12 ], [ %.0130, %.thread5 ]
-  %.013131025 = phi i32 [ %.0131310, %.thread12 ], [ %.0131, %.thread5 ]
+.lr.ph.preheader:                                 ; preds = %.thread5.tail, %.thread12
+  %.01304947 = phi ptr [ %.013049, %.thread12 ], [ %.0130, %.thread5.tail ]
+  %.013131045 = phi i32 [ %.0131310, %.thread12 ], [ %.0131, %.thread5.tail ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
-  %.020 = phi i32 [ %30, %28 ], [ 0, %.lr.ph.preheader ]
-  %.012819 = phi ptr [ %29, %28 ], [ %.01304927, %.lr.ph.preheader ]
-  %26 = load i8, ptr %.012819, align 1
-  %27 = icmp eq i8 %26, 32
-  br i1 %27, label %._crit_edge, label %28
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
+  %.033 = phi i32 [ %47, %45 ], [ 0, %.lr.ph.preheader ]
+  %.012832 = phi ptr [ %46, %45 ], [ %.01304947, %.lr.ph.preheader ]
+  %43 = load i8, ptr %.012832, align 1
+  %44 = icmp eq i8 %43, 32
+  br i1 %44, label %._crit_edge, label %45
 
-28:                                               ; preds = %.lr.ph
-  %29 = getelementptr i8, ptr %.012819, i64 1
-  %30 = add nuw nsw i32 %.020, 1
-  %exitcond.not = icmp eq i32 %30, %.013131025
+45:                                               ; preds = %.lr.ph
+  %46 = getelementptr i8, ptr %.012832, i64 1
+  %47 = add nuw nsw i32 %.033, 1
+  %exitcond.not = icmp eq i32 %47, %.013131045
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %28, %.lr.ph
-  %.0.lcssa = phi i32 [ %.013131025, %28 ], [ %.020, %.lr.ph ]
+._crit_edge:                                      ; preds = %45, %.lr.ph
+  %.0.lcssa = phi i32 [ %.013131045, %45 ], [ %.033, %.lr.ph ]
   switch i32 %.0.lcssa, label %.thread15 [
-    i32 3, label %31
-    i32 4, label %37
-    i32 5, label %55
-    i32 6, label %76
-    i32 7, label %94
-    i32 8, label %106
-    i32 9, label %115
-    i32 10, label %124
-    i32 11, label %133
-    i32 12, label %145
-    i32 15, label %148
-    i32 16, label %151
+    i32 3, label %sub_023
+    i32 4, label %59
+    i32 5, label %77
+    i32 6, label %98
+    i32 7, label %116
+    i32 8, label %128
+    i32 9, label %137
+    i32 10, label %146
+    i32 11, label %155
+    i32 12, label %167
+    i32 15, label %170
+    i32 16, label %173
   ]
 
-31:                                               ; preds = %._crit_edge
-  %32 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(4) @.str.435, i64 noundef 3) #15
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %157, label %34
+sub_023:                                          ; preds = %._crit_edge
+  %48 = load i8, ptr %.01304947, align 1
+  switch i8 %48, label %.thread15 [
+    i8 71, label %sub_124
+    i8 80, label %sub_129
+  ]
 
-34:                                               ; preds = %31
-  %35 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(4) @.str.436, i64 noundef 3) #15
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %157, label %.thread15
+sub_124:                                          ; preds = %sub_023
+  %49 = getelementptr inbounds i8, ptr %.01304947, i64 1
+  %50 = load i8, ptr %49, align 1
+  %.not40 = icmp eq i8 %50, 69
+  br i1 %.not40, label %.tail22, label %.thread15
 
-37:                                               ; preds = %._crit_edge
-  %38 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(5) @.str.437, i64 noundef 4) #15
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %157, label %40
+.tail22:                                          ; preds = %sub_124
+  %51 = getelementptr inbounds i8, ptr %.01304947, i64 2
+  %52 = load i8, ptr %51, align 1
+  %53 = icmp eq i8 %52, 84
+  br i1 %53, label %179, label %.thread15
 
-40:                                               ; preds = %37
-  %41 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(5) @.str.402, i64 noundef 4) #15
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %157, label %43
+sub_129:                                          ; preds = %sub_023
+  %54 = getelementptr inbounds i8, ptr %.01304947, i64 1
+  %55 = load i8, ptr %54, align 1
+  %.not42 = icmp eq i8 %55, 85
+  br i1 %.not42, label %.tail27, label %.thread15
 
-43:                                               ; preds = %40
-  %44 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(5) @.str.438, i64 noundef 4) #15
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %157, label %46
+.tail27:                                          ; preds = %sub_129
+  %56 = getelementptr inbounds i8, ptr %.01304947, i64 2
+  %57 = load i8, ptr %56, align 1
+  %58 = icmp eq i8 %57, 84
+  br i1 %58, label %179, label %.thread15
 
-46:                                               ; preds = %43
-  %47 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(5) @.str.439, i64 noundef 4) #15
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %157, label %49
+59:                                               ; preds = %._crit_edge
+  %60 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(5) @.str.437, i64 noundef 4) #15
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %179, label %62
 
-49:                                               ; preds = %46
-  %50 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(5) @.str.440, i64 noundef 4) #15
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %157, label %52
+62:                                               ; preds = %59
+  %63 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(5) @.str.402, i64 noundef 4) #15
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %179, label %65
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(5) @.str.441, i64 noundef 4) #15
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %157, label %.thread15
+65:                                               ; preds = %62
+  %66 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(5) @.str.438, i64 noundef 4) #15
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %179, label %68
 
-55:                                               ; preds = %._crit_edge
-  %56 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(6) @.str.442, i64 noundef 5) #15
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %157, label %58
+68:                                               ; preds = %65
+  %69 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(5) @.str.439, i64 noundef 4) #15
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %179, label %71
 
-58:                                               ; preds = %55
-  %59 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(6) @.str.443, i64 noundef 5) #15
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %157, label %61
+71:                                               ; preds = %68
+  %72 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(5) @.str.440, i64 noundef 4) #15
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %179, label %74
 
-61:                                               ; preds = %58
-  %62 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(6) @.str.444, i64 noundef 5) #15
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %157, label %64
+74:                                               ; preds = %71
+  %75 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(5) @.str.441, i64 noundef 4) #15
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %179, label %.thread15
 
-64:                                               ; preds = %61
-  %65 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(6) @.str.445, i64 noundef 5) #15
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %157, label %67
+77:                                               ; preds = %._crit_edge
+  %78 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(6) @.str.442, i64 noundef 5) #15
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %179, label %80
 
-67:                                               ; preds = %64
-  %68 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(6) @.str.446, i64 noundef 5) #15
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %157, label %70
+80:                                               ; preds = %77
+  %81 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(6) @.str.443, i64 noundef 5) #15
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %179, label %83
 
-70:                                               ; preds = %67
-  %71 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(6) @.str.447, i64 noundef 5) #15
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %157, label %73
+83:                                               ; preds = %80
+  %84 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(6) @.str.444, i64 noundef 5) #15
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %179, label %86
 
-73:                                               ; preds = %70
-  %74 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(6) @.str.448, i64 noundef 5) #15
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %157, label %.thread15
+86:                                               ; preds = %83
+  %87 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(6) @.str.445, i64 noundef 5) #15
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %179, label %89
 
-76:                                               ; preds = %._crit_edge
-  %77 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(7) @.str.449, i64 noundef 6) #15
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %157, label %79
+89:                                               ; preds = %86
+  %90 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(6) @.str.446, i64 noundef 5) #15
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %179, label %92
 
-79:                                               ; preds = %76
-  %80 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(7) @.str.450, i64 noundef 6) #15
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %157, label %82
+92:                                               ; preds = %89
+  %93 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(6) @.str.447, i64 noundef 5) #15
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %179, label %95
 
-82:                                               ; preds = %79
-  %83 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(7) @.str.451, i64 noundef 6) #15
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %157, label %85
+95:                                               ; preds = %92
+  %96 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(6) @.str.448, i64 noundef 5) #15
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %179, label %.thread15
 
-85:                                               ; preds = %82
-  %86 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(7) @.str.452, i64 noundef 6) #15
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %157, label %88
+98:                                               ; preds = %._crit_edge
+  %99 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(7) @.str.449, i64 noundef 6) #15
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %179, label %101
 
-88:                                               ; preds = %85
-  %89 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(7) @.str.453, i64 noundef 6) #15
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %157, label %91
+101:                                              ; preds = %98
+  %102 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(7) @.str.450, i64 noundef 6) #15
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %179, label %104
 
-91:                                               ; preds = %88
-  %92 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(7) @.str.454, i64 noundef 6) #15
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %157, label %.thread15
+104:                                              ; preds = %101
+  %105 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(7) @.str.451, i64 noundef 6) #15
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %179, label %107
 
-94:                                               ; preds = %._crit_edge
-  %95 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(8) @.str.455, i64 noundef 7) #15
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %157, label %97
+107:                                              ; preds = %104
+  %108 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(7) @.str.452, i64 noundef 6) #15
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %179, label %110
 
-97:                                               ; preds = %94
-  %98 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(8) @.str.403, i64 noundef 7) #15
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %157, label %100
+110:                                              ; preds = %107
+  %111 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(7) @.str.453, i64 noundef 6) #15
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %179, label %113
 
-100:                                              ; preds = %97
-  %101 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(8) @.str.456, i64 noundef 7) #15
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %157, label %103
+113:                                              ; preds = %110
+  %114 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(7) @.str.454, i64 noundef 6) #15
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %179, label %.thread15
 
-103:                                              ; preds = %100
-  %104 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(8) @.str.457, i64 noundef 7) #15
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %157, label %.thread15
+116:                                              ; preds = %._crit_edge
+  %117 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(8) @.str.455, i64 noundef 7) #15
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %179, label %119
 
-106:                                              ; preds = %._crit_edge
-  %107 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(9) @.str.458, i64 noundef 8) #15
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %157, label %109
+119:                                              ; preds = %116
+  %120 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(8) @.str.403, i64 noundef 7) #15
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %179, label %122
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(9) @.str.459, i64 noundef 8) #15
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %157, label %112
+122:                                              ; preds = %119
+  %123 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(8) @.str.456, i64 noundef 7) #15
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %179, label %125
 
-112:                                              ; preds = %109
-  %113 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(9) @.str.460, i64 noundef 8) #15
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %157, label %.thread15
+125:                                              ; preds = %122
+  %126 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(8) @.str.457, i64 noundef 7) #15
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %179, label %.thread15
 
-115:                                              ; preds = %._crit_edge
-  %116 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(10) @.str.461, i64 noundef 9) #15
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %157, label %118
+128:                                              ; preds = %._crit_edge
+  %129 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(9) @.str.458, i64 noundef 8) #15
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %179, label %131
 
-118:                                              ; preds = %115
-  %119 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(10) @.str.462, i64 noundef 9) #15
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %157, label %121
+131:                                              ; preds = %128
+  %132 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(9) @.str.459, i64 noundef 8) #15
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %179, label %134
 
-121:                                              ; preds = %118
-  %122 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(10) @.str.463, i64 noundef 9) #15
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %157, label %.thread15
+134:                                              ; preds = %131
+  %135 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(9) @.str.460, i64 noundef 8) #15
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %179, label %.thread15
 
-124:                                              ; preds = %._crit_edge
-  %125 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(11) @.str.464, i64 noundef 10) #15
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %157, label %127
+137:                                              ; preds = %._crit_edge
+  %138 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(10) @.str.461, i64 noundef 9) #15
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %179, label %140
 
-127:                                              ; preds = %124
-  %128 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(11) @.str.465, i64 noundef 10) #15
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %157, label %130
+140:                                              ; preds = %137
+  %141 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(10) @.str.462, i64 noundef 9) #15
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %179, label %143
 
-130:                                              ; preds = %127
-  %131 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(11) @.str.466, i64 noundef 10) #15
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %157, label %.thread15
+143:                                              ; preds = %140
+  %144 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(10) @.str.463, i64 noundef 9) #15
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %179, label %.thread15
 
-133:                                              ; preds = %._crit_edge
-  %134 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(12) @.str.467, i64 noundef 11) #15
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %157, label %136
+146:                                              ; preds = %._crit_edge
+  %147 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(11) @.str.464, i64 noundef 10) #15
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %179, label %149
 
-136:                                              ; preds = %133
-  %137 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(12) @.str.468, i64 noundef 11) #15
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %157, label %139
+149:                                              ; preds = %146
+  %150 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(11) @.str.465, i64 noundef 10) #15
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %179, label %152
 
-139:                                              ; preds = %136
-  %140 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(12) @.str.469, i64 noundef 11) #15
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %157, label %142
+152:                                              ; preds = %149
+  %153 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(11) @.str.466, i64 noundef 10) #15
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %179, label %.thread15
 
-142:                                              ; preds = %139
-  %143 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(12) @.str.470, i64 noundef 11) #15
-  %144 = icmp eq i32 %143, 0
-  br i1 %144, label %157, label %.thread15
+155:                                              ; preds = %._crit_edge
+  %156 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(12) @.str.467, i64 noundef 11) #15
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %179, label %158
 
-145:                                              ; preds = %._crit_edge
-  %146 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(13) @.str.471, i64 noundef 12) #15
-  %147 = icmp eq i32 %146, 0
-  br i1 %147, label %157, label %.thread15
+158:                                              ; preds = %155
+  %159 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(12) @.str.468, i64 noundef 11) #15
+  %160 = icmp eq i32 %159, 0
+  br i1 %160, label %179, label %161
 
-148:                                              ; preds = %._crit_edge
-  %149 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(16) @.str.472, i64 noundef 15) #15
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %157, label %.thread15
+161:                                              ; preds = %158
+  %162 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(12) @.str.469, i64 noundef 11) #15
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %179, label %164
 
-151:                                              ; preds = %._crit_edge
-  %152 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(17) @.str.473, i64 noundef 16) #15
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %157, label %154
+164:                                              ; preds = %161
+  %165 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(12) @.str.470, i64 noundef 11) #15
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %179, label %.thread15
 
-154:                                              ; preds = %151
-  %155 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304927, ptr noundef nonnull dereferenceable(17) @.str.404, i64 noundef 16) #15
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %157, label %.thread15
+167:                                              ; preds = %._crit_edge
+  %168 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(13) @.str.471, i64 noundef 12) #15
+  %169 = icmp eq i32 %168, 0
+  br i1 %169, label %179, label %.thread15
 
-157:                                              ; preds = %154, %151, %148, %145, %142, %133, %136, %139, %124, %127, %130, %118, %121, %115, %106, %109, %112, %94, %97, %100, %103, %91, %76, %79, %82, %85, %88, %55, %58, %61, %64, %67, %70, %73, %37, %40, %43, %46, %49, %52, %31, %34
-  %.sink = phi i32 [ 0, %34 ], [ 0, %31 ], [ 0, %52 ], [ 0, %49 ], [ 0, %46 ], [ 0, %43 ], [ 0, %40 ], [ 0, %37 ], [ 0, %73 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ 0, %61 ], [ 0, %58 ], [ 0, %55 ], [ 0, %88 ], [ 0, %85 ], [ 0, %82 ], [ 0, %79 ], [ 0, %76 ], [ 2, %91 ], [ 0, %103 ], [ 0, %100 ], [ 0, %97 ], [ 0, %94 ], [ 0, %112 ], [ 0, %109 ], [ 0, %106 ], [ 2, %115 ], [ 0, %121 ], [ 0, %118 ], [ 0, %130 ], [ 0, %127 ], [ 0, %124 ], [ 0, %139 ], [ 0, %136 ], [ 0, %133 ], [ 2, %142 ], [ 0, %145 ], [ 0, %148 ], [ 0, %151 ], [ 0, %154 ]
+170:                                              ; preds = %._crit_edge
+  %171 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(16) @.str.472, i64 noundef 15) #15
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %179, label %.thread15
+
+173:                                              ; preds = %._crit_edge
+  %174 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(17) @.str.473, i64 noundef 16) #15
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %179, label %176
+
+176:                                              ; preds = %173
+  %177 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01304947, ptr noundef nonnull dereferenceable(17) @.str.404, i64 noundef 16) #15
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %179, label %.thread15
+
+179:                                              ; preds = %176, %173, %170, %167, %164, %155, %158, %161, %146, %149, %152, %140, %143, %137, %128, %131, %134, %116, %119, %122, %125, %113, %98, %101, %104, %107, %110, %77, %80, %83, %86, %89, %92, %95, %59, %62, %65, %68, %71, %74, %.tail22, %.tail27
+  %.sink = phi i32 [ 0, %.tail27 ], [ 0, %.tail22 ], [ 0, %74 ], [ 0, %71 ], [ 0, %68 ], [ 0, %65 ], [ 0, %62 ], [ 0, %59 ], [ 0, %95 ], [ 0, %92 ], [ 0, %89 ], [ 0, %86 ], [ 0, %83 ], [ 0, %80 ], [ 0, %77 ], [ 0, %110 ], [ 0, %107 ], [ 0, %104 ], [ 0, %101 ], [ 0, %98 ], [ 2, %113 ], [ 0, %125 ], [ 0, %122 ], [ 0, %119 ], [ 0, %116 ], [ 0, %134 ], [ 0, %131 ], [ 0, %128 ], [ 2, %137 ], [ 0, %143 ], [ 0, %140 ], [ 0, %152 ], [ 0, %149 ], [ 0, %146 ], [ 0, %161 ], [ 0, %158 ], [ 0, %155 ], [ 2, %164 ], [ 0, %167 ], [ 0, %170 ], [ 0, %173 ], [ 0, %176 ]
   store i32 %.sink, ptr %3, align 4
   %.not18 = icmp eq ptr %4, null
-  br i1 %.not18, label %.thread15, label %158
+  br i1 %.not18, label %.thread15, label %180
 
-158:                                              ; preds = %157
+180:                                              ; preds = %179
   store ptr @basic_request_dissector, ptr %4, align 8
-  %159 = load ptr, ptr %6, align 8
-  %160 = zext nneg i32 %.0.lcssa to i64
-  %161 = tail call noalias ptr @wmem_strndup(ptr noundef %159, ptr noundef %.01304927, i64 noundef %160) #14
-  %162 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %161, ptr %162, align 8
+  %181 = load ptr, ptr %6, align 8
+  %182 = zext nneg i32 %.0.lcssa to i64
+  %183 = tail call noalias ptr @wmem_strndup(ptr noundef %181, ptr noundef %.01304947, i64 noundef %182) #14
+  %184 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %183, ptr %184, align 8
   br label %.thread15
 
-.thread15:                                        ; preds = %.thread12, %34, %52, %73, %91, %103, %112, %121, %130, %142, %145, %148, %154, %._crit_edge, %157, %158, %23, %24
-  %.1 = phi i32 [ 1, %24 ], [ 1, %23 ], [ 1, %158 ], [ 1, %157 ], [ 0, %._crit_edge ], [ 0, %154 ], [ 0, %148 ], [ 0, %145 ], [ 0, %142 ], [ 0, %130 ], [ 0, %121 ], [ 0, %112 ], [ 0, %103 ], [ 0, %91 ], [ 0, %73 ], [ 0, %52 ], [ 0, %34 ], [ 0, %.thread12 ]
+.thread15:                                        ; preds = %sub_023, %.tail22, %sub_124, %sub_129, %.thread12, %.tail27, %74, %95, %113, %125, %134, %143, %152, %164, %167, %170, %176, %._crit_edge, %179, %180, %40, %41
+  %.1 = phi i32 [ 1, %41 ], [ 1, %40 ], [ 1, %180 ], [ 1, %179 ], [ 0, %._crit_edge ], [ 0, %176 ], [ 0, %170 ], [ 0, %167 ], [ 0, %164 ], [ 0, %152 ], [ 0, %143 ], [ 0, %134 ], [ 0, %125 ], [ 0, %113 ], [ 0, %95 ], [ 0, %74 ], [ 0, %.tail27 ], [ 0, %.thread12 ], [ 0, %sub_129 ], [ 0, %sub_124 ], [ 0, %.tail22 ], [ 0, %sub_023 ]
   ret i32 %.1
 }
 
@@ -5655,22 +5708,22 @@ proto_item_set_hidden.exit429:                    ; preds = %proto_item_set_hidd
   ]
 
 194:                                              ; preds = %proto_item_set_hidden.exit429
-  %195 = call fastcc i32 @check_auth_ntlmssp(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98), !range !20
+  %195 = call fastcc i32 @check_auth_ntlmssp(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98)
   %.not410 = icmp eq i32 %195, 0
   br i1 %.not410, label %196, label %proto_item_set_hidden.exit
 
 196:                                              ; preds = %194
-  %197 = call fastcc i32 @check_auth_basic(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98), !range !20
+  %197 = call fastcc i32 @check_auth_basic(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98)
   %.not411 = icmp eq i32 %197, 0
   br i1 %.not411, label %198, label %proto_item_set_hidden.exit
 
 198:                                              ; preds = %196
-  %199 = call fastcc i32 @check_auth_citrixbasic(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98, i32 noundef %1), !range !20
+  %199 = call fastcc i32 @check_auth_citrixbasic(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98, i32 noundef %1)
   %.not412 = icmp eq i32 %199, 0
   br i1 %.not412, label %200, label %proto_item_set_hidden.exit
 
 200:                                              ; preds = %198
-  %201 = call fastcc i32 @check_auth_kerberos(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98), !range !20
+  %201 = call fastcc i32 @check_auth_kerberos(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98)
   %.not413 = icmp eq i32 %201, 0
   br i1 %.not413, label %202, label %proto_item_set_hidden.exit
 
@@ -5701,12 +5754,12 @@ proto_item_set_hidden.exit429:                    ; preds = %proto_item_set_hidd
   br label %proto_item_set_hidden.exit
 
 218:                                              ; preds = %proto_item_set_hidden.exit429
-  %219 = call fastcc i32 @check_auth_ntlmssp(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98), !range !20
+  %219 = call fastcc i32 @check_auth_ntlmssp(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98)
   %.not409 = icmp eq i32 %219, 0
   br i1 %.not409, label %220, label %proto_item_set_hidden.exit
 
 220:                                              ; preds = %218
-  %221 = call fastcc i32 @check_auth_kerberos(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98), !range !20
+  %221 = call fastcc i32 @check_auth_kerberos(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98)
   br label %proto_item_set_hidden.exit
 
 222:                                              ; preds = %proto_item_set_hidden.exit429
@@ -5746,7 +5799,7 @@ proto_item_set_hidden.exit429:                    ; preds = %proto_item_set_hidd
   store i8 %240, ptr %238, align 1
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %exitcond489.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count
-  br i1 %exitcond489.not, label %._crit_edge.loopexit, label %227, !llvm.loop !21
+  br i1 %exitcond489.not, label %._crit_edge.loopexit, label %227, !llvm.loop !20
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %227
   %241 = trunc nuw nsw i64 %indvars.iv486 to i32
@@ -5796,7 +5849,7 @@ proto_item_set_hidden.exit429:                    ; preds = %proto_item_set_hidd
   %indvars.iv.next491 = add nsw i64 %indvars.iv490, 1
   %lftr.wideiv493 = trunc i64 %indvars.iv.next491 to i32
   %exitcond494.not = icmp eq i32 %lftr.wideiv493, %100
-  br i1 %exitcond494.not, label %.critedge418, label %250, !llvm.loop !22
+  br i1 %exitcond494.not, label %.critedge418, label %250, !llvm.loop !21
 
 260:                                              ; preds = %254
   %261 = getelementptr i8, ptr %247, i64 %indvars.iv490
@@ -5942,7 +5995,7 @@ proto_item_set_generated.exit:                    ; preds = %286, %293, %296
 .preheader.i435.backedge:                         ; preds = %.critedge.i, %323
   %.be = phi i8 [ %.pr.i, %.critedge.i ], [ %325, %323 ]
   %.132.i.be = phi ptr [ %320, %.critedge.i ], [ %324, %323 ]
-  br label %.preheader.i435, !llvm.loop !23
+  br label %.preheader.i435, !llvm.loop !22
 
 321:                                              ; preds = %.preheader.i435
   %322 = call i32 @g_str_has_prefix(ptr noundef nonnull %.132.i, ptr noundef nonnull @.str.504) #14
@@ -6008,7 +6061,7 @@ proto_item_set_generated.exit:                    ; preds = %286, %293, %296
   %.1.i = phi i32 [ 0, %340 ], [ %.0.ph56.i, %.outer.sink.split.i ]
   %343 = load i8, ptr %.233.i, align 1
   %.not51.i = icmp eq i8 %343, 0
-  br i1 %.not51.i, label %http_parse_transfer_coding.exit, label %.preheader.lr.ph.i, !llvm.loop !23
+  br i1 %.not51.i, label %http_parse_transfer_coding.exit, label %.preheader.lr.ph.i, !llvm.loop !22
 
 http_parse_transfer_coding.exit:                  ; preds = %.outer.i, %323, %.preheader.i435
   %.2.i = phi i32 [ %.0.ph56.i, %.preheader.i435 ], [ %.0.ph56.i, %323 ], [ %.1.i, %.outer.i ]
@@ -6089,7 +6142,7 @@ http_parse_transfer_coding.exit.thread:           ; preds = %340, %326, %http_pa
 
 .preheader.backedge:                              ; preds = %.critedge15, %379
   %.3.be = phi i32 [ %377, %.critedge15 ], [ %390, %379 ]
-  br label %.preheader, !llvm.loop !24
+  br label %.preheader, !llvm.loop !23
 
 378:                                              ; preds = %372
   %.not397 = icmp slt i32 %.3, %100
@@ -6576,14 +6629,14 @@ declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_auth_ntlmssp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_auth_ntlmssp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   br label %8
 
 5:                                                ; preds = %8
   %6 = getelementptr i8, ptr %.01519, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.loopexit, label %8, !llvm.loop !25
+  br i1 %.not, label %.loopexit, label %8, !llvm.loop !24
 
 8:                                                ; preds = %4, %5
   %9 = phi ptr [ @.str.483, %4 ], [ %7, %5 ]
@@ -6621,7 +6674,7 @@ define internal fastcc noundef i32 @check_auth_ntlmssp(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_auth_basic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_auth_basic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.487, i64 noundef 6) #15
   %7 = icmp eq i32 %6, 0
@@ -6694,7 +6747,7 @@ basic_auth_credentials.exit.thread:               ; preds = %12, %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_auth_citrixbasic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_auth_citrixbasic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -7006,7 +7059,7 @@ proto_item_set_generated.exit158:                 ; preds = %149, %146, %145, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_auth_kerberos(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_auth_kerberos(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(10) @.str.501, i64 noundef 9) #15
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %16
@@ -7035,7 +7088,7 @@ define internal fastcc noundef i32 @check_auth_kerberos(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_auth_digest(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_auth_digest(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.503, i64 noundef 6) #15
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.loopexit
@@ -7072,7 +7125,7 @@ define internal fastcc noundef i32 @check_auth_digest(ptr noundef %0, ptr nounde
   %21 = sub i32 %.0202, %19
   %22 = add nuw i32 %16, 1
   %23 = icmp sgt i32 %21, 0
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %12, %5
   %.0 = phi i32 [ 0, %5 ], [ 1, %12 ], [ 1, %18 ], [ 1, %.lr.ph ]
@@ -7361,10 +7414,9 @@ attributes #19 = { nounwind returns_twice }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i32 0, i32 2}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}

@@ -52,7 +52,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___node_dista
 @.str.6 = private unnamed_addr constant [19 x i8] c"arch/x86/mm/numa.c\00", align 1
 @__cpu_possible_mask = external dso_local local_unnamed_addr global %struct.cpumask, align 8
 @numa_nodes_parsed = dso_local global %struct.nodemask_t zeroinitializer, section ".init.data", align 8
-@.str.7 = private unnamed_addr constant [4 x i8] c"off\00", align 1
 @.str.8 = private unnamed_addr constant [6 x i8] c"fake=\00", align 1
 @.str.9 = private unnamed_addr constant [7 x i8] c"noacpi\00", align 1
 @numa_node = external dso_local global i32, section ".data..percpu", align 4
@@ -74,40 +73,52 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___node_dista
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable___node_distance371, ptr @__UNIQUE_ID___addressable_node_data362, ptr @__UNIQUE_ID___addressable_node_to_cpumask_map363, ptr @__UNIQUE_ID___addressable_x86_cpu_to_node_map364, ptr @__setup_numa_setup], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @numa_setup(ptr noundef readonly %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @numa_setup(ptr noundef readonly %0) #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %14, label %3
+  br i1 %2, label %16, label %sub_0
 
-3:                                                ; preds = %1
-  %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.7, i64 noundef 3) #15
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %7
+sub_0:                                            ; preds = %1
+  %3 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %3, 111
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-6:                                                ; preds = %3
+sub_1:                                            ; preds = %sub_0
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = load i8, ptr %4, align 1
+  %.not1 = icmp eq i8 %5, 102
+  br i1 %.not1, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 102
+  br i1 %8, label %9, label %.tail.thread
+
+9:                                                ; preds = %.tail
   store i32 1, ptr @numa_off, align 4
-  br label %7
+  br label %.tail.thread
 
-7:                                                ; preds = %6, %3
-  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.8, i64 noundef 5) #15
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %14, label %10
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %9, %.tail
+  %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.8, i64 noundef 5) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %16, label %12
 
-10:                                               ; preds = %7
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.9, i64 noundef 6) #15
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %14
+12:                                               ; preds = %.tail.thread
+  %13 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.9, i64 noundef 6) #15
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %16
 
-13:                                               ; preds = %10
+15:                                               ; preds = %12
   tail call void @disable_srat() #15
-  br label %14
+  br label %16
 
-14:                                               ; preds = %13, %10, %7, %1
-  %15 = phi i32 [ -22, %1 ], [ -22, %7 ], [ 0, %13 ], [ 0, %10 ]
-  ret i32 %15
+16:                                               ; preds = %15, %12, %.tail.thread, %1
+  %17 = phi i32 [ -22, %1 ], [ -22, %.tail.thread ], [ 0, %15 ], [ 0, %12 ]
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @numa_cpu_node(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -32768, 32768) i32 @numa_cpu_node(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr @x86_cpu_to_apicid_early_ptr, align 8
   %3 = icmp eq ptr %2, null
   %4 = sext i32 %0 to i64
@@ -243,13 +254,13 @@ define dso_local void @numa_remove_memblk_from(i32 noundef %0, ptr nocapture nou
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @numa_add_memblk(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @numa_add_memblk(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 section ".init.text" align 16 {
   %4 = tail call fastcc i32 @numa_add_memblk_to(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull @numa_meminfo) #17, !range !5
   ret i32 %4
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @numa_add_memblk_to(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @numa_add_memblk_to(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = icmp eq i64 %1, %2
   br i1 %5, label %30, label %6
 
@@ -297,7 +308,7 @@ define internal fastcc noundef i32 @numa_add_memblk_to(i32 noundef %0, i64 nound
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @numa_cleanup_meminfo(ptr nocapture noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocapture noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = load i64, ptr @max_pfn, align 8
   %3 = shl i64 %2, 12
   %4 = load i32, ptr %0, align 8
@@ -631,7 +642,7 @@ define dso_local void @numa_set_distance(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @numa_alloc_distance() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @numa_alloc_distance() unnamed_addr #0 section ".init.text" align 16 {
   %1 = alloca %struct.nodemask_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
   %2 = load i64, ptr @numa_nodes_parsed, align 8
@@ -753,7 +764,7 @@ define internal fastcc noundef i32 @numa_alloc_distance() unnamed_addr #0 sectio
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @__node_distance(i32 noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 0, 256) i32 @__node_distance(i32 noundef %0, i32 noundef %1) #1 align 16 {
   %3 = load i32, ptr @numa_distance_cnt, align 4
   %4 = icmp sgt i32 %3, %0
   %5 = icmp sgt i32 %3, %1
@@ -815,7 +826,7 @@ define dso_local void @x86_numa_init() local_unnamed_addr #0 section ".init.text
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @numa_init(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @numa_init(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65536) @__apicid_to_node, i8 -1, i64 65536, i1 false)
   store i64 0, ptr @numa_nodes_parsed, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @node_states, i8 0, i64 16, i1 false)
@@ -860,12 +871,12 @@ define internal fastcc i32 @numa_init(ptr nocapture noundef readonly %0) unnamed
 
 16:                                               ; preds = %13
   store i8 0, ptr @memblock, align 8
-  %17 = tail call i32 @numa_cleanup_meminfo(ptr noundef nonnull @numa_meminfo) #17, !range !5
+  %17 = tail call i32 @numa_cleanup_meminfo(ptr noundef nonnull @numa_meminfo) #17
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %64, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call fastcc i32 @numa_register_memblks() #17, !range !5
+  %20 = tail call fastcc i32 @numa_register_memblks() #17
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %64, label %22
 
@@ -1217,7 +1228,7 @@ declare dso_local i32 @memblock_set_node(i64 noundef, i64 noundef, ptr noundef, 
 declare dso_local i32 @memblock_clear_hotplug(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @numa_register_memblks() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @numa_register_memblks() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i64, ptr @numa_nodes_parsed, align 8
   store i64 %1, ptr @node_states, align 16
   br label %2

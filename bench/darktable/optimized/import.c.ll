@@ -1264,7 +1264,7 @@ define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @set_params(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %203, label %5
 
@@ -1669,36 +1669,49 @@ define internal fastcc i32 @_do_select_new(ptr nocapture readonly %0) unnamed_ad
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %1, %21
-  %13 = phi i32 [ %22, %21 ], [ 0, %1 ]
+.preheader:                                       ; preds = %1, %26
+  %13 = phi i32 [ %27, %26 ], [ 0, %1 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   store ptr null, ptr %3, align 8, !tbaa !13
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %8, ptr noundef nonnull %2, i32 noundef 5, ptr noundef nonnull %3, i32 noundef -1) #16
   %14 = load ptr, ptr %3, align 8, !tbaa !13
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %21, label %16
+  br i1 %15, label %26, label %sub_0
 
-16:                                               ; preds = %.preheader
-  %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(2) @.str.39) #18
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %21
+sub_0:                                            ; preds = %.preheader
+  %16 = load i8, ptr %14, align 1
+  %17 = zext i8 %16 to i32
+  %18 = add nsw i32 %17, -32
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %sub_1, label %.tail
 
-19:                                               ; preds = %16
+sub_1:                                            ; preds = %sub_0
+  %19 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %22 = phi i32 [ %18, %sub_0 ], [ %21, %sub_1 ]
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %.tail
   call void @gtk_tree_selection_select_iter(ptr noundef %10, ptr noundef nonnull %2) #16
-  %20 = add i32 %13, 1
-  br label %21
+  %25 = add i32 %13, 1
+  br label %26
 
-21:                                               ; preds = %19, %16, %.preheader
-  %22 = phi i32 [ %13, %16 ], [ %20, %19 ], [ %13, %.preheader ]
+26:                                               ; preds = %24, %.tail, %.preheader
+  %27 = phi i32 [ %13, %.tail ], [ %25, %24 ], [ %13, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  %23 = call i32 @gtk_tree_model_iter_next(ptr noundef %8, ptr noundef nonnull %2) #16
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.loopexit, label %.preheader
+  %28 = call i32 @gtk_tree_model_iter_next(ptr noundef %8, ptr noundef nonnull %2) #16
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %21, %1
-  %25 = phi i32 [ 0, %1 ], [ %22, %21 ]
+.loopexit:                                        ; preds = %26, %1
+  %30 = phi i32 [ 0, %1 ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #16
-  ret i32 %25
+  ret i32 %30
 }
 
 declare void @gtk_tree_sortable_set_sort_column_id(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
@@ -1784,9 +1797,6 @@ declare void @gtk_tree_selection_unselect_all(ptr noundef) local_unnamed_addr #4
 declare i32 @gtk_tree_model_get_iter_first(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare void @gtk_tree_model_get(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 declare void @gtk_tree_selection_select_iter(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -3418,7 +3428,7 @@ define internal fastcc void @_show_all_thumbs(ptr noundef %0) unnamed_addr #1 {
 declare i64 @gtk_tree_model_get_type() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_thumb_set(ptr nocapture noundef readonly %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_thumb_set(ptr nocapture noundef readonly %0) #1 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
@@ -3825,7 +3835,7 @@ define internal void @_all_thumb_toggled(ptr noundef %0, ptr noundef %1) #1 {
 declare void @gtk_tree_view_column_set_clickable(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_files_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_files_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct._GtkTreeIter, align 8
@@ -4262,7 +4272,7 @@ define internal void @_lib_import_select_folder(ptr nocapture readnone %0, ptr n
 declare void @gtk_tree_view_set_tooltip_column(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_places_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_places_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca ptr, align 8
@@ -4492,7 +4502,7 @@ define internal void @_row_expanded(ptr noundef %0, ptr noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_folders_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_folders_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._cairo_rectangle_int, align 4
   %6 = alloca %struct._GtkTreeIter, align 8
@@ -4750,7 +4760,7 @@ define internal fastcc void @_get_folders_list(ptr noundef %0, ptr noundef reado
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !117
   %52 = tail call i64 @gtk_tree_model_get_type() #17
   %53 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %52) #16
-  %54 = call fastcc i32 @_find_iter_folder(ptr noundef %53, ptr noundef nonnull %7, ptr noundef %37), !range !135
+  %54 = call fastcc i32 @_find_iter_folder(ptr noundef %53, ptr noundef nonnull %7, ptr noundef %37)
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %65, label %56
 
@@ -4830,7 +4840,7 @@ declare i32 @g_file_info_get_attribute_boolean(ptr noundef, ptr noundef) local_u
 declare i32 @gtk_tree_model_iter_children(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_find_iter_folder(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_find_iter_folder(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca %struct._GtkTreeIter, align 8
@@ -4859,7 +4869,7 @@ define internal fastcc noundef i32 @_find_iter_folder(ptr noundef %0, ptr nounde
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = call fastcc i32 @_find_iter_folder(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %2), !range !135
+  %18 = call fastcc i32 @_find_iter_folder(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %2)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %21, label %20
 
@@ -4981,7 +4991,7 @@ define internal fastcc void @_expand_folder(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %17, label %35, label %18
 
 18:                                               ; preds = %10
-  %19 = call fastcc i32 @_find_iter_folder(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %0), !range !135
+  %19 = call fastcc i32 @_find_iter_folder(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %0)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %35, label %21
 
@@ -5049,12 +5059,12 @@ define internal void @_browse_basedir_clicked(ptr noundef %0, ptr noundef %1) #1
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !136
+  %7 = load ptr, ptr %3, align 8, !tbaa !135
   %8 = icmp eq ptr %7, null
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i64, ptr %7, align 8, !tbaa !138
+  %10 = load i64, ptr %7, align 8, !tbaa !137
   %11 = icmp eq i64 %10, %4
   br i1 %11, label %19, label %12
 
@@ -5135,12 +5145,12 @@ define internal fastcc void @_update_layout(ptr nocapture readonly %0) unnamed_a
   br i1 %13, label %24, label %14
 
 14:                                               ; preds = %1
-  %15 = load ptr, ptr %11, align 8, !tbaa !136
+  %15 = load ptr, ptr %11, align 8, !tbaa !135
   %16 = icmp eq ptr %15, null
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %14
-  %18 = load i64, ptr %15, align 8, !tbaa !138
+  %18 = load i64, ptr %15, align 8, !tbaa !137
   %19 = icmp eq i64 %18, %12
   br i1 %19, label %23, label %20
 
@@ -5162,12 +5172,12 @@ define internal fastcc void @_update_layout(ptr nocapture readonly %0) unnamed_a
   br i1 %29, label %40, label %30
 
 30:                                               ; preds = %24
-  %31 = load ptr, ptr %28, align 8, !tbaa !136
+  %31 = load ptr, ptr %28, align 8, !tbaa !135
   %32 = icmp eq ptr %31, null
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %30
-  %34 = load i64, ptr %31, align 8, !tbaa !138
+  %34 = load i64, ptr %31, align 8, !tbaa !137
   %35 = icmp eq i64 %34, %12
   br i1 %35, label %39, label %36
 
@@ -5278,20 +5288,20 @@ define internal void @_lib_import_tethered_callback(ptr nocapture readnone %0, p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define internal void @_lib_import_unmount_callback(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #14 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32968
-  store i32 1, ptr %3, align 8, !tbaa !140
+  store i32 1, ptr %3, align 8, !tbaa !139
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !66
   %5 = getelementptr inbounds i8, ptr %4, i64 160
-  store i32 3, ptr %5, align 8, !tbaa !141
+  store i32 3, ptr %5, align 8, !tbaa !140
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define internal void @_lib_import_mount_callback(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #14 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
-  store i32 1, ptr %3, align 8, !tbaa !142
+  store i32 1, ptr %3, align 8, !tbaa !141
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !66
   %5 = getelementptr inbounds i8, ptr %4, i64 160
-  store i32 3, ptr %5, align 8, !tbaa !141
+  store i32 3, ptr %5, align 8, !tbaa !140
   ret void
 }
 
@@ -5490,11 +5500,10 @@ attributes #19 = { nounwind allocsize(0) }
 !132 = !{!129, !42, i64 32}
 !133 = !{!129, !9, i64 48}
 !134 = !{!111, !9, i64 0}
-!135 = !{i32 0, i32 2}
-!136 = !{!137, !12, i64 0}
-!137 = !{!"_GTypeInstance", !12, i64 0}
-!138 = !{!139, !36, i64 0}
-!139 = !{!"_GTypeClass", !36, i64 0}
-!140 = !{!71, !9, i64 32968}
-!141 = !{!68, !9, i64 160}
-!142 = !{!83, !9, i64 24}
+!135 = !{!136, !12, i64 0}
+!136 = !{!"_GTypeInstance", !12, i64 0}
+!137 = !{!138, !36, i64 0}
+!138 = !{!"_GTypeClass", !36, i64 0}
+!139 = !{!71, !9, i64 32968}
+!140 = !{!68, !9, i64 160}
+!141 = !{!83, !9, i64 24}

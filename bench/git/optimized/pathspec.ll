@@ -27,7 +27,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @empty_strvec = external global [0 x ptr], align 8
 @__const.parse_pathspec_file.parsed_file = private unnamed_addr constant %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, align 8
 @strbuf_slopbuf = external global [0 x i8], align 1
-@.str.10 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @stdin = external local_unnamed_addr global ptr, align 8
 @.str.11 = private unnamed_addr constant [2 x i8] c"r\00", align 1
 @.str.12 = private unnamed_addr constant [25 x i8] c"line is badly quoted: %s\00", align 1
@@ -424,14 +423,14 @@ if.then35:                                        ; preds = %while.body
   unreachable
 
 if.end36:                                         ; preds = %while.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next
   %6 = load ptr, ptr %arrayidx, align 8
   %tobool30.not = icmp eq ptr %6, null
   br i1 %tobool30.not, label %while.end.loopexit, label %while.body, !llvm.loop !10
 
 while.end.loopexit:                               ; preds = %if.end36
-  %7 = trunc i64 %indvars.iv.next to i32
+  %7 = trunc nuw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
@@ -1523,20 +1522,26 @@ entry:
   %cond = select i1 %tobool.not, ptr @strbuf_getline, ptr @strbuf_getline_nul
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.unsupported_magic.sb, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unquoted, ptr noundef nonnull align 8 dereferenceable(24) @__const.unsupported_magic.sb, i64 24, i1 false)
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %file, ptr noundef nonnull dereferenceable(2) @.str.10) #18
-  %tobool1.not = icmp eq i32 %call, 0
-  br i1 %tobool1.not, label %if.then, label %if.else
+  %0 = load i8, ptr %file, align 1
+  %.not = icmp eq i8 %0, 45
+  br i1 %.not, label %entry.tail, label %if.else
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr @stdin, align 8
+entry.tail:                                       ; preds = %entry
+  %1 = getelementptr inbounds i8, ptr %file, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry.tail
+  %4 = load ptr, ptr @stdin, align 8
   br label %if.end
 
-if.else:                                          ; preds = %entry
-  %call2 = tail call ptr @xfopen(ptr noundef %file, ptr noundef nonnull @.str.11) #16
+if.else:                                          ; preds = %entry, %entry.tail
+  %call2 = tail call ptr @xfopen(ptr noundef nonnull %file, ptr noundef nonnull @.str.11) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %in.0 = phi ptr [ %call2, %if.else ], [ %0, %if.then ]
+  %in.0 = phi ptr [ %call2, %if.else ], [ %4, %if.then ]
   %call310 = call i32 %cond(ptr noundef nonnull %buf, ptr noundef %in.0) #16, !callees !19
   %cmp.not11 = icmp eq i32 %call310, -1
   br i1 %cmp.not11, label %while.end, label %while.body.lr.ph
@@ -1549,25 +1554,25 @@ while.body.lr.ph:                                 ; preds = %if.end
   br i1 %tobool.not, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %strbuf_setlen.exit9.us
-  %1 = load ptr, ptr %buf5, align 8
-  %2 = load i8, ptr %1, align 1
-  %cmp6.us = icmp eq i8 %2, 34
+  %5 = load ptr, ptr %buf5, align 8
+  %6 = load i8, ptr %5, align 1
+  %cmp6.us = icmp eq i8 %6, 34
   br i1 %cmp6.us, label %if.then8.us, label %if.end16.us
 
 if.then8.us:                                      ; preds = %while.body.us
   store i64 0, ptr %len2.i, align 8
-  %3 = load ptr, ptr %buf.i, align 8
-  %cmp3.not.i.us = icmp eq ptr %3, @strbuf_slopbuf
+  %7 = load ptr, ptr %buf.i, align 8
+  %cmp3.not.i.us = icmp eq ptr %7, @strbuf_slopbuf
   br i1 %cmp3.not.i.us, label %strbuf_setlen.exit.us, label %if.then4.i.us
 
 if.then4.i.us:                                    ; preds = %if.then8.us
-  store i8 0, ptr %3, align 1
+  store i8 0, ptr %7, align 1
   %.pre = load ptr, ptr %buf5, align 8
   br label %strbuf_setlen.exit.us
 
 strbuf_setlen.exit.us:                            ; preds = %if.then4.i.us, %if.then8.us
-  %4 = phi ptr [ %.pre, %if.then4.i.us ], [ %1, %if.then8.us ]
-  %call10.us = call i32 @unquote_c_style(ptr noundef nonnull %unquoted, ptr noundef %4, ptr noundef null) #16
+  %8 = phi ptr [ %.pre, %if.then4.i.us ], [ %5, %if.then8.us ]
+  %call10.us = call i32 @unquote_c_style(ptr noundef nonnull %unquoted, ptr noundef %8, ptr noundef null) #16
   %tobool11.not.us = icmp eq i32 %call10.us, 0
   br i1 %tobool11.not.us, label %if.end15.us, label %if.then12
 
@@ -1581,15 +1586,15 @@ if.end15.us:                                      ; preds = %strbuf_setlen.exit.
   br label %if.end16.us
 
 if.end16.us:                                      ; preds = %if.end15.us, %while.body.us
-  %5 = phi ptr [ %.pre13, %if.end15.us ], [ %1, %while.body.us ]
-  %call18.us = call ptr @strvec_push(ptr noundef nonnull %parsed_file, ptr noundef %5) #16
+  %9 = phi ptr [ %.pre13, %if.end15.us ], [ %5, %while.body.us ]
+  %call18.us = call ptr @strvec_push(ptr noundef nonnull %parsed_file, ptr noundef %9) #16
   store i64 0, ptr %len2.i5, align 8
-  %6 = load ptr, ptr %buf5, align 8
-  %cmp3.not.i7.us = icmp eq ptr %6, @strbuf_slopbuf
+  %10 = load ptr, ptr %buf5, align 8
+  %cmp3.not.i7.us = icmp eq ptr %10, @strbuf_slopbuf
   br i1 %cmp3.not.i7.us, label %strbuf_setlen.exit9.us, label %if.then4.i8.us
 
 if.then4.i8.us:                                   ; preds = %if.end16.us
-  store i8 0, ptr %6, align 1
+  store i8 0, ptr %10, align 1
   br label %strbuf_setlen.exit9.us
 
 strbuf_setlen.exit9.us:                           ; preds = %if.then4.i8.us, %if.end16.us
@@ -1598,21 +1603,21 @@ strbuf_setlen.exit9.us:                           ; preds = %if.then4.i8.us, %if
   br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !20
 
 while.body:                                       ; preds = %while.body.lr.ph, %strbuf_setlen.exit9
-  %7 = load ptr, ptr %buf5, align 8
-  %call18 = call ptr @strvec_push(ptr noundef nonnull %parsed_file, ptr noundef %7) #16
+  %11 = load ptr, ptr %buf5, align 8
+  %call18 = call ptr @strvec_push(ptr noundef nonnull %parsed_file, ptr noundef %11) #16
   store i64 0, ptr %len2.i5, align 8
-  %8 = load ptr, ptr %buf5, align 8
-  %cmp3.not.i7 = icmp eq ptr %8, @strbuf_slopbuf
+  %12 = load ptr, ptr %buf5, align 8
+  %cmp3.not.i7 = icmp eq ptr %12, @strbuf_slopbuf
   br i1 %cmp3.not.i7, label %strbuf_setlen.exit9, label %if.then4.i8
 
 if.then12:                                        ; preds = %strbuf_setlen.exit.us
   %call13 = call fastcc ptr @_(ptr noundef nonnull @.str.12)
-  %9 = load ptr, ptr %buf5, align 8
-  call void (ptr, ...) @die(ptr noundef %call13, ptr noundef %9) #17
+  %13 = load ptr, ptr %buf5, align 8
+  call void (ptr, ...) @die(ptr noundef %call13, ptr noundef %13) #17
   unreachable
 
 if.then4.i8:                                      ; preds = %while.body
-  store i8 0, ptr %8, align 1
+  store i8 0, ptr %12, align 1
   br label %strbuf_setlen.exit9
 
 strbuf_setlen.exit9:                              ; preds = %while.body, %if.then4.i8
@@ -1623,8 +1628,8 @@ strbuf_setlen.exit9:                              ; preds = %while.body, %if.the
 while.end:                                        ; preds = %strbuf_setlen.exit9, %strbuf_setlen.exit9.us, %if.end
   call void @strbuf_release(ptr noundef nonnull %unquoted) #16
   call void @strbuf_release(ptr noundef nonnull %buf) #16
-  %10 = load ptr, ptr @stdin, align 8
-  %cmp19.not = icmp eq ptr %in.0, %10
+  %14 = load ptr, ptr @stdin, align 8
+  %cmp19.not = icmp eq ptr %in.0, %14
   br i1 %cmp19.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %while.end
@@ -1632,8 +1637,8 @@ if.then21:                                        ; preds = %while.end
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then21, %while.end
-  %11 = load ptr, ptr %parsed_file, align 8
-  call void @parse_pathspec(ptr noundef %pathspec, i32 noundef %magic_mask, i32 noundef %flags, ptr noundef %prefix, ptr noundef %11)
+  %15 = load ptr, ptr %parsed_file, align 8
+  call void @parse_pathspec(ptr noundef %pathspec, i32 noundef %magic_mask, i32 noundef %flags, ptr noundef %prefix, ptr noundef %15)
   call void @strvec_clear(ptr noundef nonnull %parsed_file) #16
   ret void
 }
@@ -1857,7 +1862,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 declare void @attr_check_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @match_pathspec_attrs(ptr noundef %istate, ptr noundef %name, i32 noundef %namelen, ptr nocapture noundef readonly %item) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @match_pathspec_attrs(ptr noundef %istate, ptr noundef %name, i32 noundef %namelen, ptr nocapture noundef readonly %item) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %namelen to i64
   %arrayidx = getelementptr inbounds i8, ptr %name, i64 %idxprom
@@ -1945,7 +1950,7 @@ declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @git_check_attr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pathspec_needs_expanded_index(ptr noundef %istate, ptr noundef %pathspec) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pathspec_needs_expanded_index(ptr noundef %istate, ptr noundef %pathspec) local_unnamed_addr #0 {
 entry:
   %sparse_index = getelementptr inbounds i8, ptr %istate, i64 60
   %0 = load i32, ptr %sparse_index, align 4

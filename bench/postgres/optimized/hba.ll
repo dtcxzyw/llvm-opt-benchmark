@@ -123,12 +123,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.93 = private unnamed_addr constant [35 x i8] c"invalid value for clientcert: \22%s\22\00", align 1
 @.str.94 = private unnamed_addr constant [11 x i8] c"clientname\00", align 1
 @.str.95 = private unnamed_addr constant [53 x i8] c"clientname can only be configured for \22hostssl\22 rows\00", align 1
-@.str.96 = private unnamed_addr constant [3 x i8] c"CN\00", align 1
-@.str.97 = private unnamed_addr constant [3 x i8] c"DN\00", align 1
 @.str.98 = private unnamed_addr constant [35 x i8] c"invalid value for clientname: \22%s\22\00", align 1
 @.str.99 = private unnamed_addr constant [11 x i8] c"pamservice\00", align 1
 @.str.100 = private unnamed_addr constant [17 x i8] c"pam_use_hostname\00", align 1
-@.str.101 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @.str.102 = private unnamed_addr constant [8 x i8] c"ldapurl\00", align 1
 @.str.103 = private unnamed_addr constant [41 x i8] c"LDAP URLs not supported on this platform\00", align 1
 @.str.104 = private unnamed_addr constant [8 x i8] c"ldaptls\00", align 1
@@ -2007,7 +2004,7 @@ list_head.exit:                                   ; preds = %2, %24
   %556 = icmp sgt i32 %555, 0
   br i1 %556, label %.lr.ph1653, label %._crit_edge1060.loopexit
 
-._crit_edge1060.loopexit:                         ; preds = %1163, %.lr.ph1059
+._crit_edge1060.loopexit:                         ; preds = %1167, %.lr.ph1059
   %.pre = load ptr, ptr %0, align 8
   br label %._crit_edge1060
 
@@ -2025,8 +2022,8 @@ list_head.exit:                                   ; preds = %2, %24
   %.not739 = or i1 %563, %.not7391464
   br i1 %.not739, label %._crit_edge1068.loopexit, label %550, !llvm.loop !15
 
-.lr.ph1653:                                       ; preds = %.lr.ph1059, %1163
-  %indvars.iv12611652 = phi i64 [ %indvars.iv.next1262, %1163 ], [ 0, %.lr.ph1059 ]
+.lr.ph1653:                                       ; preds = %.lr.ph1059, %1167
+  %indvars.iv12611652 = phi i64 [ %indvars.iv.next1262, %1167 ], [ 0, %.lr.ph1059 ]
   %564 = load ptr, ptr %554, align 8
   %565 = getelementptr %union.ListCell, ptr %564, i64 %indvars.iv12611652
   %566 = load ptr, ptr %565, align 8
@@ -2100,7 +2097,7 @@ list_head.exit:                                   ; preds = %2, %24
 599:                                              ; preds = %588, %588, %588, %588, %588
   %600 = call ptr @pstrdup(ptr noundef %583) #13
   store ptr %600, ptr %549, align 8
-  br label %1163
+  br label %1167
 
 601:                                              ; preds = %582
   %602 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.87) #15
@@ -2135,7 +2132,7 @@ list_head.exit:                                   ; preds = %2, %24
 
 617:                                              ; preds = %614
   store i32 2, ptr %548, align 8
-  br label %1163
+  br label %1167
 
 618:                                              ; preds = %614
   %619 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(10) @.str.90) #15
@@ -2165,7 +2162,7 @@ list_head.exit:                                   ; preds = %2, %24
 
 632:                                              ; preds = %621
   store i32 1, ptr %548, align 8
-  br label %1163
+  br label %1167
 
 633:                                              ; preds = %618
   %634 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
@@ -2182,12 +2179,12 @@ list_head.exit:                                   ; preds = %2, %24
 640:                                              ; preds = %601
   %641 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.94) #15
   %642 = icmp eq i32 %641, 0
-  br i1 %642, label %643, label %668
+  br i1 %642, label %643, label %672
 
 643:                                              ; preds = %640
   %644 = load i32, ptr %190, align 8
   %.not702.i = icmp eq i32 %644, 2
-  br i1 %.not702.i, label %653, label %645
+  br i1 %.not702.i, label %sub_0.i, label %645
 
 645:                                              ; preds = %643
   %646 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
@@ -2205,1039 +2202,1090 @@ list_head.exit:                                   ; preds = %2, %24
   store ptr @.str.95, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-653:                                              ; preds = %643
-  %654 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(3) @.str.96) #15
-  %655 = icmp eq i32 %654, 0
-  br i1 %655, label %656, label %657
+sub_0.i:                                          ; preds = %643
+  %653 = load i8, ptr %583, align 1
+  switch i8 %653, label %.tail717.thread.i [
+    i8 67, label %sub_1.i
+    i8 68, label %sub_1719.i
+  ]
 
-656:                                              ; preds = %653
+sub_1.i:                                          ; preds = %sub_0.i
+  %654 = getelementptr i8, ptr %569, i64 2
+  %655 = load i8, ptr %654, align 1
+  %.not766.i = icmp eq i8 %655, 78
+  br i1 %.not766.i, label %.tail.i, label %.tail717.thread.i
+
+.tail.i:                                          ; preds = %sub_1.i
+  %656 = getelementptr i8, ptr %569, i64 3
+  %657 = load i8, ptr %656, align 1
+  %658 = icmp eq i8 %657, 0
+  br i1 %658, label %659, label %.tail717.thread.i
+
+659:                                              ; preds = %.tail.i
   store i32 0, ptr %547, align 4
-  br label %1163
+  br label %1167
 
-657:                                              ; preds = %653
-  %658 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(3) @.str.97) #15
-  %659 = icmp eq i32 %658, 0
-  br i1 %659, label %660, label %661
+sub_1719.i:                                       ; preds = %sub_0.i
+  %660 = getelementptr i8, ptr %569, i64 2
+  %661 = load i8, ptr %660, align 1
+  %.not768.i = icmp eq i8 %661, 78
+  br i1 %.not768.i, label %.tail717.i, label %.tail717.thread.i
 
-660:                                              ; preds = %657
+.tail717.i:                                       ; preds = %sub_1719.i
+  %662 = getelementptr i8, ptr %569, i64 3
+  %663 = load i8, ptr %662, align 1
+  %664 = icmp eq i8 %663, 0
+  br i1 %664, label %665, label %.tail717.thread.i
+
+665:                                              ; preds = %.tail717.i
   store i32 1, ptr %547, align 4
-  br label %1163
+  br label %1167
 
-661:                                              ; preds = %657
-  %662 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %662, label %663, label %parse_hba_auth_opt.exit.thread
+.tail717.thread.i:                                ; preds = %sub_0.i, %sub_1.i, %.tail.i, %sub_1719.i, %.tail717.i
+  %666 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %666, label %667, label %parse_hba_auth_opt.exit.thread
 
-663:                                              ; preds = %661
-  %664 = call i32 @errcode(i32 noundef 22) #13
-  %665 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.98, ptr noundef %583) #13
-  %666 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %667 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+667:                                              ; preds = %.tail717.thread.i
+  %668 = call i32 @errcode(i32 noundef 22) #13
+  %669 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.98, ptr noundef nonnull %583) #13
+  %670 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %671 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2143, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
   br label %parse_hba_auth_opt.exit.thread
 
-668:                                              ; preds = %640
-  %669 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.99) #15
-  %670 = icmp eq i32 %669, 0
-  br i1 %670, label %671, label %684
+672:                                              ; preds = %640
+  %673 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.99) #15
+  %674 = icmp eq i32 %673, 0
+  br i1 %674, label %675, label %688
 
-671:                                              ; preds = %668
-  %672 = load i32, ptr %512, align 8
-  %.not701.i = icmp eq i32 %672, 9
-  br i1 %.not701.i, label %682, label %673
+675:                                              ; preds = %672
+  %676 = load i32, ptr %512, align 8
+  %.not701.i = icmp eq i32 %676, 9
+  br i1 %.not701.i, label %686, label %677
 
-673:                                              ; preds = %671
-  %674 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %674, label %675, label %680
+677:                                              ; preds = %675
+  %678 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %678, label %679, label %684
 
-675:                                              ; preds = %673
-  %676 = call i32 @errcode(i32 noundef 22) #13
-  %677 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.52) #13
-  %678 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %679 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+679:                                              ; preds = %677
+  %680 = call i32 @errcode(i32 noundef 22) #13
+  %681 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.52) #13
+  %682 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %683 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2149, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %680
+  br label %684
 
-680:                                              ; preds = %675, %673
-  %681 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.52) #13
-  store ptr %681, ptr %15, align 8
+684:                                              ; preds = %679, %677
+  %685 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.52) #13
+  store ptr %685, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-682:                                              ; preds = %671
-  %683 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %683, ptr %546, align 8
-  br label %1163
+686:                                              ; preds = %675
+  %687 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %687, ptr %546, align 8
+  br label %1167
 
-684:                                              ; preds = %668
-  %685 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(17) @.str.100) #15
-  %686 = icmp eq i32 %685, 0
-  br i1 %686, label %687, label %703
+688:                                              ; preds = %672
+  %689 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(17) @.str.100) #15
+  %690 = icmp eq i32 %689, 0
+  br i1 %690, label %691, label %707
 
-687:                                              ; preds = %684
-  %688 = load i32, ptr %512, align 8
-  %.not700.i = icmp eq i32 %688, 9
-  br i1 %.not700.i, label %698, label %689
+691:                                              ; preds = %688
+  %692 = load i32, ptr %512, align 8
+  %.not700.i = icmp eq i32 %692, 9
+  br i1 %.not700.i, label %sub_0723.i, label %693
 
-689:                                              ; preds = %687
-  %690 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %690, label %691, label %696
+693:                                              ; preds = %691
+  %694 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %694, label %695, label %700
 
-691:                                              ; preds = %689
-  %692 = call i32 @errcode(i32 noundef 22) #13
-  %693 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.52) #13
-  %694 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %695 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+695:                                              ; preds = %693
+  %696 = call i32 @errcode(i32 noundef 22) #13
+  %697 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.52) #13
+  %698 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %699 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2154, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %696
+  br label %700
 
-696:                                              ; preds = %691, %689
-  %697 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.52) #13
-  store ptr %697, ptr %15, align 8
+700:                                              ; preds = %695, %693
+  %701 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.52) #13
+  store ptr %701, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-698:                                              ; preds = %687
-  %699 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(2) @.str.101) #15
-  %700 = icmp eq i32 %699, 0
-  br i1 %700, label %701, label %702
+sub_0723.i:                                       ; preds = %691
+  %702 = load i8, ptr %583, align 1
+  %.not764.i = icmp eq i8 %702, 49
+  br i1 %.not764.i, label %.tail722.i, label %.tail722.thread.i
 
-701:                                              ; preds = %698
+.tail722.i:                                       ; preds = %sub_0723.i
+  %703 = getelementptr i8, ptr %569, i64 2
+  %704 = load i8, ptr %703, align 1
+  %705 = icmp eq i8 %704, 0
+  br i1 %705, label %706, label %.tail722.thread.i
+
+706:                                              ; preds = %.tail722.i
   store i8 1, ptr %545, align 8
-  br label %1163
+  br label %1167
 
-702:                                              ; preds = %698
+.tail722.thread.i:                                ; preds = %.tail722.i, %sub_0723.i
   store i8 0, ptr %545, align 8
-  br label %1163
+  br label %1167
 
-703:                                              ; preds = %684
-  %704 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(8) @.str.102) #15
-  %705 = icmp eq i32 %704, 0
-  br i1 %705, label %706, label %722
+707:                                              ; preds = %688
+  %708 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(8) @.str.102) #15
+  %709 = icmp eq i32 %708, 0
+  br i1 %709, label %710, label %726
 
-706:                                              ; preds = %703
-  %707 = load i32, ptr %512, align 8
-  %.not699.i = icmp eq i32 %707, 11
-  %708 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %.not699.i, label %717, label %709
+710:                                              ; preds = %707
+  %711 = load i32, ptr %512, align 8
+  %.not699.i = icmp eq i32 %711, 11
+  %712 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %.not699.i, label %721, label %713
 
-709:                                              ; preds = %706
-  br i1 %708, label %710, label %715
+713:                                              ; preds = %710
+  br i1 %712, label %714, label %719
 
-710:                                              ; preds = %709
-  %711 = call i32 @errcode(i32 noundef 22) #13
-  %712 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.54) #13
-  %713 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %714 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+714:                                              ; preds = %713
+  %715 = call i32 @errcode(i32 noundef 22) #13
+  %716 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.54) #13
+  %717 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %718 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2167, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %715
+  br label %719
 
-715:                                              ; preds = %710, %709
-  %716 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.54) #13
-  store ptr %716, ptr %15, align 8
+719:                                              ; preds = %714, %713
+  %720 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.54) #13
+  store ptr %720, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-717:                                              ; preds = %706
-  br i1 %708, label %718, label %721
+721:                                              ; preds = %710
+  br i1 %712, label %722, label %725
 
-718:                                              ; preds = %717
-  %719 = call i32 @errcode(i32 noundef 1088) #13
-  %720 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.103) #13
+722:                                              ; preds = %721
+  %723 = call i32 @errcode(i32 noundef 1088) #13
+  %724 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.103) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2209, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %721
+  br label %725
 
-721:                                              ; preds = %718, %717
+725:                                              ; preds = %722, %721
   store ptr @.str.103, ptr %15, align 8
-  br label %1163
+  br label %1167
 
-722:                                              ; preds = %703
-  %723 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(8) @.str.104) #15
-  %724 = icmp eq i32 %723, 0
-  br i1 %724, label %725, label %741
+726:                                              ; preds = %707
+  %727 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(8) @.str.104) #15
+  %728 = icmp eq i32 %727, 0
+  br i1 %728, label %729, label %745
 
-725:                                              ; preds = %722
-  %726 = load i32, ptr %512, align 8
-  %.not698.i = icmp eq i32 %726, 11
-  br i1 %.not698.i, label %736, label %727
+729:                                              ; preds = %726
+  %730 = load i32, ptr %512, align 8
+  %.not698.i = icmp eq i32 %730, 11
+  br i1 %.not698.i, label %sub_0727.i, label %731
 
-727:                                              ; preds = %725
-  %728 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %728, label %729, label %734
+731:                                              ; preds = %729
+  %732 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %732, label %733, label %738
 
-729:                                              ; preds = %727
-  %730 = call i32 @errcode(i32 noundef 22) #13
-  %731 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.54) #13
-  %732 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %733 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+733:                                              ; preds = %731
+  %734 = call i32 @errcode(i32 noundef 22) #13
+  %735 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.54) #13
+  %736 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %737 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2215, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %734
+  br label %738
 
-734:                                              ; preds = %729, %727
-  %735 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.54) #13
-  store ptr %735, ptr %15, align 8
+738:                                              ; preds = %733, %731
+  %739 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.54) #13
+  store ptr %739, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-736:                                              ; preds = %725
-  %737 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(2) @.str.101) #15
-  %738 = icmp eq i32 %737, 0
-  br i1 %738, label %739, label %740
+sub_0727.i:                                       ; preds = %729
+  %740 = load i8, ptr %583, align 1
+  %.not763.i = icmp eq i8 %740, 49
+  br i1 %.not763.i, label %.tail726.i, label %.tail726.thread.i
 
-739:                                              ; preds = %736
+.tail726.i:                                       ; preds = %sub_0727.i
+  %741 = getelementptr i8, ptr %569, i64 2
+  %742 = load i8, ptr %741, align 1
+  %743 = icmp eq i8 %742, 0
+  br i1 %743, label %744, label %.tail726.thread.i
+
+744:                                              ; preds = %.tail726.i
   store i8 1, ptr %544, align 1
-  br label %1163
+  br label %1167
 
-740:                                              ; preds = %736
+.tail726.thread.i:                                ; preds = %.tail726.i, %sub_0727.i
   store i8 0, ptr %544, align 1
-  br label %1163
+  br label %1167
 
-741:                                              ; preds = %722
-  %742 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.105) #15
-  %743 = icmp eq i32 %742, 0
-  br i1 %743, label %744, label %768
+745:                                              ; preds = %726
+  %746 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.105) #15
+  %747 = icmp eq i32 %746, 0
+  br i1 %747, label %748, label %772
 
-744:                                              ; preds = %741
-  %745 = load i32, ptr %512, align 8
-  %.not695.i = icmp eq i32 %745, 11
-  br i1 %.not695.i, label %755, label %746
+748:                                              ; preds = %745
+  %749 = load i32, ptr %512, align 8
+  %.not695.i = icmp eq i32 %749, 11
+  br i1 %.not695.i, label %759, label %750
 
-746:                                              ; preds = %744
-  %747 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %747, label %748, label %753
+750:                                              ; preds = %748
+  %751 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %751, label %752, label %757
 
-748:                                              ; preds = %746
-  %749 = call i32 @errcode(i32 noundef 22) #13
-  %750 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.54) #13
-  %751 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %752 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+752:                                              ; preds = %750
+  %753 = call i32 @errcode(i32 noundef 22) #13
+  %754 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.54) #13
+  %755 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %756 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2223, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %753
+  br label %757
 
-753:                                              ; preds = %748, %746
-  %754 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.54) #13
-  store ptr %754, ptr %15, align 8
+757:                                              ; preds = %752, %750
+  %758 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.54) #13
+  store ptr %758, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-755:                                              ; preds = %744
-  %756 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(5) @.str.54) #15
-  %.not696.i = icmp eq i32 %756, 0
-  br i1 %.not696.i, label %766, label %757
-
-757:                                              ; preds = %755
-  %758 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(6) @.str.106) #15
-  %.not697.i = icmp eq i32 %758, 0
-  br i1 %.not697.i, label %766, label %759
-
-759:                                              ; preds = %757
-  %760 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %760, label %761, label %766
+759:                                              ; preds = %748
+  %760 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(5) @.str.54) #15
+  %.not696.i = icmp eq i32 %760, 0
+  br i1 %.not696.i, label %770, label %761
 
 761:                                              ; preds = %759
-  %762 = call i32 @errcode(i32 noundef 22) #13
-  %763 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.107, ptr noundef %583) #13
-  %764 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %765 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+  %762 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(6) @.str.106) #15
+  %.not697.i = icmp eq i32 %762, 0
+  br i1 %.not697.i, label %770, label %763
+
+763:                                              ; preds = %761
+  %764 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %764, label %765, label %770
+
+765:                                              ; preds = %763
+  %766 = call i32 @errcode(i32 noundef 22) #13
+  %767 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.107, ptr noundef %583) #13
+  %768 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %769 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2229, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %766
+  br label %770
 
-766:                                              ; preds = %759, %761, %757, %755
-  %767 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %767, ptr %543, align 8
-  br label %1163
+770:                                              ; preds = %763, %765, %761, %759
+  %771 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %771, ptr %543, align 8
+  br label %1167
 
-768:                                              ; preds = %741
-  %769 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.64) #15
-  %770 = icmp eq i32 %769, 0
-  br i1 %770, label %771, label %784
+772:                                              ; preds = %745
+  %773 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.64) #15
+  %774 = icmp eq i32 %773, 0
+  br i1 %774, label %775, label %788
 
-771:                                              ; preds = %768
-  %772 = load i32, ptr %512, align 8
-  %.not694.i = icmp eq i32 %772, 11
-  br i1 %.not694.i, label %782, label %773
+775:                                              ; preds = %772
+  %776 = load i32, ptr %512, align 8
+  %.not694.i = icmp eq i32 %776, 11
+  br i1 %.not694.i, label %786, label %777
 
-773:                                              ; preds = %771
-  %774 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %774, label %775, label %780
+777:                                              ; preds = %775
+  %778 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %778, label %779, label %784
 
-775:                                              ; preds = %773
-  %776 = call i32 @errcode(i32 noundef 22) #13
-  %777 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.54) #13
-  %778 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %779 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+779:                                              ; preds = %777
+  %780 = call i32 @errcode(i32 noundef 22) #13
+  %781 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.54) #13
+  %782 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %783 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2234, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %780
+  br label %784
 
-780:                                              ; preds = %775, %773
-  %781 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.54) #13
-  store ptr %781, ptr %15, align 8
+784:                                              ; preds = %779, %777
+  %785 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.54) #13
+  store ptr %785, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-782:                                              ; preds = %771
-  %783 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %783, ptr %542, align 8
-  br label %1163
+786:                                              ; preds = %775
+  %787 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %787, ptr %542, align 8
+  br label %1167
 
-784:                                              ; preds = %768
-  %785 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(9) @.str.108) #15
-  %786 = icmp eq i32 %785, 0
-  br i1 %786, label %787, label %810
+788:                                              ; preds = %772
+  %789 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(9) @.str.108) #15
+  %790 = icmp eq i32 %789, 0
+  br i1 %790, label %791, label %814
 
-787:                                              ; preds = %784
-  %788 = load i32, ptr %512, align 8
-  %.not693.i = icmp eq i32 %788, 11
-  br i1 %.not693.i, label %798, label %789
+791:                                              ; preds = %788
+  %792 = load i32, ptr %512, align 8
+  %.not693.i = icmp eq i32 %792, 11
+  br i1 %.not693.i, label %802, label %793
 
-789:                                              ; preds = %787
-  %790 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %790, label %791, label %796
+793:                                              ; preds = %791
+  %794 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %794, label %795, label %800
 
-791:                                              ; preds = %789
-  %792 = call i32 @errcode(i32 noundef 22) #13
-  %793 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.54) #13
-  %794 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %795 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+795:                                              ; preds = %793
+  %796 = call i32 @errcode(i32 noundef 22) #13
+  %797 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.54) #13
+  %798 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %799 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2239, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %796
+  br label %800
 
-796:                                              ; preds = %791, %789
-  %797 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.54) #13
-  store ptr %797, ptr %15, align 8
+800:                                              ; preds = %795, %793
+  %801 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.54) #13
+  store ptr %801, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-798:                                              ; preds = %787
-  %799 = call i32 @atoi(ptr nocapture noundef %583) #15
-  store i32 %799, ptr %541, align 8
-  %800 = icmp eq i32 %799, 0
-  br i1 %800, label %801, label %1163
+802:                                              ; preds = %791
+  %803 = call i32 @atoi(ptr nocapture noundef %583) #15
+  store i32 %803, ptr %541, align 8
+  %804 = icmp eq i32 %803, 0
+  br i1 %804, label %805, label %1167
 
-801:                                              ; preds = %798
-  %802 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %802, label %803, label %808
+805:                                              ; preds = %802
+  %806 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %806, label %807, label %812
 
-803:                                              ; preds = %801
-  %804 = call i32 @errcode(i32 noundef 22) #13
-  %805 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.109, ptr noundef %583) #13
-  %806 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %807 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+807:                                              ; preds = %805
+  %808 = call i32 @errcode(i32 noundef 22) #13
+  %809 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.109, ptr noundef %583) #13
+  %810 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %811 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2247, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %808
+  br label %812
 
-808:                                              ; preds = %803, %801
-  %809 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.109, ptr noundef %583) #13
-  store ptr %809, ptr %15, align 8
+812:                                              ; preds = %807, %805
+  %813 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.109, ptr noundef %583) #13
+  store ptr %813, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-810:                                              ; preds = %784
-  %811 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.110) #15
-  %812 = icmp eq i32 %811, 0
-  br i1 %812, label %813, label %826
+814:                                              ; preds = %788
+  %815 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.110) #15
+  %816 = icmp eq i32 %815, 0
+  br i1 %816, label %817, label %830
 
-813:                                              ; preds = %810
-  %814 = load i32, ptr %512, align 8
-  %.not692.i = icmp eq i32 %814, 11
-  br i1 %.not692.i, label %824, label %815
+817:                                              ; preds = %814
+  %818 = load i32, ptr %512, align 8
+  %.not692.i = icmp eq i32 %818, 11
+  br i1 %.not692.i, label %828, label %819
 
-815:                                              ; preds = %813
-  %816 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %816, label %817, label %822
+819:                                              ; preds = %817
+  %820 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %820, label %821, label %826
 
-817:                                              ; preds = %815
-  %818 = call i32 @errcode(i32 noundef 22) #13
-  %819 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.54) #13
-  %820 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %821 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+821:                                              ; preds = %819
+  %822 = call i32 @errcode(i32 noundef 22) #13
+  %823 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.54) #13
+  %824 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %825 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2254, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %822
+  br label %826
 
-822:                                              ; preds = %817, %815
-  %823 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.54) #13
-  store ptr %823, ptr %15, align 8
+826:                                              ; preds = %821, %819
+  %827 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.54) #13
+  store ptr %827, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-824:                                              ; preds = %813
-  %825 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %825, ptr %540, align 8
-  br label %1163
+828:                                              ; preds = %817
+  %829 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %829, ptr %540, align 8
+  br label %1167
 
-826:                                              ; preds = %810
-  %827 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(15) @.str.111) #15
-  %828 = icmp eq i32 %827, 0
-  br i1 %828, label %829, label %842
+830:                                              ; preds = %814
+  %831 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(15) @.str.111) #15
+  %832 = icmp eq i32 %831, 0
+  br i1 %832, label %833, label %846
 
-829:                                              ; preds = %826
-  %830 = load i32, ptr %512, align 8
-  %.not691.i = icmp eq i32 %830, 11
-  br i1 %.not691.i, label %840, label %831
+833:                                              ; preds = %830
+  %834 = load i32, ptr %512, align 8
+  %.not691.i = icmp eq i32 %834, 11
+  br i1 %.not691.i, label %844, label %835
 
-831:                                              ; preds = %829
-  %832 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %832, label %833, label %838
+835:                                              ; preds = %833
+  %836 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %836, label %837, label %842
 
-833:                                              ; preds = %831
-  %834 = call i32 @errcode(i32 noundef 22) #13
-  %835 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.54) #13
-  %836 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %837 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+837:                                              ; preds = %835
+  %838 = call i32 @errcode(i32 noundef 22) #13
+  %839 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.54) #13
+  %840 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %841 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2259, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %838
+  br label %842
 
-838:                                              ; preds = %833, %831
-  %839 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.54) #13
-  store ptr %839, ptr %15, align 8
+842:                                              ; preds = %837, %835
+  %843 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.54) #13
+  store ptr %843, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-840:                                              ; preds = %829
-  %841 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %841, ptr %539, align 8
-  br label %1163
+844:                                              ; preds = %833
+  %845 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %845, ptr %539, align 8
+  br label %1167
 
-842:                                              ; preds = %826
-  %843 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(20) @.str.112) #15
-  %844 = icmp eq i32 %843, 0
-  br i1 %844, label %845, label %858
+846:                                              ; preds = %830
+  %847 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(20) @.str.112) #15
+  %848 = icmp eq i32 %847, 0
+  br i1 %848, label %849, label %862
 
-845:                                              ; preds = %842
-  %846 = load i32, ptr %512, align 8
-  %.not690.i = icmp eq i32 %846, 11
-  br i1 %.not690.i, label %856, label %847
+849:                                              ; preds = %846
+  %850 = load i32, ptr %512, align 8
+  %.not690.i = icmp eq i32 %850, 11
+  br i1 %.not690.i, label %860, label %851
 
-847:                                              ; preds = %845
-  %848 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %848, label %849, label %854
+851:                                              ; preds = %849
+  %852 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %852, label %853, label %858
 
-849:                                              ; preds = %847
-  %850 = call i32 @errcode(i32 noundef 22) #13
-  %851 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.54) #13
-  %852 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %853 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+853:                                              ; preds = %851
+  %854 = call i32 @errcode(i32 noundef 22) #13
+  %855 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.54) #13
+  %856 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %857 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2264, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %854
+  br label %858
 
-854:                                              ; preds = %849, %847
-  %855 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.54) #13
-  store ptr %855, ptr %15, align 8
+858:                                              ; preds = %853, %851
+  %859 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.54) #13
+  store ptr %859, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-856:                                              ; preds = %845
-  %857 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %857, ptr %538, align 8
-  br label %1163
+860:                                              ; preds = %849
+  %861 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %861, ptr %538, align 8
+  br label %1167
 
-858:                                              ; preds = %842
-  %859 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(17) @.str.113) #15
-  %860 = icmp eq i32 %859, 0
-  br i1 %860, label %861, label %874
+862:                                              ; preds = %846
+  %863 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(17) @.str.113) #15
+  %864 = icmp eq i32 %863, 0
+  br i1 %864, label %865, label %878
 
-861:                                              ; preds = %858
-  %862 = load i32, ptr %512, align 8
-  %.not689.i = icmp eq i32 %862, 11
-  br i1 %.not689.i, label %872, label %863
+865:                                              ; preds = %862
+  %866 = load i32, ptr %512, align 8
+  %.not689.i = icmp eq i32 %866, 11
+  br i1 %.not689.i, label %876, label %867
 
-863:                                              ; preds = %861
-  %864 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %864, label %865, label %870
+867:                                              ; preds = %865
+  %868 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %868, label %869, label %874
 
-865:                                              ; preds = %863
-  %866 = call i32 @errcode(i32 noundef 22) #13
-  %867 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.54) #13
-  %868 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %869 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+869:                                              ; preds = %867
+  %870 = call i32 @errcode(i32 noundef 22) #13
+  %871 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.54) #13
+  %872 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %873 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2269, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %870
+  br label %874
 
-870:                                              ; preds = %865, %863
-  %871 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.54) #13
-  store ptr %871, ptr %15, align 8
+874:                                              ; preds = %869, %867
+  %875 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.54) #13
+  store ptr %875, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-872:                                              ; preds = %861
-  %873 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %873, ptr %537, align 8
-  br label %1163
+876:                                              ; preds = %865
+  %877 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %877, ptr %537, align 8
+  br label %1167
 
-874:                                              ; preds = %858
-  %875 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.114) #15
-  %876 = icmp eq i32 %875, 0
-  br i1 %876, label %877, label %890
+878:                                              ; preds = %862
+  %879 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.114) #15
+  %880 = icmp eq i32 %879, 0
+  br i1 %880, label %881, label %894
 
-877:                                              ; preds = %874
-  %878 = load i32, ptr %512, align 8
-  %.not688.i = icmp eq i32 %878, 11
-  br i1 %.not688.i, label %888, label %879
+881:                                              ; preds = %878
+  %882 = load i32, ptr %512, align 8
+  %.not688.i = icmp eq i32 %882, 11
+  br i1 %.not688.i, label %892, label %883
 
-879:                                              ; preds = %877
-  %880 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %880, label %881, label %886
+883:                                              ; preds = %881
+  %884 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %884, label %885, label %890
 
-881:                                              ; preds = %879
-  %882 = call i32 @errcode(i32 noundef 22) #13
-  %883 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.54) #13
-  %884 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %885 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+885:                                              ; preds = %883
+  %886 = call i32 @errcode(i32 noundef 22) #13
+  %887 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.54) #13
+  %888 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %889 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2274, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %886
+  br label %890
 
-886:                                              ; preds = %881, %879
-  %887 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.54) #13
-  store ptr %887, ptr %15, align 8
+890:                                              ; preds = %885, %883
+  %891 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.54) #13
+  store ptr %891, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-888:                                              ; preds = %877
-  %889 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %889, ptr %536, align 8
-  br label %1163
+892:                                              ; preds = %881
+  %893 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %893, ptr %536, align 8
+  br label %1167
 
-890:                                              ; preds = %874
-  %891 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.115) #15
-  %892 = icmp eq i32 %891, 0
-  br i1 %892, label %893, label %906
+894:                                              ; preds = %878
+  %895 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.115) #15
+  %896 = icmp eq i32 %895, 0
+  br i1 %896, label %897, label %910
 
-893:                                              ; preds = %890
-  %894 = load i32, ptr %512, align 8
-  %.not687.i = icmp eq i32 %894, 11
-  br i1 %.not687.i, label %904, label %895
+897:                                              ; preds = %894
+  %898 = load i32, ptr %512, align 8
+  %.not687.i = icmp eq i32 %898, 11
+  br i1 %.not687.i, label %908, label %899
 
-895:                                              ; preds = %893
-  %896 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %896, label %897, label %902
+899:                                              ; preds = %897
+  %900 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %900, label %901, label %906
 
-897:                                              ; preds = %895
-  %898 = call i32 @errcode(i32 noundef 22) #13
-  %899 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.54) #13
-  %900 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %901 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+901:                                              ; preds = %899
+  %902 = call i32 @errcode(i32 noundef 22) #13
+  %903 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.54) #13
+  %904 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %905 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2279, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %902
+  br label %906
 
-902:                                              ; preds = %897, %895
-  %903 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.54) #13
-  store ptr %903, ptr %15, align 8
+906:                                              ; preds = %901, %899
+  %907 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.54) #13
+  store ptr %907, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-904:                                              ; preds = %893
-  %905 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %905, ptr %535, align 8
-  br label %1163
+908:                                              ; preds = %897
+  %909 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %909, ptr %535, align 8
+  br label %1167
 
-906:                                              ; preds = %890
-  %907 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.116) #15
-  %908 = icmp eq i32 %907, 0
-  br i1 %908, label %909, label %922
+910:                                              ; preds = %894
+  %911 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(11) @.str.116) #15
+  %912 = icmp eq i32 %911, 0
+  br i1 %912, label %913, label %926
 
-909:                                              ; preds = %906
-  %910 = load i32, ptr %512, align 8
-  %.not686.i = icmp eq i32 %910, 11
-  br i1 %.not686.i, label %920, label %911
+913:                                              ; preds = %910
+  %914 = load i32, ptr %512, align 8
+  %.not686.i = icmp eq i32 %914, 11
+  br i1 %.not686.i, label %924, label %915
 
-911:                                              ; preds = %909
-  %912 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %912, label %913, label %918
+915:                                              ; preds = %913
+  %916 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %916, label %917, label %922
 
-913:                                              ; preds = %911
-  %914 = call i32 @errcode(i32 noundef 22) #13
-  %915 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.54) #13
-  %916 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %917 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+917:                                              ; preds = %915
+  %918 = call i32 @errcode(i32 noundef 22) #13
+  %919 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.54) #13
+  %920 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %921 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2284, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %918
+  br label %922
 
-918:                                              ; preds = %913, %911
-  %919 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.54) #13
-  store ptr %919, ptr %15, align 8
+922:                                              ; preds = %917, %915
+  %923 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.54) #13
+  store ptr %923, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-920:                                              ; preds = %909
-  %921 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %921, ptr %534, align 8
-  br label %1163
+924:                                              ; preds = %913
+  %925 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %925, ptr %534, align 8
+  br label %1167
 
-922:                                              ; preds = %906
-  %923 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(10) @.str.117) #15
-  %924 = icmp eq i32 %923, 0
-  br i1 %924, label %925, label %938
+926:                                              ; preds = %910
+  %927 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(10) @.str.117) #15
+  %928 = icmp eq i32 %927, 0
+  br i1 %928, label %929, label %942
 
-925:                                              ; preds = %922
-  %926 = load i32, ptr %512, align 8
-  %.off.i = add i32 %926, -7
+929:                                              ; preds = %926
+  %930 = load i32, ptr %512, align 8
+  %.off.i = add i32 %930, -7
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %936, label %927
+  br i1 %switch.i, label %940, label %931
 
-927:                                              ; preds = %925
-  %928 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %928, label %929, label %934
+931:                                              ; preds = %929
+  %932 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %932, label %933, label %938
 
-929:                                              ; preds = %927
-  %930 = call i32 @errcode(i32 noundef 22) #13
-  %931 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118) #13
-  %932 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %933 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+933:                                              ; preds = %931
+  %934 = call i32 @errcode(i32 noundef 22) #13
+  %935 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118) #13
+  %936 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %937 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2291, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %934
+  br label %938
 
-934:                                              ; preds = %929, %927
-  %935 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118) #13
-  store ptr %935, ptr %15, align 8
+938:                                              ; preds = %933, %931
+  %939 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118) #13
+  store ptr %939, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-936:                                              ; preds = %925
-  %937 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %937, ptr %533, align 8
-  br label %1163
+940:                                              ; preds = %929
+  %941 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %941, ptr %533, align 8
+  br label %1167
 
-938:                                              ; preds = %922
-  %939 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(14) @.str.119) #15
-  %940 = icmp eq i32 %939, 0
-  br i1 %940, label %941, label %957
+942:                                              ; preds = %926
+  %943 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(14) @.str.119) #15
+  %944 = icmp eq i32 %943, 0
+  br i1 %944, label %945, label %961
 
-941:                                              ; preds = %938
-  %942 = load i32, ptr %512, align 8
-  %.off709.i = add i32 %942, -7
+945:                                              ; preds = %942
+  %946 = load i32, ptr %512, align 8
+  %.off709.i = add i32 %946, -7
   %switch710.i = icmp ult i32 %.off709.i, 2
-  br i1 %switch710.i, label %952, label %943
+  br i1 %switch710.i, label %sub_0731.i, label %947
 
-943:                                              ; preds = %941
-  %944 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %944, label %945, label %950
+947:                                              ; preds = %945
+  %948 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %948, label %949, label %954
 
-945:                                              ; preds = %943
-  %946 = call i32 @errcode(i32 noundef 22) #13
-  %947 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.118) #13
-  %948 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %949 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+949:                                              ; preds = %947
+  %950 = call i32 @errcode(i32 noundef 22) #13
+  %951 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.118) #13
+  %952 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %953 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2298, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %950
+  br label %954
 
-950:                                              ; preds = %945, %943
-  %951 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.118) #13
-  store ptr %951, ptr %15, align 8
+954:                                              ; preds = %949, %947
+  %955 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.118) #13
+  store ptr %955, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-952:                                              ; preds = %941
-  %953 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(2) @.str.101) #15
-  %954 = icmp eq i32 %953, 0
-  br i1 %954, label %955, label %956
+sub_0731.i:                                       ; preds = %945
+  %956 = load i8, ptr %583, align 1
+  %.not762.i = icmp eq i8 %956, 49
+  br i1 %.not762.i, label %.tail730.i, label %.tail730.thread.i
 
-955:                                              ; preds = %952
+.tail730.i:                                       ; preds = %sub_0731.i
+  %957 = getelementptr i8, ptr %569, i64 2
+  %958 = load i8, ptr %957, align 1
+  %959 = icmp eq i8 %958, 0
+  br i1 %959, label %960, label %.tail730.thread.i
+
+960:                                              ; preds = %.tail730.i
   store i8 1, ptr %532, align 8
-  br label %1163
+  br label %1167
 
-956:                                              ; preds = %952
+.tail730.thread.i:                                ; preds = %.tail730.i, %sub_0731.i
   store i8 0, ptr %532, align 8
-  br label %1163
+  br label %1167
 
-957:                                              ; preds = %938
-  %958 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(13) @.str.120) #15
-  %959 = icmp eq i32 %958, 0
-  br i1 %959, label %960, label %976
+961:                                              ; preds = %942
+  %962 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(13) @.str.120) #15
+  %963 = icmp eq i32 %962, 0
+  br i1 %963, label %964, label %980
 
-960:                                              ; preds = %957
-  %961 = load i32, ptr %512, align 8
-  %.not681.i = icmp eq i32 %961, 8
-  br i1 %.not681.i, label %971, label %962
+964:                                              ; preds = %961
+  %965 = load i32, ptr %512, align 8
+  %.not681.i = icmp eq i32 %965, 8
+  br i1 %.not681.i, label %sub_0735.i, label %966
 
-962:                                              ; preds = %960
-  %963 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %963, label %964, label %969
+966:                                              ; preds = %964
+  %967 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %967, label %968, label %973
 
-964:                                              ; preds = %962
-  %965 = call i32 @errcode(i32 noundef 22) #13
-  %966 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.48) #13
-  %967 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %968 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+968:                                              ; preds = %966
+  %969 = call i32 @errcode(i32 noundef 22) #13
+  %970 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.48) #13
+  %971 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %972 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2307, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %969
+  br label %973
 
-969:                                              ; preds = %964, %962
-  %970 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.48) #13
-  store ptr %970, ptr %15, align 8
+973:                                              ; preds = %968, %966
+  %974 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.48) #13
+  store ptr %974, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-971:                                              ; preds = %960
-  %972 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(2) @.str.101) #15
-  %973 = icmp eq i32 %972, 0
-  br i1 %973, label %974, label %975
+sub_0735.i:                                       ; preds = %964
+  %975 = load i8, ptr %583, align 1
+  %.not761.i = icmp eq i8 %975, 49
+  br i1 %.not761.i, label %.tail734.i, label %.tail734.thread.i
 
-974:                                              ; preds = %971
+.tail734.i:                                       ; preds = %sub_0735.i
+  %976 = getelementptr i8, ptr %569, i64 2
+  %977 = load i8, ptr %976, align 1
+  %978 = icmp eq i8 %977, 0
+  br i1 %978, label %979, label %.tail734.thread.i
+
+979:                                              ; preds = %.tail734.i
   store i8 1, ptr %531, align 1
-  br label %1163
+  br label %1167
 
-975:                                              ; preds = %971
+.tail734.thread.i:                                ; preds = %.tail734.i, %sub_0735.i
   store i8 0, ptr %531, align 1
-  br label %1163
+  br label %1167
 
-976:                                              ; preds = %957
-  %977 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(13) @.str.121) #15
-  %978 = icmp eq i32 %977, 0
-  br i1 %978, label %979, label %995
+980:                                              ; preds = %961
+  %981 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(13) @.str.121) #15
+  %982 = icmp eq i32 %981, 0
+  br i1 %982, label %983, label %999
 
-979:                                              ; preds = %976
-  %980 = load i32, ptr %512, align 8
-  %.not680.i = icmp eq i32 %980, 8
-  br i1 %.not680.i, label %990, label %981
+983:                                              ; preds = %980
+  %984 = load i32, ptr %512, align 8
+  %.not680.i = icmp eq i32 %984, 8
+  br i1 %.not680.i, label %sub_0739.i, label %985
 
-981:                                              ; preds = %979
-  %982 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %982, label %983, label %988
+985:                                              ; preds = %983
+  %986 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %986, label %987, label %992
 
-983:                                              ; preds = %981
-  %984 = call i32 @errcode(i32 noundef 22) #13
-  %985 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.48) #13
-  %986 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %987 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+987:                                              ; preds = %985
+  %988 = call i32 @errcode(i32 noundef 22) #13
+  %989 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.48) #13
+  %990 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %991 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2316, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %988
+  br label %992
 
-988:                                              ; preds = %983, %981
-  %989 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.48) #13
-  store ptr %989, ptr %15, align 8
+992:                                              ; preds = %987, %985
+  %993 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.48) #13
+  store ptr %993, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-990:                                              ; preds = %979
-  %991 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(2) @.str.101) #15
-  %992 = icmp eq i32 %991, 0
-  br i1 %992, label %993, label %994
+sub_0739.i:                                       ; preds = %983
+  %994 = load i8, ptr %583, align 1
+  %.not760.i = icmp eq i8 %994, 49
+  br i1 %.not760.i, label %.tail738.i, label %.tail738.thread.i
 
-993:                                              ; preds = %990
+.tail738.i:                                       ; preds = %sub_0739.i
+  %995 = getelementptr i8, ptr %569, i64 2
+  %996 = load i8, ptr %995, align 1
+  %997 = icmp eq i8 %996, 0
+  br i1 %997, label %998, label %.tail738.thread.i
+
+998:                                              ; preds = %.tail738.i
   store i8 1, ptr %530, align 2
-  br label %1163
+  br label %1167
 
-994:                                              ; preds = %990
+.tail738.thread.i:                                ; preds = %.tail738.i, %sub_0739.i
   store i8 0, ptr %530, align 2
-  br label %1163
+  br label %1167
 
-995:                                              ; preds = %976
-  %996 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(14) @.str.68) #15
-  %997 = icmp eq i32 %996, 0
-  br i1 %997, label %998, label %1054
+999:                                              ; preds = %980
+  %1000 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(14) @.str.68) #15
+  %1001 = icmp eq i32 %1000, 0
+  br i1 %1001, label %1002, label %1058
 
-998:                                              ; preds = %995
-  %999 = call ptr @pstrdup(ptr noundef %583) #13
-  %1000 = load i32, ptr %512, align 8
-  %.not676.i = icmp eq i32 %1000, 13
-  br i1 %.not676.i, label %1010, label %1001
+1002:                                             ; preds = %999
+  %1003 = call ptr @pstrdup(ptr noundef %583) #13
+  %1004 = load i32, ptr %512, align 8
+  %.not676.i = icmp eq i32 %1004, 13
+  br i1 %.not676.i, label %1014, label %1005
 
-1001:                                             ; preds = %998
-  %1002 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1002, label %1003, label %1008
+1005:                                             ; preds = %1002
+  %1006 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1006, label %1007, label %1012
 
-1003:                                             ; preds = %1001
-  %1004 = call i32 @errcode(i32 noundef 22) #13
-  %1005 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.56) #13
-  %1006 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1007 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1007:                                             ; preds = %1005
+  %1008 = call i32 @errcode(i32 noundef 22) #13
+  %1009 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.56) #13
+  %1010 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1011 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2331, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %1008
+  br label %1012
 
-1008:                                             ; preds = %1003, %1001
-  %1009 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.56) #13
-  store ptr %1009, ptr %15, align 8
+1012:                                             ; preds = %1007, %1005
+  %1013 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.56) #13
+  store ptr %1013, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-1010:                                             ; preds = %998
-  %1011 = call zeroext i1 @SplitGUCList(ptr noundef %999, i8 noundef signext 44, ptr noundef nonnull %5) #13
-  br i1 %1011, label %1019, label %1012
+1014:                                             ; preds = %1002
+  %1015 = call zeroext i1 @SplitGUCList(ptr noundef %1003, i8 noundef signext 44, ptr noundef nonnull %5) #13
+  br i1 %1015, label %1023, label %1016
 
-1012:                                             ; preds = %1010
-  %1013 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1013, label %1014, label %parse_hba_auth_opt.exit.thread
+1016:                                             ; preds = %1014
+  %1017 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1017, label %1018, label %parse_hba_auth_opt.exit.thread
 
-1014:                                             ; preds = %1012
-  %1015 = call i32 @errcode(i32 noundef 22) #13
-  %1016 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.122, ptr noundef %583) #13
-  %1017 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1018 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1018:                                             ; preds = %1016
+  %1019 = call i32 @errcode(i32 noundef 22) #13
+  %1020 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.122, ptr noundef %583) #13
+  %1021 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1022 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2341, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
   br label %parse_hba_auth_opt.exit.thread
 
-1019:                                             ; preds = %1010
-  %1020 = load ptr, ptr %5, align 8
-  %.not677.i = icmp eq ptr %1020, null
-  br i1 %.not677.i, label %._crit_edge727.i, label %.lr.ph726.i
+1023:                                             ; preds = %1014
+  %1024 = load ptr, ptr %5, align 8
+  %.not677.i = icmp eq ptr %1024, null
+  br i1 %.not677.i, label %._crit_edge752.i, label %.lr.ph751.i
 
-.lr.ph726.i:                                      ; preds = %1019
-  %1021 = getelementptr inbounds i8, ptr %1020, i64 4
-  %1022 = getelementptr inbounds i8, ptr %1020, i64 16
-  %1023 = load i32, ptr %1021, align 4
-  %1024 = icmp sgt i32 %1023, 0
-  br i1 %1024, label %.lr.ph734.i, label %._crit_edge727.i
+.lr.ph751.i:                                      ; preds = %1023
+  %1025 = getelementptr inbounds i8, ptr %1024, i64 4
+  %1026 = getelementptr inbounds i8, ptr %1024, i64 16
+  %1027 = load i32, ptr %1025, align 4
+  %1028 = icmp sgt i32 %1027, 0
+  br i1 %1028, label %.lr.ph759.i, label %._crit_edge752.i
 
-.lr.ph734.i:                                      ; preds = %.lr.ph726.i, %1047
-  %indvars.iv739.i = phi i64 [ %indvars.iv.next740.i, %1047 ], [ 0, %.lr.ph726.i ]
-  %1025 = load ptr, ptr %1022, align 8
+.lr.ph759.i:                                      ; preds = %.lr.ph751.i, %1051
+  %indvars.iv773.i = phi i64 [ %indvars.iv.next774.i, %1051 ], [ 0, %.lr.ph751.i ]
+  %1029 = load ptr, ptr %1026, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
-  %1026 = getelementptr %union.ListCell, ptr %1025, i64 %indvars.iv739.i
+  %1030 = getelementptr %union.ListCell, ptr %1029, i64 %indvars.iv773.i
   store i32 2, ptr %526, align 8
-  %1027 = load ptr, ptr %1026, align 8
-  %1028 = call i32 @pg_getaddrinfo_all(ptr noundef %1027, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %3) #13
-  %1029 = icmp eq i32 %1028, 0
-  %1030 = load ptr, ptr %3, align 8
-  %1031 = icmp ne ptr %1030, null
-  %or.cond121.i = select i1 %1029, i1 %1031, i1 false
-  br i1 %or.cond121.i, label %1047, label %.split730.us.i
+  %1031 = load ptr, ptr %1030, align 8
+  %1032 = call i32 @pg_getaddrinfo_all(ptr noundef %1031, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %3) #13
+  %1033 = icmp eq i32 %1032, 0
+  %1034 = load ptr, ptr %3, align 8
+  %1035 = icmp ne ptr %1034, null
+  %or.cond121.i = select i1 %1033, i1 %1035, i1 false
+  br i1 %or.cond121.i, label %1051, label %.split755.us.i
 
-.split730.us.i:                                   ; preds = %.lr.ph734.i
-  %1032 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1032, label %1033, label %1041
+.split755.us.i:                                   ; preds = %.lr.ph759.i
+  %1036 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1036, label %1037, label %1045
 
-1033:                                             ; preds = %.split730.us.i
-  %1034 = getelementptr %union.ListCell, ptr %1025, i64 %indvars.iv739.i
-  %1035 = call i32 @errcode(i32 noundef 22) #13
-  %1036 = load ptr, ptr %1034, align 8
-  %1037 = call ptr @gai_strerror(i32 noundef %1028) #13
-  %1038 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.123, ptr noundef %1036, ptr noundef %1037) #13
-  %1039 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1040 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1037:                                             ; preds = %.split755.us.i
+  %1038 = getelementptr %union.ListCell, ptr %1029, i64 %indvars.iv773.i
+  %1039 = call i32 @errcode(i32 noundef 22) #13
+  %1040 = load ptr, ptr %1038, align 8
+  %1041 = call ptr @gai_strerror(i32 noundef %1032) #13
+  %1042 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.123, ptr noundef %1040, ptr noundef %1041) #13
+  %1043 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1044 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2360, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %1041
-
-1041:                                             ; preds = %1033, %.split730.us.i
-  %1042 = load ptr, ptr %3, align 8
-  %.not679.i = icmp eq ptr %1042, null
-  br i1 %.not679.i, label %1045, label %1043
-
-1043:                                             ; preds = %1041
-  %1044 = load i32, ptr %527, align 4
-  call void @pg_freeaddrinfo_all(i32 noundef %1044, ptr noundef nonnull %1042) #13
   br label %1045
 
-1045:                                             ; preds = %1043, %1041
-  %1046 = load ptr, ptr %5, align 8
-  call void @list_free(ptr noundef %1046) #13
-  br label %parse_hba_auth_opt.exit.thread
+1045:                                             ; preds = %1037, %.split755.us.i
+  %1046 = load ptr, ptr %3, align 8
+  %.not679.i = icmp eq ptr %1046, null
+  br i1 %.not679.i, label %1049, label %1047
 
-1047:                                             ; preds = %.lr.ph734.i
+1047:                                             ; preds = %1045
   %1048 = load i32, ptr %527, align 4
-  call void @pg_freeaddrinfo_all(i32 noundef %1048, ptr noundef nonnull %1030) #13
-  %indvars.iv.next740.i = add nuw nsw i64 %indvars.iv739.i, 1
-  %1049 = load i32, ptr %1021, align 4
-  %1050 = sext i32 %1049 to i64
-  %1051 = icmp slt i64 %indvars.iv.next740.i, %1050
-  br i1 %1051, label %.lr.ph734.i, label %._crit_edge727.loopexit.i
+  call void @pg_freeaddrinfo_all(i32 noundef %1048, ptr noundef nonnull %1046) #13
+  br label %1049
 
-._crit_edge727.loopexit.i:                        ; preds = %1047
+1049:                                             ; preds = %1047, %1045
+  %1050 = load ptr, ptr %5, align 8
+  call void @list_free(ptr noundef %1050) #13
+  br label %parse_hba_auth_opt.exit.thread
+
+1051:                                             ; preds = %.lr.ph759.i
+  %1052 = load i32, ptr %527, align 4
+  call void @pg_freeaddrinfo_all(i32 noundef %1052, ptr noundef nonnull %1034) #13
+  %indvars.iv.next774.i = add nuw nsw i64 %indvars.iv773.i, 1
+  %1053 = load i32, ptr %1025, align 4
+  %1054 = sext i32 %1053 to i64
+  %1055 = icmp slt i64 %indvars.iv.next774.i, %1054
+  br i1 %1055, label %.lr.ph759.i, label %._crit_edge752.loopexit.i
+
+._crit_edge752.loopexit.i:                        ; preds = %1051
   %.pre.i = load ptr, ptr %5, align 8
-  br label %._crit_edge727.i
+  br label %._crit_edge752.i
 
-._crit_edge727.i:                                 ; preds = %._crit_edge727.loopexit.i, %.lr.ph726.i, %1019
-  %1052 = phi ptr [ %.pre.i, %._crit_edge727.loopexit.i ], [ %1020, %.lr.ph726.i ], [ null, %1019 ]
-  store ptr %1052, ptr %528, align 8
-  %1053 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %1053, ptr %529, align 8
-  br label %1163
+._crit_edge752.i:                                 ; preds = %._crit_edge752.loopexit.i, %.lr.ph751.i, %1023
+  %1056 = phi ptr [ %.pre.i, %._crit_edge752.loopexit.i ], [ %1024, %.lr.ph751.i ], [ null, %1023 ]
+  store ptr %1056, ptr %528, align 8
+  %1057 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %1057, ptr %529, align 8
+  br label %1167
 
-1054:                                             ; preds = %995
-  %1055 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(12) @.str.124) #15
-  %1056 = icmp eq i32 %1055, 0
-  br i1 %1056, label %1057, label %1100
+1058:                                             ; preds = %999
+  %1059 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(12) @.str.124) #15
+  %1060 = icmp eq i32 %1059, 0
+  br i1 %1060, label %1061, label %1104
 
-1057:                                             ; preds = %1054
-  %1058 = call ptr @pstrdup(ptr noundef %583) #13
-  %1059 = load i32, ptr %512, align 8
-  %.not673.i = icmp eq i32 %1059, 13
-  br i1 %.not673.i, label %1069, label %1060
+1061:                                             ; preds = %1058
+  %1062 = call ptr @pstrdup(ptr noundef %583) #13
+  %1063 = load i32, ptr %512, align 8
+  %.not673.i = icmp eq i32 %1063, 13
+  br i1 %.not673.i, label %1073, label %1064
 
-1060:                                             ; preds = %1057
-  %1061 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1061, label %1062, label %1067
+1064:                                             ; preds = %1061
+  %1065 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1065, label %1066, label %1071
 
-1062:                                             ; preds = %1060
-  %1063 = call i32 @errcode(i32 noundef 22) #13
-  %1064 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.56) #13
-  %1065 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1066 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1066:                                             ; preds = %1064
+  %1067 = call i32 @errcode(i32 noundef 22) #13
+  %1068 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.56) #13
+  %1069 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1070 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2380, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %1067
+  br label %1071
 
-1067:                                             ; preds = %1062, %1060
-  %1068 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.56) #13
-  store ptr %1068, ptr %15, align 8
+1071:                                             ; preds = %1066, %1064
+  %1072 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.56) #13
+  store ptr %1072, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-1069:                                             ; preds = %1057
-  %1070 = call zeroext i1 @SplitGUCList(ptr noundef %1058, i8 noundef signext 44, ptr noundef nonnull %6) #13
-  br i1 %1070, label %1080, label %1071
+1073:                                             ; preds = %1061
+  %1074 = call zeroext i1 @SplitGUCList(ptr noundef %1062, i8 noundef signext 44, ptr noundef nonnull %6) #13
+  br i1 %1074, label %1084, label %1075
 
-1071:                                             ; preds = %1069
-  %1072 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1072, label %1073, label %1078
+1075:                                             ; preds = %1073
+  %1076 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1076, label %1077, label %1082
 
-1073:                                             ; preds = %1071
-  %1074 = call i32 @errcode(i32 noundef 22) #13
-  %1075 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.125, ptr noundef %583) #13
-  %1076 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1077 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1077:                                             ; preds = %1075
+  %1078 = call i32 @errcode(i32 noundef 22) #13
+  %1079 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.125, ptr noundef %583) #13
+  %1080 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1081 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2389, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %1078
+  br label %1082
 
-1078:                                             ; preds = %1073, %1071
-  %1079 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.126, ptr noundef %583) #13
-  store ptr %1079, ptr %15, align 8
+1082:                                             ; preds = %1077, %1075
+  %1083 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.126, ptr noundef %583) #13
+  store ptr %1083, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-1080:                                             ; preds = %1069
-  %1081 = load ptr, ptr %6, align 8
-  %.not674.i = icmp eq ptr %1081, null
+1084:                                             ; preds = %1073
+  %1085 = load ptr, ptr %6, align 8
+  %.not674.i = icmp eq ptr %1085, null
   br i1 %.not674.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1080
-  %1082 = getelementptr inbounds i8, ptr %1081, i64 4
-  %1083 = load i32, ptr %1082, align 4
-  %1084 = icmp sgt i32 %1083, 0
-  br i1 %1084, label %.lr.ph722.i, label %._crit_edge.i
+.lr.ph.i:                                         ; preds = %1084
+  %1086 = getelementptr inbounds i8, ptr %1085, i64 4
+  %1087 = load i32, ptr %1086, align 4
+  %1088 = icmp sgt i32 %1087, 0
+  br i1 %1088, label %.lr.ph747.i, label %._crit_edge.i
 
-.lr.ph722.i:                                      ; preds = %.lr.ph.i
-  %1085 = getelementptr inbounds i8, ptr %1081, i64 16
-  %1086 = load ptr, ptr %1085, align 8
-  %wide.trip.count.i = zext nneg i32 %1083 to i64
-  br label %1088
+.lr.ph747.i:                                      ; preds = %.lr.ph.i
+  %1089 = getelementptr inbounds i8, ptr %1085, i64 16
+  %1090 = load ptr, ptr %1089, align 8
+  %wide.trip.count.i = zext nneg i32 %1087 to i64
+  br label %1092
 
-1087:                                             ; preds = %1088
+1091:                                             ; preds = %1092
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %1088
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %1092
 
-1088:                                             ; preds = %1087, %.lr.ph722.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph722.i ], [ %indvars.iv.next.i, %1087 ]
-  %1089 = getelementptr %union.ListCell, ptr %1086, i64 %indvars.iv.i
-  %1090 = load ptr, ptr %1089, align 8
-  %1091 = call i32 @atoi(ptr nocapture noundef %1090) #15
-  %1092 = icmp eq i32 %1091, 0
-  br i1 %1092, label %.split.i, label %1087
+1092:                                             ; preds = %1091, %.lr.ph747.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph747.i ], [ %indvars.iv.next.i, %1091 ]
+  %1093 = getelementptr %union.ListCell, ptr %1090, i64 %indvars.iv.i
+  %1094 = load ptr, ptr %1093, align 8
+  %1095 = call i32 @atoi(ptr nocapture noundef %1094) #15
+  %1096 = icmp eq i32 %1095, 0
+  br i1 %1096, label %.split.i, label %1091
 
-.split.i:                                         ; preds = %1088
-  %1093 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1093, label %1094, label %parse_hba_auth_opt.exit.thread
+.split.i:                                         ; preds = %1092
+  %1097 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1097, label %1098, label %parse_hba_auth_opt.exit.thread
 
-1094:                                             ; preds = %.split.i
-  %1095 = call i32 @errcode(i32 noundef 22) #13
-  %1096 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.126, ptr noundef %583) #13
-  %1097 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1098 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1098:                                             ; preds = %.split.i
+  %1099 = call i32 @errcode(i32 noundef 22) #13
+  %1100 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.126, ptr noundef %583) #13
+  %1101 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1102 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2402, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
   br label %parse_hba_auth_opt.exit.thread
 
-._crit_edge.i:                                    ; preds = %1087, %.lr.ph.i, %1080
-  store ptr %1081, ptr %524, align 8
-  %1099 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %1099, ptr %525, align 8
-  br label %1163
+._crit_edge.i:                                    ; preds = %1091, %.lr.ph.i, %1084
+  store ptr %1085, ptr %524, align 8
+  %1103 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %1103, ptr %525, align 8
+  br label %1167
 
-1100:                                             ; preds = %1054
-  %1101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(14) @.str.69) #15
-  %1102 = icmp eq i32 %1101, 0
-  br i1 %1102, label %1103, label %1127
+1104:                                             ; preds = %1058
+  %1105 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(14) @.str.69) #15
+  %1106 = icmp eq i32 %1105, 0
+  br i1 %1106, label %1107, label %1131
 
-1103:                                             ; preds = %1100
-  %1104 = call ptr @pstrdup(ptr noundef %583) #13
-  %1105 = load i32, ptr %512, align 8
-  %.not672.i = icmp eq i32 %1105, 13
-  br i1 %.not672.i, label %1115, label %1106
+1107:                                             ; preds = %1104
+  %1108 = call ptr @pstrdup(ptr noundef %583) #13
+  %1109 = load i32, ptr %512, align 8
+  %.not672.i = icmp eq i32 %1109, 13
+  br i1 %.not672.i, label %1119, label %1110
 
-1106:                                             ; preds = %1103
-  %1107 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1107, label %1108, label %1113
+1110:                                             ; preds = %1107
+  %1111 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1111, label %1112, label %1117
 
-1108:                                             ; preds = %1106
-  %1109 = call i32 @errcode(i32 noundef 22) #13
-  %1110 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.56) #13
-  %1111 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1112 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1112:                                             ; preds = %1110
+  %1113 = call i32 @errcode(i32 noundef 22) #13
+  %1114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.56) #13
+  %1115 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1116 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2415, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %1113
+  br label %1117
 
-1113:                                             ; preds = %1108, %1106
-  %1114 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.56) #13
-  store ptr %1114, ptr %15, align 8
+1117:                                             ; preds = %1112, %1110
+  %1118 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.56) #13
+  store ptr %1118, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-1115:                                             ; preds = %1103
-  %1116 = call zeroext i1 @SplitGUCList(ptr noundef %1104, i8 noundef signext 44, ptr noundef nonnull %7) #13
-  br i1 %1116, label %1124, label %1117
+1119:                                             ; preds = %1107
+  %1120 = call zeroext i1 @SplitGUCList(ptr noundef %1108, i8 noundef signext 44, ptr noundef nonnull %7) #13
+  br i1 %1120, label %1128, label %1121
 
-1117:                                             ; preds = %1115
-  %1118 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1118, label %1119, label %parse_hba_auth_opt.exit.thread
+1121:                                             ; preds = %1119
+  %1122 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1122, label %1123, label %parse_hba_auth_opt.exit.thread
 
-1119:                                             ; preds = %1117
-  %1120 = call i32 @errcode(i32 noundef 22) #13
-  %1121 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.127, ptr noundef %583) #13
-  %1122 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1123 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1123:                                             ; preds = %1121
+  %1124 = call i32 @errcode(i32 noundef 22) #13
+  %1125 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.127, ptr noundef %583) #13
+  %1126 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1127 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2425, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
   br label %parse_hba_auth_opt.exit.thread
 
-1124:                                             ; preds = %1115
-  %1125 = load ptr, ptr %7, align 8
-  store ptr %1125, ptr %522, align 8
-  %1126 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %1126, ptr %523, align 8
-  br label %1163
+1128:                                             ; preds = %1119
+  %1129 = load ptr, ptr %7, align 8
+  store ptr %1129, ptr %522, align 8
+  %1130 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %1130, ptr %523, align 8
+  br label %1167
 
-1127:                                             ; preds = %1100
-  %1128 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(18) @.str.128) #15
-  %1129 = icmp eq i32 %1128, 0
-  br i1 %1129, label %1130, label %1154
+1131:                                             ; preds = %1104
+  %1132 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %568, ptr noundef nonnull dereferenceable(18) @.str.128) #15
+  %1133 = icmp eq i32 %1132, 0
+  br i1 %1133, label %1134, label %1158
 
-1130:                                             ; preds = %1127
-  %1131 = call ptr @pstrdup(ptr noundef %583) #13
-  %1132 = load i32, ptr %512, align 8
-  %.not.i780 = icmp eq i32 %1132, 13
-  br i1 %.not.i780, label %1142, label %1133
+1134:                                             ; preds = %1131
+  %1135 = call ptr @pstrdup(ptr noundef %583) #13
+  %1136 = load i32, ptr %512, align 8
+  %.not.i780 = icmp eq i32 %1136, 13
+  br i1 %.not.i780, label %1146, label %1137
 
-1133:                                             ; preds = %1130
-  %1134 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1134, label %1135, label %1140
+1137:                                             ; preds = %1134
+  %1138 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1138, label %1139, label %1144
 
-1135:                                             ; preds = %1133
-  %1136 = call i32 @errcode(i32 noundef 22) #13
-  %1137 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.56) #13
-  %1138 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1139 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1139:                                             ; preds = %1137
+  %1140 = call i32 @errcode(i32 noundef 22) #13
+  %1141 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.56) #13
+  %1142 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1143 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2437, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %1140
+  br label %1144
 
-1140:                                             ; preds = %1135, %1133
-  %1141 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.56) #13
-  store ptr %1141, ptr %15, align 8
+1144:                                             ; preds = %1139, %1137
+  %1145 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.56) #13
+  store ptr %1145, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-1142:                                             ; preds = %1130
-  %1143 = call zeroext i1 @SplitGUCList(ptr noundef %1131, i8 noundef signext 44, ptr noundef nonnull %8) #13
-  br i1 %1143, label %1151, label %1144
+1146:                                             ; preds = %1134
+  %1147 = call zeroext i1 @SplitGUCList(ptr noundef %1135, i8 noundef signext 44, ptr noundef nonnull %8) #13
+  br i1 %1147, label %1155, label %1148
 
-1144:                                             ; preds = %1142
-  %1145 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1145, label %1146, label %parse_hba_auth_opt.exit.thread
+1148:                                             ; preds = %1146
+  %1149 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1149, label %1150, label %parse_hba_auth_opt.exit.thread
 
-1146:                                             ; preds = %1144
-  %1147 = call i32 @errcode(i32 noundef 22) #13
-  %1148 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.129, ptr noundef %583) #13
-  %1149 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1150 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1150:                                             ; preds = %1148
+  %1151 = call i32 @errcode(i32 noundef 22) #13
+  %1152 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.129, ptr noundef %583) #13
+  %1153 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1154 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2447, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
   br label %parse_hba_auth_opt.exit.thread
 
-1151:                                             ; preds = %1142
-  %1152 = load ptr, ptr %8, align 8
-  store ptr %1152, ptr %520, align 8
-  %1153 = call ptr @pstrdup(ptr noundef %583) #13
-  store ptr %1153, ptr %521, align 8
-  br label %1163
+1155:                                             ; preds = %1146
+  %1156 = load ptr, ptr %8, align 8
+  store ptr %1156, ptr %520, align 8
+  %1157 = call ptr @pstrdup(ptr noundef %583) #13
+  store ptr %1157, ptr %521, align 8
+  br label %1167
 
-1154:                                             ; preds = %1127
-  %1155 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1155, label %1156, label %1161
+1158:                                             ; preds = %1131
+  %1159 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1159, label %1160, label %1165
 
-1156:                                             ; preds = %1154
-  %1157 = call i32 @errcode(i32 noundef 22) #13
-  %1158 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.130, ptr noundef %568) #13
-  %1159 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1160 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
+1160:                                             ; preds = %1158
+  %1161 = call i32 @errcode(i32 noundef 22) #13
+  %1162 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.130, ptr noundef %568) #13
+  %1163 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1164 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %584, ptr noundef %585) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2461, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
-  br label %1161
+  br label %1165
 
-1161:                                             ; preds = %1156, %1154
-  %1162 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.130, ptr noundef %568) #13
-  store ptr %1162, ptr %15, align 8
+1165:                                             ; preds = %1160, %1158
+  %1166 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.130, ptr noundef %568) #13
+  store ptr %1166, ptr %15, align 8
   br label %parse_hba_auth_opt.exit.thread
 
-parse_hba_auth_opt.exit.thread:                   ; preds = %1144, %1146, %1117, %1119, %.split.i, %1094, %1012, %1014, %661, %663, %633, %635, %597, %613, %631, %652, %680, %696, %715, %734, %753, %780, %796, %808, %822, %838, %854, %870, %886, %902, %918, %934, %950, %969, %988, %1008, %1045, %1067, %1078, %1113, %1140, %1161
+parse_hba_auth_opt.exit.thread:                   ; preds = %1148, %1150, %1121, %1123, %.split.i, %1098, %1016, %1018, %.tail717.thread.i, %667, %633, %635, %597, %613, %631, %652, %684, %700, %719, %738, %757, %784, %800, %812, %826, %842, %858, %874, %890, %906, %922, %938, %954, %973, %992, %1012, %1049, %1071, %1082, %1117, %1144, %1165
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -3246,7 +3294,7 @@ parse_hba_auth_opt.exit.thread:                   ; preds = %1144, %1146, %1117,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.thread851
 
-1163:                                             ; preds = %1151, %1124, %._crit_edge.i, %._crit_edge727.i, %994, %993, %975, %974, %956, %955, %936, %920, %904, %888, %872, %856, %840, %824, %798, %782, %766, %740, %739, %721, %702, %701, %682, %660, %656, %632, %617, %599
+1167:                                             ; preds = %1155, %1128, %._crit_edge.i, %._crit_edge752.i, %.tail738.thread.i, %998, %.tail734.thread.i, %979, %.tail730.thread.i, %960, %940, %924, %908, %892, %876, %860, %844, %828, %802, %786, %770, %.tail726.thread.i, %744, %725, %.tail722.thread.i, %706, %686, %665, %659, %632, %617, %599
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -3255,438 +3303,438 @@ parse_hba_auth_opt.exit.thread:                   ; preds = %1144, %1146, %1117,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @pfree(ptr noundef %568) #13
   %indvars.iv.next1262 = add nuw nsw i64 %indvars.iv12611652, 1
-  %1164 = load i32, ptr %553, align 4
-  %1165 = sext i32 %1164 to i64
-  %1166 = icmp slt i64 %indvars.iv.next1262, %1165
-  br i1 %1166, label %.lr.ph1653, label %._crit_edge1060.loopexit
+  %1168 = load i32, ptr %553, align 4
+  %1169 = sext i32 %1168 to i64
+  %1170 = icmp slt i64 %indvars.iv.next1262, %1169
+  br i1 %1170, label %.lr.ph1653, label %._crit_edge1060.loopexit
 
 ._crit_edge1068.loopexit:                         ; preds = %._crit_edge1060
   %.pre1264 = load i32, ptr %512, align 8
   br label %._crit_edge1068
 
 ._crit_edge1068:                                  ; preds = %._crit_edge1068.loopexit, %.thread842
-  %1167 = phi i32 [ %.pre1264, %._crit_edge1068.loopexit ], [ %.pr8411270, %.thread842 ]
-  switch i32 %1167, label %.thread851 [
-    i32 11, label %1168
-    i32 13, label %1234
-    i32 12, label %1368
+  %1171 = phi i32 [ %.pre1264, %._crit_edge1068.loopexit ], [ %.pr8411270, %.thread842 ]
+  switch i32 %1171, label %.thread851 [
+    i32 11, label %1172
+    i32 13, label %1238
+    i32 12, label %1372
   ]
 
-1168:                                             ; preds = %._crit_edge1068
-  %1169 = getelementptr inbounds i8, ptr %16, i64 368
-  %1170 = load ptr, ptr %1169, align 8
-  %1171 = icmp eq ptr %1170, null
-  br i1 %1171, label %1172, label %1181
+1172:                                             ; preds = %._crit_edge1068
+  %1173 = getelementptr inbounds i8, ptr %16, i64 368
+  %1174 = load ptr, ptr %1173, align 8
+  %1175 = icmp eq ptr %1174, null
+  br i1 %1175, label %1176, label %1185
 
-1172:                                             ; preds = %1168
-  %1173 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1173, label %1174, label %1179
+1176:                                             ; preds = %1172
+  %1177 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1177, label %1178, label %1183
 
-1174:                                             ; preds = %1172
-  %1175 = call i32 @errcode(i32 noundef 22) #13
-  %1176 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.64) #13
-  %1177 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1178 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
+1178:                                             ; preds = %1176
+  %1179 = call i32 @errcode(i32 noundef 22) #13
+  %1180 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.64) #13
+  %1181 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1182 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1895, ptr noundef nonnull @__func__.parse_hba_line) #13
-  br label %1179
+  br label %1183
 
-1179:                                             ; preds = %1174, %1172
-  %1180 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.64) #13
-  store ptr %1180, ptr %15, align 8
+1183:                                             ; preds = %1178, %1176
+  %1184 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.64) #13
+  store ptr %1184, ptr %15, align 8
   br label %.thread851
 
-1181:                                             ; preds = %1168
-  %1182 = getelementptr inbounds i8, ptr %16, i64 432
-  %1183 = load ptr, ptr %1182, align 8
-  %.not740 = icmp eq ptr %1183, null
-  br i1 %.not740, label %1184, label %1187
+1185:                                             ; preds = %1172
+  %1186 = getelementptr inbounds i8, ptr %16, i64 432
+  %1187 = load ptr, ptr %1186, align 8
+  %.not740 = icmp eq ptr %1187, null
+  br i1 %.not740, label %1188, label %1191
 
-1184:                                             ; preds = %1181
-  %1185 = getelementptr inbounds i8, ptr %16, i64 440
-  %1186 = load ptr, ptr %1185, align 8
-  %.not741 = icmp eq ptr %1186, null
-  br i1 %.not741, label %1210, label %1187
+1188:                                             ; preds = %1185
+  %1189 = getelementptr inbounds i8, ptr %16, i64 440
+  %1190 = load ptr, ptr %1189, align 8
+  %.not741 = icmp eq ptr %1190, null
+  br i1 %.not741, label %1214, label %1191
 
-1187:                                             ; preds = %1184, %1181
-  %1188 = getelementptr inbounds i8, ptr %16, i64 416
-  %1189 = load ptr, ptr %1188, align 8
-  %.not743 = icmp eq ptr %1189, null
-  br i1 %.not743, label %1190, label %1202
+1191:                                             ; preds = %1188, %1185
+  %1192 = getelementptr inbounds i8, ptr %16, i64 416
+  %1193 = load ptr, ptr %1192, align 8
+  %.not743 = icmp eq ptr %1193, null
+  br i1 %.not743, label %1194, label %1206
 
-1190:                                             ; preds = %1187
-  %1191 = getelementptr inbounds i8, ptr %16, i64 384
-  %1192 = load ptr, ptr %1191, align 8
-  %.not744 = icmp eq ptr %1192, null
-  br i1 %.not744, label %1193, label %1202
+1194:                                             ; preds = %1191
+  %1195 = getelementptr inbounds i8, ptr %16, i64 384
+  %1196 = load ptr, ptr %1195, align 8
+  %.not744 = icmp eq ptr %1196, null
+  br i1 %.not744, label %1197, label %1206
 
-1193:                                             ; preds = %1190
-  %1194 = getelementptr inbounds i8, ptr %16, i64 392
-  %1195 = load ptr, ptr %1194, align 8
-  %.not745 = icmp eq ptr %1195, null
-  br i1 %.not745, label %1196, label %1202
+1197:                                             ; preds = %1194
+  %1198 = getelementptr inbounds i8, ptr %16, i64 392
+  %1199 = load ptr, ptr %1198, align 8
+  %.not745 = icmp eq ptr %1199, null
+  br i1 %.not745, label %1200, label %1206
 
-1196:                                             ; preds = %1193
-  %1197 = getelementptr inbounds i8, ptr %16, i64 400
-  %1198 = load ptr, ptr %1197, align 8
-  %.not746 = icmp eq ptr %1198, null
-  br i1 %.not746, label %1199, label %1202
+1200:                                             ; preds = %1197
+  %1201 = getelementptr inbounds i8, ptr %16, i64 400
+  %1202 = load ptr, ptr %1201, align 8
+  %.not746 = icmp eq ptr %1202, null
+  br i1 %.not746, label %1203, label %1206
 
-1199:                                             ; preds = %1196
-  %1200 = getelementptr inbounds i8, ptr %16, i64 408
-  %1201 = load ptr, ptr %1200, align 8
-  %.not747 = icmp eq ptr %1201, null
-  br i1 %.not747, label %.thread851, label %1202
+1203:                                             ; preds = %1200
+  %1204 = getelementptr inbounds i8, ptr %16, i64 408
+  %1205 = load ptr, ptr %1204, align 8
+  %.not747 = icmp eq ptr %1205, null
+  br i1 %.not747, label %.thread851, label %1206
 
-1202:                                             ; preds = %1199, %1196, %1193, %1190, %1187
-  %1203 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1203, label %1204, label %1209
+1206:                                             ; preds = %1203, %1200, %1197, %1194, %1191
+  %1207 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1207, label %1208, label %1213
 
-1204:                                             ; preds = %1202
-  %1205 = call i32 @errcode(i32 noundef 22) #13
-  %1206 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #13
-  %1207 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1208 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
+1208:                                             ; preds = %1206
+  %1209 = call i32 @errcode(i32 noundef 22) #13
+  %1210 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #13
+  %1211 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1212 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1917, ptr noundef nonnull @__func__.parse_hba_line) #13
-  br label %1209
+  br label %1213
 
-1209:                                             ; preds = %1204, %1202
+1213:                                             ; preds = %1208, %1206
   store ptr @.str.65, ptr %15, align 8
   br label %.thread851
 
-1210:                                             ; preds = %1184
-  %1211 = getelementptr inbounds i8, ptr %16, i64 416
-  %1212 = load ptr, ptr %1211, align 8
-  %.not742 = icmp eq ptr %1212, null
-  br i1 %.not742, label %1213, label %1221
+1214:                                             ; preds = %1188
+  %1215 = getelementptr inbounds i8, ptr %16, i64 416
+  %1216 = load ptr, ptr %1215, align 8
+  %.not742 = icmp eq ptr %1216, null
+  br i1 %.not742, label %1217, label %1225
 
-1213:                                             ; preds = %1210
-  %1214 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1214, label %1215, label %1220
+1217:                                             ; preds = %1214
+  %1218 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1218, label %1219, label %1224
 
-1215:                                             ; preds = %1213
-  %1216 = call i32 @errcode(i32 noundef 22) #13
-  %1217 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66) #13
-  %1218 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1219 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
+1219:                                             ; preds = %1217
+  %1220 = call i32 @errcode(i32 noundef 22) #13
+  %1221 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66) #13
+  %1222 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1223 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1928, ptr noundef nonnull @__func__.parse_hba_line) #13
-  br label %1220
+  br label %1224
 
-1220:                                             ; preds = %1215, %1213
+1224:                                             ; preds = %1219, %1217
   store ptr @.str.66, ptr %15, align 8
   br label %.thread851
 
-1221:                                             ; preds = %1210
+1225:                                             ; preds = %1214
   %.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 400
   %.pre1266 = load ptr, ptr %.phi.trans.insert, align 8
-  %1222 = icmp eq ptr %.pre1266, null
-  br i1 %1222, label %.thread851, label %1223
+  %1226 = icmp eq ptr %.pre1266, null
+  br i1 %1226, label %.thread851, label %1227
 
-1223:                                             ; preds = %1221
-  %1224 = getelementptr inbounds i8, ptr %16, i64 408
-  %1225 = load ptr, ptr %1224, align 8
-  %.not749 = icmp eq ptr %1225, null
-  br i1 %.not749, label %.thread851, label %1226
+1227:                                             ; preds = %1225
+  %1228 = getelementptr inbounds i8, ptr %16, i64 408
+  %1229 = load ptr, ptr %1228, align 8
+  %.not749 = icmp eq ptr %1229, null
+  br i1 %.not749, label %.thread851, label %1230
 
-1226:                                             ; preds = %1223
-  %1227 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1227, label %1228, label %1233
+1230:                                             ; preds = %1227
+  %1231 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1231, label %1232, label %1237
 
-1228:                                             ; preds = %1226
-  %1229 = call i32 @errcode(i32 noundef 22) #13
-  %1230 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.67) #13
-  %1231 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1232 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
+1232:                                             ; preds = %1230
+  %1233 = call i32 @errcode(i32 noundef 22) #13
+  %1234 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.67) #13
+  %1235 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1236 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1944, ptr noundef nonnull @__func__.parse_hba_line) #13
-  br label %1233
+  br label %1237
 
-1233:                                             ; preds = %1228, %1226
+1237:                                             ; preds = %1232, %1230
   store ptr @.str.67, ptr %15, align 8
   br label %.thread851
 
-1234:                                             ; preds = %._crit_edge1068
-  %1235 = getelementptr inbounds i8, ptr %16, i64 472
-  %1236 = load ptr, ptr %1235, align 8
-  %1237 = icmp eq ptr %1236, null
-  br i1 %1237, label %1238, label %1247
+1238:                                             ; preds = %._crit_edge1068
+  %1239 = getelementptr inbounds i8, ptr %16, i64 472
+  %1240 = load ptr, ptr %1239, align 8
+  %1241 = icmp eq ptr %1240, null
+  br i1 %1241, label %1242, label %1251
 
-1238:                                             ; preds = %1234
-  %1239 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1239, label %1240, label %1245
+1242:                                             ; preds = %1238
+  %1243 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1243, label %1244, label %1249
 
-1240:                                             ; preds = %1238
-  %1241 = call i32 @errcode(i32 noundef 22) #13
-  %1242 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.68) #13
-  %1243 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1244 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
+1244:                                             ; preds = %1242
+  %1245 = call i32 @errcode(i32 noundef 22) #13
+  %1246 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.68) #13
+  %1247 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1248 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1952, ptr noundef nonnull @__func__.parse_hba_line) #13
-  br label %1245
+  br label %1249
 
-1245:                                             ; preds = %1240, %1238
-  %1246 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.68) #13
-  store ptr %1246, ptr %15, align 8
+1249:                                             ; preds = %1244, %1242
+  %1250 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.68) #13
+  store ptr %1250, ptr %15, align 8
   br label %.thread851
 
-1247:                                             ; preds = %1234
-  %1248 = getelementptr inbounds i8, ptr %16, i64 488
-  %1249 = load ptr, ptr %1248, align 8
-  %1250 = icmp eq ptr %1249, null
-  br i1 %1250, label %1251, label %list_length.exit
+1251:                                             ; preds = %1238
+  %1252 = getelementptr inbounds i8, ptr %16, i64 488
+  %1253 = load ptr, ptr %1252, align 8
+  %1254 = icmp eq ptr %1253, null
+  br i1 %1254, label %1255, label %list_length.exit
 
-1251:                                             ; preds = %1247
-  %1252 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1252, label %1253, label %1258
+1255:                                             ; preds = %1251
+  %1256 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1256, label %1257, label %1262
 
-1253:                                             ; preds = %1251
-  %1254 = call i32 @errcode(i32 noundef 22) #13
-  %1255 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.69) #13
-  %1256 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1257 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
+1257:                                             ; preds = %1255
+  %1258 = call i32 @errcode(i32 noundef 22) #13
+  %1259 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.69) #13
+  %1260 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1261 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1953, ptr noundef nonnull @__func__.parse_hba_line) #13
-  br label %1258
+  br label %1262
 
-1258:                                             ; preds = %1253, %1251
-  %1259 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.69) #13
-  store ptr %1259, ptr %15, align 8
+1262:                                             ; preds = %1257, %1255
+  %1263 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.69) #13
+  store ptr %1263, ptr %15, align 8
   br label %.thread851
 
-list_length.exit:                                 ; preds = %1247
-  %1260 = getelementptr inbounds i8, ptr %1249, i64 4
-  %1261 = load i32, ptr %1260, align 4
-  %1262 = icmp eq i32 %1261, 1
-  br i1 %1262, label %1295, label %list_length.exit785
+list_length.exit:                                 ; preds = %1251
+  %1264 = getelementptr inbounds i8, ptr %1253, i64 4
+  %1265 = load i32, ptr %1264, align 4
+  %1266 = icmp eq i32 %1265, 1
+  br i1 %1266, label %1299, label %list_length.exit785
 
 list_length.exit785:                              ; preds = %list_length.exit
-  %1263 = getelementptr inbounds i8, ptr %1236, i64 4
-  %1264 = load i32, ptr %1263, align 4
-  %1265 = icmp eq i32 %1261, %1264
-  br i1 %1265, label %1295, label %1266
+  %1267 = getelementptr inbounds i8, ptr %1240, i64 4
+  %1268 = load i32, ptr %1267, align 4
+  %1269 = icmp eq i32 %1265, %1268
+  br i1 %1269, label %1299, label %1270
 
-1266:                                             ; preds = %list_length.exit785
-  %1267 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1267, label %1268, label %1283
+1270:                                             ; preds = %list_length.exit785
+  %1271 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1271, label %1272, label %1287
 
-1268:                                             ; preds = %1266
-  %1269 = call i32 @errcode(i32 noundef 22) #13
-  %1270 = load ptr, ptr %1248, align 8
-  %.not.i786 = icmp eq ptr %1270, null
-  br i1 %.not.i786, label %list_length.exit787, label %1271
+1272:                                             ; preds = %1270
+  %1273 = call i32 @errcode(i32 noundef 22) #13
+  %1274 = load ptr, ptr %1252, align 8
+  %.not.i786 = icmp eq ptr %1274, null
+  br i1 %.not.i786, label %list_length.exit787, label %1275
 
-1271:                                             ; preds = %1268
-  %1272 = getelementptr inbounds i8, ptr %1270, i64 4
-  %1273 = load i32, ptr %1272, align 4
+1275:                                             ; preds = %1272
+  %1276 = getelementptr inbounds i8, ptr %1274, i64 4
+  %1277 = load i32, ptr %1276, align 4
   br label %list_length.exit787
 
-list_length.exit787:                              ; preds = %1268, %1271
-  %1274 = phi i32 [ %1273, %1271 ], [ 0, %1268 ]
-  %1275 = load ptr, ptr %1235, align 8
-  %.not.i788 = icmp eq ptr %1275, null
-  br i1 %.not.i788, label %list_length.exit789, label %1276
+list_length.exit787:                              ; preds = %1272, %1275
+  %1278 = phi i32 [ %1277, %1275 ], [ 0, %1272 ]
+  %1279 = load ptr, ptr %1239, align 8
+  %.not.i788 = icmp eq ptr %1279, null
+  br i1 %.not.i788, label %list_length.exit789, label %1280
 
-1276:                                             ; preds = %list_length.exit787
-  %1277 = getelementptr inbounds i8, ptr %1275, i64 4
-  %1278 = load i32, ptr %1277, align 4
+1280:                                             ; preds = %list_length.exit787
+  %1281 = getelementptr inbounds i8, ptr %1279, i64 4
+  %1282 = load i32, ptr %1281, align 4
   br label %list_length.exit789
 
-list_length.exit789:                              ; preds = %list_length.exit787, %1276
-  %1279 = phi i32 [ %1278, %1276 ], [ 0, %list_length.exit787 ]
-  %1280 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.72, i32 noundef %1274, i32 noundef %1279) #13
-  %1281 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1282 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
+list_length.exit789:                              ; preds = %list_length.exit787, %1280
+  %1283 = phi i32 [ %1282, %1280 ], [ 0, %list_length.exit787 ]
+  %1284 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.72, i32 noundef %1278, i32 noundef %1283) #13
+  %1285 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1286 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1991, ptr noundef nonnull @__func__.parse_hba_line) #13
-  br label %1283
+  br label %1287
 
-1283:                                             ; preds = %list_length.exit789, %1266
-  %1284 = load ptr, ptr %1248, align 8
-  %.not.i790 = icmp eq ptr %1284, null
-  br i1 %.not.i790, label %list_length.exit791, label %1285
+1287:                                             ; preds = %list_length.exit789, %1270
+  %1288 = load ptr, ptr %1252, align 8
+  %.not.i790 = icmp eq ptr %1288, null
+  br i1 %.not.i790, label %list_length.exit791, label %1289
 
-1285:                                             ; preds = %1283
-  %1286 = getelementptr inbounds i8, ptr %1284, i64 4
-  %1287 = load i32, ptr %1286, align 4
+1289:                                             ; preds = %1287
+  %1290 = getelementptr inbounds i8, ptr %1288, i64 4
+  %1291 = load i32, ptr %1290, align 4
   br label %list_length.exit791
 
-list_length.exit791:                              ; preds = %1283, %1285
-  %1288 = phi i32 [ %1287, %1285 ], [ 0, %1283 ]
-  %1289 = load ptr, ptr %1235, align 8
-  %.not.i792 = icmp eq ptr %1289, null
-  br i1 %.not.i792, label %list_length.exit793, label %1290
+list_length.exit791:                              ; preds = %1287, %1289
+  %1292 = phi i32 [ %1291, %1289 ], [ 0, %1287 ]
+  %1293 = load ptr, ptr %1239, align 8
+  %.not.i792 = icmp eq ptr %1293, null
+  br i1 %.not.i792, label %list_length.exit793, label %1294
 
-1290:                                             ; preds = %list_length.exit791
-  %1291 = getelementptr inbounds i8, ptr %1289, i64 4
-  %1292 = load i32, ptr %1291, align 4
+1294:                                             ; preds = %list_length.exit791
+  %1295 = getelementptr inbounds i8, ptr %1293, i64 4
+  %1296 = load i32, ptr %1295, align 4
   br label %list_length.exit793
 
-list_length.exit793:                              ; preds = %list_length.exit791, %1290
-  %1293 = phi i32 [ %1292, %1290 ], [ 0, %list_length.exit791 ]
-  %1294 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.72, i32 noundef %1288, i32 noundef %1293) #13
-  store ptr %1294, ptr %15, align 8
+list_length.exit793:                              ; preds = %list_length.exit791, %1294
+  %1297 = phi i32 [ %1296, %1294 ], [ 0, %list_length.exit791 ]
+  %1298 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.72, i32 noundef %1292, i32 noundef %1297) #13
+  store ptr %1298, ptr %15, align 8
   br label %.thread851
 
-1295:                                             ; preds = %list_length.exit785, %list_length.exit
-  %1296 = getelementptr inbounds i8, ptr %16, i64 520
-  %1297 = load ptr, ptr %1296, align 8
-  %.not.i794 = icmp eq ptr %1297, null
+1299:                                             ; preds = %list_length.exit785, %list_length.exit
+  %1300 = getelementptr inbounds i8, ptr %16, i64 520
+  %1301 = load ptr, ptr %1300, align 8
+  %.not.i794 = icmp eq ptr %1301, null
   br i1 %.not.i794, label %list_length.exit795.thread, label %list_length.exit795
 
-list_length.exit795:                              ; preds = %1295
-  %1298 = getelementptr inbounds i8, ptr %1297, i64 4
-  %1299 = load i32, ptr %1298, align 4
-  %switch1462 = icmp ult i32 %1299, 2
+list_length.exit795:                              ; preds = %1299
+  %1302 = getelementptr inbounds i8, ptr %1301, i64 4
+  %1303 = load i32, ptr %1302, align 4
+  %switch1462 = icmp ult i32 %1303, 2
   br i1 %switch1462, label %list_length.exit795.thread, label %list_length.exit801
 
 list_length.exit801:                              ; preds = %list_length.exit795
-  %1300 = getelementptr inbounds i8, ptr %1236, i64 4
-  %1301 = load i32, ptr %1300, align 4
-  %1302 = icmp eq i32 %1299, %1301
-  br i1 %1302, label %list_length.exit795.thread, label %1303
+  %1304 = getelementptr inbounds i8, ptr %1240, i64 4
+  %1305 = load i32, ptr %1304, align 4
+  %1306 = icmp eq i32 %1303, %1305
+  br i1 %1306, label %list_length.exit795.thread, label %1307
 
-1303:                                             ; preds = %list_length.exit801
-  %1304 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1304, label %1305, label %1320
+1307:                                             ; preds = %list_length.exit801
+  %1308 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1308, label %1309, label %1324
 
-1305:                                             ; preds = %1303
-  %1306 = call i32 @errcode(i32 noundef 22) #13
-  %1307 = load ptr, ptr %1296, align 8
-  %.not.i802 = icmp eq ptr %1307, null
-  br i1 %.not.i802, label %list_length.exit803, label %1308
+1309:                                             ; preds = %1307
+  %1310 = call i32 @errcode(i32 noundef 22) #13
+  %1311 = load ptr, ptr %1300, align 8
+  %.not.i802 = icmp eq ptr %1311, null
+  br i1 %.not.i802, label %list_length.exit803, label %1312
 
-1308:                                             ; preds = %1305
-  %1309 = getelementptr inbounds i8, ptr %1307, i64 4
-  %1310 = load i32, ptr %1309, align 4
+1312:                                             ; preds = %1309
+  %1313 = getelementptr inbounds i8, ptr %1311, i64 4
+  %1314 = load i32, ptr %1313, align 4
   br label %list_length.exit803
 
-list_length.exit803:                              ; preds = %1305, %1308
-  %1311 = phi i32 [ %1310, %1308 ], [ 0, %1305 ]
-  %1312 = load ptr, ptr %1235, align 8
-  %.not.i804 = icmp eq ptr %1312, null
-  br i1 %.not.i804, label %list_length.exit805, label %1313
+list_length.exit803:                              ; preds = %1309, %1312
+  %1315 = phi i32 [ %1314, %1312 ], [ 0, %1309 ]
+  %1316 = load ptr, ptr %1239, align 8
+  %.not.i804 = icmp eq ptr %1316, null
+  br i1 %.not.i804, label %list_length.exit805, label %1317
 
-1313:                                             ; preds = %list_length.exit803
-  %1314 = getelementptr inbounds i8, ptr %1312, i64 4
-  %1315 = load i32, ptr %1314, align 4
+1317:                                             ; preds = %list_length.exit803
+  %1318 = getelementptr inbounds i8, ptr %1316, i64 4
+  %1319 = load i32, ptr %1318, align 4
   br label %list_length.exit805
 
-list_length.exit805:                              ; preds = %list_length.exit803, %1313
-  %1316 = phi i32 [ %1315, %1313 ], [ 0, %list_length.exit803 ]
-  %1317 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73, i32 noundef %1311, i32 noundef %1316) #13
-  %1318 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1319 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
+list_length.exit805:                              ; preds = %list_length.exit803, %1317
+  %1320 = phi i32 [ %1319, %1317 ], [ 0, %list_length.exit803 ]
+  %1321 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73, i32 noundef %1315, i32 noundef %1320) #13
+  %1322 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1323 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2007, ptr noundef nonnull @__func__.parse_hba_line) #13
-  br label %1320
+  br label %1324
 
-1320:                                             ; preds = %list_length.exit805, %1303
-  %1321 = load ptr, ptr %1296, align 8
-  %.not.i806 = icmp eq ptr %1321, null
-  br i1 %.not.i806, label %list_length.exit807, label %1322
+1324:                                             ; preds = %list_length.exit805, %1307
+  %1325 = load ptr, ptr %1300, align 8
+  %.not.i806 = icmp eq ptr %1325, null
+  br i1 %.not.i806, label %list_length.exit807, label %1326
 
-1322:                                             ; preds = %1320
-  %1323 = getelementptr inbounds i8, ptr %1321, i64 4
-  %1324 = load i32, ptr %1323, align 4
+1326:                                             ; preds = %1324
+  %1327 = getelementptr inbounds i8, ptr %1325, i64 4
+  %1328 = load i32, ptr %1327, align 4
   br label %list_length.exit807
 
-list_length.exit807:                              ; preds = %1320, %1322
-  %1325 = phi i32 [ %1324, %1322 ], [ 0, %1320 ]
-  %1326 = load ptr, ptr %1235, align 8
-  %.not.i808 = icmp eq ptr %1326, null
-  br i1 %.not.i808, label %list_length.exit809, label %1327
+list_length.exit807:                              ; preds = %1324, %1326
+  %1329 = phi i32 [ %1328, %1326 ], [ 0, %1324 ]
+  %1330 = load ptr, ptr %1239, align 8
+  %.not.i808 = icmp eq ptr %1330, null
+  br i1 %.not.i808, label %list_length.exit809, label %1331
 
-1327:                                             ; preds = %list_length.exit807
-  %1328 = getelementptr inbounds i8, ptr %1326, i64 4
-  %1329 = load i32, ptr %1328, align 4
+1331:                                             ; preds = %list_length.exit807
+  %1332 = getelementptr inbounds i8, ptr %1330, i64 4
+  %1333 = load i32, ptr %1332, align 4
   br label %list_length.exit809
 
-list_length.exit809:                              ; preds = %list_length.exit807, %1327
-  %1330 = phi i32 [ %1329, %1327 ], [ 0, %list_length.exit807 ]
-  %1331 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.73, i32 noundef %1325, i32 noundef %1330) #13
-  store ptr %1331, ptr %15, align 8
+list_length.exit809:                              ; preds = %list_length.exit807, %1331
+  %1334 = phi i32 [ %1333, %1331 ], [ 0, %list_length.exit807 ]
+  %1335 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.73, i32 noundef %1329, i32 noundef %1334) #13
+  store ptr %1335, ptr %15, align 8
   br label %.thread851
 
-list_length.exit795.thread:                       ; preds = %list_length.exit795, %1295, %list_length.exit801
-  %1332 = getelementptr inbounds i8, ptr %16, i64 504
-  %1333 = load ptr, ptr %1332, align 8
-  %.not.i810 = icmp eq ptr %1333, null
+list_length.exit795.thread:                       ; preds = %list_length.exit795, %1299, %list_length.exit801
+  %1336 = getelementptr inbounds i8, ptr %16, i64 504
+  %1337 = load ptr, ptr %1336, align 8
+  %.not.i810 = icmp eq ptr %1337, null
   br i1 %.not.i810, label %.thread851, label %list_length.exit811
 
 list_length.exit811:                              ; preds = %list_length.exit795.thread
-  %1334 = getelementptr inbounds i8, ptr %1333, i64 4
-  %1335 = load i32, ptr %1334, align 4
-  %switch1463 = icmp ult i32 %1335, 2
+  %1338 = getelementptr inbounds i8, ptr %1337, i64 4
+  %1339 = load i32, ptr %1338, align 4
+  %switch1463 = icmp ult i32 %1339, 2
   br i1 %switch1463, label %.thread851, label %list_length.exit817
 
 list_length.exit817:                              ; preds = %list_length.exit811
-  %1336 = getelementptr inbounds i8, ptr %1236, i64 4
-  %1337 = load i32, ptr %1336, align 4
-  %1338 = icmp eq i32 %1335, %1337
-  br i1 %1338, label %.thread851, label %1339
+  %1340 = getelementptr inbounds i8, ptr %1240, i64 4
+  %1341 = load i32, ptr %1340, align 4
+  %1342 = icmp eq i32 %1339, %1341
+  br i1 %1342, label %.thread851, label %1343
 
-1339:                                             ; preds = %list_length.exit817
-  %1340 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
-  br i1 %1340, label %1341, label %1356
+1343:                                             ; preds = %list_length.exit817
+  %1344 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
+  br i1 %1344, label %1345, label %1360
 
-1341:                                             ; preds = %1339
-  %1342 = call i32 @errcode(i32 noundef 22) #13
-  %1343 = load ptr, ptr %1332, align 8
-  %.not.i818 = icmp eq ptr %1343, null
-  br i1 %.not.i818, label %list_length.exit819, label %1344
+1345:                                             ; preds = %1343
+  %1346 = call i32 @errcode(i32 noundef 22) #13
+  %1347 = load ptr, ptr %1336, align 8
+  %.not.i818 = icmp eq ptr %1347, null
+  br i1 %.not.i818, label %list_length.exit819, label %1348
 
-1344:                                             ; preds = %1341
-  %1345 = getelementptr inbounds i8, ptr %1343, i64 4
-  %1346 = load i32, ptr %1345, align 4
+1348:                                             ; preds = %1345
+  %1349 = getelementptr inbounds i8, ptr %1347, i64 4
+  %1350 = load i32, ptr %1349, align 4
   br label %list_length.exit819
 
-list_length.exit819:                              ; preds = %1341, %1344
-  %1347 = phi i32 [ %1346, %1344 ], [ 0, %1341 ]
-  %1348 = load ptr, ptr %1235, align 8
-  %.not.i820 = icmp eq ptr %1348, null
-  br i1 %.not.i820, label %list_length.exit821, label %1349
+list_length.exit819:                              ; preds = %1345, %1348
+  %1351 = phi i32 [ %1350, %1348 ], [ 0, %1345 ]
+  %1352 = load ptr, ptr %1239, align 8
+  %.not.i820 = icmp eq ptr %1352, null
+  br i1 %.not.i820, label %list_length.exit821, label %1353
 
-1349:                                             ; preds = %list_length.exit819
-  %1350 = getelementptr inbounds i8, ptr %1348, i64 4
-  %1351 = load i32, ptr %1350, align 4
+1353:                                             ; preds = %list_length.exit819
+  %1354 = getelementptr inbounds i8, ptr %1352, i64 4
+  %1355 = load i32, ptr %1354, align 4
   br label %list_length.exit821
 
-list_length.exit821:                              ; preds = %list_length.exit819, %1349
-  %1352 = phi i32 [ %1351, %1349 ], [ 0, %list_length.exit819 ]
-  %1353 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.74, i32 noundef %1347, i32 noundef %1352) #13
-  %1354 = call i32 @set_errcontext_domain(ptr noundef null) #13
-  %1355 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
+list_length.exit821:                              ; preds = %list_length.exit819, %1353
+  %1356 = phi i32 [ %1355, %1353 ], [ 0, %list_length.exit819 ]
+  %1357 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.74, i32 noundef %1351, i32 noundef %1356) #13
+  %1358 = call i32 @set_errcontext_domain(ptr noundef null) #13
+  %1359 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.14, i32 noundef %12, ptr noundef %14) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2023, ptr noundef nonnull @__func__.parse_hba_line) #13
-  br label %1356
+  br label %1360
 
-1356:                                             ; preds = %list_length.exit821, %1339
-  %1357 = load ptr, ptr %1332, align 8
-  %.not.i822 = icmp eq ptr %1357, null
-  br i1 %.not.i822, label %list_length.exit823, label %1358
+1360:                                             ; preds = %list_length.exit821, %1343
+  %1361 = load ptr, ptr %1336, align 8
+  %.not.i822 = icmp eq ptr %1361, null
+  br i1 %.not.i822, label %list_length.exit823, label %1362
 
-1358:                                             ; preds = %1356
-  %1359 = getelementptr inbounds i8, ptr %1357, i64 4
-  %1360 = load i32, ptr %1359, align 4
+1362:                                             ; preds = %1360
+  %1363 = getelementptr inbounds i8, ptr %1361, i64 4
+  %1364 = load i32, ptr %1363, align 4
   br label %list_length.exit823
 
-list_length.exit823:                              ; preds = %1356, %1358
-  %1361 = phi i32 [ %1360, %1358 ], [ 0, %1356 ]
-  %1362 = load ptr, ptr %1235, align 8
-  %.not.i824 = icmp eq ptr %1362, null
-  br i1 %.not.i824, label %list_length.exit825, label %1363
+list_length.exit823:                              ; preds = %1360, %1362
+  %1365 = phi i32 [ %1364, %1362 ], [ 0, %1360 ]
+  %1366 = load ptr, ptr %1239, align 8
+  %.not.i824 = icmp eq ptr %1366, null
+  br i1 %.not.i824, label %list_length.exit825, label %1367
 
-1363:                                             ; preds = %list_length.exit823
-  %1364 = getelementptr inbounds i8, ptr %1362, i64 4
-  %1365 = load i32, ptr %1364, align 4
+1367:                                             ; preds = %list_length.exit823
+  %1368 = getelementptr inbounds i8, ptr %1366, i64 4
+  %1369 = load i32, ptr %1368, align 4
   br label %list_length.exit825
 
-list_length.exit825:                              ; preds = %list_length.exit823, %1363
-  %1366 = phi i32 [ %1365, %1363 ], [ 0, %list_length.exit823 ]
-  %1367 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.74, i32 noundef %1361, i32 noundef %1366) #13
-  store ptr %1367, ptr %15, align 8
+list_length.exit825:                              ; preds = %list_length.exit823, %1367
+  %1370 = phi i32 [ %1369, %1367 ], [ 0, %list_length.exit823 ]
+  %1371 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.74, i32 noundef %1365, i32 noundef %1370) #13
+  store ptr %1371, ptr %15, align 8
   br label %.thread851
 
-1368:                                             ; preds = %._crit_edge1068
-  %1369 = getelementptr inbounds i8, ptr %16, i64 448
-  store i32 2, ptr %1369, align 8
+1372:                                             ; preds = %._crit_edge1068
+  %1373 = getelementptr inbounds i8, ptr %16, i64 448
+  store i32 2, ptr %1373, align 8
   br label %.thread851
 
-.thread851:                                       ; preds = %.lr.ph1048, %.lr.ph1055, %list_length.exit811, %1199, %._crit_edge1068, %list_length.exit795.thread, %1223, %1221, %list_length.exit817, %parse_hba_auth_opt.exit.thread, %1368, %370, %375, %277, %281, %list_length.exit825, %list_length.exit809, %list_length.exit793, %1258, %1245, %1233, %1220, %1209, %1179, %579, %509, %492, %481, %427, %413, %397, %352, %339, %315, %296, %221, %207, %162, %120, %102, %40
-  %.0 = phi ptr [ null, %40 ], [ null, %221 ], [ null, %296 ], [ null, %315 ], [ null, %427 ], [ null, %492 ], [ null, %509 ], [ null, %579 ], [ null, %1179 ], [ null, %1209 ], [ null, %1233 ], [ null, %1245 ], [ null, %1258 ], [ null, %list_length.exit825 ], [ null, %list_length.exit809 ], [ null, %list_length.exit793 ], [ null, %1220 ], [ null, %481 ], [ null, %413 ], [ null, %352 ], [ null, %397 ], [ null, %339 ], [ null, %207 ], [ null, %162 ], [ null, %120 ], [ null, %102 ], [ null, %281 ], [ null, %277 ], [ null, %375 ], [ null, %370 ], [ %16, %1368 ], [ null, %parse_hba_auth_opt.exit.thread ], [ %16, %list_length.exit817 ], [ %16, %1221 ], [ %16, %1223 ], [ %16, %list_length.exit795.thread ], [ %16, %._crit_edge1068 ], [ %16, %1199 ], [ %16, %list_length.exit811 ], [ null, %.lr.ph1055 ], [ null, %.lr.ph1048 ]
+.thread851:                                       ; preds = %.lr.ph1048, %.lr.ph1055, %list_length.exit811, %1203, %._crit_edge1068, %list_length.exit795.thread, %1227, %1225, %list_length.exit817, %parse_hba_auth_opt.exit.thread, %1372, %370, %375, %277, %281, %list_length.exit825, %list_length.exit809, %list_length.exit793, %1262, %1249, %1237, %1224, %1213, %1183, %579, %509, %492, %481, %427, %413, %397, %352, %339, %315, %296, %221, %207, %162, %120, %102, %40
+  %.0 = phi ptr [ null, %40 ], [ null, %221 ], [ null, %296 ], [ null, %315 ], [ null, %427 ], [ null, %492 ], [ null, %509 ], [ null, %579 ], [ null, %1183 ], [ null, %1213 ], [ null, %1237 ], [ null, %1249 ], [ null, %1262 ], [ null, %list_length.exit825 ], [ null, %list_length.exit809 ], [ null, %list_length.exit793 ], [ null, %1224 ], [ null, %481 ], [ null, %413 ], [ null, %352 ], [ null, %397 ], [ null, %339 ], [ null, %207 ], [ null, %162 ], [ null, %120 ], [ null, %102 ], [ null, %281 ], [ null, %277 ], [ null, %375 ], [ null, %370 ], [ %16, %1372 ], [ null, %parse_hba_auth_opt.exit.thread ], [ %16, %list_length.exit817 ], [ %16, %1225 ], [ %16, %1227 ], [ %16, %list_length.exit795.thread ], [ %16, %._crit_edge1068 ], [ %16, %1203 ], [ %16, %list_length.exit811 ], [ null, %.lr.ph1055 ], [ null, %.lr.ph1048 ]
   ret ptr %.0
 }
 
@@ -4108,7 +4156,7 @@ list_head.exit:                                   ; preds = %2, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @check_usermap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = alloca [2 x %struct.regmatch_t], align 16
   %6 = alloca [100 x i8], align 16
   %7 = icmp eq ptr %0, null

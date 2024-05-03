@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [26 x i8] c"Role \22%s\22 does not exist.\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"User \22%s\22 has no password assigned.\00", align 1
 @.str.2 = private unnamed_addr constant [35 x i8] c"User \22%s\22 has an expired password.\00", align 1
-@.str.3 = private unnamed_addr constant [4 x i8] c"md5\00", align 1
 @.str.4 = private unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 1
 @.str.5 = private unnamed_addr constant [31 x i8] c"password encryption failed: %s\00", align 1
 @.str.6 = private unnamed_addr constant [8 x i8] c"crypt.c\00", align 1
@@ -84,41 +83,51 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_password_type(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = alloca ptr, align 8
+define dso_local range(i32 0, 3) i32 @get_password_type(ptr noundef %0) local_unnamed_addr #0 {
+sub_0:
+  %1 = alloca ptr, align 8
+  %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
+  %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  %7 = alloca [32 x i8], align 16
-  store i32 0, ptr %4, align 4
-  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef 3) #7
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %17
+  store i32 0, ptr %3, align 4
+  %7 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %7, 109
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-10:                                               ; preds = %1
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
-  %12 = icmp eq i64 %11, 35
-  br i1 %12, label %13, label %17
+sub_1:                                            ; preds = %sub_0
+  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = load i8, ptr %8, align 1
+  %.not4 = icmp eq i8 %9, 100
+  br i1 %.not4, label %.tail, label %.tail.thread
 
-13:                                               ; preds = %10
-  %14 = getelementptr i8, ptr %0, i64 3
-  %15 = tail call i64 @strspn(ptr noundef %14, ptr noundef nonnull @.str.4) #7
-  %16 = icmp eq i64 %15, 32
-  br i1 %16, label %19, label %17
+.tail:                                            ; preds = %sub_1
+  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 53
+  br i1 %12, label %13, label %.tail.thread
 
-17:                                               ; preds = %13, %10, %1
-  %18 = call zeroext i1 @parse_scram_secret(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
-  %. = select i1 %18, i32 2, i32 0
-  br label %19
+13:                                               ; preds = %.tail
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
+  %15 = icmp eq i64 %14, 35
+  br i1 %15, label %16, label %.tail.thread
 
-19:                                               ; preds = %17, %13
-  %.0 = phi i32 [ 1, %13 ], [ %., %17 ]
+16:                                               ; preds = %13
+  %17 = getelementptr i8, ptr %0, i64 3
+  %18 = tail call i64 @strspn(ptr noundef %17, ptr noundef nonnull @.str.4) #7
+  %19 = icmp eq i64 %18, 32
+  br i1 %19, label %21, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %16, %13, %.tail
+  %20 = call zeroext i1 @parse_scram_secret(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
+  %. = select i1 %20, i32 2, i32 0
+  br label %21
+
+21:                                               ; preds = %.tail.thread, %16
+  %.0 = phi i32 [ 1, %16 ], [ %., %.tail.thread ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
@@ -144,36 +153,48 @@ define dso_local ptr @encrypt_password(i32 noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store i32 0, ptr %6, align 4
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef 3) #7
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %20
+  %11 = load i8, ptr %2, align 1
+  %.not.i = icmp eq i8 %11, 109
+  br i1 %.not.i, label %sub_1.i, label %.tail.thread.i
 
-13:                                               ; preds = %3
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
-  %15 = icmp eq i64 %14, 35
-  br i1 %15, label %16, label %20
+sub_1.i:                                          ; preds = %3
+  %12 = getelementptr inbounds i8, ptr %2, i64 1
+  %13 = load i8, ptr %12, align 1
+  %.not4.i = icmp eq i8 %13, 100
+  br i1 %.not4.i, label %.tail.i, label %.tail.thread.i
 
-16:                                               ; preds = %13
-  %17 = getelementptr i8, ptr %2, i64 3
-  %18 = tail call i64 @strspn(ptr noundef %17, ptr noundef nonnull @.str.4) #7
-  %19 = icmp eq i64 %18, 32
-  br i1 %19, label %select.unfold, label %20
+.tail.i:                                          ; preds = %sub_1.i
+  %14 = getelementptr inbounds i8, ptr %2, i64 2
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 53
+  br i1 %16, label %17, label %.tail.thread.i
 
-20:                                               ; preds = %16, %13, %3
-  %21 = call zeroext i1 @parse_scram_secret(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %9) #6
-  br i1 %21, label %select.unfold, label %23
+17:                                               ; preds = %.tail.i
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
+  %19 = icmp eq i64 %18, 35
+  br i1 %19, label %20, label %.tail.thread.i
 
-select.unfold:                                    ; preds = %20, %16
+20:                                               ; preds = %17
+  %21 = getelementptr i8, ptr %2, i64 3
+  %22 = tail call i64 @strspn(ptr noundef %21, ptr noundef nonnull @.str.4) #7
+  %23 = icmp eq i64 %22, 32
+  br i1 %23, label %select.unfold, label %.tail.thread.i
+
+.tail.thread.i:                                   ; preds = %20, %17, %.tail.i, %sub_1.i, %3
+  %24 = call zeroext i1 @parse_scram_secret(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %9) #6
+  br i1 %24, label %select.unfold, label %26
+
+select.unfold:                                    ; preds = %.tail.thread.i, %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  %22 = call ptr @pstrdup(ptr noundef %2) #6
-  br label %40
+  %25 = call ptr @pstrdup(ptr noundef nonnull %2) #6
+  br label %43
 
-23:                                               ; preds = %20
+26:                                               ; preds = %.tail.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -181,46 +202,46 @@ select.unfold:                                    ; preds = %20, %16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   store ptr null, ptr %10, align 8
-  switch i32 %0, label %37 [
-    i32 1, label %24
-    i32 2, label %32
-    i32 0, label %34
+  switch i32 %0, label %40 [
+    i32 1, label %27
+    i32 2, label %35
+    i32 0, label %37
   ]
 
-24:                                               ; preds = %23
-  %25 = call ptr @palloc(i64 noundef 36) #6
-  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
-  %27 = call zeroext i1 @pg_md5_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %26, ptr noundef %25, ptr noundef nonnull %10) #6
-  br i1 %27, label %40, label %28
+27:                                               ; preds = %26
+  %28 = call ptr @palloc(i64 noundef 36) #6
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
+  %30 = call zeroext i1 @pg_md5_encrypt(ptr noundef nonnull %2, ptr noundef %1, i64 noundef %29, ptr noundef %28, ptr noundef nonnull %10) #6
+  br i1 %30, label %43, label %31
 
-28:                                               ; preds = %24
-  %29 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %29)
-  %30 = load ptr, ptr %10, align 8
-  %31 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %30) #6
+31:                                               ; preds = %27
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %32)
+  %33 = load ptr, ptr %10, align 8
+  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %33) #6
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 139, ptr noundef nonnull @__func__.encrypt_password) #6
   unreachable
 
-32:                                               ; preds = %23
-  %33 = call ptr @pg_be_scram_build_secret(ptr noundef %2) #6
-  br label %40
+35:                                               ; preds = %26
+  %36 = call ptr @pg_be_scram_build_secret(ptr noundef nonnull %2) #6
+  br label %43
 
-34:                                               ; preds = %23
-  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %35)
-  %36 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #6
+37:                                               ; preds = %26
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %38)
+  %39 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #6
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 146, ptr noundef nonnull @__func__.encrypt_password) #6
   unreachable
 
-37:                                               ; preds = %23
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #6
+40:                                               ; preds = %26
+  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %41)
+  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #6
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 153, ptr noundef nonnull @__func__.encrypt_password) #6
   unreachable
 
-40:                                               ; preds = %24, %32, %select.unfold
-  %.0 = phi ptr [ %22, %select.unfold ], [ %33, %32 ], [ %25, %24 ]
+43:                                               ; preds = %27, %35, %select.unfold
+  %.0 = phi ptr [ %25, %select.unfold ], [ %36, %35 ], [ %28, %27 ]
   ret ptr %.0
 }
 
@@ -240,7 +261,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @pg_be_scram_build_secret(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @md5_crypt_verify(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @md5_crypt_verify(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -257,63 +278,75 @@ define dso_local noundef i32 @md5_crypt_verify(ptr noundef %0, ptr noundef %1, p
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   store i32 0, ptr %9, align 4
-  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef 3) #7
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %get_password_type.exit
+  %15 = load i8, ptr %1, align 1
+  %.not.i = icmp eq i8 %15, 109
+  br i1 %.not.i, label %sub_1.i, label %get_password_type.exit
 
-17:                                               ; preds = %6
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
-  %19 = icmp eq i64 %18, 35
-  br i1 %19, label %20, label %get_password_type.exit
+sub_1.i:                                          ; preds = %6
+  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = load i8, ptr %16, align 1
+  %.not4.i = icmp eq i8 %17, 100
+  br i1 %.not4.i, label %.tail.i, label %get_password_type.exit
 
-20:                                               ; preds = %17
-  %21 = getelementptr i8, ptr %1, i64 3
-  %22 = tail call i64 @strspn(ptr noundef %21, ptr noundef nonnull @.str.4) #7
-  %23 = icmp eq i64 %22, 32
-  br i1 %23, label %get_password_type.exit.thread, label %get_password_type.exit
+.tail.i:                                          ; preds = %sub_1.i
+  %18 = getelementptr inbounds i8, ptr %1, i64 2
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 53
+  br i1 %20, label %21, label %get_password_type.exit
 
-get_password_type.exit.thread:                    ; preds = %20
+21:                                               ; preds = %.tail.i
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
+  %23 = icmp eq i64 %22, 35
+  br i1 %23, label %24, label %get_password_type.exit
+
+24:                                               ; preds = %21
+  %25 = getelementptr i8, ptr %1, i64 3
+  %26 = tail call i64 @strspn(ptr noundef %25, ptr noundef nonnull @.str.4) #7
+  %27 = icmp eq i64 %26, 32
+  br i1 %27, label %get_password_type.exit.thread, label %get_password_type.exit
+
+get_password_type.exit.thread:                    ; preds = %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  %24 = sext i32 %4 to i64
-  %25 = call zeroext i1 @pg_md5_encrypt(ptr noundef %21, ptr noundef %3, i64 noundef %24, ptr noundef nonnull %13, ptr noundef nonnull %14) #6
-  br i1 %25, label %30, label %28
+  %28 = sext i32 %4 to i64
+  %29 = call zeroext i1 @pg_md5_encrypt(ptr noundef %25, ptr noundef %3, i64 noundef %28, ptr noundef nonnull %13, ptr noundef nonnull %14) #6
+  br i1 %29, label %34, label %32
 
-get_password_type.exit:                           ; preds = %6, %17, %20
-  %26 = call zeroext i1 @parse_scram_secret(ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %12) #6
+get_password_type.exit:                           ; preds = %6, %sub_1.i, %.tail.i, %21, %24
+  %30 = call zeroext i1 @parse_scram_secret(ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  %27 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef %0) #6
+  %31 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef %0) #6
   br label %.sink.split
 
-28:                                               ; preds = %get_password_type.exit.thread
-  %29 = load ptr, ptr %14, align 8
+32:                                               ; preds = %get_password_type.exit.thread
+  %33 = load ptr, ptr %14, align 8
   br label %.sink.split
 
-30:                                               ; preds = %get_password_type.exit.thread
-  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %13) #7
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %35, label %33
+34:                                               ; preds = %get_password_type.exit.thread
+  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %13) #7
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %39, label %37
 
-33:                                               ; preds = %30
-  %34 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.10, ptr noundef %0) #6
+37:                                               ; preds = %34
+  %38 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.10, ptr noundef %0) #6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %get_password_type.exit, %28, %33
-  %.sink = phi ptr [ %34, %33 ], [ %29, %28 ], [ %27, %get_password_type.exit ]
+.sink.split:                                      ; preds = %get_password_type.exit, %32, %37
+  %.sink = phi ptr [ %38, %37 ], [ %33, %32 ], [ %31, %get_password_type.exit ]
   store ptr %.sink, ptr %5, align 8
-  br label %35
+  br label %39
 
-35:                                               ; preds = %.sink.split, %30
-  %.011 = phi i32 [ 0, %30 ], [ -1, %.sink.split ]
+39:                                               ; preds = %.sink.split, %34
+  %.011 = phi i32 [ 0, %34 ], [ -1, %.sink.split ]
   ret i32 %.011
 }
 
@@ -321,7 +354,7 @@ get_password_type.exit:                           ; preds = %6, %17, %20
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @plain_crypt_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @plain_crypt_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -338,74 +371,86 @@ define dso_local noundef i32 @plain_crypt_verify(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store i32 0, ptr %7, align 4
-  %13 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef 3) #7
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %22
+  %13 = load i8, ptr %1, align 1
+  %.not.i = icmp eq i8 %13, 109
+  br i1 %.not.i, label %sub_1.i, label %.tail.thread.i
 
-15:                                               ; preds = %4
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
-  %17 = icmp eq i64 %16, 35
-  br i1 %17, label %18, label %22
+sub_1.i:                                          ; preds = %4
+  %14 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = load i8, ptr %14, align 1
+  %.not4.i = icmp eq i8 %15, 100
+  br i1 %.not4.i, label %.tail.i, label %.tail.thread.i
 
-18:                                               ; preds = %15
-  %19 = getelementptr i8, ptr %1, i64 3
-  %20 = tail call i64 @strspn(ptr noundef %19, ptr noundef nonnull @.str.4) #7
-  %21 = icmp eq i64 %20, 32
-  br i1 %21, label %28, label %22
+.tail.i:                                          ; preds = %sub_1.i
+  %16 = getelementptr inbounds i8, ptr %1, i64 2
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 53
+  br i1 %18, label %19, label %.tail.thread.i
 
-22:                                               ; preds = %18, %15, %4
-  %23 = call zeroext i1 @parse_scram_secret(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
+19:                                               ; preds = %.tail.i
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
+  %21 = icmp eq i64 %20, 35
+  br i1 %21, label %22, label %.tail.thread.i
+
+22:                                               ; preds = %19
+  %23 = getelementptr i8, ptr %1, i64 3
+  %24 = tail call i64 @strspn(ptr noundef %23, ptr noundef nonnull @.str.4) #7
+  %25 = icmp eq i64 %24, 32
+  br i1 %25, label %31, label %.tail.thread.i
+
+.tail.thread.i:                                   ; preds = %22, %19, %.tail.i, %sub_1.i, %4
+  %26 = call zeroext i1 @parse_scram_secret(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  br i1 %23, label %24, label %38
+  br i1 %26, label %27, label %41
 
-24:                                               ; preds = %22
-  %25 = call zeroext i1 @scram_verify_plain_password(ptr noundef %0, ptr noundef %2, ptr noundef %1) #6
-  br i1 %25, label %40, label %26
+27:                                               ; preds = %.tail.thread.i
+  %28 = call zeroext i1 @scram_verify_plain_password(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %1) #6
+  br i1 %28, label %43, label %29
 
-26:                                               ; preds = %24
-  %27 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.10, ptr noundef %0) #6
+29:                                               ; preds = %27
+  %30 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.10, ptr noundef %0) #6
   br label %.sink.split
 
-28:                                               ; preds = %18
+31:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
-  %30 = call zeroext i1 @pg_md5_encrypt(ptr noundef %2, ptr noundef %0, i64 noundef %29, ptr noundef nonnull %11, ptr noundef nonnull %12) #6
-  br i1 %30, label %33, label %31
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
+  %33 = call zeroext i1 @pg_md5_encrypt(ptr noundef %2, ptr noundef %0, i64 noundef %32, ptr noundef nonnull %11, ptr noundef nonnull %12) #6
+  br i1 %33, label %36, label %34
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %12, align 8
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %12, align 8
   br label %.sink.split
 
-33:                                               ; preds = %28
-  %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #7
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %40, label %36
+36:                                               ; preds = %31
+  %37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #7
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %43, label %39
 
-36:                                               ; preds = %33
-  %37 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.10, ptr noundef %0) #6
+39:                                               ; preds = %36
+  %40 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.10, ptr noundef %0) #6
   br label %.sink.split
 
-38:                                               ; preds = %22
-  %39 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.11, ptr noundef %0) #6
+41:                                               ; preds = %.tail.thread.i
+  %42 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.11, ptr noundef %0) #6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %26, %31, %36, %38
-  %.sink = phi ptr [ %39, %38 ], [ %37, %36 ], [ %32, %31 ], [ %27, %26 ]
+.sink.split:                                      ; preds = %29, %34, %39, %41
+  %.sink = phi ptr [ %42, %41 ], [ %40, %39 ], [ %35, %34 ], [ %30, %29 ]
   store ptr %.sink, ptr %3, align 8
-  br label %40
+  br label %43
 
-40:                                               ; preds = %.sink.split, %33, %24
-  %.0 = phi i32 [ 0, %24 ], [ 0, %33 ], [ -1, %.sink.split ]
+43:                                               ; preds = %.sink.split, %36, %27
+  %.0 = phi i32 [ 0, %27 ], [ 0, %36 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

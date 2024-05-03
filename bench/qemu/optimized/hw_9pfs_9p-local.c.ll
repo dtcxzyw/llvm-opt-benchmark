@@ -73,12 +73,10 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.47 = private unnamed_addr constant [16 x i8] c"virtfs.mode=%d\0A\00", align 1
 @.str.48 = private unnamed_addr constant [16 x i8] c"virtfs.rdev=%d\0A\00", align 1
 @.str.49 = private unnamed_addr constant [17 x i8] c"/proc/self/fd/%d\00", align 1
-@.str.50 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.51 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @.str.52 = private unnamed_addr constant [19 x i8] c"!strchr(name, '/')\00", align 1
 @__PRETTY_FUNCTION__.local_name_to_path = private unnamed_addr constant [74 x i8] c"int local_name_to_path(FsContext *, V9fsPath *, const char *, V9fsPath *)\00", align 1
 @.str.53 = private unnamed_addr constant [6 x i8] c"%s/%s\00", align 1
-@.str.54 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @.str.55 = private unnamed_addr constant [5 x i8] c"./%s\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -266,7 +264,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @local_parse_opts(ptr noundef %opts, ptr noundef %fse, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @local_parse_opts(ptr noundef %opts, ptr noundef %fse, ptr noundef %errp) #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
@@ -461,7 +459,7 @@ cleanup:                                          ; preds = %if.end94, %if.then9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @local_init(ptr nocapture noundef %ctx, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @local_init(ptr nocapture noundef %ctx, ptr noundef %errp) #0 {
 entry:
   %stbuf.i = alloca %struct.statfs, align 8
   %call = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #18
@@ -652,17 +650,23 @@ if.else:                                          ; preds = %if.end6
 
 if.then32:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %buf.i)
-  %call.i24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(2) @.str.34) #16
-  %tobool.not.i = icmp eq i32 %call.i24, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+  %7 = load i8, ptr %call2, align 1
+  %.not.i = icmp eq i8 %7, 46
+  br i1 %.not.i, label %entry.tail.i, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then32
+entry.tail.i:                                     ; preds = %if.then32
+  %8 = getelementptr inbounds i8, ptr %call2, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %entry.tail.i, %if.then32
   %call.i.i = tail call i32 (i32, ptr, i32, ...) @openat64(i32 noundef %call.i, ptr noundef nonnull @.str.35, i32 noundef 2293760) #15
   %cmp.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i, label %local_mapped_file_attr.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call7.i.i = tail call fastcc i32 @openat_file(i32 noundef %call.i.i, ptr noundef %call2, i32 noundef 0, i32 noundef 0)
+  %call7.i.i = tail call fastcc i32 @openat_file(i32 noundef %call.i.i, ptr noundef nonnull %call2, i32 noundef 0, i32 noundef 0)
   %cmp9.i.i = icmp eq i32 %call7.i.i, -1
   br i1 %cmp9.i.i, label %if.end5.i, label %if.end12.i.i
 
@@ -675,7 +679,7 @@ if.then14.i.i:                                    ; preds = %if.end12.i.i
   %call15.i.i = tail call i32 @close(i32 noundef %call7.i.i) #15
   br label %if.end5.i
 
-if.else.i:                                        ; preds = %if.then32
+if.else.i:                                        ; preds = %entry.tail.i
   %call7.i14.i = tail call fastcc i32 @openat_file(i32 noundef %call.i, ptr noundef nonnull @.str.37, i32 noundef 0, i32 noundef 0)
   %cmp9.i15.i = icmp eq i32 %call7.i14.i, -1
   br i1 %cmp9.i15.i, label %local_mapped_file_attr.exit, label %if.end12.i16.i
@@ -692,9 +696,9 @@ if.then14.i20.i:                                  ; preds = %if.end12.i16.i
 if.end5.i:                                        ; preds = %if.then14.i.i, %if.end12.i.i, %if.end.i
   %retval.0.i.i = phi ptr [ null, %if.end.i ], [ null, %if.then14.i.i ], [ %call13.i.i, %if.end12.i.i ]
   %call.i13.i = tail call ptr @__errno_location() #17
-  %7 = load i32, ptr %call.i13.i, align 4
+  %11 = load i32, ptr %call.i13.i, align 4
   %call1.i.i = tail call i32 @close(i32 noundef %call.i.i) #15
-  store i32 %7, ptr %call.i13.i, align 4
+  store i32 %11, ptr %call.i13.i, align 4
   %tobool6.not.i = icmp eq ptr %retval.0.i.i, null
   br i1 %tobool6.not.i, label %local_mapped_file_attr.exit, label %if.end8.i
 
@@ -770,10 +774,10 @@ local_mapped_file_attr.exit:                      ; preds = %if.then.i, %if.else
   br label %err_out
 
 err_out:                                          ; preds = %if.then26, %if.end23, %local_mapped_file_attr.exit, %if.else, %if.end
-  %call.i25 = tail call ptr @__errno_location() #17
-  %8 = load i32, ptr %call.i25, align 4
+  %call.i24 = tail call ptr @__errno_location() #17
+  %12 = load i32, ptr %call.i24, align 4
   %call1.i = call i32 @close(i32 noundef %call.i) #15
-  store i32 %8, ptr %call.i25, align 4
+  store i32 %12, ptr %call.i24, align 4
   br label %out
 
 out:                                              ; preds = %entry, %err_out
@@ -879,7 +883,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool8.not, label %if.else11, label %if.then9
 
 if.then9:                                         ; preds = %if.else
-  %call10 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i, ptr noundef %call2, ptr noundef %credp), !range !9
+  %call10 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i, ptr noundef %call2, ptr noundef %credp)
   br label %if.end22
 
 if.else11:                                        ; preds = %if.else
@@ -963,7 +967,7 @@ if.else19:                                        ; preds = %if.else
   br i1 %tobool22.not, label %if.end27, label %if.then23
 
 if.then23:                                        ; preds = %if.else19
-  %call24 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i, ptr noundef %call2, ptr noundef nonnull %credp), !range !9
+  %call24 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i, ptr noundef %call2, ptr noundef nonnull %credp)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then17, %if.then23, %if.else19, %if.then10
@@ -1037,7 +1041,7 @@ if.then19:                                        ; preds = %if.end15
   br label %if.end22
 
 if.else:                                          ; preds = %if.end15
-  %call21 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i32, ptr noundef %name, ptr noundef %credp), !range !9
+  %call21 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i32, ptr noundef %name, ptr noundef %credp)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then19
@@ -1225,7 +1229,7 @@ do.body:                                          ; preds = %land.rhs, %if.end15
 land.rhs:                                         ; preds = %do.body
   %5 = load i32, ptr %call19, align 4
   %cmp20 = icmp eq i32 %5, 4
-  br i1 %cmp20, label %do.body, label %do.end, !llvm.loop !10
+  br i1 %cmp20, label %do.body, label %do.end, !llvm.loop !9
 
 do.end:                                           ; preds = %land.rhs, %do.body
   %6 = load i32, ptr %call19, align 4
@@ -1249,7 +1253,7 @@ if.then28:                                        ; preds = %if.end23
   br label %if.end31
 
 if.else:                                          ; preds = %if.end23
-  %call30 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i38, ptr noundef %name, ptr noundef nonnull %credp), !range !9
+  %call30 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i38, ptr noundef %name, ptr noundef nonnull %credp)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else, %if.then28
@@ -1451,7 +1455,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @local_opendir(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef writeonly %fs) #0 {
+define internal range(i32 -1, 1) i32 @local_opendir(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef writeonly %fs) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -1554,7 +1558,7 @@ if.then21:                                        ; preds = %if.end15
   br label %if.end24
 
 if.else:                                          ; preds = %if.end15
-  %call23 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i38, ptr noundef %name, ptr noundef nonnull %credp), !range !9
+  %call23 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i38, ptr noundef %name, ptr noundef nonnull %credp)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.then21
@@ -1791,7 +1795,7 @@ if.then20:                                        ; preds = %if.end15
   br label %if.end23
 
 if.else:                                          ; preds = %if.end15
-  %call22 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i33, ptr noundef %name, ptr noundef nonnull %credp), !range !9
+  %call22 = tail call fastcc i32 @local_set_mapped_file_attrat(i32 noundef %call.i33, ptr noundef %name, ptr noundef nonnull %credp)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else, %if.then20
@@ -2086,7 +2090,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @local_name_to_path(ptr nocapture noundef readonly %ctx, ptr noundef %dir_path, ptr noundef %name, ptr noundef %target) #0 {
+define internal range(i32 -1, 1) i32 @local_name_to_path(ptr nocapture noundef readonly %ctx, ptr noundef %dir_path, ptr noundef %name, ptr noundef %target) #0 {
 entry:
   %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i32, ptr %export_flags, align 8
@@ -2111,40 +2115,59 @@ if.then:                                          ; preds = %land.lhs.true, %loc
 
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
   %tobool2.not = icmp eq ptr %dir_path, null
-  br i1 %tobool2.not, label %if.else26, label %if.then3
+  %1 = load i8, ptr %name, align 1
+  br i1 %tobool2.not, label %sub_027, label %sub_0
 
-if.then3:                                         ; preds = %if.end
-  %call4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(2) @.str.34) #16
-  %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %if.then6, label %if.else
+sub_0:                                            ; preds = %if.end
+  %.not = icmp eq i8 %1, 46
+  br i1 %.not, label %if.then3.tail, label %if.else17
 
-if.then6:                                         ; preds = %if.then3
+if.then3.tail:                                    ; preds = %sub_0
+  %2 = getelementptr inbounds i8, ptr %name, i64 1
+  %3 = load i8, ptr %2, align 1
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %if.then6, label %sub_122
+
+if.then6:                                         ; preds = %if.then3.tail
   tail call void @v9fs_path_copy(ptr noundef %target, ptr noundef nonnull %dir_path) #15
   br label %return
 
-if.else:                                          ; preds = %if.then3
-  %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(3) @.str.50) #16
-  %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.then9, label %if.else17
+sub_122:                                          ; preds = %if.then3.tail
+  %5 = getelementptr inbounds i8, ptr %name, i64 1
+  %6 = load i8, ptr %5, align 1
+  %.not38 = icmp eq i8 %6, 46
+  br i1 %.not38, label %if.else.tail, label %if.else17
 
-if.then9:                                         ; preds = %if.else
+if.else.tail:                                     ; preds = %sub_122
+  %7 = getelementptr inbounds i8, ptr %name, i64 2
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %if.then9, label %if.else17
+
+if.then9:                                         ; preds = %if.else.tail
   %data = getelementptr inbounds i8, ptr %dir_path, i64 8
-  %1 = load ptr, ptr %data, align 8
-  %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.34) #16
-  %tobool11.not = icmp eq i32 %call10, 0
-  br i1 %tobool11.not, label %if.then12, label %if.else13
+  %10 = load ptr, ptr %data, align 8
+  %11 = load i8, ptr %10, align 1
+  %.not39 = icmp eq i8 %11, 46
+  br i1 %.not39, label %if.then9.tail, label %if.else13
 
-if.then12:                                        ; preds = %if.then9
+if.then9.tail:                                    ; preds = %if.then9
+  %12 = getelementptr inbounds i8, ptr %10, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %if.then12, label %if.else13
+
+if.then12:                                        ; preds = %if.then9.tail
   tail call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef %target, ptr noundef nonnull @.str.34) #15
   br label %return
 
-if.else13:                                        ; preds = %if.then9
-  %call15 = tail call noalias ptr @g_path_get_dirname(ptr noundef %1) #15
+if.else13:                                        ; preds = %if.then9, %if.then9.tail
+  %call15 = tail call noalias ptr @g_path_get_dirname(ptr noundef nonnull %10) #15
   tail call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef %target, ptr noundef nonnull @.str.51, ptr noundef %call15) #15
   tail call void @g_free(ptr noundef %call15) #15
   br label %return
 
-if.else17:                                        ; preds = %if.else
+if.else17:                                        ; preds = %sub_0, %sub_122, %if.else.tail
   %call18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 47) #16
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %if.end22, label %if.else21
@@ -2155,30 +2178,45 @@ if.else21:                                        ; preds = %if.else17
 
 if.end22:                                         ; preds = %if.else17
   %data23 = getelementptr inbounds i8, ptr %dir_path, i64 8
-  %2 = load ptr, ptr %data23, align 8
-  tail call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef %target, ptr noundef nonnull @.str.53, ptr noundef %2, ptr noundef %name) #15
+  %15 = load ptr, ptr %data23, align 8
+  tail call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef %target, ptr noundef nonnull @.str.53, ptr noundef %15, ptr noundef nonnull %name) #15
   br label %return
 
-if.else26:                                        ; preds = %if.end
-  %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(2) @.str.54) #16
-  %tobool28.not = icmp eq i32 %call27, 0
-  br i1 %tobool28.not, label %if.then34, label %lor.lhs.false
+sub_027:                                          ; preds = %if.end
+  switch i8 %1, label %if.else35 [
+    i8 47, label %if.else26.tail
+    i8 46, label %lor.lhs.false.tail
+  ]
 
-lor.lhs.false:                                    ; preds = %if.else26
-  %call29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(2) @.str.34) #16
-  %tobool30.not = icmp eq i32 %call29, 0
-  br i1 %tobool30.not, label %if.then34, label %lor.lhs.false31
+if.else26.tail:                                   ; preds = %sub_027
+  %16 = getelementptr inbounds i8, ptr %name, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %if.then34, label %if.else35
 
-lor.lhs.false31:                                  ; preds = %lor.lhs.false
-  %call32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(3) @.str.50) #16
-  %tobool33.not = icmp eq i32 %call32, 0
-  br i1 %tobool33.not, label %if.then34, label %if.else35
+lor.lhs.false.tail:                               ; preds = %sub_027
+  %19 = getelementptr inbounds i8, ptr %name, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %if.then34, label %sub_134
 
-if.then34:                                        ; preds = %lor.lhs.false31, %lor.lhs.false, %if.else26
+sub_134:                                          ; preds = %lor.lhs.false.tail
+  %22 = getelementptr inbounds i8, ptr %name, i64 1
+  %23 = load i8, ptr %22, align 1
+  %.not43 = icmp eq i8 %23, 46
+  br i1 %.not43, label %lor.lhs.false31.tail, label %if.else35
+
+lor.lhs.false31.tail:                             ; preds = %sub_134
+  %24 = getelementptr inbounds i8, ptr %name, i64 2
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 0
+  br i1 %26, label %if.then34, label %if.else35
+
+if.then34:                                        ; preds = %lor.lhs.false31.tail, %lor.lhs.false.tail, %if.else26.tail
   tail call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef %target, ptr noundef nonnull @.str.34) #15
   br label %return
 
-if.else35:                                        ; preds = %lor.lhs.false31
+if.else35:                                        ; preds = %sub_027, %if.else26.tail, %sub_134, %lor.lhs.false31.tail
   %call36 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 47) #16
   %tobool37.not = icmp eq ptr %call36, null
   br i1 %tobool37.not, label %if.end40, label %if.else39
@@ -2188,7 +2226,7 @@ if.else39:                                        ; preds = %if.else35
   unreachable
 
 if.end40:                                         ; preds = %if.else35
-  tail call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef %target, ptr noundef nonnull @.str.55, ptr noundef %name) #15
+  tail call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef %target, ptr noundef nonnull @.str.55, ptr noundef nonnull %name) #15
   br label %return
 
 return:                                           ; preds = %if.end22, %if.else13, %if.then12, %if.then6, %if.end40, %if.then34, %if.then
@@ -2549,14 +2587,27 @@ return:                                           ; preds = %if.then24, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @local_set_mapped_file_attrat(i32 noundef %dirfd, ptr noundef %name, ptr nocapture noundef readonly %credp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @local_set_mapped_file_attrat(i32 noundef %dirfd, ptr noundef %name, ptr nocapture noundef readonly %credp) unnamed_addr #0 {
 entry:
   %buf = alloca [100 x i8], align 16
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(2) @.str.34) #16
-  %tobool.not = icmp eq i32 %call, 0
+  %0 = load i8, ptr %name, align 1
+  %1 = zext i8 %0 to i32
+  %2 = add nsw i32 %1, -46
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %sub_1, label %entry.tail
+
+sub_1:                                            ; preds = %entry
+  %3 = getelementptr inbounds i8, ptr %name, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = zext i8 %4 to i32
+  br label %entry.tail
+
+entry.tail:                                       ; preds = %entry, %sub_1
+  %6 = phi i32 [ %2, %entry ], [ %5, %sub_1 ]
+  %tobool.not = icmp eq i32 %6, 0
   br i1 %tobool.not, label %if.then, label %if.else7
 
-if.then:                                          ; preds = %entry
+if.then:                                          ; preds = %entry.tail
   %call7.i = tail call fastcc i32 @openat_file(i32 noundef %dirfd, ptr noundef nonnull @.str.37, i32 noundef 0, i32 noundef 0)
   %cmp9.i = icmp eq i32 %call7.i, -1
   br i1 %cmp9.i, label %if.then4, label %if.end12.i
@@ -2572,19 +2623,19 @@ if.then14.i:                                      ; preds = %if.end12.i
 
 if.then4:                                         ; preds = %if.then, %if.then14.i
   %call5 = tail call ptr @__errno_location() #17
-  %0 = load i32, ptr %call5, align 4
-  %cmp = icmp eq i32 %0, 2
+  %7 = load i32, ptr %call5, align 4
+  %cmp = icmp eq i32 %7, 2
   br i1 %cmp, label %if.then67, label %return
 
-if.else7:                                         ; preds = %entry
+if.else7:                                         ; preds = %entry.tail
   %call8 = tail call i32 @mkdirat(i32 noundef %dirfd, ptr noundef nonnull @.str.35, i32 noundef 448) #15
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %land.lhs.true, label %if.end13
 
 land.lhs.true:                                    ; preds = %if.else7
   %call10 = tail call ptr @__errno_location() #17
-  %1 = load i32, ptr %call10, align 4
-  %cmp11.not = icmp eq i32 %1, 17
+  %8 = load i32, ptr %call10, align 4
+  %cmp11.not = icmp eq i32 %8, 17
   br i1 %cmp11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %land.lhs.true, %if.else7
@@ -2593,7 +2644,7 @@ if.end13:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end13
-  %call7.i41 = tail call fastcc i32 @openat_file(i32 noundef %call.i, ptr noundef %name, i32 noundef 0, i32 noundef 0)
+  %call7.i41 = tail call fastcc i32 @openat_file(i32 noundef %call.i, ptr noundef nonnull %name, i32 noundef 0, i32 noundef 0)
   %cmp9.i42 = icmp eq i32 %call7.i41, -1
   br i1 %cmp9.i42, label %if.then20, label %if.end12.i43
 
@@ -2608,13 +2659,13 @@ if.then14.i47:                                    ; preds = %if.end12.i43
 
 if.then20:                                        ; preds = %if.end17, %if.then14.i47
   %call21 = tail call ptr @__errno_location() #17
-  %2 = load i32, ptr %call21, align 4
-  %cmp22 = icmp eq i32 %2, 2
+  %9 = load i32, ptr %call21, align 4
+  %cmp22 = icmp eq i32 %9, 2
   br i1 %cmp22, label %if.else69, label %if.else24
 
 if.else24:                                        ; preds = %if.then20
   %call1.i = tail call i32 @close(i32 noundef %call.i) #15
-  store i32 %2, ptr %call21, align 4
+  store i32 %9, ptr %call21, align 4
   br label %return
 
 if.end26:                                         ; preds = %if.end12.i43, %if.end12.i
@@ -2678,7 +2729,7 @@ if.end63:                                         ; preds = %if.then40, %if.else
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %buf, i8 0, i64 100, i1 false)
   %call28 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 100, ptr noundef nonnull %fp.0)
   %tobool29.not = icmp eq ptr %call28, null
-  br i1 %tobool29.not, label %update_map_file, label %while.body, !llvm.loop !11
+  br i1 %tobool29.not, label %update_map_file, label %while.body, !llvm.loop !10
 
 update_map_file:                                  ; preds = %if.end63, %if.end26
   %uid.0.lcssa = phi i32 [ -1, %if.end26 ], [ %uid.1, %if.end63 ]
@@ -2712,7 +2763,7 @@ if.else69:                                        ; preds = %if.then20, %update_
   %mode.295 = phi i32 [ %mode.0.lcssa, %update_map_file ], [ -1, %if.then20 ]
   %gid.294 = phi i32 [ %gid.0.lcssa, %update_map_file ], [ -1, %if.then20 ]
   %uid.293 = phi i32 [ %uid.0.lcssa, %update_map_file ], [ -1, %if.then20 ]
-  %call6.i59 = call fastcc i32 @openat_file(i32 noundef %map_dirfd.197, ptr noundef %name, i32 noundef 577, i32 noundef 438)
+  %call6.i59 = call fastcc i32 @openat_file(i32 noundef %map_dirfd.197, ptr noundef nonnull %name, i32 noundef 577, i32 noundef 438)
   %cmp9.i60 = icmp eq i32 %call6.i59, -1
   br i1 %cmp9.i60, label %local_fopenat.exit67, label %if.end12.i61
 
@@ -2732,9 +2783,9 @@ local_fopenat.exit67:                             ; preds = %if.else69, %if.end1
 
 if.then72:                                        ; preds = %local_fopenat.exit67
   %call.i68 = tail call ptr @__errno_location() #17
-  %3 = load i32, ptr %call.i68, align 4
+  %10 = load i32, ptr %call.i68, align 4
   %call1.i69 = call i32 @close(i32 noundef %map_dirfd.197) #15
-  store i32 %3, ptr %call.i68, align 4
+  store i32 %10, ptr %call.i68, align 4
   br label %if.end74
 
 if.end74:                                         ; preds = %local_fopenat.exit67, %if.then72
@@ -2765,21 +2816,21 @@ if.else86:                                        ; preds = %if.end82
   unreachable
 
 if.end87:                                         ; preds = %if.end82
-  %4 = load i32, ptr %credp, align 8
-  %cmp88.not = icmp eq i32 %4, -1
-  %spec.select = select i1 %cmp88.not, i32 %uid.279114, i32 %4
+  %11 = load i32, ptr %credp, align 8
+  %cmp88.not = icmp eq i32 %11, -1
+  %spec.select = select i1 %cmp88.not, i32 %uid.279114, i32 %11
   %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
-  %5 = load i32, ptr %fc_gid, align 4
-  %cmp92.not = icmp eq i32 %5, -1
-  %gid.3 = select i1 %cmp92.not, i32 %gid.281113, i32 %5
+  %12 = load i32, ptr %fc_gid, align 4
+  %cmp92.not = icmp eq i32 %12, -1
+  %gid.3 = select i1 %cmp92.not, i32 %gid.281113, i32 %12
   %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
-  %6 = load i32, ptr %fc_mode, align 8
-  %cmp96.not = icmp eq i32 %6, -1
-  %mode.3 = select i1 %cmp96.not, i32 %mode.283112, i32 %6
+  %13 = load i32, ptr %fc_mode, align 8
+  %cmp96.not = icmp eq i32 %13, -1
+  %mode.3 = select i1 %cmp96.not, i32 %mode.283112, i32 %13
   %fc_rdev = getelementptr inbounds i8, ptr %credp, i64 16
-  %7 = load i64, ptr %fc_rdev, align 8
-  %cmp100.not = icmp eq i64 %7, -1
-  %conv = trunc i64 %7 to i32
+  %14 = load i64, ptr %fc_rdev, align 8
+  %cmp100.not = icmp eq i64 %14, -1
+  %conv = trunc i64 %14 to i32
   %rdev.3 = select i1 %cmp100.not, i32 %rdev.285111, i32 %conv
   %cmp104.not = icmp eq i32 %spec.select, -1
   br i1 %cmp104.not, label %if.end108, label %if.then106
@@ -3076,6 +3127,5 @@ attributes #18 = { nounwind allocsize(0) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

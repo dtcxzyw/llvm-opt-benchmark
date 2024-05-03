@@ -22,13 +22,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 
-@.str = private unnamed_addr constant [3 x i8] c"-h\00", align 1
 @diff_files_usage = internal constant [1283 x i8] c"git diff-files [-q] [-0 | -1 | -2 | -3 | -c | --cc] [<common-diff-options>] [<path>...]\0A\0Acommon diff options:\0A  -z            output diff-raw with lines terminated with NUL.\0A  -p            output patch format.\0A  -u            synonym for -p.\0A  --patch-with-raw\0A                output both a patch and the diff-raw format.\0A  --stat        show diffstat instead of patch.\0A  --numstat     show numeric diffstat instead of patch.\0A  --patch-with-stat\0A                output a patch and prepend its diffstat.\0A  --name-only   show only names of changed files.\0A  --name-status show names and status of changed files.\0A  --full-index  show full object name on index lines.\0A  --abbrev=<n>  abbreviate object names in diff-tree header and diff-raw.\0A  -R            swap input file pairs.\0A  -B            detect complete rewrites.\0A  -M            detect renames.\0A  -C            detect copies.\0A  --find-copies-harder\0A                try unchanged files as candidate for copy detection.\0A  -l<n>         limit rename attempts up to <n> paths.\0A  -O<file>      reorder diffs according to the <file>.\0A  -S<string>    find filepair whose only one side contains the string.\0A  --pickaxe-all\0A                show all files diff when -S is used and hit is found.\0A  -a  --text    treat all files as text.\0A\00", align 16
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [7 x i8] c"--base\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"--ours\00", align 1
 @.str.3 = private unnamed_addr constant [9 x i8] c"--theirs\00", align 1
-@.str.4 = private unnamed_addr constant [3 x i8] c"-q\00", align 1
 @.str.5 = private unnamed_addr constant [24 x i8] c"repo_read_index_preload\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -41,66 +39,92 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str) #4
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %1 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %1, 45
+  br i1 %.not, label %sub_1, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true
-  tail call void @usage(ptr noundef nonnull @diff_files_usage) #5
+sub_1:                                            ; preds = %land.lhs.true
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not27 = icmp eq i8 %3, 104
+  br i1 %.not27, label %land.lhs.true.tail, label %if.end
+
+land.lhs.true.tail:                               ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.then, label %if.end
+
+if.then:                                          ; preds = %land.lhs.true.tail
+  tail call void @usage(ptr noundef nonnull @diff_files_usage) #4
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  tail call void @git_config(ptr noundef nonnull @git_diff_basic_config, ptr noundef null) #6
-  %1 = load ptr, ptr @the_repository, align 8
-  tail call void @prepare_repo_settings(ptr noundef %1) #6
-  %2 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds i8, ptr %2, i64 168
+if.end:                                           ; preds = %sub_1, %land.lhs.true, %land.lhs.true.tail, %entry
+  tail call void @git_config(ptr noundef nonnull @git_diff_basic_config, ptr noundef null) #5
+  %7 = load ptr, ptr @the_repository, align 8
+  tail call void @prepare_repo_settings(ptr noundef %7) #5
+  %8 = load ptr, ptr @the_repository, align 8
+  %command_requires_full_index = getelementptr inbounds i8, ptr %8, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
-  call void @repo_init_revisions(ptr noundef %2, ptr noundef nonnull %rev, ptr noundef %prefix) #6
+  call void @repo_init_revisions(ptr noundef %8, ptr noundef nonnull %rev, ptr noundef %prefix) #5
   %abbrev = getelementptr inbounds i8, ptr %rev, i64 328
   store i32 0, ptr %abbrev, align 8
   %ita_invisible_in_index = getelementptr inbounds i8, ptr %rev, i64 1796
   store i32 1, ptr %ita_invisible_in_index, align 4
-  %call2 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull %rev, ptr noundef null) #6
-  %cmp318 = icmp sgt i32 %call2, 1
-  br i1 %cmp318, label %land.rhs.lr.ph, label %while.end
+  %call2 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull %rev, ptr noundef null) #5
+  %cmp322 = icmp sgt i32 %call2, 1
+  br i1 %cmp322, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %if.end
   %max_count22 = getelementptr inbounds i8, ptr %rev, i64 1412
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end32
-  %options.021 = phi i32 [ 0, %land.rhs.lr.ph ], [ %options.1, %if.end32 ]
-  %argc.addr.020 = phi i32 [ %call2, %land.rhs.lr.ph ], [ %dec, %if.end32 ]
-  %argv.addr.019 = phi ptr [ %argv, %land.rhs.lr.ph ], [ %arrayidx4, %if.end32 ]
-  %arrayidx4 = getelementptr inbounds i8, ptr %argv.addr.019, i64 8
-  %3 = load ptr, ptr %arrayidx4, align 8
-  %4 = load i8, ptr %3, align 1
-  %cmp6 = icmp eq i8 %4, 45
+  %options.025 = phi i32 [ 0, %land.rhs.lr.ph ], [ %options.1, %if.end32 ]
+  %argc.addr.024 = phi i32 [ %call2, %land.rhs.lr.ph ], [ %dec, %if.end32 ]
+  %argv.addr.023 = phi ptr [ %argv, %land.rhs.lr.ph ], [ %arrayidx4, %if.end32 ]
+  %arrayidx4 = getelementptr inbounds i8, ptr %argv.addr.023, i64 8
+  %9 = load ptr, ptr %arrayidx4, align 8
+  %10 = load i8, ptr %9, align 1
+  %cmp6 = icmp eq i8 %10, 45
   br i1 %cmp6, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %call9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.1) #4
+  %call9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(7) @.str.1) #6
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end32.sink.split, label %if.else
 
 if.else:                                          ; preds = %while.body
-  %call13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.2) #4
+  %call13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(7) @.str.2) #6
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.end32.sink.split, label %if.else17
 
 if.else17:                                        ; preds = %if.else
-  %call19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(9) @.str.3) #4
+  %call19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(9) @.str.3) #6
   %tobool20.not = icmp eq i32 %call19, 0
-  br i1 %tobool20.not, label %if.end32.sink.split, label %if.else23
+  br i1 %tobool20.not, label %if.end32.sink.split, label %sub_118
 
-if.else23:                                        ; preds = %if.else17
-  %call25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(3) @.str.4) #4
-  %tobool26.not = icmp eq i32 %call25, 0
+sub_118:                                          ; preds = %if.else17
+  %11 = getelementptr inbounds i8, ptr %9, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = add nsw i32 %13, -113
+  %.not29 = icmp eq i32 %14, 0
+  br i1 %.not29, label %sub_219, label %if.else23.tail
+
+sub_219:                                          ; preds = %sub_118
+  %15 = getelementptr inbounds i8, ptr %9, i64 2
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i32
+  br label %if.else23.tail
+
+if.else23.tail:                                   ; preds = %sub_118, %sub_219
+  %18 = phi i32 [ %14, %sub_118 ], [ %17, %sub_219 ]
+  %tobool26.not = icmp eq i32 %18, 0
   br i1 %tobool26.not, label %if.end32, label %if.else28
 
-if.else28:                                        ; preds = %if.else23
-  call void @usage(ptr noundef nonnull @diff_files_usage) #5
+if.else28:                                        ; preds = %if.else23.tail
+  call void @usage(ptr noundef nonnull @diff_files_usage) #4
   unreachable
 
 if.end32.sink.split:                              ; preds = %if.else17, %if.else, %while.body
@@ -108,17 +132,17 @@ if.end32.sink.split:                              ; preds = %if.else17, %if.else
   store i32 %.sink, ptr %max_count22, align 4
   br label %if.end32
 
-if.end32:                                         ; preds = %if.end32.sink.split, %if.else23
-  %options.1 = phi i32 [ 1, %if.else23 ], [ %options.021, %if.end32.sink.split ]
-  %dec = add nsw i32 %argc.addr.020, -1
-  %cmp3 = icmp sgt i32 %argc.addr.020, 2
+if.end32:                                         ; preds = %if.end32.sink.split, %if.else23.tail
+  %options.1 = phi i32 [ 1, %if.else23.tail ], [ %options.025, %if.end32.sink.split ]
+  %dec = add nsw i32 %argc.addr.024, -1
+  %cmp3 = icmp sgt i32 %argc.addr.024, 2
   br i1 %cmp3, label %land.rhs, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %land.rhs, %if.end32, %if.end
-  %options.0.lcssa = phi i32 [ 0, %if.end ], [ %options.1, %if.end32 ], [ %options.021, %land.rhs ]
+  %options.0.lcssa = phi i32 [ 0, %if.end ], [ %options.1, %if.end32 ], [ %options.025, %land.rhs ]
   %output_format = getelementptr inbounds i8, ptr %rev, i64 1756
-  %5 = load i32, ptr %output_format, align 4
-  %tobool34.not = icmp eq i32 %5, 0
+  %19 = load i32, ptr %output_format, align 4
+  %tobool34.not = icmp eq i32 %19, 0
   br i1 %tobool34.not, label %if.then35, label %if.end38
 
 if.then35:                                        ; preds = %while.end
@@ -126,57 +150,57 @@ if.then35:                                        ; preds = %while.end
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then35, %while.end
-  %6 = phi i32 [ 1, %if.then35 ], [ %5, %while.end ]
+  %20 = phi i32 [ 1, %if.then35 ], [ %19, %while.end ]
   %rotate_to_strict = getelementptr inbounds i8, ptr %rev, i64 1492
   store i32 1, ptr %rotate_to_strict, align 4
   %pending = getelementptr inbounds i8, ptr %rev, i64 8
-  %7 = load i32, ptr %pending, align 8
-  %tobool40 = icmp ne i32 %7, 0
+  %21 = load i32, ptr %pending, align 8
+  %tobool40 = icmp ne i32 %21, 0
   %min_age = getelementptr inbounds i8, ptr %rev, i64 1432
-  %8 = load i64, ptr %min_age, align 8
-  %cmp41 = icmp ne i64 %8, -1
+  %22 = load i64, ptr %min_age, align 8
+  %cmp41 = icmp ne i64 %22, -1
   %or.cond = select i1 %tobool40, i1 true, i1 %cmp41
   %max_age = getelementptr inbounds i8, ptr %rev, i64 1416
-  %9 = load i64, ptr %max_age, align 8
-  %cmp44 = icmp ne i64 %9, -1
+  %23 = load i64, ptr %max_age, align 8
+  %cmp44 = icmp ne i64 %23, -1
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp44
   %max_count47 = getelementptr inbounds i8, ptr %rev, i64 1412
-  %10 = load i32, ptr %max_count47, align 4
-  %cmp48 = icmp sgt i32 %10, 3
+  %24 = load i32, ptr %max_count47, align 4
+  %cmp48 = icmp sgt i32 %24, 3
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp48
   br i1 %or.cond2, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %if.end38
-  call void @usage(ptr noundef nonnull @diff_files_usage) #5
+  call void @usage(ptr noundef nonnull @diff_files_usage) #4
   unreachable
 
 if.end51:                                         ; preds = %if.end38
-  %cmp53 = icmp ne i32 %10, -1
-  %and = and i32 %6, 16
+  %cmp53 = icmp ne i32 %24, -1
+  %and = and i32 %20, 16
   %tobool58.not = icmp eq i32 %and, 0
-  %or.cond23 = or i1 %cmp53, %tobool58.not
-  br i1 %or.cond23, label %if.end60, label %if.then59
+  %or.cond31 = or i1 %cmp53, %tobool58.not
+  br i1 %or.cond31, label %if.end60, label %if.then59
 
 if.then59:                                        ; preds = %if.end51
-  call void @diff_merges_set_dense_combined_if_unset(ptr noundef nonnull %rev) #6
+  call void @diff_merges_set_dense_combined_if_unset(ptr noundef nonnull %rev) #5
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then59, %if.end51
-  %11 = load ptr, ptr @the_repository, align 8
+  %25 = load ptr, ptr @the_repository, align 8
   %pathspec = getelementptr inbounds i8, ptr %rev, i64 1936
-  %call62 = call i32 @repo_read_index_preload(ptr noundef %11, ptr noundef nonnull %pathspec, i32 noundef 0) #6
+  %call62 = call i32 @repo_read_index_preload(ptr noundef %25, ptr noundef nonnull %pathspec, i32 noundef 0) #5
   %cmp63 = icmp slt i32 %call62, 0
   br i1 %cmp63, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %if.end60
-  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.5) #5
+  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.5) #4
   unreachable
 
 if.end66:                                         ; preds = %if.end60
   %diffopt = getelementptr inbounds i8, ptr %rev, i64 1472
-  call void @run_diff_files(ptr noundef nonnull %rev, i32 noundef %options.0.lcssa) #6
-  %call68 = call i32 @diff_result_code(ptr noundef nonnull %diffopt) #6
-  call void @release_revisions(ptr noundef nonnull %rev) #6
+  call void @run_diff_files(ptr noundef nonnull %rev, i32 noundef %options.0.lcssa) #5
+  %call68 = call i32 @diff_result_code(ptr noundef nonnull %diffopt) #5
+  call void @release_revisions(ptr noundef nonnull %rev) #5
   ret i32 %call68
 }
 
@@ -213,9 +237,9 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { noreturn nounwind }
-attributes #6 = { nounwind }
+attributes #4 = { noreturn nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

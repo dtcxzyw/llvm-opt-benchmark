@@ -98,7 +98,7 @@ define ptr @description(ptr noundef %0) local_unnamed_addr #1 {
 declare ptr @dt_iop_set_description(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   %7 = icmp eq i32 %2, 1
   br i1 %7, label %8, label %11
 
@@ -764,7 +764,7 @@ declare void @gtk_widget_add_events(ptr noundef, i32 noundef) local_unnamed_addr
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dt_iop_monochrome_draw(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef range(i32 0, 2) i32 @dt_iop_monochrome_draw(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
   %4 = alloca %struct._cairo_rectangle_int, align 4
   %5 = alloca [3 x double], align 16
   %6 = alloca %struct.cmsCIELab, align 8
@@ -954,7 +954,7 @@ define internal noundef i32 @dt_iop_monochrome_draw(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dt_iop_monochrome_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @dt_iop_monochrome_button_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = alloca %struct._cairo_rectangle_int, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 52
   %6 = load i32, ptr %5, align 4, !tbaa !107
@@ -1063,7 +1063,7 @@ define internal noundef i32 @dt_iop_monochrome_button_press(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dt_iop_monochrome_button_release(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @dt_iop_monochrome_button_release(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !107
   %6 = icmp eq i32 %5, 1
@@ -1196,7 +1196,7 @@ define internal noundef i32 @dt_iop_monochrome_leave_notify(ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dt_iop_monochrome_scrolled(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @dt_iop_monochrome_scrolled(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 680
   %6 = load ptr, ptr %5, align 8, !tbaa !72
@@ -1297,7 +1297,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !116
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
@@ -1321,37 +1321,47 @@ define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unn
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.18) #26
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %20, label %5
+sub_0:
+  %2 = load i8, ptr %1, align 1
+  switch i8 %2, label %.tail1.thread [
+    i8 97, label %.tail
+    i8 98, label %.tail1
+  ]
 
-5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.19) #26
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %10
+.tail:                                            ; preds = %sub_0
+  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %20, label %.tail1.thread
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+.tail1:                                           ; preds = %sub_0
+  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %9, label %.tail1.thread
+
+9:                                                ; preds = %.tail1
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
   br label %20
 
-10:                                               ; preds = %5
+.tail1.thread:                                    ; preds = %sub_0, %.tail, %.tail1
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.20) #26
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
-13:                                               ; preds = %10
+13:                                               ; preds = %.tail1.thread
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   br label %20
 
-15:                                               ; preds = %10
+15:                                               ; preds = %.tail1.thread
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.15) #26
   %17 = icmp eq i32 %16, 0
   %18 = getelementptr inbounds i8, ptr %0, i64 12
   %19 = select i1 %17, ptr %18, ptr null
   br label %20
 
-20:                                               ; preds = %15, %13, %8, %2
-  %21 = phi ptr [ %14, %13 ], [ %9, %8 ], [ %0, %2 ], [ %19, %15 ]
+20:                                               ; preds = %15, %13, %9, %.tail
+  %21 = phi ptr [ %14, %13 ], [ %10, %9 ], [ %0, %.tail ], [ %19, %15 ]
   ret ptr %21
 }
 

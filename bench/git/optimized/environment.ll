@@ -105,7 +105,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_work_tree_cfg = dso_local local_unnamed_addr global ptr null, align 8
 @__const.expand_namespace.buf = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 @.str.28 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.29 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @.str.30 = private unnamed_addr constant [19 x i8] c"refs/namespaces/%s\00", align 1
 @.str.31 = private unnamed_addr constant [28 x i8] c"bad git namespace path \22%s\22\00", align 1
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
@@ -304,28 +303,41 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.e
   br i1 %tobool3.not10.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %strbuf_setlen.exit.i, %for.inc.i
-  %28 = phi ptr [ %30, %for.inc.i ], [ %27, %strbuf_setlen.exit.i ]
+  %28 = phi ptr [ %37, %for.inc.i ], [ %27, %strbuf_setlen.exit.i ]
   %c.011.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call.i.i.i, %strbuf_setlen.exit.i ]
   %buf4.i = getelementptr inbounds i8, ptr %28, i64 16
   %29 = load ptr, ptr %buf4.i, align 8
-  %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(2) @.str.29) #17
-  %cmp.not.i = icmp eq i32 %call5.i, 0
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = add nsw i32 %31, -47
+  %.not.i = icmp eq i32 %32, 0
+  br i1 %.not.i, label %sub_1.i, label %for.body.tail.i
+
+sub_1.i:                                          ; preds = %for.body.i
+  %33 = getelementptr inbounds i8, ptr %29, i64 1
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  br label %for.body.tail.i
+
+for.body.tail.i:                                  ; preds = %sub_1.i, %for.body.i
+  %36 = phi i32 [ %32, %for.body.i ], [ %35, %sub_1.i ]
+  %cmp.not.i = icmp eq i32 %36, 0
   br i1 %cmp.not.i, label %for.inc.i, label %if.then6.i
 
-if.then6.i:                                       ; preds = %for.body.i
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.30, ptr noundef %29) #16
+if.then6.i:                                       ; preds = %for.body.tail.i
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.30, ptr noundef nonnull %29) #16
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then6.i, %for.body.i
+for.inc.i:                                        ; preds = %if.then6.i, %for.body.tail.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %c.011.i, i64 8
-  %30 = load ptr, ptr %incdec.ptr.i, align 8
-  %tobool3.not.i = icmp eq ptr %30, null
+  %37 = load ptr, ptr %incdec.ptr.i, align 8
+  %tobool3.not.i = icmp eq ptr %37, null
   br i1 %tobool3.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i, %strbuf_setlen.exit.i
   call void @strbuf_list_free(ptr noundef nonnull %call.i.i.i) #16
-  %31 = load ptr, ptr %25, align 8
-  %call10.i = call i32 @check_refname_format(ptr noundef %31, i32 noundef 0) #16
+  %38 = load ptr, ptr %25, align 8
+  %call10.i = call i32 @check_refname_format(ptr noundef %38, i32 noundef 0) #16
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %if.end14.i, label %if.then12.i
 
@@ -335,14 +347,14 @@ if.then12.i:                                      ; preds = %for.end.i
   unreachable
 
 if.end14.i:                                       ; preds = %for.end.i
-  %32 = load i64, ptr %buf.i, align 8
-  %tobool.not.i.i.i = icmp eq i64 %32, 0
+  %39 = load i64, ptr %buf.i, align 8
+  %tobool.not.i.i.i = icmp eq i64 %39, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.end14.i
-  %33 = load i64, ptr %24, align 8
-  %.neg.i.i = add i64 %33, 1
-  %tobool.not.i.i = icmp eq i64 %32, %.neg.i.i
+  %40 = load i64, ptr %24, align 8
+  %.neg.i.i = add i64 %40, 1
+  %tobool.not.i.i = icmp eq i64 %39, %.neg.i.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %strbuf_addch.exit.i
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.end14.i
@@ -353,14 +365,14 @@ if.then.i.i:                                      ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
-  %34 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %33, %strbuf_avail.exit.i.i ]
-  %35 = load ptr, ptr %25, align 8
+  %41 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %40, %strbuf_avail.exit.i.i ]
+  %42 = load ptr, ptr %25, align 8
   store i64 %inc.pre-phi.i.i, ptr %24, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %35, i64 %34
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %42, i64 %41
   store i8 47, ptr %arrayidx.i.i, align 1
-  %36 = load ptr, ptr %25, align 8
-  %37 = load i64, ptr %24, align 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %36, i64 %37
+  %43 = load ptr, ptr %25, align 8
+  %44 = load i64, ptr %24, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %43, i64 %44
   store i8 0, ptr %arrayidx3.i.i, align 1
   %call15.i = call ptr @strbuf_detach(ptr noundef nonnull %buf.i, ptr noundef null) #16
   br label %expand_namespace.exit
@@ -374,8 +386,8 @@ expand_namespace.exit:                            ; preds = %if.then.i, %strbuf_
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %expand_namespace.exit
-  %38 = load ptr, ptr @the_repository, align 8
-  call void @set_alternate_shallow_file(ptr noundef %38, ptr noundef nonnull %call15, i32 noundef 0) #16
+  %45 = load ptr, ptr @the_repository, align 8
+  call void @set_alternate_shallow_file(ptr noundef %45, ptr noundef nonnull %call15, i32 noundef 0) #16
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %expand_namespace.exit
@@ -404,7 +416,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare void @set_alternate_shallow_file(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @is_bare_repository() local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @is_bare_repository() local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr @is_bare_repository_cfg, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -433,7 +445,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @have_git_dir() local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @have_git_dir() local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @startup_info, align 8
   %1 = load i32, ptr %0, align 8
@@ -840,7 +852,7 @@ entry:
 declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
-define dso_local i32 @print_sha1_ellipsis() local_unnamed_addr #12 {
+define dso_local range(i32 -1, 2) i32 @print_sha1_ellipsis() local_unnamed_addr #12 {
 entry:
   %0 = load i32, ptr @print_sha1_ellipsis.cached_result, align 4
   %cmp = icmp slt i32 %0, 0

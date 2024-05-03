@@ -37,7 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [28 x i8] c"bad parent inode number: %u\00", align 1
 @__func__.ext4_find_dest_de = private unnamed_addr constant [18 x i8] c"ext4_find_dest_de\00", align 1
 @__func__.ext4_generic_delete_entry = private unnamed_addr constant [26 x i8] c"ext4_generic_delete_entry\00", align 1
-@.str.2 = private unnamed_addr constant [2 x i8] c".\00", align 1
 @.str.3 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @__func__.ext4_empty_dir = private unnamed_addr constant [15 x i8] c"ext4_empty_dir\00", align 1
 @.str.4 = private unnamed_addr constant [13 x i8] c"invalid size\00", align 1
@@ -183,7 +182,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ext4_dirblock_csum_verify(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @ext4_dirblock_csum_verify(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.anon.16, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -1479,7 +1478,7 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr nocaptu
 declare dso_local i32 @ext4_htree_store_dirent(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_search_dir(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @ext4_search_dir(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 align 16 {
   %8 = sext i32 %2 to i64
   %9 = getelementptr i8, ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -9
@@ -1630,7 +1629,7 @@ declare dso_local ptr @d_obtain_alias(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @__ext4_iget(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_find_dest_de(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -117, 1) i32 @ext4_find_dest_de(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 255
@@ -1930,7 +1929,7 @@ define dso_local void @ext4_insert_dentry(ptr noundef readonly %0, ptr nocapture
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_generic_delete_entry(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -117, 1) i32 @ext4_generic_delete_entry(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 24
@@ -2462,7 +2461,7 @@ define dso_local zeroext i1 @ext4_empty_dir(ptr noundef %0) local_unnamed_addr #
   %30 = trunc i64 %29 to i32
   %31 = call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_empty_dir, i32 noundef 3096, ptr noundef %0, ptr noundef null, ptr noundef %27, ptr noundef %23, ptr noundef %27, i32 noundef %30, i32 noundef 0) #13
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %43, !prof !14
+  br i1 %32, label %33, label %49, !prof !14
 
 33:                                               ; preds = %25
   %34 = load i32, ptr %27, align 4
@@ -2470,166 +2469,202 @@ define dso_local zeroext i1 @ext4_empty_dir(ptr noundef %0) local_unnamed_addr #
   %36 = getelementptr inbounds i8, ptr %0, i64 64
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, %35
-  br i1 %38, label %39, label %43
+  br i1 %38, label %sub_0, label %49
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %27, i64 8
-  %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @.str.2, ptr noundef %40) #13
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %46, label %43
+sub_0:                                            ; preds = %33
+  %39 = getelementptr inbounds i8, ptr %27, i64 8
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  %42 = sub nsw i32 46, %41
+  %.not = icmp eq i8 %40, 46
+  br i1 %.not, label %sub_1, label %.tail
 
-43:                                               ; preds = %39, %33, %25
+sub_1:                                            ; preds = %sub_0
+  %43 = getelementptr inbounds i8, ptr %27, i64 9
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = sub nsw i32 0, %45
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %47 = phi i32 [ %42, %sub_0 ], [ %46, %sub_1 ]
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %52, label %49
+
+49:                                               ; preds = %.tail, %33, %25
   call void (ptr, ptr, i32, ptr, ...) @__ext4_warning_inode(ptr noundef %0, ptr noundef nonnull @__func__.ext4_empty_dir, i32 noundef 3098, ptr noundef nonnull @.str.5) #13
-  %44 = icmp eq ptr %23, null
-  br i1 %44, label %.loopexit, label %45
+  %50 = icmp eq ptr %23, null
+  br i1 %50, label %.loopexit, label %51
 
-45:                                               ; preds = %43
+51:                                               ; preds = %49
   call void @__brelse(ptr noundef nonnull %23) #13
   br label %.loopexit
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %27, i64 4
-  %48 = load i16, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %17, i64 24
-  %50 = zext i16 %48 to i32
-  %51 = zext i16 %48 to i64
-  %52 = getelementptr i8, ptr %27, i64 %51
-  %53 = load ptr, ptr %26, align 8
-  %54 = load i64, ptr %28, align 8
-  %55 = trunc i64 %54 to i32
-  %56 = call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_empty_dir, i32 noundef 3105, ptr noundef %0, ptr noundef null, ptr noundef %52, ptr noundef %23, ptr noundef %53, i32 noundef %55, i32 noundef %50) #13
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %65, !prof !14
+52:                                               ; preds = %.tail
+  %53 = getelementptr inbounds i8, ptr %27, i64 4
+  %54 = load i16, ptr %53, align 4
+  %55 = getelementptr inbounds i8, ptr %17, i64 24
+  %56 = zext i16 %54 to i32
+  %57 = zext i16 %54 to i64
+  %58 = getelementptr i8, ptr %27, i64 %57
+  %59 = load ptr, ptr %26, align 8
+  %60 = load i64, ptr %28, align 8
+  %61 = trunc i64 %60 to i32
+  %62 = call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_empty_dir, i32 noundef 3105, ptr noundef %0, ptr noundef null, ptr noundef %58, ptr noundef %23, ptr noundef %59, i32 noundef %61, i32 noundef %56) #13
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %81, !prof !14
 
-58:                                               ; preds = %46
-  %59 = load i32, ptr %52, align 4
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %65, label %61
+64:                                               ; preds = %52
+  %65 = load i32, ptr %58, align 4
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %81, label %sub_08
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %52, i64 8
-  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(3) @.str.3, ptr noundef %62) #13
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %68, label %65
+sub_08:                                           ; preds = %64
+  %67 = getelementptr inbounds i8, ptr %58, i64 8
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %70 = sub nsw i32 46, %69
+  %.not14 = icmp eq i8 %68, 46
+  br i1 %.not14, label %sub_19, label %.tail7
 
-65:                                               ; preds = %61, %58, %46
+sub_19:                                           ; preds = %sub_08
+  %71 = getelementptr inbounds i8, ptr %58, i64 9
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  %74 = sub nsw i32 46, %73
+  %.not15 = icmp eq i8 %72, 46
+  br i1 %.not15, label %sub_2, label %.tail7
+
+sub_2:                                            ; preds = %sub_19
+  %75 = getelementptr inbounds i8, ptr %58, i64 10
+  %76 = load i8, ptr %75, align 1
+  %77 = zext i8 %76 to i32
+  %78 = sub nsw i32 0, %77
+  br label %.tail7
+
+.tail7:                                           ; preds = %sub_08, %sub_19, %sub_2
+  %79 = phi i32 [ %70, %sub_08 ], [ %74, %sub_19 ], [ %78, %sub_2 ]
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %84, label %81
+
+81:                                               ; preds = %.tail7, %64, %52
   call void (ptr, ptr, i32, ptr, ...) @__ext4_warning_inode(ptr noundef %0, ptr noundef nonnull @__func__.ext4_empty_dir, i32 noundef 3107, ptr noundef nonnull @.str.6) #13
-  %66 = icmp eq ptr %23, null
-  br i1 %66, label %.loopexit, label %67
+  %82 = icmp eq ptr %23, null
+  br i1 %82, label %.loopexit, label %83
 
-67:                                               ; preds = %65
+83:                                               ; preds = %81
   call void @__brelse(ptr noundef nonnull %23) #13
   br label %.loopexit
 
-68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %52, i64 4
-  %70 = load i16, ptr %69, align 4
-  %71 = zext i16 %70 to i32
-  %72 = add nuw nsw i32 %71, %50
-  %73 = zext nneg i32 %72 to i64
-  %74 = load i64, ptr %18, align 8
-  %75 = icmp sgt i64 %74, %73
-  br i1 %75, label %76, label %.loopexit7
+84:                                               ; preds = %.tail7
+  %85 = getelementptr inbounds i8, ptr %58, i64 4
+  %86 = load i16, ptr %85, align 4
+  %87 = zext i16 %86 to i32
+  %88 = add nuw nsw i32 %87, %56
+  %89 = zext nneg i32 %88 to i64
+  %90 = load i64, ptr %18, align 8
+  %91 = icmp sgt i64 %90, %89
+  br i1 %91, label %92, label %.loopexit11
 
-76:                                               ; preds = %68
-  %77 = getelementptr inbounds i8, ptr %17, i64 20
-  br label %78
+92:                                               ; preds = %84
+  %93 = getelementptr inbounds i8, ptr %17, i64 20
+  br label %94
 
-78:                                               ; preds = %98, %76
-  %79 = phi i64 [ %73, %76 ], [ %101, %98 ]
-  %80 = phi ptr [ %23, %76 ], [ %99, %98 ]
-  %81 = phi i32 [ %72, %76 ], [ %100, %98 ]
-  %82 = load i64, ptr %49, align 8
-  %83 = add i64 %82, 4294967295
-  %84 = and i64 %83, %79
-  %85 = icmp eq i64 %84, 0
-  br i1 %85, label %86, label %104
+94:                                               ; preds = %114, %92
+  %95 = phi i64 [ %89, %92 ], [ %117, %114 ]
+  %96 = phi ptr [ %23, %92 ], [ %115, %114 ]
+  %97 = phi i32 [ %88, %92 ], [ %116, %114 ]
+  %98 = load i64, ptr %55, align 8
+  %99 = add i64 %98, 4294967295
+  %100 = and i64 %99, %95
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %102, label %120
 
-86:                                               ; preds = %78
-  %87 = icmp eq ptr %80, null
-  br i1 %87, label %89, label %88
+102:                                              ; preds = %94
+  %103 = icmp eq ptr %96, null
+  br i1 %103, label %105, label %104
 
-88:                                               ; preds = %86
-  call void @__brelse(ptr noundef nonnull %80) #13
-  br label %89
+104:                                              ; preds = %102
+  call void @__brelse(ptr noundef nonnull %96) #13
+  br label %105
 
-89:                                               ; preds = %88, %86
-  %90 = load i8, ptr %77, align 4
-  %91 = zext nneg i8 %90 to i32
-  %92 = lshr i32 %81, %91
-  %93 = call fastcc ptr @__ext4_read_dirblock(ptr noundef %0, i32 noundef %92, i32 noundef 0, ptr noundef nonnull @__func__.ext4_empty_dir, i32 noundef 3117)
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %.thread, label %97
+105:                                              ; preds = %104, %102
+  %106 = load i8, ptr %93, align 4
+  %107 = zext nneg i8 %106 to i32
+  %108 = lshr i32 %97, %107
+  %109 = call fastcc ptr @__ext4_read_dirblock(ptr noundef %0, i32 noundef %108, i32 noundef 0, ptr noundef nonnull @__func__.ext4_empty_dir, i32 noundef 3117)
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %.thread, label %113
 
-.thread:                                          ; preds = %89
-  %95 = load i64, ptr %49, align 8
-  %96 = trunc i64 %95 to i32
-  br label %98
+.thread:                                          ; preds = %105
+  %111 = load i64, ptr %55, align 8
+  %112 = trunc i64 %111 to i32
+  br label %114
 
-97:                                               ; preds = %89
-  %.not = icmp ugt ptr %93, inttoptr (i64 -4096 to ptr)
-  br i1 %.not, label %.loopexit, label %._crit_edge
+113:                                              ; preds = %105
+  %.not20 = icmp ugt ptr %109, inttoptr (i64 -4096 to ptr)
+  br i1 %.not20, label %.loopexit, label %._crit_edge
 
-._crit_edge:                                      ; preds = %97
-  %.pre = load i64, ptr %49, align 8
-  %.pre12 = add i64 %.pre, 4294967295
-  br label %104
+._crit_edge:                                      ; preds = %113
+  %.pre = load i64, ptr %55, align 8
+  %.pre18 = add i64 %.pre, 4294967295
+  br label %120
 
-98:                                               ; preds = %.thread, %122
-  %.pn = phi i32 [ %125, %122 ], [ %96, %.thread ]
-  %99 = phi ptr [ %105, %122 ], [ null, %.thread ]
-  %100 = add i32 %.pn, %81
-  %101 = zext i32 %100 to i64
-  %102 = load i64, ptr %18, align 8
-  %103 = icmp sgt i64 %102, %101
-  br i1 %103, label %78, label %.loopexit7, !llvm.loop !37
+114:                                              ; preds = %.thread, %138
+  %.pn = phi i32 [ %141, %138 ], [ %112, %.thread ]
+  %115 = phi ptr [ %121, %138 ], [ null, %.thread ]
+  %116 = add i32 %.pn, %97
+  %117 = zext i32 %116 to i64
+  %118 = load i64, ptr %18, align 8
+  %119 = icmp sgt i64 %118, %117
+  br i1 %119, label %94, label %.loopexit11, !llvm.loop !37
 
-104:                                              ; preds = %._crit_edge, %78
-  %.pre-phi = phi i64 [ %.pre12, %._crit_edge ], [ %83, %78 ]
-  %105 = phi ptr [ %93, %._crit_edge ], [ %80, %78 ]
-  %106 = getelementptr inbounds i8, ptr %105, i64 40
-  %107 = load ptr, ptr %106, align 8
-  %108 = zext i32 %81 to i64
-  %109 = and i64 %.pre-phi, %108
-  %110 = getelementptr i8, ptr %107, i64 %109
-  %111 = getelementptr inbounds i8, ptr %105, i64 32
-  %112 = load i64, ptr %111, align 8
-  %113 = trunc i64 %112 to i32
-  %114 = call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_empty_dir, i32 noundef 3128, ptr noundef %0, ptr noundef null, ptr noundef %110, ptr noundef %105, ptr noundef %107, i32 noundef %113, i32 noundef %81) #13
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %119, !prof !14
+120:                                              ; preds = %._crit_edge, %94
+  %.pre-phi = phi i64 [ %.pre18, %._crit_edge ], [ %99, %94 ]
+  %121 = phi ptr [ %109, %._crit_edge ], [ %96, %94 ]
+  %122 = getelementptr inbounds i8, ptr %121, i64 40
+  %123 = load ptr, ptr %122, align 8
+  %124 = zext i32 %97 to i64
+  %125 = and i64 %.pre-phi, %124
+  %126 = getelementptr i8, ptr %123, i64 %125
+  %127 = getelementptr inbounds i8, ptr %121, i64 32
+  %128 = load i64, ptr %127, align 8
+  %129 = trunc i64 %128 to i32
+  %130 = call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_empty_dir, i32 noundef 3128, ptr noundef %0, ptr noundef null, ptr noundef %126, ptr noundef %121, ptr noundef %123, i32 noundef %129, i32 noundef %97) #13
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %135, !prof !14
 
-116:                                              ; preds = %104
-  %117 = load i32, ptr %110, align 4
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %122, label %119
+132:                                              ; preds = %120
+  %133 = load i32, ptr %126, align 4
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %138, label %135
 
-119:                                              ; preds = %116, %104
-  %120 = icmp eq ptr %105, null
-  br i1 %120, label %.loopexit, label %121
+135:                                              ; preds = %132, %120
+  %136 = icmp eq ptr %121, null
+  br i1 %136, label %.loopexit, label %137
 
-121:                                              ; preds = %119
-  call void @__brelse(ptr noundef nonnull %105) #13
+137:                                              ; preds = %135
+  call void @__brelse(ptr noundef nonnull %121) #13
   br label %.loopexit
 
-122:                                              ; preds = %116
-  %123 = getelementptr inbounds i8, ptr %110, i64 4
-  %124 = load i16, ptr %123, align 4
-  %125 = zext i16 %124 to i32
-  br label %98
+138:                                              ; preds = %132
+  %139 = getelementptr inbounds i8, ptr %126, i64 4
+  %140 = load i16, ptr %139, align 4
+  %141 = zext i16 %140 to i32
+  br label %114
 
-.loopexit7:                                       ; preds = %98, %68
-  %126 = phi ptr [ %23, %68 ], [ %99, %98 ]
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %.loopexit, label %128
+.loopexit11:                                      ; preds = %114, %84
+  %142 = phi ptr [ %23, %84 ], [ %115, %114 ]
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %.loopexit, label %144
 
-128:                                              ; preds = %.loopexit7
-  call void @__brelse(ptr noundef nonnull %126) #13
+144:                                              ; preds = %.loopexit11
+  call void @__brelse(ptr noundef nonnull %142) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %97, %128, %.loopexit7, %121, %119, %67, %65, %45, %43, %22, %21, %11
-  %129 = phi i1 [ false, %21 ], [ %12, %11 ], [ false, %22 ], [ false, %43 ], [ false, %45 ], [ false, %65 ], [ false, %67 ], [ false, %119 ], [ false, %121 ], [ true, %.loopexit7 ], [ true, %128 ], [ false, %97 ]
-  ret i1 %129
+.loopexit:                                        ; preds = %113, %144, %.loopexit11, %137, %135, %83, %81, %51, %49, %22, %21, %11
+  %145 = phi i1 [ false, %21 ], [ %12, %11 ], [ false, %22 ], [ false, %49 ], [ false, %51 ], [ false, %81 ], [ false, %83 ], [ false, %135 ], [ false, %137 ], [ true, %.loopexit11 ], [ true, %144 ], [ false, %113 ]
+  ret i1 %145
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2829,9 +2864,6 @@ define internal fastcc ptr @__ext4_read_dirblock(ptr noundef %0, i32 noundef %1,
   %111 = phi ptr [ inttoptr (i64 -117 to ptr), %14 ], [ %17, %19 ], [ inttoptr (i64 -117 to ptr), %30 ], [ %17, %84 ], [ %17, %.thread9 ], [ %17, %100 ], [ null, %29 ], [ inttoptr (i64 -117 to ptr), %66 ], [ inttoptr (i64 -74 to ptr), %99 ], [ %17, %104 ], [ %17, %108 ], [ inttoptr (i64 -74 to ptr), %110 ], [ %17, %78 ], [ %17, %67 ]
   ret ptr %111
 }
-
-; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__ext4_warning_inode(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -3174,7 +3206,7 @@ define internal fastcc i32 @ext4_delete_entry(ptr noundef %0, ptr noundef %1, pt
 declare dso_local { i64, i64 } @inode_set_ctime_current(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @ext4_update_dx_flag(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc void @ext4_update_dx_flag(ptr noundef %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 872
@@ -7228,7 +7260,7 @@ declare dso_local i32 @ext4_fileattr_get(ptr noundef, ptr noundef) #3
 declare dso_local i32 @crypto_shash_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ext4fs_dirhash(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -7237,7 +7269,7 @@ declare dso_local i32 @ext4fs_dirhash(ptr noundef, ptr noundef, i32 noundef, ptr
 declare dso_local void @__ext4_warning(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @dx_node_limit(ptr noundef readonly %0) unnamed_addr #6 align 16 {
+define internal fastcc range(i32 0, 536870912) i32 @dx_node_limit(ptr noundef readonly %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -7961,7 +7993,7 @@ declare dso_local i32 @__ext4_journal_get_write_access(ptr noundef, i32 noundef,
 declare dso_local void @__ext4_std_error(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_dx_csum_verify(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @ext4_dx_csum_verify(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 872
@@ -8371,7 +8403,7 @@ define internal fastcc void @dx_insert_block(ptr %.8.val, ptr %.16.val, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_handle_dirty_dx_node(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 16 {
+define internal fastcc i32 @ext4_handle_dirty_dx_node(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
@@ -9228,7 +9260,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
@@ -9319,16 +9351,16 @@ declare dso_local void @unlock_new_inode(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @__SCT__tp_func_ext4_unlink_enter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare i64 @llvm.read_register.i64(metadata) #9
+declare i64 @llvm.read_register.i64(metadata) #8
 
 ; Function Attrs: nocallback nounwind
-declare void @llvm.write_register.i64(metadata, i64) #10
+declare void @llvm.write_register.i64(metadata, i64) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_ext4_unlink_exit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @clear_nlink(ptr noundef) local_unnamed_addr #3
@@ -9345,7 +9377,7 @@ define internal fastcc i32 @ext4_rename_dir_prepare(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   store i8 1, ptr %5, align 8
-  br i1 %2, label %6, label %88
+  br i1 %2, label %6, label %104
 
 6:                                                ; preds = %3
   store i32 0, ptr %4, align 4, !annotation !13
@@ -9363,7 +9395,7 @@ define internal fastcc i32 @ext4_rename_dir_prepare(ptr noundef %0, ptr noundef 
   %16 = getelementptr i8, ptr %8, i64 730
   %17 = load i16, ptr %16, align 2
   %18 = icmp eq i16 %17, 0
-  br i1 %18, label %19, label %68
+  br i1 %18, label %19, label %84
 
 19:                                               ; preds = %15, %6
   %20 = tail call fastcc ptr @__ext4_read_dirblock(ptr noundef %8, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @__func__.ext4_get_first_dir_block, i32 noundef 3538)
@@ -9383,7 +9415,7 @@ define internal fastcc i32 @ext4_rename_dir_prepare(ptr noundef %0, ptr noundef 
   %30 = trunc i64 %29 to i32
   %31 = tail call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_get_first_dir_block, i32 noundef 3546, ptr noundef %8, ptr noundef null, ptr noundef %27, ptr noundef %20, ptr noundef %27, i32 noundef %30, i32 noundef 0) #13
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %43, !prof !14
+  br i1 %32, label %33, label %49, !prof !14
 
 33:                                               ; preds = %25
   %34 = load i32, ptr %27, align 4
@@ -9391,102 +9423,138 @@ define internal fastcc i32 @ext4_rename_dir_prepare(ptr noundef %0, ptr noundef 
   %36 = getelementptr inbounds i8, ptr %8, i64 64
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, %35
-  br i1 %38, label %39, label %43
+  br i1 %38, label %sub_0, label %49
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %27, i64 8
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @.str.2, ptr noundef %40) #13
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %46, label %43
+sub_0:                                            ; preds = %33
+  %39 = getelementptr inbounds i8, ptr %27, i64 8
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  %42 = sub nsw i32 46, %41
+  %.not = icmp eq i8 %40, 46
+  br i1 %.not, label %sub_1, label %.tail
 
-43:                                               ; preds = %39, %33, %25
+sub_1:                                            ; preds = %sub_0
+  %43 = getelementptr inbounds i8, ptr %27, i64 9
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = sub nsw i32 0, %45
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %47 = phi i32 [ %42, %sub_0 ], [ %46, %sub_1 ]
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %52, label %49
+
+49:                                               ; preds = %.tail, %33, %25
   tail call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %8, ptr noundef nonnull @__func__.ext4_get_first_dir_block, i32 noundef 3549, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.5) #13
-  %44 = icmp eq ptr %20, null
-  br i1 %44, label %.thread, label %45
+  %50 = icmp eq ptr %20, null
+  br i1 %50, label %.thread, label %51
 
-45:                                               ; preds = %43
+51:                                               ; preds = %49
   tail call void @__brelse(ptr noundef nonnull %20) #13
   br label %.thread
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %27, i64 4
-  %48 = load i16, ptr %47, align 4
-  %49 = zext i16 %48 to i32
-  %50 = zext i16 %48 to i64
-  %51 = getelementptr i8, ptr %27, i64 %50
-  %52 = load ptr, ptr %26, align 8
-  %53 = load i64, ptr %28, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = tail call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_get_first_dir_block, i32 noundef 3558, ptr noundef %8, ptr noundef null, ptr noundef %51, ptr noundef %20, ptr noundef %52, i32 noundef %54, i32 noundef %49) #13
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %64, !prof !14
+52:                                               ; preds = %.tail
+  %53 = getelementptr inbounds i8, ptr %27, i64 4
+  %54 = load i16, ptr %53, align 4
+  %55 = zext i16 %54 to i32
+  %56 = zext i16 %54 to i64
+  %57 = getelementptr i8, ptr %27, i64 %56
+  %58 = load ptr, ptr %26, align 8
+  %59 = load i64, ptr %28, align 8
+  %60 = trunc i64 %59 to i32
+  %61 = tail call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.ext4_get_first_dir_block, i32 noundef 3558, ptr noundef %8, ptr noundef null, ptr noundef %57, ptr noundef %20, ptr noundef %58, i32 noundef %60, i32 noundef %55) #13
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %80, !prof !14
 
-57:                                               ; preds = %46
-  %58 = load i32, ptr %51, align 4
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %64, label %60
+63:                                               ; preds = %52
+  %64 = load i32, ptr %57, align 4
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %80, label %sub_03
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %51, i64 8
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(3) @.str.3, ptr noundef %61) #13
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %67, label %64
+sub_03:                                           ; preds = %63
+  %66 = getelementptr inbounds i8, ptr %57, i64 8
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i32
+  %69 = sub nsw i32 46, %68
+  %.not6 = icmp eq i8 %67, 46
+  br i1 %.not6, label %sub_14, label %.tail2
 
-64:                                               ; preds = %60, %57, %46
+sub_14:                                           ; preds = %sub_03
+  %70 = getelementptr inbounds i8, ptr %57, i64 9
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i32
+  %73 = sub nsw i32 46, %72
+  %.not7 = icmp eq i8 %71, 46
+  br i1 %.not7, label %sub_2, label %.tail2
+
+sub_2:                                            ; preds = %sub_14
+  %74 = getelementptr inbounds i8, ptr %57, i64 10
+  %75 = load i8, ptr %74, align 1
+  %76 = zext i8 %75 to i32
+  %77 = sub nsw i32 0, %76
+  br label %.tail2
+
+.tail2:                                           ; preds = %sub_03, %sub_14, %sub_2
+  %78 = phi i32 [ %69, %sub_03 ], [ %73, %sub_14 ], [ %77, %sub_2 ]
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %83, label %80
+
+80:                                               ; preds = %.tail2, %63, %52
   tail call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %8, ptr noundef nonnull @__func__.ext4_get_first_dir_block, i32 noundef 3560, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.6) #13
-  %65 = icmp eq ptr %20, null
-  br i1 %65, label %.thread, label %66
+  %81 = icmp eq ptr %20, null
+  br i1 %81, label %.thread, label %82
 
-66:                                               ; preds = %64
+82:                                               ; preds = %80
   tail call void @__brelse(ptr noundef nonnull %20) #13
   br label %.thread
 
-67:                                               ; preds = %60
-  store ptr %51, ptr %9, align 8
-  br label %72
+83:                                               ; preds = %.tail2
+  store ptr %57, ptr %9, align 8
+  br label %88
 
-68:                                               ; preds = %15
+84:                                               ; preds = %15
   store i32 1, ptr %10, align 4
-  %69 = call ptr @ext4_get_first_inline_block(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %4) #13
-  br label %72
-
-.thread:                                          ; preds = %64, %66, %43, %45, %22
-  %70 = phi i32 [ %24, %22 ], [ -117, %45 ], [ -117, %43 ], [ -117, %66 ], [ -117, %64 ]
-  %71 = getelementptr inbounds i8, ptr %1, i64 56
-  store ptr null, ptr %71, align 8
+  %85 = call ptr @ext4_get_first_inline_block(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %4) #13
   br label %88
 
-72:                                               ; preds = %68, %67
-  %73 = phi ptr [ %69, %68 ], [ %20, %67 ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 56
-  store ptr %73, ptr %74, align 8
-  %75 = icmp eq ptr %73, null
-  br i1 %75, label %._crit_edge, label %76
+.thread:                                          ; preds = %80, %82, %49, %51, %22
+  %86 = phi i32 [ %24, %22 ], [ -117, %51 ], [ -117, %49 ], [ -117, %82 ], [ -117, %80 ]
+  %87 = getelementptr inbounds i8, ptr %1, i64 56
+  store ptr null, ptr %87, align 8
+  br label %104
 
-._crit_edge:                                      ; preds = %72
+88:                                               ; preds = %84, %83
+  %89 = phi ptr [ %85, %84 ], [ %20, %83 ]
+  %90 = getelementptr inbounds i8, ptr %1, i64 56
+  store ptr %89, ptr %90, align 8
+  %91 = icmp eq ptr %89, null
+  br i1 %91, label %._crit_edge, label %92
+
+._crit_edge:                                      ; preds = %88
   %.pre = load i32, ptr %4, align 4
-  br label %88
+  br label %104
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %9, align 8
-  %78 = load i32, ptr %77, align 4
-  %79 = zext i32 %78 to i64
-  %80 = load ptr, ptr %1, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 64
-  %82 = load i64, ptr %81, align 8
-  %83 = icmp eq i64 %82, %79
-  br i1 %83, label %84, label %88
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %9, align 8
+  %94 = load i32, ptr %93, align 4
+  %95 = zext i32 %94 to i64
+  %96 = load ptr, ptr %1, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 64
+  %98 = load i64, ptr %97, align 8
+  %99 = icmp eq i64 %98, %95
+  br i1 %99, label %100, label %104
 
-84:                                               ; preds = %76
-  %85 = getelementptr inbounds i8, ptr %80, i64 40
-  %86 = load ptr, ptr %85, align 8
-  %87 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_rename_dir_prepare, i32 noundef 3609, ptr noundef %0, ptr noundef %86, ptr noundef nonnull %73, i32 noundef 1) #13
-  br label %88
+100:                                              ; preds = %92
+  %101 = getelementptr inbounds i8, ptr %96, i64 40
+  %102 = load ptr, ptr %101, align 8
+  %103 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_rename_dir_prepare, i32 noundef 3609, ptr noundef %0, ptr noundef %102, ptr noundef nonnull %89, i32 noundef 1) #13
+  br label %104
 
-88:                                               ; preds = %.thread, %._crit_edge, %84, %76, %3
-  %89 = phi i32 [ %87, %84 ], [ 0, %3 ], [ -117, %76 ], [ %.pre, %._crit_edge ], [ %70, %.thread ]
+104:                                              ; preds = %.thread, %._crit_edge, %100, %92, %3
+  %105 = phi i32 [ %103, %100 ], [ 0, %3 ], [ -117, %92 ], [ %.pre, %._crit_edge ], [ %86, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  ret i32 %89
+  ret i32 %105
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -10009,7 +10077,7 @@ define internal fastcc void @ext4_resetent(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @d_tmpfile(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -10034,12 +10102,12 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #10 = { nocallback nounwind }
+attributes #5 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #9 = { nocallback nounwind }
+attributes #10 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }

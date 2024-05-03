@@ -3106,7 +3106,7 @@ define internal fastcc ptr @date_format(ptr nocapture noundef readonly %0, i64 n
   %8 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %430, label %9
+  br i1 %.not, label %435, label %9
 
 9:                                                ; preds = %4
   br i1 %3, label %10, label %52
@@ -3190,13 +3190,13 @@ define internal fastcc ptr @date_format(ptr nocapture noundef readonly %0, i64 n
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   br label %66
 
-66:                                               ; preds = %52, %416
-  %.0176223 = phi i32 [ 0, %52 ], [ %.3, %416 ]
-  %.0179222 = phi i32 [ 0, %52 ], [ %.1180, %416 ]
-  %.0181220 = phi i64 [ 0, %52 ], [ %424, %416 ]
+66:                                               ; preds = %52, %421
+  %.0176223 = phi i32 [ 0, %52 ], [ %.3, %421 ]
+  %.0179222 = phi i32 [ 0, %52 ], [ %.1180, %421 ]
+  %.0181220 = phi i64 [ 0, %52 ], [ %429, %421 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 %.0181220
   %68 = load i8, ptr %67, align 1
-  switch i8 %68, label %405 [
+  switch i8 %68, label %410 [
     i8 100, label %69
     i8 68, label %73
     i8 106, label %83
@@ -3230,22 +3230,22 @@ define internal fastcc ptr @date_format(ptr nocapture noundef readonly %0, i64 n
     i8 118, label %260
     i8 73, label %265
     i8 112, label %271
-    i8 80, label %284
-    i8 79, label %285
-    i8 84, label %301
-    i8 101, label %307
-    i8 90, label %330
-    i8 99, label %336
-    i8 114, label %363
-    i8 85, label %400
-    i8 92, label %403
+    i8 80, label %289
+    i8 79, label %290
+    i8 84, label %306
+    i8 101, label %312
+    i8 90, label %335
+    i8 99, label %341
+    i8 114, label %368
+    i8 85, label %405
+    i8 92, label %408
   ]
 
 69:                                               ; preds = %66
   %70 = load i64, ptr %55, align 8
   %71 = trunc i64 %70 to i32
   %72 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.216, i32 noundef %71) #25
-  br label %407
+  br label %412
 
 73:                                               ; preds = %66
   %74 = load i64, ptr %2, align 8
@@ -3263,13 +3263,13 @@ define internal fastcc ptr @date_format(ptr nocapture noundef readonly %0, i64 n
 php_date_short_day_name.exit:                     ; preds = %73, %79
   %.0.i = phi ptr [ %81, %79 ], [ @.str.236, %73 ]
   %82 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %.0.i) #25
-  br label %407
+  br label %412
 
 83:                                               ; preds = %66
   %84 = load i64, ptr %55, align 8
   %85 = trunc i64 %84 to i32
   %86 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %85) #25
-  br label %407
+  br label %412
 
 87:                                               ; preds = %66
   %88 = load i64, ptr %2, align 8
@@ -3287,7 +3287,7 @@ php_date_short_day_name.exit:                     ; preds = %73, %79
 php_date_full_day_name.exit:                      ; preds = %87, %93
   %.0.i203 = phi ptr [ %95, %93 ], [ @.str.236, %87 ]
   %96 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %.0.i203) #25
-  br label %407
+  br label %412
 
 97:                                               ; preds = %66
   %98 = load i64, ptr %55, align 8
@@ -3309,7 +3309,7 @@ switch.lookup:                                    ; preds = %100
 english_suffix.exit:                              ; preds = %100, %switch.lookup, %97
   %.0.i204 = phi ptr [ @.str.244, %97 ], [ %switch.load, %switch.lookup ], [ @.str.244, %100 ]
   %103 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef nonnull %.0.i204) #25
-  br label %407
+  br label %412
 
 104:                                              ; preds = %66
   %105 = load i64, ptr %2, align 8
@@ -3318,7 +3318,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %108 = call i64 @timelib_day_of_week(i64 noundef %105, i64 noundef %106, i64 noundef %107) #25
   %109 = trunc i64 %108 to i32
   %110 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %109) #25
-  br label %407
+  br label %412
 
 111:                                              ; preds = %66
   %112 = load i64, ptr %2, align 8
@@ -3327,7 +3327,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %115 = call i64 @timelib_iso_day_of_week(i64 noundef %112, i64 noundef %113, i64 noundef %114) #25
   %116 = trunc i64 %115 to i32
   %117 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %116) #25
-  br label %407
+  br label %412
 
 118:                                              ; preds = %66
   %119 = load i64, ptr %2, align 8
@@ -3336,7 +3336,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %122 = call i64 @timelib_day_of_year(i64 noundef %119, i64 noundef %120, i64 noundef %121) #25
   %123 = trunc i64 %122 to i32
   %124 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %123) #25
-  br label %407
+  br label %412
 
 125:                                              ; preds = %66
   %.not200 = icmp eq i32 %.0176223, 0
@@ -3353,7 +3353,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %131 = load i64, ptr %7, align 8
   %132 = trunc i64 %131 to i32
   %133 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.216, i32 noundef %132) #25
-  br label %407
+  br label %412
 
 134:                                              ; preds = %66
   %.not199 = icmp eq i32 %.0176223, 0
@@ -3369,7 +3369,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
 139:                                              ; preds = %135, %134
   %140 = load i64, ptr %8, align 8
   %141 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.218, i64 noundef %140) #25
-  br label %407
+  br label %412
 
 142:                                              ; preds = %66
   %143 = load i64, ptr %54, align 8
@@ -3377,13 +3377,13 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %145 = getelementptr inbounds [12 x ptr], ptr @mon_full_names, i64 0, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %146) #25
-  br label %407
+  br label %412
 
 148:                                              ; preds = %66
   %149 = load i64, ptr %54, align 8
   %150 = trunc i64 %149 to i32
   %151 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.216, i32 noundef %150) #25
-  br label %407
+  br label %412
 
 152:                                              ; preds = %66
   %153 = load i64, ptr %54, align 8
@@ -3391,13 +3391,13 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %155 = getelementptr inbounds [12 x ptr], ptr @mon_short_names, i64 0, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %156) #25
-  br label %407
+  br label %412
 
 158:                                              ; preds = %66
   %159 = load i64, ptr %54, align 8
   %160 = trunc i64 %159 to i32
   %161 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %160) #25
-  br label %407
+  br label %412
 
 162:                                              ; preds = %66
   %163 = load i64, ptr %2, align 8
@@ -3405,7 +3405,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %165 = call i64 @timelib_days_in_month(i64 noundef %163, i64 noundef %164) #25
   %166 = trunc i64 %165 to i32
   %167 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %166) #25
-  br label %407
+  br label %412
 
 168:                                              ; preds = %66
   %169 = load i64, ptr %2, align 8
@@ -3428,14 +3428,14 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %179 = phi i1 [ false, %168 ], [ true, %173 ], [ %177, %175 ]
   %180 = zext i1 %179 to i32
   %181 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %180) #25
-  br label %407
+  br label %412
 
 182:                                              ; preds = %66
   %183 = load i64, ptr %2, align 8
   %184 = srem i64 %183, 100
   %185 = trunc nsw i64 %184 to i32
   %186 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.216, i32 noundef %185) #25
-  br label %407
+  br label %412
 
 187:                                              ; preds = %66
   %188 = load i64, ptr %2, align 8
@@ -3443,7 +3443,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %190 = select i1 %189, ptr @.str.220, ptr @.str.37
   %191 = call i64 @llvm.abs.i64(i64 %188, i1 true)
   %192 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.219, ptr noundef nonnull %190, i64 noundef %191) #25
-  br label %407
+  br label %412
 
 193:                                              ; preds = %66
   %194 = load i64, ptr %2, align 8
@@ -3453,7 +3453,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %198 = select i1 %195, ptr @.str.220, ptr %197
   %199 = call i64 @llvm.abs.i64(i64 %194, i1 true)
   %200 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.219, ptr noundef nonnull %198, i64 noundef %199) #25
-  br label %407
+  br label %412
 
 201:                                              ; preds = %66
   %202 = load i64, ptr %2, align 8
@@ -3461,21 +3461,21 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %204 = select i1 %203, ptr @.str.220, ptr @.str.221
   %205 = call i64 @llvm.abs.i64(i64 %202, i1 true)
   %206 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.219, ptr noundef nonnull %204, i64 noundef %205) #25
-  br label %407
+  br label %412
 
 207:                                              ; preds = %66
   %208 = load i64, ptr %56, align 8
   %209 = icmp sgt i64 %208, 11
   %210 = select i1 %209, ptr @.str.222, ptr @.str.223
   %211 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef nonnull %210) #25
-  br label %407
+  br label %412
 
 212:                                              ; preds = %66
   %213 = load i64, ptr %56, align 8
   %214 = icmp sgt i64 %213, 11
   %215 = select i1 %214, ptr @.str.224, ptr @.str.225
   %216 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef nonnull %215) #25
-  br label %407
+  br label %412
 
 217:                                              ; preds = %66
   %218 = load i64, ptr %53, align 8
@@ -3488,7 +3488,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %223 = udiv i32 %spec.select, 864
   %224 = urem i32 %223, 1000
   %225 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.226, i32 noundef %224) #25
-  br label %407
+  br label %412
 
 226:                                              ; preds = %66
   %227 = load i64, ptr %56, align 8
@@ -3498,13 +3498,13 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %230 = srem i32 %229, 12
   %231 = select i1 %.not197, i32 12, i32 %230
   %232 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %231) #25
-  br label %407
+  br label %412
 
 233:                                              ; preds = %66
   %234 = load i64, ptr %56, align 8
   %235 = trunc i64 %234 to i32
   %236 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %235) #25
-  br label %407
+  br label %412
 
 237:                                              ; preds = %66
   %238 = load i64, ptr %56, align 8
@@ -3514,38 +3514,38 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
   %241 = srem i32 %240, 12
   %242 = select i1 %.not196, i32 12, i32 %241
   %243 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.216, i32 noundef %242) #25
-  br label %407
+  br label %412
 
 244:                                              ; preds = %66
   %245 = load i64, ptr %56, align 8
   %246 = trunc i64 %245 to i32
   %247 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.216, i32 noundef %246) #25
-  br label %407
+  br label %412
 
 248:                                              ; preds = %66
   %249 = load i64, ptr %57, align 8
   %250 = trunc i64 %249 to i32
   %251 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.216, i32 noundef %250) #25
-  br label %407
+  br label %412
 
 252:                                              ; preds = %66
   %253 = load i64, ptr %58, align 8
   %254 = trunc i64 %253 to i32
   %255 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.216, i32 noundef %254) #25
-  br label %407
+  br label %412
 
 256:                                              ; preds = %66
   %257 = load i64, ptr %63, align 8
   %258 = trunc i64 %257 to i32
   %259 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.227, i32 noundef %258) #25
-  br label %407
+  br label %412
 
 260:                                              ; preds = %66
   %261 = load i64, ptr %63, align 8
   %262 = sdiv i64 %261, 1000
   %263 = trunc i64 %262 to i32
   %264 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.226, i32 noundef %263) #25
-  br label %407
+  br label %412
 
 265:                                              ; preds = %66
   br i1 %3, label %266, label %268
@@ -3557,275 +3557,288 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
 268:                                              ; preds = %265, %266
   %269 = phi i32 [ %267, %266 ], [ 0, %265 ]
   %270 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %269) #25
-  br label %407
+  br label %412
 
 271:                                              ; preds = %66
-  br i1 %3, label %272, label %282
+  br i1 %3, label %272, label %287
 
 272:                                              ; preds = %271
   %273 = load ptr, ptr %60, align 8
   %274 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(4) @.str.182) #27
   %275 = icmp eq i32 %274, 0
-  br i1 %275, label %282, label %276
+  br i1 %275, label %287, label %sub_0
 
-276:                                              ; preds = %272
-  %277 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(2) @.str.228) #27
-  %278 = icmp eq i32 %277, 0
-  br i1 %278, label %282, label %279
+sub_0:                                            ; preds = %272
+  %276 = load i8, ptr %273, align 1
+  %277 = zext i8 %276 to i32
+  %278 = add nsw i32 %277, -90
+  %.not225 = icmp eq i32 %278, 0
+  br i1 %.not225, label %sub_1, label %.tail
 
-279:                                              ; preds = %276
-  %280 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(9) @.str.229) #27
-  %281 = icmp eq i32 %280, 0
-  br i1 %281, label %282, label %284
+sub_1:                                            ; preds = %sub_0
+  %279 = getelementptr inbounds i8, ptr %273, i64 1
+  %280 = load i8, ptr %279, align 1
+  %281 = zext i8 %280 to i32
+  br label %.tail
 
-282:                                              ; preds = %279, %276, %272, %271
-  %283 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.228) #25
-  br label %407
+.tail:                                            ; preds = %sub_0, %sub_1
+  %282 = phi i32 [ %278, %sub_0 ], [ %281, %sub_1 ]
+  %283 = icmp eq i32 %282, 0
+  br i1 %283, label %287, label %284
 
-284:                                              ; preds = %279, %66
-  br label %285
+284:                                              ; preds = %.tail
+  %285 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(9) @.str.229) #27
+  %286 = icmp eq i32 %285, 0
+  br i1 %286, label %287, label %289
 
-285:                                              ; preds = %284, %66
-  %.0177 = phi ptr [ @.str.37, %66 ], [ @.str.231, %284 ]
-  br i1 %3, label %286, label %296
+287:                                              ; preds = %284, %.tail, %272, %271
+  %288 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.228) #25
+  br label %412
 
-286:                                              ; preds = %285
-  %287 = load i32, ptr %.0178, align 8
-  %288 = icmp slt i32 %287, 0
-  %289 = select i1 %288, i32 45, i32 43
-  %290 = sdiv i32 %287, 3600
-  %291 = call i32 @llvm.abs.i32(i32 %290, i1 true)
-  %292 = srem i32 %287, 3600
-  %.lhs.trunc = trunc nsw i32 %292 to i16
-  %293 = sdiv i16 %.lhs.trunc, 60
-  %294 = call i16 @llvm.abs.i16(i16 %293, i1 true)
-  %295 = zext nneg i16 %294 to i32
-  br label %296
+289:                                              ; preds = %284, %66
+  br label %290
 
-296:                                              ; preds = %285, %286
-  %297 = phi i32 [ %291, %286 ], [ 0, %285 ]
-  %298 = phi i32 [ %289, %286 ], [ 43, %285 ]
-  %299 = phi i32 [ %295, %286 ], [ 0, %285 ]
-  %300 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.230, i32 noundef %298, i32 noundef %297, ptr noundef nonnull %.0177, i32 noundef %299) #25
-  br label %407
+290:                                              ; preds = %289, %66
+  %.0177 = phi ptr [ @.str.37, %66 ], [ @.str.231, %289 ]
+  br i1 %3, label %291, label %301
 
-301:                                              ; preds = %66
-  br i1 %3, label %302, label %304
+291:                                              ; preds = %290
+  %292 = load i32, ptr %.0178, align 8
+  %293 = icmp slt i32 %292, 0
+  %294 = select i1 %293, i32 45, i32 43
+  %295 = sdiv i32 %292, 3600
+  %296 = call i32 @llvm.abs.i32(i32 %295, i1 true)
+  %297 = srem i32 %292, 3600
+  %.lhs.trunc = trunc nsw i32 %297 to i16
+  %298 = sdiv i16 %.lhs.trunc, 60
+  %299 = call i16 @llvm.abs.i16(i16 %298, i1 true)
+  %300 = zext nneg i16 %299 to i32
+  br label %301
 
-302:                                              ; preds = %301
-  %303 = load ptr, ptr %60, align 8
-  br label %304
+301:                                              ; preds = %290, %291
+  %302 = phi i32 [ %296, %291 ], [ 0, %290 ]
+  %303 = phi i32 [ %294, %291 ], [ 43, %290 ]
+  %304 = phi i32 [ %300, %291 ], [ 0, %290 ]
+  %305 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.230, i32 noundef %303, i32 noundef %302, ptr noundef nonnull %.0177, i32 noundef %304) #25
+  br label %412
 
-304:                                              ; preds = %301, %302
-  %305 = phi ptr [ %303, %302 ], [ @.str.17, %301 ]
-  %306 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %305) #25
-  br label %407
+306:                                              ; preds = %66
+  br i1 %3, label %307, label %309
 
-307:                                              ; preds = %66
-  br i1 %3, label %310, label %308
+307:                                              ; preds = %306
+  %308 = load ptr, ptr %60, align 8
+  br label %309
 
-308:                                              ; preds = %307
-  %309 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.182) #25
-  br label %407
+309:                                              ; preds = %306, %307
+  %310 = phi ptr [ %308, %307 ], [ @.str.17, %306 ]
+  %311 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %310) #25
+  br label %412
 
-310:                                              ; preds = %307
-  %311 = load i32, ptr %59, align 8
-  switch i32 %311, label %407 [
-    i32 3, label %312
-    i32 2, label %316
-    i32 1, label %319
+312:                                              ; preds = %66
+  br i1 %3, label %315, label %313
+
+313:                                              ; preds = %312
+  %314 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.182) #25
+  br label %412
+
+315:                                              ; preds = %312
+  %316 = load i32, ptr %59, align 8
+  switch i32 %316, label %412 [
+    i32 3, label %317
+    i32 2, label %321
+    i32 1, label %324
   ]
 
-312:                                              ; preds = %310
-  %313 = load ptr, ptr %61, align 8
-  %314 = load ptr, ptr %313, align 8
-  %315 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %314) #25
-  br label %407
+317:                                              ; preds = %315
+  %318 = load ptr, ptr %61, align 8
+  %319 = load ptr, ptr %318, align 8
+  %320 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %319) #25
+  br label %412
 
-316:                                              ; preds = %310
-  %317 = load ptr, ptr %60, align 8
-  %318 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %317) #25
-  br label %407
+321:                                              ; preds = %315
+  %322 = load ptr, ptr %60, align 8
+  %323 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %322) #25
+  br label %412
 
-319:                                              ; preds = %310
-  %320 = load i32, ptr %.0178, align 8
-  %321 = icmp slt i32 %320, 0
-  %322 = select i1 %321, i32 45, i32 43
-  %323 = sdiv i32 %320, 3600
-  %324 = call i32 @llvm.abs.i32(i32 %323, i1 true)
-  %325 = srem i32 %320, 3600
-  %.lhs.trunc212 = trunc nsw i32 %325 to i16
-  %326 = sdiv i16 %.lhs.trunc212, 60
-  %327 = call i16 @llvm.abs.i16(i16 %326, i1 true)
-  %328 = zext nneg i16 %327 to i32
-  %329 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.232, i32 noundef %322, i32 noundef %324, i32 noundef %328) #25
-  br label %407
+324:                                              ; preds = %315
+  %325 = load i32, ptr %.0178, align 8
+  %326 = icmp slt i32 %325, 0
+  %327 = select i1 %326, i32 45, i32 43
+  %328 = sdiv i32 %325, 3600
+  %329 = call i32 @llvm.abs.i32(i32 %328, i1 true)
+  %330 = srem i32 %325, 3600
+  %.lhs.trunc212 = trunc nsw i32 %330 to i16
+  %331 = sdiv i16 %.lhs.trunc212, 60
+  %332 = call i16 @llvm.abs.i16(i16 %331, i1 true)
+  %333 = zext nneg i16 %332 to i32
+  %334 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.232, i32 noundef %327, i32 noundef %329, i32 noundef %333) #25
+  br label %412
 
-330:                                              ; preds = %66
-  br i1 %3, label %331, label %333
+335:                                              ; preds = %66
+  br i1 %3, label %336, label %338
 
-331:                                              ; preds = %330
-  %332 = load i32, ptr %.0178, align 8
-  br label %333
+336:                                              ; preds = %335
+  %337 = load i32, ptr %.0178, align 8
+  br label %338
 
-333:                                              ; preds = %330, %331
-  %334 = phi i32 [ %332, %331 ], [ 0, %330 ]
-  %335 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %334) #25
-  br label %407
+338:                                              ; preds = %335, %336
+  %339 = phi i32 [ %337, %336 ], [ 0, %335 ]
+  %340 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.217, i32 noundef %339) #25
+  br label %412
 
-336:                                              ; preds = %66
-  %337 = load i64, ptr %2, align 8
-  %338 = load i64, ptr %54, align 8
-  %339 = trunc i64 %338 to i32
-  %340 = load i64, ptr %55, align 8
-  %341 = trunc i64 %340 to i32
-  %342 = load i64, ptr %56, align 8
-  %343 = trunc i64 %342 to i32
-  %344 = load i64, ptr %57, align 8
-  %345 = trunc i64 %344 to i32
-  %346 = load i64, ptr %58, align 8
-  %347 = trunc i64 %346 to i32
-  br i1 %3, label %348, label %358
+341:                                              ; preds = %66
+  %342 = load i64, ptr %2, align 8
+  %343 = load i64, ptr %54, align 8
+  %344 = trunc i64 %343 to i32
+  %345 = load i64, ptr %55, align 8
+  %346 = trunc i64 %345 to i32
+  %347 = load i64, ptr %56, align 8
+  %348 = trunc i64 %347 to i32
+  %349 = load i64, ptr %57, align 8
+  %350 = trunc i64 %349 to i32
+  %351 = load i64, ptr %58, align 8
+  %352 = trunc i64 %351 to i32
+  br i1 %3, label %353, label %363
 
-348:                                              ; preds = %336
-  %349 = load i32, ptr %.0178, align 8
-  %350 = icmp slt i32 %349, 0
-  %351 = select i1 %350, i32 45, i32 43
-  %352 = sdiv i32 %349, 3600
-  %353 = call i32 @llvm.abs.i32(i32 %352, i1 true)
-  %354 = srem i32 %349, 3600
-  %.lhs.trunc214 = trunc nsw i32 %354 to i16
-  %355 = sdiv i16 %.lhs.trunc214, 60
-  %356 = call i16 @llvm.abs.i16(i16 %355, i1 true)
-  %357 = zext nneg i16 %356 to i32
-  br label %358
+353:                                              ; preds = %341
+  %354 = load i32, ptr %.0178, align 8
+  %355 = icmp slt i32 %354, 0
+  %356 = select i1 %355, i32 45, i32 43
+  %357 = sdiv i32 %354, 3600
+  %358 = call i32 @llvm.abs.i32(i32 %357, i1 true)
+  %359 = srem i32 %354, 3600
+  %.lhs.trunc214 = trunc nsw i32 %359 to i16
+  %360 = sdiv i16 %.lhs.trunc214, 60
+  %361 = call i16 @llvm.abs.i16(i16 %360, i1 true)
+  %362 = zext nneg i16 %361 to i32
+  br label %363
 
-358:                                              ; preds = %336, %348
-  %359 = phi i32 [ %353, %348 ], [ 0, %336 ]
-  %360 = phi i32 [ %351, %348 ], [ 43, %336 ]
-  %361 = phi i32 [ %357, %348 ], [ 0, %336 ]
-  %362 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.233, i64 noundef %337, i32 noundef %339, i32 noundef %341, i32 noundef %343, i32 noundef %345, i32 noundef %347, i32 noundef %360, i32 noundef %359, i32 noundef %361) #25
-  br label %407
+363:                                              ; preds = %341, %353
+  %364 = phi i32 [ %358, %353 ], [ 0, %341 ]
+  %365 = phi i32 [ %356, %353 ], [ 43, %341 ]
+  %366 = phi i32 [ %362, %353 ], [ 0, %341 ]
+  %367 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.233, i64 noundef %342, i32 noundef %344, i32 noundef %346, i32 noundef %348, i32 noundef %350, i32 noundef %352, i32 noundef %365, i32 noundef %364, i32 noundef %366) #25
+  br label %412
 
-363:                                              ; preds = %66
-  %364 = load i64, ptr %2, align 8
-  %365 = load i64, ptr %54, align 8
-  %366 = load i64, ptr %55, align 8
-  %367 = call i64 @timelib_day_of_week(i64 noundef %364, i64 noundef %365, i64 noundef %366) #25
-  %368 = icmp slt i64 %367, 0
-  br i1 %368, label %php_date_short_day_name.exit206, label %369
+368:                                              ; preds = %66
+  %369 = load i64, ptr %2, align 8
+  %370 = load i64, ptr %54, align 8
+  %371 = load i64, ptr %55, align 8
+  %372 = call i64 @timelib_day_of_week(i64 noundef %369, i64 noundef %370, i64 noundef %371) #25
+  %373 = icmp slt i64 %372, 0
+  br i1 %373, label %php_date_short_day_name.exit206, label %374
 
-369:                                              ; preds = %363
-  %370 = getelementptr inbounds [7 x ptr], ptr @day_short_names, i64 0, i64 %367
-  %371 = load ptr, ptr %370, align 8
+374:                                              ; preds = %368
+  %375 = getelementptr inbounds [7 x ptr], ptr @day_short_names, i64 0, i64 %372
+  %376 = load ptr, ptr %375, align 8
   br label %php_date_short_day_name.exit206
 
-php_date_short_day_name.exit206:                  ; preds = %363, %369
-  %.0.i205 = phi ptr [ %371, %369 ], [ @.str.236, %363 ]
-  %372 = load i64, ptr %55, align 8
-  %373 = trunc i64 %372 to i32
-  %374 = load i64, ptr %54, align 8
-  %375 = add nsw i64 %374, -1
-  %376 = getelementptr inbounds [12 x ptr], ptr @mon_short_names, i64 0, i64 %375
-  %377 = load ptr, ptr %376, align 8
-  %378 = load i64, ptr %2, align 8
-  %379 = load i64, ptr %56, align 8
-  %380 = trunc i64 %379 to i32
-  %381 = load i64, ptr %57, align 8
-  %382 = trunc i64 %381 to i32
-  %383 = load i64, ptr %58, align 8
-  %384 = trunc i64 %383 to i32
-  br i1 %3, label %385, label %395
+php_date_short_day_name.exit206:                  ; preds = %368, %374
+  %.0.i205 = phi ptr [ %376, %374 ], [ @.str.236, %368 ]
+  %377 = load i64, ptr %55, align 8
+  %378 = trunc i64 %377 to i32
+  %379 = load i64, ptr %54, align 8
+  %380 = add nsw i64 %379, -1
+  %381 = getelementptr inbounds [12 x ptr], ptr @mon_short_names, i64 0, i64 %380
+  %382 = load ptr, ptr %381, align 8
+  %383 = load i64, ptr %2, align 8
+  %384 = load i64, ptr %56, align 8
+  %385 = trunc i64 %384 to i32
+  %386 = load i64, ptr %57, align 8
+  %387 = trunc i64 %386 to i32
+  %388 = load i64, ptr %58, align 8
+  %389 = trunc i64 %388 to i32
+  br i1 %3, label %390, label %400
 
-385:                                              ; preds = %php_date_short_day_name.exit206
-  %386 = load i32, ptr %.0178, align 8
-  %387 = icmp slt i32 %386, 0
-  %388 = select i1 %387, i32 45, i32 43
-  %389 = sdiv i32 %386, 3600
-  %390 = call i32 @llvm.abs.i32(i32 %389, i1 true)
-  %391 = srem i32 %386, 3600
-  %.lhs.trunc216 = trunc nsw i32 %391 to i16
-  %392 = sdiv i16 %.lhs.trunc216, 60
-  %393 = call i16 @llvm.abs.i16(i16 %392, i1 true)
-  %394 = zext nneg i16 %393 to i32
-  br label %395
+390:                                              ; preds = %php_date_short_day_name.exit206
+  %391 = load i32, ptr %.0178, align 8
+  %392 = icmp slt i32 %391, 0
+  %393 = select i1 %392, i32 45, i32 43
+  %394 = sdiv i32 %391, 3600
+  %395 = call i32 @llvm.abs.i32(i32 %394, i1 true)
+  %396 = srem i32 %391, 3600
+  %.lhs.trunc216 = trunc nsw i32 %396 to i16
+  %397 = sdiv i16 %.lhs.trunc216, 60
+  %398 = call i16 @llvm.abs.i16(i16 %397, i1 true)
+  %399 = zext nneg i16 %398 to i32
+  br label %400
 
-395:                                              ; preds = %php_date_short_day_name.exit206, %385
-  %396 = phi i32 [ %390, %385 ], [ 0, %php_date_short_day_name.exit206 ]
-  %397 = phi i32 [ %388, %385 ], [ 43, %php_date_short_day_name.exit206 ]
-  %398 = phi i32 [ %394, %385 ], [ 0, %php_date_short_day_name.exit206 ]
-  %399 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.234, ptr noundef %.0.i205, i32 noundef %373, ptr noundef %377, i64 noundef %378, i32 noundef %380, i32 noundef %382, i32 noundef %384, i32 noundef %397, i32 noundef %396, i32 noundef %398) #25
-  br label %407
+400:                                              ; preds = %php_date_short_day_name.exit206, %390
+  %401 = phi i32 [ %395, %390 ], [ 0, %php_date_short_day_name.exit206 ]
+  %402 = phi i32 [ %393, %390 ], [ 43, %php_date_short_day_name.exit206 ]
+  %403 = phi i32 [ %399, %390 ], [ 0, %php_date_short_day_name.exit206 ]
+  %404 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.234, ptr noundef %.0.i205, i32 noundef %378, ptr noundef %382, i64 noundef %383, i32 noundef %385, i32 noundef %387, i32 noundef %389, i32 noundef %402, i32 noundef %401, i32 noundef %403) #25
+  br label %412
 
-400:                                              ; preds = %66
-  %401 = load i64, ptr %53, align 8
-  %402 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.235, i64 noundef %401) #25
-  br label %407
+405:                                              ; preds = %66
+  %406 = load i64, ptr %53, align 8
+  %407 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.235, i64 noundef %406) #25
+  br label %412
 
-403:                                              ; preds = %66
-  %404 = add nuw i64 %.0181220, 1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 %404
+408:                                              ; preds = %66
+  %409 = add nuw i64 %.0181220, 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 %409
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %405
+  br label %410
 
-405:                                              ; preds = %403, %66
-  %406 = phi i8 [ %68, %66 ], [ %.pre, %403 ]
-  %.1182 = phi i64 [ %.0181220, %66 ], [ %404, %403 ]
-  store i8 %406, ptr %6, align 16
+410:                                              ; preds = %408, %66
+  %411 = phi i8 [ %68, %66 ], [ %.pre, %408 ]
+  %.1182 = phi i64 [ %.0181220, %66 ], [ %409, %408 ]
+  store i8 %411, ptr %6, align 16
   store i8 0, ptr %64, align 1
-  br label %407
+  br label %412
 
-407:                                              ; preds = %308, %319, %316, %312, %310, %405, %400, %395, %358, %333, %304, %296, %282, %268, %260, %256, %252, %248, %244, %237, %233, %226, %217, %212, %207, %201, %193, %187, %182, %178, %162, %158, %152, %148, %142, %139, %130, %118, %111, %104, %english_suffix.exit, %php_date_full_day_name.exit, %83, %php_date_short_day_name.exit, %69
-  %.2183 = phi i64 [ %.1182, %405 ], [ %.0181220, %400 ], [ %.0181220, %395 ], [ %.0181220, %358 ], [ %.0181220, %333 ], [ %.0181220, %310 ], [ %.0181220, %319 ], [ %.0181220, %316 ], [ %.0181220, %312 ], [ %.0181220, %308 ], [ %.0181220, %304 ], [ %.0181220, %296 ], [ %.0181220, %282 ], [ %.0181220, %268 ], [ %.0181220, %260 ], [ %.0181220, %256 ], [ %.0181220, %252 ], [ %.0181220, %248 ], [ %.0181220, %244 ], [ %.0181220, %237 ], [ %.0181220, %233 ], [ %.0181220, %226 ], [ %.0181220, %217 ], [ %.0181220, %212 ], [ %.0181220, %207 ], [ %.0181220, %201 ], [ %.0181220, %193 ], [ %.0181220, %187 ], [ %.0181220, %182 ], [ %.0181220, %178 ], [ %.0181220, %162 ], [ %.0181220, %158 ], [ %.0181220, %152 ], [ %.0181220, %148 ], [ %.0181220, %142 ], [ %.0181220, %139 ], [ %.0181220, %130 ], [ %.0181220, %118 ], [ %.0181220, %111 ], [ %.0181220, %104 ], [ %.0181220, %english_suffix.exit ], [ %.0181220, %php_date_full_day_name.exit ], [ %.0181220, %83 ], [ %.0181220, %php_date_short_day_name.exit ], [ %.0181220, %69 ]
-  %.1180 = phi i32 [ 1, %405 ], [ %402, %400 ], [ %399, %395 ], [ %362, %358 ], [ %335, %333 ], [ %.0179222, %310 ], [ %329, %319 ], [ %318, %316 ], [ %315, %312 ], [ %309, %308 ], [ %306, %304 ], [ %300, %296 ], [ %283, %282 ], [ %270, %268 ], [ %264, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %237 ], [ %236, %233 ], [ %232, %226 ], [ %225, %217 ], [ %216, %212 ], [ %211, %207 ], [ %206, %201 ], [ %200, %193 ], [ %192, %187 ], [ %186, %182 ], [ %181, %178 ], [ %167, %162 ], [ %161, %158 ], [ %157, %152 ], [ %151, %148 ], [ %147, %142 ], [ %141, %139 ], [ %133, %130 ], [ %124, %118 ], [ %117, %111 ], [ %110, %104 ], [ %103, %english_suffix.exit ], [ %96, %php_date_full_day_name.exit ], [ %86, %83 ], [ %82, %php_date_short_day_name.exit ], [ %72, %69 ]
-  %.3 = phi i32 [ %.0176223, %405 ], [ %.0176223, %400 ], [ %.0176223, %395 ], [ %.0176223, %358 ], [ %.0176223, %333 ], [ %.0176223, %310 ], [ %.0176223, %319 ], [ %.0176223, %316 ], [ %.0176223, %312 ], [ %.0176223, %308 ], [ %.0176223, %304 ], [ %.0176223, %296 ], [ %.0176223, %282 ], [ %.0176223, %268 ], [ %.0176223, %260 ], [ %.0176223, %256 ], [ %.0176223, %252 ], [ %.0176223, %248 ], [ %.0176223, %244 ], [ %.0176223, %237 ], [ %.0176223, %233 ], [ %.0176223, %226 ], [ %.0176223, %217 ], [ %.0176223, %212 ], [ %.0176223, %207 ], [ %.0176223, %201 ], [ %.0176223, %193 ], [ %.0176223, %187 ], [ %.0176223, %182 ], [ %.0176223, %178 ], [ %.0176223, %162 ], [ %.0176223, %158 ], [ %.0176223, %152 ], [ %.0176223, %148 ], [ %.0176223, %142 ], [ 1, %139 ], [ 1, %130 ], [ %.0176223, %118 ], [ %.0176223, %111 ], [ %.0176223, %104 ], [ %.0176223, %english_suffix.exit ], [ %.0176223, %php_date_full_day_name.exit ], [ %.0176223, %83 ], [ %.0176223, %php_date_short_day_name.exit ], [ %.0176223, %69 ]
-  %408 = sext i32 %.1180 to i64
-  %409 = load ptr, ptr %5, align 8
-  %.not201 = icmp eq ptr %409, null
-  br i1 %.not201, label %415, label %410
+412:                                              ; preds = %313, %324, %321, %317, %315, %410, %405, %400, %363, %338, %309, %301, %287, %268, %260, %256, %252, %248, %244, %237, %233, %226, %217, %212, %207, %201, %193, %187, %182, %178, %162, %158, %152, %148, %142, %139, %130, %118, %111, %104, %english_suffix.exit, %php_date_full_day_name.exit, %83, %php_date_short_day_name.exit, %69
+  %.2183 = phi i64 [ %.1182, %410 ], [ %.0181220, %405 ], [ %.0181220, %400 ], [ %.0181220, %363 ], [ %.0181220, %338 ], [ %.0181220, %315 ], [ %.0181220, %324 ], [ %.0181220, %321 ], [ %.0181220, %317 ], [ %.0181220, %313 ], [ %.0181220, %309 ], [ %.0181220, %301 ], [ %.0181220, %287 ], [ %.0181220, %268 ], [ %.0181220, %260 ], [ %.0181220, %256 ], [ %.0181220, %252 ], [ %.0181220, %248 ], [ %.0181220, %244 ], [ %.0181220, %237 ], [ %.0181220, %233 ], [ %.0181220, %226 ], [ %.0181220, %217 ], [ %.0181220, %212 ], [ %.0181220, %207 ], [ %.0181220, %201 ], [ %.0181220, %193 ], [ %.0181220, %187 ], [ %.0181220, %182 ], [ %.0181220, %178 ], [ %.0181220, %162 ], [ %.0181220, %158 ], [ %.0181220, %152 ], [ %.0181220, %148 ], [ %.0181220, %142 ], [ %.0181220, %139 ], [ %.0181220, %130 ], [ %.0181220, %118 ], [ %.0181220, %111 ], [ %.0181220, %104 ], [ %.0181220, %english_suffix.exit ], [ %.0181220, %php_date_full_day_name.exit ], [ %.0181220, %83 ], [ %.0181220, %php_date_short_day_name.exit ], [ %.0181220, %69 ]
+  %.1180 = phi i32 [ 1, %410 ], [ %407, %405 ], [ %404, %400 ], [ %367, %363 ], [ %340, %338 ], [ %.0179222, %315 ], [ %334, %324 ], [ %323, %321 ], [ %320, %317 ], [ %314, %313 ], [ %311, %309 ], [ %305, %301 ], [ %288, %287 ], [ %270, %268 ], [ %264, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %237 ], [ %236, %233 ], [ %232, %226 ], [ %225, %217 ], [ %216, %212 ], [ %211, %207 ], [ %206, %201 ], [ %200, %193 ], [ %192, %187 ], [ %186, %182 ], [ %181, %178 ], [ %167, %162 ], [ %161, %158 ], [ %157, %152 ], [ %151, %148 ], [ %147, %142 ], [ %141, %139 ], [ %133, %130 ], [ %124, %118 ], [ %117, %111 ], [ %110, %104 ], [ %103, %english_suffix.exit ], [ %96, %php_date_full_day_name.exit ], [ %86, %83 ], [ %82, %php_date_short_day_name.exit ], [ %72, %69 ]
+  %.3 = phi i32 [ %.0176223, %410 ], [ %.0176223, %405 ], [ %.0176223, %400 ], [ %.0176223, %363 ], [ %.0176223, %338 ], [ %.0176223, %315 ], [ %.0176223, %324 ], [ %.0176223, %321 ], [ %.0176223, %317 ], [ %.0176223, %313 ], [ %.0176223, %309 ], [ %.0176223, %301 ], [ %.0176223, %287 ], [ %.0176223, %268 ], [ %.0176223, %260 ], [ %.0176223, %256 ], [ %.0176223, %252 ], [ %.0176223, %248 ], [ %.0176223, %244 ], [ %.0176223, %237 ], [ %.0176223, %233 ], [ %.0176223, %226 ], [ %.0176223, %217 ], [ %.0176223, %212 ], [ %.0176223, %207 ], [ %.0176223, %201 ], [ %.0176223, %193 ], [ %.0176223, %187 ], [ %.0176223, %182 ], [ %.0176223, %178 ], [ %.0176223, %162 ], [ %.0176223, %158 ], [ %.0176223, %152 ], [ %.0176223, %148 ], [ %.0176223, %142 ], [ 1, %139 ], [ 1, %130 ], [ %.0176223, %118 ], [ %.0176223, %111 ], [ %.0176223, %104 ], [ %.0176223, %english_suffix.exit ], [ %.0176223, %php_date_full_day_name.exit ], [ %.0176223, %83 ], [ %.0176223, %php_date_short_day_name.exit ], [ %.0176223, %69 ]
+  %413 = sext i32 %.1180 to i64
+  %414 = load ptr, ptr %5, align 8
+  %.not201 = icmp eq ptr %414, null
+  br i1 %.not201, label %420, label %415
 
-410:                                              ; preds = %407
-  %411 = getelementptr inbounds i8, ptr %409, i64 16
-  %412 = load i64, ptr %411, align 8
-  %413 = add i64 %412, %408
-  %414 = load i64, ptr %65, align 8
-  %.not202 = icmp ult i64 %413, %414
-  br i1 %.not202, label %416, label %415
+415:                                              ; preds = %412
+  %416 = getelementptr inbounds i8, ptr %414, i64 16
+  %417 = load i64, ptr %416, align 8
+  %418 = add i64 %417, %413
+  %419 = load i64, ptr %65, align 8
+  %.not202 = icmp ult i64 %418, %419
+  br i1 %.not202, label %421, label %420
 
-415:                                              ; preds = %407, %410
-  %.0184 = phi i64 [ %408, %407 ], [ %413, %410 ]
+420:                                              ; preds = %412, %415
+  %.0184 = phi i64 [ %413, %412 ], [ %418, %415 ]
   call void @smart_str_erealloc(ptr noundef nonnull %5, i64 noundef %.0184) #25
-  %.pre225 = load ptr, ptr %5, align 8
-  %.phi.trans.insert226 = getelementptr inbounds i8, ptr %.pre225, i64 16
-  %.pre227 = load i64, ptr %.phi.trans.insert226, align 8
-  br label %416
+  %.pre226 = load ptr, ptr %5, align 8
+  %.phi.trans.insert227 = getelementptr inbounds i8, ptr %.pre226, i64 16
+  %.pre228 = load i64, ptr %.phi.trans.insert227, align 8
+  br label %421
 
-416:                                              ; preds = %415, %410
-  %417 = phi i64 [ %.pre227, %415 ], [ %412, %410 ]
-  %418 = phi ptr [ %.pre225, %415 ], [ %409, %410 ]
-  %419 = phi i64 [ %.0184, %415 ], [ %413, %410 ]
-  %420 = getelementptr inbounds i8, ptr %418, i64 24
-  %421 = getelementptr inbounds i8, ptr %420, i64 %417
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %421, ptr nonnull align 16 %6, i64 %408, i1 false)
-  %422 = load ptr, ptr %5, align 8
-  %423 = getelementptr inbounds i8, ptr %422, i64 16
-  store i64 %419, ptr %423, align 8
-  %424 = add i64 %.2183, 1
-  %425 = icmp ult i64 %424, %1
-  br i1 %425, label %66, label %426
+421:                                              ; preds = %420, %415
+  %422 = phi i64 [ %.pre228, %420 ], [ %417, %415 ]
+  %423 = phi ptr [ %.pre226, %420 ], [ %414, %415 ]
+  %424 = phi i64 [ %.0184, %420 ], [ %418, %415 ]
+  %425 = getelementptr inbounds i8, ptr %423, i64 24
+  %426 = getelementptr inbounds i8, ptr %425, i64 %422
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %426, ptr nonnull align 16 %6, i64 %413, i1 false)
+  %427 = load ptr, ptr %5, align 8
+  %428 = getelementptr inbounds i8, ptr %427, i64 16
+  store i64 %424, ptr %428, align 8
+  %429 = add i64 %.2183, 1
+  %430 = icmp ult i64 %429, %1
+  br i1 %430, label %66, label %431
 
-426:                                              ; preds = %416
-  %427 = getelementptr inbounds i8, ptr %422, i64 24
-  %428 = getelementptr inbounds [1 x i8], ptr %427, i64 0, i64 %419
-  store i8 0, ptr %428, align 1
-  br i1 %3, label %429, label %430
+431:                                              ; preds = %421
+  %432 = getelementptr inbounds i8, ptr %427, i64 24
+  %433 = getelementptr inbounds [1 x i8], ptr %432, i64 0, i64 %424
+  store i8 0, ptr %433, align 1
+  br i1 %3, label %434, label %435
 
-429:                                              ; preds = %426
+434:                                              ; preds = %431
   call void @timelib_time_offset_dtor(ptr noundef %.0178) #25
-  br label %430
+  br label %435
 
-430:                                              ; preds = %426, %429, %4
-  %.0186.in = phi ptr [ @zend_empty_string, %4 ], [ %5, %429 ], [ %5, %426 ]
+435:                                              ; preds = %431, %434, %4
+  %.0186.in = phi ptr [ @zend_empty_string, %4 ], [ %5, %434 ], [ %5, %431 ]
   %.0186 = load ptr, ptr %.0186.in, align 8
   ret ptr %.0186
 }
@@ -18779,7 +18792,7 @@ define hidden void @zim_DatePeriod___wakeup(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @OnUpdate_date_timezone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdate_date_timezone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %18, label %7
 
@@ -20418,7 +20431,7 @@ date_period_it_invalidate_current.exit:           ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @date_period_it_has_more(ptr nocapture noundef readonly %0) #16 {
+define internal range(i32 -1, 1) i32 @date_period_it_has_more(ptr nocapture noundef readonly %0) #16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -24

@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [62 x i8] c"Mio_ParseFormula(): Something is left in the operation stack\0A\00", align 1
 @.str.11 = private unnamed_addr constant [61 x i8] c"Mio_ParseFormula(): Something is left in the function stack\0A\00", align 1
 @.str.12 = private unnamed_addr constant [47 x i8] c"Mio_ParseFormula(): The input string is empty\0A\00", align 1
-@.str.13 = private unnamed_addr constant [2 x i8] c"*\00", align 1
 @.str.14 = private unnamed_addr constant [75 x i8] c"Skipping gate \22%s\22 because substring \22%s\22 does not match with a pin name.\0A\00", align 1
 @Exp_Truth.Truth6 = internal unnamed_addr constant [6 x i64] [i64 -6148914691236517206, i64 -3689348814741910324, i64 -1085102592571150096, i64 -71777214294589696, i64 -281470681808896, i64 -4294967296], align 16
 
@@ -2001,7 +2000,7 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_PtrFreeP.exit, 
   br label %.thread314
 
 416:                                              ; preds = %410
-  %417 = trunc i64 %indvars.iv477 to i32
+  %417 = trunc nuw nsw i64 %indvars.iv477 to i32
   %418 = shl i64 %indvars.iv, 32
   %sext = add i64 %418, -4294967296
   %419 = ashr exact i64 %sext, 32
@@ -2814,7 +2813,7 @@ define internal fastcc noundef ptr @Exp_Reverse(ptr noundef readonly returned %0
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 4
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %12 = xor i32 %11, -1
   %13 = add i32 %7, %12
   %14 = sext i32 %13 to i64
@@ -2893,7 +2892,7 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr nocapture 
 
 30:                                               ; preds = %30, %.preheader118.i.us
   %indvars.iv154.i.us = phi i64 [ 0, %.preheader118.i.us ], [ %indvars.iv.next155.i.us, %30 ]
-  %31 = trunc i64 %indvars.iv154.i.us to i32
+  %31 = trunc nuw nsw i64 %indvars.iv154.i.us to i32
   %32 = and i32 %27, %31
   %.not110.i.us = icmp ne i32 %32, 0
   %33 = sext i1 %.not110.i.us to i64
@@ -3207,93 +3206,99 @@ declare ptr @Mio_PinReadName(ptr noundef) local_unnamed_addr #7
 declare ptr @Mio_PinReadNext(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Mio_ParseCheckFormula(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Mio_ParseCheckFormula(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [32 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   %5 = tail call ptr @Mio_GateReadPins(ptr noundef %0) #15
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %.loopexit, label %7
+  br i1 %6, label %.loopexit, label %sub_0
 
-7:                                                ; preds = %2
-  %8 = tail call ptr @Mio_GateReadPins(ptr noundef %0) #15
-  %9 = tail call ptr @Mio_PinReadName(ptr noundef %8) #15
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(2) @.str.13) #16
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+sub_0:                                            ; preds = %2
+  %7 = tail call ptr @Mio_GateReadPins(ptr noundef %0) #15
+  %8 = tail call ptr @Mio_PinReadName(ptr noundef %7) #15
+  %9 = load i8, ptr %8, align 1
+  %.not24 = icmp eq i8 %9, 42
+  br i1 %.not24, label %.tail, label %.preheader.preheader
 
-.preheader:                                       ; preds = %7, %22
-  %storemerge = phi ptr [ %24, %22 ], [ %1, %7 ]
+.tail:                                            ; preds = %sub_0
+  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %.loopexit, label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %sub_0, %.tail
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %24
+  %storemerge = phi ptr [ %26, %24 ], [ %1, %.preheader.preheader ]
   store ptr %storemerge, ptr %3, align 8
-  %11 = load i8, ptr %storemerge, align 1
-  switch i8 %11, label %12 [
-    i8 0, label %25
-    i8 32, label %22
-    i8 40, label %22
-    i8 41, label %22
-    i8 48, label %22
-    i8 49, label %22
-    i8 33, label %22
-    i8 39, label %22
-    i8 42, label %22
-    i8 38, label %22
-    i8 94, label %22
-    i8 43, label %22
-    i8 124, label %22
+  %13 = load i8, ptr %storemerge, align 1
+  switch i8 %13, label %14 [
+    i8 0, label %27
+    i8 32, label %24
+    i8 40, label %24
+    i8 41, label %24
+    i8 48, label %24
+    i8 49, label %24
+    i8 33, label %24
+    i8 39, label %24
+    i8 42, label %24
+    i8 38, label %24
+    i8 94, label %24
+    i8 43, label %24
+    i8 124, label %24
   ]
 
-12:                                               ; preds = %.preheader
-  %13 = call i32 @Mio_ParseCheckName(ptr noundef %0, ptr noundef nonnull %3)
-  %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %19
+14:                                               ; preds = %.preheader
+  %15 = call i32 @Mio_ParseCheckName(ptr noundef %0, ptr noundef nonnull %3)
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %21
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %0, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %16, ptr noundef %17)
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %0, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %18, ptr noundef %19)
   br label %.loopexit
 
-19:                                               ; preds = %12
-  %20 = sext i32 %13 to i64
-  %21 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %20
-  store i32 1, ptr %21, align 4
+21:                                               ; preds = %14
+  %22 = sext i32 %15 to i64
+  %23 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %22
+  store i32 1, ptr %23, align 4
   %.pre = load ptr, ptr %3, align 8
-  br label %22
+  br label %24
 
-22:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %19
-  %23 = phi ptr [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %.pre, %19 ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+24:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %21
+  %25 = phi ptr [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %storemerge, %.preheader ], [ %.pre, %21 ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
   br label %.preheader, !llvm.loop !24
 
-25:                                               ; preds = %.preheader
-  %26 = tail call ptr @Mio_GateReadPins(ptr noundef %0) #15
-  %.not1819 = icmp eq ptr %26, null
+27:                                               ; preds = %.preheader
+  %28 = tail call ptr @Mio_GateReadPins(ptr noundef %0) #15
+  %.not1819 = icmp eq ptr %28, null
   br i1 %.not1819, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %25, %30
-  %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %25 ]
-  %.01320 = phi ptr [ %31, %30 ], [ %26, %25 ]
-  %27 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.loopexit, label %30
+.lr.ph:                                           ; preds = %27, %32
+  %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %27 ]
+  %.01320 = phi ptr [ %33, %32 ], [ %28, %27 ]
+  %29 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %.loopexit, label %32
 
-30:                                               ; preds = %.lr.ph
-  %31 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.01320) #15
+32:                                               ; preds = %.lr.ph
+  %33 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.01320) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not18 = icmp eq ptr %31, null
+  %.not18 = icmp eq ptr %33, null
   br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
-.loopexit:                                        ; preds = %.lr.ph, %30, %25, %2, %7, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %7 ], [ 1, %2 ], [ 1, %25 ], [ 0, %.lr.ph ], [ 1, %30 ]
+.loopexit:                                        ; preds = %.lr.ph, %32, %27, %2, %.tail, %17
+  %.0 = phi i32 [ 0, %17 ], [ 1, %.tail ], [ 1, %2 ], [ 1, %27 ], [ 0, %.lr.ph ], [ 1, %32 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1

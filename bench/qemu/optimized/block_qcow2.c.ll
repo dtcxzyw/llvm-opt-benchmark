@@ -301,7 +301,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qcow2_crypto_hdr_init_func = private unnamed_addr constant [73 x i8] c"int qcow2_crypto_hdr_init_func(QCryptoBlock *, size_t, void *, Error **)\00", align 1
 @.str.231 = private unnamed_addr constant [38 x i8] c"Could not zero fill encryption header\00", align 1
 @__func__.qcow2_crypto_hdr_write_func = private unnamed_addr constant [28 x i8] c"qcow2_crypto_hdr_write_func\00", align 1
-@.str.232 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.233 = private unnamed_addr constant [5 x i8] c"0.10\00", align 1
 @.str.234 = private unnamed_addr constant [3 x i8] c"v2\00", align 1
 @.str.235 = private unnamed_addr constant [4 x i8] c"1.1\00", align 1
@@ -478,7 +477,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [131 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qcow2_check_read_snapshot_table, ptr @.str.346, ptr @.str.348, i32 990, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @is_zero_cow, ptr @.str.346, ptr @.str.349, i32 2496, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_copy_range_from, ptr @.str.346, ptr @.str.349, i32 4132, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_unref_child, ptr @.str.346, ptr @.str.350, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_mark_consistent, ptr @.str.346, ptr @.str.349, i32 575, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_create, ptr @.str.346, ptr @.str.349, i32 3484, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_invalidate_cache, ptr @.str.346, ptr @.str.349, i32 2830, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_compressed_part, ptr @.str.346, ptr @.str.349, i32 4743, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv_part, ptr @.str.346, ptr @.str.351, i32 50, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite_zeroes, ptr @.str.346, ptr @.str.352, i32 74, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_refcount_init, ptr @.str.346, ptr @.str.348, i32 852, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_change_backing_file, ptr @.str.346, ptr @.str.352, i32 214, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_preadv_task, ptr @.str.346, ptr @.str.349, i32 2316, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @graph_lockable_auto_unlock, ptr @.str.346, ptr @.str.353, i32 237, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pread, ptr @.str.346, ptr @.str.351, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_zeroes, ptr @.str.354, ptr @.str.352, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_zeroes, ptr @.str.355, ptr @.str.352, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_crypto_hdr_init_func, ptr @.str.346, ptr @.str.349, i32 123, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_decompress, ptr @.str.346, ptr @.str.348, i32 1065, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_encrypt, ptr @.str.346, ptr @.str.348, i32 1068, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @handle_alloc_space, ptr @.str.346, ptr @.str.349, i32 2515, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_load_dirty_bitmaps, ptr @.str.346, ptr @.str.348, i32 1032, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @graph_lockable_auto_lock, ptr @.str.346, ptr @.str.353, i32 230, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev, ptr @.str.346, ptr @.str.351, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_task_pool_start_task, ptr @.str.346, ptr @.str.356, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_unref, ptr @.str.346, ptr @.str.350, i32 239, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_part, ptr @.str.346, ptr @.str.349, i32 2663, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_set_up_encryption, ptr @.str.346, ptr @.str.349, i32 3194, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.354, ptr @.str.352, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.355, ptr @.str.352, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_can_store_new_dirty_bitmap, ptr @.str.346, ptr @.str.348, i32 1050, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_new_with_bs, ptr @.str.354, ptr @.str.357, i32 28, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_new_open, ptr @.str.346, ptr @.str.357, i32 40, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @is_zero, ptr @.str.346, ptr @.str.349, i32 4017, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_truncate_bitmaps_check, ptr @.str.346, ptr @.str.348, i32 1043, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_decrypt, ptr @.str.346, ptr @.str.348, i32 1071, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_do_open, ptr @.str.346, ptr @.str.349, i32 1319, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrlock, ptr @.str.354, ptr @.str.353, i32 120, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_load_vmstate, ptr @.str.346, ptr @.str.349, i32 5382, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @preallocate_co, ptr @.str.346, ptr @.str.349, i32 3244, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite_sync, ptr @.str.346, ptr @.str.352, i32 64, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_read_extensions, ptr @.str.346, ptr @.str.349, i32 205, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_read_snapshots, ptr @.str.346, ptr @.str.348, i32 986, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_compressed_cluster_offset, ptr @.str.346, ptr @.str.348, i32 941, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_co_rdlock, ptr @.str.346, ptr @.str.353, i32 165, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_open, ptr @.str.346, ptr @.str.350, i32 118, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_co_rdunlock, ptr @.str.346, ptr @.str.353, i32 174, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_unref, ptr @.str.346, ptr @.str.357, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_host_offset, ptr @.str.346, ptr @.str.348, i32 936, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_truncate, ptr @.str.354, ptr @.str.358, i32 223, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_truncate, ptr @.str.355, ptr @.str.358, i32 223, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_restart_all, ptr @.str.346, ptr @.str.359, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status_above, ptr @.str.354, ptr @.str.352, i32 143, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status_above, ptr @.str.355, ptr @.str.352, i32 143, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pdiscard, ptr @.str.346, ptr @.str.349, i32 4103, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_task, ptr @.str.346, ptr @.str.349, i32 2579, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_compress, ptr @.str.346, ptr @.str.348, i32 1062, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_flush_to_os, ptr @.str.346, ptr @.str.349, i32 5043, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_is_zero_fast, ptr @.str.346, ptr @.str.352, i32 164, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_block_status, ptr @.str.346, ptr @.str.349, i32 2130, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_handle_l2meta, ptr @.str.346, ptr @.str.349, i32 2183, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_has_zero_init, ptr @.str.355, ptr @.str.349, i32 5315, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_open_child, ptr @.str.346, ptr @.str.350, i32 90, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_update_options, ptr @.str.346, ptr @.str.349, i32 1265, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_do_close, ptr @.str.355, ptr @.str.349, i32 2781, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_copy_range_to, ptr @.str.346, ptr @.str.349, i32 4215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite, ptr @.str.346, ptr @.str.351, i32 70, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_getlength, ptr @.str.346, ptr @.str.352, i32 84, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_check, ptr @.str.346, ptr @.str.349, i32 647, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_add_task, ptr @.str.346, ptr @.str.349, i32 2275, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pwrite, ptr @.str.346, ptr @.str.358, i32 162, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_change_backing_file, ptr @.str.346, ptr @.str.349, i32 3164, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.354, ptr @.str.352, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.355, ptr @.str.352, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.346, ptr @.str.360, i32 146, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.346, ptr @.str.351, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_amend, ptr @.str.346, ptr @.str.349, i32 5920, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_crypto_hdr_write_func, ptr @.str.355, ptr @.str.349, i32 161, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_check_locked, ptr @.str.346, ptr @.str.349, i32 608, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_subcluster_zeroize, ptr @.str.346, ptr @.str.348, i32 958, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_get_info, ptr @.str.346, ptr @.str.349, i32 5224, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_save_vmstate, ptr @.str.346, ptr @.str.349, i32 5370, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrunlock, ptr @.str.354, ptr @.str.353, i32 130, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_task_pool_wait_all, ptr @.str.346, ptr @.str.356, i32 50, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_copy_range_from, ptr @.str.346, ptr @.str.351, i32 117, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_preadv_compressed, ptr @.str.346, ptr @.str.349, i32 78, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_check_refcounts, ptr @.str.346, ptr @.str.348, i32 890, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_open_blockdev_ref, ptr @.str.346, ptr @.str.350, i32 102, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_preadv_task_entry, ptr @.str.346, ptr @.str.349, i32 2361, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_remove_persistent_dirty_bitmap, ptr @.str.346, ptr @.str.348, i32 1054, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_truncate, ptr @.str.354, ptr @.str.352, i32 362, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_truncate, ptr @.str.355, ptr @.str.352, i32 362, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_truncate, ptr @.str.346, ptr @.str.349, i32 4283, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_detect_metadata_preallocation, ptr @.str.346, ptr @.str.348, i32 917, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_debug_event, ptr @.str.346, ptr @.str.352, i32 243, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev_part, ptr @.str.346, ptr @.str.351, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_task_entry, ptr @.str.346, ptr @.str.349, i32 2651, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_compressed_task, ptr @.str.346, ptr @.str.349, i32 4659, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_new_with_bs, ptr @.str.346, ptr @.str.357, i32 32, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.354, ptr @.str.352, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.355, ptr @.str.352, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_copy_range_to, ptr @.str.346, ptr @.str.351, i32 122, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_get_last_cluster, ptr @.str.346, ptr @.str.348, i32 914, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_delete_file_noerr, ptr @.str.346, ptr @.str.352, i32 100, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_has_zero_init, ptr @.str.355, ptr @.str.350, i32 197, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_task_pool_new, ptr @.str.346, ptr @.str.356, i32 37, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_poll, ptr @.str.354, ptr @.str.361, i32 470, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_cluster_abort, ptr @.str.346, ptr @.str.348, i32 951, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.354, ptr @.str.352, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.355, ptr @.str.352, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_compressed_task_entry, ptr @.str.346, ptr @.str.349, i32 4728, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.346, ptr @.str.360, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_create_file, ptr @.str.346, ptr @.str.350, i32 69, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_debug_event, ptr @.str.354, ptr @.str.352, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_debug_event, ptr @.str.355, ptr @.str.352, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_preadv_encrypted, ptr @.str.346, ptr @.str.349, i32 2215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_open_entry, ptr @.str.346, ptr @.str.349, i32 1915, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwrite_zeroes, ptr @.str.346, ptr @.str.349, i32 4047, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_cluster_link_l2, ptr @.str.346, ptr @.str.348, i32 948, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_shrink_l1_table, ptr @.str.346, ptr @.str.348, i32 924, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_truncate, ptr @.str.346, ptr @.str.352, i32 78, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_clusters_at, ptr @.str.346, ptr @.str.348, i32 873, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_check_fix_snapshot_table, ptr @.str.346, ptr @.str.348, i32 994, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_create_opts, ptr @.str.346, ptr @.str.349, i32 3881, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_block_status_above, ptr @.str.346, ptr @.str.352, i32 139, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_shrink_reftable, ptr @.str.346, ptr @.str.348, i32 911, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.354, ptr @.str.352, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.355, ptr @.str.352, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_unref, ptr @.str.354, ptr @.str.357, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_truncate, ptr @.str.346, ptr @.str.358, i32 226, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_preadv_part, ptr @.str.346, ptr @.str.349, i32 2373, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_mark_dirty(ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_mark_dirty(ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -817,11 +816,11 @@ if.end.i156:                                      ; preds = %if.then91
   %add.ptr.i159 = getelementptr i8, ptr %buf.2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i159, ptr noundef nonnull align 1 dereferenceable(16) %crypto_header, i64 16, i1 false)
   %.pre = load i64, ptr %crypto_header, align 8
-  %.pre220 = load i64, ptr %length, align 8
+  %.pre221 = load i64, ptr %length, align 8
   br label %header_ext_add.exit161
 
 header_ext_add.exit161:                           ; preds = %if.then91, %if.end.i156
-  %48 = phi i64 [ %47, %if.then91 ], [ %.pre220, %if.end.i156 ]
+  %48 = phi i64 [ %47, %if.then91 ], [ %.pre221, %if.end.i156 ]
   %49 = phi i64 [ %45, %if.then91 ], [ %.pre, %if.end.i156 ]
   %retval.0.i160 = phi i64 [ -28, %if.then91 ], [ 24, %if.end.i156 ]
   %conv103 = trunc nsw i64 %retval.0.i160 to i32
@@ -903,49 +902,49 @@ if.end162:                                        ; preds = %if.end157, %if.end1
   %buflen.5 = phi i64 [ %sub161, %if.end157 ], [ %buflen.4, %if.end141 ]
   %buf.5 = phi ptr [ %add.ptr159, %if.end157 ], [ %buf.4, %if.end141 ]
   %unknown_header_ext = getelementptr inbounds i8, ptr %0, i64 400
-  %uext.0214 = load ptr, ptr %unknown_header_ext, align 8
-  %tobool163.not215 = icmp eq ptr %uext.0214, null
-  br i1 %tobool163.not215, label %for.end, label %for.body
+  %uext.0215 = load ptr, ptr %unknown_header_ext, align 8
+  %tobool163.not216 = icmp eq ptr %uext.0215, null
+  br i1 %tobool163.not216, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end162, %if.end171
-  %uext.0218 = phi ptr [ %uext.0, %if.end171 ], [ %uext.0214, %if.end162 ]
-  %buf.6217 = phi ptr [ %add.ptr173, %if.end171 ], [ %buf.5, %if.end162 ]
-  %buflen.6216 = phi i64 [ %sub175, %if.end171 ], [ %buflen.5, %if.end162 ]
-  %data = getelementptr inbounds i8, ptr %uext.0218, i64 24
-  %len = getelementptr inbounds i8, ptr %uext.0218, i64 4
+  %uext.0219 = phi ptr [ %uext.0, %if.end171 ], [ %uext.0215, %if.end162 ]
+  %buf.6218 = phi ptr [ %add.ptr173, %if.end171 ], [ %buf.5, %if.end162 ]
+  %buflen.6217 = phi i64 [ %sub175, %if.end171 ], [ %buflen.5, %if.end162 ]
+  %data = getelementptr inbounds i8, ptr %uext.0219, i64 24
+  %len = getelementptr inbounds i8, ptr %uext.0219, i64 4
   %60 = load i32, ptr %len, align 4
   %conv165 = zext i32 %60 to i64
   %add.i176 = add nuw nsw i64 %conv165, 7
   %and.i177 = and i64 %add.i176, 8589934584
   %add1.i178 = add nuw nsw i64 %and.i177, 8
-  %cmp.i179 = icmp ugt i64 %add1.i178, %buflen.6216
+  %cmp.i179 = icmp ugt i64 %add1.i178, %buflen.6217
   br i1 %cmp.i179, label %fail, label %if.end.i180
 
 if.end.i180:                                      ; preds = %for.body
-  %61 = load i32, ptr %uext.0218, align 8
+  %61 = load i32, ptr %uext.0219, align 8
   %62 = tail call noundef i32 @llvm.bswap.i32(i32 %61)
   %63 = tail call noundef i32 @llvm.bswap.i32(i32 %60)
-  store i32 %62, ptr %buf.6217, align 1
-  %.compoundliteral.sroa.2.0..sroa_idx.i181 = getelementptr inbounds i8, ptr %buf.6217, i64 4
-  store i32 %63, ptr %.compoundliteral.sroa.2.0..sroa_idx.i181, align 1
-  %tobool.not.i182 = icmp eq i32 %60, 0
-  br i1 %tobool.not.i182, label %header_ext_add.exit186, label %if.then5.i183
+  store i32 %62, ptr %buf.6218, align 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i182 = getelementptr inbounds i8, ptr %buf.6218, i64 4
+  store i32 %63, ptr %.compoundliteral.sroa.2.0..sroa_idx.i182, align 1
+  %tobool.not.i183 = icmp eq i32 %60, 0
+  br i1 %tobool.not.i183, label %header_ext_add.exit187, label %if.then5.i184
 
-if.then5.i183:                                    ; preds = %if.end.i180
-  %add.ptr.i184 = getelementptr i8, ptr %buf.6217, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i184, ptr nonnull align 1 %data, i64 %conv165, i1 false)
-  br label %header_ext_add.exit186
+if.then5.i184:                                    ; preds = %if.end.i180
+  %add.ptr.i185 = getelementptr i8, ptr %buf.6218, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i185, ptr nonnull align 1 %data, i64 %conv165, i1 false)
+  br label %header_ext_add.exit187
 
-header_ext_add.exit186:                           ; preds = %if.end.i180, %if.then5.i183
+header_ext_add.exit187:                           ; preds = %if.end.i180, %if.then5.i184
   %conv167 = trunc i64 %add1.i178 to i32
   %cmp168 = icmp slt i32 %conv167, 0
   br i1 %cmp168, label %fail, label %if.end171
 
-if.end171:                                        ; preds = %header_ext_add.exit186
+if.end171:                                        ; preds = %header_ext_add.exit187
   %idx.ext172 = and i64 %add1.i178, 2147483640
-  %add.ptr173 = getelementptr i8, ptr %buf.6217, i64 %idx.ext172
-  %sub175 = sub i64 %buflen.6216, %idx.ext172
-  %next = getelementptr inbounds i8, ptr %uext.0218, i64 8
+  %add.ptr173 = getelementptr i8, ptr %buf.6218, i64 %idx.ext172
+  %sub175 = sub i64 %buflen.6217, %idx.ext172
+  %next = getelementptr inbounds i8, ptr %uext.0219, i64 8
   %uext.0 = load ptr, ptr %next, align 8
   %tobool163.not = icmp eq ptr %uext.0, null
   br i1 %tobool163.not, label %for.end, label %for.body, !llvm.loop !5
@@ -953,13 +952,13 @@ if.end171:                                        ; preds = %header_ext_add.exit
 for.end:                                          ; preds = %if.end171, %if.end162
   %buflen.6.lcssa = phi i64 [ %buflen.5, %if.end162 ], [ %sub175, %if.end171 ]
   %buf.6.lcssa = phi ptr [ %buf.5, %if.end162 ], [ %add.ptr173, %if.end171 ]
-  %cmp.i187 = icmp ult i64 %buflen.6.lcssa, 8
-  br i1 %cmp.i187, label %fail, label %if.end181
+  %cmp.i188 = icmp ult i64 %buflen.6.lcssa, 8
+  br i1 %cmp.i188, label %fail, label %if.end181
 
 if.end181:                                        ; preds = %for.end
   store i32 0, ptr %buf.6.lcssa, align 1
-  %.compoundliteral.sroa.2.0..sroa_idx.i189 = getelementptr inbounds i8, ptr %buf.6.lcssa, i64 4
-  store i32 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i189, align 1
+  %.compoundliteral.sroa.2.0..sroa_idx.i190 = getelementptr inbounds i8, ptr %buf.6.lcssa, i64 4
+  store i32 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i190, align 1
   %add.ptr183 = getelementptr i8, ptr %buf.6.lcssa, i64 8
   %sub185 = add i64 %buflen.6.lcssa, -8
   %image_backing_file = getelementptr inbounds i8, ptr %0, i64 432
@@ -992,14 +991,14 @@ if.end201:                                        ; preds = %if.end193, %if.end1
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %call204, i32 0)
   br label %fail
 
-fail:                                             ; preds = %for.body, %header_ext_add.exit186, %for.end, %if.then144, %if.then130, %if.then74, %if.then56, %if.then7.i, %if.then3.i, %sw.default.i, %if.then187, %if.then43, %if.end4, %entry, %if.end201, %header_ext_add.exit161, %header_ext_add.exit154, %header_ext_add.exit
-  %ret.1 = phi i32 [ %conv61, %header_ext_add.exit ], [ %conv79, %header_ext_add.exit154 ], [ %conv103, %header_ext_add.exit161 ], [ %spec.store.select, %if.end201 ], [ -28, %entry ], [ -22, %if.end4 ], [ -28, %if.then43 ], [ -28, %if.then187 ], [ -22, %if.then7.i ], [ -22, %if.then3.i ], [ -95, %sw.default.i ], [ -28, %if.then56 ], [ -28, %if.then74 ], [ -28, %if.then130 ], [ -28, %if.then144 ], [ -28, %for.end ], [ -28, %for.body ], [ %conv167, %header_ext_add.exit186 ]
+fail:                                             ; preds = %for.body, %header_ext_add.exit187, %for.end, %if.then144, %if.then130, %if.then74, %if.then56, %if.then7.i, %if.then3.i, %sw.default.i, %if.then187, %if.then43, %if.end4, %entry, %if.end201, %header_ext_add.exit161, %header_ext_add.exit154, %header_ext_add.exit
+  %ret.1 = phi i32 [ %conv61, %header_ext_add.exit ], [ %conv79, %header_ext_add.exit154 ], [ %conv103, %header_ext_add.exit161 ], [ %spec.store.select, %if.end201 ], [ -28, %entry ], [ -22, %if.end4 ], [ -28, %if.then43 ], [ -28, %if.then187 ], [ -22, %if.then7.i ], [ -22, %if.then3.i ], [ -95, %sw.default.i ], [ -28, %if.then56 ], [ -28, %if.then74 ], [ -28, %if.then130 ], [ -28, %if.then144 ], [ -28, %for.end ], [ -28, %for.body ], [ %conv167, %header_ext_add.exit187 ]
   tail call void @qemu_vfree(ptr noundef %call) #22
   ret i32 %ret.1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcow2_validate_table(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %entries, i64 noundef %entry_len, i64 noundef %max_size_bytes, ptr noundef %table_name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -27, 1) i32 @qcow2_validate_table(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %entries, i64 noundef %entry_len, i64 noundef %max_size_bytes, ptr noundef %table_name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1040,7 +1039,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @validate_compression_type(ptr nocapture noundef readonly %s, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -95, 1) i32 @validate_compression_type(ptr nocapture noundef readonly %s, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %compression_type = getelementptr inbounds i8, ptr %s, i64 492
   %0 = load i32, ptr %compression_type, align 4
@@ -1236,7 +1235,7 @@ declare ptr @bdrv_get_device_name(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_reopen_prepare(ptr nocapture noundef %state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_reopen_prepare(ptr nocapture noundef %state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %opaque = getelementptr inbounds i8, ptr %0, i64 24
@@ -1728,7 +1727,7 @@ if.then24:                                        ; preds = %if.end19
 if.end26:                                         ; preds = %if.end19.thread, %if.end19
   %tobool21171 = phi i1 [ false, %if.end19.thread ], [ %tobool21, %if.end19 ]
   %conv.i = trunc i64 %cluster_size.0 to i32
-  %8 = tail call i32 @llvm.cttz.i32(i32 %conv.i, i1 false), !range !9
+  %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv.i, i1 false)
   %9 = add nsw i32 %8, -9
   %or.cond.i = icmp ult i32 %9, 13
   %shl.i = shl nuw nsw i32 1, %8
@@ -1837,7 +1836,7 @@ if.end60:                                         ; preds = %if.end57.if.end60_c
   %cmp62 = icmp slt i64 %17, 65
   %tobool.not.i = icmp ne i64 %17, 0
   %or.cond161.not164 = and i1 %cmp62, %tobool.not.i
-  %18 = tail call i64 @llvm.ctpop.i64(i64 %17), !range !10
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
   %tobool1.not.i = icmp ult i64 %18, 2
   %or.cond162 = select i1 %or.cond161.not164, i1 %tobool1.not.i, i1 false
   br i1 %or.cond162, label %if.end66, label %if.then65
@@ -1857,7 +1856,7 @@ if.then71:                                        ; preds = %if.end66
 
 if.end72:                                         ; preds = %if.end66
   %conv = trunc i64 %17 to i32
-  %19 = tail call i32 @llvm.cttz.i32(i32 %conv, i1 false), !range !9
+  %19 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv, i1 false)
   %data_file_raw = getelementptr inbounds i8, ptr %create_options, i64 25
   %20 = load i8, ptr %data_file_raw, align 1
   %tobool75 = trunc i8 %20 to i1
@@ -2167,7 +2166,7 @@ if.then272:                                       ; preds = %if.end270
   tail call void @bdrv_graph_co_rdlock() #22
   %call273 = tail call ptr @blk_bs(ptr noundef nonnull %call214) #22
   %43 = load ptr, ptr %encrypt, align 8
-  %call275 = tail call i32 @qcow2_set_up_encryption(ptr noundef %call273, ptr noundef %43, ptr noundef %errp), !range !11
+  %call275 = tail call i32 @qcow2_set_up_encryption(ptr noundef %call273, ptr noundef %43, ptr noundef %errp)
   tail call void @bdrv_graph_co_rdunlock() #22
   %cmp276 = icmp slt i32 %call275, 0
   br i1 %cmp276, label %out, label %if.end280
@@ -2205,7 +2204,7 @@ return:                                           ; preds = %if.end, %out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -2213,18 +2212,30 @@ entry:
   %call = tail call ptr @qemu_opts_to_qdict_filtered(ptr noundef %opts, ptr noundef null, ptr noundef %0, i1 noundef zeroext true) #22
   %call1 = tail call ptr @qdict_get_try_str(ptr noundef %call, ptr noundef nonnull @.str.11) #22
   %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.end9, label %land.lhs.true
+  br i1 %tobool.not, label %if.end9, label %sub_0
 
-land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call1, ptr noundef nonnull dereferenceable(3) @.str.232) #23
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %if.then, label %land.lhs.true5
+sub_0:                                            ; preds = %entry
+  %1 = load i8, ptr %call1, align 1
+  %.not = icmp eq i8 %1, 111
+  br i1 %.not, label %sub_1, label %land.lhs.true5
 
-if.then:                                          ; preds = %land.lhs.true
+sub_1:                                            ; preds = %sub_0
+  %2 = getelementptr inbounds i8, ptr %call1, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not59 = icmp eq i8 %3, 110
+  br i1 %.not59, label %land.lhs.true.tail, label %land.lhs.true5
+
+land.lhs.true.tail:                               ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %call1, i64 2
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.then, label %land.lhs.true5
+
+if.then:                                          ; preds = %land.lhs.true.tail
   tail call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.111) #22
   br label %if.end9
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
+land.lhs.true5:                                   ; preds = %sub_1, %sub_0, %land.lhs.true.tail
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call1, ptr noundef nonnull dereferenceable(4) @.str.34) #23
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then8, label %if.end9
@@ -2314,17 +2325,17 @@ if.end52:                                         ; preds = %if.end51, %if.end40
 if.end58:                                         ; preds = %if.end52
   %call59 = call zeroext i1 @visit_type_BlockdevCreateOptions(ptr noundef nonnull %call55, ptr noundef null, ptr noundef nonnull %create_options, ptr noundef %errp) #22
   call void @visit_free(ptr noundef nonnull %call55) #22
-  %1 = load ptr, ptr %create_options, align 8
-  %tobool60.not = icmp eq ptr %1, null
+  %7 = load ptr, ptr %create_options, align 8
+  %tobool60.not = icmp eq ptr %7, null
   br i1 %tobool60.not, label %if.then67, label %finish
 
 finish:                                           ; preds = %if.end58
-  %size = getelementptr inbounds i8, ptr %1, i64 32
-  %2 = load i64, ptr %size, align 8
-  %sub = add i64 %2, 511
+  %size = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = load i64, ptr %size, align 8
+  %sub = add i64 %8, 511
   %and = and i64 %sub, -512
   store i64 %and, ptr %size, align 8
-  %call65 = call i32 @qcow2_co_create(ptr noundef nonnull %1, ptr noundef %errp)
+  %call65 = call i32 @qcow2_co_create(ptr noundef nonnull %7, ptr noundef %errp)
   %cmp66 = icmp slt i32 %call65, 0
   br i1 %cmp66, label %if.then67, label %if.end69
 
@@ -2347,8 +2358,8 @@ if.end69:                                         ; preds = %finish, %if.then67
 
 lor.lhs.false.i:                                  ; preds = %if.end69
   %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
-  %3 = load i64, ptr %refcnt.i, align 8
-  %tobool1.not.i = icmp eq i64 %3, 0
+  %9 = load i64, ptr %refcnt.i, align 8
+  %tobool1.not.i = icmp eq i64 %9, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
@@ -2356,7 +2367,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %dec.i = add i64 %3, -1
+  %dec.i = add i64 %9, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
@@ -2368,13 +2379,13 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 qobject_unref_impl.exit:                          ; preds = %if.end69, %land.lhs.true.i, %if.then5.i
   call void @bdrv_co_unref(ptr noundef %bs.058) #22
   call void @bdrv_co_unref(ptr noundef %data_bs.156) #22
-  %4 = load ptr, ptr %create_options, align 8
-  call void @qapi_free_BlockdevCreateOptions(ptr noundef %4) #22
+  %10 = load ptr, ptr %create_options, align 8
+  call void @qapi_free_BlockdevCreateOptions(ptr noundef %10) #22
   ret i32 %ret.1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_amend_options(ptr noundef %bs, ptr noundef %opts, ptr noundef %status_cb, ptr noundef %cb_opaque, i1 noundef zeroext %force, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_amend_options(ptr noundef %bs, ptr noundef %opts, ptr noundef %status_cb, ptr noundef %cb_opaque, i1 noundef zeroext %force, ptr noundef %errp) #0 {
 entry:
   %cryptoopts_qdict.i = alloca ptr, align 8
   %helper_cb_info = alloca %struct.Qcow2AmendHelperCBInfo, align 8
@@ -2399,21 +2410,21 @@ entry:
   br label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry, %if.end119
-  %new_version.0.ph301 = phi i32 [ %1, %entry ], [ %new_version.1, %if.end119 ]
-  %new_size.0.ph300 = phi i64 [ 0, %entry ], [ %new_size.1, %if.end119 ]
-  %backing_file.0.ph299 = phi ptr [ null, %entry ], [ %backing_file.1, %if.end119 ]
-  %backing_format.0.ph298 = phi ptr [ null, %entry ], [ %backing_format.1, %if.end119 ]
-  %data_file.0.ph297 = phi ptr [ null, %entry ], [ %data_file.1, %if.end119 ]
-  %lazy_refcounts.0.ph296 = phi i8 [ %2, %entry ], [ %lazy_refcounts.1, %if.end119 ]
-  %data_file_raw.0.ph295 = phi i8 [ %5, %entry ], [ %data_file_raw.1, %if.end119 ]
-  %refcount_bits.0.ph294 = phi i32 [ %6, %entry ], [ %refcount_bits.1, %if.end119 ]
-  %desc.0.ph293 = phi ptr [ %desc4, %entry ], [ %incdec.ptr120, %if.end119 ]
-  %encryption_update.0.ph292 = phi i8 [ 0, %entry ], [ %encryption_update.1, %if.end119 ]
+  %new_version.0.ph305 = phi i32 [ %1, %entry ], [ %new_version.1, %if.end119 ]
+  %new_size.0.ph304 = phi i64 [ 0, %entry ], [ %new_size.1, %if.end119 ]
+  %backing_file.0.ph303 = phi ptr [ null, %entry ], [ %backing_file.1, %if.end119 ]
+  %backing_format.0.ph302 = phi ptr [ null, %entry ], [ %backing_format.1, %if.end119 ]
+  %data_file.0.ph301 = phi ptr [ null, %entry ], [ %data_file.1, %if.end119 ]
+  %lazy_refcounts.0.ph300 = phi i8 [ %2, %entry ], [ %lazy_refcounts.1, %if.end119 ]
+  %data_file_raw.0.ph299 = phi i8 [ %5, %entry ], [ %data_file_raw.1, %if.end119 ]
+  %refcount_bits.0.ph298 = phi i32 [ %6, %entry ], [ %refcount_bits.1, %if.end119 ]
+  %desc.0.ph297 = phi ptr [ %desc4, %entry ], [ %incdec.ptr120, %if.end119 ]
+  %encryption_update.0.ph296 = phi i8 [ 0, %entry ], [ %encryption_update.1, %if.end119 ]
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.then
-  %desc.0265 = phi ptr [ %desc.0.ph293, %land.rhs.lr.ph ], [ %incdec.ptr, %if.then ]
-  %9 = load ptr, ptr %desc.0265, align 8
+  %desc.0269 = phi ptr [ %desc.0.ph297, %land.rhs.lr.ph ], [ %incdec.ptr, %if.then ]
+  %9 = load ptr, ptr %desc.0269, align 8
   %tobool6.not = icmp eq ptr %9, null
   br i1 %tobool6.not, label %while.end, label %while.body
 
@@ -2423,12 +2434,12 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool9.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %incdec.ptr = getelementptr i8, ptr %desc.0265, i64 32
+  %incdec.ptr = getelementptr i8, ptr %desc.0269, i64 32
   %tobool5.not = icmp eq ptr %incdec.ptr, null
-  br i1 %tobool5.not, label %while.end, label %land.rhs, !llvm.loop !12
+  br i1 %tobool5.not, label %while.end, label %land.rhs, !llvm.loop !9
 
 if.end:                                           ; preds = %while.body
-  %10 = load ptr, ptr %desc.0265, align 8
+  %10 = load ptr, ptr %desc.0269, align 8
   %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(7) @.str.42) #23
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.then13, label %if.else33
@@ -2441,24 +2452,62 @@ if.then13:                                        ; preds = %if.end
 if.else:                                          ; preds = %if.then13
   %call17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call14, ptr noundef nonnull dereferenceable(5) @.str.233) #23
   %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %if.end119, label %lor.lhs.false
+  br i1 %tobool18.not, label %if.end119, label %sub_0
 
-lor.lhs.false:                                    ; preds = %if.else
-  %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call14, ptr noundef nonnull dereferenceable(3) @.str.234) #23
-  %tobool20.not = icmp eq i32 %call19, 0
+sub_0:                                            ; preds = %if.else
+  %11 = load i8, ptr %call14, align 1
+  %12 = zext i8 %11 to i32
+  %13 = add nsw i32 %12, -118
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %sub_1, label %lor.lhs.false.tail
+
+sub_1:                                            ; preds = %sub_0
+  %14 = getelementptr inbounds i8, ptr %call14, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = zext i8 %15 to i32
+  %17 = add nsw i32 %16, -50
+  %.not306 = icmp eq i32 %17, 0
+  br i1 %.not306, label %sub_2, label %lor.lhs.false.tail
+
+sub_2:                                            ; preds = %sub_1
+  %18 = getelementptr inbounds i8, ptr %call14, i64 2
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i32
+  br label %lor.lhs.false.tail
+
+lor.lhs.false.tail:                               ; preds = %sub_0, %sub_1, %sub_2
+  %21 = phi i32 [ %13, %sub_0 ], [ %17, %sub_1 ], [ %20, %sub_2 ]
+  %tobool20.not = icmp eq i32 %21, 0
   br i1 %tobool20.not, label %if.end119, label %if.else22
 
-if.else22:                                        ; preds = %lor.lhs.false
+if.else22:                                        ; preds = %lor.lhs.false.tail
   %call23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call14, ptr noundef nonnull dereferenceable(4) @.str.235) #23
   %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %if.end119, label %lor.lhs.false25
+  br i1 %tobool24.not, label %if.end119, label %sub_0200
 
-lor.lhs.false25:                                  ; preds = %if.else22
-  %call26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call14, ptr noundef nonnull dereferenceable(3) @.str.236) #23
-  %tobool27.not = icmp eq i32 %call26, 0
+sub_0200:                                         ; preds = %if.else22
+  br i1 %.not, label %sub_1201, label %lor.lhs.false25.tail
+
+sub_1201:                                         ; preds = %sub_0200
+  %22 = getelementptr inbounds i8, ptr %call14, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = add nsw i32 %24, -51
+  %.not308 = icmp eq i32 %25, 0
+  br i1 %.not308, label %sub_2202, label %lor.lhs.false25.tail
+
+sub_2202:                                         ; preds = %sub_1201
+  %26 = getelementptr inbounds i8, ptr %call14, i64 2
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  br label %lor.lhs.false25.tail
+
+lor.lhs.false25.tail:                             ; preds = %sub_0200, %sub_1201, %sub_2202
+  %29 = phi i32 [ %13, %sub_0200 ], [ %25, %sub_1201 ], [ %28, %sub_2202 ]
+  %tobool27.not = icmp eq i32 %29, 0
   br i1 %tobool27.not, label %if.end119, label %if.else29
 
-if.else29:                                        ; preds = %lor.lhs.false25
+if.else29:                                        ; preds = %lor.lhs.false25.tail
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 5703, ptr noundef nonnull @__func__.qcow2_amend_options, ptr noundef nonnull @.str.245, ptr noundef nonnull %call14) #22
   br label %return
 
@@ -2495,8 +2544,8 @@ if.else51:                                        ; preds = %if.else45
   br i1 %tobool54.not, label %if.else61, label %if.then55
 
 if.then55:                                        ; preds = %if.else51
-  %11 = load ptr, ptr %crypto, align 8
-  %tobool56.not = icmp eq ptr %11, null
+  %30 = load ptr, ptr %crypto, align 8
+  %tobool56.not = icmp eq ptr %30, null
   br i1 %tobool56.not, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %if.then55
@@ -2504,8 +2553,8 @@ if.then57:                                        ; preds = %if.then55
   br label %return
 
 if.end58:                                         ; preds = %if.then55
-  %12 = load i32, ptr %crypt_method_header, align 4
-  %cmp.not = icmp eq i32 %12, 2
+  %31 = load i32, ptr %crypt_method_header, align 4
+  %cmp.not = icmp eq i32 %31, 2
   br i1 %cmp.not, label %if.end119, label %if.then59
 
 if.then59:                                        ; preds = %if.end58
@@ -2513,34 +2562,34 @@ if.then59:                                        ; preds = %if.end58
   br label %return
 
 if.else61:                                        ; preds = %if.else51
-  %13 = load ptr, ptr %desc.0265, align 8
-  %call63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(15) @.str.52) #23
+  %32 = load ptr, ptr %desc.0269, align 8
+  %call63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(15) @.str.52) #23
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %if.then65, label %if.else69
 
 if.then65:                                        ; preds = %if.else61
-  %tobool66 = trunc i8 %lazy_refcounts.0.ph296 to i1
+  %tobool66 = trunc i8 %lazy_refcounts.0.ph300 to i1
   %call67 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.52, i1 noundef zeroext %tobool66) #22
   %frombool68 = zext i1 %call67 to i8
   br label %if.end119
 
 if.else69:                                        ; preds = %if.else61
-  %call71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(14) @.str.54) #23
+  %call71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(14) @.str.54) #23
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %if.then73, label %if.else86
 
 if.then73:                                        ; preds = %if.else69
-  %conv = sext i32 %refcount_bits.0.ph294 to i64
+  %conv = sext i32 %refcount_bits.0.ph298 to i64
   %call74 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.54, i64 noundef %conv) #22
   %conv75 = trunc i64 %call74 to i32
-  %14 = add i32 %conv75, -65
-  %or.cond = icmp ult i32 %14, -64
+  %33 = add i32 %conv75, -65
+  %or.cond = icmp ult i32 %33, -64
   br i1 %or.cond, label %if.then84, label %lor.lhs.false81
 
 lor.lhs.false81:                                  ; preds = %if.then73
   %conv82 = and i64 %call74, 4294967295
-  %15 = tail call i64 @llvm.ctpop.i64(i64 %conv82), !range !10
-  %or.cond199 = icmp eq i64 %15, 1
+  %34 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv82)
+  %or.cond199 = icmp eq i64 %34, 1
   br i1 %or.cond199, label %if.end119, label %if.then84
 
 if.then84:                                        ; preds = %lor.lhs.false81, %if.then73
@@ -2548,7 +2597,7 @@ if.then84:                                        ; preds = %lor.lhs.false81, %i
   br label %return
 
 if.else86:                                        ; preds = %if.else69
-  %call88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.48) #23
+  %call88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(10) @.str.48) #23
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %if.then90, label %if.else96
 
@@ -2560,8 +2609,8 @@ if.then90:                                        ; preds = %if.else86
 land.lhs.true:                                    ; preds = %if.then90
   %bs.val = load ptr, ptr %opaque, align 8
   %bs.val141 = load ptr, ptr %8, align 8
-  %16 = getelementptr i8, ptr %bs.val, i64 480
-  %bs.val.val = load ptr, ptr %16, align 8
+  %35 = getelementptr i8, ptr %bs.val, i64 480
+  %bs.val.val = load ptr, ptr %35, align 8
   %cmp.i.not = icmp eq ptr %bs.val.val, %bs.val141
   br i1 %cmp.i.not, label %if.then94, label %if.end119
 
@@ -2570,19 +2619,19 @@ if.then94:                                        ; preds = %land.lhs.true
   br label %return
 
 if.else96:                                        ; preds = %if.else86
-  %call98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(14) @.str.50) #23
+  %call98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(14) @.str.50) #23
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %if.then100, label %if.else110
 
 if.then100:                                       ; preds = %if.else96
-  %tobool101 = trunc i8 %data_file_raw.0.ph295 to i1
+  %tobool101 = trunc i8 %data_file_raw.0.ph299 to i1
   %call102 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.50, i1 noundef zeroext %tobool101) #22
   br i1 %call102, label %land.lhs.true106, label %if.end119
 
 land.lhs.true106:                                 ; preds = %if.then100
   %bs.val143 = load ptr, ptr %opaque, align 8
-  %17 = getelementptr i8, ptr %bs.val143, i64 376
-  %bs.val143.val = load i64, ptr %17, align 8
+  %36 = getelementptr i8, ptr %bs.val143, i64 376
+  %bs.val143.val = load i64, ptr %36, align 8
   %and.i144 = and i64 %bs.val143.val, 2
   %tobool.i145.not = icmp eq i64 %and.i144, 0
   br i1 %tobool.i145.not, label %if.then108, label %if.end119
@@ -2595,34 +2644,34 @@ if.else110:                                       ; preds = %if.else96
   tail call void @abort() #21
   unreachable
 
-if.end119:                                        ; preds = %lor.lhs.false81, %if.end58, %if.else22, %lor.lhs.false25, %if.else, %lor.lhs.false, %if.then37, %if.then49, %if.then65, %land.lhs.true, %if.then90, %if.then100, %land.lhs.true106, %if.then43, %if.then13
-  %encryption_update.1 = phi i8 [ %encryption_update.0.ph292, %land.lhs.true106 ], [ %encryption_update.0.ph292, %if.then100 ], [ %encryption_update.0.ph292, %land.lhs.true ], [ %encryption_update.0.ph292, %if.then90 ], [ %encryption_update.0.ph292, %if.then65 ], [ %encryption_update.0.ph292, %if.then49 ], [ %encryption_update.0.ph292, %if.then43 ], [ %encryption_update.0.ph292, %if.then37 ], [ %encryption_update.0.ph292, %if.then13 ], [ %encryption_update.0.ph292, %lor.lhs.false ], [ %encryption_update.0.ph292, %if.else ], [ %encryption_update.0.ph292, %lor.lhs.false25 ], [ %encryption_update.0.ph292, %if.else22 ], [ 1, %if.end58 ], [ %encryption_update.0.ph292, %lor.lhs.false81 ]
-  %refcount_bits.1 = phi i32 [ %refcount_bits.0.ph294, %land.lhs.true106 ], [ %refcount_bits.0.ph294, %if.then100 ], [ %refcount_bits.0.ph294, %land.lhs.true ], [ %refcount_bits.0.ph294, %if.then90 ], [ %refcount_bits.0.ph294, %if.then65 ], [ %refcount_bits.0.ph294, %if.then49 ], [ %refcount_bits.0.ph294, %if.then43 ], [ %refcount_bits.0.ph294, %if.then37 ], [ %refcount_bits.0.ph294, %if.then13 ], [ %refcount_bits.0.ph294, %lor.lhs.false ], [ %refcount_bits.0.ph294, %if.else ], [ %refcount_bits.0.ph294, %lor.lhs.false25 ], [ %refcount_bits.0.ph294, %if.else22 ], [ %refcount_bits.0.ph294, %if.end58 ], [ %conv75, %lor.lhs.false81 ]
-  %data_file_raw.1 = phi i8 [ 1, %land.lhs.true106 ], [ 0, %if.then100 ], [ %data_file_raw.0.ph295, %land.lhs.true ], [ %data_file_raw.0.ph295, %if.then90 ], [ %data_file_raw.0.ph295, %if.then65 ], [ %data_file_raw.0.ph295, %if.then49 ], [ %data_file_raw.0.ph295, %if.then43 ], [ %data_file_raw.0.ph295, %if.then37 ], [ %data_file_raw.0.ph295, %if.then13 ], [ %data_file_raw.0.ph295, %lor.lhs.false ], [ %data_file_raw.0.ph295, %if.else ], [ %data_file_raw.0.ph295, %lor.lhs.false25 ], [ %data_file_raw.0.ph295, %if.else22 ], [ %data_file_raw.0.ph295, %if.end58 ], [ %data_file_raw.0.ph295, %lor.lhs.false81 ]
-  %lazy_refcounts.1 = phi i8 [ %lazy_refcounts.0.ph296, %land.lhs.true106 ], [ %lazy_refcounts.0.ph296, %if.then100 ], [ %lazy_refcounts.0.ph296, %land.lhs.true ], [ %lazy_refcounts.0.ph296, %if.then90 ], [ %frombool68, %if.then65 ], [ %lazy_refcounts.0.ph296, %if.then49 ], [ %lazy_refcounts.0.ph296, %if.then43 ], [ %lazy_refcounts.0.ph296, %if.then37 ], [ %lazy_refcounts.0.ph296, %if.then13 ], [ %lazy_refcounts.0.ph296, %lor.lhs.false ], [ %lazy_refcounts.0.ph296, %if.else ], [ %lazy_refcounts.0.ph296, %lor.lhs.false25 ], [ %lazy_refcounts.0.ph296, %if.else22 ], [ %lazy_refcounts.0.ph296, %if.end58 ], [ %lazy_refcounts.0.ph296, %lor.lhs.false81 ]
-  %data_file.1 = phi ptr [ %data_file.0.ph297, %land.lhs.true106 ], [ %data_file.0.ph297, %if.then100 ], [ %call91, %land.lhs.true ], [ null, %if.then90 ], [ %data_file.0.ph297, %if.then65 ], [ %data_file.0.ph297, %if.then49 ], [ %data_file.0.ph297, %if.then43 ], [ %data_file.0.ph297, %if.then37 ], [ %data_file.0.ph297, %if.then13 ], [ %data_file.0.ph297, %lor.lhs.false ], [ %data_file.0.ph297, %if.else ], [ %data_file.0.ph297, %lor.lhs.false25 ], [ %data_file.0.ph297, %if.else22 ], [ %data_file.0.ph297, %if.end58 ], [ %data_file.0.ph297, %lor.lhs.false81 ]
-  %backing_format.1 = phi ptr [ %backing_format.0.ph298, %land.lhs.true106 ], [ %backing_format.0.ph298, %if.then100 ], [ %backing_format.0.ph298, %land.lhs.true ], [ %backing_format.0.ph298, %if.then90 ], [ %backing_format.0.ph298, %if.then65 ], [ %call50, %if.then49 ], [ %backing_format.0.ph298, %if.then43 ], [ %backing_format.0.ph298, %if.then37 ], [ %backing_format.0.ph298, %if.then13 ], [ %backing_format.0.ph298, %lor.lhs.false ], [ %backing_format.0.ph298, %if.else ], [ %backing_format.0.ph298, %lor.lhs.false25 ], [ %backing_format.0.ph298, %if.else22 ], [ %backing_format.0.ph298, %if.end58 ], [ %backing_format.0.ph298, %lor.lhs.false81 ]
-  %backing_file.1 = phi ptr [ %backing_file.0.ph299, %land.lhs.true106 ], [ %backing_file.0.ph299, %if.then100 ], [ %backing_file.0.ph299, %land.lhs.true ], [ %backing_file.0.ph299, %if.then90 ], [ %backing_file.0.ph299, %if.then65 ], [ %backing_file.0.ph299, %if.then49 ], [ %call44, %if.then43 ], [ %backing_file.0.ph299, %if.then37 ], [ %backing_file.0.ph299, %if.then13 ], [ %backing_file.0.ph299, %lor.lhs.false ], [ %backing_file.0.ph299, %if.else ], [ %backing_file.0.ph299, %lor.lhs.false25 ], [ %backing_file.0.ph299, %if.else22 ], [ %backing_file.0.ph299, %if.end58 ], [ %backing_file.0.ph299, %lor.lhs.false81 ]
-  %new_size.1 = phi i64 [ %new_size.0.ph300, %land.lhs.true106 ], [ %new_size.0.ph300, %if.then100 ], [ %new_size.0.ph300, %land.lhs.true ], [ %new_size.0.ph300, %if.then90 ], [ %new_size.0.ph300, %if.then65 ], [ %new_size.0.ph300, %if.then49 ], [ %new_size.0.ph300, %if.then43 ], [ %call38, %if.then37 ], [ %new_size.0.ph300, %if.then13 ], [ %new_size.0.ph300, %lor.lhs.false ], [ %new_size.0.ph300, %if.else ], [ %new_size.0.ph300, %lor.lhs.false25 ], [ %new_size.0.ph300, %if.else22 ], [ %new_size.0.ph300, %if.end58 ], [ %new_size.0.ph300, %lor.lhs.false81 ]
-  %new_version.1 = phi i32 [ %new_version.0.ph301, %land.lhs.true106 ], [ %new_version.0.ph301, %if.then100 ], [ %new_version.0.ph301, %land.lhs.true ], [ %new_version.0.ph301, %if.then90 ], [ %new_version.0.ph301, %if.then65 ], [ %new_version.0.ph301, %if.then49 ], [ %new_version.0.ph301, %if.then43 ], [ %new_version.0.ph301, %if.then37 ], [ %new_version.0.ph301, %if.then13 ], [ 2, %lor.lhs.false ], [ 2, %if.else ], [ 3, %lor.lhs.false25 ], [ 3, %if.else22 ], [ %new_version.0.ph301, %if.end58 ], [ %new_version.0.ph301, %lor.lhs.false81 ]
-  %incdec.ptr120 = getelementptr i8, ptr %desc.0265, i64 32
-  %tobool5.not264 = icmp eq ptr %incdec.ptr120, null
-  br i1 %tobool5.not264, label %while.end, label %land.rhs.lr.ph, !llvm.loop !12
+if.end119:                                        ; preds = %lor.lhs.false81, %if.end58, %if.else22, %lor.lhs.false25.tail, %if.else, %lor.lhs.false.tail, %if.then37, %if.then49, %if.then65, %land.lhs.true, %if.then90, %if.then100, %land.lhs.true106, %if.then43, %if.then13
+  %encryption_update.1 = phi i8 [ %encryption_update.0.ph296, %land.lhs.true106 ], [ %encryption_update.0.ph296, %if.then100 ], [ %encryption_update.0.ph296, %land.lhs.true ], [ %encryption_update.0.ph296, %if.then90 ], [ %encryption_update.0.ph296, %if.then65 ], [ %encryption_update.0.ph296, %if.then49 ], [ %encryption_update.0.ph296, %if.then43 ], [ %encryption_update.0.ph296, %if.then37 ], [ %encryption_update.0.ph296, %if.then13 ], [ %encryption_update.0.ph296, %lor.lhs.false.tail ], [ %encryption_update.0.ph296, %if.else ], [ %encryption_update.0.ph296, %lor.lhs.false25.tail ], [ %encryption_update.0.ph296, %if.else22 ], [ 1, %if.end58 ], [ %encryption_update.0.ph296, %lor.lhs.false81 ]
+  %refcount_bits.1 = phi i32 [ %refcount_bits.0.ph298, %land.lhs.true106 ], [ %refcount_bits.0.ph298, %if.then100 ], [ %refcount_bits.0.ph298, %land.lhs.true ], [ %refcount_bits.0.ph298, %if.then90 ], [ %refcount_bits.0.ph298, %if.then65 ], [ %refcount_bits.0.ph298, %if.then49 ], [ %refcount_bits.0.ph298, %if.then43 ], [ %refcount_bits.0.ph298, %if.then37 ], [ %refcount_bits.0.ph298, %if.then13 ], [ %refcount_bits.0.ph298, %lor.lhs.false.tail ], [ %refcount_bits.0.ph298, %if.else ], [ %refcount_bits.0.ph298, %lor.lhs.false25.tail ], [ %refcount_bits.0.ph298, %if.else22 ], [ %refcount_bits.0.ph298, %if.end58 ], [ %conv75, %lor.lhs.false81 ]
+  %data_file_raw.1 = phi i8 [ 1, %land.lhs.true106 ], [ 0, %if.then100 ], [ %data_file_raw.0.ph299, %land.lhs.true ], [ %data_file_raw.0.ph299, %if.then90 ], [ %data_file_raw.0.ph299, %if.then65 ], [ %data_file_raw.0.ph299, %if.then49 ], [ %data_file_raw.0.ph299, %if.then43 ], [ %data_file_raw.0.ph299, %if.then37 ], [ %data_file_raw.0.ph299, %if.then13 ], [ %data_file_raw.0.ph299, %lor.lhs.false.tail ], [ %data_file_raw.0.ph299, %if.else ], [ %data_file_raw.0.ph299, %lor.lhs.false25.tail ], [ %data_file_raw.0.ph299, %if.else22 ], [ %data_file_raw.0.ph299, %if.end58 ], [ %data_file_raw.0.ph299, %lor.lhs.false81 ]
+  %lazy_refcounts.1 = phi i8 [ %lazy_refcounts.0.ph300, %land.lhs.true106 ], [ %lazy_refcounts.0.ph300, %if.then100 ], [ %lazy_refcounts.0.ph300, %land.lhs.true ], [ %lazy_refcounts.0.ph300, %if.then90 ], [ %frombool68, %if.then65 ], [ %lazy_refcounts.0.ph300, %if.then49 ], [ %lazy_refcounts.0.ph300, %if.then43 ], [ %lazy_refcounts.0.ph300, %if.then37 ], [ %lazy_refcounts.0.ph300, %if.then13 ], [ %lazy_refcounts.0.ph300, %lor.lhs.false.tail ], [ %lazy_refcounts.0.ph300, %if.else ], [ %lazy_refcounts.0.ph300, %lor.lhs.false25.tail ], [ %lazy_refcounts.0.ph300, %if.else22 ], [ %lazy_refcounts.0.ph300, %if.end58 ], [ %lazy_refcounts.0.ph300, %lor.lhs.false81 ]
+  %data_file.1 = phi ptr [ %data_file.0.ph301, %land.lhs.true106 ], [ %data_file.0.ph301, %if.then100 ], [ %call91, %land.lhs.true ], [ null, %if.then90 ], [ %data_file.0.ph301, %if.then65 ], [ %data_file.0.ph301, %if.then49 ], [ %data_file.0.ph301, %if.then43 ], [ %data_file.0.ph301, %if.then37 ], [ %data_file.0.ph301, %if.then13 ], [ %data_file.0.ph301, %lor.lhs.false.tail ], [ %data_file.0.ph301, %if.else ], [ %data_file.0.ph301, %lor.lhs.false25.tail ], [ %data_file.0.ph301, %if.else22 ], [ %data_file.0.ph301, %if.end58 ], [ %data_file.0.ph301, %lor.lhs.false81 ]
+  %backing_format.1 = phi ptr [ %backing_format.0.ph302, %land.lhs.true106 ], [ %backing_format.0.ph302, %if.then100 ], [ %backing_format.0.ph302, %land.lhs.true ], [ %backing_format.0.ph302, %if.then90 ], [ %backing_format.0.ph302, %if.then65 ], [ %call50, %if.then49 ], [ %backing_format.0.ph302, %if.then43 ], [ %backing_format.0.ph302, %if.then37 ], [ %backing_format.0.ph302, %if.then13 ], [ %backing_format.0.ph302, %lor.lhs.false.tail ], [ %backing_format.0.ph302, %if.else ], [ %backing_format.0.ph302, %lor.lhs.false25.tail ], [ %backing_format.0.ph302, %if.else22 ], [ %backing_format.0.ph302, %if.end58 ], [ %backing_format.0.ph302, %lor.lhs.false81 ]
+  %backing_file.1 = phi ptr [ %backing_file.0.ph303, %land.lhs.true106 ], [ %backing_file.0.ph303, %if.then100 ], [ %backing_file.0.ph303, %land.lhs.true ], [ %backing_file.0.ph303, %if.then90 ], [ %backing_file.0.ph303, %if.then65 ], [ %backing_file.0.ph303, %if.then49 ], [ %call44, %if.then43 ], [ %backing_file.0.ph303, %if.then37 ], [ %backing_file.0.ph303, %if.then13 ], [ %backing_file.0.ph303, %lor.lhs.false.tail ], [ %backing_file.0.ph303, %if.else ], [ %backing_file.0.ph303, %lor.lhs.false25.tail ], [ %backing_file.0.ph303, %if.else22 ], [ %backing_file.0.ph303, %if.end58 ], [ %backing_file.0.ph303, %lor.lhs.false81 ]
+  %new_size.1 = phi i64 [ %new_size.0.ph304, %land.lhs.true106 ], [ %new_size.0.ph304, %if.then100 ], [ %new_size.0.ph304, %land.lhs.true ], [ %new_size.0.ph304, %if.then90 ], [ %new_size.0.ph304, %if.then65 ], [ %new_size.0.ph304, %if.then49 ], [ %new_size.0.ph304, %if.then43 ], [ %call38, %if.then37 ], [ %new_size.0.ph304, %if.then13 ], [ %new_size.0.ph304, %lor.lhs.false.tail ], [ %new_size.0.ph304, %if.else ], [ %new_size.0.ph304, %lor.lhs.false25.tail ], [ %new_size.0.ph304, %if.else22 ], [ %new_size.0.ph304, %if.end58 ], [ %new_size.0.ph304, %lor.lhs.false81 ]
+  %new_version.1 = phi i32 [ %new_version.0.ph305, %land.lhs.true106 ], [ %new_version.0.ph305, %if.then100 ], [ %new_version.0.ph305, %land.lhs.true ], [ %new_version.0.ph305, %if.then90 ], [ %new_version.0.ph305, %if.then65 ], [ %new_version.0.ph305, %if.then49 ], [ %new_version.0.ph305, %if.then43 ], [ %new_version.0.ph305, %if.then37 ], [ %new_version.0.ph305, %if.then13 ], [ 2, %lor.lhs.false.tail ], [ 2, %if.else ], [ 3, %lor.lhs.false25.tail ], [ 3, %if.else22 ], [ %new_version.0.ph305, %if.end58 ], [ %new_version.0.ph305, %lor.lhs.false81 ]
+  %incdec.ptr120 = getelementptr i8, ptr %desc.0269, i64 32
+  %tobool5.not268 = icmp eq ptr %incdec.ptr120, null
+  br i1 %tobool5.not268, label %while.end, label %land.rhs.lr.ph, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end119, %land.rhs, %if.then
-  %encryption_update.0.ph.lcssa = phi i8 [ %encryption_update.0.ph292, %if.then ], [ %encryption_update.0.ph292, %land.rhs ], [ %encryption_update.1, %if.end119 ]
-  %refcount_bits.0.ph.lcssa = phi i32 [ %refcount_bits.0.ph294, %if.then ], [ %refcount_bits.0.ph294, %land.rhs ], [ %refcount_bits.1, %if.end119 ]
-  %data_file_raw.0.ph.lcssa = phi i8 [ %data_file_raw.0.ph295, %if.then ], [ %data_file_raw.0.ph295, %land.rhs ], [ %data_file_raw.1, %if.end119 ]
-  %lazy_refcounts.0.ph.lcssa = phi i8 [ %lazy_refcounts.0.ph296, %if.then ], [ %lazy_refcounts.0.ph296, %land.rhs ], [ %lazy_refcounts.1, %if.end119 ]
-  %data_file.0.ph.lcssa = phi ptr [ %data_file.0.ph297, %if.then ], [ %data_file.0.ph297, %land.rhs ], [ %data_file.1, %if.end119 ]
-  %backing_format.0.ph.lcssa = phi ptr [ %backing_format.0.ph298, %if.then ], [ %backing_format.0.ph298, %land.rhs ], [ %backing_format.1, %if.end119 ]
-  %backing_file.0.ph.lcssa = phi ptr [ %backing_file.0.ph299, %if.then ], [ %backing_file.0.ph299, %land.rhs ], [ %backing_file.1, %if.end119 ]
-  %new_size.0.ph.lcssa = phi i64 [ %new_size.0.ph300, %if.then ], [ %new_size.0.ph300, %land.rhs ], [ %new_size.1, %if.end119 ]
-  %new_version.0.ph.lcssa = phi i32 [ %new_version.0.ph301, %if.then ], [ %new_version.0.ph301, %land.rhs ], [ %new_version.1, %if.end119 ]
+  %encryption_update.0.ph.lcssa = phi i8 [ %encryption_update.0.ph296, %if.then ], [ %encryption_update.0.ph296, %land.rhs ], [ %encryption_update.1, %if.end119 ]
+  %refcount_bits.0.ph.lcssa = phi i32 [ %refcount_bits.0.ph298, %if.then ], [ %refcount_bits.0.ph298, %land.rhs ], [ %refcount_bits.1, %if.end119 ]
+  %data_file_raw.0.ph.lcssa = phi i8 [ %data_file_raw.0.ph299, %if.then ], [ %data_file_raw.0.ph299, %land.rhs ], [ %data_file_raw.1, %if.end119 ]
+  %lazy_refcounts.0.ph.lcssa = phi i8 [ %lazy_refcounts.0.ph300, %if.then ], [ %lazy_refcounts.0.ph300, %land.rhs ], [ %lazy_refcounts.1, %if.end119 ]
+  %data_file.0.ph.lcssa = phi ptr [ %data_file.0.ph301, %if.then ], [ %data_file.0.ph301, %land.rhs ], [ %data_file.1, %if.end119 ]
+  %backing_format.0.ph.lcssa = phi ptr [ %backing_format.0.ph302, %if.then ], [ %backing_format.0.ph302, %land.rhs ], [ %backing_format.1, %if.end119 ]
+  %backing_file.0.ph.lcssa = phi ptr [ %backing_file.0.ph303, %if.then ], [ %backing_file.0.ph303, %land.rhs ], [ %backing_file.1, %if.end119 ]
+  %new_size.0.ph.lcssa = phi i64 [ %new_size.0.ph304, %if.then ], [ %new_size.0.ph304, %land.rhs ], [ %new_size.1, %if.end119 ]
+  %new_version.0.ph.lcssa = phi i32 [ %new_version.0.ph305, %if.then ], [ %new_version.0.ph305, %land.rhs ], [ %new_version.1, %if.end119 ]
   %cmp121 = icmp ne i32 %new_version.0.ph.lcssa, %1
   %conv122 = zext i1 %cmp121 to i32
-  %18 = load i32, ptr %refcount_bits3, align 8
-  %cmp124 = icmp ne i32 %18, %refcount_bits.0.ph.lcssa
+  %37 = load i32, ptr %refcount_bits3, align 8
+  %cmp124 = icmp ne i32 %37, %refcount_bits.0.ph.lcssa
   %conv125 = zext i1 %cmp124 to i32
   %tobool126 = trunc nuw i8 %encryption_update.0.ph.lcssa to i1
   %tobool126.mask = and i8 %encryption_update.0.ph.lcssa, 1
@@ -2649,10 +2698,10 @@ while.end:                                        ; preds = %if.end119, %land.rh
 
 if.then133:                                       ; preds = %while.end
   store i32 1, ptr %.compoundliteral.sroa.3.0.helper_cb_info.sroa_idx, align 8
-  %19 = load ptr, ptr %opaque, align 8
-  %qcow_version.i = getelementptr inbounds i8, ptr %19, i64 300
-  %20 = load i32, ptr %qcow_version.i, align 4
-  %cmp.i146 = icmp slt i32 %20, %new_version.0.ph.lcssa
+  %38 = load ptr, ptr %opaque, align 8
+  %qcow_version.i = getelementptr inbounds i8, ptr %38, i64 300
+  %39 = load i32, ptr %qcow_version.i, align 4
+  %cmp.i146 = icmp slt i32 %39, %new_version.0.ph.lcssa
   br i1 %cmp.i146, label %if.end.i147, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then133
@@ -2683,27 +2732,27 @@ qcow2_amend_helper_cb.exit.i:                     ; preds = %if.end6.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 1
   %add27.i.i = add nuw nsw i64 %mul.i.i, 2
   tail call void %status_cb(ptr noundef nonnull %bs, i64 noundef 0, i64 noundef %add27.i.i, ptr noundef %cb_opaque) #22
-  %nb_snapshots.i = getelementptr inbounds i8, ptr %19, i64 260
-  %21 = load i32, ptr %nb_snapshots.i, align 4
-  %cmp51.not.i = icmp eq i32 %21, 0
+  %nb_snapshots.i = getelementptr inbounds i8, ptr %38, i64 260
+  %40 = load i32, ptr %nb_snapshots.i, align 4
+  %cmp51.not.i = icmp eq i32 %40, 0
   br i1 %cmp51.not.i, label %qcow2_amend_helper_cb.exit56.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %qcow2_amend_helper_cb.exit.i
-  %snapshots.i = getelementptr inbounds i8, ptr %19, i64 264
-  %22 = load ptr, ptr %snapshots.i, align 8
+  %snapshots.i = getelementptr inbounds i8, ptr %38, i64 264
+  %41 = load ptr, ptr %snapshots.i, align 8
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i32 %i.02.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, %21
-  br i1 %exitcond.not.i, label %qcow2_amend_helper_cb.exit56.i, label %for.body.i, !llvm.loop !13
+  %exitcond.not.i = icmp eq i32 %inc.i, %40
+  br i1 %exitcond.not.i, label %qcow2_amend_helper_cb.exit56.i, label %for.body.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.02.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
   %idxprom.i = sext i32 %i.02.i to i64
-  %extra_data_size.i = getelementptr %struct.QCowSnapshot, ptr %22, i64 %idxprom.i, i32 10
-  %23 = load i32, ptr %extra_data_size.i, align 8
-  %cmp6.i = icmp ult i32 %23, 16
+  %extra_data_size.i = getelementptr %struct.QCowSnapshot, ptr %41, i64 %idxprom.i, i32 10
+  %42 = load i32, ptr %extra_data_size.i, align 8
+  %cmp6.i = icmp ult i32 %42, 16
   br i1 %cmp6.i, label %if.then10.i, label %for.cond.i
 
 if.then10.i:                                      ; preds = %for.body.i
@@ -2724,7 +2773,7 @@ qcow2_amend_helper_cb.exit56.i:                   ; preds = %for.cond.i, %qcow2_
   br i1 %cmp18.i, label %if.then20.i, label %qcow2_upgrade.exit
 
 if.then20.i:                                      ; preds = %qcow2_amend_helper_cb.exit56.i
-  store i32 %20, ptr %qcow_version.i, align 4
+  store i32 %39, ptr %qcow_version.i, align 4
   %sub22.i = sub i32 0, %call17.i
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 5589, ptr noundef nonnull @__func__.qcow2_upgrade, i32 noundef %sub22.i, ptr noundef nonnull @.str.251) #22
   br label %return
@@ -2747,8 +2796,8 @@ if.then142:                                       ; preds = %if.end140
 
 lor.lhs.false.i.i:                                ; preds = %if.then142
   %refcnt.i.i = getelementptr inbounds i8, ptr %call.i149, i64 8
-  %24 = load i64, ptr %refcnt.i.i, align 8
-  %tobool1.not.i.i = icmp eq i64 %24, 0
+  %43 = load i64, ptr %refcnt.i.i, align 8
+  %tobool1.not.i.i = icmp eq i64 %43, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i151, label %land.lhs.true.i.i
 
 if.else.i.i151:                                   ; preds = %lor.lhs.false.i.i
@@ -2756,7 +2805,7 @@ if.else.i.i151:                                   ; preds = %lor.lhs.false.i.i
   unreachable
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %dec.i.i = add i64 %24, -1
+  %dec.i.i = add i64 %43, -1
   store i64 %dec.i.i, ptr %refcnt.i.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then5.i.i, label %qcow2_extract_crypto_opts.exit
@@ -2766,18 +2815,18 @@ if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %qcow2_extract_crypto_opts.exit
 
 qcow2_extract_crypto_opts.exit:                   ; preds = %if.then142, %land.lhs.true.i.i, %if.then5.i.i
-  %25 = load ptr, ptr %cryptoopts_qdict.i, align 8
-  call void @qdict_put_str(ptr noundef %25, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.112) #22
-  %26 = load ptr, ptr %cryptoopts_qdict.i, align 8
+  %44 = load ptr, ptr %cryptoopts_qdict.i, align 8
+  call void @qdict_put_str(ptr noundef %44, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.112) #22
+  %45 = load ptr, ptr %cryptoopts_qdict.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cryptoopts_qdict.i)
-  %tobool145.not = icmp eq ptr %26, null
+  %tobool145.not = icmp eq ptr %45, null
   br i1 %tobool145.not, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %qcow2_extract_crypto_opts.exit
-  %call148 = call ptr @block_crypto_amend_opts_init(ptr noundef nonnull %26, ptr noundef %errp) #22
-  %refcnt.i = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load i64, ptr %refcnt.i, align 8
-  %tobool1.not.i153 = icmp eq i64 %27, 0
+  %call148 = call ptr @block_crypto_amend_opts_init(ptr noundef nonnull %45, ptr noundef %errp) #22
+  %refcnt.i = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = load i64, ptr %refcnt.i, align 8
+  %tobool1.not.i153 = icmp eq i64 %46, 0
   br i1 %tobool1.not.i153, label %if.else.i155, label %land.lhs.true.i
 
 if.else.i155:                                     ; preds = %lor.lhs.false.i
@@ -2785,13 +2834,13 @@ if.else.i155:                                     ; preds = %lor.lhs.false.i
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %dec.i = add i64 %27, -1
+  %dec.i = add i64 %46, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
   %cmp.i154 = icmp eq i64 %dec.i, 0
   br i1 %cmp.i154, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  call void @qobject_destroy(ptr noundef nonnull %26) #22
+  call void @qobject_destroy(ptr noundef nonnull %45) #22
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
@@ -2799,15 +2848,15 @@ qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %i
   br i1 %tobool151.not, label %return, label %if.end153
 
 if.end153:                                        ; preds = %qobject_unref_impl.exit
-  %28 = load ptr, ptr %crypto, align 8
-  %call156 = call i32 @qcrypto_block_amend_options(ptr noundef %28, ptr noundef nonnull @qcow2_crypto_hdr_read_func, ptr noundef nonnull @qcow2_crypto_hdr_write_func, ptr noundef %bs, ptr noundef nonnull %call148, i1 noundef zeroext %force, ptr noundef %errp) #22
+  %47 = load ptr, ptr %crypto, align 8
+  %call156 = call i32 @qcrypto_block_amend_options(ptr noundef %47, ptr noundef nonnull @qcow2_crypto_hdr_read_func, ptr noundef nonnull @qcow2_crypto_hdr_write_func, ptr noundef %bs, ptr noundef nonnull %call148, i1 noundef zeroext %force, ptr noundef %errp) #22
   call void @qapi_free_QCryptoBlockAmendOptions(ptr noundef nonnull %call148) #22
   %cmp157 = icmp slt i32 %call156, 0
   br i1 %cmp157, label %return, label %if.end161
 
 if.end161:                                        ; preds = %if.end153, %if.end140
-  %29 = load i32, ptr %refcount_bits3, align 8
-  %cmp163.not = icmp eq i32 %29, %refcount_bits.0.ph.lcssa
+  %48 = load i32, ptr %refcount_bits3, align 8
+  %cmp163.not = icmp eq i32 %48, %refcount_bits.0.ph.lcssa
   br i1 %cmp163.not, label %if.end180, label %if.then165
 
 if.then165:                                       ; preds = %if.end161
@@ -2821,16 +2870,16 @@ if.then172:                                       ; preds = %if.then165
   br label %return
 
 if.end173:                                        ; preds = %if.then165
-  %30 = call i32 @llvm.cttz.i32(i32 %refcount_bits.0.ph.lcssa, i1 false), !range !9
+  %49 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %refcount_bits.0.ph.lcssa, i1 false)
   store i32 3, ptr %.compoundliteral.sroa.3.0.helper_cb_info.sroa_idx, align 8
-  %call175 = call i32 @qcow2_change_refcount_order(ptr noundef %bs, i32 noundef %30, ptr noundef nonnull @qcow2_amend_helper_cb, ptr noundef nonnull %helper_cb_info, ptr noundef %errp) #22
+  %call175 = call i32 @qcow2_change_refcount_order(ptr noundef %bs, i32 noundef %49, ptr noundef nonnull @qcow2_amend_helper_cb, ptr noundef nonnull %helper_cb_info, ptr noundef %errp) #22
   %cmp176 = icmp slt i32 %call175, 0
   br i1 %cmp176, label %return, label %if.end180
 
 if.end180:                                        ; preds = %if.end173, %if.end161
   %tobool181 = trunc i8 %data_file_raw.0.ph.lcssa to i1
-  %31 = load i64, ptr %3, align 8
-  %and = and i64 %31, -3
+  %50 = load i64, ptr %3, align 8
+  %and = and i64 %50, -3
   %masksel = select i1 %tobool181, i64 2, i64 0
   %storemerge = or disjoint i64 %and, %masksel
   store i64 %storemerge, ptr %3, align 8
@@ -2839,10 +2888,10 @@ if.end180:                                        ; preds = %if.end173, %if.end1
 
 if.then187:                                       ; preds = %if.end180
   %image_data_file = getelementptr inbounds i8, ptr %0, i64 448
-  %32 = load ptr, ptr %image_data_file, align 8
-  call void @g_free(ptr noundef %32) #22
-  %33 = load i8, ptr %data_file.0.ph.lcssa, align 1
-  %tobool189.not = icmp eq i8 %33, 0
+  %51 = load ptr, ptr %image_data_file, align 8
+  call void @g_free(ptr noundef %51) #22
+  %52 = load i8, ptr %data_file.0.ph.lcssa, align 1
+  %tobool189.not = icmp eq i8 %52, 0
   br i1 %tobool189.not, label %cond.end193, label %cond.true190
 
 cond.true190:                                     ; preds = %if.then187
@@ -2872,15 +2921,15 @@ if.end201:                                        ; preds = %if.end196
 
 if.then205:                                       ; preds = %if.end201
   %image_backing_file = getelementptr inbounds i8, ptr %0, i64 432
-  %34 = load ptr, ptr %image_backing_file, align 8
-  %call206 = call i32 @g_strcmp0(ptr noundef %backing_file.0.ph.lcssa, ptr noundef %34) #22
+  %53 = load ptr, ptr %image_backing_file, align 8
+  %call206 = call i32 @g_strcmp0(ptr noundef %backing_file.0.ph.lcssa, ptr noundef %53) #22
   %tobool207.not = icmp eq i32 %call206, 0
   br i1 %tobool207.not, label %lor.lhs.false208, label %if.then211
 
 lor.lhs.false208:                                 ; preds = %if.then205
   %image_backing_format = getelementptr inbounds i8, ptr %0, i64 440
-  %35 = load ptr, ptr %image_backing_format, align 8
-  %call209 = call i32 @g_strcmp0(ptr noundef %backing_format.0.ph.lcssa, ptr noundef %35) #22
+  %54 = load ptr, ptr %image_backing_format, align 8
+  %call209 = call i32 @g_strcmp0(ptr noundef %backing_format.0.ph.lcssa, ptr noundef %54) #22
   %tobool210.not = icmp eq i32 %call209, 0
   br i1 %tobool210.not, label %if.end213, label %if.then211
 
@@ -2890,10 +2939,10 @@ if.then211:                                       ; preds = %lor.lhs.false208, %
   br label %return
 
 if.end213:                                        ; preds = %lor.lhs.false208, %if.end201
-  %36 = load i8, ptr %use_lazy_refcounts, align 8
-  %37 = xor i8 %36, %lazy_refcounts.0.ph.lcssa
-  %38 = and i8 %37, 1
-  %cmp219.not = icmp eq i8 %38, 0
+  %55 = load i8, ptr %use_lazy_refcounts, align 8
+  %56 = xor i8 %55, %lazy_refcounts.0.ph.lcssa
+  %57 = and i8 %56, 1
+  %cmp219.not = icmp eq i8 %57, 0
   br i1 %cmp219.not, label %if.end257, label %if.then221
 
 if.then221:                                       ; preds = %if.end213
@@ -2910,31 +2959,31 @@ if.then226:                                       ; preds = %if.then223
 
 if.end227:                                        ; preds = %if.then223
   %compatible_features = getelementptr inbounds i8, ptr %0, i64 368
-  %39 = load i64, ptr %compatible_features, align 8
-  %or228 = or i64 %39, 1
+  %58 = load i64, ptr %compatible_features, align 8
+  %or228 = or i64 %58, 1
   store i64 %or228, ptr %compatible_features, align 8
   %call229 = call i32 @qcow2_update_header(ptr noundef %bs)
   %cmp230 = icmp slt i32 %call229, 0
   br i1 %cmp230, label %if.then232, label %if.end257.sink.split
 
 if.then232:                                       ; preds = %if.end227
-  %40 = load i64, ptr %compatible_features, align 8
-  %and234 = and i64 %40, -2
+  %59 = load i64, ptr %compatible_features, align 8
+  %and234 = and i64 %59, -2
   store i64 %and234, ptr %compatible_features, align 8
   %sub235 = sub i32 0, %call229
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 5866, ptr noundef nonnull @__func__.qcow2_amend_options, i32 noundef %sub235, ptr noundef nonnull @.str.251) #22
   br label %return
 
 if.else238:                                       ; preds = %if.then221
-  %41 = load ptr, ptr %opaque, align 8
-  %incompatible_features.i = getelementptr inbounds i8, ptr %41, i64 360
-  %42 = load i64, ptr %incompatible_features.i, align 8
-  %and.i157 = and i64 %42, 1
+  %60 = load ptr, ptr %opaque, align 8
+  %incompatible_features.i = getelementptr inbounds i8, ptr %60, i64 360
+  %61 = load i64, ptr %incompatible_features.i, align 8
+  %and.i157 = and i64 %61, 1
   %tobool.not.i158 = icmp eq i64 %and.i157, 0
   br i1 %tobool.not.i158, label %if.end244, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else238
-  %and2.i = and i64 %42, -2
+  %and2.i = and i64 %61, -2
   store i64 %and2.i, ptr %incompatible_features.i, align 8
   %call.i159 = call i32 @qcow2_flush_caches(ptr noundef nonnull %bs) #22
   %cmp.i160 = icmp slt i32 %call.i159, 0
@@ -2953,16 +3002,16 @@ if.then242:                                       ; preds = %if.then.i, %qcow2_m
 
 if.end244:                                        ; preds = %if.else238, %qcow2_mark_clean.exit
   %compatible_features245 = getelementptr inbounds i8, ptr %0, i64 368
-  %43 = load i64, ptr %compatible_features245, align 8
-  %and246 = and i64 %43, -2
+  %62 = load i64, ptr %compatible_features245, align 8
+  %and246 = and i64 %62, -2
   store i64 %and246, ptr %compatible_features245, align 8
   %call247 = call i32 @qcow2_update_header(ptr noundef nonnull %bs)
   %cmp248 = icmp slt i32 %call247, 0
   br i1 %cmp248, label %if.then250, label %if.end257.sink.split
 
 if.then250:                                       ; preds = %if.end244
-  %44 = load i64, ptr %compatible_features245, align 8
-  %or252 = or i64 %44, 1
+  %63 = load i64, ptr %compatible_features245, align 8
+  %or252 = or i64 %63, 1
   store i64 %or252, ptr %compatible_features245, align 8
   %sub253 = sub i32 0, %call247
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 5882, ptr noundef nonnull @__func__.qcow2_amend_options, i32 noundef %sub253, ptr noundef nonnull @.str.251) #22
@@ -2994,10 +3043,10 @@ if.end269:                                        ; preds = %if.end263, %if.end2
 
 if.then272:                                       ; preds = %if.end269
   store i32 4, ptr %.compoundliteral.sroa.3.0.helper_cb_info.sroa_idx, align 8
-  %45 = load ptr, ptr %opaque, align 8
-  %qcow_version.i164 = getelementptr inbounds i8, ptr %45, i64 300
-  %46 = load i32, ptr %qcow_version.i164, align 4
-  %cmp.i165 = icmp sgt i32 %46, %new_version.0.ph.lcssa
+  %64 = load ptr, ptr %opaque, align 8
+  %qcow_version.i164 = getelementptr inbounds i8, ptr %64, i64 300
+  %65 = load i32, ptr %qcow_version.i164, align 4
+  %cmp.i165 = icmp sgt i32 %65, %new_version.0.ph.lcssa
   br i1 %cmp.i165, label %if.end.i167, label %if.else.i166
 
 if.else.i166:                                     ; preds = %if.then272
@@ -3013,9 +3062,9 @@ if.else3.i169:                                    ; preds = %if.end.i167
   unreachable
 
 if.end4.i170:                                     ; preds = %if.end.i167
-  %refcount_order.i = getelementptr inbounds i8, ptr %45, i64 308
-  %47 = load i32, ptr %refcount_order.i, align 4
-  %cmp5.not.i = icmp eq i32 %47, 4
+  %refcount_order.i = getelementptr inbounds i8, ptr %64, i64 308
+  %66 = load i32, ptr %refcount_order.i, align 4
+  %cmp5.not.i = icmp eq i32 %66, 4
   br i1 %cmp5.not.i, label %if.end7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i170
@@ -3024,20 +3073,20 @@ if.then6.i:                                       ; preds = %if.end4.i170
 
 if.end7.i:                                        ; preds = %if.end4.i170
   %bs.val46.i = load ptr, ptr %8, align 8
-  %48 = getelementptr i8, ptr %45, i64 480
-  %bs.val.val.i = load ptr, ptr %48, align 8
+  %67 = getelementptr i8, ptr %64, i64 480
+  %bs.val.val.i = load ptr, ptr %67, align 8
   %cmp.i.not.i = icmp eq ptr %bs.val.val.i, %bs.val46.i
   br i1 %cmp.i.not.i, label %for.cond.preheader.i, label %if.then8.i
 
 for.cond.preheader.i:                             ; preds = %if.end7.i
-  %nb_snapshots.i172 = getelementptr inbounds i8, ptr %45, i64 260
-  %49 = load i32, ptr %nb_snapshots.i172, align 4
-  %cmp104.not.i = icmp eq i32 %49, 0
+  %nb_snapshots.i172 = getelementptr inbounds i8, ptr %64, i64 260
+  %68 = load i32, ptr %nb_snapshots.i172, align 4
+  %cmp104.not.i = icmp eq i32 %68, 0
   br i1 %cmp104.not.i, label %for.end.i, label %for.body.lr.ph.i173
 
 for.body.lr.ph.i173:                              ; preds = %for.cond.preheader.i
-  %snapshots.i174 = getelementptr inbounds i8, ptr %45, i64 264
-  %50 = load ptr, ptr %snapshots.i174, align 8
+  %snapshots.i174 = getelementptr inbounds i8, ptr %64, i64 264
+  %69 = load ptr, ptr %snapshots.i174, align 8
   %total_sectors.i = getelementptr inbounds i8, ptr %bs, i64 16888
   br label %for.body.i175
 
@@ -3047,24 +3096,24 @@ if.then8.i:                                       ; preds = %if.end7.i
 
 for.cond.i179:                                    ; preds = %lor.lhs.false.i178
   %inc.i180 = add nuw i32 %i.05.i, 1
-  %exitcond.not.i181 = icmp eq i32 %inc.i180, %49
-  br i1 %exitcond.not.i181, label %for.end.i, label %for.body.i175, !llvm.loop !14
+  %exitcond.not.i181 = icmp eq i32 %inc.i180, %68
+  br i1 %exitcond.not.i181, label %for.end.i, label %for.body.i175, !llvm.loop !11
 
 for.body.i175:                                    ; preds = %for.cond.i179, %for.body.lr.ph.i173
   %i.05.i = phi i32 [ 0, %for.body.lr.ph.i173 ], [ %inc.i180, %for.cond.i179 ]
   %idxprom.i176 = sext i32 %i.05.i to i64
-  %arrayidx.i = getelementptr %struct.QCowSnapshot, ptr %50, i64 %idxprom.i176
+  %arrayidx.i = getelementptr %struct.QCowSnapshot, ptr %69, i64 %idxprom.i176
   %vm_state_size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
-  %51 = load i64, ptr %vm_state_size.i, align 8
-  %cmp11.i177 = icmp ugt i64 %51, 4294967295
+  %70 = load i64, ptr %vm_state_size.i, align 8
+  %cmp11.i177 = icmp ugt i64 %70, 4294967295
   br i1 %cmp11.i177, label %if.then16.i, label %lor.lhs.false.i178
 
 lor.lhs.false.i178:                               ; preds = %for.body.i175
   %disk_size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
-  %52 = load i64, ptr %disk_size.i, align 8
-  %53 = load i64, ptr %total_sectors.i, align 8
-  %mul.i = shl i64 %53, 9
-  %cmp15.not.i = icmp eq i64 %52, %mul.i
+  %71 = load i64, ptr %disk_size.i, align 8
+  %72 = load i64, ptr %total_sectors.i, align 8
+  %mul.i = shl i64 %72, 9
+  %cmp15.not.i = icmp eq i64 %71, %mul.i
   br i1 %cmp15.not.i, label %for.cond.i179, label %if.then16.i
 
 if.then16.i:                                      ; preds = %lor.lhs.false.i178, %for.body.i175
@@ -3072,14 +3121,14 @@ if.then16.i:                                      ; preds = %lor.lhs.false.i178,
   br label %return
 
 for.end.i:                                        ; preds = %for.cond.i179, %for.cond.preheader.i
-  %incompatible_features.i182 = getelementptr inbounds i8, ptr %45, i64 360
-  %54 = load i64, ptr %incompatible_features.i182, align 8
-  %and.i183 = and i64 %54, 1
+  %incompatible_features.i182 = getelementptr inbounds i8, ptr %64, i64 360
+  %73 = load i64, ptr %incompatible_features.i182, align 8
+  %and.i183 = and i64 %73, 1
   %tobool.not.i184 = icmp eq i64 %and.i183, 0
   br i1 %tobool.not.i184, label %if.end23.i186, label %if.then.i.i185
 
 if.then.i.i185:                                   ; preds = %for.end.i
-  %and2.i.i = and i64 %54, -2
+  %and2.i.i = and i64 %73, -2
   store i64 %and2.i.i, ptr %incompatible_features.i182, align 8
   %call.i.i = call i32 @qcow2_flush_caches(ptr noundef nonnull %bs) #22
   %cmp.i47.i = icmp slt i32 %call.i.i, 0
@@ -3101,8 +3150,8 @@ if.then21.i:                                      ; preds = %qcow2_mark_clean.ex
   br label %return
 
 if.end23.i186:                                    ; preds = %qcow2_mark_clean.exit.if.end23_crit_edge.i, %for.end.i
-  %55 = phi i64 [ %.pre.i, %qcow2_mark_clean.exit.if.end23_crit_edge.i ], [ %54, %for.end.i ]
-  %and25.i = and i64 %55, -9
+  %74 = phi i64 [ %.pre.i, %qcow2_mark_clean.exit.if.end23_crit_edge.i ], [ %73, %for.end.i ]
+  %and25.i = and i64 %74, -9
   %tobool26.not.i = icmp eq i64 %and25.i, 0
   br i1 %tobool26.not.i, label %if.end30.i, label %if.then27.i
 
@@ -3111,7 +3160,7 @@ if.then27.i:                                      ; preds = %if.end23.i186
   br label %return
 
 if.end30.i:                                       ; preds = %if.end23.i186
-  %compatible_features.i = getelementptr inbounds i8, ptr %45, i64 368
+  %compatible_features.i = getelementptr inbounds i8, ptr %64, i64 368
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %compatible_features.i, i8 0, i64 16, i1 false)
   %call31.i = call i32 @qcow2_expand_zero_clusters(ptr noundef nonnull %bs, ptr noundef nonnull @qcow2_amend_helper_cb, ptr noundef nonnull %helper_cb_info) #22
   %cmp32.i = icmp slt i32 %call31.i, 0
@@ -3123,8 +3172,8 @@ if.then33.i:                                      ; preds = %if.end30.i
   br label %return
 
 if.end35.i:                                       ; preds = %if.end30.i
-  %56 = load i64, ptr %incompatible_features.i182, align 8
-  %and37.i = and i64 %56, 8
+  %75 = load i64, ptr %incompatible_features.i182, align 8
+  %and37.i = and i64 %75, 8
   %tobool38.not.i = icmp eq i64 %and37.i, 0
   br i1 %tobool38.not.i, label %if.end49.i, label %if.then39.i
 
@@ -3146,16 +3195,16 @@ if.then45.i:                                      ; preds = %if.end43.i
   br label %return
 
 if.end46.i:                                       ; preds = %if.end43.i
-  %57 = load i64, ptr %incompatible_features.i182, align 8
-  %and48.i = and i64 %57, -9
+  %76 = load i64, ptr %incompatible_features.i182, align 8
+  %and48.i = and i64 %76, -9
   store i64 %and48.i, ptr %incompatible_features.i182, align 8
-  %compression_type.i = getelementptr inbounds i8, ptr %45, i64 492
+  %compression_type.i = getelementptr inbounds i8, ptr %64, i64 492
   store i32 0, ptr %compression_type.i, align 4
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.end46.i, %if.end35.i
-  %58 = phi i64 [ %and48.i, %if.end46.i ], [ %56, %if.end35.i ]
-  %cmp51.i = icmp eq i64 %58, 0
+  %77 = phi i64 [ %and48.i, %if.end46.i ], [ %75, %if.end35.i ]
+  %cmp51.i = icmp eq i64 %77, 0
   br i1 %cmp51.i, label %if.end54.i, label %if.else53.i
 
 if.else53.i:                                      ; preds = %if.end49.i
@@ -3169,7 +3218,7 @@ if.end54.i:                                       ; preds = %if.end49.i
   br i1 %cmp57.i, label %if.then58.i, label %return
 
 if.then58.i:                                      ; preds = %if.end54.i
-  store i32 %46, ptr %qcow_version.i164, align 4
+  store i32 %65, ptr %qcow_version.i164, align 4
   %sub60.i = sub i32 0, %call56.i
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 5529, ptr noundef nonnull @__func__.qcow2_downgrade, i32 noundef %sub60.i, ptr noundef nonnull @.str.251) #22
   br label %return
@@ -3256,7 +3305,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %add35 = add i64 %offset.025, %conv25
   %cmp23 = icmp ult i64 %add35, %mul22
   %or.cond = select i1 %cmp30, i1 %cmp23, i1 false
-  br i1 %or.cond, label %for.body, label %return, !llvm.loop !15
+  br i1 %or.cond, label %for.body, label %return, !llvm.loop !12
 
 return:                                           ; preds = %for.body, %if.end, %if.then
   %retval.0 = phi i32 [ %call21, %if.then ], [ 0, %if.end ], [ %call29, %for.body ]
@@ -3548,7 +3597,7 @@ cache_clean_timer_init.exit:                      ; preds = %entry, %if.then.i
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @qcow2_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #9 {
+define internal range(i32 0, 101) i32 @qcow2_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #9 {
 entry:
   %cmp = icmp ugt i32 %buf_size, 111
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -3647,7 +3696,7 @@ land.rhs:                                         ; preds = %if.end47
   %add = add i64 %offset.addr.03652, %conv48
   %call = call i32 @aio_task_pool_status(ptr noundef %aio.2) #22
   %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %while.body, label %out, !llvm.loop !16
+  br i1 %cmp1, label %while.body, label %out, !llvm.loop !13
 
 while.body:                                       ; preds = %land.rhs.lr.ph, %land.rhs
   %aio.03156 = phi ptr [ %aio.2, %land.rhs ], [ null, %land.rhs.lr.ph ]
@@ -3736,7 +3785,7 @@ if.end47:                                         ; preds = %if.end40, %if.then3
   %conv48 = zext i32 %11 to i64
   %sub = sub i64 %bytes.addr.03553, %conv48
   %cmp.not = icmp eq i64 %sub, 0
-  br i1 %cmp.not, label %out, label %land.rhs, !llvm.loop !16
+  br i1 %cmp.not, label %out, label %land.rhs, !llvm.loop !13
 
 out:                                              ; preds = %land.rhs, %if.end47, %if.end40, %if.end, %land.rhs.lr.ph
   %aio.3 = phi ptr [ null, %land.rhs.lr.ph ], [ %aio.2, %land.rhs ], [ %aio.2, %if.end47 ], [ %aio.1, %if.end40 ], [ %aio.03156, %if.end ]
@@ -3968,7 +4017,7 @@ if.else.i.i58:                                    ; preds = %if.then.i.i56
 trace_qcow2_writev_done_part.exit:                ; preds = %if.end39, %land.lhs.true5.i.i53, %if.then8.i.i59, %if.else.i.i58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i49)
   %cmp.not = icmp eq i64 %sub41, 0
-  br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !17
+  br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !14
 
 while.end:                                        ; preds = %land.rhs, %trace_qcow2_writev_done_part.exit, %trace_qcow2_writev_start_req.exit
   %aio.0.lcssa = phi ptr [ null, %trace_qcow2_writev_start_req.exit ], [ %aio.1, %trace_qcow2_writev_done_part.exit ], [ %aio.081, %land.rhs ]
@@ -4009,7 +4058,7 @@ if.end11.i:                                       ; preds = %if.then5.i, %while.
   %32 = load ptr, ptr %next20.i, align 8
   call void @g_free(ptr noundef nonnull %l2meta.018.i) #22
   %cmp.not.i = icmp eq ptr %32, null
-  br i1 %cmp.not.i, label %qcow2_handle_l2meta.exit, label %while.body.i, !llvm.loop !18
+  br i1 %cmp.not.i, label %qcow2_handle_l2meta.exit, label %while.body.i, !llvm.loop !15
 
 qcow2_handle_l2meta.exit:                         ; preds = %if.end11.i, %out_locked
   store ptr null, ptr %l2meta, align 8
@@ -4194,7 +4243,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
   %tobool11.i = icmp ne i64 %sub6.i, 0
   %11 = and i1 %tobool10.i, %tobool11.i
   %or.cond1.i = select i1 %tobool8.i, i1 %11, i1 false
-  br i1 %or.cond1.i, label %do.body.i, label %is_zero.exit, !llvm.loop !19
+  br i1 %or.cond1.i, label %do.body.i, label %is_zero.exit, !llvm.loop !16
 
 is_zero.exit:                                     ; preds = %land.lhs.true.i
   %cmp17.i = icmp eq i64 %sub6.i, 0
@@ -4242,7 +4291,7 @@ land.lhs.true.i59:                                ; preds = %do.body.i53
   %tobool11.i65 = icmp ne i64 %sub6.i60, 0
   %13 = and i1 %tobool10.i64, %tobool11.i65
   %or.cond1.i66 = select i1 %tobool8.i63, i1 %13, i1 false
-  br i1 %or.cond1.i66, label %do.body.i53, label %is_zero.exit70, !llvm.loop !19
+  br i1 %or.cond1.i66, label %do.body.i53, label %is_zero.exit70, !llvm.loop !16
 
 is_zero.exit70:                                   ; preds = %land.lhs.true.i59
   %cmp17.i68 = icmp eq i64 %sub6.i60, 0
@@ -4382,7 +4431,7 @@ return:                                           ; preds = %if.end9, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_copy_range_from(ptr noundef %bs, ptr nocapture readnone %src, i64 noundef %src_offset, ptr noundef %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_co_copy_range_from(ptr noundef %bs, ptr nocapture readnone %src, i64 noundef %src_offset, ptr noundef %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #0 {
 entry:
   %cur_bytes = alloca i32, align 4
   %copy_offset = alloca i64, align 8
@@ -4487,7 +4536,7 @@ if.end43:                                         ; preds = %sw.epilog
   %add = add i64 %src_offset.addr.033, %conv44
   %add48 = add i64 %dst_offset.addr.032, %conv44
   %cmp.not = icmp eq i64 %sub45, 0
-  br i1 %cmp.not, label %out, label %while.body, !llvm.loop !20
+  br i1 %cmp.not, label %out, label %while.body, !llvm.loop !17
 
 out:                                              ; preds = %while.body, %sw.epilog, %if.end5, %if.end43, %if.end
   %ret.0 = phi i32 [ 0, %if.end ], [ 0, %if.end43 ], [ -95, %if.end5 ], [ %call38, %sw.epilog ], [ %call, %while.body ]
@@ -4589,7 +4638,7 @@ if.end11.us.i:                                    ; preds = %if.then5.us.i, %do.
   %10 = load ptr, ptr %next20.us.i, align 8
   call void @g_free(ptr noundef nonnull %l2meta.018.us.i) #22
   %cmp.not.us.i = icmp eq ptr %10, null
-  br i1 %cmp.not.us.i, label %if.end23, label %while.body.us.i, !llvm.loop !18
+  br i1 %cmp.not.us.i, label %if.end23, label %while.body.us.i, !llvm.loop !15
 
 fail.thread:                                      ; preds = %while.body.us.i
   store ptr %l2meta.018.us.i, ptr %l2meta, align 8
@@ -4603,7 +4652,7 @@ if.end23:                                         ; preds = %if.end11.us.i, %if.
   %add = add i64 %src_offset.addr.038, %conv24
   %add27 = add i64 %dst_offset.addr.037, %conv24
   %cmp.not = icmp eq i64 %sub, 0
-  br i1 %cmp.not, label %fail, label %while.body, !llvm.loop !21
+  br i1 %cmp.not, label %fail, label %while.body, !llvm.loop !18
 
 fail:                                             ; preds = %while.body, %if.end5, %if.end11, %if.end23
   %ret.0.ph.ph = phi i32 [ %call, %while.body ], [ %call7, %if.end5 ], [ %call14, %if.end11 ], [ 0, %if.end23 ]
@@ -4642,7 +4691,7 @@ if.end11.i:                                       ; preds = %if.then5.i, %while.
   %15 = load ptr, ptr %next20.i, align 8
   call void @g_free(ptr noundef nonnull %l2meta.018.i) #22
   %cmp.not.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i, label %qcow2_handle_l2meta.exit25, label %while.body.i, !llvm.loop !18
+  br i1 %cmp.not.i, label %qcow2_handle_l2meta.exit25, label %while.body.i, !llvm.loop !15
 
 qcow2_handle_l2meta.exit25:                       ; preds = %if.end11.i, %if.end, %fail
   %ret.032 = phi i32 [ %ret.0.ph.ph, %fail ], [ 0, %if.end ], [ %ret.031, %if.end11.i ]
@@ -5287,7 +5336,7 @@ if.end256:                                        ; preds = %while.body
   %add264 = add i64 %mul259, %host_offset.0261
   %sub265 = sub i64 %nb_new_data_clusters.0259, %cond
   %tobool226.not = icmp eq i64 %sub265, 0
-  br i1 %tobool226.not, label %sw.epilog, label %while.body, !llvm.loop !22
+  br i1 %tobool226.not, label %sw.epilog, label %while.body, !llvm.loop !19
 
 do.body:                                          ; preds = %if.end100
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 4583, ptr noundef nonnull @__func__.qcow2_co_truncate, ptr noundef null) #21
@@ -5418,7 +5467,7 @@ entry:
   %call = tail call zeroext i1 @qemu_opt_get_bool_del(ptr noundef %opts, ptr noundef nonnull @.str.32, i1 noundef zeroext false) #22
   %call.i = tail call i64 @qemu_opt_get_size_del(ptr noundef %opts, ptr noundef nonnull @.str.29, i64 noundef 65536) #22
   %conv.i.i = trunc i64 %call.i to i32
-  %0 = tail call i32 @llvm.cttz.i32(i32 %conv.i.i, i1 false), !range !9
+  %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv.i.i, i1 false)
   %1 = add nsw i32 %0, -9
   %or.cond.i.i = icmp ult i32 %1, 13
   %shl.i.i = shl nuw nsw i32 1, %0
@@ -5477,7 +5526,7 @@ if.end6:                                          ; preds = %qcow2_opt_get_versi
   %call.i72 = call i64 @qemu_opt_get_number_del(ptr noundef %opts, ptr noundef nonnull @.str.54, i64 noundef 16) #22
   %5 = add i64 %call.i72, -1
   %or.cond6.i = icmp ult i64 %5, 64
-  %6 = call i64 @llvm.ctpop.i64(i64 %call.i72), !range !10
+  %6 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call.i72)
   %tobool1.not.i.i = icmp ult i64 %6, 2
   %or.cond7.i = select i1 %or.cond6.i, i1 %tobool1.not.i.i, i1 false
   br i1 %or.cond7.i, label %if.end.i, label %if.then.i
@@ -5632,7 +5681,7 @@ for.inc:                                          ; preds = %if.end74, %if.then8
   %required.1 = phi i64 [ %required.089, %if.end74 ], [ %add90, %if.then82 ]
   %add93 = add i64 %13, %offset.090
   %cmp66 = icmp slt i64 %add93, %call55
-  br i1 %cmp66, label %for.body, label %if.end95, !llvm.loop !23
+  br i1 %cmp66, label %for.body, label %if.end95, !llvm.loop !20
 
 if.end95:                                         ; preds = %for.inc, %if.else, %if.end59, %if.end52
   %virtual_size.0 = phi i64 [ %and42, %if.end52 ], [ %and63, %if.end59 ], [ %and63, %if.else ], [ %and63, %for.inc ]
@@ -5641,7 +5690,7 @@ if.end95:                                         ; preds = %for.inc, %if.else, 
   %or.cond = icmp eq i32 %14, 2
   %call102 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #25
   %conv103 = trunc nuw nsw i64 %retval.0.i to i32
-  %15 = call i32 @llvm.cttz.i32(i32 %conv103, i1 false), !range !9
+  %15 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv103, i1 false)
   %call106 = call fastcc i64 @qcow2_calc_prealloc_size(i64 noundef %virtual_size.0, i64 noundef %2, i32 noundef %15, i1 noundef zeroext %call)
   %add107 = add i64 %call106, %luks_payload_size.1
   %fully_allocated = getelementptr inbounds i8, ptr %call102, i64 8
@@ -5745,7 +5794,7 @@ land.rhs:                                         ; preds = %if.end37
   %add39 = add i64 %cond, %offset.addr.04346
   %call20 = tail call i32 @aio_task_pool_status(ptr noundef %aio.1) #22
   %cmp21 = icmp eq i32 %call20, 0
-  br i1 %cmp21, label %while.body, label %while.end, !llvm.loop !24
+  br i1 %cmp21, label %while.body, label %while.end, !llvm.loop !21
 
 while.body:                                       ; preds = %if.end18, %land.rhs
   %aio.04049 = phi ptr [ %aio.1, %land.rhs ], [ null, %if.end18 ]
@@ -5775,7 +5824,7 @@ if.end32:                                         ; preds = %if.then30, %land.lh
 if.end37:                                         ; preds = %if.end32
   %sub = sub i64 %bytes.addr.04247, %cond
   %tobool19.not = icmp eq i64 %sub, 0
-  br i1 %tobool19.not, label %while.end, label %land.rhs, !llvm.loop !24
+  br i1 %tobool19.not, label %while.end, label %land.rhs, !llvm.loop !21
 
 while.end:                                        ; preds = %land.rhs, %if.end32, %if.end37, %if.end18
   %ret.1 = phi i32 [ 0, %if.end18 ], [ %call33, %if.end37 ], [ %call33, %if.end32 ], [ %call33, %land.rhs ]
@@ -6274,11 +6323,11 @@ if.end75.sink.split.i:                            ; preds = %if.else62.i, %if.th
   %refcount_cache_size.sink.i = phi ptr [ %refcount_cache_size, %if.then60.i ], [ %l2_cache_size, %if.else62.i ], [ %refcount_cache_size.mux.i, %if.end47.i ]
   %sub50.i = sub i64 %call23.i, %cond.sink.i
   store i64 %sub50.i, ptr %refcount_cache_size.sink.i, align 8
-  %l2_cache_size.0.l2_cache_size.0.l2_cache_size.0.115.pre = load i64, ptr %l2_cache_size, align 8
+  %l2_cache_size.0.l2_cache_size.0.l2_cache_size.0.116.pre = load i64, ptr %l2_cache_size, align 8
   br label %if.end75.i
 
 if.end75.i:                                       ; preds = %if.end75.sink.split.i, %if.end
-  %l2_cache_size.0.l2_cache_size.0. = phi i64 [ %l2_cache_size.0.l2_cache_size.0.l2_cache_size.0.115.pre, %if.end75.sink.split.i ], [ %cond.i, %if.end ]
+  %l2_cache_size.0.l2_cache_size.0. = phi i64 [ %l2_cache_size.0.l2_cache_size.0.l2_cache_size.0.116.pre, %if.end75.sink.split.i ], [ %cond.i, %if.end ]
   %cmp76.i = icmp uge i64 %l2_cache_size.0.l2_cache_size.0., %and.i
   %brmerge59.i = select i1 %cmp76.i, i1 true, i1 %tobool21.not.i
   %.pre.i.pre = load i32, ptr %cluster_size.i, align 4
@@ -6291,7 +6340,7 @@ if.end75.i:                                       ; preds = %if.end75.sink.split
 lor.lhs.false.i:                                  ; preds = %if.end75.i
   %conv94.i = sext i32 %.pre.i.pre to i64
   %cmp95.i = icmp ule i64 %l2_cache_entry_size.0, %conv94.i
-  %8 = call i64 @llvm.ctpop.i64(i64 %l2_cache_entry_size.0), !range !10
+  %8 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %l2_cache_entry_size.0)
   %tobool1.not.i.i = icmp ult i64 %8, 2
   %or.cond1.i = select i1 %cmp95.i, i1 %tobool1.not.i.i, i1 false
   br i1 %or.cond1.i, label %if.end5, label %if.then99.i
@@ -6362,8 +6411,8 @@ if.end35:                                         ; preds = %if.then28, %if.end2
   %and.i.i = and i64 %.val, 16
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %13 = select i1 %tobool.i.not.i, i64 3, i64 4
-  %div37120 = lshr i64 %l2_cache_entry_size.0, %13
-  %conv38 = trunc i64 %div37120 to i32
+  %div37121 = lshr i64 %l2_cache_entry_size.0, %13
+  %conv38 = trunc i64 %div37121 to i32
   %l2_slice_size = getelementptr inbounds i8, ptr %r, i64 16
   store i32 %conv38, ptr %l2_slice_size, align 8
   %conv39 = trunc nuw i64 %spec.store.select to i32
@@ -6418,10 +6467,10 @@ if.then68:                                        ; preds = %land.lhs.true
   br label %fail
 
 if.end69.thread:                                  ; preds = %if.end60
-  %use_lazy_refcounts70118 = getelementptr inbounds i8, ptr %0, i64 304
-  %18 = load i8, ptr %use_lazy_refcounts70118, align 8
-  %tobool71119 = trunc i8 %18 to i1
-  br i1 %tobool71119, label %if.then76, label %if.end83
+  %use_lazy_refcounts70119 = getelementptr inbounds i8, ptr %0, i64 304
+  %18 = load i8, ptr %use_lazy_refcounts70119, align 8
+  %tobool71120 = trunc i8 %18 to i1
+  br i1 %tobool71120, label %if.then76, label %if.end83
 
 if.then76:                                        ; preds = %if.end69.thread
   %call77 = call fastcc i32 @qcow2_mark_clean(ptr noundef nonnull %bs)
@@ -6498,7 +6547,7 @@ for.body:                                         ; preds = %if.end116, %for.bod
   store i32 %or, ptr %overlap_check, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body
   %discard_passthrough = getelementptr inbounds i8, ptr %r, i64 28
@@ -6609,19 +6658,19 @@ fail:                                             ; preds = %if.then99.i, %if.th
   %ret.0 = phi i32 [ -22, %if.then9 ], [ -22, %if.then18 ], [ %call22, %if.then24 ], [ %call30, %if.then32 ], [ -12, %if.then53 ], [ -22, %if.then59 ], [ -22, %if.then68 ], [ -22, %if.then92 ], [ -22, %if.else112 ], [ -22, %if.then151 ], [ -22, %sw.default ], [ 0, %sw.epilog ], [ -22, %if.then173 ], [ -22, %if.then161 ], [ -22, %if.then154 ], [ %call77, %if.then80 ], [ -22, %entry ], [ -22, %if.end162 ], [ -22, %if.end174 ], [ -22, %if.then35.i ], [ -22, %if.then41.i ], [ -22, %if.then45.i ], [ -22, %if.then99.i ]
   %28 = load ptr, ptr %encryptopts, align 8
   %tobool182.not = icmp eq ptr %28, null
-  br i1 %tobool182.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i107
+  br i1 %tobool182.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i108
 
-lor.lhs.false.i107:                               ; preds = %fail
+lor.lhs.false.i108:                               ; preds = %fail
   %refcnt.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %29, 0
-  br i1 %tobool1.not.i, label %if.else.i108, label %land.lhs.true.i
+  br i1 %tobool1.not.i, label %if.else.i109, label %land.lhs.true.i
 
-if.else.i108:                                     ; preds = %lor.lhs.false.i107
+if.else.i109:                                     ; preds = %lor.lhs.false.i108
   call void @__assert_fail(ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.141, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #21
   unreachable
 
-land.lhs.true.i:                                  ; preds = %lor.lhs.false.i107
+land.lhs.true.i:                                  ; preds = %lor.lhs.false.i108
   %dec.i = add i64 %29, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
@@ -6798,7 +6847,7 @@ for.body:                                         ; preds = %if.end6, %for.body
   store i8 %frombool19, ptr %arrayidx18, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body
   %discard_no_unref = getelementptr inbounds i8, ptr %r, i64 33
@@ -7198,7 +7247,7 @@ if.end109:                                        ; preds = %if.end102
   %.sink = select i1 %cmp127, i32 %conv130, i32 0
   %50 = getelementptr inbounds i8, ptr %0, i64 492
   store i32 %.sink, ptr %50, align 4
-  %call135 = call fastcc i32 @validate_compression_type(ptr noundef nonnull %0, ptr noundef nonnull %spec.select), !range !27
+  %call135 = call fastcc i32 @validate_compression_type(ptr noundef nonnull %0, ptr noundef nonnull %spec.select)
   %tobool136.not = icmp eq i32 %call135, 0
   br i1 %tobool136.not, label %if.end138, label %fail
 
@@ -7211,7 +7260,7 @@ if.then141:                                       ; preds = %if.end138
   store ptr null, ptr %feature_table, align 8
   %52 = load i32, ptr %header_length79315318, align 1
   %conv143 = zext i32 %52 to i64
-  %call144 = call i32 @qcow2_read_extensions(ptr noundef nonnull %bs, i64 noundef %conv143, i64 noundef %ext_end.0, ptr noundef nonnull %feature_table, i32 noundef %flags, ptr noundef null, ptr noundef null), !range !28
+  %call144 = call i32 @qcow2_read_extensions(ptr noundef nonnull %bs, i64 noundef %conv143, i64 noundef %ext_end.0, ptr noundef nonnull %feature_table, i32 noundef %flags, ptr noundef null, ptr noundef null)
   %53 = load ptr, ptr %feature_table, align 8
   %54 = load i64, ptr %incompatible_features120, align 8
   %and146 = and i64 %54, -32
@@ -7243,7 +7292,7 @@ if.end158:                                        ; preds = %if.end147
   %div = sdiv i32 %58, %cond
   %subcluster_size = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %div, ptr %subcluster_size, align 8
-  %59 = call i32 @llvm.cttz.i32(i32 %div, i1 false), !range !9
+  %59 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %div, i1 false)
   %subcluster_bits = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %59, ptr %subcluster_bits, align 4
   %cmp166 = icmp slt i32 %div, 512
@@ -7369,7 +7418,7 @@ if.end245:                                        ; preds = %if.end205
   %conv248 = zext i32 %68 to i64
   %70 = load i32, ptr %cluster_size, align 4
   %conv250 = sext i32 %70 to i64
-  %call251 = call i32 @qcow2_validate_table(ptr noundef nonnull %bs, i64 noundef %67, i64 noundef %conv248, i64 noundef %conv250, i64 noundef 8388608, ptr noundef nonnull @.str.160, ptr noundef nonnull %spec.select), !range !29
+  %call251 = call i32 @qcow2_validate_table(ptr noundef nonnull %bs, i64 noundef %67, i64 noundef %conv248, i64 noundef %conv250, i64 noundef 8388608, ptr noundef nonnull @.str.160, ptr noundef nonnull %spec.select)
   %cmp252 = icmp slt i32 %call251, 0
   br i1 %cmp252, label %fail, label %if.end255
 
@@ -7380,7 +7429,7 @@ if.then258:                                       ; preds = %if.end255
   %71 = load i64, ptr %snapshots_offset, align 4
   %72 = load i32, ptr %nb_snapshots, align 4
   %conv261 = zext i32 %72 to i64
-  %call262 = call i32 @qcow2_validate_table(ptr noundef nonnull %bs, i64 noundef %71, i64 noundef %conv261, i64 noundef 40, i64 noundef 2621440, ptr noundef nonnull @.str.161, ptr noundef nonnull %spec.select), !range !29
+  %call262 = call i32 @qcow2_validate_table(ptr noundef nonnull %bs, i64 noundef %71, i64 noundef %conv261, i64 noundef 40, i64 noundef 2621440, ptr noundef nonnull @.str.161, ptr noundef nonnull %spec.select)
   %cmp263 = icmp slt i32 %call262, 0
   br i1 %cmp263, label %fail, label %if.end267
 
@@ -7388,7 +7437,7 @@ if.end267:                                        ; preds = %if.then258, %if.end
   %73 = load i64, ptr %l1_table_offset, align 4
   %74 = load i32, ptr %l1_size, align 4
   %conv270 = zext i32 %74 to i64
-  %call271 = call i32 @qcow2_validate_table(ptr noundef nonnull %bs, i64 noundef %73, i64 noundef %conv270, i64 noundef 8, i64 noundef 33554432, ptr noundef nonnull @.str.162, ptr noundef nonnull %spec.select), !range !29
+  %call271 = call i32 @qcow2_validate_table(ptr noundef nonnull %bs, i64 noundef %73, i64 noundef %conv270, i64 noundef 8, i64 noundef 33554432, ptr noundef nonnull @.str.162, ptr noundef nonnull %spec.select)
   %cmp272 = icmp slt i32 %call271, 0
   br i1 %cmp272, label %fail, label %if.end275
 
@@ -7476,7 +7525,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %87 = load i32, ptr %l1_size277, align 8
   %88 = zext i32 %87 to i64
   %cmp321 = icmp ult i64 %indvars.iv.next, %88
-  br i1 %cmp321, label %for.body, label %if.end328, !llvm.loop !30
+  br i1 %cmp321, label %for.body, label %if.end328, !llvm.loop !24
 
 if.end328:                                        ; preds = %for.body, %for.cond.preheader, %if.end293
   %call329 = call i32 @qcow2_update_options(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %spec.select)
@@ -7504,7 +7553,7 @@ do.body341:                                       ; preds = %if.end333
   store ptr %discards, ptr %tql_prev, align 8
   %89 = load i32, ptr %header_length79315318, align 1
   %conv350 = zext i32 %89 to i64
-  %call351 = call i32 @qcow2_read_extensions(ptr noundef %bs, i64 noundef %conv350, i64 noundef %ext_end.0, ptr noundef null, i32 noundef %flags, ptr noundef nonnull %update_header, ptr noundef %spec.select), !range !28
+  %call351 = call i32 @qcow2_read_extensions(ptr noundef %bs, i64 noundef %conv350, i64 noundef %ext_end.0, ptr noundef null, i32 noundef %flags, ptr noundef nonnull %update_header, ptr noundef %spec.select)
   %tobool352.not = icmp eq i32 %call351, 0
   br i1 %tobool352.not, label %if.end354, label %fail
 
@@ -7863,7 +7912,7 @@ if.then.i:                                        ; preds = %land.rhs.i.preheade
   %134 = load ptr, ptr %next1.i, align 8
   %cmp.not.i = icmp eq ptr %134, null
   %.pre3.i = load ptr, ptr %le_prev8.i, align 8
-  br i1 %cmp.not.i, label %for.end.critedge.i, label %if.then.i, !llvm.loop !31
+  br i1 %cmp.not.i, label %for.end.critedge.i, label %if.then.i, !llvm.loop !25
 
 for.end.critedge.i:                               ; preds = %if.then.i, %land.rhs.i.preheader
   %uext.02.i.lcssa = phi ptr [ %bs.val281.val, %land.rhs.i.preheader ], [ %133, %if.then.i ]
@@ -7967,7 +8016,7 @@ entry:
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_read_extensions(ptr noundef %bs, i64 noundef %start_offset, i64 noundef %end_offset, ptr noundef writeonly %p_feature_table, i32 noundef %flags, ptr noundef writeonly %need_update_header, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 4) i32 @qcow2_read_extensions(ptr noundef %bs, i64 noundef %start_offset, i64 noundef %end_offset, ptr noundef writeonly %p_feature_table, i32 noundef %flags, ptr noundef writeonly %need_update_header, ptr noundef %errp) #0 {
 entry:
   %qiov.i129 = alloca %struct.QEMUIOVector, align 8
   %qiov.i124 = alloca %struct.QEMUIOVector, align 8
@@ -8407,7 +8456,7 @@ sw.epilog:                                        ; preds = %if.end204, %sw.bb17
   %conv224 = zext i32 %and223 to i64
   %add225 = add i64 %add, %conv224
   %cmp1 = icmp ult i64 %add225, %end_offset
-  br i1 %cmp1, label %while.body, label %return, !llvm.loop !32
+  br i1 %cmp1, label %while.body, label %return, !llvm.loop !26
 
 return:                                           ; preds = %if.end15, %if.end96, %sw.epilog, %if.end, %if.then218, %if.then185, %if.then164, %if.then159, %if.then154, %if.then148, %if.then136, %if.then131, %if.then109, %if.then92, %if.then75, %if.then66, %if.then60, %if.then53, %if.then31, %if.then22, %if.then14, %if.then3
   %retval.0 = phi i32 [ 1, %if.then3 ], [ -22, %if.then14 ], [ %call.i133, %if.then218 ], [ %call.i128, %if.then185 ], [ -22, %if.then109 ], [ %call.i123, %if.then131 ], [ -22, %if.then136 ], [ -22, %if.then148 ], [ -22, %if.then154 ], [ -22, %if.then159 ], [ -22, %if.then164 ], [ -22, %if.then60 ], [ -22, %if.then66 ], [ %call.i118, %if.then75 ], [ -22, %if.then92 ], [ %call.i113, %if.then53 ], [ 2, %if.then22 ], [ 3, %if.then31 ], [ 0, %if.end ], [ %11, %if.end15 ], [ -22, %if.end96 ], [ 0, %sw.epilog ]
@@ -8469,7 +8518,7 @@ if.end19:                                         ; preds = %if.then, %if.end, %
   %mask.addr.1 = phi i64 [ %and17, %if.end ], [ %mask.addr.016, %if.then ], [ %mask.addr.016, %while.body ]
   %incdec.ptr = getelementptr i8, ptr %table.addr.015, i64 48
   %tobool.not = icmp eq ptr %incdec.ptr, null
-  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !33
+  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !27
 
 while.end:                                        ; preds = %land.rhs, %if.end19, %entry
   %mask.addr.0.lcssa = phi i64 [ %mask, %entry ], [ %mask.addr.1, %if.end19 ], [ %mask.addr.016, %land.rhs ]
@@ -8692,7 +8741,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcow2_crypto_hdr_read_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcow2_crypto_hdr_read_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
 entry:
   %opaque1 = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %opaque1, align 8
@@ -8855,7 +8904,7 @@ if.then.i24:                                      ; preds = %land.rhs.i.preheade
   %12 = load ptr, ptr %next1.i, align 8
   %cmp.not.i = icmp eq ptr %12, null
   %.pre3.i = load ptr, ptr %le_prev8.i, align 8
-  br i1 %cmp.not.i, label %for.end.critedge.i, label %if.then.i24, !llvm.loop !31
+  br i1 %cmp.not.i, label %for.end.critedge.i, label %if.then.i24, !llvm.loop !25
 
 for.end.critedge.i:                               ; preds = %if.then.i24, %land.rhs.i.preheader
   %uext.02.i.lcssa = phi ptr [ %bs.val23.val, %land.rhs.i.preheader ], [ %11, %if.then.i24 ]
@@ -8953,7 +9002,7 @@ declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @bdrv_co_change_backing_file(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_set_up_encryption(ptr noundef %bs, ptr noundef %cryptoopts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_set_up_encryption(ptr noundef %bs, ptr noundef %cryptoopts, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -9003,7 +9052,7 @@ declare void @bdrv_co_unref(ptr noundef) #2
 declare ptr @qcrypto_block_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcow2_crypto_hdr_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr noundef %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcow2_crypto_hdr_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr noundef %opaque, ptr noundef %errp) #0 {
 entry:
   %opaque1 = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %opaque1, align 8
@@ -9058,7 +9107,7 @@ return:                                           ; preds = %if.end9, %if.then14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcow2_crypto_hdr_write_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcow2_crypto_hdr_write_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
 entry:
   %opaque1 = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %opaque1, align 8
@@ -9288,7 +9337,7 @@ if.end14:                                         ; preds = %if.end10
   %add = add i64 %offset.012, %conv15
   %sub = sub i64 %bytes.011, %conv15
   %cmp1.not = icmp eq i64 %sub, 0
-  br i1 %cmp1.not, label %return, label %while.body, !llvm.loop !34
+  br i1 %cmp1.not, label %return, label %while.body, !llvm.loop !28
 
 return:                                           ; preds = %while.body, %if.end10, %if.end14, %while.cond.preheader, %if.then
   %retval.0 = phi i32 [ %conv, %if.then ], [ 0, %while.cond.preheader ], [ %call6, %while.body ], [ 1, %if.end10 ], [ 0, %if.end14 ]
@@ -10089,7 +10138,7 @@ if.end11.us:                                      ; preds = %do.body.us, %if.the
   %3 = load ptr, ptr %next20.us, align 8
   tail call void @g_free(ptr noundef nonnull %l2meta.018.us) #22
   %cmp.not.us = icmp eq ptr %3, null
-  br i1 %cmp.not.us, label %out, label %while.body.us, !llvm.loop !18
+  br i1 %cmp.not.us, label %out, label %while.body.us, !llvm.loop !15
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end11
   %l2meta.018 = phi ptr [ %6, %if.end11 ], [ %0, %while.body.lr.ph ]
@@ -10117,7 +10166,7 @@ if.end11:                                         ; preds = %while.body, %if.the
   %6 = load ptr, ptr %next20, align 8
   tail call void @g_free(ptr noundef nonnull %l2meta.018) #22
   %cmp.not = icmp eq ptr %6, null
-  br i1 %cmp.not, label %out, label %while.body, !llvm.loop !18
+  br i1 %cmp.not, label %out, label %while.body, !llvm.loop !15
 
 out:                                              ; preds = %if.end11, %while.body.us, %if.end11.us, %entry
   %l2meta.0.lcssa = phi ptr [ null, %entry ], [ null, %if.end11.us ], [ %l2meta.018.us, %while.body.us ], [ null, %if.end11 ]
@@ -10190,7 +10239,7 @@ if.end18:                                         ; preds = %if.end17, %entry
   %qiov_offset.addr.0 = phi i64 [ 0, %if.end17 ], [ %qiov_offset, %entry ]
   %qiov.addr.0 = phi ptr [ %encrypted_qiov, %if.end17 ], [ %qiov, %entry ]
   %crypt_buf.0 = phi ptr [ %call, %if.end17 ], [ null, %entry ]
-  %call19 = call i32 @handle_alloc_space(ptr noundef nonnull %bs, ptr noundef %l2meta), !range !11
+  %call19 = call i32 @handle_alloc_space(ptr noundef nonnull %bs, ptr noundef %l2meta)
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %out_locked, label %if.end23
 
@@ -10283,7 +10332,7 @@ for.inc.i:                                        ; preds = %if.end53.i, %if.end
   %next.i = getelementptr inbounds i8, ptr %m.040.i, i64 80
   %13 = load ptr, ptr %next.i, align 8
   %cmp.not.not.i = icmp eq ptr %13, null
-  br i1 %cmp.not.not.i, label %do.body, label %for.body.i, !llvm.loop !35
+  br i1 %cmp.not.not.i, label %do.body, label %for.body.i, !llvm.loop !29
 
 merge_cow.exit:                                   ; preds = %if.end53.i
   %data_qiov.i = getelementptr inbounds i8, ptr %m.040.i, i64 64
@@ -10380,7 +10429,7 @@ if.end11.us.i:                                    ; preds = %if.then5.us.i, %do.
   %25 = load ptr, ptr %next20.us.i, align 8
   call void @g_free(ptr noundef nonnull %l2meta.018.us.i) #22
   %cmp.not.us.i = icmp eq ptr %25, null
-  br i1 %cmp.not.us.i, label %qcow2_handle_l2meta.exit37, label %while.body.us.i, !llvm.loop !18
+  br i1 %cmp.not.us.i, label %qcow2_handle_l2meta.exit37, label %while.body.us.i, !llvm.loop !15
 
 out_locked:                                       ; preds = %if.end18, %trace_qcow2_writev_data.exit, %if.end6, %if.end11
   %ret.0 = phi i32 [ %call19, %if.end18 ], [ %call34, %trace_qcow2_writev_data.exit ], [ -12, %if.end6 ], [ -5, %if.end11 ]
@@ -10422,7 +10471,7 @@ if.end11.i:                                       ; preds = %if.then5.i, %while.
   %28 = load ptr, ptr %next20.i, align 8
   call void @g_free(ptr noundef nonnull %l2meta.018.i) #22
   %cmp.not.i = icmp eq ptr %28, null
-  br i1 %cmp.not.i, label %qcow2_handle_l2meta.exit37, label %while.body.i, !llvm.loop !18
+  br i1 %cmp.not.i, label %qcow2_handle_l2meta.exit37, label %while.body.i, !llvm.loop !15
 
 qcow2_handle_l2meta.exit37:                       ; preds = %if.end11.us.i, %if.end11.i, %if.end39, %out_locked
   %crypt_buf.247 = phi ptr [ %crypt_buf.1, %out_locked ], [ %crypt_buf.0, %if.end39 ], [ %crypt_buf.255, %if.end11.i ], [ %crypt_buf.0, %if.end11.us.i ]
@@ -10438,7 +10487,7 @@ declare i64 @qemu_iovec_to_buf(ptr noundef, i64 noundef, ptr noundef, i64 nounde
 declare i32 @qcow2_co_encrypt(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @handle_alloc_space(ptr noundef %bs, ptr noundef %l2meta) #0 {
+define internal range(i32 -2147483648, 1) i32 @handle_alloc_space(ptr noundef %bs, ptr noundef %l2meta) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -10587,7 +10636,7 @@ for.inc:                                          ; preds = %if.then43, %if.then
   %next = getelementptr inbounds i8, ptr %m.031, i64 80
   %25 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %25, null
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !36
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !30
 
 return:                                           ; preds = %is_zero_cow.exit, %if.end26, %if.then43, %for.inc, %if.end, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %retval.0.i, %is_zero_cow.exit ], [ %call28, %if.end26 ], [ %call40, %if.then43 ], [ 0, %for.inc ]
@@ -10669,7 +10718,7 @@ land.lhs.true:                                    ; preds = %do.body
   %tobool11 = icmp ne i64 %sub6, 0
   %2 = and i1 %tobool10, %tobool11
   %or.cond1 = select i1 %tobool8, i1 %2, i1 false
-  br i1 %or.cond1, label %do.body, label %do.end, !llvm.loop !19
+  br i1 %or.cond1, label %do.body, label %do.end, !llvm.loop !16
 
 do.end:                                           ; preds = %land.lhs.true
   %cmp17 = icmp eq i64 %sub6, 0
@@ -10768,7 +10817,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %next = getelementptr inbounds i8, ptr %m.042, i64 80
   %m.0 = load ptr, ptr %next, align 8
   %cmp10.not = icmp eq ptr %m.0, null
-  br i1 %cmp10.not, label %for.end, label %for.body, !llvm.loop !37
+  br i1 %cmp10.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body
   br i1 %cmp10.not41, label %qcow2_handle_l2meta.exit.thread, label %while.body.us.i
@@ -10803,7 +10852,7 @@ if.end11.us.i:                                    ; preds = %if.then5.us.i, %do.
   %5 = load ptr, ptr %next20.us.i, align 8
   call void @g_free(ptr noundef nonnull %l2meta.018.us.i) #22
   %cmp.not.us.i = icmp eq ptr %5, null
-  br i1 %cmp.not.us.i, label %qcow2_handle_l2meta.exit.thread, label %while.body.us.i, !llvm.loop !18
+  br i1 %cmp.not.us.i, label %qcow2_handle_l2meta.exit.thread, label %while.body.us.i, !llvm.loop !15
 
 qcow2_handle_l2meta.exit.thread:                  ; preds = %if.end11.us.i, %for.cond.preheader, %for.end
   store ptr null, ptr %meta, align 8
@@ -10825,7 +10874,7 @@ if.end17:                                         ; preds = %qcow2_handle_l2meta
   %sub19 = sub i64 %bytes.044, %conv18
   %add = add i64 %offset.addr.045, %conv18
   %tobool.not = icmp eq i64 %sub19, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !38
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !32
 
 while.end:                                        ; preds = %if.end17, %if.end
   %data_file = getelementptr inbounds i8, ptr %0, i64 480
@@ -10892,7 +10941,7 @@ if.end11.i:                                       ; preds = %if.then5.i, %while.
   %16 = load ptr, ptr %next20.i, align 8
   call void @g_free(ptr noundef nonnull %l2meta.018.i) #22
   %cmp.not.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i, label %qcow2_handle_l2meta.exit33, label %while.body.i, !llvm.loop !18
+  br i1 %cmp.not.i, label %qcow2_handle_l2meta.exit33, label %while.body.i, !llvm.loop !15
 
 qcow2_handle_l2meta.exit33:                       ; preds = %if.end11.i, %out
   ret i32 %ret.0
@@ -10986,7 +11035,7 @@ declare i64 @qemu_opt_get_number_del(ptr noundef, ptr noundef, i64 noundef) loca
 declare void @qapi_free_QCryptoBlockCreateOptions(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_pwritev_compressed_task_entry(ptr nocapture noundef readonly %task) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_co_pwritev_compressed_task_entry(ptr nocapture noundef readonly %task) #0 {
 entry:
   %subcluster_type = getelementptr inbounds i8, ptr %task, i64 32
   %0 = load i32, ptr %subcluster_type, align 8
@@ -11014,12 +11063,12 @@ if.end:                                           ; preds = %land.lhs.true
   %5 = load ptr, ptr %qiov, align 8
   %qiov_offset = getelementptr inbounds i8, ptr %task, i64 72
   %6 = load i64, ptr %qiov_offset, align 8
-  %call = tail call i32 @qcow2_co_pwritev_compressed_task(ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6), !range !11
+  %call = tail call i32 @qcow2_co_pwritev_compressed_task(ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_pwritev_compressed_task(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_co_pwritev_compressed_task(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %cluster_offset = alloca i64, align 8
@@ -11250,9 +11299,9 @@ attributes #26 = { nounwind allocsize(0) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 33}
-!10 = !{i64 0, i64 65}
-!11 = !{i32 -2147483648, i32 1}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
@@ -11268,15 +11317,9 @@ attributes #26 = { nounwind allocsize(0) }
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
-!27 = !{i32 -95, i32 1}
-!28 = !{i32 -2147483648, i32 4}
-!29 = !{i32 -27, i32 1}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}

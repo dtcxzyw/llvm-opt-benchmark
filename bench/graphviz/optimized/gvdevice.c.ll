@@ -40,11 +40,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 @maxnegnumstr = internal global [20 x i8] c"-999999999999999.99\00", align 16
 @.str.21 = private unnamed_addr constant [6 x i8] c"%.03f\00", align 1
-@.str.22 = private unnamed_addr constant [3 x i8] c"0.\00", align 1
-@.str.23 = private unnamed_addr constant [4 x i8] c"-0.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gvdevice_initialize(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @gvdevice_initialize(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -603,7 +601,7 @@ define noundef i32 @gvferror(ptr nocapture noundef readonly %0) local_unnamed_ad
 declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gvputs(ptr noundef %0, ptr noundef %1) #0 {
+define noundef range(i32 -1, 2) i32 @gvputs(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   %4 = tail call i64 @gvwrite(ptr noundef %0, ptr noundef %1, i64 noundef %3)
   %.not = icmp eq i64 %4, %3
@@ -1742,34 +1740,48 @@ agxbputc.exit.i:                                  ; preds = %.thread.i, %126
 agxbdisown.exit:                                  ; preds = %agxblen.exit.i32, %agxbputc.exit.i
   %.0.i33 = phi ptr [ %132, %agxbputc.exit.i ], [ %115, %agxblen.exit.i32 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  %133 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.i33, ptr noundef nonnull dereferenceable(3) @.str.22, i64 noundef 2) #21
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %138
+  %133 = load i8, ptr %.0.i33, align 1
+  switch i8 %133, label %.tail.thread [
+    i8 48, label %agxbdisown.exit.tail
+    i8 45, label %sub_146
+  ]
 
-135:                                              ; preds = %agxbdisown.exit
-  %136 = getelementptr inbounds i8, ptr %.0.i33, i64 1
-  %137 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i33) #21
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0.i33, ptr nonnull align 1 %136, i64 %137, i1 false)
-  br label %145
+agxbdisown.exit.tail:                             ; preds = %agxbdisown.exit
+  %134 = getelementptr inbounds i8, ptr %.0.i33, i64 1
+  %135 = load i8, ptr %134, align 1
+  %136 = icmp eq i8 %135, 46
+  br i1 %136, label %.tail.thread.sink.split, label %.tail.thread
 
-138:                                              ; preds = %agxbdisown.exit
-  %139 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.i33, ptr noundef nonnull dereferenceable(4) @.str.23, i64 noundef 3) #21
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %141, label %145
+sub_146:                                          ; preds = %agxbdisown.exit
+  %137 = getelementptr inbounds i8, ptr %.0.i33, i64 1
+  %138 = load i8, ptr %137, align 1
+  %.not51 = icmp eq i8 %138, 48
+  br i1 %.not51, label %.tail, label %.tail.thread
 
-141:                                              ; preds = %138
-  %142 = getelementptr inbounds i8, ptr %.0.i33, i64 1
-  %143 = getelementptr inbounds i8, ptr %.0.i33, i64 2
-  %144 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %142) #21
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %142, ptr nonnull align 1 %143, i64 %144, i1 false)
-  br label %145
+.tail:                                            ; preds = %sub_146
+  %139 = getelementptr inbounds i8, ptr %.0.i33, i64 2
+  %140 = load i8, ptr %139, align 1
+  %141 = icmp eq i8 %140, 46
+  br i1 %141, label %142, label %.tail.thread
 
-145:                                              ; preds = %138, %141, %135
+142:                                              ; preds = %.tail
+  %143 = getelementptr inbounds i8, ptr %.0.i33, i64 1
+  br label %.tail.thread.sink.split
+
+.tail.thread.sink.split:                          ; preds = %agxbdisown.exit.tail, %142
+  %.sink64 = phi i64 [ 2, %142 ], [ 1, %agxbdisown.exit.tail ]
+  %.sink63 = phi ptr [ %143, %142 ], [ %.0.i33, %agxbdisown.exit.tail ]
+  %144 = getelementptr inbounds i8, ptr %.0.i33, i64 %.sink64
+  %145 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink63) #21
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.sink63, ptr nonnull align 1 %144, i64 %145, i1 false)
+  br label %.tail.thread
+
+.tail.thread:                                     ; preds = %.tail.thread.sink.split, %agxbdisown.exit, %agxbdisown.exit.tail, %sub_146, %.tail
   %146 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i33) #21
   %147 = icmp eq i64 %146, 0
   br i1 %147, label %agxbput.exit44, label %148
 
-148:                                              ; preds = %145
+148:                                              ; preds = %.tail.thread
   %.val.i.i.i35 = load i8, ptr %63, align 1
   %.not.i.i.i36 = icmp eq i8 %.val.i.i.i35, -1
   br i1 %.not.i.i.i36, label %150, label %agxbsizeof.exit.i.i37
@@ -1805,7 +1817,7 @@ agxblen.exit.i.i38:                               ; preds = %150, %agxbsizeof.ex
 159:                                              ; preds = %158
   %160 = zext i8 %.val.i25.i.i41 to i64
   %161 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr align 1 %.0.i33, i64 %146, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr nonnull align 1 %.0.i33, i64 %146, i1 false)
   %162 = trunc i64 %146 to i8
   %163 = load i8, ptr %63, align 1
   %164 = add i8 %163, %162
@@ -1817,14 +1829,14 @@ agxblen.exit.i.i38:                               ; preds = %150, %agxbsizeof.ex
   %167 = load i64, ptr %166, align 8
   %168 = load ptr, ptr %0, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 %167
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %169, ptr align 1 %.0.i33, i64 %146, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %169, ptr nonnull align 1 %.0.i33, i64 %146, i1 false)
   %170 = load i64, ptr %166, align 8
   %171 = add i64 %170, %146
   store i64 %171, ptr %166, align 8
   br label %agxbput.exit44
 
-agxbput.exit44:                                   ; preds = %145, %159, %165
-  tail call void @free(ptr noundef %.0.i33) #20
+agxbput.exit44:                                   ; preds = %.tail.thread, %159, %165
+  tail call void @free(ptr noundef nonnull %.0.i33) #20
   br label %agxbput.exit
 
 agxbput.exit:                                     ; preds = %55, %49, %34, %25, %19, %4, %agxbput.exit44
@@ -1955,9 +1967,6 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #16
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #17

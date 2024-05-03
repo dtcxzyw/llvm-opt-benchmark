@@ -328,7 +328,7 @@ declare i64 @strbuf_read_file(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @async_query_available_blobs(ptr noundef %cmd, ptr noundef %available_paths) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @async_query_available_blobs(ptr noundef %cmd, ptr noundef %available_paths) local_unnamed_addr #0 {
 entry:
   %filter_status = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filter_status, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_encoding.trace, i64 24, i1 false)
@@ -545,8 +545,8 @@ if.else9.i:                                       ; preds = %if.else7.i
 
 git_path_check_crlf.exit.thread:                  ; preds = %if.end, %if.else.i, %if.else7.i, %if.else9.i
   %retval.0.i.ph = phi i32 [ 5, %if.else9.i ], [ 3, %if.else7.i ], [ 1, %if.else.i ], [ 2, %if.end ]
-  %crlf_action71 = getelementptr inbounds i8, ptr %ca, i64 12
-  store i32 %retval.0.i.ph, ptr %crlf_action71, align 4
+  %crlf_action68 = getelementptr inbounds i8, ptr %ca, i64 12
+  store i32 %retval.0.i.ph, ptr %crlf_action68, align 4
   br label %if.end7
 
 if.then3:                                         ; preds = %if.else9.i, %if.else4.i
@@ -585,7 +585,7 @@ git_path_check_crlf.exit48:                       ; preds = %if.then3, %if.else.
 
 if.end7:                                          ; preds = %git_path_check_crlf.exit.thread, %git_path_check_crlf.exit48
   %6 = phi i32 [ %retval.0.i.ph, %git_path_check_crlf.exit.thread ], [ %retval.0.i47, %git_path_check_crlf.exit48 ]
-  %crlf_action73 = phi ptr [ %crlf_action71, %git_path_check_crlf.exit.thread ], [ %crlf_action, %git_path_check_crlf.exit48 ]
+  %crlf_action70 = phi ptr [ %crlf_action68, %git_path_check_crlf.exit.thread ], [ %crlf_action, %git_path_check_crlf.exit48 ]
   %7 = getelementptr i8, ptr %3, i64 24
   %add.ptr8.val = load ptr, ptr %7, align 8
   %cmp.i49 = icmp eq ptr %add.ptr8.val, @git_attr__true
@@ -627,50 +627,62 @@ if.then14:                                        ; preds = %git_path_check_conv
   %10 = getelementptr i8, ptr %3, i64 56
   %add.ptr15.val = load ptr, ptr %10, align 8
   %cmp.i55 = icmp eq ptr %add.ptr15.val, null
-  br i1 %cmp.i55, label %if.end40, label %if.else.i56
+  br i1 %cmp.i55, label %if.end40, label %sub_0.i
 
-if.else.i56:                                      ; preds = %if.then14
-  %call.i57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr15.val, ptr noundef nonnull dereferenceable(3) @.str.18) #22
-  %tobool.not.i58 = icmp eq i32 %call.i57, 0
-  br i1 %tobool.not.i58, label %git_path_check_eol.exit, label %if.else3.i
+sub_0.i:                                          ; preds = %if.then14
+  %11 = load i8, ptr %add.ptr15.val, align 1
+  %.not.i = icmp eq i8 %11, 108
+  br i1 %.not.i, label %sub_1.i, label %if.else3.i
 
-if.else3.i:                                       ; preds = %if.else.i56
+sub_1.i:                                          ; preds = %sub_0.i
+  %12 = getelementptr inbounds i8, ptr %add.ptr15.val, i64 1
+  %13 = load i8, ptr %12, align 1
+  %.not1.i = icmp eq i8 %13, 102
+  br i1 %.not1.i, label %if.else.tail.i, label %if.else3.i
+
+if.else.tail.i:                                   ; preds = %sub_1.i
+  %14 = getelementptr inbounds i8, ptr %add.ptr15.val, i64 2
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %git_path_check_eol.exit, label %if.else3.i
+
+if.else3.i:                                       ; preds = %if.else.tail.i, %sub_1.i, %sub_0.i
   %call4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr15.val, ptr noundef nonnull dereferenceable(5) @.str.5) #22
-  %tobool5.not.i59 = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i59, label %if.else, label %if.end40
+  %tobool5.not.i56 = icmp eq i32 %call4.i, 0
+  br i1 %tobool5.not.i56, label %if.else, label %if.end40
 
-git_path_check_eol.exit:                          ; preds = %if.else.i56
+git_path_check_eol.exit:                          ; preds = %if.else.tail.i
   %cmp18 = icmp eq i32 %6, 5
   %. = select i1 %cmp18, i32 6, i32 3
   br label %if.end40.sink.split
 
 if.else:                                          ; preds = %if.else3.i
-  %cmp1875 = icmp eq i32 %6, 5
-  %.125 = select i1 %cmp1875, i32 7, i32 4
+  %cmp1872 = icmp eq i32 %6, 5
+  %.122 = select i1 %cmp1872, i32 7, i32 4
   br label %if.end40.sink.split
 
 if.end40.sink.split:                              ; preds = %if.else, %git_path_check_eol.exit
-  %.sink = phi i32 [ %., %git_path_check_eol.exit ], [ %.125, %if.else ]
-  store i32 %.sink, ptr %crlf_action73, align 4
+  %.sink = phi i32 [ %., %git_path_check_eol.exit ], [ %.122, %if.else ]
+  store i32 %.sink, ptr %crlf_action70, align 4
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end40.sink.split, %if.then14, %if.else3.i, %git_path_check_convert.exit
-  %11 = phi i32 [ %6, %if.then14 ], [ %6, %if.else3.i ], [ 1, %git_path_check_convert.exit ], [ %.sink, %if.end40.sink.split ]
-  %12 = getelementptr i8, ptr %3, i64 88
-  %add.ptr41.val = load ptr, ptr %12, align 8
-  %cmp.i61 = icmp eq ptr %add.ptr41.val, null
-  br i1 %cmp.i61, label %git_path_check_encoding.exit, label %lor.lhs.false.i
+  %17 = phi i32 [ %6, %if.then14 ], [ %6, %if.else3.i ], [ 1, %git_path_check_convert.exit ], [ %.sink, %if.end40.sink.split ]
+  %18 = getelementptr i8, ptr %3, i64 88
+  %add.ptr41.val = load ptr, ptr %18, align 8
+  %cmp.i58 = icmp eq ptr %add.ptr41.val, null
+  br i1 %cmp.i58, label %git_path_check_encoding.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end40
   %char0.i = load i8, ptr %add.ptr41.val, align 1
-  %tobool.not.i62 = icmp eq i8 %char0.i, 0
-  br i1 %tobool.not.i62, label %git_path_check_encoding.exit, label %if.end.i
+  %tobool.not.i59 = icmp eq i8 %char0.i, 0
+  br i1 %tobool.not.i59, label %git_path_check_encoding.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp2.i63 = icmp eq ptr %add.ptr41.val, @git_attr__true
-  %cmp4.i64 = icmp eq ptr %add.ptr41.val, @git_attr__false
-  %or.cond.i65 = or i1 %cmp2.i63, %cmp4.i64
-  br i1 %or.cond.i65, label %if.then5.i, label %if.end7.i
+  %cmp2.i60 = icmp eq ptr %add.ptr41.val, @git_attr__true
+  %cmp4.i61 = icmp eq ptr %add.ptr41.val, @git_attr__false
+  %or.cond.i62 = or i1 %cmp2.i60, %cmp4.i61
+  br i1 %or.cond.i62, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %call6.i = tail call fastcc ptr @_(ptr noundef nonnull @.str.30)
@@ -681,54 +693,54 @@ if.end7.i:                                        ; preds = %if.end.i
   %call8.i = tail call i32 @same_encoding(ptr noundef nonnull %add.ptr41.val, ptr noundef nonnull @.str.31) #21
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   %..i = select i1 %tobool9.not.i, ptr %add.ptr41.val, ptr null
-  %.pre110 = load i32, ptr %crlf_action73, align 4
+  %.pre107 = load i32, ptr %crlf_action70, align 4
   br label %git_path_check_encoding.exit
 
 git_path_check_encoding.exit:                     ; preds = %if.end40, %lor.lhs.false.i, %if.end7.i
-  %13 = phi i32 [ %11, %lor.lhs.false.i ], [ %11, %if.end40 ], [ %.pre110, %if.end7.i ]
-  %retval.0.i66 = phi ptr [ null, %lor.lhs.false.i ], [ null, %if.end40 ], [ %..i, %if.end7.i ]
+  %19 = phi i32 [ %17, %lor.lhs.false.i ], [ %17, %if.end40 ], [ %.pre107, %if.end7.i ]
+  %retval.0.i63 = phi ptr [ null, %lor.lhs.false.i ], [ null, %if.end40 ], [ %..i, %if.end7.i ]
   %working_tree_encoding = getelementptr inbounds i8, ptr %ca, i64 24
-  store ptr %retval.0.i66, ptr %working_tree_encoding, align 8
+  store ptr %retval.0.i63, ptr %working_tree_encoding, align 8
   %attr_action = getelementptr inbounds i8, ptr %ca, i64 8
-  store i32 %13, ptr %attr_action, align 8
-  %cmp45 = icmp eq i32 %13, 2
-  %.pre111 = load i32, ptr @auto_crlf, align 4
+  store i32 %19, ptr %attr_action, align 8
+  %cmp45 = icmp eq i32 %19, 2
+  %.pre108 = load i32, ptr @auto_crlf, align 4
   br i1 %cmp45, label %if.then46, label %if.end50
 
 if.then46:                                        ; preds = %git_path_check_encoding.exit
-  switch i32 %.pre111, label %text_eol_is_crlf.exit [
+  switch i32 %.pre108, label %text_eol_is_crlf.exit [
     i32 1, label %if.end71.sink.split
     i32 -1, label %text_eol_is_crlf.exit.thread
   ]
 
 text_eol_is_crlf.exit:                            ; preds = %if.then46
-  %14 = load i32, ptr @core_eol, align 4
-  %.fr = freeze i32 %14
-  %cmp4.i68.not = icmp eq i32 %.fr, 1
-  br i1 %cmp4.i68.not, label %if.end71.sink.split, label %text_eol_is_crlf.exit.thread
+  %20 = load i32, ptr @core_eol, align 4
+  %.fr = freeze i32 %20
+  %cmp4.i65.not = icmp eq i32 %.fr, 1
+  br i1 %cmp4.i65.not, label %if.end71.sink.split, label %text_eol_is_crlf.exit.thread
 
 text_eol_is_crlf.exit.thread:                     ; preds = %if.then46, %text_eol_is_crlf.exit
   br label %if.end71.sink.split
 
 if.end50:                                         ; preds = %git_path_check_encoding.exit
-  %cmp52 = icmp eq i32 %13, 0
-  %cmp54 = icmp eq i32 %.pre111, 0
+  %cmp52 = icmp eq i32 %19, 0
+  %cmp54 = icmp eq i32 %.pre108, 0
   %or.cond2 = select i1 %cmp52, i1 %cmp54, i1 false
   br i1 %or.cond2, label %if.end71.sink.split, label %if.end57
 
 if.end57:                                         ; preds = %if.end50
-  %cmp61 = icmp eq i32 %.pre111, 1
+  %cmp61 = icmp eq i32 %.pre108, 1
   %or.cond3 = select i1 %cmp52, i1 %cmp61, i1 false
   br i1 %or.cond3, label %if.end71.sink.split, label %if.end64
 
 if.end64:                                         ; preds = %if.end57
-  %cmp68 = icmp eq i32 %.pre111, -1
+  %cmp68 = icmp eq i32 %.pre108, -1
   %or.cond4 = select i1 %cmp52, i1 %cmp68, i1 false
   br i1 %or.cond4, label %if.end71.sink.split, label %if.end71
 
 if.end71.sink.split:                              ; preds = %if.end64, %if.end57, %if.end50, %if.then46, %text_eol_is_crlf.exit, %text_eol_is_crlf.exit.thread
-  %.sink124 = phi i32 [ 3, %text_eol_is_crlf.exit.thread ], [ 4, %text_eol_is_crlf.exit ], [ 4, %if.then46 ], [ 1, %if.end50 ], [ 7, %if.end57 ], [ 6, %if.end64 ]
-  store i32 %.sink124, ptr %crlf_action73, align 4
+  %.sink121 = phi i32 [ 3, %text_eol_is_crlf.exit.thread ], [ 4, %text_eol_is_crlf.exit ], [ 4, %if.then46 ], [ 1, %if.end50 ], [ 7, %if.end57 ], [ 6, %if.end64 ]
+  store i32 %.sink121, ptr %crlf_action70, align 4
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end71.sink.split, %if.end64
@@ -874,7 +886,7 @@ declare void @attr_check_free(ptr noundef) local_unnamed_addr #1
 declare void @reset_merge_attributes() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @would_convert_to_git_filter_fd(ptr noundef %istate, ptr noundef %path) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @would_convert_to_git_filter_fd(ptr noundef %istate, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %ca = alloca %struct.conv_attrs, align 8
   call void @convert_attrs(ptr noundef %istate, ptr noundef nonnull %ca, ptr noundef %path)
@@ -895,7 +907,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @apply_filter(ptr noundef %path, ptr noundef %src, i64 noundef %len, i32 noundef %fd, ptr noundef %dst, ptr noundef readonly %drv, i32 noundef %wanted_capability, ptr noundef %meta, ptr noundef %dco) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @apply_filter(ptr noundef %path, ptr noundef %src, i64 noundef %len, i32 noundef %fd, ptr noundef %dst, ptr noundef readonly %drv, i32 noundef %wanted_capability, ptr noundef %meta, ptr noundef %dco) unnamed_addr #0 {
 entry:
   %_swap_buffer.i.i22 = alloca [24 x i8], align 16
   %nbuf.i23 = alloca %struct.strbuf, align 8
@@ -1173,7 +1185,7 @@ if.then47.i:                                      ; preds = %land.lhs.true.i
 
 land.lhs.true56.i:                                ; preds = %if.then47.i, %land.lhs.true.i
   %treeish.i = getelementptr inbounds i8, ptr %meta, i64 8
-  %call57.i = tail call fastcc i32 @is_null_oid(ptr noundef nonnull %treeish.i), !range !12
+  %call57.i = tail call fastcc i32 @is_null_oid(ptr noundef nonnull %treeish.i)
   %tobool58.not.i = icmp eq i32 %call57.i, 0
   br i1 %tobool58.not.i, label %if.then59.i, label %land.lhs.true69.i
 
@@ -1186,7 +1198,7 @@ if.then59.i:                                      ; preds = %land.lhs.true56.i
 
 land.lhs.true69.i:                                ; preds = %if.then59.i, %land.lhs.true56.i
   %blob.i = getelementptr inbounds i8, ptr %meta, i64 44
-  %call70.i = tail call fastcc i32 @is_null_oid(ptr noundef nonnull %blob.i), !range !12
+  %call70.i = tail call fastcc i32 @is_null_oid(ptr noundef nonnull %blob.i)
   %tobool71.not.i = icmp eq i32 %call70.i, 0
   br i1 %tobool71.not.i, label %if.then72.i, label %if.end80.i
 
@@ -1391,12 +1403,12 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @convert_to_git(ptr noundef %istate, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, i32 noundef %conv_flags) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @convert_to_git(ptr noundef %istate, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, i32 noundef %conv_flags) local_unnamed_addr #0 {
 entry:
   %ca = alloca %struct.conv_attrs, align 8
   call void @convert_attrs(ptr noundef %istate, ptr noundef nonnull %ca, ptr noundef %path)
   %0 = load ptr, ptr %ca, align 8
-  %call = tail call fastcc i32 @apply_filter(ptr noundef %path, ptr noundef %src, i64 noundef %len, i32 noundef -1, ptr noundef %dst, ptr noundef %0, i32 noundef 1, ptr noundef null, ptr noundef null), !range !12
+  %call = tail call fastcc i32 @apply_filter(ptr noundef %path, ptr noundef %src, i64 noundef %len, i32 noundef -1, ptr noundef %dst, ptr noundef %0, i32 noundef 1, ptr noundef null, ptr noundef null)
   %tobool = icmp eq i32 %call, 0
   %tobool2 = icmp ne ptr %0, null
   %or.cond = and i1 %tobool2, %tobool
@@ -1437,7 +1449,7 @@ if.end13:                                         ; preds = %if.end.thread, %if.
   %src.addr.0 = phi ptr [ %3, %if.then11 ], [ %src, %if.end ], [ %src, %if.end.thread ]
   %working_tree_encoding = getelementptr inbounds i8, ptr %ca, i64 24
   %5 = load ptr, ptr %working_tree_encoding, align 8
-  %call14 = tail call fastcc i32 @encode_to_git(ptr noundef %path, ptr noundef %src.addr.0, i64 noundef %len.addr.0, ptr noundef %dst, ptr noundef %5, i32 noundef %conv_flags), !range !12
+  %call14 = tail call fastcc i32 @encode_to_git(ptr noundef %path, ptr noundef %src.addr.0, i64 noundef %len.addr.0, ptr noundef %dst, ptr noundef %5, i32 noundef %conv_flags)
   %or15 = or i32 %call14, %call
   %tobool16 = icmp ne i32 %or15, 0
   %or.cond2 = and i1 %tobool1039, %tobool16
@@ -1460,7 +1472,7 @@ if.end22:                                         ; preds = %if.then19, %if.end1
 if.then24:                                        ; preds = %if.end22
   %crlf_action = getelementptr inbounds i8, ptr %ca, i64 12
   %8 = load i32, ptr %crlf_action, align 4
-  %call25 = tail call fastcc i32 @crlf_to_git(ptr noundef %istate, ptr noundef %path, ptr noundef %src.addr.1, i64 noundef %len.addr.1, ptr noundef %dst, i32 noundef %8, i32 noundef %conv_flags), !range !12
+  %call25 = tail call fastcc i32 @crlf_to_git(ptr noundef %istate, ptr noundef %path, ptr noundef %src.addr.1, i64 noundef %len.addr.1, ptr noundef %dst, i32 noundef %8, i32 noundef %conv_flags)
   %or26 = or i32 %call25, %or15
   %tobool27 = icmp ne i32 %or26, 0
   %or.cond3 = and i1 %tobool1039, %tobool27
@@ -1479,7 +1491,7 @@ if.end34:                                         ; preds = %if.then24, %if.then
   %ret.0 = phi i32 [ %or15, %if.end22 ], [ 1, %if.then30 ], [ %or26, %if.then24 ]
   %ident = getelementptr inbounds i8, ptr %ca, i64 16
   %11 = load i32, ptr %ident, align 8
-  %call35 = tail call fastcc i32 @ident_to_git(ptr noundef %src.addr.2, i64 noundef %len.addr.2, ptr noundef %dst, i32 noundef %11), !range !12
+  %call35 = tail call fastcc i32 @ident_to_git(ptr noundef %src.addr.2, i64 noundef %len.addr.2, ptr noundef %dst, i32 noundef %11)
   %or36 = or i32 %call35, %ret.0
   ret i32 %or36
 }
@@ -1488,7 +1500,7 @@ if.end34:                                         ; preds = %if.then24, %if.then
 declare void @die(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @encode_to_git(ptr noundef %path, ptr noundef %src, i64 noundef %src_len, ptr noundef %buf, ptr noundef %enc, i32 noundef %conv_flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @encode_to_git(ptr noundef %path, ptr noundef %src, i64 noundef %src_len, ptr noundef %buf, ptr noundef %enc, i32 noundef %conv_flags) unnamed_addr #0 {
 entry:
   %dst_len = alloca i64, align 8
   %re_src_len = alloca i64, align 8
@@ -1541,7 +1553,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %7 = and i8 %6, 32
   %spec.select.i52.i.i = or i8 %7, %0
   %cmp.i.i = icmp eq i8 %spec.select.i1.i.i, %spec.select.i52.i.i
-  br i1 %cmp.i.i, label %do.body.i.i, label %if.end10, !llvm.loop !13
+  br i1 %cmp.i.i, label %do.body.i.i, label %if.end10, !llvm.loop !12
 
 do.body.i17.i:                                    ; preds = %do.cond.i19.i, %do.body.i17.preheader.i
   %str.addr.0.i18.i = phi ptr [ %incdec.ptr.i20.i, %do.cond.i19.i ], [ %scevgep.i.i, %do.body.i17.preheader.i ]
@@ -1664,7 +1676,7 @@ if.end19:                                         ; preds = %if.end10
   br i1 %tobool20.not, label %if.end39, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %if.end19
-  %call22 = call fastcc i32 @check_roundtrip(ptr noundef nonnull %enc), !range !12
+  %call22 = call fastcc i32 @check_roundtrip(ptr noundef nonnull %enc)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.end39, label %if.then24
 
@@ -1718,7 +1730,7 @@ return:                                           ; preds = %validate_encoding.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @crlf_to_git(ptr noundef %istate, ptr noundef %path, ptr noundef readonly %src, i64 noundef %len, ptr noundef %buf, i32 noundef %crlf_action, i32 noundef %conv_flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @crlf_to_git(ptr noundef %istate, ptr noundef %path, ptr noundef readonly %src, i64 noundef %len, ptr noundef %buf, i32 noundef %crlf_action, i32 noundef %conv_flags) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %crlf_action, 1
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1874,7 +1886,7 @@ if.end17:                                         ; preds = %if.then14, %gather_
   br i1 %tobool18.not, label %land.lhs.true19, label %if.end24
 
 land.lhs.true19:                                  ; preds = %if.end17
-  %call20 = tail call fastcc i32 @has_crlf_in_index(ptr noundef %istate, ptr noundef %path), !range !12
+  %call20 = tail call fastcc i32 @has_crlf_in_index(ptr noundef %istate, ptr noundef %path)
   %tobool21.not = icmp eq i32 %call20, 0
   %spec.select = select i1 %tobool21.not, i1 %tobool799115143169, i1 false
   br label %if.end24
@@ -2074,7 +2086,7 @@ do.cond:                                          ; preds = %do.body, %if.then69
   %dst.1 = phi ptr [ %incdec.ptr70, %if.then69 ], [ %dst.0, %do.body ]
   %dec = add i64 %len.addr.0, -1
   %tobool72.not = icmp eq i64 %dec, 0
-  br i1 %tobool72.not, label %if.end93, label %do.body, !llvm.loop !14
+  br i1 %tobool72.not, label %if.end93, label %do.body, !llvm.loop !13
 
 do.body73:                                        ; preds = %if.end59, %do.cond89
   %len.addr.1 = phi i64 [ %dec90, %do.cond89 ], [ %len, %if.end59 ]
@@ -2101,7 +2113,7 @@ do.cond89:                                        ; preds = %land.lhs.true82, %i
   %dst.3 = phi ptr [ %dst.2, %land.lhs.true82 ], [ %incdec.ptr87, %if.then86 ]
   %dec90 = add i64 %len.addr.1, -1
   %tobool91.not = icmp eq i64 %dec90, 0
-  br i1 %tobool91.not, label %if.end93, label %do.body73, !llvm.loop !15
+  br i1 %tobool91.not, label %if.end93, label %do.body73, !llvm.loop !14
 
 if.end93:                                         ; preds = %do.cond89, %do.cond
   %dst.4 = phi ptr [ %dst.1, %do.cond ], [ %dst.3, %do.cond89 ]
@@ -2134,7 +2146,7 @@ return:                                           ; preds = %if.then14, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ident_to_git(ptr noundef %src, i64 noundef %len, ptr noundef %buf, i32 noundef %ident) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ident_to_git(ptr noundef %src, i64 noundef %len, ptr noundef %buf, i32 noundef %ident) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %ident, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -2164,7 +2176,7 @@ while.body.i:                                     ; preds = %while.cond.backedge
 
 while.cond.backedge.i:                            ; preds = %if.end5.i, %while.body.i
   %tobool.not.i = icmp eq i64 %dec.i, 0
-  br i1 %tobool.not.i, label %count_ident.exit, label %while.body.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %count_ident.exit, label %while.body.i, !llvm.loop !15
 
 if.end.i:                                         ; preds = %while.body.i
   %cmp2.i = icmp ult i64 %size.addr.023.i, 4
@@ -2191,7 +2203,7 @@ while.cond.outer.backedge.i:                      ; preds = %if.end29.i, %if.the
   %size.addr.0.ph.be.i = phi i64 [ %sub.i, %if.end8.i ], [ %dec23.i, %if.then27.i ], [ %dec23.i, %if.end29.i ]
   %cnt.0.ph.be.i = phi i32 [ %spec.select.i, %if.end8.i ], [ %inc28.i, %if.then27.i ], [ %spec.select.i, %if.end29.i ]
   %tobool.not21.i = icmp eq i64 %size.addr.0.ph.be.i, 0
-  br i1 %tobool.not21.i, label %count_ident.exit, label %while.body.lr.ph.i, !llvm.loop !16
+  br i1 %tobool.not21.i, label %count_ident.exit, label %while.body.lr.ph.i, !llvm.loop !15
 
 while.cond19.i:                                   ; preds = %if.end8.i
   %tobool20.old.not.i = icmp eq i64 %sub.i, 0
@@ -2214,7 +2226,7 @@ if.end29.i:                                       ; preds = %while.body21.i
   %cmp31.i = icmp ne i8 %2, 10
   %tobool20.i = icmp ne i64 %dec23.i, 0
   %or.cond.i = select i1 %cmp31.i, i1 %tobool20.i, i1 false
-  br i1 %or.cond.i, label %while.body21.i, label %while.cond.outer.backedge.i, !llvm.loop !17
+  br i1 %or.cond.i, label %while.body21.i, label %while.cond.outer.backedge.i, !llvm.loop !16
 
 count_ident.exit:                                 ; preds = %while.cond.outer.backedge.i, %while.cond19.i, %while.cond.backedge.i, %if.end.i
   %cnt.0.ph.lcssa.i = phi i32 [ %cnt.0.ph29.i, %if.end.i ], [ %cnt.0.ph29.i, %while.cond.backedge.i ], [ %cnt.0.ph.be.i, %while.cond.outer.backedge.i ], [ %spec.select.i, %while.cond19.i ]
@@ -2342,7 +2354,7 @@ entry:
   %ca = alloca %struct.conv_attrs, align 8
   call void @convert_attrs(ptr noundef %istate, ptr noundef nonnull %ca, ptr noundef %path)
   %0 = load ptr, ptr %ca, align 8
-  %call = tail call fastcc i32 @apply_filter(ptr noundef %path, ptr noundef null, i64 noundef 0, i32 noundef %fd, ptr noundef %dst, ptr noundef %0, i32 noundef 1, ptr noundef null, ptr noundef null), !range !12
+  %call = tail call fastcc i32 @apply_filter(ptr noundef %path, ptr noundef null, i64 noundef 0, i32 noundef %fd, ptr noundef %dst, ptr noundef %0, i32 noundef 1, ptr noundef null, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -2359,29 +2371,29 @@ if.end:                                           ; preds = %entry
   %3 = load i64, ptr %len, align 8
   %working_tree_encoding = getelementptr inbounds i8, ptr %ca, i64 24
   %4 = load ptr, ptr %working_tree_encoding, align 8
-  %call3 = tail call fastcc i32 @encode_to_git(ptr noundef %path, ptr noundef %2, i64 noundef %3, ptr noundef %dst, ptr noundef %4, i32 noundef %conv_flags), !range !12
+  %call3 = tail call fastcc i32 @encode_to_git(ptr noundef %path, ptr noundef %2, i64 noundef %3, ptr noundef %dst, ptr noundef %4, i32 noundef %conv_flags)
   %5 = load ptr, ptr %buf, align 8
   %6 = load i64, ptr %len, align 8
   %crlf_action = getelementptr inbounds i8, ptr %ca, i64 12
   %7 = load i32, ptr %crlf_action, align 4
-  %call6 = tail call fastcc i32 @crlf_to_git(ptr noundef %istate, ptr noundef %path, ptr noundef %5, i64 noundef %6, ptr noundef %dst, i32 noundef %7, i32 noundef %conv_flags), !range !12
+  %call6 = tail call fastcc i32 @crlf_to_git(ptr noundef %istate, ptr noundef %path, ptr noundef %5, i64 noundef %6, ptr noundef %dst, i32 noundef %7, i32 noundef %conv_flags)
   %8 = load ptr, ptr %buf, align 8
   %9 = load i64, ptr %len, align 8
   %ident = getelementptr inbounds i8, ptr %ca, i64 16
   %10 = load i32, ptr %ident, align 8
-  %call9 = tail call fastcc i32 @ident_to_git(ptr noundef %8, i64 noundef %9, ptr noundef %dst, i32 noundef %10), !range !12
+  %call9 = tail call fastcc i32 @ident_to_git(ptr noundef %8, i64 noundef %9, ptr noundef %dst, i32 noundef %10)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @async_convert_to_working_tree_ca(ptr nocapture noundef readonly %ca, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, ptr noundef %meta, ptr noundef %dco) local_unnamed_addr #0 {
+define dso_local i32 @async_convert_to_working_tree_ca(ptr nocapture noundef readonly %ca, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, ptr noundef %meta, ptr noundef %dco) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @convert_to_working_tree_ca_internal(ptr noundef %ca, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, i32 noundef 0, ptr noundef %meta, ptr noundef %dco)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @convert_to_working_tree_ca_internal(ptr nocapture noundef readonly %ca, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, i32 noundef %normalizing, ptr noundef %meta, ptr noundef %dco) unnamed_addr #0 {
+define internal fastcc i32 @convert_to_working_tree_ca_internal(ptr nocapture noundef readonly %ca, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, i32 noundef %normalizing, ptr noundef %meta, ptr noundef %dco) unnamed_addr #0 {
 entry:
   %dst_len.i = alloca i64, align 8
   %oid.i = alloca %struct.object_id, align 4
@@ -2410,7 +2422,7 @@ while.body.i.i:                                   ; preds = %while.cond.backedge
 
 while.cond.backedge.i.i:                          ; preds = %if.end5.i.i, %while.body.i.i
   %tobool.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %tobool.not.i.i, label %count_ident.exit.i, label %while.body.i.i, !llvm.loop !16
+  br i1 %tobool.not.i.i, label %count_ident.exit.i, label %while.body.i.i, !llvm.loop !15
 
 if.end.i.i:                                       ; preds = %while.body.i.i
   %cmp2.i.i = icmp ult i64 %size.addr.023.i.i, 4
@@ -2437,7 +2449,7 @@ while.cond.outer.backedge.i.i:                    ; preds = %if.end29.i.i, %if.t
   %size.addr.0.ph.be.i.i = phi i64 [ %sub.i.i, %if.end8.i.i ], [ %dec23.i.i, %if.then27.i.i ], [ %dec23.i.i, %if.end29.i.i ]
   %cnt.0.ph.be.i.i = phi i32 [ %spec.select.i.i, %if.end8.i.i ], [ %inc28.i.i, %if.then27.i.i ], [ %spec.select.i.i, %if.end29.i.i ]
   %tobool.not21.i.i = icmp eq i64 %size.addr.0.ph.be.i.i, 0
-  br i1 %tobool.not21.i.i, label %count_ident.exit.i, label %while.body.lr.ph.i.i, !llvm.loop !16
+  br i1 %tobool.not21.i.i, label %count_ident.exit.i, label %while.body.lr.ph.i.i, !llvm.loop !15
 
 while.cond19.i.i:                                 ; preds = %if.end8.i.i
   %tobool20.old.not.i.i = icmp eq i64 %sub.i.i, 0
@@ -2460,7 +2472,7 @@ if.end29.i.i:                                     ; preds = %while.body21.i.i
   %cmp31.i.i = icmp ne i8 %3, 10
   %tobool20.i.i = icmp ne i64 %dec23.i.i, 0
   %or.cond.i.i = select i1 %cmp31.i.i, i1 %tobool20.i.i, i1 false
-  br i1 %or.cond.i.i, label %while.body21.i.i, label %while.cond.outer.backedge.i.i, !llvm.loop !17
+  br i1 %or.cond.i.i, label %while.body21.i.i, label %while.cond.outer.backedge.i.i, !llvm.loop !16
 
 count_ident.exit.i:                               ; preds = %while.cond19.i.i, %while.cond.outer.backedge.i.i, %if.end.i.i, %while.cond.backedge.i.i
   %cnt.0.ph.lcssa.i.i = phi i32 [ %cnt.0.ph29.i.i, %while.cond.backedge.i.i ], [ %cnt.0.ph29.i.i, %if.end.i.i ], [ %spec.select.i.i, %while.cond19.i.i ], [ %cnt.0.ph.be.i.i, %while.cond.outer.backedge.i.i ]
@@ -2974,7 +2986,7 @@ if.end24:                                         ; preds = %if.then21, %encode_
   %len.addr.2 = phi i64 [ %52, %if.then21 ], [ %len.addr.1, %encode_to_worktree.exit ]
   %src.addr.2 = phi ptr [ %51, %if.then21 ], [ %src.addr.1, %encode_to_worktree.exit ]
   %53 = load ptr, ptr %ca, align 8
-  %call26 = call fastcc i32 @apply_filter(ptr noundef %path, ptr noundef %src.addr.2, i64 noundef %len.addr.2, i32 noundef -1, ptr noundef %dst, ptr noundef %53, i32 noundef 2, ptr noundef %meta, ptr noundef %dco), !range !12
+  %call26 = call fastcc i32 @apply_filter(ptr noundef %path, ptr noundef %src.addr.2, i64 noundef %len.addr.2, i32 noundef -1, ptr noundef %dst, ptr noundef %53, i32 noundef 2, ptr noundef %meta, ptr noundef %dco)
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %land.lhs.true28, label %if.end37
 
@@ -3002,7 +3014,7 @@ if.end37:                                         ; preds = %land.lhs.true31, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @convert_to_working_tree_ca(ptr nocapture noundef readonly %ca, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, ptr noundef %meta) local_unnamed_addr #0 {
+define dso_local i32 @convert_to_working_tree_ca(ptr nocapture noundef readonly %ca, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, ptr noundef %meta) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @convert_to_working_tree_ca_internal(ptr noundef %ca, ptr noundef %path, ptr noundef %src, i64 noundef %len, ptr noundef %dst, i32 noundef 0, ptr noundef %meta, ptr noundef null)
   ret i32 %call
@@ -3027,13 +3039,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %len.addr.0 = phi i64 [ %1, %if.then ], [ %len, %entry ]
   %src.addr.0 = phi ptr [ %0, %if.then ], [ %src, %entry ]
-  %call2 = tail call i32 @convert_to_git(ptr noundef %istate, ptr noundef %path, ptr noundef %src.addr.0, i64 noundef %len.addr.0, ptr noundef %dst, i32 noundef 4), !range !12
+  %call2 = tail call i32 @convert_to_git(ptr noundef %istate, ptr noundef %path, ptr noundef %src.addr.0, i64 noundef %len.addr.0, ptr noundef %dst, i32 noundef 4)
   %or = or i32 %call2, %call
   ret i32 %or
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @is_null_stream_filter(ptr noundef readnone %filter) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @is_null_stream_filter(ptr noundef readnone %filter) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %filter, @null_filter_singleton
   %conv = zext i1 %cmp to i32
@@ -3177,7 +3189,7 @@ return:                                           ; preds = %if.else, %if.end13.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @classify_conv_attrs(ptr nocapture noundef readonly %ca) local_unnamed_addr #8 {
+define dso_local range(i32 0, 4) i32 @classify_conv_attrs(ptr nocapture noundef readonly %ca) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %ca, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -3337,7 +3349,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare i32 @same_encoding(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @filter_buffer_or_fd(i32 %in, i32 noundef %out, ptr nocapture noundef readonly %data) #0 {
+define internal range(i32 -1, 2) i32 @filter_buffer_or_fd(i32 %in, i32 noundef %out, ptr nocapture noundef readonly %data) #0 {
 entry:
   %child_process = alloca %struct.child_process, align 8
   %format = alloca ptr, align 8
@@ -3462,7 +3474,7 @@ strbuf_addch.exit40:                              ; preds = %strbuf_avail.exit.i
 if.end6:                                          ; preds = %if.then4, %strbuf_addch.exit40, %strbuf_addch.exit
   %call = call i32 @strbuf_expand_step(ptr noundef nonnull %cmd1, ptr noundef nonnull %format) #21
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !18
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %if.end6, %entry
   %buf = getelementptr inbounds i8, ptr %cmd1, i64 16
@@ -3631,7 +3643,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @is_null_oid(ptr nocapture noundef readonly %oid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_null_oid(ptr nocapture noundef readonly %oid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @null_oid() #21
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
@@ -3713,7 +3725,7 @@ for.body:                                         ; preds = %entry, %for.body
   %4 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %trace, ptr noundef nonnull @.str.64, i32 noundef %4, i32 noundef %conv2, i32 noundef %cond, i32 noundef %cond23) #21
   %exitcond.not = icmp eq i64 %indvars.iv.next, %len
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %entry
   call void @strbuf_addchars(ptr noundef nonnull %trace, i32 noundef 10, i64 noundef 1) #21
@@ -3737,7 +3749,7 @@ do.end:                                           ; preds = %for.end, %if.then
 declare ptr @reencode_string_len(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i32 @check_roundtrip(ptr noundef readonly %enc_name) unnamed_addr #14 {
+define internal fastcc range(i32 0, 2) i32 @check_roundtrip(ptr noundef readonly %enc_name) unnamed_addr #14 {
 entry:
   %0 = load ptr, ptr @check_roundtrip_encoding, align 8
   %call = tail call ptr @strcasestr(ptr noundef %0, ptr noundef %enc_name) #22
@@ -3813,7 +3825,7 @@ declare void @trace_strbuf_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 declare ptr @strcasestr(ptr noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @has_crlf_in_index(ptr noundef %istate, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @has_crlf_in_index(ptr noundef %istate, ptr noundef %path) unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %call = call ptr @read_blob_data_from_index(ptr noundef %istate, ptr noundef %path, ptr noundef nonnull %sz) #21
@@ -4108,7 +4120,7 @@ if.then8.i57:                                     ; preds = %if.end4.i55
 ident_drain.exit59:                               ; preds = %if.end4.i55, %if.then8.i57
   %13 = phi i64 [ %11, %if.end4.i55 ], [ %.pre134, %if.then8.i57 ]
   %tobool9.not = icmp eq i64 %13, 0
-  br i1 %tobool9.not, label %return, label %while.cond.outer, !llvm.loop !20
+  br i1 %tobool9.not, label %return, label %while.cond.outer, !llvm.loop !19
 
 while.cond.outer:                                 ; preds = %while.cond.preheader, %ident_drain.exit59
   %output.addr.0.ph = phi ptr [ %output, %while.cond.preheader ], [ %output.addr.1, %ident_drain.exit59 ]
@@ -4200,7 +4212,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %30 = load i8, ptr %gep.i, align 1
   %cmp9.not.i = icmp eq i8 %30, 36
   br i1 %cmp9.not.i, label %for.inc.i, label %while.cond.backedge.sink.split
@@ -4210,7 +4222,7 @@ for.inc.i:                                        ; preds = %for.body.i, %land.l
   %arrayidx.i63 = getelementptr inbounds i8, ptr %scevgep.i, i64 %indvars.iv.next.i
   %31 = load i8, ptr %arrayidx.i63, align 1
   %tobool.not.i64 = icmp eq i8 %31, 0
-  br i1 %tobool.not.i64, label %if.then30, label %for.body.i, !llvm.loop !21
+  br i1 %tobool.not.i64, label %if.then30, label %for.body.i, !llvm.loop !20
 
 if.then30:                                        ; preds = %do.cond.i.i, %for.inc.i, %for.cond.preheader.i
   %32 = load i64, ptr %left52, align 8
@@ -4245,7 +4257,7 @@ while.cond.backedge:                              ; preds = %while.cond.backedge
   %33 = load i64, ptr %isize_p, align 8
   %tobool2.not = icmp eq i64 %33, 0
   %.pre = load i32, ptr %state, align 8
-  br i1 %tobool2.not, label %lor.rhs, label %while.body, !llvm.loop !20
+  br i1 %tobool2.not, label %lor.rhs, label %while.body, !llvm.loop !19
 
 if.end36:                                         ; preds = %if.end12
   %cmp39 = icmp ult i32 %16, 4
@@ -4390,7 +4402,7 @@ entry:
 declare void @strbuf_remove(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cascade_filter_fn(ptr noundef %filter, ptr noundef %input, ptr nocapture noundef %isize_p, ptr noundef %output, ptr nocapture noundef %osize_p) #0 {
+define internal range(i32 -1, 1) i32 @cascade_filter_fn(ptr noundef %filter, ptr noundef %input, ptr nocapture noundef %isize_p, ptr noundef %output, ptr nocapture noundef %osize_p) #0 {
 entry:
   %to_feed = alloca i64, align 8
   %remaining = alloca i64, align 8
@@ -4501,7 +4513,7 @@ while.cond.outer.backedge:                        ; preds = %if.end50, %if.end
   %input.addr.0.ph.be = phi ptr [ %.us-phi77, %if.end ], [ null, %if.end50 ]
   %filled.0.ph.be = sub i64 %0, %.pn
   %cmp = icmp ult i64 %filled.0.ph.be, %0
-  br i1 %cmp, label %while.body.lr.ph.split.us, label %while.end, !llvm.loop !22
+  br i1 %cmp, label %while.body.lr.ph.split.us, label %while.end, !llvm.loop !21
 
 if.end43:                                         ; preds = %lor.lhs.false.us
   %.pre113 = load ptr, ptr %two45, align 8
@@ -4685,7 +4697,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %cmp29 = icmp ult i64 %o.3, %9
   %cmp31 = icmp ult i64 %inc62, %2
   %10 = select i1 %cmp29, i1 %cmp31, i1 false
-  br i1 %10, label %for.body, label %for.end, !llvm.loop !23
+  br i1 %10, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %for.inc, %if.end28
   %o.1.lcssa = phi i64 [ %o.039, %if.end28 ], [ %o.3, %for.inc ]
@@ -4777,7 +4789,7 @@ attributes #24 = { nounwind willreturn memory(none) }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
@@ -4788,4 +4800,3 @@ attributes #24 = { nounwind willreturn memory(none) }
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}

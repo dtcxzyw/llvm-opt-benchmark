@@ -603,45 +603,58 @@ declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @control_devkmsg(ptr noundef %0) #4 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %.split, label %4
+  br i1 %2, label %.split, label %sub_0
 
 .split:                                           ; preds = %1
   %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70, ptr noundef null) #28
-  br label %17
+  br label %19
 
-4:                                                ; preds = %1
-  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.71, i64 noundef 2) #26
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %14, label %7
+sub_0:                                            ; preds = %1
+  %4 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %4, 111
+  br i1 %.not, label %.tail, label %.tail3.thread
 
-7:                                                ; preds = %4
-  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.72, i64 noundef 3) #26
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %15, label %10
+.tail:                                            ; preds = %sub_0
+  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 110
+  br i1 %7, label %16, label %sub_15
 
-10:                                               ; preds = %7
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.73, i64 noundef 9) #26
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread, label %.split1
+sub_15:                                           ; preds = %.tail
+  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = load i8, ptr %8, align 1
+  %.not8 = icmp eq i8 %9, 102
+  br i1 %.not8, label %.tail3, label %.tail3.thread
 
-.split1:                                          ; preds = %10
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70, ptr noundef nonnull %0) #28
-  br label %17
+.tail3:                                           ; preds = %sub_15
+  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 102
+  br i1 %12, label %17, label %.tail3.thread
 
-14:                                               ; preds = %4
+.tail3.thread:                                    ; preds = %sub_0, %sub_15, %.tail3
+  %13 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.73, i64 noundef 9) #26
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %.thread, label %.split1
+
+.split1:                                          ; preds = %.tail3.thread
+  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70, ptr noundef nonnull %0) #28
+  br label %19
+
+16:                                               ; preds = %.tail
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) @devkmsg_log_str, ptr noundef nonnull align 1 dereferenceable(3) @.str.71, i64 3, i1 false) #26
   br label %.thread
 
-15:                                               ; preds = %7
+17:                                               ; preds = %.tail3
   store i32 6710895, ptr @devkmsg_log_str, align 4
   br label %.thread
 
-.thread:                                          ; preds = %10, %15, %14
-  %16 = phi i32 [ 6, %15 ], [ 5, %14 ], [ 4, %10 ]
-  store i32 %16, ptr @devkmsg_log, align 4
-  br label %17
+.thread:                                          ; preds = %.tail3.thread, %17, %16
+  %18 = phi i32 [ 6, %17 ], [ 5, %16 ], [ 4, %.tail3.thread ]
+  store i32 %18, ptr @devkmsg_log, align 4
+  br label %19
 
-17:                                               ; preds = %.split, %.split1, %.thread
+19:                                               ; preds = %.split, %.split1, %.thread
   ret i32 1
 }
 
@@ -770,7 +783,7 @@ define dso_local i32 @log_buf_len_get() local_unnamed_addr #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @devkmsg_llseek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
+define internal noundef range(i64 -29, 1) i64 @devkmsg_llseek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %1, 0
@@ -815,7 +828,7 @@ define internal noundef i64 @devkmsg_llseek(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @devkmsg_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal range(i64 -2147483648, 4294967296) i64 @devkmsg_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = alloca %struct.printk_message, align 8
   %6 = alloca %struct.wait_queue_entry, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 200
@@ -934,7 +947,7 @@ define internal i64 @devkmsg_read(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @devkmsg_write(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal range(i64 -22, 1025) i64 @devkmsg_write(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @console_printk, i64 0, i64 1), align 4
   %5 = load ptr, ptr %0, align 8
@@ -1035,7 +1048,7 @@ define internal i64 @devkmsg_write(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @devkmsg_poll(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal range(i32 0, 76) i32 @devkmsg_poll(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca %struct.printk_info, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
@@ -1223,7 +1236,7 @@ define dso_local void @log_buf_vmcoreinfo_setup() local_unnamed_addr #1 align 16
 declare dso_local void @vmcoreinfo_append_str(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @log_buf_len_setup(ptr noundef %0) #4 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @log_buf_len_setup(ptr noundef %0) #4 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = icmp eq ptr %0, null
@@ -2157,7 +2170,7 @@ define internal fastcc i32 @syslog_print_all(ptr noundef %0, i32 noundef %1, i1 
 declare dso_local zeroext i1 @prb_read_valid_info(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_syslog(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_syslog(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2173,7 +2186,7 @@ define dso_local i64 @__x64_sys_syslog(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_syslog(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_syslog(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -2360,7 +2373,7 @@ define dso_local zeroext i16 @printk_parse_prefix(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vprintk_store(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 65547) i32 @vprintk_store(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.prb_reserved_entry, align 8
   %8 = alloca i32, align 4
@@ -2816,7 +2829,7 @@ declare dso_local zeroext i1 @prb_reserve(ptr noundef, ptr noundef, ptr noundef)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vprintk_emit(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local range(i32 0, 65547) i32 @vprintk_emit(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @suppress_printk, align 4
@@ -3205,7 +3218,7 @@ define dso_local void @wake_up_klogd() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vprintk_default(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local range(i32 0, 65547) i32 @vprintk_default(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i32 @vprintk_emit(i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %0, ptr noundef %1), !range !53
   ret i32 %3
 }
@@ -3348,7 +3361,7 @@ define internal noundef i32 @console_setup(ptr noundef %0) #4 section ".init.tex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @add_preferred_console(ptr noundef %0, i16 noundef signext %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @add_preferred_console(ptr noundef %0, i16 noundef signext %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = sext i16 %1 to i32
   %5 = icmp slt i16 %1, 0
   br i1 %5, label %.thread, label %.preheader
@@ -3611,7 +3624,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #0
 declare dso_local void @down(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @console_trylock() #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @console_trylock() #1 align 16 {
   %1 = alloca i64, align 8
   %2 = load volatile i32, ptr @panic_cpu, align 4
   %3 = icmp eq i32 %2, -1
@@ -3659,7 +3672,7 @@ define dso_local noundef i32 @console_trylock() #1 align 16 {
 declare ptr @llvm.returnaddress(i32 immarg) #16
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @is_console_locked() #7 align 16 {
+define dso_local range(i32 0, 2) i32 @is_console_locked() #7 align 16 {
   %1 = load i1, ptr @console_locked, align 4
   %2 = zext i1 %1 to i32
   ret i32 %2
@@ -5876,13 +5889,13 @@ define dso_local void @printk_trigger_flush() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vprintk_deferred(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 65547) i32 @vprintk_deferred(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = tail call i32 @vprintk_emit(i32 noundef 0, i32 noundef -2, ptr noundef null, ptr noundef %0, ptr noundef %1), !range !53
   ret i32 %3
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @_printk_deferred(ptr noundef %0, ...) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 65547) i32 @_printk_deferred(ptr noundef %0, ...) local_unnamed_addr #4 align 16 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !11
@@ -5926,7 +5939,7 @@ define dso_local noundef zeroext i1 @printk_timed_ratelimit(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kmsg_dump_register(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @kmsg_dump_register(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5964,7 +5977,7 @@ define dso_local noundef i32 @kmsg_dump_register(ptr noundef %0) #1 align 16 {
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kmsg_dump_unregister(ptr nocapture noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @kmsg_dump_unregister(ptr nocapture noundef %0) #1 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @dump_list_lock) #26
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i8, ptr %3, align 4, !range !32, !noundef !33
@@ -6561,7 +6574,7 @@ define dso_local void @__printk_cpu_sync_wait() #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__printk_cpu_sync_try_get() #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @__printk_cpu_sync_try_get() #1 align 16 {
   %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #27, !srcloc !125
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @printk_cpu_sync_owner, i32 %1, i32 -1, ptr nonnull elementtype(i32) @printk_cpu_sync_owner) #26, !srcloc !126
   %3 = icmp eq i32 %2, -1

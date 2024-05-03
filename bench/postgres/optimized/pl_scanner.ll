@@ -35,9 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 @UnreservedPLKeywords_hash_func.h = internal unnamed_addr constant [167 x i16] [i16 0, i16 -26, i16 32767, i16 0, i16 74, i16 -36, i16 32767, i16 32767, i16 93, i16 0, i16 35, i16 14, i16 34, i16 -65, i16 -42, i16 78, i16 -22, i16 8, i16 10, i16 0, i16 5, i16 32767, i16 10, i16 26, i16 32767, i16 4, i16 32767, i16 32767, i16 -81, i16 -9, i16 -25, i16 32767, i16 -17, i16 11, i16 0, i16 -43, i16 11, i16 8, i16 45, i16 0, i16 32767, i16 32767, i16 32767, i16 12, i16 0, i16 32767, i16 32, i16 32767, i16 0, i16 32767, i16 -18, i16 64, i16 32767, i16 -2, i16 31, i16 32767, i16 50, i16 80, i16 -75, i16 32767, i16 32767, i16 32767, i16 0, i16 32767, i16 32767, i16 0, i16 54, i16 82, i16 32767, i16 32767, i16 69, i16 60, i16 43, i16 32767, i16 0, i16 95, i16 21, i16 1, i16 27, i16 0, i16 120, i16 32767, i16 -46, i16 32767, i16 -57, i16 32767, i16 32767, i16 55, i16 70, i16 32767, i16 28, i16 32767, i16 0, i16 -14, i16 -38, i16 32767, i16 57, i16 0, i16 32767, i16 19, i16 98, i16 0, i16 32767, i16 68, i16 32767, i16 32767, i16 32767, i16 32767, i16 -26, i16 13, i16 27, i16 35, i16 37, i16 32767, i16 49, i16 -44, i16 65, i16 -35, i16 0, i16 32767, i16 32767, i16 32767, i16 30, i16 0, i16 0, i16 32767, i16 26, i16 42, i16 7, i16 32767, i16 72, i16 -43, i16 32767, i16 0, i16 32767, i16 89, i16 36, i16 48, i16 32767, i16 32, i16 38, i16 3, i16 32767, i16 49, i16 32767, i16 0, i16 51, i16 0, i16 32767, i16 73, i16 32767, i16 32767, i16 79, i16 32767, i16 30, i16 32767, i16 0, i16 0, i16 50, i16 32767, i16 0, i16 32767, i16 32767, i16 32767, i16 0, i16 32767, i16 32767], align 16
 @pushback_token = internal unnamed_addr global [4 x i32] zeroinitializer, align 16
 @pushback_auxdata = internal unnamed_addr global [4 x %struct.TokenAuxData] zeroinitializer, align 16
-@.str.4 = private unnamed_addr constant [3 x i8] c"<<\00", align 1
-@.str.5 = private unnamed_addr constant [3 x i8] c">>\00", align 1
-@.str.6 = private unnamed_addr constant [2 x i8] c"#\00", align 1
 @.str.7 = private unnamed_addr constant [28 x i8] c"too many tokens pushed back\00", align 1
 @__func__.push_back_token = private unnamed_addr constant [16 x i8] c"push_back_token\00", align 1
 @ReservedPLKeywords_kw_string = internal constant [120 x i8] c"all\00begin\00by\00case\00declare\00else\00end\00execute\00for\00foreach\00from\00if\00in\00into\00loop\00not\00null\00or\00strict\00then\00to\00using\00when\00while\00", align 16
@@ -327,7 +324,7 @@ define internal fastcc i32 @internal_yylex(ptr noundef %0) unnamed_addr #0 {
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
-  br label %33
+  br label %.tail20
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 32
@@ -341,35 +338,62 @@ define internal fastcc i32 @internal_yylex(ptr noundef %0) unnamed_addr #0 {
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %19, ptr %20, align 4
-  switch i32 %13, label %33 [
-    i32 265, label %21
-    i32 267, label %31
+  switch i32 %13, label %.tail20 [
+    i32 265, label %sub_0
+    i32 267, label %37
   ]
 
-21:                                               ; preds = %10
-  %22 = load ptr, ptr %0, align 8
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(3) @.str.4) #13
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %33, label %25
+sub_0:                                            ; preds = %10
+  %21 = load ptr, ptr %0, align 8
+  %22 = load i8, ptr %21, align 1
+  switch i8 %22, label %.tail20 [
+    i8 60, label %sub_1
+    i8 62, label %sub_117
+    i8 35, label %sub_122
+  ]
 
-25:                                               ; preds = %21
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(3) @.str.5) #13
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %33, label %28
+sub_1:                                            ; preds = %sub_0
+  %23 = getelementptr inbounds i8, ptr %21, i64 1
+  %24 = load i8, ptr %23, align 1
+  %.not24 = icmp eq i8 %24, 60
+  br i1 %.not24, label %.tail, label %sub_021.thread32
 
-28:                                               ; preds = %25
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(2) @.str.6) #13
-  %30 = icmp eq i32 %29, 0
-  %spec.select = select i1 %30, i32 35, i32 265
-  br label %33
+.tail:                                            ; preds = %sub_1
+  %25 = getelementptr inbounds i8, ptr %21, i64 2
+  %26 = load i8, ptr %25, align 1
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %.tail20, label %sub_021.thread32
 
-31:                                               ; preds = %10
-  %32 = tail call ptr @pstrdup(ptr noundef %17) #11
-  store ptr %32, ptr %0, align 8
-  br label %33
+sub_117:                                          ; preds = %sub_0
+  %28 = getelementptr inbounds i8, ptr %21, i64 1
+  %29 = load i8, ptr %28, align 1
+  %.not26 = icmp eq i8 %29, 62
+  br i1 %.not26, label %.tail15, label %sub_021.thread32
 
-33:                                               ; preds = %28, %10, %25, %21, %31, %4
-  %.0 = phi i32 [ %8, %4 ], [ 267, %31 ], [ 278, %21 ], [ 279, %25 ], [ %spec.select, %28 ], [ %13, %10 ]
+.tail15:                                          ; preds = %sub_117
+  %30 = getelementptr inbounds i8, ptr %21, i64 2
+  %31 = load i8, ptr %30, align 1
+  %32 = icmp eq i8 %31, 0
+  %spec.select = select i1 %32, i32 279, i32 265
+  br label %.tail20
+
+sub_021.thread32:                                 ; preds = %sub_117, %sub_1, %.tail
+  br label %.tail20
+
+sub_122:                                          ; preds = %sub_0
+  %33 = getelementptr inbounds i8, ptr %21, i64 1
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, 0
+  %36 = select i1 %35, i32 35, i32 265
+  br label %.tail20
+
+37:                                               ; preds = %10
+  %38 = tail call ptr @pstrdup(ptr noundef %17) #11
+  store ptr %38, ptr %0, align 8
+  br label %.tail20
+
+.tail20:                                          ; preds = %.tail15, %sub_0, %sub_122, %sub_021.thread32, %10, %.tail, %37, %4
+  %.0 = phi i32 [ %8, %4 ], [ 267, %37 ], [ 278, %.tail ], [ %13, %10 ], [ %36, %sub_122 ], [ 265, %sub_021.thread32 ], [ %spec.select, %.tail15 ], [ 265, %sub_0 ]
   ret i32 %.0
 }
 
@@ -713,7 +737,7 @@ define hidden void @plpgsql_scanner_finish() local_unnamed_addr #0 {
 declare void @scanner_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @UnreservedPLKeywords_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) #9 {
+define internal range(i32 -65536, 65535) i32 @UnreservedPLKeywords_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) #9 {
   %.not11 = icmp eq i64 %1, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -759,15 +783,12 @@ declare i32 @core_yylex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
-
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ReservedPLKeywords_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) #9 {
+define internal range(i32 -256, 255) i32 @ReservedPLKeywords_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) #9 {
   %.not11 = icmp eq i64 %1, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

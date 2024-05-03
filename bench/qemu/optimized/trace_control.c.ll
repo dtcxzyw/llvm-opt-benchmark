@@ -26,7 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @error_fatal = external global ptr, align 8
 @trace_events_enabled_count = dso_local local_unnamed_addr global i32 0, align 4
 @.str.9 = private unnamed_addr constant [103 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/trace/control-internal.h\00", align 1
-@.str.10 = private unnamed_addr constant [2 x i8] c"?\00", align 1
 @.str.11 = private unnamed_addr constant [5 x i8] c"help\00", align 1
 @.str.12 = private unnamed_addr constant [34 x i8] c"trace event '%s' is not traceable\00", align 1
 @.str.13 = private unnamed_addr constant [32 x i8] c"trace event '%s' does not exist\00", align 1
@@ -284,19 +283,25 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @trace_enable_events(ptr noundef %line_buf) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %line_buf, ptr noundef nonnull dereferenceable(2) @.str.10) #14
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then, label %is_help_option.exit
+  %0 = load i8, ptr %line_buf, align 1
+  %.not.i = icmp eq i8 %0, 63
+  br i1 %.not.i, label %entry.tail.i, label %is_help_option.exit
 
-is_help_option.exit:                              ; preds = %entry
+entry.tail.i:                                     ; preds = %entry
+  %1 = getelementptr inbounds i8, ptr %line_buf, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.then, label %is_help_option.exit
+
+is_help_option.exit:                              ; preds = %entry, %entry.tail.i
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %line_buf, ptr noundef nonnull dereferenceable(5) @.str.11) #14
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.else
 
-if.then:                                          ; preds = %entry, %is_help_option.exit
-  %0 = load ptr, ptr @stdout, align 8
-  %1 = load i64, ptr @nevent_groups, align 8
-  %cmp19.i9.not.i = icmp eq i64 %1, 0
+if.then:                                          ; preds = %entry.tail.i, %is_help_option.exit
+  %4 = load ptr, ptr @stdout, align 8
+  %5 = load i64, ptr @nevent_groups, align 8
+  %cmp19.i9.not.i = icmp eq i64 %5, 0
   br i1 %cmp19.i9.not.i, label %trace_list_events.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.then, %while.body.i.i
@@ -304,25 +309,25 @@ land.rhs.i.i:                                     ; preds = %if.then, %while.bod
   %iter.sroa.0.010.i = phi i64 [ %spec.select.i, %while.body.i.i ], [ 0, %if.then ]
   %.pre22.i.i = load ptr, ptr @event_groups, align 8
   %arrayidx.i.i = getelementptr %struct.TraceEventGroup, ptr %.pre22.i.i, i64 %iter.sroa.4.011.i
-  %2 = load ptr, ptr %arrayidx.i.i, align 8
-  %arrayidx2.i.i = getelementptr ptr, ptr %2, i64 %iter.sroa.0.010.i
-  %3 = load ptr, ptr %arrayidx2.i.i, align 8
-  %cmp3.not.i.i = icmp eq ptr %3, null
+  %6 = load ptr, ptr %arrayidx.i.i, align 8
+  %arrayidx2.i.i = getelementptr ptr, ptr %6, i64 %iter.sroa.0.010.i
+  %7 = load ptr, ptr %arrayidx2.i.i, align 8
+  %cmp3.not.i.i = icmp eq ptr %7, null
   br i1 %cmp3.not.i.i, label %trace_list_events.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %inc.i.i = add i64 %iter.sroa.0.010.i, 1
-  %arrayidx16.i.i = getelementptr ptr, ptr %2, i64 %inc.i.i
-  %4 = load ptr, ptr %arrayidx16.i.i, align 8
-  %cmp17.i.i = icmp eq ptr %4, null
+  %arrayidx16.i.i = getelementptr ptr, ptr %6, i64 %inc.i.i
+  %8 = load ptr, ptr %arrayidx16.i.i, align 8
+  %cmp17.i.i = icmp eq ptr %8, null
   %spec.select.i = select i1 %cmp17.i.i, i64 0, i64 %inc.i.i
   %inc20.i.i = zext i1 %cmp17.i.i to i64
   %spec.select8.i = add nuw i64 %iter.sroa.4.011.i, %inc20.i.i
-  %5 = getelementptr i8, ptr %3, i64 8
-  %call.val.i = load ptr, ptr %5, align 8
-  %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %call.val.i)
-  %6 = load i64, ptr @nevent_groups, align 8
-  %cmp19.i.i = icmp ult i64 %spec.select8.i, %6
+  %9 = getelementptr i8, ptr %7, i64 8
+  %call.val.i = load ptr, ptr %9, align 8
+  %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.7, ptr noundef %call.val.i)
+  %10 = load i64, ptr @nevent_groups, align 8
+  %cmp19.i.i = icmp ult i64 %spec.select8.i, %10
   br i1 %cmp19.i.i, label %land.rhs.i.i, label %trace_list_events.exit, !llvm.loop !9
 
 trace_list_events.exit:                           ; preds = %land.rhs.i.i, %while.body.i.i, %if.then
@@ -335,8 +340,7 @@ if.then2:                                         ; preds = %trace_list_events.e
   unreachable
 
 if.else:                                          ; preds = %is_help_option.exit
-  %7 = load i8, ptr %line_buf, align 1
-  %cmp.i = icmp ne i8 %7, 45
+  %cmp.i = icmp ne i8 %0, 45
   %not.cmp.i = xor i1 %cmp.i, true
   %cond.idx.i = zext i1 %not.cmp.i to i64
   %cond.i = getelementptr i8, ptr %line_buf, i64 %cond.idx.i
@@ -351,8 +355,8 @@ trace_event_is_pattern.exit.i:                    ; preds = %if.else
   %call.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond.i, i32 noundef 42) #14
   %call.i.fr.i = freeze ptr %call.i.i
   %cmp1.i.not.i = icmp eq ptr %call.i.fr.i, null
-  %8 = load i64, ptr @nevent_groups, align 8
-  %cmp19.i18.not.i = icmp eq i64 %8, 0
+  %11 = load i64, ptr @nevent_groups, align 8
+  %cmp19.i18.not.i = icmp eq i64 %11, 0
   br i1 %cmp19.i18.not.i, label %while.end.i, label %land.rhs.lr.ph.i.lr.ph.i
 
 land.rhs.lr.ph.i.lr.ph.i:                         ; preds = %trace_event_is_pattern.exit.i
@@ -361,85 +365,85 @@ land.rhs.lr.ph.i.lr.ph.i:                         ; preds = %trace_event_is_patt
 land.rhs.i.us.i:                                  ; preds = %land.rhs.lr.ph.i.lr.ph.i, %while.cond.backedge.i.us.i
   %iter.sroa.0.1.us.i = phi i64 [ %spec.select.us.i, %while.cond.backedge.i.us.i ], [ 0, %land.rhs.lr.ph.i.lr.ph.i ]
   %iter.sroa.4.1.us.i = phi i64 [ %spec.select15.us.i, %while.cond.backedge.i.us.i ], [ 0, %land.rhs.lr.ph.i.lr.ph.i ]
-  %9 = load ptr, ptr @event_groups, align 8
-  %arrayidx.i.us.i = getelementptr %struct.TraceEventGroup, ptr %9, i64 %iter.sroa.4.1.us.i
-  %10 = load ptr, ptr %arrayidx.i.us.i, align 8
-  %arrayidx2.i.us.i = getelementptr ptr, ptr %10, i64 %iter.sroa.0.1.us.i
-  %11 = load ptr, ptr %arrayidx2.i.us.i, align 8
-  %cmp3.not.i.us.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr @event_groups, align 8
+  %arrayidx.i.us.i = getelementptr %struct.TraceEventGroup, ptr %12, i64 %iter.sroa.4.1.us.i
+  %13 = load ptr, ptr %arrayidx.i.us.i, align 8
+  %arrayidx2.i.us.i = getelementptr ptr, ptr %13, i64 %iter.sroa.0.1.us.i
+  %14 = load ptr, ptr %arrayidx2.i.us.i, align 8
+  %cmp3.not.i.us.i = icmp eq ptr %14, null
   br i1 %cmp3.not.i.us.i, label %while.end.i, label %while.body.i.us.i
 
 while.body.i.us.i:                                ; preds = %land.rhs.i.us.i
   %inc.i.us.i = add i64 %iter.sroa.0.1.us.i, 1
-  %arrayidx16.i.us.i = getelementptr ptr, ptr %10, i64 %inc.i.us.i
-  %12 = load ptr, ptr %arrayidx16.i.us.i, align 8
-  %13 = getelementptr i8, ptr %11, i64 8
-  %.val.i.us.i = load ptr, ptr %13, align 8
+  %arrayidx16.i.us.i = getelementptr ptr, ptr %13, i64 %inc.i.us.i
+  %15 = load ptr, ptr %arrayidx16.i.us.i, align 8
+  %16 = getelementptr i8, ptr %14, i64 8
+  %.val.i.us.i = load ptr, ptr %16, align 8
   %call22.i.us.i = tail call i32 @g_pattern_match_simple(ptr noundef nonnull %cond.i, ptr noundef %.val.i.us.i) #12
   %tobool23.not.i.us.i = icmp eq i32 %call22.i.us.i, 0
   br i1 %tobool23.not.i.us.i, label %while.cond.backedge.i.us.i, label %while.body.us.i
 
 while.body.us.i:                                  ; preds = %while.body.i.us.i
-  %14 = getelementptr i8, ptr %11, i64 16
-  %call4.val.us.i = load i8, ptr %14, align 8
+  %17 = getelementptr i8, ptr %14, i64 16
+  %call4.val.us.i = load i8, ptr %17, align 8
   %tobool.i.us.i = trunc i8 %call4.val.us.i to i1
   br i1 %tobool.i.us.i, label %if.end10.us.i, label %if.then9.i
 
 if.end10.us.i:                                    ; preds = %while.body.us.i
-  tail call void @trace_event_set_state_dynamic(ptr noundef nonnull %11, i1 noundef zeroext %cmp.i) #12
+  tail call void @trace_event_set_state_dynamic(ptr noundef nonnull %14, i1 noundef zeroext %cmp.i) #12
   br label %if.end3
 
 while.cond.backedge.i.us.i:                       ; preds = %while.body.i.us.i
-  %cmp17.i.us.i = icmp eq ptr %12, null
+  %cmp17.i.us.i = icmp eq ptr %15, null
   %inc20.i.us.i = zext i1 %cmp17.i.us.i to i64
   %spec.select15.us.i = add nuw i64 %iter.sroa.4.1.us.i, %inc20.i.us.i
   %spec.select.us.i = select i1 %cmp17.i.us.i, i64 0, i64 %inc.i.us.i
-  %15 = load i64, ptr @nevent_groups, align 8
-  %cmp.i.us.i = icmp ult i64 %spec.select15.us.i, %15
+  %18 = load i64, ptr @nevent_groups, align 8
+  %cmp.i.us.i = icmp ult i64 %spec.select15.us.i, %18
   br i1 %cmp.i.us.i, label %land.rhs.i.us.i, label %while.end.i, !llvm.loop !8
 
 land.rhs.i.i2:                                    ; preds = %land.rhs.lr.ph.i.lr.ph.i, %land.rhs.i.i2.backedge
   %iter.sroa.0.1.i = phi i64 [ %spec.select.i10, %land.rhs.i.i2.backedge ], [ 0, %land.rhs.lr.ph.i.lr.ph.i ]
   %iter.sroa.4.1.i = phi i64 [ %spec.select15.i, %land.rhs.i.i2.backedge ], [ 0, %land.rhs.lr.ph.i.lr.ph.i ]
-  %16 = load ptr, ptr @event_groups, align 8
-  %arrayidx.i.i3 = getelementptr %struct.TraceEventGroup, ptr %16, i64 %iter.sroa.4.1.i
-  %17 = load ptr, ptr %arrayidx.i.i3, align 8
-  %arrayidx2.i.i4 = getelementptr ptr, ptr %17, i64 %iter.sroa.0.1.i
-  %18 = load ptr, ptr %arrayidx2.i.i4, align 8
-  %cmp3.not.i.i5 = icmp eq ptr %18, null
+  %19 = load ptr, ptr @event_groups, align 8
+  %arrayidx.i.i3 = getelementptr %struct.TraceEventGroup, ptr %19, i64 %iter.sroa.4.1.i
+  %20 = load ptr, ptr %arrayidx.i.i3, align 8
+  %arrayidx2.i.i4 = getelementptr ptr, ptr %20, i64 %iter.sroa.0.1.i
+  %21 = load ptr, ptr %arrayidx2.i.i4, align 8
+  %cmp3.not.i.i5 = icmp eq ptr %21, null
   br i1 %cmp3.not.i.i5, label %while.end.i, label %while.body.i.i6
 
 while.body.i.i6:                                  ; preds = %land.rhs.i.i2
   %inc.i.i7 = add i64 %iter.sroa.0.1.i, 1
-  %arrayidx16.i.i8 = getelementptr ptr, ptr %17, i64 %inc.i.i7
-  %19 = load ptr, ptr %arrayidx16.i.i8, align 8
-  %cmp17.i.i9 = icmp eq ptr %19, null
+  %arrayidx16.i.i8 = getelementptr ptr, ptr %20, i64 %inc.i.i7
+  %22 = load ptr, ptr %arrayidx16.i.i8, align 8
+  %cmp17.i.i9 = icmp eq ptr %22, null
   %spec.select.i10 = select i1 %cmp17.i.i9, i64 0, i64 %inc.i.i7
   %inc20.i.i11 = zext i1 %cmp17.i.i9 to i64
   %spec.select15.i = add nuw i64 %iter.sroa.4.1.i, %inc20.i.i11
-  %20 = getelementptr i8, ptr %18, i64 8
-  %.val.i.i = load ptr, ptr %20, align 8
+  %23 = getelementptr i8, ptr %21, i64 8
+  %.val.i.i = load ptr, ptr %23, align 8
   %call22.i.i = tail call i32 @g_pattern_match_simple(ptr noundef nonnull %cond.i, ptr noundef %.val.i.i) #12
   %tobool23.not.i.i = icmp eq i32 %call22.i.i, 0
   br i1 %tobool23.not.i.i, label %while.cond.backedge.i.i, label %while.body.i
 
 while.cond.backedge.i.i:                          ; preds = %while.body.i.i6
-  %21 = load i64, ptr @nevent_groups, align 8
-  %cmp.i.i = icmp ult i64 %spec.select15.i, %21
+  %24 = load i64, ptr @nevent_groups, align 8
+  %cmp.i.i = icmp ult i64 %spec.select15.i, %24
   br i1 %cmp.i.i, label %land.rhs.i.i2.backedge, label %while.end.i
 
 land.rhs.i.i2.backedge:                           ; preds = %while.cond.backedge.i.i, %while.cond.backedge.i
   br label %land.rhs.i.i2, !llvm.loop !10
 
 while.body.i:                                     ; preds = %while.body.i.i6
-  %22 = getelementptr i8, ptr %18, i64 16
-  %call4.val.i = load i8, ptr %22, align 8
+  %25 = getelementptr i8, ptr %21, i64 16
+  %call4.val.i = load i8, ptr %25, align 8
   %tobool.i.i = trunc i8 %call4.val.i to i1
   br i1 %tobool.i.i, label %if.end10.i, label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end10.i, %while.body.i
-  %23 = load i64, ptr @nevent_groups, align 8
-  %cmp19.i.i12 = icmp ult i64 %spec.select15.i, %23
+  %26 = load i64, ptr @nevent_groups, align 8
+  %cmp19.i.i12 = icmp ult i64 %spec.select15.i, %26
   br i1 %cmp19.i.i12, label %land.rhs.i.i2.backedge, label %while.end.i
 
 if.then9.i:                                       ; preds = %while.body.us.i
@@ -447,7 +451,7 @@ if.then9.i:                                       ; preds = %while.body.us.i
   br label %if.end3
 
 if.end10.i:                                       ; preds = %while.body.i
-  tail call void @trace_event_set_state_dynamic(ptr noundef nonnull %18, i1 noundef zeroext %cmp.i) #12
+  tail call void @trace_event_set_state_dynamic(ptr noundef nonnull %21, i1 noundef zeroext %cmp.i) #12
   br label %while.cond.backedge.i
 
 while.end.i:                                      ; preds = %while.cond.backedge.i, %while.cond.backedge.i.i, %land.rhs.i.i2, %while.cond.backedge.i.us.i, %land.rhs.i.us.i, %trace_event_is_pattern.exit.i

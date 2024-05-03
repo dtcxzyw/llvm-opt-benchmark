@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pccard_sysfs_add_socket(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = tail call i32 @sysfs_create_group(ptr noundef %0, ptr noundef nonnull @socket_attrs) #5
+  %2 = tail call i32 @sysfs_create_group(ptr noundef %0, ptr noundef nonnull @socket_attrs) #4
   ret i32 %2
 }
 
@@ -50,7 +50,7 @@ declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pccard_sysfs_remove_socket(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  tail call void @sysfs_remove_group(ptr noundef %0, ptr noundef nonnull @socket_attrs) #5
+  tail call void @sysfs_remove_group(ptr noundef %0, ptr noundef nonnull @socket_attrs) #4
   ret void
 }
 
@@ -58,7 +58,7 @@ define dso_local void @pccard_sysfs_remove_socket(ptr noundef %0) local_unnamed_
 declare dso_local void @sysfs_remove_group(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pccard_show_type(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pccard_show_type(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -540
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 8
@@ -69,7 +69,7 @@ define internal i64 @pccard_show_type(ptr nocapture noundef readonly %0, ptr noc
   %9 = and i32 %5, 32768
   %10 = icmp eq i32 %9, 0
   %11 = select i1 %10, ptr @.str.2, ptr @.str.1
-  %12 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull %11) #5
+  %12 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull %11) #4
   %13 = sext i32 %12 to i64
   br label %14
 
@@ -88,7 +88,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pccard_show_voltage(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pccard_show_voltage(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -540
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 8
@@ -106,12 +106,12 @@ define internal i64 @pccard_show_voltage(ptr nocapture noundef readonly %0, ptr 
   %.zext = zext nneg i8 %13 to i32
   %14 = urem i8 %10, 10
   %.zext2 = zext nneg i8 %14 to i32
-  %15 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %.zext, i32 noundef %.zext2) #5
+  %15 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %.zext, i32 noundef %.zext2) #4
   %16 = sext i32 %15 to i64
   br label %20
 
 17:                                               ; preds = %8
-  %18 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.5) #5
+  %18 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.5) #4
   %19 = sext i32 %18 to i64
   br label %20
 
@@ -121,7 +121,7 @@ define internal i64 @pccard_show_voltage(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pccard_show_vpp(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pccard_show_vpp(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -540
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 8
@@ -135,7 +135,7 @@ define internal i64 @pccard_show_vpp(ptr nocapture noundef readonly %0, ptr noca
   %.zext = zext nneg i8 %11 to i32
   %12 = urem i8 %10, 10
   %.zext2 = zext nneg i8 %12 to i32
-  %13 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %.zext, i32 noundef %.zext2) #5
+  %13 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %.zext, i32 noundef %.zext2) #4
   %14 = sext i32 %13 to i64
   br label %15
 
@@ -145,7 +145,7 @@ define internal i64 @pccard_show_vpp(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pccard_show_vcc(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pccard_show_vcc(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -540
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 8
@@ -159,7 +159,7 @@ define internal i64 @pccard_show_vcc(ptr nocapture noundef readonly %0, ptr noca
   %.zext = zext nneg i8 %11 to i32
   %12 = urem i8 %10, 10
   %.zext2 = zext nneg i8 %12 to i32
-  %13 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %.zext, i32 noundef %.zext2) #5
+  %13 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %.zext, i32 noundef %.zext2) #4
   %14 = sext i32 %13 to i64
   br label %15
 
@@ -169,13 +169,13 @@ define internal i64 @pccard_show_vcc(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @pccard_store_insert(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 align 16 {
+define internal noundef range(i64 1, 0) i64 @pccard_store_insert(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 align 16 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %0, i64 -560
-  tail call void @pcmcia_parse_uevents(ptr noundef %7, i32 noundef 2) #5
+  tail call void @pcmcia_parse_uevents(ptr noundef %7, i32 noundef 2) #4
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -187,54 +187,64 @@ define internal noundef i64 @pccard_store_insert(ptr noundef %0, ptr nocapture r
 declare dso_local void @pcmcia_parse_uevents(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pccard_show_card_pm_state(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pccard_show_card_pm_state(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -540
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 128
   %7 = icmp eq i32 %6, 0
   %8 = select i1 %7, ptr @.str.12, ptr @.str.11
-  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %8) #5
+  %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %8) #4
   %10 = sext i32 %9 to i64
   ret i64 %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @pccard_store_card_pm_state(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
+define internal noundef range(i64 1, 0) i64 @pccard_store_card_pm_state(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -560
   %6 = icmp eq i64 %3, 0
-  br i1 %6, label %15, label %7
+  br i1 %6, label %.tail1.thread, label %sub_0
 
-7:                                                ; preds = %4
-  %8 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull dereferenceable(4) @.str.11, i64 noundef 3) #5
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %13, label %10
+sub_0:                                            ; preds = %4
+  %7 = load i8, ptr %2, align 1
+  %.not = icmp eq i8 %7, 111
+  br i1 %.not, label %sub_1, label %.tail1.thread
 
-10:                                               ; preds = %7
-  %11 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull dereferenceable(3) @.str.12, i64 noundef 2) #5
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %15
+sub_1:                                            ; preds = %sub_0
+  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %9 = load i8, ptr %8, align 1
+  %.not5 = icmp eq i8 %9, 102
+  br i1 %.not5, label %.tail, label %.tail1
 
-13:                                               ; preds = %10, %7
-  %14 = phi i32 [ 4, %7 ], [ 8, %10 ]
-  tail call void @pcmcia_parse_uevents(ptr noundef %5, i32 noundef %14) #5
-  br label %15
+.tail:                                            ; preds = %sub_1
+  %10 = getelementptr inbounds i8, ptr %2, i64 2
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 102
+  br i1 %12, label %16, label %.tail1
 
-15:                                               ; preds = %13, %10, %4
-  %16 = phi i64 [ -22, %4 ], [ -22, %10 ], [ %3, %13 ]
-  ret i64 %16
+.tail1:                                           ; preds = %.tail, %sub_1
+  %13 = getelementptr inbounds i8, ptr %2, i64 1
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 110
+  br i1 %15, label %16, label %.tail1.thread
+
+16:                                               ; preds = %.tail1, %.tail
+  %17 = phi i32 [ 4, %.tail ], [ 8, %.tail1 ]
+  tail call void @pcmcia_parse_uevents(ptr noundef %5, i32 noundef %17) #4
+  br label %.tail1.thread
+
+.tail1.thread:                                    ; preds = %sub_0, %16, %.tail1, %4
+  %18 = phi i64 [ -22, %4 ], [ -22, %.tail1 ], [ %3, %16 ], [ -22, %sub_0 ]
+  ret i64 %18
 }
 
-; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
-
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @pccard_store_eject(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 align 16 {
+define internal noundef range(i64 1, 0) i64 @pccard_store_eject(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 align 16 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %0, i64 -560
-  tail call void @pcmcia_parse_uevents(ptr noundef %7, i32 noundef 1) #5
+  tail call void @pcmcia_parse_uevents(ptr noundef %7, i32 noundef 1) #4
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -243,10 +253,10 @@ define internal noundef i64 @pccard_store_eject(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pccard_show_irq_mask(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pccard_show_irq_mask(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -240
   %5 = load i32, ptr %4, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.15, i32 noundef %5) #5
+  %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.15, i32 noundef %5) #4
   %7 = sext i32 %6 to i64
   ret i64 %7
 }
@@ -254,7 +264,7 @@ define internal i64 @pccard_show_irq_mask(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @pccard_store_irq_mask(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %6 = icmp eq i64 %3, 0
   br i1 %6, label %19, label %7
 
@@ -266,13 +276,13 @@ define internal noundef i64 @pccard_store_irq_mask(ptr noundef %0, ptr nocapture
 
 .thread:                                          ; preds = %7
   %10 = getelementptr i8, ptr %0, i64 -80
-  call void @mutex_lock(ptr noundef %10) #5
+  call void @mutex_lock(ptr noundef %10) #4
   %11 = load i32, ptr %5, align 4
   %12 = getelementptr i8, ptr %0, i64 -240
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, %11
   store i32 %14, ptr %12, align 8
-  call void @mutex_unlock(ptr noundef %10) #5
+  call void @mutex_unlock(ptr noundef %10) #4
   br label %18
 
 15:                                               ; preds = %7
@@ -285,12 +295,12 @@ define internal noundef i64 @pccard_store_irq_mask(ptr noundef %0, ptr nocapture
 
 19:                                               ; preds = %18, %15, %4
   %20 = phi i64 [ -22, %4 ], [ %3, %18 ], [ %16, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i64 %20
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
@@ -299,25 +309,25 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pccard_show_resource(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pccard_show_resource(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -216
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 0
   %7 = select i1 %6, ptr @.str.19, ptr @.str.18
-  %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %7) #5
+  %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %7) #4
   %9 = sext i32 %8 to i64
   ret i64 %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @pccard_store_resource(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 align 16 {
+define internal noundef range(i64 1, 0) i64 @pccard_store_resource(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -560
   %6 = icmp eq i64 %3, 0
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %0, i64 -80
-  tail call void @mutex_lock(ptr noundef %8) #5
+  tail call void @mutex_lock(ptr noundef %8) #4
   %9 = getelementptr i8, ptr %0, i64 -216
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 0
@@ -328,8 +338,8 @@ define internal noundef i64 @pccard_store_resource(ptr noundef %0, ptr nocapture
   br label %13
 
 13:                                               ; preds = %12, %7
-  tail call void @mutex_unlock(ptr noundef %8) #5
-  tail call void @pcmcia_parse_uevents(ptr noundef %5, i32 noundef 16) #5
+  tail call void @mutex_unlock(ptr noundef %8) #4
+  tail call void @pcmcia_parse_uevents(ptr noundef %5, i32 noundef 16) #4
   br label %14
 
 14:                                               ; preds = %13, %4
@@ -340,9 +350,8 @@ define internal noundef i64 @pccard_store_resource(ptr noundef %0, ptr nocapture
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
+attributes #3 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

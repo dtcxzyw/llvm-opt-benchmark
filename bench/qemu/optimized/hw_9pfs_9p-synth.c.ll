@@ -41,10 +41,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @rcu_gp_event = external global %struct.QemuEvent, align 4
 @__func__.synth_direntry = private unnamed_addr constant [15 x i8] c"synth_direntry\00", align 1
 @.str.13 = private unnamed_addr constant [73 x i8] c"sizeof(struct dirent) + NAME_MAX >= offsetof(struct dirent, d_name) + sz\00", align 1
-@.str.14 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_v9fs_synth_mkdir(ptr noundef %parent, i32 noundef %mode, ptr noundef %name, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @qemu_v9fs_synth_mkdir(ptr noundef %parent, i32 noundef %mode, ptr noundef %name, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @synth_fs, align 4
   br i1 %.b, label %if.end, label %return
@@ -195,7 +194,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_v9fs_synth_add_file(ptr noundef %parent, i32 noundef %mode, ptr noundef %name, ptr noundef %read, ptr noundef %write, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @qemu_v9fs_synth_add_file(ptr noundef %parent, i32 noundef %mode, ptr noundef %name, ptr noundef %read, ptr noundef %write, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @synth_fs, align 4
   br i1 %.b, label %if.end, label %return
@@ -364,7 +363,7 @@ for.body:                                         ; preds = %if.then, %if.end
   %i.038 = phi i32 [ 0, %if.then ], [ %inc, %if.end ]
   %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, i32 noundef %i.038) #18
   %11 = load ptr, ptr %node, align 8
-  %call6 = call i32 @qemu_v9fs_synth_mkdir(ptr noundef %11, i32 noundef 448, ptr noundef %call5, ptr noundef nonnull %node), !range !8
+  %call6 = call i32 @qemu_v9fs_synth_mkdir(ptr noundef %11, i32 noundef 448, ptr noundef %call5, ptr noundef nonnull %node)
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.end, label %if.else
 
@@ -376,10 +375,10 @@ if.end:                                           ; preds = %for.body
   tail call void @g_free(ptr noundef %call5) #18
   %inc = add nuw nsw i32 %i.038, 1
   %exitcond.not = icmp eq i32 %inc, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end
-  %call8 = tail call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null, ptr noundef %ctx), !range !8
+  %call8 = tail call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null, ptr noundef %ctx)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.end12, label %if.else11
 
@@ -388,7 +387,7 @@ if.else11:                                        ; preds = %for.end
   unreachable
 
 if.end12:                                         ; preds = %for.end
-  %call13 = tail call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef nonnull @v9fs_synth_qtest_write, ptr noundef %ctx), !range !8
+  %call13 = tail call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef nonnull @v9fs_synth_qtest_write, ptr noundef %ctx)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.end17, label %if.else16
 
@@ -397,7 +396,7 @@ if.else16:                                        ; preds = %if.end12
   unreachable
 
 if.end17:                                         ; preds = %if.end12
-  %call18 = tail call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull @v9fs_synth_qtest_flush_write, ptr noundef %ctx), !range !8
+  %call18 = tail call i32 @qemu_v9fs_synth_add_file(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull @v9fs_synth_qtest_flush_write, ptr noundef %ctx)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end22, label %if.else21
 
@@ -407,7 +406,7 @@ if.else21:                                        ; preds = %if.end17
 
 if.end22:                                         ; preds = %if.end17
   store ptr null, ptr %dir, align 8
-  %call23 = call i32 @qemu_v9fs_synth_mkdir(ptr noundef null, i32 noundef 448, ptr noundef nonnull @.str.9, ptr noundef nonnull %dir), !range !8
+  %call23 = call i32 @qemu_v9fs_synth_mkdir(ptr noundef null, i32 noundef 448, ptr noundef nonnull @.str.9, ptr noundef nonnull %dir)
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %for.cond28.preheader, label %if.else26
 
@@ -422,7 +421,7 @@ if.else26:                                        ; preds = %if.end22
 for.body30:                                       ; preds = %for.cond28.preheader, %if.end37
   %i.139 = phi i32 [ 0, %for.cond28.preheader ], [ %inc39, %if.end37 ]
   %call32 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, i32 noundef %i.139) #18
-  %call33 = tail call i32 @qemu_v9fs_synth_add_file(ptr noundef %12, i32 noundef 0, ptr noundef %call32, ptr noundef null, ptr noundef null, ptr noundef %ctx), !range !8
+  %call33 = tail call i32 @qemu_v9fs_synth_add_file(ptr noundef %12, i32 noundef 0, ptr noundef %call32, ptr noundef null, ptr noundef null, ptr noundef %ctx)
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end37, label %if.else36
 
@@ -434,7 +433,7 @@ if.end37:                                         ; preds = %for.body30
   tail call void @g_free(ptr noundef %call32) #18
   %inc39 = add nuw nsw i32 %i.139, 1
   %exitcond40.not = icmp eq i32 %inc39, 100
-  br i1 %exitcond40.not, label %if.end41, label %for.body30, !llvm.loop !10
+  br i1 %exitcond40.not, label %if.end41, label %for.body30, !llvm.loop !9
 
 if.end41:                                         ; preds = %if.end37, %v9fs_add_dir_node.exit37
   ret i32 0
@@ -649,7 +648,7 @@ while.end.i.i:                                    ; preds = %entry
   %4 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %4, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   br label %rcu_read_lock.exit.i
 
@@ -670,7 +669,7 @@ if.end.i:                                         ; preds = %rcu_read_lock.exit.
   %conv.i = sext i32 %inc.i to i64
   %cmp.i = icmp eq i64 %2, %conv.i
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i
-  br i1 %or.cond.i, label %for.end.i, label %if.end.i, !llvm.loop !12
+  br i1 %or.cond.i, label %for.end.i, label %if.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %if.end.i, %rcu_read_lock.exit.i
   %node.0.lcssa.i = phi ptr [ %node.013.i, %rcu_read_lock.exit.i ], [ %node.0.i, %if.end.i ]
@@ -693,7 +692,7 @@ if.end.i.i:                                       ; preds = %for.end.i
 
 while.end.i10.i:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i7.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i7.i, i64 8
   %6 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -751,7 +750,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @synth_preadv(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs, ptr nocapture noundef readonly %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @synth_preadv(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs, ptr nocapture noundef readonly %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %node1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -803,7 +802,7 @@ for.inc:                                          ; preds = %for.body
   %add = add i64 %conv8, %offset.addr.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !13
 
 for.end.loopexit:                                 ; preds = %for.body, %for.inc
   %10 = sext i32 %add9 to i64
@@ -815,7 +814,7 @@ return:                                           ; preds = %for.cond.preheader,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @synth_pwritev(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs, ptr nocapture noundef readonly %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @synth_pwritev(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs, ptr nocapture noundef readonly %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %node1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -867,7 +866,7 @@ for.inc:                                          ; preds = %for.body
   %add = add i64 %conv8, %offset.addr.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !14
 
 for.end.loopexit:                                 ; preds = %for.body, %for.inc
   %10 = sext i32 %add9 to i64
@@ -997,81 +996,99 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @synth_name_to_path(ptr nocapture readnone %ctx, ptr noundef readonly %dir_path, ptr nocapture noundef readonly %name, ptr nocapture noundef %target) #0 {
+define internal range(i32 -1, 1) i32 @synth_name_to_path(ptr nocapture readnone %ctx, ptr noundef readonly %dir_path, ptr nocapture noundef readonly %name, ptr nocapture noundef %target) #0 {
 entry:
   %node = alloca ptr, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(2) @.str.1) #17
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
+  %0 = load i8, ptr %name, align 1
+  %.not = icmp eq i8 %0, 46
+  br i1 %.not, label %entry.tail, label %if.end
 
-lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(3) @.str) #17
-  %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %if.then, label %if.end
+entry.tail:                                       ; preds = %entry
+  %1 = getelementptr inbounds i8, ptr %name, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.then, label %sub_113
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
+sub_113:                                          ; preds = %entry.tail
+  %4 = getelementptr inbounds i8, ptr %name, i64 1
+  %5 = load i8, ptr %4, align 1
+  %.not23 = icmp eq i8 %5, 46
+  br i1 %.not23, label %lor.lhs.false.tail, label %if.end
+
+lor.lhs.false.tail:                               ; preds = %sub_113
+  %6 = getelementptr inbounds i8, ptr %name, i64 2
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %if.then, label %if.end
+
+if.then:                                          ; preds = %lor.lhs.false.tail, %entry.tail
   %call3 = tail call ptr @__errno_location() #21
   store i32 22, ptr %call3, align 4
   br label %return
 
-if.end:                                           ; preds = %lor.lhs.false
+if.end:                                           ; preds = %entry, %sub_113, %lor.lhs.false.tail
   %tobool4.not = icmp eq ptr %dir_path, null
-  br i1 %tobool4.not, label %if.end6, label %if.else
+  br i1 %tobool4.not, label %sub_015, label %if.else
 
 if.else:                                          ; preds = %if.end
   %data = getelementptr inbounds i8, ptr %dir_path, i64 8
-  %0 = load ptr, ptr %data, align 8
-  %1 = load ptr, ptr %0, align 8
-  br label %if.end6
+  %9 = load ptr, ptr %data, align 8
+  %10 = load ptr, ptr %9, align 8
+  br label %sub_015
 
-if.end6:                                          ; preds = %if.end, %if.else
-  %dir_node.0 = phi ptr [ %1, %if.else ], [ @synth_root, %if.end ]
-  %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(2) @.str.14) #17
-  %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.then9, label %if.end10
+sub_015:                                          ; preds = %if.else, %if.end
+  %dir_node.0 = phi ptr [ %10, %if.else ], [ @synth_root, %if.end ]
+  %.not24 = icmp eq i8 %0, 47
+  br i1 %.not24, label %if.end6.tail, label %if.end10
 
-if.then9:                                         ; preds = %if.end6
+if.end6.tail:                                     ; preds = %sub_015
+  %11 = getelementptr inbounds i8, ptr %name, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %if.then9, label %if.end10
+
+if.then9:                                         ; preds = %if.end6.tail
   store ptr %dir_node.0, ptr %node, align 8
   br label %out
 
-if.end10:                                         ; preds = %if.end6
+if.end10:                                         ; preds = %sub_015, %if.end6.tail
   %call.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i = getelementptr inbounds i8, ptr %call.i, i64 12
-  %2 = load i32, ptr %depth.i, align 4
-  %inc.i = add i32 %2, 1
+  %14 = load i32, ptr %depth.i, align 4
+  %inc.i = add i32 %14, 1
   store i32 %inc.i, ptr %depth.i, align 4
-  %cmp.not.i = icmp eq i32 %2, 0
+  %cmp.not.i = icmp eq i32 %14, 0
   br i1 %cmp.not.i, label %while.end.i, label %rcu_read_lock.exit
 
 while.end.i:                                      ; preds = %if.end10
-  %3 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
-  %conv8.i = and i64 %3, 4294967295
+  %15 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
+  %conv8.i = and i64 %15, 4294967295
   store atomic i64 %conv8.i, ptr %call.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   br label %rcu_read_lock.exit
 
 rcu_read_lock.exit:                               ; preds = %if.end10, %while.end.i
-  %storemerge12 = load ptr, ptr %dir_node.0, align 8
-  store ptr %storemerge12, ptr %node, align 8
-  %tobool11.not13 = icmp eq ptr %storemerge12, null
-  br i1 %tobool11.not13, label %for.end, label %for.body
+  %storemerge18 = load ptr, ptr %dir_node.0, align 8
+  store ptr %storemerge18, ptr %node, align 8
+  %tobool11.not19 = icmp eq ptr %storemerge18, null
+  br i1 %tobool11.not19, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %sibling = getelementptr inbounds i8, ptr %storemerge15, i64 8
+  %sibling = getelementptr inbounds i8, ptr %storemerge21, i64 8
   %storemerge = load ptr, ptr %sibling, align 8
   %tobool11.not = icmp eq ptr %storemerge, null
-  br i1 %tobool11.not, label %for.cond.for.end_crit_edge, label %for.body, !llvm.loop !16
+  br i1 %tobool11.not, label %for.cond.for.end_crit_edge, label %for.body, !llvm.loop !15
 
 for.body:                                         ; preds = %rcu_read_lock.exit, %for.cond
-  %storemerge15 = phi ptr [ %storemerge, %for.cond ], [ %storemerge12, %rcu_read_lock.exit ]
-  %name12 = getelementptr inbounds i8, ptr %storemerge15, i64 24
+  %storemerge21 = phi ptr [ %storemerge, %for.cond ], [ %storemerge18, %rcu_read_lock.exit ]
+  %name12 = getelementptr inbounds i8, ptr %storemerge21, i64 24
   %call13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name12, ptr noundef nonnull dereferenceable(1) %name) #17
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %for.body.for.end_crit_edge, label %for.cond
 
 for.body.for.end_crit_edge:                       ; preds = %for.body
-  store ptr %storemerge15, ptr %node, align 8
+  store ptr %storemerge21, ptr %node, align 8
   br label %for.end
 
 for.cond.for.end_crit_edge:                       ; preds = %for.cond
@@ -1081,8 +1098,8 @@ for.cond.for.end_crit_edge:                       ; preds = %for.cond
 for.end:                                          ; preds = %for.cond.for.end_crit_edge, %for.body.for.end_crit_edge, %rcu_read_lock.exit
   %call.i8 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i9 = getelementptr inbounds i8, ptr %call.i8, i64 12
-  %4 = load i32, ptr %depth.i9, align 4
-  %cmp.not.i10 = icmp eq i32 %4, 0
+  %16 = load i32, ptr %depth.i9, align 4
+  %cmp.not.i10 = icmp eq i32 %16, 0
   br i1 %cmp.not.i10, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %for.end
@@ -1090,18 +1107,18 @@ if.else.i:                                        ; preds = %for.end
   unreachable
 
 if.end.i:                                         ; preds = %for.end
-  %dec.i = add i32 %4, -1
+  %dec.i = add i32 %16, -1
   store i32 %dec.i, ptr %depth.i9, align 4
   %cmp2.not.i = icmp eq i32 %dec.i, 0
   br i1 %cmp2.not.i, label %while.end.i11, label %rcu_read_unlock.exit
 
 while.end.i11:                                    ; preds = %if.end.i
   store atomic i64 0, ptr %call.i8 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
   fence seq_cst
   %waiting.i = getelementptr inbounds i8, ptr %call.i8, i64 8
-  %5 = load atomic i8, ptr %waiting.i monotonic, align 8
-  %tobool.i = trunc i8 %5 to i1
+  %17 = load atomic i8, ptr %waiting.i monotonic, align 8
+  %tobool.i = trunc i8 %17 to i1
   br i1 %tobool.i, label %while.end21.i, label %rcu_read_unlock.exit
 
 while.end21.i:                                    ; preds = %while.end.i11
@@ -1110,8 +1127,8 @@ while.end21.i:                                    ; preds = %while.end.i11
   br label %rcu_read_unlock.exit
 
 rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.end.i11, %while.end21.i
-  %6 = load ptr, ptr %node, align 8
-  %tobool17.not = icmp eq ptr %6, null
+  %18 = load ptr, ptr %node, align 8
+  %tobool17.not = icmp eq ptr %18, null
   br i1 %tobool17.not, label %if.then18, label %out
 
 if.then18:                                        ; preds = %rcu_read_unlock.exit
@@ -1121,8 +1138,8 @@ if.then18:                                        ; preds = %rcu_read_unlock.exi
 
 out:                                              ; preds = %rcu_read_unlock.exit, %if.then9
   %data21 = getelementptr inbounds i8, ptr %target, i64 8
-  %7 = load ptr, ptr %data21, align 8
-  tail call void @g_free(ptr noundef %7) #18
+  %19 = load ptr, ptr %data21, align 8
+  tail call void @g_free(ptr noundef %19) #18
   %call22 = call dereferenceable_or_null(8) ptr @g_memdup(ptr noundef nonnull %node, i32 noundef 8) #22
   store ptr %call22, ptr %data21, align 8
   store i16 8, ptr %target, align 8
@@ -1167,7 +1184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @v9fs_synth_qtest_flush_write(ptr nocapture noundef readonly %buf, i32 %len, i64 %offset, ptr nocapture readnone %arg) #12 {
+define internal range(i64 -1, 2) i64 @v9fs_synth_qtest_flush_write(ptr nocapture noundef readonly %buf, i32 %len, i64 %offset, ptr nocapture readnone %arg) #12 {
 entry:
   %0 = load i8, ptr %buf, align 1
   %tobool.not = icmp eq i8 %0, 0
@@ -1233,12 +1250,11 @@ attributes #22 = { nounwind allocsize(1) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -22, i32 1}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = !{i64 2150221848}
-!12 = distinct !{!12, !6}
-!13 = !{i64 2150222948}
+!10 = !{i64 2150221848}
+!11 = distinct !{!11, !6}
+!12 = !{i64 2150222948}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

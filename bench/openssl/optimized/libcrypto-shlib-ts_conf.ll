@@ -37,7 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [7 x i8] c"%s::%s\00", align 1
 @__func__.ts_CONF_invalid = private unnamed_addr constant [16 x i8] c"ts_CONF_invalid\00", align 1
 @.str.27 = private unnamed_addr constant [4 x i8] c"yes\00", align 1
-@.str.28 = private unnamed_addr constant [3 x i8] c"no\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define ptr @TS_CONF_load_cert(ptr noundef %file) local_unnamed_addr #0 {
@@ -201,7 +200,7 @@ if.end3:                                          ; preds = %if.then, %if.then2,
 declare ptr @NCONF_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_CONF_set_serial(ptr noundef %conf, ptr noundef %section, ptr noundef %cb, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_serial(ptr noundef %conf, ptr noundef %section, ptr noundef %cb, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_get_string(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.4) #4
   %tobool.not = icmp eq ptr %call, null
@@ -225,7 +224,7 @@ err:                                              ; preds = %if.end, %if.then
 declare void @TS_RESP_CTX_set_serial_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_CONF_set_crypto_device(ptr noundef %conf, ptr noundef %section, ptr noundef %device) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_crypto_device(ptr noundef %conf, ptr noundef %section, ptr noundef %device) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %device, null
   br i1 %cmp, label %if.end, label %land.lhs.true
@@ -237,7 +236,7 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true:                                    ; preds = %entry, %if.end
   %device.addr.06 = phi ptr [ %call, %if.end ], [ %device, %entry ]
-  %call1 = tail call i32 @TS_CONF_set_default_engine(ptr noundef nonnull %device.addr.06), !range !6
+  %call1 = tail call i32 @TS_CONF_set_default_engine(ptr noundef nonnull %device.addr.06)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then3, label %err
 
@@ -253,7 +252,7 @@ err:                                              ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_CONF_set_default_engine(ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_default_engine(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(8) @.str.6) #5
   %cmp = icmp eq i32 %call, 0
@@ -306,7 +305,7 @@ declare i32 @ENGINE_set_default(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @ENGINE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_CONF_set_signer_cert(ptr noundef %conf, ptr noundef %section, ptr noundef %cert, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_signer_cert(ptr noundef %conf, ptr noundef %section, ptr noundef %cert, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cert, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -359,7 +358,7 @@ declare i32 @TS_RESP_CTX_set_signer_cert(ptr noundef, ptr noundef) local_unnamed
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_CONF_set_certs(ptr noundef %conf, ptr noundef %section, ptr noundef %certs, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_certs(ptr noundef %conf, ptr noundef %section, ptr noundef %certs, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %certs, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -391,7 +390,7 @@ err:                                              ; preds = %if.end7, %if.then, 
 declare i32 @TS_RESP_CTX_set_certs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_CONF_set_signer_key(ptr noundef %conf, ptr noundef %section, ptr noundef %key, ptr noundef %pass, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_signer_key(ptr noundef %conf, ptr noundef %section, ptr noundef %key, ptr noundef %pass, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %key, null
   br i1 %tobool.not, label %if.end, label %if.end3
@@ -444,7 +443,7 @@ declare i32 @TS_RESP_CTX_set_signer_key(ptr noundef, ptr noundef) local_unnamed_
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_CONF_set_signer_digest(ptr noundef %conf, ptr noundef %section, ptr noundef %md, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_signer_digest(ptr noundef %conf, ptr noundef %section, ptr noundef %md, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %md, null
   br i1 %cmp, label %if.end, label %if.end3
@@ -488,7 +487,7 @@ declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 declare i32 @TS_RESP_CTX_set_signer_digest(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_CONF_set_def_policy(ptr noundef %conf, ptr noundef %section, ptr noundef %policy, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_def_policy(ptr noundef %conf, ptr noundef %section, ptr noundef %policy, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %policy, null
   br i1 %cmp, label %if.end, label %if.end3
@@ -536,7 +535,7 @@ declare i32 @TS_RESP_CTX_set_def_policy(ptr noundef, ptr noundef) local_unnamed_
 declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_CONF_set_policies(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_policies(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_get_string(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.14) #4
   %tobool.not = icmp eq ptr %call, null
@@ -582,7 +581,7 @@ if.end16:                                         ; preds = %if.end12
   %inc = add nuw nsw i32 %i.013, 1
   %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef %list.0) #4
   %cmp4 = icmp slt i32 %inc, %call3
-  br i1 %cmp4, label %for.body, label %err, !llvm.loop !7
+  br i1 %cmp4, label %for.body, label %err, !llvm.loop !6
 
 err.sink.split:                                   ; preds = %cond.end, %land.lhs.true
   %list.1.ph = phi ptr [ null, %land.lhs.true ], [ %list.0, %cond.end ]
@@ -605,7 +604,7 @@ declare i32 @TS_RESP_CTX_add_policy(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @X509V3_conf_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_CONF_set_digests(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_digests(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_get_string(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.15) #4
   %cmp = icmp eq ptr %call, null
@@ -645,7 +644,7 @@ for.cond:                                         ; preds = %if.end19
   %inc = add nuw nsw i32 %i.015, 1
   %call11 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1) #4
   %cmp12 = icmp slt i32 %inc, %call11
-  br i1 %cmp12, label %for.body, label %err, !llvm.loop !8
+  br i1 %cmp12, label %for.body, label %err, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.015 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -692,7 +691,7 @@ err:                                              ; preds = %if.end19, %for.cond
 declare i32 @TS_RESP_CTX_add_md(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_CONF_set_accuracy(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_accuracy(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_get_string(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.16) #4
   %tobool.not = icmp eq ptr %call, null
@@ -780,7 +779,7 @@ for.inc:                                          ; preds = %if.then11, %if.then
   %inc = add nuw nsw i32 %i.026, 1
   %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef %list.0) #4
   %cmp4 = icmp slt i32 %inc, %call3
-  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end
   %secs.0.lcssa = phi i32 [ 0, %if.end ], [ %secs.1, %for.inc ]
@@ -804,7 +803,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
 declare i32 @TS_RESP_CTX_set_accuracy(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_CONF_set_clock_precision_digits(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_clock_precision_digits(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @_CONF_get_number(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.20) #4
   %or.cond = icmp ugt i64 %call, 6
@@ -835,14 +834,14 @@ declare i64 @_CONF_get_number(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @TS_RESP_CTX_set_clock_precision_digits(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_CONF_set_ordering(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_ordering(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @ts_CONF_add_flag(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.21, i32 noundef 2, ptr noundef %ctx), !range !6
+  %call = tail call fastcc i32 @ts_CONF_add_flag(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.21, i32 noundef 2, ptr noundef %ctx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ts_CONF_add_flag(ptr noundef %conf, ptr noundef %section, ptr noundef %field, i32 noundef %flag, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts_CONF_add_flag(ptr noundef %conf, ptr noundef %section, ptr noundef %field, i32 noundef %flag, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_get_string(ptr noundef %conf, ptr noundef %section, ptr noundef %field) #4
   %tobool.not = icmp eq ptr %call, null
@@ -851,44 +850,56 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(4) @.str.27) #5
   %cmp = icmp eq i32 %call1, 0
-  br i1 %cmp, label %if.then2, label %if.else
+  br i1 %cmp, label %if.then2, label %sub_0
 
 if.then2:                                         ; preds = %if.then
   tail call void @TS_RESP_CTX_add_flags(ptr noundef %ctx, i32 noundef %flag) #4
   br label %return
 
-if.else:                                          ; preds = %if.then
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(3) @.str.28) #5
-  %cmp4.not = icmp eq i32 %call3, 0
-  br i1 %cmp4.not, label %return, label %if.then5
+sub_0:                                            ; preds = %if.then
+  %0 = load i8, ptr %call, align 1
+  %.not = icmp eq i8 %0, 110
+  br i1 %.not, label %sub_1, label %if.then5
 
-if.then5:                                         ; preds = %if.else
+sub_1:                                            ; preds = %sub_0
+  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %2 = load i8, ptr %1, align 1
+  %.not5 = icmp eq i8 %2, 111
+  br i1 %.not5, label %if.else.tail, label %if.then5
+
+if.else.tail:                                     ; preds = %sub_1
+  %3 = getelementptr inbounds i8, ptr %call, i64 2
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %return, label %if.then5
+
+if.then5:                                         ; preds = %sub_1, %sub_0, %if.else.tail
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__.ts_CONF_invalid) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 135, ptr noundef nonnull @.str.26, ptr noundef %section, ptr noundef %field) #4
   br label %return
 
-return:                                           ; preds = %entry, %if.else, %if.then2, %if.then5
-  %retval.0 = phi i32 [ 0, %if.then5 ], [ 1, %if.then2 ], [ 1, %if.else ], [ 1, %entry ]
+return:                                           ; preds = %entry, %if.else.tail, %if.then2, %if.then5
+  %retval.0 = phi i32 [ 0, %if.then5 ], [ 1, %if.then2 ], [ 1, %if.else.tail ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_CONF_set_tsa_name(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_tsa_name(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @ts_CONF_add_flag(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.22, i32 noundef 1, ptr noundef %ctx), !range !6
+  %call = tail call fastcc i32 @ts_CONF_add_flag(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.22, i32 noundef 1, ptr noundef %ctx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_CONF_set_ess_cert_id_chain(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_ess_cert_id_chain(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @ts_CONF_add_flag(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.23, i32 noundef 4, ptr noundef %ctx), !range !6
+  %call = tail call fastcc i32 @ts_CONF_add_flag(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.23, i32 noundef 4, ptr noundef %ctx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_CONF_set_ess_cert_id_digest(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_CONF_set_ess_cert_id_digest(ptr noundef %conf, ptr noundef %section, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @NCONF_get_string(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull @.str.24) #4
   %cmp = icmp eq ptr %call, null
@@ -933,7 +944,6 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

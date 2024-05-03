@@ -9,19 +9,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [4 x i8] c"yes\00", align 1
 @.str.3 = private unnamed_addr constant [5 x i8] c"TRUE\00", align 1
 @.str.4 = private unnamed_addr constant [5 x i8] c"true\00", align 1
-@.str.5 = private unnamed_addr constant [3 x i8] c"ON\00", align 1
-@.str.6 = private unnamed_addr constant [3 x i8] c"on\00", align 1
-@.str.7 = private unnamed_addr constant [2 x i8] c"1\00", align 1
-@.str.8 = private unnamed_addr constant [3 x i8] c"NO\00", align 1
-@.str.9 = private unnamed_addr constant [3 x i8] c"no\00", align 1
 @.str.10 = private unnamed_addr constant [6 x i8] c"FALSE\00", align 1
 @.str.11 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 @.str.12 = private unnamed_addr constant [4 x i8] c"OFF\00", align 1
 @.str.13 = private unnamed_addr constant [4 x i8] c"off\00", align 1
-@.str.14 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @getenv(ptr noundef %0) #9
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %48, label %.preheader50
@@ -138,7 +132,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_env2int(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @MPL_env2int(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @getenv(ptr noundef %0) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %39, label %.preheader
@@ -232,88 +226,132 @@ define noundef i32 @MPL_env2int(ptr noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef i32 @MPL_env2bool(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @MPL_env2bool(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = tail call ptr @getenv(ptr noundef %0) #9
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %46, label %4
+  br i1 %.not, label %.tail38.thread, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.1) #12
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.sink.split, label %7
+  br i1 %6, label %.tail38.thread.sink.split, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.2) #12
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.sink.split, label %10
+  br i1 %9, label %.tail38.thread.sink.split, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(5) @.str.3) #12
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.sink.split, label %13
+  br i1 %12, label %.tail38.thread.sink.split, label %13
 
 13:                                               ; preds = %10
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(5) @.str.4) #12
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.sink.split, label %16
+  br i1 %15, label %.tail38.thread.sink.split, label %sub_0
 
-16:                                               ; preds = %13
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(3) @.str.5) #12
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.sink.split, label %19
+sub_0:                                            ; preds = %13
+  %16 = load i8, ptr %3, align 1
+  switch i8 %16, label %.tail33.thread [
+    i8 79, label %sub_1
+    i8 111, label %sub_121
+    i8 49, label %.tail24
+    i8 78, label %sub_130
+    i8 110, label %sub_135
+  ]
 
-19:                                               ; preds = %16
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(3) @.str.6) #12
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.sink.split, label %22
+sub_1:                                            ; preds = %sub_0
+  %17 = getelementptr inbounds i8, ptr %3, i64 1
+  %18 = load i8, ptr %17, align 1
+  %.not43 = icmp eq i8 %18, 78
+  br i1 %.not43, label %.tail, label %.tail33.thread
 
-22:                                               ; preds = %19
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(2) @.str.7) #12
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.sink.split, label %25
+.tail:                                            ; preds = %sub_1
+  %19 = getelementptr inbounds i8, ptr %3, i64 2
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %.tail38.thread.sink.split, label %.tail33.thread
 
-25:                                               ; preds = %22
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(3) @.str.8) #12
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.sink.split, label %28
+sub_121:                                          ; preds = %sub_0
+  %22 = getelementptr inbounds i8, ptr %3, i64 1
+  %23 = load i8, ptr %22, align 1
+  %.not45 = icmp eq i8 %23, 110
+  br i1 %.not45, label %.tail19, label %.tail33.thread
 
-28:                                               ; preds = %25
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(3) @.str.9) #12
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.sink.split, label %31
+.tail19:                                          ; preds = %sub_121
+  %24 = getelementptr inbounds i8, ptr %3, i64 2
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 0
+  br i1 %26, label %.tail38.thread.sink.split, label %.tail33.thread
 
-31:                                               ; preds = %28
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.10) #12
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.sink.split, label %34
+.tail24:                                          ; preds = %sub_0
+  %27 = getelementptr inbounds i8, ptr %3, i64 1
+  %28 = load i8, ptr %27, align 1
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %.tail38.thread.sink.split, label %.tail33.thread
 
-34:                                               ; preds = %31
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.11) #12
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.sink.split, label %37
+sub_130:                                          ; preds = %sub_0
+  %30 = getelementptr inbounds i8, ptr %3, i64 1
+  %31 = load i8, ptr %30, align 1
+  %.not48 = icmp eq i8 %31, 79
+  br i1 %.not48, label %.tail28, label %.tail33.thread
 
-37:                                               ; preds = %34
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.12) #12
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.sink.split, label %40
+.tail28:                                          ; preds = %sub_130
+  %32 = getelementptr inbounds i8, ptr %3, i64 2
+  %33 = load i8, ptr %32, align 1
+  %34 = icmp eq i8 %33, 0
+  br i1 %34, label %.tail38.thread.sink.split, label %.tail33.thread
 
-40:                                               ; preds = %37
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.13) #12
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.sink.split, label %43
+sub_135:                                          ; preds = %sub_0
+  %35 = getelementptr inbounds i8, ptr %3, i64 1
+  %36 = load i8, ptr %35, align 1
+  %.not50 = icmp eq i8 %36, 111
+  br i1 %.not50, label %.tail33, label %.tail33.thread
 
-43:                                               ; preds = %40
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(2) @.str.14) #12
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.sink.split, label %46
+.tail33:                                          ; preds = %sub_135
+  %37 = getelementptr inbounds i8, ptr %3, i64 2
+  %38 = load i8, ptr %37, align 1
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %.tail38.thread.sink.split, label %.tail33.thread
 
-.sink.split:                                      ; preds = %25, %28, %31, %34, %37, %40, %43, %4, %7, %10, %13, %16, %19, %22
-  %.sink = phi i32 [ 1, %22 ], [ 1, %19 ], [ 1, %16 ], [ 1, %13 ], [ 1, %10 ], [ 1, %7 ], [ 1, %4 ], [ 0, %43 ], [ 0, %40 ], [ 0, %37 ], [ 0, %34 ], [ 0, %31 ], [ 0, %28 ], [ 0, %25 ]
+.tail33.thread:                                   ; preds = %sub_0, %.tail19, %sub_121, %sub_1, %.tail, %.tail24, %sub_130, %.tail28, %sub_135, %.tail33
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.10) #12
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %.tail38.thread.sink.split, label %42
+
+42:                                               ; preds = %.tail33.thread
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.11) #12
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %.tail38.thread.sink.split, label %45
+
+45:                                               ; preds = %42
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.12) #12
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %.tail38.thread.sink.split, label %48
+
+48:                                               ; preds = %45
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.13) #12
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %.tail38.thread.sink.split, label %sub_039
+
+sub_039:                                          ; preds = %48
+  %.not51 = icmp eq i8 %16, 48
+  br i1 %.not51, label %.tail38, label %.tail38.thread
+
+.tail38:                                          ; preds = %sub_039
+  %51 = getelementptr inbounds i8, ptr %3, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = icmp eq i8 %52, 0
+  br i1 %53, label %.tail38.thread.sink.split, label %.tail38.thread
+
+.tail38.thread.sink.split:                        ; preds = %.tail28, %.tail33, %.tail33.thread, %42, %45, %48, %.tail38, %4, %7, %10, %13, %.tail, %.tail19, %.tail24
+  %.sink = phi i32 [ 1, %.tail24 ], [ 1, %.tail19 ], [ 1, %.tail ], [ 1, %13 ], [ 1, %10 ], [ 1, %7 ], [ 1, %4 ], [ 0, %.tail38 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %.tail33.thread ], [ 0, %.tail33 ], [ 0, %.tail28 ]
   store i32 %.sink, ptr %1, align 4
-  br label %46
+  br label %.tail38.thread
 
-46:                                               ; preds = %.sink.split, %2, %43
-  %.0 = phi i32 [ -1, %43 ], [ 0, %2 ], [ 1, %.sink.split ]
+.tail38.thread:                                   ; preds = %.tail38.thread.sink.split, %sub_039, %2, %.tail38
+  %.0 = phi i32 [ -1, %.tail38 ], [ 0, %2 ], [ -1, %sub_039 ], [ 1, %.tail38.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -321,7 +359,7 @@ define noundef i32 @MPL_env2bool(ptr nocapture noundef readonly %0, ptr nocaptur
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef i32 @MPL_env2str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @MPL_env2str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = tail call ptr @getenv(ptr noundef %0) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -345,7 +383,7 @@ define i32 @MPL_putenv(ptr noundef %0) local_unnamed_addr #6 {
 declare i32 @putenv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_env2double(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @MPL_env2double(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = tail call ptr @getenv(ptr noundef %0) #9

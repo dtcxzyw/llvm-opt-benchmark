@@ -22,12 +22,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 
-@.str = private unnamed_addr constant [3 x i8] c"-h\00", align 1
 @diff_cache_usage = internal constant [1288 x i8] c"git diff-index [-m] [--cached] [--merge-base] [<common-diff-options>] <tree-ish> [<path>...]\0A\0Acommon diff options:\0A  -z            output diff-raw with lines terminated with NUL.\0A  -p            output patch format.\0A  -u            synonym for -p.\0A  --patch-with-raw\0A                output both a patch and the diff-raw format.\0A  --stat        show diffstat instead of patch.\0A  --numstat     show numeric diffstat instead of patch.\0A  --patch-with-stat\0A                output a patch and prepend its diffstat.\0A  --name-only   show only names of changed files.\0A  --name-status show names and status of changed files.\0A  --full-index  show full object name on index lines.\0A  --abbrev=<n>  abbreviate object names in diff-tree header and diff-raw.\0A  -R            swap input file pairs.\0A  -B            detect complete rewrites.\0A  -M            detect renames.\0A  -C            detect copies.\0A  --find-copies-harder\0A                try unchanged files as candidate for copy detection.\0A  -l<n>         limit rename attempts up to <n> paths.\0A  -O<file>      reorder diffs according to the <file>.\0A  -S<string>    find filepair whose only one side contains the string.\0A  --pickaxe-all\0A                show all files diff when -S is used and hit is found.\0A  -a  --text    treat all files as text.\0A\00", align 16
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [9 x i8] c"--cached\00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"--merge-base\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"-m\00", align 1
 @.str.4 = private unnamed_addr constant [24 x i8] c"repo_read_index_preload\00", align 1
 @.str.5 = private unnamed_addr constant [16 x i8] c"repo_read_index\00", align 1
 
@@ -41,24 +39,36 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str) #5
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %1 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %1, 45
+  br i1 %.not, label %sub_1, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true
-  tail call void @usage(ptr noundef nonnull @diff_cache_usage) #6
+sub_1:                                            ; preds = %land.lhs.true
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not27 = icmp eq i8 %3, 104
+  br i1 %.not27, label %land.lhs.true.tail, label %if.end
+
+land.lhs.true.tail:                               ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.then, label %if.end
+
+if.then:                                          ; preds = %land.lhs.true.tail
+  tail call void @usage(ptr noundef nonnull @diff_cache_usage) #5
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  tail call void @git_config(ptr noundef nonnull @git_diff_basic_config, ptr noundef null) #7
-  %1 = load ptr, ptr @the_repository, align 8
-  call void @repo_init_revisions(ptr noundef %1, ptr noundef nonnull %rev, ptr noundef %prefix) #7
+if.end:                                           ; preds = %sub_1, %land.lhs.true, %land.lhs.true.tail, %entry
+  tail call void @git_config(ptr noundef nonnull @git_diff_basic_config, ptr noundef null) #6
+  %7 = load ptr, ptr @the_repository, align 8
+  call void @repo_init_revisions(ptr noundef %7, ptr noundef nonnull %rev, ptr noundef %prefix) #6
   %abbrev = getelementptr inbounds i8, ptr %rev, i64 328
   store i32 0, ptr %abbrev, align 8
-  call void @diff_merges_suppress_m_parsing() #7
-  %call2 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull %rev, ptr noundef null) #7
-  %cmp318 = icmp sgt i32 %call2, 1
-  br i1 %cmp318, label %for.body.lr.ph, label %for.end
+  call void @diff_merges_suppress_m_parsing() #6
+  %call2 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull %rev, ptr noundef null) #6
+  %cmp322 = icmp sgt i32 %call2, 1
+  br i1 %cmp322, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
   %match_missing = getelementptr inbounds i8, ptr %rev, i64 280
@@ -68,44 +78,65 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %bf.load22 = phi i64 [ %match_missing.promoted, %for.body.lr.ph ], [ %bf.load21, %for.inc ]
-  %option.019 = phi i32 [ 0, %for.body.lr.ph ], [ %option.1, %for.inc ]
+  %bf.load26 = phi i64 [ %match_missing.promoted, %for.body.lr.ph ], [ %bf.load25, %for.inc ]
+  %option.023 = phi i32 [ 0, %for.body.lr.ph ], [ %option.1, %for.inc ]
   %arrayidx4 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx4, align 8
-  %call5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(9) @.str.1) #5
+  %8 = load ptr, ptr %arrayidx4, align 8
+  %call5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(9) @.str.1) #7
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %for.body
-  %or = or i32 %option.019, 1
+  %or = or i32 %option.023, 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %call8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(13) @.str.2) #5
+  %call8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(13) @.str.2) #7
   %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %if.then10, label %if.else12
+  br i1 %tobool9.not, label %if.then10, label %sub_017
 
 if.then10:                                        ; preds = %if.else
-  %or11 = or i32 %option.019, 2
+  %or11 = or i32 %option.023, 2
   br label %for.inc
 
-if.else12:                                        ; preds = %if.else
-  %call13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(3) @.str.3) #5
-  %tobool14.not = icmp eq i32 %call13, 0
+sub_017:                                          ; preds = %if.else
+  %9 = load i8, ptr %8, align 1
+  %10 = zext i8 %9 to i32
+  %11 = add nsw i32 %10, -45
+  %.not28 = icmp eq i32 %11, 0
+  br i1 %.not28, label %sub_118, label %if.else12.tail
+
+sub_118:                                          ; preds = %sub_017
+  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i32
+  %15 = add nsw i32 %14, -109
+  %.not29 = icmp eq i32 %15, 0
+  br i1 %.not29, label %sub_219, label %if.else12.tail
+
+sub_219:                                          ; preds = %sub_118
+  %16 = getelementptr inbounds i8, ptr %8, i64 2
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i32
+  br label %if.else12.tail
+
+if.else12.tail:                                   ; preds = %sub_017, %sub_118, %sub_219
+  %19 = phi i32 [ %11, %sub_017 ], [ %15, %sub_118 ], [ %18, %sub_219 ]
+  %tobool14.not = icmp eq i32 %19, 0
   br i1 %tobool14.not, label %if.then15, label %if.else16
 
-if.then15:                                        ; preds = %if.else12
-  %bf.set = or i64 %bf.load22, 140737488355328
+if.then15:                                        ; preds = %if.else12.tail
+  %bf.set = or i64 %bf.load26, 140737488355328
   store i64 %bf.set, ptr %match_missing, align 8
   br label %for.inc
 
-if.else16:                                        ; preds = %if.else12
-  call void @usage(ptr noundef nonnull @diff_cache_usage) #6
+if.else16:                                        ; preds = %if.else12.tail
+  call void @usage(ptr noundef nonnull @diff_cache_usage) #5
   unreachable
 
 for.inc:                                          ; preds = %if.then7, %if.then15, %if.then10
-  %bf.load21 = phi i64 [ %bf.set, %if.then15 ], [ %bf.load22, %if.then10 ], [ %bf.load22, %if.then7 ]
-  %option.1 = phi i32 [ %option.019, %if.then15 ], [ %or11, %if.then10 ], [ %or, %if.then7 ]
+  %bf.load25 = phi i64 [ %bf.set, %if.then15 ], [ %bf.load26, %if.then10 ], [ %bf.load26, %if.then7 ]
+  %option.1 = phi i32 [ %option.023, %if.then15 ], [ %or11, %if.then10 ], [ %or, %if.then7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -114,8 +145,8 @@ for.end:                                          ; preds = %for.inc, %if.end
   %option.0.lcssa = phi i32 [ 0, %if.end ], [ %option.1, %for.inc ]
   %diffopt = getelementptr inbounds i8, ptr %rev, i64 1472
   %output_format = getelementptr inbounds i8, ptr %rev, i64 1756
-  %3 = load i32, ptr %output_format, align 4
-  %tobool20.not = icmp eq i32 %3, 0
+  %20 = load i32, ptr %output_format, align 4
+  %tobool20.not = icmp eq i32 %20, 0
   br i1 %tobool20.not, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %for.end
@@ -126,24 +157,24 @@ if.end24:                                         ; preds = %if.then21, %for.end
   %rotate_to_strict = getelementptr inbounds i8, ptr %rev, i64 1492
   store i32 1, ptr %rotate_to_strict, align 4
   %pending = getelementptr inbounds i8, ptr %rev, i64 8
-  %4 = load i32, ptr %pending, align 8
-  %cmp26 = icmp ne i32 %4, 1
+  %21 = load i32, ptr %pending, align 8
+  %cmp26 = icmp ne i32 %21, 1
   %max_count = getelementptr inbounds i8, ptr %rev, i64 1412
-  %5 = load i32, ptr %max_count, align 4
-  %cmp27 = icmp ne i32 %5, -1
+  %22 = load i32, ptr %max_count, align 4
+  %cmp27 = icmp ne i32 %22, -1
   %or.cond = select i1 %cmp26, i1 true, i1 %cmp27
   %min_age = getelementptr inbounds i8, ptr %rev, i64 1432
-  %6 = load i64, ptr %min_age, align 8
-  %cmp29 = icmp ne i64 %6, -1
+  %23 = load i64, ptr %min_age, align 8
+  %cmp29 = icmp ne i64 %23, -1
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp29
   %max_age = getelementptr inbounds i8, ptr %rev, i64 1416
-  %7 = load i64, ptr %max_age, align 8
-  %cmp31 = icmp ne i64 %7, -1
+  %24 = load i64, ptr %max_age, align 8
+  %cmp31 = icmp ne i64 %24, -1
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp31
   br i1 %or.cond2, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %if.end24
-  call void @usage(ptr noundef nonnull @diff_cache_usage) #6
+  call void @usage(ptr noundef nonnull @diff_cache_usage) #5
   unreachable
 
 if.end33:                                         ; preds = %if.end24
@@ -152,10 +183,10 @@ if.end33:                                         ; preds = %if.end24
   br i1 %tobool34.not, label %if.then35, label %if.else41
 
 if.then35:                                        ; preds = %if.end33
-  call void @setup_work_tree() #7
-  %8 = load ptr, ptr @the_repository, align 8
+  call void @setup_work_tree() #6
+  %25 = load ptr, ptr @the_repository, align 8
   %pathspec = getelementptr inbounds i8, ptr %rev, i64 1936
-  %call37 = call i32 @repo_read_index_preload(ptr noundef %8, ptr noundef nonnull %pathspec, i32 noundef 0) #7
+  %call37 = call i32 @repo_read_index_preload(ptr noundef %25, ptr noundef nonnull %pathspec, i32 noundef 0) #6
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %if.then39, label %if.end46
 
@@ -164,8 +195,8 @@ if.then39:                                        ; preds = %if.then35
   br label %return
 
 if.else41:                                        ; preds = %if.end33
-  %9 = load ptr, ptr @the_repository, align 8
-  %call42 = call i32 @repo_read_index(ptr noundef %9) #7
+  %26 = load ptr, ptr @the_repository, align 8
+  %call42 = call i32 @repo_read_index(ptr noundef %26) #6
   %cmp43 = icmp slt i32 %call42, 0
   br i1 %cmp43, label %if.then44, label %if.end46
 
@@ -174,9 +205,9 @@ if.then44:                                        ; preds = %if.else41
   br label %return
 
 if.end46:                                         ; preds = %if.else41, %if.then35
-  call void @run_diff_index(ptr noundef nonnull %rev, i32 noundef %option.0.lcssa) #7
-  %call48 = call i32 @diff_result_code(ptr noundef nonnull %diffopt) #7
-  call void @release_revisions(ptr noundef nonnull %rev) #7
+  call void @run_diff_index(ptr noundef nonnull %rev, i32 noundef %option.0.lcssa) #6
+  %call48 = call i32 @diff_result_code(ptr noundef nonnull %diffopt) #6
+  call void @release_revisions(ptr noundef nonnull %rev) #6
   br label %return
 
 return:                                           ; preds = %if.end46, %if.then44, %if.then39
@@ -220,9 +251,9 @@ attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { noreturn nounwind }
-attributes #7 = { nounwind }
+attributes #5 = { noreturn nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 attributes #8 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

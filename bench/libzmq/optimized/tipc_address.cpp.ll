@@ -21,7 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [30 x i8] c"Assertion failed: %s (%s:%d)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"sa_ && sa_len_ > 0\00", align 1
 @.str.2 = private unnamed_addr constant [112 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libzmq/libzmq/src/tipc_address.cpp\00", align 1
-@.str.3 = private unnamed_addr constant [4 x i8] c"<*>\00", align 1
 @.str.4 = private unnamed_addr constant [11 x i8] c"{%u,%u,%u}\00", align 1
 @.str.5 = private unnamed_addr constant [12 x i8] c"@%u.%u.%u%c\00", align 1
 @.str.6 = private unnamed_addr constant [14 x i8] c"<%u.%u.%u:%u>\00", align 1
@@ -118,7 +117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN3zmq14tipc_address_t7resolveEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this, ptr noundef readonly %name_) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, 23) i32 @_ZN3zmq14tipc_address_t7resolveEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this, ptr noundef readonly %name_) local_unnamed_addr #7 align 2 {
 entry:
   %type = alloca i32, align 4
   %lower = alloca i32, align 4
@@ -135,11 +134,23 @@ entry:
   store i32 1, ptr %z, align 4
   store i32 0, ptr %c, align 4
   store i32 0, ptr %n, align 4
-  %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(4) @.str.3, i64 noundef 3) #12
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %0 = load i8, ptr %name_, align 1
+  %.not = icmp eq i8 %0, 60
+  br i1 %.not, label %sub_1, label %if.end
 
-if.then:                                          ; preds = %entry
+sub_1:                                            ; preds = %entry
+  %1 = getelementptr inbounds i8, ptr %name_, i64 1
+  %2 = load i8, ptr %1, align 1
+  %.not11 = icmp eq i8 %2, 42
+  br i1 %.not11, label %entry.tail, label %if.end
+
+entry.tail:                                       ; preds = %sub_1
+  %3 = getelementptr inbounds i8, ptr %name_, i64 2
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 62
+  br i1 %5, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry.tail
   store i8 1, ptr %this, align 4
   %address = getelementptr inbounds i8, ptr %this, i64 4
   store i16 30, ptr %address, align 4
@@ -149,14 +160,14 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %scope, i8 0, i64 9, i1 false)
   br label %return
 
-if.end:                                           ; preds = %entry
-  %call8 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %name_, ptr noundef nonnull @.str.4, ptr noundef nonnull %type, ptr noundef nonnull %lower, ptr noundef nonnull %upper) #13
-  %call9 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %name_, i32 noundef 64) #12
+if.end:                                           ; preds = %sub_1, %entry, %entry.tail
+  %call8 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %name_, ptr noundef nonnull @.str.4, ptr noundef nonnull %type, ptr noundef nonnull %lower, ptr noundef nonnull %upper) #12
+  %call9 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %name_, i32 noundef 64) #13
   %tobool.not = icmp eq ptr %call9, null
   br i1 %tobool.not, label %if.end15, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %call11 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %call9, ptr noundef nonnull @.str.5, ptr noundef nonnull %z, ptr noundef nonnull %c, ptr noundef nonnull %n, ptr noundef nonnull %eof) #13
+  %call11 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %call9, ptr noundef nonnull @.str.5, ptr noundef nonnull %z, ptr noundef nonnull %c, ptr noundef nonnull %n, ptr noundef nonnull %eof) #12
   %cmp12.not = icmp eq i32 %call11, 3
   br i1 %cmp12.not, label %if.end15, label %return
 
@@ -165,14 +176,14 @@ if.end15:                                         ; preds = %if.then10, %if.end
   br i1 %cmp16, label %if.then17, label %if.end37
 
 if.then17:                                        ; preds = %if.end15
-  %0 = load i32, ptr %type, align 4
-  %cmp18 = icmp ult i32 %0, 64
+  %6 = load i32, ptr %type, align 4
+  %cmp18 = icmp ult i32 %6, 64
   br i1 %cmp18, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then17
-  %1 = load i32, ptr %upper, align 4
-  %2 = load i32, ptr %lower, align 4
-  %cmp19 = icmp ult i32 %1, %2
+  %7 = load i32, ptr %upper, align 4
+  %8 = load i32, ptr %lower, align 4
+  %cmp19 = icmp ult i32 %7, %8
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %lor.lhs.false
@@ -181,19 +192,19 @@ if.end21:                                         ; preds = %lor.lhs.false
   %addrtype25 = getelementptr inbounds i8, ptr %this, i64 6
   store i8 1, ptr %addrtype25, align 2
   %addr27 = getelementptr inbounds i8, ptr %this, i64 8
-  store i32 %0, ptr %addr27, align 4
+  store i32 %6, ptr %addr27, align 4
   %lower31 = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %2, ptr %lower31, align 4
+  store i32 %8, ptr %lower31, align 4
   %upper34 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %1, ptr %upper34, align 4
+  store i32 %7, ptr %upper34, align 4
   %scope36 = getelementptr inbounds i8, ptr %this, i64 7
   store i8 1, ptr %scope36, align 1
   br label %return
 
 if.end37:                                         ; preds = %if.end15
   %cmp38 = icmp eq i32 %call8, 2
-  %3 = load i32, ptr %type, align 4
-  %cmp39 = icmp ugt i32 %3, 64
+  %9 = load i32, ptr %type, align 4
+  %cmp39 = icmp ugt i32 %9, 64
   %or.cond = select i1 %cmp38, i1 %cmp39, i1 false
   br i1 %or.cond, label %if.then40, label %if.else
 
@@ -203,17 +214,17 @@ if.then40:                                        ; preds = %if.end37
   %addrtype44 = getelementptr inbounds i8, ptr %this, i64 6
   store i8 2, ptr %addrtype44, align 2
   %addr46 = getelementptr inbounds i8, ptr %this, i64 8
-  store i32 %3, ptr %addr46, align 4
-  %4 = load i32, ptr %lower, align 4
+  store i32 %9, ptr %addr46, align 4
+  %10 = load i32, ptr %lower, align 4
   %instance = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %4, ptr %instance, align 4
-  %5 = load i32, ptr %z, align 4
-  %6 = load i32, ptr %c, align 4
-  %7 = load i32, ptr %n, align 4
-  %shl.i = shl i32 %5, 24
-  %shl1.i = shl i32 %6, 12
+  store i32 %10, ptr %instance, align 4
+  %11 = load i32, ptr %z, align 4
+  %12 = load i32, ptr %c, align 4
+  %13 = load i32, ptr %n, align 4
+  %shl.i = shl i32 %11, 24
+  %shl1.i = shl i32 %12, 12
   %or.i = or i32 %shl1.i, %shl.i
-  %or2.i = or i32 %or.i, %7
+  %or2.i = or i32 %or.i, %13
   %domain54 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %or2.i, ptr %domain54, align 4
   %scope56 = getelementptr inbounds i8, ptr %this, i64 7
@@ -225,7 +236,7 @@ if.else:                                          ; preds = %if.end37
   br i1 %cmp57, label %if.then58, label %return
 
 if.then58:                                        ; preds = %if.else
-  %call59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %name_, ptr noundef nonnull @.str.6, ptr noundef nonnull %z, ptr noundef nonnull %c, ptr noundef nonnull %n, ptr noundef nonnull %ref) #13
+  %call59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %name_, ptr noundef nonnull @.str.6, ptr noundef nonnull %z, ptr noundef nonnull %c, ptr noundef nonnull %n, ptr noundef nonnull %ref) #12
   %cmp60 = icmp eq i32 %call59, 4
   br i1 %cmp60, label %if.then61, label %return
 
@@ -234,18 +245,18 @@ if.then61:                                        ; preds = %if.then58
   store i16 30, ptr %address62, align 4
   %addrtype65 = getelementptr inbounds i8, ptr %this, i64 6
   store i8 3, ptr %addrtype65, align 2
-  %8 = load i32, ptr %z, align 4
-  %9 = load i32, ptr %c, align 4
-  %10 = load i32, ptr %n, align 4
-  %shl.i7 = shl i32 %8, 24
-  %shl1.i8 = shl i32 %9, 12
+  %14 = load i32, ptr %z, align 4
+  %15 = load i32, ptr %c, align 4
+  %16 = load i32, ptr %n, align 4
+  %shl.i7 = shl i32 %14, 24
+  %shl1.i8 = shl i32 %15, 12
   %or.i9 = or i32 %shl1.i8, %shl.i7
-  %or2.i10 = or i32 %or.i9, %10
+  %or2.i10 = or i32 %or.i9, %16
   %addr68 = getelementptr inbounds i8, ptr %this, i64 8
   %node69 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %or2.i10, ptr %node69, align 4
-  %11 = load i32, ptr %ref, align 4
-  store i32 %11, ptr %addr68, align 4
+  %17 = load i32, ptr %ref, align 4
+  store i32 %17, ptr %addr68, align 4
   %scope74 = getelementptr inbounds i8, ptr %this, i64 7
   store i8 0, ptr %scope74, align 1
   br label %return
@@ -255,9 +266,6 @@ return:                                           ; preds = %if.then58, %if.else
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
@@ -265,7 +273,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3zmq14tipc_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZNK3zmq14tipc_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -276,7 +284,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %addr_) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %addr_) #12
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -333,14 +341,14 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %invoke.cont31 unwind label %lpad
 
 invoke.cont31:                                    ; preds = %invoke.cont29
-  %call32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %addr_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  %call32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %addr_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   br label %cleanup
 
 lpad:                                             ; preds = %invoke.cont78, %invoke.cont76, %invoke.cont72, %invoke.cont69, %invoke.cont62, %invoke.cont59, %invoke.cont52, %invoke.cont49, %invoke.cont43, %invoke.cont41, %if.then39, %invoke.cont29, %invoke.cont27, %invoke.cont23, %invoke.cont20, %invoke.cont16, %invoke.cont13, %invoke.cont10, %invoke.cont, %if.then9
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %s) #13
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %s) #12
   resume { ptr, i32 } %5
 
 lor.lhs.false37:                                  ; preds = %if.end
@@ -404,17 +412,17 @@ invoke.cont78:                                    ; preds = %invoke.cont76
           to label %invoke.cont81 unwind label %lpad
 
 invoke.cont81:                                    ; preds = %invoke.cont78
-  %call82 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %addr_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #13
+  %call82 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %addr_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80) #12
   br label %cleanup
 
 if.else83:                                        ; preds = %lor.lhs.false37
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %addr_) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %addr_) #12
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont31, %invoke.cont81, %if.else83
   %retval.0 = phi i32 [ -1, %if.else83 ], [ 0, %invoke.cont81 ], [ 0, %invoke.cont31 ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %s) #13
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %s) #12
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
@@ -469,8 +477,8 @@ attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

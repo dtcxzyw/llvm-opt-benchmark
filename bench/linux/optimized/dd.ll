@@ -94,7 +94,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_device_relea
 @.str.17 = private unnamed_addr constant [40 x i8] c"\014%s: probe of %s failed with error %d\0A\00", align 1
 @.str.18 = private unnamed_addr constant [13 x i8] c"state_synced\00", align 1
 @.str.19 = private unnamed_addr constant [4 x i8] c"%u\0A\00", align 1
-@.str.20 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @dev_attr_coredump = internal global %struct.device_attribute { %struct.attribute { ptr @.str.21, i16 128 }, ptr null, ptr @coredump_store }, align 8
 @.str.21 = private unnamed_addr constant [9 x i8] c"coredump\00", align 1
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable_deferred_probe_initcall355, ptr @__UNIQUE_ID___addressable_device_attach358, ptr @__UNIQUE_ID___addressable_device_bind_driver356, ptr @__UNIQUE_ID___addressable_device_driver_attach359, ptr @__UNIQUE_ID___addressable_device_release_driver361, ptr @__UNIQUE_ID___addressable_driver_attach360, ptr @__UNIQUE_ID___addressable_driver_deferred_probe_check_state353, ptr @__UNIQUE_ID___addressable_wait_for_device_probe357, ptr @__exitcall_deferred_probe_exit, ptr @__setup_deferred_probe_timeout_setup, ptr @__setup_save_async_options, ptr @deferred_probe_exit, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched32], section "llvm.metadata"
@@ -331,7 +330,7 @@ define internal noundef i32 @deferred_probe_timeout_setup(ptr noundef %0) #3 sec
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @driver_deferred_probe_check_state(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -517, -109) i32 @driver_deferred_probe_check_state(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @driver_deferred_probe_timeout, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %7
@@ -778,7 +777,7 @@ define dso_local void @device_initial_probe(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @device_driver_attach(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @device_driver_attach(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1623,7 +1622,7 @@ declare dso_local zeroext i1 @parse_option_str(ptr noundef, ptr noundef) local_u
 declare dso_local i32 @bus_for_each_drv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__device_attach_driver(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2239,7 +2238,7 @@ define internal fastcc void @device_remove(ptr noundef %0) unnamed_addr #0 align
 declare dso_local void @device_links_no_driver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @state_synced_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @state_synced_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @mutex_lock(ptr noundef %4) #9
   %5 = getelementptr inbounds i8, ptr %0, i64 724
@@ -2255,61 +2254,73 @@ define internal i64 @state_synced_show(ptr noundef %0, ptr nocapture readnone %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @state_synced_store(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @.str.20, ptr noundef %2) #9
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %32
+sub_0:
+  %4 = load i8, ptr %2, align 1
+  %5 = zext i8 %4 to i32
+  %6 = sub nsw i32 49, %5
+  %.not = icmp eq i8 %4, 49
+  br i1 %.not, label %sub_1, label %.tail
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %8) #9
-  %9 = getelementptr inbounds i8, ptr %0, i64 724
-  %10 = load i8, ptr %9, align 4
-  %11 = and i8 %10, 8
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %30
+sub_1:                                            ; preds = %sub_0
+  %7 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  %10 = sub nsw i32 0, %9
+  br label %.tail
 
-13:                                               ; preds = %7
-  %14 = or disjoint i8 %10, 8
-  store i8 %14, ptr %9, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %28
+.tail:                                            ; preds = %sub_0, %sub_1
+  %11 = phi i32 [ %6, %sub_0 ], [ %10, %sub_1 ]
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %38
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+13:                                               ; preds = %.tail
+  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef %14) #9
+  %15 = getelementptr inbounds i8, ptr %0, i64 724
+  %16 = load i8, ptr %15, align 4
+  %17 = and i8 %16, 8
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %19, label %36
+
+19:                                               ; preds = %13
+  %20 = or disjoint i8 %16, 8
+  store i8 %20, ptr %15, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 96
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %30, label %24
+  %23 = getelementptr inbounds i8, ptr %22, i64 64
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %34
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %22, i64 64
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %30, label %28
+26:                                               ; preds = %19
+  %27 = getelementptr inbounds i8, ptr %0, i64 104
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %36, label %30
 
-28:                                               ; preds = %24, %13
-  %29 = phi ptr [ %18, %13 ], [ %26, %24 ]
-  tail call void %29(ptr noundef %0) #9
-  br label %30
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds i8, ptr %28, i64 64
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %36, label %34
 
-30:                                               ; preds = %28, %24, %20, %7
-  %31 = phi i64 [ -22, %7 ], [ %3, %20 ], [ %3, %24 ], [ %3, %28 ]
-  tail call void @mutex_unlock(ptr noundef %8) #9
-  br label %32
+34:                                               ; preds = %30, %19
+  %35 = phi ptr [ %24, %19 ], [ %32, %30 ]
+  tail call void %35(ptr noundef %0) #9
+  br label %36
 
-32:                                               ; preds = %30, %4
-  %33 = phi i64 [ %31, %30 ], [ -22, %4 ]
-  ret i64 %33
+36:                                               ; preds = %34, %30, %26, %13
+  %37 = phi i64 [ -22, %13 ], [ %3, %26 ], [ %3, %30 ], [ %3, %34 ]
+  tail call void @mutex_unlock(ptr noundef %14) #9
+  br label %38
+
+38:                                               ; preds = %36, %.tail
+  %39 = phi i64 [ %37, %36 ], [ -22, %.tail ]
+  ret i64 %39
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @device_remove_file(ptr noundef, ptr noundef) local_unnamed_addr #1

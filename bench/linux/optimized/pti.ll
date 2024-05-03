@@ -53,7 +53,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @x86_hyper_type = external dso_local local_unnamed_addr global i32, align 4
 @.str.4 = private unnamed_addr constant [41 x i8] c"\016Kernel/User page tables isolation: %s\0A\00", align 1
 @.str.5 = private unnamed_addr constant [4 x i8] c"off\00", align 1
-@.str.6 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.7 = private unnamed_addr constant [5 x i8] c"auto\00", align 1
 @__cpu_possible_mask = external dso_local local_unnamed_addr global %struct.cpumask, align 8
 @cpu_tss_rw = external dso_local global %struct.tss_struct, section ".data..percpu..page_aligned", align 4096
@@ -155,29 +154,41 @@ define dso_local void @pti_check_boottime_disable() local_unnamed_addr #0 sectio
 declare dso_local zeroext i1 @cpu_mitigations_off() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @pti_parse_cmdline(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @pti_parse_cmdline(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.5) #10
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %10, label %4
+  br i1 %3, label %12, label %sub_0
 
-4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(3) @.str.6) #10
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %10, label %7
+sub_0:                                            ; preds = %1
+  %4 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %4, 111
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-7:                                                ; preds = %4
-  %8 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(5) @.str.7) #10
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %12
+sub_1:                                            ; preds = %sub_0
+  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = load i8, ptr %5, align 1
+  %.not1 = icmp eq i8 %6, 110
+  br i1 %.not1, label %.tail, label %.tail.thread
 
-10:                                               ; preds = %7, %4, %1
-  %11 = phi i32 [ 1, %1 ], [ 2, %4 ], [ 0, %7 ]
-  store i32 %11, ptr @pti_mode, align 4
-  br label %12
+.tail:                                            ; preds = %sub_1
+  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %12, label %.tail.thread
 
-12:                                               ; preds = %10, %7
-  %13 = phi i32 [ -22, %7 ], [ 0, %10 ]
-  ret i32 %13
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %10 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(5) @.str.7) #10
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %.tail.thread, %.tail, %1
+  %13 = phi i32 [ 1, %1 ], [ 2, %.tail ], [ 0, %.tail.thread ]
+  store i32 %13, ptr @pti_mode, align 4
+  br label %14
+
+14:                                               ; preds = %12, %.tail.thread
+  %15 = phi i32 [ -22, %.tail.thread ], [ 0, %12 ]
+  ret i32 %15
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)

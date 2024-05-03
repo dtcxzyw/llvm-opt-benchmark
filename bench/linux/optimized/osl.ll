@@ -159,7 +159,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_resourc
 @.str.32 = private unnamed_addr constant [42 x i8] c"\016ACPI: OSL: Auto-serialization disabled\0A\00", align 1
 @.str.33 = private unnamed_addr constant [7 x i8] c"strict\00", align 1
 @.str.34 = private unnamed_addr constant [4 x i8] c"lax\00", align 1
-@.str.35 = private unnamed_addr constant [3 x i8] c"no\00", align 1
 @acpi_gbl_disable_ssdt_table_install = external dso_local local_unnamed_addr global i8, align 1
 @.str.36 = private unnamed_addr constant [48 x i8] c"\016ACPI: OSL: Static SSDT installation disabled\0A\00", align 1
 @.str.37 = private unnamed_addr constant [55 x i8] c"\015ACPI: OSL: Predefined validation mechanism disabled\0A\00", align 1
@@ -809,7 +808,7 @@ define dso_local noundef i32 @acpi_rev_override_setup(ptr nocapture readnone %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_predefined_override(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_predefined_override(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -852,7 +851,7 @@ define dso_local noundef i32 @acpi_os_predefined_override(ptr noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_install_interrupt_handler(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_install_interrupt_handler(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
   tail call void @acpi_irq_stats_init() #20
@@ -910,7 +909,7 @@ declare dso_local i32 @acpi_gsi_to_irq(i32 noundef, ptr noundef) local_unnamed_a
 declare dso_local i32 @request_threaded_irq(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_irq(i32 %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_irq(i32 %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = load ptr, ptr @acpi_irq_handler, align 8
   %4 = load ptr, ptr @acpi_irq_context, align 8
   %5 = tail call i32 %3(ptr noundef %4) #20
@@ -924,7 +923,7 @@ define internal noundef i32 @acpi_irq(i32 %0, ptr nocapture readnone %1) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_remove_interrupt_handler(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_remove_interrupt_handler(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 16 {
   %3 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 5), align 1
   %4 = zext i16 %3 to i32
   %5 = icmp eq i32 %4, %0
@@ -989,7 +988,7 @@ define dso_local i64 @acpi_os_get_timer() local_unnamed_addr #8 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_read_port(i64 noundef %0, ptr noundef writeonly %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_read_port(i64 noundef %0, ptr noundef writeonly %1, i32 noundef %2) #1 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %5 = icmp eq ptr %1, null
@@ -1041,7 +1040,7 @@ define dso_local noundef i32 @acpi_os_read_port(i64 noundef %0, ptr noundef writ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_write_port(i64 noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_write_port(i64 noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = icmp ult i32 %2, 9
   br i1 %4, label %5, label %8
 
@@ -1076,7 +1075,7 @@ define dso_local noundef i32 @acpi_os_write_port(i64 noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_read_iomem(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_os_read_iomem(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = add i32 %2, -8
   %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 29)
   switch i32 %5, label %14 [
@@ -1112,7 +1111,7 @@ define dso_local noundef i32 @acpi_os_read_iomem(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_read_memory(i64 noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 4106) i32 @acpi_os_read_memory(i64 noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = lshr i32 %2, 3
   tail call void @__rcu_read_lock() #20
   %5 = zext nneg i32 %4 to i64
@@ -1228,7 +1227,7 @@ define dso_local noundef i32 @acpi_os_read_memory(i64 noundef %0, ptr noundef wr
 declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_write_memory(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 4106) i32 @acpi_os_write_memory(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = lshr i32 %2, 3
   tail call void @__rcu_read_lock() #20
   %5 = zext nneg i32 %4 to i64
@@ -1327,7 +1326,7 @@ define dso_local noundef i32 @acpi_os_write_memory(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_os_read_pci_configuration(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 4098) i32 @acpi_os_read_pci_configuration(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
   %6 = icmp eq ptr %2, null
@@ -1381,7 +1380,7 @@ define dso_local i32 @acpi_os_read_pci_configuration(ptr nocapture noundef reado
 declare dso_local i32 @raw_pci_read(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_os_write_pci_configuration(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @acpi_os_write_pci_configuration(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
   switch i32 %3, label %27 [
     i32 8, label %7
     i32 16, label %5
@@ -1425,7 +1424,7 @@ define dso_local i32 @acpi_os_write_pci_configuration(ptr nocapture noundef read
 declare dso_local i32 @raw_pci_write(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_execute(i32 noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_os_execute(i32 noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = icmp eq i32 %0, 3
   br i1 %4, label %5, label %7
 
@@ -1522,7 +1521,7 @@ declare dso_local zeroext i1 @synchronize_hardirq(i32 noundef) local_unnamed_add
 declare dso_local void @__flush_workqueue(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_hotplug_schedule(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_hotplug_schedule(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 48) #22
   %5 = icmp eq ptr %4, null
@@ -1585,7 +1584,7 @@ define dso_local zeroext i1 @acpi_queue_hotplug_work(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_create_semaphore(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_os_create_semaphore(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   store i64 0, ptr %4, align 8, !annotation !5
@@ -1617,7 +1616,7 @@ define dso_local noundef i32 @acpi_os_create_semaphore(i32 noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_delete_semaphore(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_delete_semaphore(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -1642,7 +1641,7 @@ define dso_local noundef i32 @acpi_os_delete_semaphore(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_os_wait_semaphore(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 4098) i32 @acpi_os_wait_semaphore(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 align 16 {
   %4 = load i1, ptr @acpi_os_initialized, align 1
   br i1 %4, label %5, label %21
 
@@ -1681,7 +1680,7 @@ define dso_local i32 @acpi_os_wait_semaphore(ptr noundef %0, i32 noundef %1, i16
 declare dso_local i32 @down_timeout(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_signal_semaphore(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_signal_semaphore(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load i1, ptr @acpi_os_initialized, align 1
   br i1 %3, label %4, label %11
 
@@ -1736,7 +1735,7 @@ define dso_local noundef i32 @acpi_os_signal(i32 noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @acpi_os_name_setup(ptr noundef readonly %0) #10 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_os_name_setup(ptr noundef readonly %0) #10 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -1801,42 +1800,63 @@ define internal noundef i32 @acpi_no_auto_serialize_setup(ptr nocapture readnone
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @acpi_enforce_resources_setup(ptr noundef readonly %0) #11 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_enforce_resources_setup(ptr noundef readonly %0) #11 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %17, label %3
+  br i1 %2, label %26, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %17, label %6
+  br i1 %5, label %26, label %6
 
 6:                                                ; preds = %3
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.33, ptr noundef nonnull dereferenceable(1) %0) #20
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %15, label %9
+  br i1 %8, label %24, label %9
 
 9:                                                ; preds = %6
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.34, ptr noundef nonnull dereferenceable(1) %0) #20
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %24, label %sub_0
 
-12:                                               ; preds = %9
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(3) @.str.35, ptr noundef nonnull dereferenceable(1) %0) #20
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %17
+sub_0:                                            ; preds = %9
+  %12 = zext i8 %4 to i32
+  %13 = sub nsw i32 110, %12
+  %.not = icmp eq i8 %4, 110
+  br i1 %.not, label %sub_1, label %.tail
 
-15:                                               ; preds = %12, %9, %6
-  %16 = phi i32 [ 2, %6 ], [ 1, %9 ], [ 0, %12 ]
-  store i32 %16, ptr @acpi_enforce_resources, align 4
-  br label %17
+sub_1:                                            ; preds = %sub_0
+  %14 = getelementptr inbounds i8, ptr %0, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = zext i8 %15 to i32
+  %17 = sub nsw i32 111, %16
+  %.not1 = icmp eq i8 %15, 111
+  br i1 %.not1, label %sub_2, label %.tail
 
-17:                                               ; preds = %15, %12, %3, %1
-  %18 = phi i32 [ 0, %3 ], [ 0, %1 ], [ 1, %12 ], [ 1, %15 ]
-  ret i32 %18
+sub_2:                                            ; preds = %sub_1
+  %18 = getelementptr inbounds i8, ptr %0, i64 2
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i32
+  %21 = sub nsw i32 0, %20
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
+  %22 = phi i32 [ %13, %sub_0 ], [ %17, %sub_1 ], [ %21, %sub_2 ]
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %.tail, %9, %6
+  %25 = phi i32 [ 2, %6 ], [ 1, %9 ], [ 0, %.tail ]
+  store i32 %25, ptr @acpi_enforce_resources, align 4
+  br label %26
+
+26:                                               ; preds = %24, %.tail, %3, %1
+  %27 = phi i32 [ 0, %3 ], [ 0, %1 ], [ 1, %.tail ], [ 1, %24 ]
+  ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_check_resource_conflict(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @acpi_check_resource_conflict(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = load i32, ptr @acpi_enforce_resources, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %26, label %4
@@ -1888,7 +1908,7 @@ define dso_local noundef i32 @acpi_check_resource_conflict(ptr nocapture noundef
 declare dso_local i32 @acpi_check_address_range(i8 noundef zeroext, i64 noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_check_region(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #1 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @acpi_check_region(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #1 align 16 {
   %4 = load i32, ptr @acpi_enforce_resources, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %15, label %6
@@ -1919,7 +1939,7 @@ define dso_local noundef i32 @acpi_check_region(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @acpi_resources_are_enforced() #12 align 16 {
+define dso_local range(i32 0, 2) i32 @acpi_resources_are_enforced() #12 align 16 {
   %1 = load i32, ptr @acpi_enforce_resources, align 4
   %2 = icmp eq i32 %1, 2
   %3 = zext i1 %2 to i32
@@ -1945,7 +1965,7 @@ define dso_local void @acpi_os_release_lock(ptr noundef %0, i64 noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_os_create_cache(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @acpi_os_create_cache(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = zext i16 %1 to i32
   %6 = tail call ptr @kmem_cache_create(ptr noundef %0, i32 noundef %5, i32 noundef 0, i32 noundef 0, ptr noundef null) #20
   store ptr %6, ptr %3, align 8
@@ -2116,7 +2136,7 @@ define dso_local noundef i32 @acpi_os_terminate() local_unnamed_addr #1 align 16
 declare dso_local void @destroy_workqueue(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_prepare_sleep(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 16388) i32 @acpi_os_prepare_sleep(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load ptr, ptr @__acpi_os_prepare_sleep, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread3, label %6
@@ -2152,7 +2172,7 @@ define dso_local void @acpi_os_set_prepare_extended_sleep(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_enter_sleep(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 16388) i32 @acpi_os_enter_sleep(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %.thread3

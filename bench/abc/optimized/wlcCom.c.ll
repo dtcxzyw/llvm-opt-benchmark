@@ -41,7 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.30 = private unnamed_addr constant [5 x i8] c".ndr\00", align 1
 @.str.31 = private unnamed_addr constant [19 x i8] c"Did you mean \22%s\22?\00", align 1
 @.str.32 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
-@.str.33 = private unnamed_addr constant [2 x i8] c"v\00", align 1
 @.str.34 = private unnamed_addr constant [4 x i8] c"smt\00", align 1
 @.str.35 = private unnamed_addr constant [5 x i8] c"smt2\00", align 1
 @.str.36 = private unnamed_addr constant [4 x i8] c"ndr\00", align 1
@@ -262,32 +261,32 @@ define void @Wlc_Init(ptr noundef %0) local_unnamed_addr #0 {
 declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandReadWlc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandReadWlc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #16
   br label %.outer
 
 .outer:                                           ; preds = %6, %3
   %.039.ph = phi i32 [ %7, %6 ], [ 0, %3 ]
-  %.037.ph = phi i32 [ %.037.ph76, %6 ], [ 0, %3 ]
-  %.035.ph = phi i32 [ %.035.ph80, %6 ], [ 0, %3 ]
+  %.037.ph = phi i32 [ %.037.ph77, %6 ], [ 0, %3 ]
+  %.035.ph = phi i32 [ %.035.ph81, %6 ], [ 0, %3 ]
   %.0.ph = phi i32 [ %.0, %6 ], [ 0, %3 ]
-  br label %.outer75
+  br label %.outer76
 
-.outer75:                                         ; preds = %.outer, %8
-  %.037.ph76 = phi i32 [ %.037.ph, %.outer ], [ %9, %8 ]
-  %.035.ph77 = phi i32 [ %.035.ph, %.outer ], [ %.035.ph80, %8 ]
-  %.0.ph78 = phi i32 [ %.0.ph, %.outer ], [ %.0, %8 ]
-  br label %.outer79
+.outer76:                                         ; preds = %.outer, %8
+  %.037.ph77 = phi i32 [ %.037.ph, %.outer ], [ %9, %8 ]
+  %.035.ph78 = phi i32 [ %.035.ph, %.outer ], [ %.035.ph81, %8 ]
+  %.0.ph79 = phi i32 [ %.0.ph, %.outer ], [ %.0, %8 ]
+  br label %.outer80
 
-.outer79:                                         ; preds = %.outer75, %10
-  %.035.ph80 = phi i32 [ %.035.ph77, %.outer75 ], [ %11, %10 ]
-  %.0.ph81 = phi i32 [ %.0.ph78, %.outer75 ], [ %.0, %10 ]
+.outer80:                                         ; preds = %.outer76, %10
+  %.035.ph81 = phi i32 [ %.035.ph78, %.outer76 ], [ %11, %10 ]
+  %.0.ph82 = phi i32 [ %.0.ph79, %.outer76 ], [ %.0, %10 ]
   br label %4
 
-4:                                                ; preds = %.outer79, %12
-  %.0 = phi i32 [ %13, %12 ], [ %.0.ph81, %.outer79 ]
+4:                                                ; preds = %.outer80, %12
+  %.0 = phi i32 [ %13, %12 ], [ %.0.ph82, %.outer80 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.23) #16
-  switch i32 %5, label %55 [
+  switch i32 %5, label %56 [
     i32 -1, label %14
     i32 111, label %6
     i32 112, label %8
@@ -300,12 +299,12 @@ define internal noundef i32 @Abc_CommandReadWlc(ptr nocapture noundef %0, i32 no
   br label %.outer, !llvm.loop !4
 
 8:                                                ; preds = %4
-  %9 = xor i32 %.037.ph76, 1
-  br label %.outer75, !llvm.loop !4
+  %9 = xor i32 %.037.ph77, 1
+  br label %.outer76, !llvm.loop !4
 
 10:                                               ; preds = %4
-  %11 = xor i32 %.035.ph80, 1
-  br label %.outer79, !llvm.loop !4
+  %11 = xor i32 %.035.ph81, 1
+  br label %.outer80, !llvm.loop !4
 
 12:                                               ; preds = %4
   %13 = xor i32 %.0, 1
@@ -319,7 +318,7 @@ define internal noundef i32 @Abc_CommandReadWlc(ptr nocapture noundef %0, i32 no
 
 17:                                               ; preds = %14
   %puts54 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %60
+  br label %61
 
 18:                                               ; preds = %14
   %19 = sext i32 %15 to i64
@@ -327,7 +326,7 @@ define internal noundef i32 @Abc_CommandReadWlc(ptr nocapture noundef %0, i32 no
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noalias ptr @fopen(ptr noundef %21, ptr noundef nonnull @.str.25)
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %28
+  br i1 %23, label %24, label %sub_0
 
 24:                                               ; preds = %18
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.26, ptr noundef %21)
@@ -341,100 +340,106 @@ define internal noundef i32 @Abc_CommandReadWlc(ptr nocapture noundef %0, i32 no
 
 27:                                               ; preds = %26, %24
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.32)
-  br label %60
+  br label %61
 
-28:                                               ; preds = %18
-  %29 = tail call i32 @fclose(ptr noundef nonnull %22)
-  %30 = tail call ptr @Extra_FileNameExtension(ptr noundef %21) #16
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(2) @.str.33) #17
-  %.not47 = icmp eq i32 %31, 0
-  br i1 %.not47, label %32, label %38
+sub_0:                                            ; preds = %18
+  %28 = tail call i32 @fclose(ptr noundef nonnull %22)
+  %29 = tail call ptr @Extra_FileNameExtension(ptr noundef %21) #16
+  %30 = load i8, ptr %29, align 1
+  %.not = icmp eq i8 %30, 118
+  br i1 %.not, label %.tail, label %.tail.thread
 
-32:                                               ; preds = %28
-  %33 = tail call ptr @Wlc_ReadVer(ptr noundef %21, ptr noundef null, i32 noundef %.035.ph80) #16
-  %.not48 = icmp eq i32 %.035.ph80, 0
-  br i1 %.not48, label %52, label %34
+.tail:                                            ; preds = %sub_0
+  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %32 = load i8, ptr %31, align 1
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %34, label %.tail.thread
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 288
-  %36 = load ptr, ptr %35, align 8
-  %.not49 = icmp eq ptr %36, null
-  br i1 %.not49, label %52, label %37
+34:                                               ; preds = %.tail
+  %35 = tail call ptr @Wlc_ReadVer(ptr noundef %21, ptr noundef null, i32 noundef %.035.ph81) #16
+  %.not48 = icmp eq i32 %.035.ph81, 0
+  br i1 %.not48, label %53, label %36
 
-37:                                               ; preds = %34
-  tail call void @Wlc_TransferPioNames(ptr noundef %33, ptr noundef nonnull %36) #16
-  br label %52
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds i8, ptr %0, i64 288
+  %38 = load ptr, ptr %37, align 8
+  %.not49 = icmp eq ptr %38, null
+  br i1 %.not49, label %53, label %39
 
-38:                                               ; preds = %28
-  %39 = tail call ptr @Extra_FileNameExtension(ptr noundef %21) #16
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(4) @.str.34) #17
-  %.not50 = icmp eq i32 %40, 0
-  br i1 %.not50, label %44, label %41
+39:                                               ; preds = %36
+  tail call void @Wlc_TransferPioNames(ptr noundef %35, ptr noundef nonnull %38) #16
+  br label %53
 
-41:                                               ; preds = %38
-  %42 = tail call ptr @Extra_FileNameExtension(ptr noundef %21) #16
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(5) @.str.35) #17
-  %.not51 = icmp eq i32 %43, 0
-  br i1 %.not51, label %44, label %46
+.tail.thread:                                     ; preds = %sub_0, %.tail
+  %40 = tail call ptr @Extra_FileNameExtension(ptr noundef %21) #16
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(4) @.str.34) #17
+  %.not50 = icmp eq i32 %41, 0
+  br i1 %.not50, label %45, label %42
 
-44:                                               ; preds = %41, %38
-  %45 = tail call ptr @Wlc_ReadSmt(ptr noundef %21, i32 noundef %.039.ph, i32 noundef %.037.ph76) #16
-  br label %52
+42:                                               ; preds = %.tail.thread
+  %43 = tail call ptr @Extra_FileNameExtension(ptr noundef %21) #16
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(5) @.str.35) #17
+  %.not51 = icmp eq i32 %44, 0
+  br i1 %.not51, label %45, label %47
 
-46:                                               ; preds = %41
-  %47 = tail call ptr @Extra_FileNameExtension(ptr noundef %21) #16
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(4) @.str.36) #17
-  %.not52 = icmp eq i32 %48, 0
-  br i1 %.not52, label %49, label %51
+45:                                               ; preds = %42, %.tail.thread
+  %46 = tail call ptr @Wlc_ReadSmt(ptr noundef %21, i32 noundef %.039.ph, i32 noundef %.037.ph77) #16
+  br label %53
 
-49:                                               ; preds = %46
-  %50 = tail call ptr @Wlc_ReadNdr(ptr noundef %21) #16
-  br label %52
+47:                                               ; preds = %42
+  %48 = tail call ptr @Extra_FileNameExtension(ptr noundef %21) #16
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(4) @.str.36) #17
+  %.not52 = icmp eq i32 %49, 0
+  br i1 %.not52, label %50, label %52
 
-51:                                               ; preds = %46
+50:                                               ; preds = %47
+  %51 = tail call ptr @Wlc_ReadNdr(ptr noundef %21) #16
+  br label %53
+
+52:                                               ; preds = %47
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %60
+  br label %61
 
-52:                                               ; preds = %44, %49, %32, %34, %37
-  %.041 = phi ptr [ %50, %49 ], [ %45, %44 ], [ %33, %37 ], [ %33, %34 ], [ %33, %32 ]
-  %53 = getelementptr i8, ptr %0, i64 504
-  %.val.i = load ptr, ptr %53, align 8
+53:                                               ; preds = %45, %50, %34, %36, %39
+  %.041 = phi ptr [ %51, %50 ], [ %46, %45 ], [ %35, %39 ], [ %35, %36 ], [ %35, %34 ]
+  %54 = getelementptr i8, ptr %0, i64 504
+  %.val.i = load ptr, ptr %54, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %Wlc_AbcUpdateNtk.exit, label %54
+  br i1 %.not.i.i, label %Wlc_AbcUpdateNtk.exit, label %55
 
-54:                                               ; preds = %52
+55:                                               ; preds = %53
   tail call void @Wlc_NtkFree(ptr noundef nonnull %.val.i) #16
   br label %Wlc_AbcUpdateNtk.exit
 
-Wlc_AbcUpdateNtk.exit:                            ; preds = %52, %54
-  store ptr %.041, ptr %53, align 8
-  br label %60
+Wlc_AbcUpdateNtk.exit:                            ; preds = %53, %55
+  store ptr %.041, ptr %54, align 8
+  br label %61
 
-55:                                               ; preds = %4
+56:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.38)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.39)
   %.not55 = icmp eq i32 %.039.ph, 0
-  %56 = select i1 %.not55, ptr @.str.42, ptr @.str.41
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.40, ptr noundef nonnull %56)
-  %.not56 = icmp eq i32 %.037.ph76, 0
-  %57 = select i1 %.not56, ptr @.str.42, ptr @.str.41
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.43, ptr noundef nonnull %57)
-  %.not57 = icmp eq i32 %.035.ph80, 0
-  %58 = select i1 %.not57, ptr @.str.42, ptr @.str.41
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.44, ptr noundef nonnull %58)
+  %57 = select i1 %.not55, ptr @.str.42, ptr @.str.41
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.40, ptr noundef nonnull %57)
+  %.not56 = icmp eq i32 %.037.ph77, 0
+  %58 = select i1 %.not56, ptr @.str.42, ptr @.str.41
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.43, ptr noundef nonnull %58)
+  %.not57 = icmp eq i32 %.035.ph81, 0
+  %59 = select i1 %.not57, ptr @.str.42, ptr @.str.41
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.44, ptr noundef nonnull %59)
   %.not58 = icmp eq i32 %.0, 0
-  %59 = select i1 %.not58, ptr @.str.42, ptr @.str.41
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.45, ptr noundef nonnull %59)
+  %60 = select i1 %.not58, ptr @.str.42, ptr @.str.41
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.45, ptr noundef nonnull %60)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.46)
-  br label %60
+  br label %61
 
-60:                                               ; preds = %55, %Wlc_AbcUpdateNtk.exit, %51, %27, %17
-  %.034 = phi i32 [ 1, %55 ], [ 0, %17 ], [ 0, %27 ], [ 0, %51 ], [ 0, %Wlc_AbcUpdateNtk.exit ]
+61:                                               ; preds = %56, %Wlc_AbcUpdateNtk.exit, %52, %27, %17
+  %.034 = phi i32 [ 1, %56 ], [ 0, %17 ], [ 0, %27 ], [ 0, %52 ], [ 0, %Wlc_AbcUpdateNtk.exit ]
   ret i32 %.034
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandWriteWlc(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandWriteWlc(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -567,7 +572,7 @@ define internal noundef i32 @Abc_CommandWriteWlc(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandPs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandPs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -723,7 +728,7 @@ define internal noundef i32 @Abc_CommandPs(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandCone(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandCone(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -901,7 +906,7 @@ Wlc_AbcUpdateNtk.exit:                            ; preds = %Abc_UtilStrsav.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandAbs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Wlc_Par_t_, align 8
   %5 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %5, align 8
@@ -1114,7 +1119,7 @@ define internal noundef i32 @Abc_CommandAbs(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandPdrAbs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandPdrAbs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Wlc_Par_t_, align 8
   %5 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %5, align 8
@@ -1471,7 +1476,7 @@ define internal noundef i32 @Abc_CommandPdrAbs(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandAbs2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbs2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Wlc_Par_t_, align 8
   %5 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %5, align 8
@@ -1652,7 +1657,7 @@ define internal noundef i32 @Abc_CommandAbs2(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandMemAbs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandMemAbs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -1753,7 +1758,7 @@ define internal noundef i32 @Abc_CommandMemAbs(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandMemAbs2(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandMemAbs2(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -1835,7 +1840,7 @@ Wlc_AbcUpdateNtk.exit:                            ; preds = %22, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandBlast(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Wlc_BstPar_t_, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2284,7 +2289,7 @@ define internal noundef i32 @Abc_CommandBlast(ptr noundef %0, i32 noundef %1, pt
   %.val171 = load ptr, ptr %174, align 8
   %175 = getelementptr inbounds ptr, ptr %.val171, i64 %indvars.iv
   %176 = load ptr, ptr %175, align 8
-  %177 = trunc i64 %indvars.iv to i32
+  %177 = trunc nuw nsw i64 %indvars.iv to i32
   %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.137, i32 noundef %177, ptr noundef %176) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %179 = load ptr, ptr %169, align 8
@@ -2313,7 +2318,7 @@ define internal noundef i32 @Abc_CommandBlast(ptr noundef %0, i32 noundef %1, pt
   %.val172 = load ptr, ptr %188, align 8
   %189 = getelementptr inbounds ptr, ptr %.val172, i64 %indvars.iv264
   %190 = load ptr, ptr %189, align 8
-  %191 = trunc i64 %indvars.iv264 to i32
+  %191 = trunc nuw nsw i64 %indvars.iv264 to i32
   %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.138, i32 noundef %191, ptr noundef %190) #16
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %193 = load ptr, ptr %183, align 8
@@ -2437,7 +2442,7 @@ define internal noundef i32 @Abc_CommandBlast(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandBlastMem(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandBlastMem(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -2492,7 +2497,7 @@ Wlc_AbcUpdateNtk.exit:                            ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandRetime(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #16
   br label %.outer
 
@@ -2662,7 +2667,7 @@ Vec_IntFreeP.exit:                                ; preds = %26, %.thread.i, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandProfile(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandProfile(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -2707,7 +2712,7 @@ define internal noundef i32 @Abc_CommandProfile(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandShortNames(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandShortNames(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -2752,7 +2757,7 @@ define internal noundef i32 @Abc_CommandShortNames(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandShow(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandShow(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -2821,7 +2826,7 @@ Vec_IntFree.exit:                                 ; preds = %13, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandTest(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandTest(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -2858,7 +2863,7 @@ define internal noundef i32 @Abc_CommandTest(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandInvPs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandInvPs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val18 = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -2926,7 +2931,7 @@ Vec_IntFree.exit:                                 ; preds = %16, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandInvPrint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandInvPrint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #16
   br label %4
 
@@ -2972,7 +2977,7 @@ define internal noundef i32 @Abc_CommandInvPrint(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandInvCheck(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandInvCheck(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -3103,7 +3108,7 @@ Abc_Clock.exit30:                                 ; preds = %41, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandInvGet(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandInvGet(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 504
   %.val44 = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #16
@@ -3198,7 +3203,7 @@ Vec_PtrStart.exit:                                ; preds = %21, %25
   %.val46 = load ptr, ptr %40, align 8
   %41 = getelementptr i8, ptr %.val46, i64 4
   %.val46.val = load i32, ptr %41, align 4
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   %43 = sub i32 %42, %.val4356
   %44 = add i32 %43, %.val46.val
   %45 = getelementptr i8, ptr %39, i64 8
@@ -3226,7 +3231,7 @@ Vec_PtrStart.exit:                                ; preds = %21, %25
 56:                                               ; preds = %55
   %.not9.i.i.i = icmp eq ptr %.val.i60, null
   %57 = shl nuw nsw i64 %indvars.iv.next, 3
-  %58 = trunc i64 %indvars.iv.next to i32
+  %58 = trunc nuw nsw i64 %indvars.iv.next to i32
   br i1 %.not9.i.i.i, label %61, label %59
 
 59:                                               ; preds = %56
@@ -3278,7 +3283,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %Vec_PtrGrow.exit.si
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !27
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %Vec_PtrGrow.exit.i.i
-  %72 = trunc i64 %indvars.iv.next to i32
+  %72 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %72, ptr %30, align 4
   br label %Vec_PtrSetEntry.exit
 
@@ -3347,7 +3352,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandInvPut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandInvPut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #16
   tail call void (...) @Extra_UtilGetoptReset() #16
   br label %5
@@ -3407,7 +3412,7 @@ define internal noundef i32 @Abc_CommandInvPut(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandInvMin(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandInvMin(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #16
   br label %.outer
 
@@ -3599,7 +3604,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %19
 
 19:                                               ; preds = %12, %7, %13, %16, %8, %10
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %20 = call i32 (...) @Abc_FrameIsBridgeMode() #16
   %.not9 = icmp eq i32 %20, 0
   br i1 %.not9, label %27, label %21
@@ -3618,7 +3623,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %29
 
 29:                                               ; preds = %27, %21
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %2, %29
@@ -3647,22 +3652,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3683,7 +3682,7 @@ declare void @Wlc_NtkPrintMemory(ptr noundef) local_unnamed_addr #1
 declare void @Wlc_NtkPrintObjects(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
 
 declare ptr @Wlc_NtkNewName(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3692,10 +3691,10 @@ declare void @Wlc_NtkMarkCone(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare ptr @Wlc_NtkDupDfs(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 declare void @Wlc_ManSetDefaultParams(ptr noundef) local_unnamed_addr #1
 
@@ -3718,7 +3717,7 @@ declare ptr @Wlc_NtkCollectAddMult(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @Wlc_NtkBitBlast(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef %0) unnamed_addr #10 {
+define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef %0) unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4
@@ -3760,7 +3759,7 @@ declare ptr @Wlc_ComputePerm(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Gia_ManDupPerm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntFree(ptr nocapture noundef %0) unnamed_addr #10 {
+define internal fastcc void @Vec_IntFree(ptr nocapture noundef %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3778,7 +3777,7 @@ define internal fastcc void @Vec_IntFree(ptr nocapture noundef %0) unnamed_addr 
 declare void @Abc_FrameUpdateGia(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 declare ptr @Wlc_NtkMemBlast(ptr noundef) local_unnamed_addr #1
 
@@ -3809,7 +3808,7 @@ declare void @Pdr_InvPrint(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Pdr_InvCheck(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
 
 declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #1
 
@@ -3818,7 +3817,7 @@ declare ptr @Wlc_NtkGetInv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @Abc_FrameReplaceCurrentNetwork(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 declare ptr @Abc_FrameReadNtk(ptr noundef) local_unnamed_addr #1
 
@@ -3831,6 +3830,12 @@ declare ptr @Pdr_InvMinimizeLits(ptr noundef, ptr noundef, i32 noundef) local_un
 declare ptr @Pdr_InvMinimize(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @Wlc_NtkExploreMem(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
@@ -3846,15 +3851,15 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind }

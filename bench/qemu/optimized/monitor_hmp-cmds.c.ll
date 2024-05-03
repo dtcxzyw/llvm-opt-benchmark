@@ -250,7 +250,7 @@ entry:
   %err = alloca ptr, align 8
   %call = tail call ptr @qdict_get_try_str(ptr noundef %qdict, ptr noundef nonnull @.str.5) #5
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %if.then, label %if.end
+  br i1 %cmp, label %if.then, label %sub_0
 
 if.then:                                          ; preds = %entry
   %call1 = tail call zeroext i1 @qsp_is_enabled() #5
@@ -258,16 +258,28 @@ if.then:                                          ; preds = %entry
   %call2 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.6, ptr noundef nonnull %cond) #5
   br label %if.end17
 
-if.end:                                           ; preds = %entry
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(3) @.str.7) #7
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.then5, label %if.else
+sub_0:                                            ; preds = %entry
+  %0 = load i8, ptr %call, align 1
+  %.not = icmp eq i8 %0, 111
+  br i1 %.not, label %sub_1, label %if.else
 
-if.then5:                                         ; preds = %if.end
+sub_1:                                            ; preds = %sub_0
+  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %2 = load i8, ptr %1, align 1
+  %.not6 = icmp eq i8 %2, 110
+  br i1 %.not6, label %if.end.tail, label %if.else
+
+if.end.tail:                                      ; preds = %sub_1
+  %3 = getelementptr inbounds i8, ptr %call, i64 2
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %if.then5, label %if.else
+
+if.then5:                                         ; preds = %if.end.tail
   tail call void @qsp_enable() #5
   br label %if.end17
 
-if.else:                                          ; preds = %if.end
+if.else:                                          ; preds = %sub_1, %sub_0, %if.end.tail
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(4) @.str.8) #7
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then8, label %if.else9
@@ -288,12 +300,12 @@ if.then12:                                        ; preds = %if.else9
 if.else13:                                        ; preds = %if.else9
   store ptr null, ptr %err, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.10, i32 noundef 141, ptr noundef nonnull @__func__.hmp_sync_profile, ptr noundef nonnull @.str.11, ptr noundef nonnull %call) #5
-  %0 = load ptr, ptr %err, align 8
-  %tobool.not.i.not = icmp eq ptr %0, null
+  %6 = load ptr, ptr %err, align 8
+  %tobool.not.i.not = icmp eq ptr %6, null
   br i1 %tobool.not.i.not, label %if.end17, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else13
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef nonnull %0, ptr noundef nonnull @.str) #5
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef nonnull %6, ptr noundef nonnull @.str) #5
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then.i, %if.else13, %if.then8, %if.then12, %if.then5, %if.then

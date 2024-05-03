@@ -156,8 +156,6 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.ScanSourceDatabasePgClassTuple = private unnamed_addr constant [31 x i8] c"ScanSourceDatabasePgClassTuple\00", align 1
 @__func__.movedb = private unnamed_addr constant [7 x i8] c"movedb\00", align 1
 @.str.106 = private unnamed_addr constant [60 x i8] c"cannot change the tablespace of the currently open database\00", align 1
-@.str.107 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.108 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.109 = private unnamed_addr constant [63 x i8] c"some relations of database \22%s\22 are already in tablespace \22%s\22\00", align 1
 @.str.110 = private unnamed_addr constant [88 x i8] c"You must move them back to the database's default tablespace before using this command.\00", align 1
 @.str.111 = private unnamed_addr constant [36 x i8] c"could not remove directory \22%s\22: %m\00", align 1
@@ -1737,7 +1735,7 @@ BufferGetPage.exit.i.i:                           ; preds = %695, %689
 .lr.ph.i.i.i:                                     ; preds = %706
   %713 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
   %714 = lshr i32 %707, 16
-  %715 = trunc i32 %714 to i16
+  %715 = trunc nuw i32 %714 to i16
   %716 = trunc i32 %707 to i16
   br label %717
 
@@ -3663,7 +3661,7 @@ define internal fastcc void @movedb(ptr noundef %0, ptr noundef %1) unnamed_addr
   call void @table_close(ptr noundef %15, i32 noundef 0) #15
   %50 = load i32, ptr %3, align 4
   call void @UnlockSharedObjectForSession(i32 noundef 1262, i32 noundef %50, i16 noundef zeroext 0, i32 noundef 8) #15
-  br label %134
+  br label %144
 
 51:                                               ; preds = %46
   %52 = load i32, ptr %3, align 4
@@ -3694,165 +3692,187 @@ define internal fastcc void @movedb(ptr noundef %0, ptr noundef %1) unnamed_addr
   call void @DropDatabaseBuffers(i32 noundef %67) #15
   %68 = call ptr @AllocateDir(ptr noundef %65) #15
   %.not52 = icmp eq ptr %68, null
-  br i1 %.not52, label %89, label %.preheader
+  br i1 %.not52, label %99, label %.preheader
 
 .preheader:                                       ; preds = %60
   %69 = call ptr @ReadDir(ptr noundef nonnull %68, ptr noundef %65) #15
-  %.not5357 = icmp eq ptr %69, null
-  br i1 %.not5357, label %._crit_edge, label %.lr.ph
+  %.not5361 = icmp eq ptr %69, null
+  br i1 %.not5361, label %._crit_edge, label %sub_0
 
-.lr.ph:                                           ; preds = %.preheader, %77
-  %70 = phi ptr [ %78, %77 ], [ %69, %.preheader ]
+sub_0:                                            ; preds = %.preheader, %87
+  %70 = phi ptr [ %88, %87 ], [ %69, %.preheader ]
   %71 = getelementptr inbounds i8, ptr %70, i64 19
-  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(2) @.str.107) #13
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %77, label %74
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  %74 = add nsw i32 %73, -46
+  %.not62 = icmp eq i32 %74, 0
+  br i1 %.not62, label %.tail, label %.tail57
 
-74:                                               ; preds = %.lr.ph
-  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(3) @.str.108) #13
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %79
+.tail:                                            ; preds = %sub_0
+  %75 = getelementptr inbounds i8, ptr %70, i64 20
+  %76 = load i8, ptr %75, align 1
+  %77 = icmp eq i8 %76, 0
+  br i1 %77, label %87, label %sub_159
 
-77:                                               ; preds = %74, %.lr.ph
-  %78 = call ptr @ReadDir(ptr noundef nonnull %68, ptr noundef %65) #15
-  %.not53 = icmp eq ptr %78, null
-  br i1 %.not53, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+sub_159:                                          ; preds = %.tail
+  %78 = getelementptr inbounds i8, ptr %70, i64 20
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = add nsw i32 %80, -46
+  %.not64 = icmp eq i32 %81, 0
+  br i1 %.not64, label %sub_2, label %.tail57
 
-79:                                               ; preds = %74
-  %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %80)
-  %81 = call i32 @errcode(i32 noundef 325) #15
-  %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.109, ptr noundef %0, ptr noundef %1) #15
-  %83 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.110) #15
+sub_2:                                            ; preds = %sub_159
+  %82 = getelementptr inbounds i8, ptr %70, i64 21
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i32
+  br label %.tail57
+
+.tail57:                                          ; preds = %sub_0, %sub_159, %sub_2
+  %85 = phi i32 [ %81, %sub_159 ], [ %84, %sub_2 ], [ %74, %sub_0 ]
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %89
+
+87:                                               ; preds = %.tail57, %.tail
+  %88 = call ptr @ReadDir(ptr noundef nonnull %68, ptr noundef %65) #15
+  %.not53 = icmp eq ptr %88, null
+  br i1 %.not53, label %._crit_edge, label %sub_0, !llvm.loop !13
+
+89:                                               ; preds = %.tail57
+  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %90)
+  %91 = call i32 @errcode(i32 noundef 325) #15
+  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.109, ptr noundef %0, ptr noundef %1) #15
+  %93 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.110) #15
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 2068, ptr noundef nonnull @__func__.movedb) #15
   unreachable
 
-._crit_edge:                                      ; preds = %77, %.preheader
-  %84 = call i32 @FreeDir(ptr noundef nonnull %68) #15
-  %85 = call i32 @rmdir(ptr noundef %65) #15
-  %.not54 = icmp eq i32 %85, 0
-  br i1 %.not54, label %89, label %86
+._crit_edge:                                      ; preds = %87, %.preheader
+  %94 = call i32 @FreeDir(ptr noundef nonnull %68) #15
+  %95 = call i32 @rmdir(ptr noundef %65) #15
+  %.not54 = icmp eq i32 %95, 0
+  br i1 %.not54, label %99, label %96
 
-86:                                               ; preds = %._crit_edge
-  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %87)
-  %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.111, ptr noundef %65) #15
+96:                                               ; preds = %._crit_edge
+  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %97)
+  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.111, ptr noundef %65) #15
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 2079, ptr noundef nonnull @__func__.movedb) #15
   unreachable
 
-89:                                               ; preds = %._crit_edge, %60
-  %90 = load i32, ptr %3, align 4
-  store i32 %90, ptr %8, align 4
-  %91 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 %36, ptr %91, align 4
-  %92 = ptrtoint ptr %8 to i64
-  call void @before_shmem_exit(ptr noundef nonnull @movedb_failure_callback, i64 noundef %92) #15
-  %93 = load ptr, ptr @PG_exception_stack, align 8
-  %94 = load ptr, ptr @error_context_stack, align 8
-  %95 = call i32 @__sigsetjmp(ptr noundef nonnull %9, i32 noundef 0) #17
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %124
+99:                                               ; preds = %._crit_edge, %60
+  %100 = load i32, ptr %3, align 4
+  store i32 %100, ptr %8, align 4
+  %101 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %36, ptr %101, align 4
+  %102 = ptrtoint ptr %8 to i64
+  call void @before_shmem_exit(ptr noundef nonnull @movedb_failure_callback, i64 noundef %102) #15
+  %103 = load ptr, ptr @PG_exception_stack, align 8
+  %104 = load ptr, ptr @error_context_stack, align 8
+  %105 = call i32 @__sigsetjmp(ptr noundef nonnull %9, i32 noundef 0) #17
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %134
 
-97:                                               ; preds = %89
+107:                                              ; preds = %99
   store ptr %9, ptr @PG_exception_stack, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %10, i8 0, i64 144, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %11, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %12, i8 0, i64 18, i1 false)
   call void @copydir(ptr noundef %63, ptr noundef %65, i1 noundef zeroext false) #15
-  %98 = load i32, ptr %3, align 4
-  store i32 %98, ptr %13, align 4
-  %99 = getelementptr inbounds i8, ptr %13, i64 4
-  store i32 %36, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 %98, ptr %100, align 4
-  %101 = load i32, ptr %6, align 4
-  %102 = getelementptr inbounds i8, ptr %13, i64 12
-  store i32 %101, ptr %102, align 4
+  %108 = load i32, ptr %3, align 4
+  store i32 %108, ptr %13, align 4
+  %109 = getelementptr inbounds i8, ptr %13, i64 4
+  store i32 %36, ptr %109, align 4
+  %110 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 %108, ptr %110, align 4
+  %111 = load i32, ptr %6, align 4
+  %112 = getelementptr inbounds i8, ptr %13, i64 12
+  store i32 %111, ptr %112, align 4
   call void @XLogBeginInsert() #15
   call void @XLogRegisterData(ptr noundef nonnull %13, i32 noundef 16) #15
-  %103 = call i64 @XLogInsert(i8 noundef zeroext 4, i8 noundef zeroext 1) #15
-  %104 = ptrtoint ptr %0 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %104) #15
-  %105 = call ptr @systable_beginscan(ptr noundef %15, i32 noundef 2671, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #15
-  %106 = call ptr @systable_getnext(ptr noundef %105) #15
-  %.not55 = icmp eq ptr %106, null
-  br i1 %.not55, label %107, label %111
+  %113 = call i64 @XLogInsert(i8 noundef zeroext 4, i8 noundef zeroext 1) #15
+  %114 = ptrtoint ptr %0 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %114) #15
+  %115 = call ptr @systable_beginscan(ptr noundef %15, i32 noundef 2671, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #15
+  %116 = call ptr @systable_getnext(ptr noundef %115) #15
+  %.not55 = icmp eq ptr %116, null
+  br i1 %.not55, label %117, label %121
 
-107:                                              ; preds = %97
-  %108 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %108)
-  %109 = call i32 @errcode(i32 noundef 1283) #15
-  %110 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.75, ptr noundef %0) #15
+117:                                              ; preds = %107
+  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %118)
+  %119 = call i32 @errcode(i32 noundef 1283) #15
+  %120 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.75, ptr noundef %0) #15
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 2134, ptr noundef nonnull @__func__.movedb) #15
   unreachable
 
-111:                                              ; preds = %97
-  %112 = zext i32 %36 to i64
-  %113 = getelementptr inbounds i8, ptr %10, i64 88
-  store i64 %112, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %12, i64 11
-  store i8 1, ptr %114, align 1
-  %115 = getelementptr inbounds i8, ptr %15, i64 64
-  %116 = load ptr, ptr %115, align 8
-  %117 = call ptr @heap_modify_tuple(ptr noundef nonnull %106, ptr noundef %116, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #15
-  %118 = getelementptr inbounds i8, ptr %106, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %15, ptr noundef nonnull %118, ptr noundef %117) #15
-  %119 = load ptr, ptr @object_access_hook, align 8
-  %.not56 = icmp eq ptr %119, null
-  br i1 %.not56, label %122, label %120
+121:                                              ; preds = %107
+  %122 = zext i32 %36 to i64
+  %123 = getelementptr inbounds i8, ptr %10, i64 88
+  store i64 %122, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %12, i64 11
+  store i8 1, ptr %124, align 1
+  %125 = getelementptr inbounds i8, ptr %15, i64 64
+  %126 = load ptr, ptr %125, align 8
+  %127 = call ptr @heap_modify_tuple(ptr noundef nonnull %116, ptr noundef %126, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #15
+  %128 = getelementptr inbounds i8, ptr %116, i64 4
+  call void @CatalogTupleUpdate(ptr noundef %15, ptr noundef nonnull %128, ptr noundef %127) #15
+  %129 = load ptr, ptr @object_access_hook, align 8
+  %.not56 = icmp eq ptr %129, null
+  br i1 %.not56, label %132, label %130
 
-120:                                              ; preds = %111
-  %121 = load i32, ptr %3, align 4
-  call void @RunObjectPostAlterHook(i32 noundef 1262, i32 noundef %121, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #15
-  br label %122
+130:                                              ; preds = %121
+  %131 = load i32, ptr %3, align 4
+  call void @RunObjectPostAlterHook(i32 noundef 1262, i32 noundef %131, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #15
+  br label %132
 
-122:                                              ; preds = %111, %120
-  call void @systable_endscan(ptr noundef %105) #15
+132:                                              ; preds = %121, %130
+  call void @systable_endscan(ptr noundef %115) #15
   call void @RequestCheckpoint(i32 noundef 44) #15
   call void @ForceSyncCommit() #15
   call void @table_close(ptr noundef nonnull %15, i32 noundef 0) #15
-  call void @cancel_before_shmem_exit(ptr noundef nonnull @movedb_failure_callback, i64 noundef %92) #15
-  store ptr %93, ptr @PG_exception_stack, align 8
-  store ptr %94, ptr @error_context_stack, align 8
+  call void @cancel_before_shmem_exit(ptr noundef nonnull @movedb_failure_callback, i64 noundef %102) #15
+  store ptr %103, ptr @PG_exception_stack, align 8
+  store ptr %104, ptr @error_context_stack, align 8
   call void @PopActiveSnapshot() #15
   call void @CommitTransactionCommand() #15
   call void @StartTransactionCommand() #15
-  %123 = call zeroext i1 @rmtree(ptr noundef %63, i1 noundef zeroext true) #15
-  br i1 %123, label %129, label %125
+  %133 = call zeroext i1 @rmtree(ptr noundef %63, i1 noundef zeroext true) #15
+  br i1 %133, label %139, label %135
 
-124:                                              ; preds = %89
-  store ptr %93, ptr @PG_exception_stack, align 8
-  store ptr %94, ptr @error_context_stack, align 8
-  call void @cancel_before_shmem_exit(ptr noundef nonnull @movedb_failure_callback, i64 noundef %92) #15
-  call void @movedb_failure_callback(i32 poison, i64 noundef %92)
+134:                                              ; preds = %99
+  store ptr %103, ptr @PG_exception_stack, align 8
+  store ptr %104, ptr @error_context_stack, align 8
+  call void @cancel_before_shmem_exit(ptr noundef nonnull @movedb_failure_callback, i64 noundef %102) #15
+  call void @movedb_failure_callback(i32 poison, i64 noundef %102)
   call void @pg_re_throw() #14
   unreachable
 
-125:                                              ; preds = %122
-  %126 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %126, label %127, label %129
+135:                                              ; preds = %132
+  %136 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
+  br i1 %136, label %137, label %139
 
-127:                                              ; preds = %125
-  %128 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.101, ptr noundef %63) #15
+137:                                              ; preds = %135
+  %138 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.101, ptr noundef %63) #15
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 2196, ptr noundef nonnull @__func__.movedb) #15
-  br label %129
+  br label %139
 
-129:                                              ; preds = %127, %125, %122
-  %130 = load i32, ptr %3, align 4
-  store i32 %130, ptr %14, align 4
-  %131 = getelementptr inbounds i8, ptr %14, i64 4
-  store i32 1, ptr %131, align 4
+139:                                              ; preds = %137, %135, %132
+  %140 = load i32, ptr %3, align 4
+  store i32 %140, ptr %14, align 4
+  %141 = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 1, ptr %141, align 4
   call void @XLogBeginInsert() #15
   call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 8) #15
   call void @XLogRegisterData(ptr noundef nonnull %6, i32 noundef 4) #15
-  %132 = call i64 @XLogInsert(i8 noundef zeroext 4, i8 noundef zeroext 33) #15
-  %133 = load i32, ptr %3, align 4
-  call void @UnlockSharedObjectForSession(i32 noundef 1262, i32 noundef %133, i16 noundef zeroext 0, i32 noundef 8) #15
+  %142 = call i64 @XLogInsert(i8 noundef zeroext 4, i8 noundef zeroext 33) #15
+  %143 = load i32, ptr %3, align 4
+  call void @UnlockSharedObjectForSession(i32 noundef 1262, i32 noundef %143, i16 noundef zeroext 0, i32 noundef 8) #15
   call void @pfree(ptr noundef %63) #15
   call void @pfree(ptr noundef %65) #15
-  br label %134
+  br label %144
 
-134:                                              ; preds = %129, %49
+144:                                              ; preds = %139, %49
   ret void
 }
 

@@ -10,7 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [20 x i8] c"multipart/form-data\00", align 1
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
-@.str.1 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @stdin = external local_unnamed_addr global ptr, align 8
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 @Curl_cstrdup = external local_unnamed_addr global ptr, align 8
@@ -1312,7 +1311,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool8.not114, label %for.body, label %if.then131
 
 for.body:                                         ; preds = %if.end7, %for.inc128
-  %post.addr.0115 = phi ptr [ %23, %for.inc128 ], [ %post, %if.end7 ]
+  %post.addr.0115 = phi ptr [ %30, %for.inc128 ], [ %post, %if.end7 ]
   %more = getelementptr inbounds i8, ptr %post.addr.0115, i64 72
   %0 = load ptr, ptr %more, align 8
   %tobool10.not = icmp eq ptr %0, null
@@ -1381,7 +1380,7 @@ for.body37.lr.ph:                                 ; preds = %for.body, %if.end31
   br label %for.body37
 
 for.body37:                                       ; preds = %for.body37.lr.ph, %for.inc
-  %file.0113 = phi ptr [ %post.addr.0115, %for.body37.lr.ph ], [ %21, %for.inc ]
+  %file.0113 = phi ptr [ %post.addr.0115, %for.body37.lr.ph ], [ %28, %for.inc ]
   %call38 = tail call ptr @curl_mime_addpart(ptr noundef %multipart.1129) #6
   %tobool39.not.not = icmp eq ptr %call38, null
   br i1 %tobool39.not.not, label %for.inc, label %if.end45
@@ -1451,17 +1450,30 @@ if.then62:                                        ; preds = %land.lhs.true53, %i
 if.then69:                                        ; preds = %if.then62
   %contents = getelementptr inbounds i8, ptr %file.0113, i64 24
   %11 = load ptr, ptr %contents, align 8
-  %call70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(2) @.str.1) #7
-  %tobool71.not = icmp eq i32 %call70, 0
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = add nsw i32 %13, -45
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %sub_1, label %if.then69.tail
+
+sub_1:                                            ; preds = %if.then69
+  %15 = getelementptr inbounds i8, ptr %11, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i32
+  br label %if.then69.tail
+
+if.then69.tail:                                   ; preds = %if.then69, %sub_1
+  %18 = phi i32 [ %14, %if.then69 ], [ %17, %sub_1 ]
+  %tobool71.not = icmp eq i32 %18, 0
   br i1 %tobool71.not, label %if.then72, label %if.else
 
-if.then72:                                        ; preds = %if.then69
-  %12 = load ptr, ptr @stdin, align 8
-  %call73 = tail call i32 @curl_mime_data_cb(ptr noundef nonnull %call38, i64 noundef -1, ptr noundef nonnull @fread, ptr noundef nonnull @fseeko_wrapper, ptr noundef null, ptr noundef %12) #6
+if.then72:                                        ; preds = %if.then69.tail
+  %19 = load ptr, ptr @stdin, align 8
+  %call73 = tail call i32 @curl_mime_data_cb(ptr noundef nonnull %call38, i64 noundef -1, ptr noundef nonnull @fread, ptr noundef nonnull @fseeko_wrapper, ptr noundef null, ptr noundef %19) #6
   br label %if.end76
 
-if.else:                                          ; preds = %if.then69
-  %call75 = tail call i32 @curl_mime_filedata(ptr noundef nonnull %call38, ptr noundef %11) #6
+if.else:                                          ; preds = %if.then69.tail
+  %call75 = tail call i32 @curl_mime_filedata(ptr noundef nonnull %call38, ptr noundef nonnull %11) #6
   br label %if.end76
 
 if.end76:                                         ; preds = %if.else, %if.then72
@@ -1470,8 +1482,8 @@ if.end76:                                         ; preds = %if.else, %if.then72
   br i1 %tobool77.not, label %land.lhs.true78, label %if.then131
 
 land.lhs.true78:                                  ; preds = %if.end76
-  %13 = load i64, ptr %flags, align 8
-  %and80 = and i64 %13, 2
+  %20 = load i64, ptr %flags, align 8
+  %and80 = and i64 %20, 2
   %tobool81.not = icmp eq i64 %and80, 0
   br i1 %tobool81.not, label %land.lhs.true114, label %if.then82
 
@@ -1485,11 +1497,11 @@ if.else85:                                        ; preds = %if.then62
   br i1 %tobool88.not, label %if.else93, label %if.then89
 
 if.then89:                                        ; preds = %if.else85
-  %14 = load ptr, ptr %buffer, align 8
-  %15 = load i64, ptr %bufferlength, align 8
-  %tobool90.not = icmp eq i64 %15, 0
-  %spec.select76 = select i1 %tobool90.not, i64 -1, i64 %15
-  %call92 = tail call i32 @curl_mime_data(ptr noundef nonnull %call38, ptr noundef %14, i64 noundef %spec.select76) #6
+  %21 = load ptr, ptr %buffer, align 8
+  %22 = load i64, ptr %bufferlength, align 8
+  %tobool90.not = icmp eq i64 %22, 0
+  %spec.select76 = select i1 %tobool90.not, i64 -1, i64 %22
+  %call92 = tail call i32 @curl_mime_data(ptr noundef nonnull %call38, ptr noundef %21, i64 noundef %spec.select76) #6
   br label %if.end112
 
 if.else93:                                        ; preds = %if.else85
@@ -1500,13 +1512,13 @@ if.else93:                                        ; preds = %if.else85
   br i1 %tobool96.not, label %if.else102, label %if.then97
 
 if.then97:                                        ; preds = %if.else93
-  %16 = load ptr, ptr %userp, align 8
-  %call101 = tail call i32 @curl_mime_data_cb(ptr noundef nonnull %call38, i64 noundef %.clen.0, ptr noundef %fread_func, ptr noundef null, ptr noundef null, ptr noundef %16) #6
+  %23 = load ptr, ptr %userp, align 8
+  %call101 = tail call i32 @curl_mime_data_cb(ptr noundef nonnull %call38, i64 noundef %.clen.0, ptr noundef %fread_func, ptr noundef null, ptr noundef null, ptr noundef %23) #6
   br label %if.end112
 
 if.else102:                                       ; preds = %if.else93
-  %17 = load ptr, ptr %contents107, align 8
-  %call108 = tail call i32 @curl_mime_data(ptr noundef nonnull %call38, ptr noundef %17, i64 noundef %.clen.0) #6
+  %24 = load ptr, ptr %contents107, align 8
+  %call108 = tail call i32 @curl_mime_data(ptr noundef nonnull %call38, ptr noundef %24, i64 noundef %.clen.0) #6
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then82, %if.then97, %if.else102, %if.then89
@@ -1515,40 +1527,40 @@ if.end112:                                        ; preds = %if.then82, %if.then
   br i1 %tobool113.not, label %land.lhs.true114, label %if.then131
 
 land.lhs.true114:                                 ; preds = %land.lhs.true78, %if.end112
-  %18 = load ptr, ptr %showfilename, align 8
-  %tobool115.not = icmp eq ptr %18, null
+  %25 = load ptr, ptr %showfilename, align 8
+  %tobool115.not = icmp eq ptr %25, null
   br i1 %tobool115.not, label %for.inc, label %if.then116
 
 if.then116:                                       ; preds = %land.lhs.true114
-  %19 = load ptr, ptr %more, align 8
-  %tobool118.not = icmp eq ptr %19, null
+  %26 = load ptr, ptr %more, align 8
+  %tobool118.not = icmp eq ptr %26, null
   br i1 %tobool118.not, label %lor.lhs.false, label %if.then122
 
 lor.lhs.false:                                    ; preds = %if.then116
-  %20 = load i64, ptr %flags, align 8
-  %and120 = and i64 %20, 81
+  %27 = load i64, ptr %flags, align 8
+  %and120 = and i64 %27, 81
   %tobool121.not = icmp eq i64 %and120, 0
   br i1 %tobool121.not, label %for.inc, label %if.then122
 
 if.then122:                                       ; preds = %lor.lhs.false, %if.then116
-  %call124 = tail call i32 @curl_mime_filename(ptr noundef nonnull %call38, ptr noundef nonnull %18) #6
+  %call124 = tail call i32 @curl_mime_filename(ptr noundef nonnull %call38, ptr noundef nonnull %25) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body37, %land.lhs.true114, %if.then122, %lor.lhs.false
   %result.14 = phi i32 [ %call124, %if.then122 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true114 ], [ 27, %for.body37 ]
   %more127 = getelementptr inbounds i8, ptr %file.0113, i64 72
-  %21 = load ptr, ptr %more127, align 8
+  %28 = load ptr, ptr %more127, align 8
   %tobool33.not = icmp eq i32 %result.14, 0
-  %tobool35 = icmp ne ptr %21, null
-  %22 = select i1 %tobool33.not, i1 %tobool35, i1 false
-  br i1 %22, label %for.body37, label %for.inc128, !llvm.loop !12
+  %tobool35 = icmp ne ptr %28, null
+  %29 = select i1 %tobool33.not, i1 %tobool35, i1 false
+  br i1 %29, label %for.body37, label %for.inc128, !llvm.loop !12
 
 for.inc128:                                       ; preds = %for.inc
-  %23 = load ptr, ptr %post.addr.0115, align 8
+  %30 = load ptr, ptr %post.addr.0115, align 8
   %tobool8.not = icmp eq i32 %result.14, 0
-  %tobool9 = icmp ne ptr %23, null
-  %24 = select i1 %tobool8.not, i1 %tobool9, i1 false
-  br i1 %24, label %for.body, label %for.end129, !llvm.loop !13
+  %tobool9 = icmp ne ptr %30, null
+  %31 = select i1 %tobool8.not, i1 %tobool9, i1 false
+  br i1 %31, label %for.body, label %for.end129, !llvm.loop !13
 
 for.end129:                                       ; preds = %for.inc128
   br i1 %tobool8.not, label %return, label %if.then131
@@ -1636,16 +1648,13 @@ declare i32 @curl_mime_headers(ptr noundef, ptr noundef, i32 noundef) local_unna
 
 declare i32 @curl_mime_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
-
 declare i32 @curl_mime_data_cb(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #3
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @fseeko_wrapper(ptr nocapture noundef %stream, i64 noundef %offset, i32 noundef %whence) #4 {
+define internal noundef i32 @fseeko_wrapper(ptr nocapture noundef %stream, i64 noundef %offset, i32 noundef %whence) #3 {
 entry:
   %call = tail call i32 @fseeko(ptr noundef %stream, i64 noundef %offset, i32 noundef %whence)
   ret i32 %call
@@ -1662,14 +1671,14 @@ declare ptr @Curl_mime_contenttype(ptr noundef) local_unnamed_addr #1
 declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 declare ptr @Curl_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @curl_mime_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @fseeko(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #5
@@ -1679,9 +1688,9 @@ declare void @llvm.va_end.p0(ptr) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

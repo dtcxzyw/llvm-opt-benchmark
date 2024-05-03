@@ -60,7 +60,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [97 x i8] c"git diff header lacks filename information when removing %d leading pathname component (line %d)\00", align 1
 @.str.25 = private unnamed_addr constant [98 x i8] c"git diff header lacks filename information when removing %d leading pathname components (line %d)\00", align 1
 @.str.26 = private unnamed_addr constant [53 x i8] c"git diff header lacks filename information (line %d)\00", align 1
-@.str.27 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.28 = private unnamed_addr constant [8 x i8] c"<stdin>\00", align 1
 @.str.29 = private unnamed_addr constant [26 x i8] c"can't open patch '%s': %s\00", align 1
 @.str.30 = private unnamed_addr constant [30 x i8] c"squelched %d whitespace error\00", align 1
@@ -144,7 +143,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.108 = private unnamed_addr constant [6 x i8] c"strip\00", align 1
 @.str.109 = private unnamed_addr constant [4 x i8] c"fix\00", align 1
 @.str.110 = private unnamed_addr constant [36 x i8] c"unrecognized whitespace option '%s'\00", align 1
-@.str.111 = private unnamed_addr constant [3 x i8] c"no\00", align 1
 @.str.112 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 @.str.113 = private unnamed_addr constant [6 x i8] c"never\00", align 1
 @.str.114 = private unnamed_addr constant [5 x i8] c"none\00", align 1
@@ -368,11 +366,23 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %tobool4.not, label %return, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
-  %call.i19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(3) @.str.111) #22
-  %tobool1.not.i = icmp eq i32 %call.i19, 0
-  br i1 %tobool1.not.i, label %if.then.i, label %lor.lhs.false2.i
+  %3 = load i8, ptr %2, align 1
+  %.not.i = icmp eq i8 %3, 110
+  br i1 %.not.i, label %sub_1.i, label %lor.lhs.false2.i
 
-lor.lhs.false2.i:                                 ; preds = %land.lhs.true5
+sub_1.i:                                          ; preds = %land.lhs.true5
+  %4 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = load i8, ptr %4, align 1
+  %.not8.i = icmp eq i8 %5, 111
+  br i1 %.not8.i, label %entry.tail.i, label %lor.lhs.false2.i
+
+entry.tail.i:                                     ; preds = %sub_1.i
+  %6 = getelementptr inbounds i8, ptr %2, i64 2
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %if.then.i, label %lor.lhs.false2.i
+
+lor.lhs.false2.i:                                 ; preds = %entry.tail.i, %sub_1.i, %land.lhs.true5
   %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.112) #22
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.then.i, label %lor.lhs.false5.i
@@ -387,7 +397,7 @@ lor.lhs.false8.i:                                 ; preds = %lor.lhs.false5.i
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %lor.lhs.false8.i, %lor.lhs.false5.i, %lor.lhs.false2.i, %land.lhs.true5
+if.then.i:                                        ; preds = %lor.lhs.false8.i, %lor.lhs.false5.i, %lor.lhs.false2.i, %entry.tail.i
   store i32 0, ptr %ws_ignore_action, align 4
   br label %return
 
@@ -401,8 +411,8 @@ if.then13.i:                                      ; preds = %if.end.i
   br label %return
 
 if.end15.i:                                       ; preds = %if.end.i
-  %3 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i = icmp eq i32 %3, 0
+  %9 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool1.not.i.i, label %parse_ignorewhitespace_option.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end15.i
@@ -2125,25 +2135,38 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %errs.0106 = phi i32 [ 0, %for.body.lr.ph ], [ %errs.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.27) #22
-  %tobool.not = icmp eq i32 %call, 0
+  %1 = load i8, ptr %0, align 1
+  %2 = zext i8 %1 to i32
+  %3 = add nsw i32 %2, -45
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %sub_1, label %for.body.tail
+
+sub_1:                                            ; preds = %for.body
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = load i8, ptr %4, align 1
+  %6 = zext i8 %5 to i32
+  br label %for.body.tail
+
+for.body.tail:                                    ; preds = %for.body, %sub_1
+  %7 = phi i32 [ %3, %for.body ], [ %6, %sub_1 ]
+  %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
-if.then:                                          ; preds = %for.body
+if.then:                                          ; preds = %for.body.tail
   %call1 = tail call fastcc i32 @apply_patch(ptr noundef %state, i32 noundef 0, ptr noundef nonnull @.str.28, i32 noundef %options)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %end, label %for.inc
 
-if.else:                                          ; preds = %for.body
-  %1 = load ptr, ptr %state, align 8
-  %call4 = tail call ptr @prefix_filename(ptr noundef %1, ptr noundef %0) #21
+if.else:                                          ; preds = %for.body.tail
+  %8 = load ptr, ptr %state, align 8
+  %call4 = tail call ptr @prefix_filename(ptr noundef %8, ptr noundef nonnull %0) #21
   %call6 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %call4, i32 noundef 0) #21
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %if.then8, label %if.end14
 
 if.then8:                                         ; preds = %if.else
-  %2 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i = icmp eq i32 %2, 0
+  %9 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i = icmp eq i32 %9, 0
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then8
@@ -2153,23 +2176,23 @@ if.end3.i:                                        ; preds = %if.then8
 _.exit:                                           ; preds = %if.then8, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.29, %if.then8 ]
   %call10 = tail call ptr @__errno_location() #23
-  %3 = load i32, ptr %call10, align 4
-  %call11 = tail call ptr @strerror(i32 noundef %3) #21
+  %10 = load i32, ptr %call10, align 4
+  %call11 = tail call ptr @strerror(i32 noundef %10) #21
   %call12 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %call4, ptr noundef %call11) #21
   tail call void @free(ptr noundef %call4) #21
   br label %end
 
 if.end14:                                         ; preds = %if.else
-  %4 = load ptr, ptr %whitespace_option.i, align 8
-  %tobool.i = icmp ne ptr %4, null
-  %5 = load ptr, ptr @apply_default_whitespace, align 8
-  %tobool1.i = icmp ne ptr %5, null
+  %11 = load ptr, ptr %whitespace_option.i, align 8
+  %tobool.i = icmp ne ptr %11, null
+  %12 = load ptr, ptr @apply_default_whitespace, align 8
+  %tobool1.i = icmp ne ptr %12, null
   %or.cond.i = select i1 %tobool.i, i1 true, i1 %tobool1.i
   br i1 %or.cond.i, label %set_default_whitespace_mode.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %6 = load i32, ptr %apply.i, align 8
-  %tobool2.not.i = icmp ne i32 %6, 0
+  %13 = load i32, ptr %apply.i, align 8
+  %tobool2.not.i = icmp ne i32 %13, 0
   %cond.i = zext i1 %tobool2.not.i to i32
   store i32 %cond.i, ptr %ws_error_action.i, align 8
   br label %set_default_whitespace_mode.exit
@@ -2191,17 +2214,17 @@ for.inc:                                          ; preds = %set_default_whitesp
 for.end:                                          ; preds = %for.inc, %entry
   %errs.0.lcssa = phi i32 [ 0, %entry ], [ %errs.1, %for.inc ]
   %whitespace_option.i56 = getelementptr inbounds i8, ptr %state, i64 424
-  %7 = load ptr, ptr %whitespace_option.i56, align 8
-  %tobool.i57 = icmp ne ptr %7, null
-  %8 = load ptr, ptr @apply_default_whitespace, align 8
-  %tobool1.i58 = icmp ne ptr %8, null
+  %14 = load ptr, ptr %whitespace_option.i56, align 8
+  %tobool.i57 = icmp ne ptr %14, null
+  %15 = load ptr, ptr @apply_default_whitespace, align 8
+  %tobool1.i58 = icmp ne ptr %15, null
   %or.cond.i59 = select i1 %tobool.i57, i1 true, i1 %tobool1.i58
   br i1 %or.cond.i59, label %set_default_whitespace_mode.exit65, label %if.then.i60
 
 if.then.i60:                                      ; preds = %for.end
   %apply.i61 = getelementptr inbounds i8, ptr %state, i64 16
-  %9 = load i32, ptr %apply.i61, align 8
-  %tobool2.not.i62 = icmp ne i32 %9, 0
+  %16 = load i32, ptr %apply.i61, align 8
+  %tobool2.not.i62 = icmp ne i32 %16, 0
   %cond.i63 = zext i1 %tobool2.not.i62 to i32
   %ws_error_action.i64 = getelementptr inbounds i8, ptr %state, i64 416
   store i32 %cond.i63, ptr %ws_error_action.i64, align 8
@@ -2222,22 +2245,22 @@ if.end26:                                         ; preds = %if.then22
 if.end28:                                         ; preds = %if.end26, %set_default_whitespace_mode.exit65
   %errs.2 = phi i32 [ %or27, %if.end26 ], [ %errs.0.lcssa, %set_default_whitespace_mode.exit65 ]
   %whitespace_error = getelementptr inbounds i8, ptr %state, i64 432
-  %10 = load i32, ptr %whitespace_error, align 8
-  %tobool29.not = icmp eq i32 %10, 0
+  %17 = load i32, ptr %whitespace_error, align 8
+  %tobool29.not = icmp eq i32 %17, 0
   br i1 %tobool29.not, label %if.end68, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
   %squelch_whitespace_errors = getelementptr inbounds i8, ptr %state, i64 436
-  %11 = load i32, ptr %squelch_whitespace_errors, align 4
-  %tobool31.not = icmp ne i32 %11, 0
-  %cmp34 = icmp slt i32 %11, %10
+  %18 = load i32, ptr %squelch_whitespace_errors, align 4
+  %tobool31.not = icmp ne i32 %18, 0
+  %cmp34 = icmp slt i32 %18, %17
   %or.cond = and i1 %tobool31.not, %cmp34
   br i1 %or.cond, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.then30
-  %sub = sub nsw i32 %10, %11
-  %12 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool.not.i = icmp eq i32 %12, 0
+  %sub = sub nsw i32 %17, %18
+  %19 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool.not.i = icmp eq i32 %19, 0
   br i1 %tobool.not.i, label %if.then.i68, label %if.end.i
 
 if.then.i68:                                      ; preds = %if.then35
@@ -2257,113 +2280,113 @@ Q_.exit:                                          ; preds = %if.then.i68, %if.en
 
 if.end39:                                         ; preds = %Q_.exit, %if.then30
   %ws_error_action = getelementptr inbounds i8, ptr %state, i64 416
-  %13 = load i32, ptr %ws_error_action, align 8
-  %cmp40 = icmp eq i32 %13, 2
+  %20 = load i32, ptr %ws_error_action, align 8
+  %cmp40 = icmp eq i32 %20, 2
   br i1 %cmp40, label %if.then42, label %if.end49
 
 if.then42:                                        ; preds = %if.end39
-  %14 = load i32, ptr %whitespace_error, align 8
-  %15 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool.not.i70 = icmp eq i32 %15, 0
+  %21 = load i32, ptr %whitespace_error, align 8
+  %22 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool.not.i70 = icmp eq i32 %22, 0
   br i1 %tobool.not.i70, label %if.then.i74, label %if.end.i71
 
 if.then.i74:                                      ; preds = %if.then42
-  %cmp.i75 = icmp eq i32 %14, 1
+  %cmp.i75 = icmp eq i32 %21, 1
   %cond.i76 = select i1 %cmp.i75, ptr @.str.32, ptr @.str.33
   br label %Q_.exit77
 
 if.end.i71:                                       ; preds = %if.then42
-  %conv44 = sext i32 %14 to i64
+  %conv44 = sext i32 %21 to i64
   %call.i72 = tail call ptr @ngettext(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef %conv44) #21
   %.pre111 = load i32, ptr %whitespace_error, align 8
   br label %Q_.exit77
 
 Q_.exit77:                                        ; preds = %if.then.i74, %if.end.i71
-  %16 = phi i32 [ %.pre111, %if.end.i71 ], [ %14, %if.then.i74 ]
+  %23 = phi i32 [ %.pre111, %if.end.i71 ], [ %21, %if.then.i74 ]
   %retval.0.i73 = phi ptr [ %call.i72, %if.end.i71 ], [ %cond.i76, %if.then.i74 ]
-  %call47 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i73, i32 noundef %16) #21
+  %call47 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i73, i32 noundef %23) #21
   br label %end
 
 if.end49:                                         ; preds = %if.end39
   %applied_after_fixing_ws = getelementptr inbounds i8, ptr %state, i64 440
-  %17 = load i32, ptr %applied_after_fixing_ws, align 8
-  %tobool50.not = icmp eq i32 %17, 0
+  %24 = load i32, ptr %applied_after_fixing_ws, align 8
+  %tobool50.not = icmp eq i32 %24, 0
   br i1 %tobool50.not, label %if.else58, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %if.end49
   %apply = getelementptr inbounds i8, ptr %state, i64 16
-  %18 = load i32, ptr %apply, align 8
-  %tobool52.not = icmp eq i32 %18, 0
+  %25 = load i32, ptr %apply, align 8
+  %tobool52.not = icmp eq i32 %25, 0
   br i1 %tobool52.not, label %if.else58, label %if.then53
 
 if.then53:                                        ; preds = %land.lhs.true51
-  %19 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool.not.i78 = icmp eq i32 %19, 0
+  %26 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool.not.i78 = icmp eq i32 %26, 0
   br i1 %tobool.not.i78, label %if.then.i82, label %if.end.i79
 
 if.then.i82:                                      ; preds = %if.then53
-  %cmp.i83 = icmp eq i32 %17, 1
+  %cmp.i83 = icmp eq i32 %24, 1
   %cond.i84 = select i1 %cmp.i83, ptr @.str.34, ptr @.str.35
   br label %Q_.exit85
 
 if.end.i79:                                       ; preds = %if.then53
-  %conv55 = sext i32 %17 to i64
+  %conv55 = sext i32 %24 to i64
   %call.i80 = tail call ptr @ngettext(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i64 noundef %conv55) #21
   %.pre = load i32, ptr %applied_after_fixing_ws, align 8
   br label %Q_.exit85
 
 Q_.exit85:                                        ; preds = %if.then.i82, %if.end.i79
-  %20 = phi i32 [ %.pre, %if.end.i79 ], [ %17, %if.then.i82 ]
+  %27 = phi i32 [ %.pre, %if.end.i79 ], [ %24, %if.then.i82 ]
   %retval.0.i81 = phi ptr [ %call.i80, %if.end.i79 ], [ %cond.i84, %if.then.i82 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i81, i32 noundef %20) #21
+  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i81, i32 noundef %27) #21
   br label %if.end68
 
 if.else58:                                        ; preds = %land.lhs.true51, %if.end49
-  %21 = load i32, ptr %whitespace_error, align 8
-  %tobool60.not = icmp eq i32 %21, 0
+  %28 = load i32, ptr %whitespace_error, align 8
+  %tobool60.not = icmp eq i32 %28, 0
   br i1 %tobool60.not, label %if.end68, label %if.then61
 
 if.then61:                                        ; preds = %if.else58
-  %22 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool.not.i86 = icmp eq i32 %22, 0
+  %29 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool.not.i86 = icmp eq i32 %29, 0
   br i1 %tobool.not.i86, label %if.then.i90, label %if.end.i87
 
 if.then.i90:                                      ; preds = %if.then61
-  %cmp.i91 = icmp eq i32 %21, 1
+  %cmp.i91 = icmp eq i32 %28, 1
   %cond.i92 = select i1 %cmp.i91, ptr @.str.32, ptr @.str.33
   br label %Q_.exit93
 
 if.end.i87:                                       ; preds = %if.then61
-  %conv63 = sext i32 %21 to i64
+  %conv63 = sext i32 %28 to i64
   %call.i88 = tail call ptr @ngettext(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef %conv63) #21
   %.pre110 = load i32, ptr %whitespace_error, align 8
   br label %Q_.exit93
 
 Q_.exit93:                                        ; preds = %if.then.i90, %if.end.i87
-  %23 = phi i32 [ %.pre110, %if.end.i87 ], [ %21, %if.then.i90 ]
+  %30 = phi i32 [ %.pre110, %if.end.i87 ], [ %28, %if.then.i90 ]
   %retval.0.i89 = phi ptr [ %call.i88, %if.end.i87 ], [ %cond.i92, %if.then.i90 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i89, i32 noundef %23) #21
+  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i89, i32 noundef %30) #21
   br label %if.end68
 
 if.end68:                                         ; preds = %Q_.exit85, %Q_.exit93, %if.else58, %if.end28
   %update_index = getelementptr inbounds i8, ptr %state, i64 32
-  %24 = load i32, ptr %update_index, align 8
-  %tobool69.not = icmp eq i32 %24, 0
+  %31 = load i32, ptr %update_index, align 8
+  %tobool69.not = icmp eq i32 %31, 0
   br i1 %tobool69.not, label %if.end78, label %if.then70
 
 if.then70:                                        ; preds = %if.end68
   %repo = getelementptr inbounds i8, ptr %state, i64 88
-  %25 = load ptr, ptr %repo, align 8
-  %index = getelementptr inbounds i8, ptr %25, i64 240
-  %26 = load ptr, ptr %index, align 8
+  %32 = load ptr, ptr %repo, align 8
+  %index = getelementptr inbounds i8, ptr %32, i64 240
+  %33 = load ptr, ptr %index, align 8
   %lock_file = getelementptr inbounds i8, ptr %state, i64 8
-  %call71 = tail call i32 @write_locked_index(ptr noundef %26, ptr noundef nonnull %lock_file, i32 noundef 1) #21
+  %call71 = tail call i32 @write_locked_index(ptr noundef %33, ptr noundef nonnull %lock_file, i32 noundef 1) #21
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %if.end78, label %if.then73
 
 if.then73:                                        ; preds = %if.then70
-  %27 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i95 = icmp eq i32 %27, 0
+  %34 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i95 = icmp eq i32 %34, 0
   br i1 %tobool1.not.i95, label %_.exit99, label %if.end3.i96
 
 if.end3.i96:                                      ; preds = %if.then73
@@ -2385,17 +2408,17 @@ end:                                              ; preds = %set_default_whitesp
   %lock_file81 = getelementptr inbounds i8, ptr %state, i64 8
   tail call void @delete_tempfile(ptr noundef nonnull %lock_file81) #21
   %apply_verbosity = getelementptr inbounds i8, ptr %state, i64 104
-  %28 = load i32, ptr %apply_verbosity, align 8
-  %cmp82 = icmp slt i32 %28, 0
+  %35 = load i32, ptr %apply_verbosity, align 8
+  %cmp82 = icmp slt i32 %35, 0
   br i1 %cmp82, label %if.then84, label %if.end85
 
 if.then84:                                        ; preds = %end
   %saved_error_routine = getelementptr inbounds i8, ptr %state, i64 400
-  %29 = load ptr, ptr %saved_error_routine, align 8
-  tail call void @set_error_routine(ptr noundef %29) #21
+  %36 = load ptr, ptr %saved_error_routine, align 8
+  tail call void @set_error_routine(ptr noundef %36) #21
   %saved_warn_routine = getelementptr inbounds i8, ptr %state, i64 408
-  %30 = load ptr, ptr %saved_warn_routine, align 8
-  tail call void @set_warn_routine(ptr noundef %30) #21
+  %37 = load ptr, ptr %saved_warn_routine, align 8
+  tail call void @set_warn_routine(ptr noundef %37) #21
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then84, %end

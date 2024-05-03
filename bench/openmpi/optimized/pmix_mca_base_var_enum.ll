@@ -26,12 +26,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [5 x i8] c"true\00", align 1
 @.str.5 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 @.str.6 = private unnamed_addr constant [7 x i8] c" \09\0A\0B\0C\0D\00", align 1
-@.str.7 = private unnamed_addr constant [2 x i8] c"t\00", align 1
 @.str.8 = private unnamed_addr constant [8 x i8] c"enabled\00", align 1
 @.str.9 = private unnamed_addr constant [4 x i8] c"yes\00", align 1
-@.str.10 = private unnamed_addr constant [2 x i8] c"f\00", align 1
 @.str.11 = private unnamed_addr constant [9 x i8] c"disabled\00", align 1
-@.str.12 = private unnamed_addr constant [3 x i8] c"no\00", align 1
 @.str.13 = private unnamed_addr constant [46 x i8] c"0: f|false|disabled|no, 1: t|true|enabled|yes\00", align 1
 @.str.14 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 @.str.15 = private unnamed_addr constant [12 x i8] c"%s, 0 - 100\00", align 1
@@ -185,7 +182,7 @@ define internal noundef i32 @pmix_mca_base_var_enum_bool_get_count(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @pmix_mca_base_var_enum_bool_get_value(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_bool_get_value(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = icmp sgt i32 %1, 1
   br i1 %5, label %9, label %6
 
@@ -203,7 +200,7 @@ define internal noundef i32 @pmix_mca_base_var_enum_bool_get_value(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @pmix_mca_base_var_enum_bool_vfs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #2 {
+define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_bool_vfs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #2 {
   %4 = alloca ptr, align 8
   %5 = tail call i64 @strspn(ptr noundef %1, ptr noundef nonnull @.str.6) #21
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -212,57 +209,84 @@ define internal noundef i32 @pmix_mca_base_var_enum_bool_vfs(ptr nocapture readn
   %9 = load ptr, ptr %4, align 8
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %35, label %11
+  br i1 %.not, label %38, label %11
 
 11:                                               ; preds = %3
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.4) #21
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %35, label %14
+  br i1 %13, label %38, label %sub_0
 
-14:                                               ; preds = %11
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(2) @.str.7) #21
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %35, label %17
+sub_0:                                            ; preds = %11
+  %14 = load i8, ptr %6, align 1
+  %.not22 = icmp eq i8 %14, 116
+  br i1 %.not22, label %.tail, label %.tail.thread
 
-17:                                               ; preds = %14
+.tail:                                            ; preds = %sub_0
+  %15 = getelementptr inbounds i8, ptr %6, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %38, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_0, %.tail
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.8) #21
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %35, label %20
+  br i1 %19, label %38, label %20
 
-20:                                               ; preds = %17
+20:                                               ; preds = %.tail.thread
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(4) @.str.9) #21
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %35, label %23
+  br i1 %22, label %38, label %23
 
 23:                                               ; preds = %20
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.5) #21
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %35, label %26
+  br i1 %25, label %38, label %sub_015
 
-26:                                               ; preds = %23
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(2) @.str.10) #21
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %35, label %29
+sub_015:                                          ; preds = %23
+  %.not23 = icmp eq i8 %14, 102
+  br i1 %.not23, label %.tail14, label %.tail14.thread
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.11) #21
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %35, label %32
+.tail14:                                          ; preds = %sub_015
+  %26 = getelementptr inbounds i8, ptr %6, i64 1
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %38, label %.thread
 
-32:                                               ; preds = %29
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(3) @.str.12) #21
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %38
+.tail14.thread:                                   ; preds = %sub_015
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.11) #21
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %38, label %sub_019
 
-35:                                               ; preds = %23, %26, %29, %32, %11, %14, %17, %20, %3
-  %.0 = phi i32 [ %8, %3 ], [ 1, %20 ], [ 1, %17 ], [ 1, %14 ], [ 1, %11 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ]
-  %36 = icmp ne i32 %.0, 0
-  %37 = zext i1 %36 to i32
-  store i32 %37, ptr %2, align 4
-  br label %38
+.thread:                                          ; preds = %.tail14
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.11) #21
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %38, label %.tail18.thread
 
-38:                                               ; preds = %32, %35
-  %.013 = phi i32 [ 0, %35 ], [ -65, %32 ]
+sub_019:                                          ; preds = %.tail14.thread
+  %.not24 = icmp eq i8 %14, 110
+  br i1 %.not24, label %sub_120, label %.tail18.thread
+
+sub_120:                                          ; preds = %sub_019
+  %33 = getelementptr inbounds i8, ptr %6, i64 1
+  %34 = load i8, ptr %33, align 1
+  %.not25 = icmp eq i8 %34, 111
+  br i1 %.not25, label %.tail18, label %.tail18.thread
+
+.tail18:                                          ; preds = %sub_120
+  %35 = getelementptr inbounds i8, ptr %6, i64 2
+  %36 = load i8, ptr %35, align 1
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %38, label %.tail18.thread
+
+38:                                               ; preds = %.thread, %23, %.tail14, %.tail14.thread, %.tail18, %11, %.tail, %.tail.thread, %20, %3
+  %.0 = phi i32 [ %8, %3 ], [ 1, %20 ], [ 1, %.tail.thread ], [ 1, %.tail ], [ 1, %11 ], [ 0, %.tail18 ], [ 0, %.tail14.thread ], [ 0, %.tail14 ], [ 0, %23 ], [ 0, %.thread ]
+  %39 = icmp ne i32 %.0, 0
+  %40 = zext i1 %39 to i32
+  store i32 %40, ptr %2, align 4
+  br label %.tail18.thread
+
+.tail18.thread:                                   ; preds = %.thread, %sub_120, %sub_019, %.tail18, %38
+  %.013 = phi i32 [ 0, %38 ], [ -65, %.tail18 ], [ -65, %sub_019 ], [ -65, %sub_120 ], [ -65, %.thread ]
   ret i32 %.013
 }
 
@@ -283,7 +307,7 @@ define internal noundef i32 @pmix_mca_base_var_enum_bool_sfv(ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @pmix_mca_base_var_enum_bool_dump(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #3 {
+define internal noundef range(i32 -29, 1) i32 @pmix_mca_base_var_enum_bool_dump(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #3 {
   %3 = tail call noalias dereferenceable_or_null(46) ptr @strdup(ptr noundef nonnull @.str.13) #20
   store ptr %3, ptr %1, align 8
   %.not = icmp eq ptr %3, null
@@ -346,7 +370,7 @@ define internal i32 @enum_get_value(ptr noundef %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @pmix_mca_base_var_enum_verbose_vfs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i32 -46, 1) i32 @pmix_mca_base_var_enum_verbose_vfs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = alloca ptr, align 8
   %5 = tail call i64 @strspn(ptr noundef %1, ptr noundef nonnull @.str.6) #21
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -402,7 +426,7 @@ define internal noundef i32 @pmix_mca_base_var_enum_verbose_vfs(ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pmix_mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
+define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
   %or.cond = icmp ugt i32 %1, 100
   br i1 %or.cond, label %17, label %.preheader
 
@@ -454,7 +478,7 @@ define internal noundef i32 @pmix_mca_base_var_enum_verbose_sfv(ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pmix_mca_base_var_enum_verbose_dump(ptr noundef readonly %0, ptr noundef %1) #1 {
+define internal range(i32 -29, 1) i32 @pmix_mca_base_var_enum_verbose_dump(ptr noundef readonly %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %4 = icmp eq ptr %0, null
@@ -519,7 +543,7 @@ enum_dump.exit:                                   ; preds = %19, %.loopexit, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_mca_base_var_enum_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   store ptr null, ptr %2, align 8
   %4 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_var_enum_t_class, i64 0, i32 8), align 8
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #22
@@ -549,7 +573,7 @@ define noundef i32 @pmix_mca_base_var_enum_create(ptr nocapture noundef readonly
   %16 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_var_enum_t_class, i64 0, i32 6), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i.i = icmp eq ptr %17, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread45, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread46, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %18 = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %10 ]
@@ -558,24 +582,24 @@ define noundef i32 @pmix_mca_base_var_enum_create(ptr nocapture noundef readonly
   %19 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread45, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread46, label %.lr.ph.i.i, !llvm.loop !10
 
-pmix_obj_new_tma.exit.thread45:                   ; preds = %.lr.ph.i.i, %10
+pmix_obj_new_tma.exit.thread46:                   ; preds = %.lr.ph.i.i, %10
   %21 = tail call noalias ptr @strdup(ptr noundef %0) #20
   %22 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
-  br i1 %23, label %pmix_obj_new_tma.exit.thread, label %.preheader46
+  br i1 %23, label %pmix_obj_new_tma.exit.thread, label %.preheader47
 
-.preheader46:                                     ; preds = %pmix_obj_new_tma.exit.thread45, %.preheader46
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader46 ], [ 0, %pmix_obj_new_tma.exit.thread45 ]
+.preheader47:                                     ; preds = %pmix_obj_new_tma.exit.thread46, %.preheader47
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader47 ], [ 0, %pmix_obj_new_tma.exit.thread46 ]
   %24 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_t, ptr %1, i64 %indvars.iv, i32 1
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not, label %26, label %.preheader46, !llvm.loop !11
+  br i1 %.not, label %26, label %.preheader47, !llvm.loop !11
 
-26:                                               ; preds = %.preheader46
+26:                                               ; preds = %.preheader47
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = getelementptr inbounds i8, ptr %5, i64 176
   store i32 %27, ptr %28, align 8
@@ -642,30 +666,30 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %45
   br label %pmix_obj_new_tma.exit.thread
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.lr.ph ], [ 0, %.preheader ]
-  %56 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_t, ptr %1, i64 %indvars.iv49
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph ], [ 0, %.preheader ]
+  %56 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_t, ptr %1, i64 %indvars.iv50
   %57 = load i32, ptr %56, align 8
   %58 = load ptr, ptr %32, align 8
-  %59 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_t, ptr %58, i64 %indvars.iv49
+  %59 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_t, ptr %58, i64 %indvars.iv50
   store i32 %57, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %56, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = tail call noalias ptr @strdup(ptr noundef %61) #20
   %63 = load ptr, ptr %32, align 8
-  %64 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_t, ptr %63, i64 %indvars.iv49, i32 1
+  %64 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_t, ptr %63, i64 %indvars.iv50, i32 1
   store ptr %62, ptr %64, align 8
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %65 = load i32, ptr %28, align 8
   %66 = sext i32 %65 to i64
-  %67 = icmp slt i64 %indvars.iv.next50, %66
+  %67 = icmp slt i64 %indvars.iv.next51, %66
   br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   store ptr %5, ptr %2, align 8
   br label %pmix_obj_new_tma.exit.thread
 
-pmix_obj_new_tma.exit.thread:                     ; preds = %9, %40, %55, %54, %pmix_obj_new_tma.exit.thread45, %._crit_edge
-  %.040 = phi i32 [ 0, %._crit_edge ], [ -29, %pmix_obj_new_tma.exit.thread45 ], [ -29, %54 ], [ -29, %55 ], [ -29, %40 ], [ -29, %9 ]
+pmix_obj_new_tma.exit.thread:                     ; preds = %9, %40, %55, %54, %pmix_obj_new_tma.exit.thread46, %._crit_edge
+  %.040 = phi i32 [ 0, %._crit_edge ], [ -29, %pmix_obj_new_tma.exit.thread46 ], [ -29, %54 ], [ -29, %55 ], [ -29, %40 ], [ -29, %9 ]
   ret i32 %.040
 }
 
@@ -679,7 +703,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_mca_base_var_enum_create_flag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create_flag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   store ptr null, ptr %2, align 8
   %4 = load i64, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_var_enum_flag_t_class, i64 0, i32 8), align 8
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #22
@@ -709,7 +733,7 @@ define noundef i32 @pmix_mca_base_var_enum_create_flag(ptr nocapture noundef rea
   %16 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mca_base_var_enum_flag_t_class, i64 0, i32 6), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i.i = icmp eq ptr %17, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread49, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread50, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %18 = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %10 ]
@@ -718,24 +742,24 @@ define noundef i32 @pmix_mca_base_var_enum_create_flag(ptr nocapture noundef rea
   %19 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread49, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread50, label %.lr.ph.i.i, !llvm.loop !10
 
-pmix_obj_new_tma.exit.thread49:                   ; preds = %.lr.ph.i.i, %10
+pmix_obj_new_tma.exit.thread50:                   ; preds = %.lr.ph.i.i, %10
   %21 = tail call noalias ptr @strdup(ptr noundef %0) #20
   %22 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
-  br i1 %23, label %pmix_obj_new_tma.exit.thread, label %.preheader50
+  br i1 %23, label %pmix_obj_new_tma.exit.thread, label %.preheader51
 
-.preheader50:                                     ; preds = %pmix_obj_new_tma.exit.thread49, %.preheader50
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader50 ], [ 0, %pmix_obj_new_tma.exit.thread49 ]
+.preheader51:                                     ; preds = %pmix_obj_new_tma.exit.thread50, %.preheader51
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader51 ], [ 0, %pmix_obj_new_tma.exit.thread50 ]
   %24 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %1, i64 %indvars.iv, i32 1
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not, label %26, label %.preheader50, !llvm.loop !14
+  br i1 %.not, label %26, label %.preheader51, !llvm.loop !14
 
-26:                                               ; preds = %.preheader50
+26:                                               ; preds = %.preheader51
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = getelementptr inbounds i8, ptr %5, i64 176
   store i32 %27, ptr %28, align 8
@@ -802,35 +826,35 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %45
   br label %pmix_obj_new_tma.exit.thread
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.lr.ph ], [ 0, %.preheader ]
-  %56 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %1, i64 %indvars.iv53
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph ], [ 0, %.preheader ]
+  %56 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %1, i64 %indvars.iv54
   %57 = load i32, ptr %56, align 8
   %58 = load ptr, ptr %32, align 8
-  %59 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %58, i64 %indvars.iv53
+  %59 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %58, i64 %indvars.iv54
   store i32 %57, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %56, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = tail call noalias ptr @strdup(ptr noundef %61) #20
   %63 = load ptr, ptr %32, align 8
-  %64 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %63, i64 %indvars.iv53, i32 1
+  %64 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %63, i64 %indvars.iv54, i32 1
   store ptr %62, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %56, i64 16
   %66 = load i32, ptr %65, align 8
   %67 = load ptr, ptr %32, align 8
-  %68 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %67, i64 %indvars.iv53, i32 2
+  %68 = getelementptr inbounds %struct.pmix_mca_base_var_enum_value_flag_t, ptr %67, i64 %indvars.iv54, i32 2
   store i32 %66, ptr %68, align 8
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %69 = load i32, ptr %28, align 8
   %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %indvars.iv.next54, %70
+  %71 = icmp slt i64 %indvars.iv.next55, %70
   br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   store ptr %5, ptr %2, align 8
   br label %pmix_obj_new_tma.exit.thread
 
-pmix_obj_new_tma.exit.thread:                     ; preds = %9, %40, %55, %54, %pmix_obj_new_tma.exit.thread49, %._crit_edge
-  %.044 = phi i32 [ 0, %._crit_edge ], [ -29, %pmix_obj_new_tma.exit.thread49 ], [ -29, %54 ], [ -29, %55 ], [ -29, %40 ], [ -29, %9 ]
+pmix_obj_new_tma.exit.thread:                     ; preds = %9, %40, %55, %54, %pmix_obj_new_tma.exit.thread50, %._crit_edge
+  %.044 = phi i32 [ 0, %._crit_edge ], [ -29, %pmix_obj_new_tma.exit.thread50 ], [ -29, %54 ], [ -29, %55 ], [ -29, %40 ], [ -29, %9 ]
   ret i32 %.044
 }
 
@@ -847,7 +871,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @enum_dump(ptr noundef readonly %0, ptr noundef %1) #1 {
+define internal range(i32 -29, 1) i32 @enum_dump(ptr noundef readonly %0, ptr noundef %1) #1 {
   store ptr null, ptr %1, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %.preheader
@@ -1328,7 +1352,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @enum_dump_flag(ptr noundef readonly %0, ptr noundef %1) #1 {
+define internal range(i32 -29, 1) i32 @enum_dump_flag(ptr noundef readonly %0, ptr noundef %1) #1 {
   store ptr null, ptr %1, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4

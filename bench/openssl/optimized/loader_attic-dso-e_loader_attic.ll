@@ -30,7 +30,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [24 x i8] c"unsupported search type\00", align 1
 @.str.13 = private unnamed_addr constant [26 x i8] c"uri authority unsupported\00", align 1
 @.str.14 = private unnamed_addr constant [6 x i8] c"file:\00", align 1
-@.str.15 = private unnamed_addr constant [3 x i8] c"//\00", align 1
 @.str.16 = private unnamed_addr constant [11 x i8] c"localhost/\00", align 1
 @.str.17 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @__func__.file_open_ex = private unnamed_addr constant [13 x i8] c"file_open_ex\00", align 1
@@ -74,7 +73,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ERR_ATTIC_error = private unnamed_addr constant [16 x i8] c"ERR_ATTIC_error\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
+define noundef range(i64 0, 196609) i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.inv = icmp ult i64 %v, 196608
   %. = select i1 %cmp.inv, i64 0, i64 196608
@@ -82,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #10
   %0 = load ptr, ptr %fns, align 8
@@ -280,11 +279,25 @@ entry:
 cond.true:                                        ; preds = %entry
   %path_data_n.0.sroa.gep55 = getelementptr inbounds i8, ptr %path_data, i64 16
   %add.ptr = getelementptr inbounds i8, ptr %uri, i64 5
-  %call3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(3) @.str.15, i64 noundef 2) #11
-  %cmp4 = icmp eq i32 %call3, 0
+  %0 = load i8, ptr %add.ptr, align 1
+  %1 = zext i8 %0 to i32
+  %2 = add nsw i32 %1, -47
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %sub_1, label %cond.true.tail
+
+sub_1:                                            ; preds = %cond.true
+  %3 = getelementptr inbounds i8, ptr %uri, i64 6
+  %4 = load i8, ptr %3, align 1
+  %5 = zext i8 %4 to i32
+  %6 = add nsw i32 %5, -47
+  br label %cond.true.tail
+
+cond.true.tail:                                   ; preds = %cond.true, %sub_1
+  %7 = phi i32 [ %2, %cond.true ], [ %6, %sub_1 ]
+  %cmp4 = icmp eq i32 %7, 0
   br i1 %cmp4, label %cond.true5, label %if.end21
 
-cond.true5:                                       ; preds = %cond.true
+cond.true5:                                       ; preds = %cond.true.tail
   %add.ptr6 = getelementptr inbounds i8, ptr %uri, i64 7
   %call9 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %add.ptr6, ptr noundef nonnull @.str.16, i64 noundef 10) #10
   %cmp10 = icmp eq i32 %call9, 0
@@ -296,14 +309,14 @@ lor.lhs.false:                                    ; preds = %cond.true5
   br i1 %cmp15, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %lor.lhs.false, %cond.true5
-  %0 = phi i64 [ 17, %cond.true5 ], [ 8, %lor.lhs.false ]
-  %1 = getelementptr inbounds i8, ptr %uri, i64 %0
-  %add.ptr20 = getelementptr inbounds i8, ptr %1, i64 -1
+  %8 = phi i64 [ 17, %cond.true5 ], [ 8, %lor.lhs.false ]
+  %9 = getelementptr inbounds i8, ptr %uri, i64 %8
+  %add.ptr20 = getelementptr inbounds i8, ptr %9, i64 -1
   br label %if.end21
 
 if.else:                                          ; preds = %lor.lhs.false
-  %2 = load i32, ptr @lib_code, align 4
-  %cmp.i = icmp eq i32 %2, 0
+  %10 = load i32, ptr @lib_code, align 4
+  %cmp.i = icmp eq i32 %10, 0
   br i1 %cmp.i, label %if.then.i, label %ERR_ATTIC_error.exit
 
 if.then.i:                                        ; preds = %if.else
@@ -314,15 +327,15 @@ if.then.i:                                        ; preds = %if.else
 ERR_ATTIC_error.exit:                             ; preds = %if.else, %if.then.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
-  %3 = load i32, ptr @lib_code, align 4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %3, i32 noundef 110, ptr noundef null) #10
+  %11 = load i32, ptr @lib_code, align 4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %11, i32 noundef 110, ptr noundef null) #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 977, ptr noundef null) #10
   br label %return
 
-if.end21:                                         ; preds = %cond.true, %if.then19
-  %path_data_n.0.sroa.phi = phi ptr [ %path_data, %if.then19 ], [ %path_data_n.0.sroa.gep55, %cond.true ]
-  %path_data_n.0 = phi i64 [ 1, %if.then19 ], [ 2, %cond.true ]
-  %p.0 = phi ptr [ %add.ptr20, %if.then19 ], [ %add.ptr, %cond.true ]
+if.end21:                                         ; preds = %cond.true.tail, %if.then19
+  %path_data_n.0.sroa.phi = phi ptr [ %path_data, %if.then19 ], [ %path_data_n.0.sroa.gep55, %cond.true.tail ]
+  %path_data_n.0 = phi i64 [ 1, %if.then19 ], [ 2, %cond.true.tail ]
+  %p.0 = phi ptr [ %add.ptr20, %if.then19 ], [ %add.ptr, %cond.true.tail ]
   %check_absolute23 = getelementptr inbounds i8, ptr %path_data_n.0.sroa.phi, i64 8
   %bf.load24 = load i8, ptr %check_absolute23, align 8
   %bf.set26 = or i8 %bf.load24, 1
@@ -345,13 +358,13 @@ for.body:                                         ; preds = %if.end30, %for.inc
   br i1 %tobool.not, label %if.end45, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %4 = load i8, ptr %.pre, align 1
-  %cmp40.not = icmp eq i8 %4, 47
+  %12 = load i8, ptr %.pre, align 1
+  %cmp40.not = icmp eq i8 %12, 47
   br i1 %cmp40.not, label %if.end45, label %if.then42
 
 if.then42:                                        ; preds = %land.lhs.true
-  %5 = load i32, ptr @lib_code, align 4
-  %cmp.i46 = icmp eq i32 %5, 0
+  %13 = load i32, ptr @lib_code, align 4
+  %cmp.i46 = icmp eq i32 %13, 0
   br i1 %cmp.i46, label %if.then.i47, label %ERR_ATTIC_error.exit49
 
 if.then.i47:                                      ; preds = %if.then42
@@ -362,8 +375,8 @@ if.then.i47:                                      ; preds = %if.then42
 ERR_ATTIC_error.exit49:                           ; preds = %if.then42, %if.then.i47
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
-  %6 = load i32, ptr @lib_code, align 4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %6, i32 noundef 105, ptr noundef null) #10
+  %14 = load i32, ptr @lib_code, align 4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %14, i32 noundef 105, ptr noundef null) #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1005, ptr noundef null) #10
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 1, ptr noundef nonnull %.pre) #10
   br label %return
@@ -377,8 +390,8 @@ if.then51:                                        ; preds = %if.end45
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1011, ptr noundef nonnull @__func__.file_open_ex) #10
   %call52 = tail call ptr @__errno_location() #12
-  %7 = load i32, ptr %call52, align 4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %7, ptr noundef nonnull @.str.18, ptr noundef %.pre) #10
+  %15 = load i32, ptr %call52, align 4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.18, ptr noundef %.pre) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end45, %if.then51
@@ -386,8 +399,8 @@ for.inc:                                          ; preds = %if.end45, %if.then5
   %inc59 = add nuw nsw i64 %i.060, 1
   %cmp31 = icmp eq ptr %path.1, null
   %cmp32 = icmp ult i64 %inc59, %path_data_n.1
-  %8 = select i1 %cmp31, i1 %cmp32, i1 false
-  br i1 %8, label %for.body, label %for.end, !llvm.loop !4
+  %16 = select i1 %cmp31, i1 %cmp32, i1 false
+  br i1 %16, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
   br i1 %cmp31, label %return, label %if.end63
@@ -405,8 +418,8 @@ if.end68:                                         ; preds = %if.end63
 
 if.end75:                                         ; preds = %if.end68
   %st_mode = getelementptr inbounds i8, ptr %st, i64 24
-  %9 = load i32, ptr %st_mode, align 8
-  %and = and i32 %9, 61440
+  %17 = load i32, ptr %st_mode, align 8
+  %and = and i32 %17, 61440
   %cmp76 = icmp eq i32 %and, 16384
   br i1 %cmp76, label %if.then78, label %if.else99
 
@@ -418,21 +431,21 @@ if.then78:                                        ; preds = %if.end75
   %last_entry = getelementptr inbounds i8, ptr %call64, i64 48
   store ptr %call80, ptr %last_entry, align 8
   %call82 = tail call ptr @__errno_location() #12
-  %10 = load i32, ptr %call82, align 4
+  %18 = load i32, ptr %call82, align 4
   %last_errno = getelementptr inbounds i8, ptr %call64, i64 56
-  store i32 %10, ptr %last_errno, align 8
+  store i32 %18, ptr %last_errno, align 8
   %cmp86 = icmp eq ptr %call80, null
   br i1 %cmp86, label %if.then88, label %if.end111
 
 if.then88:                                        ; preds = %if.then78
-  %cmp91.not = icmp eq i32 %10, 0
+  %cmp91.not = icmp eq i32 %18, 0
   br i1 %cmp91.not, label %if.end96, label %if.then93
 
 if.then93:                                        ; preds = %if.then88
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1037, ptr noundef nonnull @__func__.file_open_ex) #10
-  %11 = load i32, ptr %last_errno, align 8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %11, ptr noundef null) #10
+  %19 = load i32, ptr %last_errno, align 8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %19, ptr noundef null) #10
   br label %if.end.i53
 
 if.end96:                                         ; preds = %if.then88
@@ -456,8 +469,8 @@ lor.lhs.false104:                                 ; preds = %if.else99
   br i1 %cmp.i51, label %file_find_type.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false104
-  %12 = load ptr, ptr %_101, align 8
-  %call2.i = tail call ptr @BIO_push(ptr noundef nonnull %call1.i, ptr noundef %12) #10
+  %20 = load ptr, ptr %_101, align 8
+  %call2.i = tail call ptr @BIO_push(ptr noundef nonnull %call1.i, ptr noundef %20) #10
   store ptr %call2.i, ptr %_101, align 8
   %call7.i = call i64 @BIO_ctrl(ptr noundef %call2.i, i32 noundef 29, i64 noundef 4095, ptr noundef nonnull %peekbuf.i) #10
   %cmp8.i = icmp sgt i64 %call7.i, 0
@@ -485,8 +498,8 @@ file_find_type.exit:                              ; preds = %lor.lhs.false104
   br label %if.then107
 
 if.then107:                                       ; preds = %file_find_type.exit, %if.else99
-  %13 = phi ptr [ %.pre61, %file_find_type.exit ], [ null, %if.else99 ]
-  tail call void @BIO_free_all(ptr noundef %13) #10
+  %21 = phi ptr [ %.pre61, %file_find_type.exit ], [ null, %if.else99 ]
+  tail call void @BIO_free_all(ptr noundef %21) #10
   br label %if.end.i53
 
 if.end111:                                        ; preds = %file_find_type.exit.thread, %if.then78, %if.end96
@@ -507,26 +520,26 @@ if.end122:                                        ; preds = %if.then114, %if.end
 
 if.end.i53:                                       ; preds = %if.then93, %if.then107, %if.end68, %if.then114
   %propq.i = getelementptr inbounds i8, ptr %call64, i64 80
-  %14 = load ptr, ptr %propq.i, align 8
-  call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef 914) #10
-  %15 = load ptr, ptr %call64, align 8
-  call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.2, i32 noundef 915) #10
+  %22 = load ptr, ptr %propq.i, align 8
+  call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str.2, i32 noundef 914) #10
+  %23 = load ptr, ptr %call64, align 8
+  call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str.2, i32 noundef 915) #10
   %type.i54 = getelementptr inbounds i8, ptr %call64, i64 8
-  %16 = load i32, ptr %type.i54, align 8
-  %cmp1.not.i = icmp eq i32 %16, 2
+  %24 = load i32, ptr %type.i54, align 8
+  %cmp1.not.i = icmp eq i32 %24, 2
   br i1 %cmp1.not.i, label %OSSL_STORE_LOADER_CTX_free.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i53
   %last_handler.i = getelementptr inbounds i8, ptr %call64, i64 32
-  %17 = load ptr, ptr %last_handler.i, align 8
-  %cmp3.not.i = icmp eq ptr %17, null
+  %25 = load ptr, ptr %last_handler.i, align 8
+  %cmp3.not.i = icmp eq ptr %25, null
   br i1 %cmp3.not.i, label %OSSL_STORE_LOADER_CTX_free.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %destroy_ctx.i = getelementptr inbounds i8, ptr %17, i64 24
-  %18 = load ptr, ptr %destroy_ctx.i, align 8
+  %destroy_ctx.i = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = load ptr, ptr %destroy_ctx.i, align 8
   %last_handler_ctx.i = getelementptr inbounds i8, ptr %call64, i64 40
-  call void %18(ptr noundef nonnull %last_handler_ctx.i) #10
+  call void %26(ptr noundef nonnull %last_handler_ctx.i) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_handler.i, i8 0, i64 16, i1 false)
   br label %OSSL_STORE_LOADER_CTX_free.exit
 
@@ -675,7 +688,7 @@ return:                                           ; preds = %file_find_type.exit
 declare i32 @OSSL_STORE_LOADER_set_ctrl(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_ctrl(ptr nocapture noundef %ctx, i32 noundef %cmd, ptr nocapture noundef %args) #1 {
+define internal range(i32 0, 2) i32 @file_ctrl(ptr nocapture noundef %ctx, i32 noundef %cmd, ptr nocapture noundef %args) #1 {
 entry:
   %cond = icmp eq i32 %cmd, 1
   br i1 %cond, label %sw.bb, label %sw.epilog5
@@ -760,7 +773,7 @@ entry:
 declare i32 @OSSL_STORE_LOADER_set_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_find(ptr noundef %ctx, ptr noundef %search) #1 {
+define internal range(i32 0, 2) i32 @file_find(ptr noundef %ctx, ptr noundef %search) #1 {
 entry:
   %call = tail call i32 @OSSL_STORE_SEARCH_get_type(ptr noundef %search) #10
   %cmp = icmp eq i32 %call, 1
@@ -1857,7 +1870,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @OSSL_STORE_LOADER_set_error(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @file_error(ptr nocapture noundef readonly %ctx) #5 {
+define internal range(i32 0, 2) i32 @file_error(ptr nocapture noundef readonly %ctx) #5 {
 entry:
   %errcnt = getelementptr inbounds i8, ptr %ctx, i64 12
   %0 = load i32, ptr %errcnt, align 4
@@ -1938,7 +1951,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_destroy_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @loader_attic_destroy(ptr nocapture readnone %e) #1 {
+define internal range(i32 0, 2) i32 @loader_attic_destroy(ptr nocapture readnone %e) #1 {
 entry:
   %call = tail call ptr @OSSL_STORE_unregister_loader(ptr noundef nonnull @.str.1) #10
   %cmp = icmp eq ptr %call, null
@@ -2009,9 +2022,6 @@ declare i32 @ERR_get_next_error_library() local_unnamed_addr #2
 declare i32 @ERR_load_strings(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
@@ -2453,7 +2463,7 @@ return:                                           ; preds = %p12_end.thread50, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @eof_PKCS12(ptr noundef %ctx_) #1 {
+define internal range(i32 0, 2) i32 @eof_PKCS12(ptr noundef %ctx_) #1 {
 entry:
   %cmp = icmp eq ptr %ctx_, null
   br i1 %cmp, label %lor.end, label %lor.rhs

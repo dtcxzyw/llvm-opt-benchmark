@@ -98,8 +98,6 @@ module asm ".previous\09\09\09\09\09"
 @__UNIQUE_ID___addressable_xt_match_to_user954 = internal global ptr @xt_match_to_user, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_xt_target_to_user955 = internal global ptr @xt_target_to_user, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_xt_find_revision956 = internal global ptr @xt_find_revision, section ".discard.addressable", align 8
-@.str.1 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.2 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @__UNIQUE_ID___addressable_xt_check_proc_name957 = internal global ptr @xt_check_proc_name, section ".discard.addressable", align 8
 @xt_check_match._rs = internal global %struct.ratelimit_state { %struct.raw_spinlock zeroinitializer, i32 5000, i32 10, i32 0, i32 0, i64 0, i64 0 }, align 8
 @__func__.xt_check_match = private unnamed_addr constant [15 x i8] c"xt_check_match\00", align 1
@@ -675,7 +673,7 @@ define internal fastcc ptr @xt_find_target(i8 noundef zeroext %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xt_data_to_user(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @xt_data_to_user(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = icmp eq i32 %2, 0
   %7 = select i1 %6, i32 %3, i32 %2
   %8 = sext i32 %7 to i64
@@ -732,7 +730,7 @@ define dso_local noundef i32 @xt_data_to_user(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xt_match_to_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @xt_match_to_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load i16, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -845,7 +843,7 @@ define dso_local noundef i32 @xt_match_to_user(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xt_target_to_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @xt_target_to_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load i16, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -958,7 +956,7 @@ define dso_local noundef i32 @xt_target_to_user(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xt_find_revision(i8 noundef zeroext %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @xt_find_revision(i8 noundef zeroext %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #0 align 16 {
   %6 = icmp eq i32 %3, 1
   %7 = load ptr, ptr @xt, align 8
   %8 = zext i8 %0 to i64
@@ -1138,43 +1136,55 @@ define dso_local i32 @xt_find_revision(i8 noundef zeroext %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @xt_check_proc_name(ptr noundef readonly %0, i32 noundef %1) #4 align 16 {
+define dso_local range(i32 -36, 1) i32 @xt_check_proc_name(ptr noundef readonly %0, i32 noundef %1) #4 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %19, label %5
+  br i1 %4, label %20, label %5
 
 5:                                                ; preds = %2
   %6 = zext i32 %1 to i64
   %7 = tail call i64 @strnlen(ptr noundef %0, i64 noundef %6)
   %8 = icmp eq i64 %7, %6
-  br i1 %8, label %19, label %9
+  br i1 %8, label %20, label %sub_0
 
-9:                                                ; preds = %5
-  %10 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(2) @.str.1) #20
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %19, label %12
+sub_0:                                            ; preds = %5
+  %.not = icmp eq i8 %3, 46
+  br i1 %.not, label %.tail, label %.tail1.thread
 
-12:                                               ; preds = %9
-  %13 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(3) @.str.2) #20
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %19, label %15
+.tail:                                            ; preds = %sub_0
+  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %20, label %sub_13
 
-15:                                               ; preds = %12
-  %16 = tail call ptr @strchr(ptr noundef %0, i32 noundef 47) #20
-  %17 = icmp eq ptr %16, null
-  %18 = select i1 %17, i32 0, i32 -22
-  br label %19
+sub_13:                                           ; preds = %.tail
+  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %13 = load i8, ptr %12, align 1
+  %.not6 = icmp eq i8 %13, 46
+  br i1 %.not6, label %.tail1, label %.tail1.thread
 
-19:                                               ; preds = %15, %12, %9, %5, %2
-  %20 = phi i32 [ -22, %2 ], [ -36, %5 ], [ -22, %12 ], [ -22, %9 ], [ %18, %15 ]
-  ret i32 %20
+.tail1:                                           ; preds = %sub_13
+  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %20, label %.tail1.thread
+
+.tail1.thread:                                    ; preds = %sub_0, %sub_13, %.tail1
+  %17 = tail call ptr @strchr(ptr noundef %0, i32 noundef 47) #20
+  %18 = icmp eq ptr %17, null
+  %19 = select i1 %18, i32 0, i32 -22
+  br label %20
+
+20:                                               ; preds = %.tail1.thread, %.tail1, %.tail, %5, %2
+  %21 = phi i32 [ -22, %2 ], [ -36, %5 ], [ -22, %.tail1 ], [ -22, %.tail ], [ %19, %.tail1.thread ]
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xt_check_match(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @xt_check_match(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1394,7 +1404,7 @@ define internal fastcc noundef ptr @textify_hooks(ptr noundef returned writeonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xt_check_table_hooks(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xt_check_table_hooks(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   br label %5
@@ -1467,7 +1477,7 @@ define dso_local noundef i32 @xt_check_table_hooks(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @xt_check_entry_offsets(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #8 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xt_check_entry_offsets(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #8 align 16 {
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %0 to i64
   %7 = sub i64 %5, %6
@@ -1631,7 +1641,7 @@ define dso_local noundef zeroext i1 @xt_find_jump_offset(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xt_check_target(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @xt_check_target(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2528,7 +2538,7 @@ define dso_local ptr @xt_hook_ops_alloc(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xt_register_template(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @xt_register_template(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8
   %5 = load ptr, ptr @xt, align 8
@@ -2645,7 +2655,7 @@ define dso_local void @xt_unregister_template(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xt_proto_init(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xt_proto_init(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = alloca [30 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %3) #20
   %4 = icmp ugt i8 %1, 10

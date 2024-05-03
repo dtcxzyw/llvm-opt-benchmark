@@ -153,149 +153,170 @@ define ptr @cli_dconf_init(ptr noundef %0) local_unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %2, i64 12
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = getelementptr inbounds i8, ptr %2, i64 4
-  br label %13
+  br label %sub_0
 
-13:                                               ; preds = %.preheader, %74
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %74 ]
-  %14 = phi ptr [ @.str, %.preheader ], [ %76, %74 ]
-  %15 = phi ptr [ @modules, %.preheader ], [ %75, %74 ]
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(3) @.str) #9
-  %.not53 = icmp eq i32 %16, 0
-  br i1 %.not53, label %17, label %20
+sub_0:                                            ; preds = %.preheader, %83
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %83 ]
+  %13 = phi ptr [ @.str, %.preheader ], [ %85, %83 ]
+  %14 = phi ptr [ @modules, %.preheader ], [ %84, %83 ]
+  %15 = load i8, ptr %13, align 1
+  %16 = zext i8 %15 to i32
+  %17 = add nsw i32 %16, -80
+  %.not76 = icmp eq i32 %17, 0
+  br i1 %.not76, label %sub_1, label %.tail
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 20
-  %19 = load i8, ptr %18, align 4
-  %.not54 = icmp eq i8 %19, 0
-  br i1 %.not54, label %74, label %.sink.split
+sub_1:                                            ; preds = %sub_0
+  %18 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i32
+  %21 = add nsw i32 %20, -69
+  %.not77 = icmp eq i32 %21, 0
+  br i1 %.not77, label %sub_2, label %.tail
 
-20:                                               ; preds = %13
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(4) @.str.1) #9
-  %.not55 = icmp eq i32 %21, 0
-  br i1 %.not55, label %22, label %25
+sub_2:                                            ; preds = %sub_1
+  %22 = getelementptr inbounds i8, ptr %13, i64 2
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  br label %.tail
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %15, i64 20
-  %24 = load i8, ptr %23, align 4
-  %.not56 = icmp eq i8 %24, 0
-  br i1 %.not56, label %74, label %.sink.split
+.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
+  %25 = phi i32 [ %17, %sub_0 ], [ %21, %sub_1 ], [ %24, %sub_2 ]
+  %.not53 = icmp eq i32 %25, 0
+  br i1 %.not53, label %26, label %29
 
-25:                                               ; preds = %20
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.2) #9
-  %.not57 = icmp eq i32 %26, 0
-  br i1 %.not57, label %27, label %30
+26:                                               ; preds = %.tail
+  %27 = getelementptr inbounds i8, ptr %14, i64 20
+  %28 = load i8, ptr %27, align 4
+  %.not54 = icmp eq i8 %28, 0
+  br i1 %.not54, label %83, label %.sink.split
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %15, i64 20
-  %29 = load i8, ptr %28, align 4
-  %.not58 = icmp eq i8 %29, 0
-  br i1 %.not58, label %74, label %.sink.split
+29:                                               ; preds = %.tail
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(4) @.str.1) #9
+  %.not55 = icmp eq i32 %30, 0
+  br i1 %.not55, label %31, label %34
 
-30:                                               ; preds = %25
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.3) #9
-  %.not59 = icmp eq i32 %31, 0
-  br i1 %.not59, label %32, label %35
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %14, i64 20
+  %33 = load i8, ptr %32, align 4
+  %.not56 = icmp eq i8 %33, 0
+  br i1 %.not56, label %83, label %.sink.split
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %15, i64 20
-  %34 = load i8, ptr %33, align 4
-  %.not60 = icmp eq i8 %34, 0
-  br i1 %.not60, label %74, label %.sink.split
+34:                                               ; preds = %29
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.2) #9
+  %.not57 = icmp eq i32 %35, 0
+  br i1 %.not57, label %36, label %39
 
-35:                                               ; preds = %30
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.4) #9
-  %.not61 = icmp eq i32 %36, 0
-  br i1 %.not61, label %37, label %40
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds i8, ptr %14, i64 20
+  %38 = load i8, ptr %37, align 4
+  %.not58 = icmp eq i8 %38, 0
+  br i1 %.not58, label %83, label %.sink.split
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %15, i64 20
-  %39 = load i8, ptr %38, align 4
-  %.not62 = icmp eq i8 %39, 0
-  br i1 %.not62, label %74, label %.sink.split
+39:                                               ; preds = %34
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.3) #9
+  %.not59 = icmp eq i32 %40, 0
+  br i1 %.not59, label %41, label %44
 
-40:                                               ; preds = %35
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.5) #9
-  %.not63 = icmp eq i32 %41, 0
-  br i1 %.not63, label %42, label %45
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %14, i64 20
+  %43 = load i8, ptr %42, align 4
+  %.not60 = icmp eq i8 %43, 0
+  br i1 %.not60, label %83, label %.sink.split
 
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %15, i64 20
-  %44 = load i8, ptr %43, align 4
-  %.not64 = icmp eq i8 %44, 0
-  br i1 %.not64, label %74, label %.sink.split
+44:                                               ; preds = %39
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(9) @.str.4) #9
+  %.not61 = icmp eq i32 %45, 0
+  br i1 %.not61, label %46, label %49
 
-45:                                               ; preds = %40
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.6) #9
-  %.not65 = icmp eq i32 %46, 0
-  br i1 %.not65, label %47, label %50
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds i8, ptr %14, i64 20
+  %48 = load i8, ptr %47, align 4
+  %.not62 = icmp eq i8 %48, 0
+  br i1 %.not62, label %83, label %.sink.split
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %15, i64 20
-  %49 = load i8, ptr %48, align 4
-  %.not66 = icmp eq i8 %49, 0
-  br i1 %.not66, label %74, label %.sink.split
+49:                                               ; preds = %44
+  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.5) #9
+  %.not63 = icmp eq i32 %50, 0
+  br i1 %.not63, label %51, label %54
 
-50:                                               ; preds = %45
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.7) #9
-  %.not67 = icmp eq i32 %51, 0
-  br i1 %.not67, label %52, label %55
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %14, i64 20
+  %53 = load i8, ptr %52, align 4
+  %.not64 = icmp eq i8 %53, 0
+  br i1 %.not64, label %83, label %.sink.split
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %15, i64 20
-  %54 = load i8, ptr %53, align 4
-  %.not68 = icmp eq i8 %54, 0
-  br i1 %.not68, label %74, label %.sink.split
+54:                                               ; preds = %49
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.6) #9
+  %.not65 = icmp eq i32 %55, 0
+  br i1 %.not65, label %56, label %59
 
-55:                                               ; preds = %50
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.8) #9
-  %.not69 = icmp eq i32 %56, 0
-  br i1 %.not69, label %57, label %60
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds i8, ptr %14, i64 20
+  %58 = load i8, ptr %57, align 4
+  %.not66 = icmp eq i8 %58, 0
+  br i1 %.not66, label %83, label %.sink.split
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %15, i64 20
-  %59 = load i8, ptr %58, align 4
-  %.not70 = icmp eq i8 %59, 0
-  br i1 %.not70, label %74, label %.sink.split
+59:                                               ; preds = %54
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(9) @.str.7) #9
+  %.not67 = icmp eq i32 %60, 0
+  br i1 %.not67, label %61, label %64
 
-60:                                               ; preds = %55
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.9) #9
-  %.not71 = icmp eq i32 %61, 0
-  br i1 %.not71, label %62, label %65
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds i8, ptr %14, i64 20
+  %63 = load i8, ptr %62, align 4
+  %.not68 = icmp eq i8 %63, 0
+  br i1 %.not68, label %83, label %.sink.split
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %15, i64 20
-  %64 = load i8, ptr %63, align 4
-  %.not72 = icmp eq i8 %64, 0
-  br i1 %.not72, label %74, label %.sink.split
+64:                                               ; preds = %59
+  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(9) @.str.8) #9
+  %.not69 = icmp eq i32 %65, 0
+  br i1 %.not69, label %66, label %69
 
-65:                                               ; preds = %60
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.10) #9
-  %.not73 = icmp eq i32 %66, 0
-  br i1 %.not73, label %67, label %74
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds i8, ptr %14, i64 20
+  %68 = load i8, ptr %67, align 4
+  %.not70 = icmp eq i8 %68, 0
+  br i1 %.not70, label %83, label %.sink.split
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %15, i64 20
-  %69 = load i8, ptr %68, align 4
-  %.not74 = icmp eq i8 %69, 0
-  br i1 %.not74, label %74, label %.sink.split
+69:                                               ; preds = %64
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.9) #9
+  %.not71 = icmp eq i32 %70, 0
+  br i1 %.not71, label %71, label %74
 
-.sink.split:                                      ; preds = %67, %62, %57, %52, %47, %42, %37, %32, %27, %22, %17
-  %.sink = phi ptr [ %2, %17 ], [ %12, %22 ], [ %11, %27 ], [ %10, %32 ], [ %9, %37 ], [ %8, %42 ], [ %7, %47 ], [ %6, %52 ], [ %5, %57 ], [ %4, %62 ], [ %3, %67 ]
-  %70 = getelementptr inbounds i8, ptr %15, i64 16
-  %71 = load i32, ptr %70, align 8
-  %72 = load i32, ptr %.sink, align 4
-  %73 = or i32 %72, %71
-  store i32 %73, ptr %.sink, align 4
-  br label %74
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds i8, ptr %14, i64 20
+  %73 = load i8, ptr %72, align 4
+  %.not72 = icmp eq i8 %73, 0
+  br i1 %.not72, label %83, label %.sink.split
 
-74:                                               ; preds = %.sink.split, %17, %27, %37, %47, %57, %65, %67, %62, %52, %42, %32, %22
+74:                                               ; preds = %69
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.10) #9
+  %.not73 = icmp eq i32 %75, 0
+  br i1 %.not73, label %76, label %83
+
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds i8, ptr %14, i64 20
+  %78 = load i8, ptr %77, align 4
+  %.not74 = icmp eq i8 %78, 0
+  br i1 %.not74, label %83, label %.sink.split
+
+.sink.split:                                      ; preds = %76, %71, %66, %61, %56, %51, %46, %41, %36, %31, %26
+  %.sink = phi ptr [ %2, %26 ], [ %12, %31 ], [ %11, %36 ], [ %10, %41 ], [ %9, %46 ], [ %8, %51 ], [ %7, %56 ], [ %6, %61 ], [ %5, %66 ], [ %4, %71 ], [ %3, %76 ]
+  %79 = getelementptr inbounds i8, ptr %14, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = load i32, ptr %.sink, align 4
+  %82 = or i32 %81, %80
+  store i32 %82, ptr %.sink, align 4
+  br label %83
+
+83:                                               ; preds = %.sink.split, %26, %36, %46, %56, %66, %74, %76, %71, %61, %51, %41, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %75 = getelementptr inbounds [92 x %struct.dconf_module], ptr @modules, i64 0, i64 %indvars.iv.next
-  %76 = load ptr, ptr %75, align 8
+  %84 = getelementptr inbounds [92 x %struct.dconf_module], ptr @modules, i64 0, i64 %indvars.iv.next
+  %85 = load ptr, ptr %84, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 91
-  br i1 %exitcond, label %.loopexit, label %13
+  br i1 %exitcond, label %.loopexit, label %sub_0
 
-.loopexit:                                        ; preds = %74, %1
+.loopexit:                                        ; preds = %83, %1
   ret ptr %2
 }
 
@@ -317,377 +338,398 @@ define void @cli_dconf_print(ptr nocapture noundef readonly %0) local_unnamed_ad
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 12
   %10 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %11
+  br label %sub_0
 
-11:                                               ; preds = %1, %151
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %151 ]
-  %12 = phi ptr [ @.str, %1 ], [ %153, %151 ]
-  %13 = phi ptr [ @modules, %1 ], [ %152, %151 ]
-  %.0171 = phi i32 [ 0, %1 ], [ %.2, %151 ]
-  %.070170 = phi i32 [ 0, %1 ], [ %.272, %151 ]
-  %.073169 = phi i32 [ 0, %1 ], [ %.275, %151 ]
-  %.077167 = phi i32 [ 0, %1 ], [ %.279, %151 ]
-  %.080166 = phi i32 [ 0, %1 ], [ %.282, %151 ]
-  %.083165 = phi i32 [ 0, %1 ], [ %.285, %151 ]
-  %.086164 = phi i32 [ 0, %1 ], [ %.288, %151 ]
-  %.089163 = phi i32 [ 0, %1 ], [ %.291, %151 ]
-  %.092162 = phi i32 [ 0, %1 ], [ %.193, %151 ]
-  %.094161 = phi i32 [ 0, %1 ], [ %.195, %151 ]
-  %.096160 = phi i32 [ 0, %1 ], [ %.298, %151 ]
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(3) @.str) #9
-  %.not109 = icmp eq i32 %14, 0
-  br i1 %.not109, label %15, label %27
+sub_0:                                            ; preds = %1, %160
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %160 ]
+  %11 = phi ptr [ @.str, %1 ], [ %162, %160 ]
+  %12 = phi ptr [ @modules, %1 ], [ %161, %160 ]
+  %.0171 = phi i32 [ 0, %1 ], [ %.2, %160 ]
+  %.070170 = phi i32 [ 0, %1 ], [ %.272, %160 ]
+  %.073169 = phi i32 [ 0, %1 ], [ %.275, %160 ]
+  %.077167 = phi i32 [ 0, %1 ], [ %.279, %160 ]
+  %.080166 = phi i32 [ 0, %1 ], [ %.282, %160 ]
+  %.083165 = phi i32 [ 0, %1 ], [ %.285, %160 ]
+  %.086164 = phi i32 [ 0, %1 ], [ %.288, %160 ]
+  %.089163 = phi i32 [ 0, %1 ], [ %.291, %160 ]
+  %.092162 = phi i32 [ 0, %1 ], [ %.193, %160 ]
+  %.094161 = phi i32 [ 0, %1 ], [ %.195, %160 ]
+  %.096160 = phi i32 [ 0, %1 ], [ %.298, %160 ]
+  %13 = load i8, ptr %11, align 1
+  %14 = zext i8 %13 to i32
+  %15 = add nsw i32 %14, -80
+  %.not172 = icmp eq i32 %15, 0
+  br i1 %.not172, label %sub_1, label %.tail
 
-15:                                               ; preds = %11
+sub_1:                                            ; preds = %sub_0
+  %16 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i32
+  %19 = add nsw i32 %18, -69
+  %.not173 = icmp eq i32 %19, 0
+  br i1 %.not173, label %sub_2, label %.tail
+
+sub_2:                                            ; preds = %sub_1
+  %20 = getelementptr inbounds i8, ptr %11, i64 2
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
+  %23 = phi i32 [ %15, %sub_0 ], [ %19, %sub_1 ], [ %22, %sub_2 ]
+  %.not109 = icmp eq i32 %23, 0
+  br i1 %.not109, label %24, label %36
+
+24:                                               ; preds = %.tail
   %.not110 = icmp eq i32 %.096160, 0
-  %.pre189 = load i32, ptr %0, align 4
-  br i1 %.not110, label %16, label %18
+  %.pre191 = load i32, ptr %0, align 4
+  br i1 %.not110, label %25, label %27
 
-16:                                               ; preds = %15
-  %.not111 = icmp eq i32 %.pre189, 0
-  %17 = select i1 %.not111, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %17) #8
-  %.pre188 = load i32, ptr %0, align 4
-  br label %18
+25:                                               ; preds = %24
+  %.not111 = icmp eq i32 %.pre191, 0
+  %26 = select i1 %.not111, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %26) #8
+  %.pre190 = load i32, ptr %0, align 4
+  br label %27
 
-18:                                               ; preds = %16, %15
-  %19 = phi i32 [ %.pre188, %16 ], [ %.pre189, %15 ]
-  %.not112 = icmp eq i32 %19, 0
-  br i1 %.not112, label %151, label %20
-
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
-  %24 = load i32, ptr %23, align 8
-  %25 = and i32 %24, %19
-  %.not113 = icmp eq i32 %25, 0
-  %26 = select i1 %.not113, ptr @.str.17, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %22, ptr noundef nonnull %26) #8
-  br label %151
-
-27:                                               ; preds = %11
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(4) @.str.1) #9
-  %.not114 = icmp eq i32 %28, 0
-  br i1 %.not114, label %29, label %33
+27:                                               ; preds = %25, %24
+  %28 = phi i32 [ %.pre190, %25 ], [ %.pre191, %24 ]
+  %.not112 = icmp eq i32 %28, 0
+  br i1 %.not112, label %160, label %29
 
 29:                                               ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %12, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %12, i64 16
+  %33 = load i32, ptr %32, align 8
+  %34 = and i32 %33, %28
+  %.not113 = icmp eq i32 %34, 0
+  %35 = select i1 %.not113, ptr @.str.17, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %31, ptr noundef nonnull %35) #8
+  br label %160
+
+36:                                               ; preds = %.tail
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(4) @.str.1) #9
+  %.not114 = icmp eq i32 %37, 0
+  br i1 %.not114, label %38, label %42
+
+38:                                               ; preds = %36
   %.not115 = icmp eq i32 %.094161, 0
-  br i1 %.not115, label %30, label %151
+  br i1 %.not115, label %39, label %160
 
-30:                                               ; preds = %29
-  %31 = load i32, ptr %10, align 4
-  %.not116 = icmp eq i32 %31, 0
-  %32 = select i1 %.not116, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %32) #8
-  br label %151
+39:                                               ; preds = %38
+  %40 = load i32, ptr %10, align 4
+  %.not116 = icmp eq i32 %40, 0
+  %41 = select i1 %.not116, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %41) #8
+  br label %160
 
-33:                                               ; preds = %27
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(6) @.str.2) #9
-  %.not117 = icmp eq i32 %34, 0
-  br i1 %.not117, label %35, label %39
+42:                                               ; preds = %36
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(6) @.str.2) #9
+  %.not117 = icmp eq i32 %43, 0
+  br i1 %.not117, label %44, label %48
 
-35:                                               ; preds = %33
+44:                                               ; preds = %42
   %.not118 = icmp eq i32 %.092162, 0
-  br i1 %.not118, label %36, label %151
+  br i1 %.not118, label %45, label %160
 
-36:                                               ; preds = %35
-  %37 = load i32, ptr %10, align 4
-  %.not119 = icmp eq i32 %37, 0
-  %38 = select i1 %.not119, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %38) #8
-  br label %151
+45:                                               ; preds = %44
+  %46 = load i32, ptr %10, align 4
+  %.not119 = icmp eq i32 %46, 0
+  %47 = select i1 %.not119, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %47) #8
+  br label %160
 
-39:                                               ; preds = %33
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(8) @.str.3) #9
-  %.not120 = icmp eq i32 %40, 0
-  br i1 %.not120, label %41, label %53
+48:                                               ; preds = %42
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(8) @.str.3) #9
+  %.not120 = icmp eq i32 %49, 0
+  br i1 %.not120, label %50, label %62
 
-41:                                               ; preds = %39
+50:                                               ; preds = %48
   %.not121 = icmp eq i32 %.089163, 0
-  %.pre187 = load i32, ptr %9, align 4
-  br i1 %.not121, label %42, label %44
+  %.pre189 = load i32, ptr %9, align 4
+  br i1 %.not121, label %51, label %53
 
-42:                                               ; preds = %41
-  %.not122 = icmp eq i32 %.pre187, 0
-  %43 = select i1 %.not122, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %43) #8
-  %.pre186 = load i32, ptr %9, align 4
-  br label %44
+51:                                               ; preds = %50
+  %.not122 = icmp eq i32 %.pre189, 0
+  %52 = select i1 %.not122, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %52) #8
+  %.pre188 = load i32, ptr %9, align 4
+  br label %53
 
-44:                                               ; preds = %42, %41
-  %45 = phi i32 [ %.pre186, %42 ], [ %.pre187, %41 ]
-  %.not123 = icmp eq i32 %45, 0
-  br i1 %.not123, label %151, label %46
-
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %13, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %13, i64 16
-  %50 = load i32, ptr %49, align 8
-  %51 = and i32 %50, %45
-  %.not124 = icmp eq i32 %51, 0
-  %52 = select i1 %.not124, ptr @.str.17, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %48, ptr noundef nonnull %52) #8
-  br label %151
-
-53:                                               ; preds = %39
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(9) @.str.4) #9
-  %.not125 = icmp eq i32 %54, 0
-  br i1 %.not125, label %55, label %67
+53:                                               ; preds = %51, %50
+  %54 = phi i32 [ %.pre188, %51 ], [ %.pre189, %50 ]
+  %.not123 = icmp eq i32 %54, 0
+  br i1 %.not123, label %160, label %55
 
 55:                                               ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %12, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %12, i64 16
+  %59 = load i32, ptr %58, align 8
+  %60 = and i32 %59, %54
+  %.not124 = icmp eq i32 %60, 0
+  %61 = select i1 %.not124, ptr @.str.17, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %57, ptr noundef nonnull %61) #8
+  br label %160
+
+62:                                               ; preds = %48
+  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(9) @.str.4) #9
+  %.not125 = icmp eq i32 %63, 0
+  br i1 %.not125, label %64, label %76
+
+64:                                               ; preds = %62
   %.not126 = icmp eq i32 %.086164, 0
-  %.pre185 = load i32, ptr %8, align 4
-  br i1 %.not126, label %56, label %58
+  %.pre187 = load i32, ptr %8, align 4
+  br i1 %.not126, label %65, label %67
 
-56:                                               ; preds = %55
-  %.not127 = icmp eq i32 %.pre185, 0
-  %57 = select i1 %.not127, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %57) #8
-  %.pre184 = load i32, ptr %8, align 4
-  br label %58
+65:                                               ; preds = %64
+  %.not127 = icmp eq i32 %.pre187, 0
+  %66 = select i1 %.not127, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %66) #8
+  %.pre186 = load i32, ptr %8, align 4
+  br label %67
 
-58:                                               ; preds = %56, %55
-  %59 = phi i32 [ %.pre184, %56 ], [ %.pre185, %55 ]
-  %.not128 = icmp eq i32 %59, 0
-  br i1 %.not128, label %151, label %60
-
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %13, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %13, i64 16
-  %64 = load i32, ptr %63, align 8
-  %65 = and i32 %64, %59
-  %.not129 = icmp eq i32 %65, 0
-  %66 = select i1 %.not129, ptr @.str.17, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %62, ptr noundef nonnull %66) #8
-  br label %151
-
-67:                                               ; preds = %53
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(5) @.str.5) #9
-  %.not130 = icmp eq i32 %68, 0
-  br i1 %.not130, label %69, label %81
+67:                                               ; preds = %65, %64
+  %68 = phi i32 [ %.pre186, %65 ], [ %.pre187, %64 ]
+  %.not128 = icmp eq i32 %68, 0
+  br i1 %.not128, label %160, label %69
 
 69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %12, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %12, i64 16
+  %73 = load i32, ptr %72, align 8
+  %74 = and i32 %73, %68
+  %.not129 = icmp eq i32 %74, 0
+  %75 = select i1 %.not129, ptr @.str.17, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %71, ptr noundef nonnull %75) #8
+  br label %160
+
+76:                                               ; preds = %62
+  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(5) @.str.5) #9
+  %.not130 = icmp eq i32 %77, 0
+  br i1 %.not130, label %78, label %90
+
+78:                                               ; preds = %76
   %.not131 = icmp eq i32 %.083165, 0
-  %.pre183 = load i32, ptr %7, align 4
-  br i1 %.not131, label %70, label %72
+  %.pre185 = load i32, ptr %7, align 4
+  br i1 %.not131, label %79, label %81
 
-70:                                               ; preds = %69
-  %.not132 = icmp eq i32 %.pre183, 0
-  %71 = select i1 %.not132, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %71) #8
-  %.pre182 = load i32, ptr %7, align 4
-  br label %72
+79:                                               ; preds = %78
+  %.not132 = icmp eq i32 %.pre185, 0
+  %80 = select i1 %.not132, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %80) #8
+  %.pre184 = load i32, ptr %7, align 4
+  br label %81
 
-72:                                               ; preds = %70, %69
-  %73 = phi i32 [ %.pre182, %70 ], [ %.pre183, %69 ]
-  %.not133 = icmp eq i32 %73, 0
-  br i1 %.not133, label %151, label %74
-
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %13, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %13, i64 16
-  %78 = load i32, ptr %77, align 8
-  %79 = and i32 %78, %73
-  %.not134 = icmp eq i32 %79, 0
-  %80 = select i1 %.not134, ptr @.str.17, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %76, ptr noundef nonnull %80) #8
-  br label %151
-
-81:                                               ; preds = %67
-  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(6) @.str.6) #9
-  %.not135 = icmp eq i32 %82, 0
-  br i1 %.not135, label %83, label %95
+81:                                               ; preds = %79, %78
+  %82 = phi i32 [ %.pre184, %79 ], [ %.pre185, %78 ]
+  %.not133 = icmp eq i32 %82, 0
+  br i1 %.not133, label %160, label %83
 
 83:                                               ; preds = %81
+  %84 = getelementptr inbounds i8, ptr %12, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %12, i64 16
+  %87 = load i32, ptr %86, align 8
+  %88 = and i32 %87, %82
+  %.not134 = icmp eq i32 %88, 0
+  %89 = select i1 %.not134, ptr @.str.17, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %85, ptr noundef nonnull %89) #8
+  br label %160
+
+90:                                               ; preds = %76
+  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(6) @.str.6) #9
+  %.not135 = icmp eq i32 %91, 0
+  br i1 %.not135, label %92, label %104
+
+92:                                               ; preds = %90
   %.not136 = icmp eq i32 %.080166, 0
-  %.pre181 = load i32, ptr %6, align 4
-  br i1 %.not136, label %84, label %86
+  %.pre183 = load i32, ptr %6, align 4
+  br i1 %.not136, label %93, label %95
 
-84:                                               ; preds = %83
-  %.not137 = icmp eq i32 %.pre181, 0
-  %85 = select i1 %.not137, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, ptr noundef nonnull %85) #8
-  %.pre180 = load i32, ptr %6, align 4
-  br label %86
+93:                                               ; preds = %92
+  %.not137 = icmp eq i32 %.pre183, 0
+  %94 = select i1 %.not137, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, ptr noundef nonnull %94) #8
+  %.pre182 = load i32, ptr %6, align 4
+  br label %95
 
-86:                                               ; preds = %84, %83
-  %87 = phi i32 [ %.pre180, %84 ], [ %.pre181, %83 ]
-  %.not138 = icmp eq i32 %87, 0
-  br i1 %.not138, label %151, label %88
-
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %13, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %13, i64 16
-  %92 = load i32, ptr %91, align 8
-  %93 = and i32 %92, %87
-  %.not139 = icmp eq i32 %93, 0
-  %94 = select i1 %.not139, ptr @.str.17, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %90, ptr noundef nonnull %94) #8
-  br label %151
-
-95:                                               ; preds = %81
-  %96 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(9) @.str.7) #9
-  %.not140 = icmp eq i32 %96, 0
-  br i1 %.not140, label %97, label %109
+95:                                               ; preds = %93, %92
+  %96 = phi i32 [ %.pre182, %93 ], [ %.pre183, %92 ]
+  %.not138 = icmp eq i32 %96, 0
+  br i1 %.not138, label %160, label %97
 
 97:                                               ; preds = %95
+  %98 = getelementptr inbounds i8, ptr %12, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %12, i64 16
+  %101 = load i32, ptr %100, align 8
+  %102 = and i32 %101, %96
+  %.not139 = icmp eq i32 %102, 0
+  %103 = select i1 %.not139, ptr @.str.17, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %99, ptr noundef nonnull %103) #8
+  br label %160
+
+104:                                              ; preds = %90
+  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(9) @.str.7) #9
+  %.not140 = icmp eq i32 %105, 0
+  br i1 %.not140, label %106, label %118
+
+106:                                              ; preds = %104
   %.not141 = icmp eq i32 %.077167, 0
-  %.pre179 = load i32, ptr %5, align 4
-  br i1 %.not141, label %98, label %100
+  %.pre181 = load i32, ptr %5, align 4
+  br i1 %.not141, label %107, label %109
 
-98:                                               ; preds = %97
-  %.not142 = icmp eq i32 %.pre179, 0
-  %99 = select i1 %.not142, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %99) #8
-  %.pre178 = load i32, ptr %5, align 4
-  br label %100
+107:                                              ; preds = %106
+  %.not142 = icmp eq i32 %.pre181, 0
+  %108 = select i1 %.not142, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %108) #8
+  %.pre180 = load i32, ptr %5, align 4
+  br label %109
 
-100:                                              ; preds = %98, %97
-  %101 = phi i32 [ %.pre178, %98 ], [ %.pre179, %97 ]
-  %.not143 = icmp eq i32 %101, 0
-  br i1 %.not143, label %151, label %102
-
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %13, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %13, i64 16
-  %106 = load i32, ptr %105, align 8
-  %107 = and i32 %106, %101
-  %.not144 = icmp eq i32 %107, 0
-  %108 = select i1 %.not144, ptr @.str.17, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %104, ptr noundef nonnull %108) #8
-  br label %151
-
-109:                                              ; preds = %95
-  %110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(9) @.str.8) #9
-  %.not145 = icmp eq i32 %110, 0
-  br i1 %.not145, label %111, label %123
+109:                                              ; preds = %107, %106
+  %110 = phi i32 [ %.pre180, %107 ], [ %.pre181, %106 ]
+  %.not143 = icmp eq i32 %110, 0
+  br i1 %.not143, label %160, label %111
 
 111:                                              ; preds = %109
+  %112 = getelementptr inbounds i8, ptr %12, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %12, i64 16
+  %115 = load i32, ptr %114, align 8
+  %116 = and i32 %115, %110
+  %.not144 = icmp eq i32 %116, 0
+  %117 = select i1 %.not144, ptr @.str.17, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %113, ptr noundef nonnull %117) #8
+  br label %160
+
+118:                                              ; preds = %104
+  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(9) @.str.8) #9
+  %.not145 = icmp eq i32 %119, 0
+  br i1 %.not145, label %120, label %132
+
+120:                                              ; preds = %118
   %.not146 = icmp eq i32 %.073169, 0
-  %.pre177 = load i32, ptr %4, align 4
-  br i1 %.not146, label %112, label %114
+  %.pre179 = load i32, ptr %4, align 4
+  br i1 %.not146, label %121, label %123
 
-112:                                              ; preds = %111
-  %.not147 = icmp eq i32 %.pre177, 0
-  %113 = select i1 %.not147, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, ptr noundef nonnull %113) #8
-  %.pre176 = load i32, ptr %4, align 4
-  br label %114
+121:                                              ; preds = %120
+  %.not147 = icmp eq i32 %.pre179, 0
+  %122 = select i1 %.not147, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, ptr noundef nonnull %122) #8
+  %.pre178 = load i32, ptr %4, align 4
+  br label %123
 
-114:                                              ; preds = %112, %111
-  %115 = phi i32 [ %.pre176, %112 ], [ %.pre177, %111 ]
-  %.not148 = icmp eq i32 %115, 0
-  br i1 %.not148, label %151, label %116
-
-116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %13, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %13, i64 16
-  %120 = load i32, ptr %119, align 8
-  %121 = and i32 %120, %115
-  %.not149 = icmp eq i32 %121, 0
-  %122 = select i1 %.not149, ptr @.str.17, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %118, ptr noundef nonnull %122) #8
-  br label %151
-
-123:                                              ; preds = %109
-  %124 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(6) @.str.9) #9
-  %.not150 = icmp eq i32 %124, 0
-  br i1 %.not150, label %125, label %137
+123:                                              ; preds = %121, %120
+  %124 = phi i32 [ %.pre178, %121 ], [ %.pre179, %120 ]
+  %.not148 = icmp eq i32 %124, 0
+  br i1 %.not148, label %160, label %125
 
 125:                                              ; preds = %123
+  %126 = getelementptr inbounds i8, ptr %12, i64 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %12, i64 16
+  %129 = load i32, ptr %128, align 8
+  %130 = and i32 %129, %124
+  %.not149 = icmp eq i32 %130, 0
+  %131 = select i1 %.not149, ptr @.str.17, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %127, ptr noundef nonnull %131) #8
+  br label %160
+
+132:                                              ; preds = %118
+  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(6) @.str.9) #9
+  %.not150 = icmp eq i32 %133, 0
+  br i1 %.not150, label %134, label %146
+
+134:                                              ; preds = %132
   %.not151 = icmp eq i32 %.070170, 0
-  %.pre175 = load i32, ptr %3, align 4
-  br i1 %.not151, label %126, label %128
+  %.pre177 = load i32, ptr %3, align 4
+  br i1 %.not151, label %135, label %137
 
-126:                                              ; preds = %125
-  %.not152 = icmp eq i32 %.pre175, 0
-  %127 = select i1 %.not152, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %127) #8
-  %.pre174 = load i32, ptr %3, align 4
-  br label %128
+135:                                              ; preds = %134
+  %.not152 = icmp eq i32 %.pre177, 0
+  %136 = select i1 %.not152, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %136) #8
+  %.pre176 = load i32, ptr %3, align 4
+  br label %137
 
-128:                                              ; preds = %126, %125
-  %129 = phi i32 [ %.pre174, %126 ], [ %.pre175, %125 ]
-  %.not153 = icmp eq i32 %129, 0
-  br i1 %.not153, label %151, label %130
-
-130:                                              ; preds = %128
-  %131 = getelementptr inbounds i8, ptr %13, i64 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %13, i64 16
-  %134 = load i32, ptr %133, align 8
-  %135 = and i32 %134, %129
-  %.not154 = icmp eq i32 %135, 0
-  %136 = select i1 %.not154, ptr @.str.17, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %132, ptr noundef nonnull %136) #8
-  br label %151
-
-137:                                              ; preds = %123
-  %138 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(5) @.str.10) #9
-  %.not155 = icmp eq i32 %138, 0
-  br i1 %.not155, label %139, label %151
+137:                                              ; preds = %135, %134
+  %138 = phi i32 [ %.pre176, %135 ], [ %.pre177, %134 ]
+  %.not153 = icmp eq i32 %138, 0
+  br i1 %.not153, label %160, label %139
 
 139:                                              ; preds = %137
+  %140 = getelementptr inbounds i8, ptr %12, i64 8
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %12, i64 16
+  %143 = load i32, ptr %142, align 8
+  %144 = and i32 %143, %138
+  %.not154 = icmp eq i32 %144, 0
+  %145 = select i1 %.not154, ptr @.str.17, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %141, ptr noundef nonnull %145) #8
+  br label %160
+
+146:                                              ; preds = %132
+  %147 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(5) @.str.10) #9
+  %.not155 = icmp eq i32 %147, 0
+  br i1 %.not155, label %148, label %160
+
+148:                                              ; preds = %146
   %.not156 = icmp eq i32 %.0171, 0
-  %.pre173 = load i32, ptr %2, align 4
-  br i1 %.not156, label %140, label %142
+  %.pre175 = load i32, ptr %2, align 4
+  br i1 %.not156, label %149, label %151
 
-140:                                              ; preds = %139
-  %.not157 = icmp eq i32 %.pre173, 0
-  %141 = select i1 %.not157, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull %141) #8
+149:                                              ; preds = %148
+  %.not157 = icmp eq i32 %.pre175, 0
+  %150 = select i1 %.not157, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull %150) #8
   %.pre = load i32, ptr %2, align 4
-  br label %142
-
-142:                                              ; preds = %140, %139
-  %143 = phi i32 [ %.pre, %140 ], [ %.pre173, %139 ]
-  %.not158 = icmp eq i32 %143, 0
-  br i1 %.not158, label %151, label %144
-
-144:                                              ; preds = %142
-  %145 = getelementptr inbounds i8, ptr %13, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %13, i64 16
-  %148 = load i32, ptr %147, align 8
-  %149 = and i32 %148, %143
-  %.not159 = icmp eq i32 %149, 0
-  %150 = select i1 %.not159, ptr @.str.17, ptr @.str.14
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %146, ptr noundef nonnull %150) #8
   br label %151
 
-151:                                              ; preds = %20, %36, %35, %60, %88, %116, %137, %144, %130, %102, %74, %46, %29, %30, %142, %128, %114, %100, %86, %72, %58, %44, %18
-  %.298 = phi i32 [ %.096160, %137 ], [ %.096160, %144 ], [ %.096160, %142 ], [ %.096160, %130 ], [ %.096160, %128 ], [ %.096160, %116 ], [ %.096160, %114 ], [ %.096160, %102 ], [ %.096160, %100 ], [ %.096160, %88 ], [ %.096160, %86 ], [ %.096160, %74 ], [ %.096160, %72 ], [ %.096160, %60 ], [ %.096160, %58 ], [ %.096160, %46 ], [ %.096160, %44 ], [ %.096160, %35 ], [ %.096160, %36 ], [ %.096160, %29 ], [ %.096160, %30 ], [ 1, %20 ], [ 1, %18 ]
-  %.195 = phi i32 [ %.094161, %137 ], [ %.094161, %144 ], [ %.094161, %142 ], [ %.094161, %130 ], [ %.094161, %128 ], [ %.094161, %116 ], [ %.094161, %114 ], [ %.094161, %102 ], [ %.094161, %100 ], [ %.094161, %88 ], [ %.094161, %86 ], [ %.094161, %74 ], [ %.094161, %72 ], [ %.094161, %60 ], [ %.094161, %58 ], [ %.094161, %46 ], [ %.094161, %44 ], [ %.094161, %35 ], [ %.094161, %36 ], [ 1, %29 ], [ 1, %30 ], [ %.094161, %20 ], [ %.094161, %18 ]
-  %.193 = phi i32 [ %.092162, %137 ], [ %.092162, %144 ], [ %.092162, %142 ], [ %.092162, %130 ], [ %.092162, %128 ], [ %.092162, %116 ], [ %.092162, %114 ], [ %.092162, %102 ], [ %.092162, %100 ], [ %.092162, %88 ], [ %.092162, %86 ], [ %.092162, %74 ], [ %.092162, %72 ], [ %.092162, %60 ], [ %.092162, %58 ], [ %.092162, %46 ], [ %.092162, %44 ], [ 1, %35 ], [ 1, %36 ], [ %.092162, %29 ], [ %.092162, %30 ], [ %.092162, %20 ], [ %.092162, %18 ]
-  %.291 = phi i32 [ %.089163, %137 ], [ %.089163, %144 ], [ %.089163, %142 ], [ %.089163, %130 ], [ %.089163, %128 ], [ %.089163, %116 ], [ %.089163, %114 ], [ %.089163, %102 ], [ %.089163, %100 ], [ %.089163, %88 ], [ %.089163, %86 ], [ %.089163, %74 ], [ %.089163, %72 ], [ %.089163, %60 ], [ %.089163, %58 ], [ 1, %46 ], [ 1, %44 ], [ %.089163, %35 ], [ %.089163, %36 ], [ %.089163, %29 ], [ %.089163, %30 ], [ %.089163, %20 ], [ %.089163, %18 ]
-  %.288 = phi i32 [ %.086164, %137 ], [ %.086164, %144 ], [ %.086164, %142 ], [ %.086164, %130 ], [ %.086164, %128 ], [ %.086164, %116 ], [ %.086164, %114 ], [ %.086164, %102 ], [ %.086164, %100 ], [ %.086164, %88 ], [ %.086164, %86 ], [ %.086164, %74 ], [ %.086164, %72 ], [ 1, %60 ], [ 1, %58 ], [ %.086164, %46 ], [ %.086164, %44 ], [ %.086164, %35 ], [ %.086164, %36 ], [ %.086164, %29 ], [ %.086164, %30 ], [ %.086164, %20 ], [ %.086164, %18 ]
-  %.285 = phi i32 [ %.083165, %137 ], [ %.083165, %144 ], [ %.083165, %142 ], [ %.083165, %130 ], [ %.083165, %128 ], [ %.083165, %116 ], [ %.083165, %114 ], [ %.083165, %102 ], [ %.083165, %100 ], [ %.083165, %88 ], [ %.083165, %86 ], [ 1, %74 ], [ 1, %72 ], [ %.083165, %60 ], [ %.083165, %58 ], [ %.083165, %46 ], [ %.083165, %44 ], [ %.083165, %35 ], [ %.083165, %36 ], [ %.083165, %29 ], [ %.083165, %30 ], [ %.083165, %20 ], [ %.083165, %18 ]
-  %.282 = phi i32 [ %.080166, %137 ], [ %.080166, %144 ], [ %.080166, %142 ], [ %.080166, %130 ], [ %.080166, %128 ], [ %.080166, %116 ], [ %.080166, %114 ], [ %.080166, %102 ], [ %.080166, %100 ], [ 1, %88 ], [ 1, %86 ], [ %.080166, %74 ], [ %.080166, %72 ], [ %.080166, %60 ], [ %.080166, %58 ], [ %.080166, %46 ], [ %.080166, %44 ], [ %.080166, %35 ], [ %.080166, %36 ], [ %.080166, %29 ], [ %.080166, %30 ], [ %.080166, %20 ], [ %.080166, %18 ]
-  %.279 = phi i32 [ %.077167, %137 ], [ %.077167, %144 ], [ %.077167, %142 ], [ %.077167, %130 ], [ %.077167, %128 ], [ %.077167, %116 ], [ %.077167, %114 ], [ 1, %102 ], [ 1, %100 ], [ %.077167, %88 ], [ %.077167, %86 ], [ %.077167, %74 ], [ %.077167, %72 ], [ %.077167, %60 ], [ %.077167, %58 ], [ %.077167, %46 ], [ %.077167, %44 ], [ %.077167, %35 ], [ %.077167, %36 ], [ %.077167, %29 ], [ %.077167, %30 ], [ %.077167, %20 ], [ %.077167, %18 ]
-  %.275 = phi i32 [ %.073169, %137 ], [ %.073169, %144 ], [ %.073169, %142 ], [ %.073169, %130 ], [ %.073169, %128 ], [ 1, %116 ], [ 1, %114 ], [ %.073169, %102 ], [ %.073169, %100 ], [ %.073169, %88 ], [ %.073169, %86 ], [ %.073169, %74 ], [ %.073169, %72 ], [ %.073169, %60 ], [ %.073169, %58 ], [ %.073169, %46 ], [ %.073169, %44 ], [ %.073169, %35 ], [ %.073169, %36 ], [ %.073169, %29 ], [ %.073169, %30 ], [ %.073169, %20 ], [ %.073169, %18 ]
-  %.272 = phi i32 [ %.070170, %137 ], [ %.070170, %144 ], [ %.070170, %142 ], [ 1, %130 ], [ 1, %128 ], [ %.070170, %116 ], [ %.070170, %114 ], [ %.070170, %102 ], [ %.070170, %100 ], [ %.070170, %88 ], [ %.070170, %86 ], [ %.070170, %74 ], [ %.070170, %72 ], [ %.070170, %60 ], [ %.070170, %58 ], [ %.070170, %46 ], [ %.070170, %44 ], [ %.070170, %35 ], [ %.070170, %36 ], [ %.070170, %29 ], [ %.070170, %30 ], [ %.070170, %20 ], [ %.070170, %18 ]
-  %.2 = phi i32 [ %.0171, %137 ], [ 1, %144 ], [ 1, %142 ], [ %.0171, %130 ], [ %.0171, %128 ], [ %.0171, %116 ], [ %.0171, %114 ], [ %.0171, %102 ], [ %.0171, %100 ], [ %.0171, %88 ], [ %.0171, %86 ], [ %.0171, %74 ], [ %.0171, %72 ], [ %.0171, %60 ], [ %.0171, %58 ], [ %.0171, %46 ], [ %.0171, %44 ], [ %.0171, %35 ], [ %.0171, %36 ], [ %.0171, %29 ], [ %.0171, %30 ], [ %.0171, %20 ], [ %.0171, %18 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %152 = getelementptr inbounds [92 x %struct.dconf_module], ptr @modules, i64 0, i64 %indvars.iv.next
-  %153 = load ptr, ptr %152, align 8
-  %exitcond = icmp eq i64 %indvars.iv.next, 91
-  br i1 %exitcond, label %154, label %11
+151:                                              ; preds = %149, %148
+  %152 = phi i32 [ %.pre, %149 ], [ %.pre175, %148 ]
+  %.not158 = icmp eq i32 %152, 0
+  br i1 %.not158, label %160, label %153
 
-154:                                              ; preds = %151
+153:                                              ; preds = %151
+  %154 = getelementptr inbounds i8, ptr %12, i64 8
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds i8, ptr %12, i64 16
+  %157 = load i32, ptr %156, align 8
+  %158 = and i32 %157, %152
+  %.not159 = icmp eq i32 %158, 0
+  %159 = select i1 %.not159, ptr @.str.17, ptr @.str.14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %155, ptr noundef nonnull %159) #8
+  br label %160
+
+160:                                              ; preds = %29, %45, %44, %69, %97, %125, %146, %153, %139, %111, %83, %55, %38, %39, %151, %137, %123, %109, %95, %81, %67, %53, %27
+  %.298 = phi i32 [ %.096160, %146 ], [ %.096160, %153 ], [ %.096160, %151 ], [ %.096160, %139 ], [ %.096160, %137 ], [ %.096160, %125 ], [ %.096160, %123 ], [ %.096160, %111 ], [ %.096160, %109 ], [ %.096160, %97 ], [ %.096160, %95 ], [ %.096160, %83 ], [ %.096160, %81 ], [ %.096160, %69 ], [ %.096160, %67 ], [ %.096160, %55 ], [ %.096160, %53 ], [ %.096160, %44 ], [ %.096160, %45 ], [ %.096160, %38 ], [ %.096160, %39 ], [ 1, %29 ], [ 1, %27 ]
+  %.195 = phi i32 [ %.094161, %146 ], [ %.094161, %153 ], [ %.094161, %151 ], [ %.094161, %139 ], [ %.094161, %137 ], [ %.094161, %125 ], [ %.094161, %123 ], [ %.094161, %111 ], [ %.094161, %109 ], [ %.094161, %97 ], [ %.094161, %95 ], [ %.094161, %83 ], [ %.094161, %81 ], [ %.094161, %69 ], [ %.094161, %67 ], [ %.094161, %55 ], [ %.094161, %53 ], [ %.094161, %44 ], [ %.094161, %45 ], [ 1, %38 ], [ 1, %39 ], [ %.094161, %29 ], [ %.094161, %27 ]
+  %.193 = phi i32 [ %.092162, %146 ], [ %.092162, %153 ], [ %.092162, %151 ], [ %.092162, %139 ], [ %.092162, %137 ], [ %.092162, %125 ], [ %.092162, %123 ], [ %.092162, %111 ], [ %.092162, %109 ], [ %.092162, %97 ], [ %.092162, %95 ], [ %.092162, %83 ], [ %.092162, %81 ], [ %.092162, %69 ], [ %.092162, %67 ], [ %.092162, %55 ], [ %.092162, %53 ], [ 1, %44 ], [ 1, %45 ], [ %.092162, %38 ], [ %.092162, %39 ], [ %.092162, %29 ], [ %.092162, %27 ]
+  %.291 = phi i32 [ %.089163, %146 ], [ %.089163, %153 ], [ %.089163, %151 ], [ %.089163, %139 ], [ %.089163, %137 ], [ %.089163, %125 ], [ %.089163, %123 ], [ %.089163, %111 ], [ %.089163, %109 ], [ %.089163, %97 ], [ %.089163, %95 ], [ %.089163, %83 ], [ %.089163, %81 ], [ %.089163, %69 ], [ %.089163, %67 ], [ 1, %55 ], [ 1, %53 ], [ %.089163, %44 ], [ %.089163, %45 ], [ %.089163, %38 ], [ %.089163, %39 ], [ %.089163, %29 ], [ %.089163, %27 ]
+  %.288 = phi i32 [ %.086164, %146 ], [ %.086164, %153 ], [ %.086164, %151 ], [ %.086164, %139 ], [ %.086164, %137 ], [ %.086164, %125 ], [ %.086164, %123 ], [ %.086164, %111 ], [ %.086164, %109 ], [ %.086164, %97 ], [ %.086164, %95 ], [ %.086164, %83 ], [ %.086164, %81 ], [ 1, %69 ], [ 1, %67 ], [ %.086164, %55 ], [ %.086164, %53 ], [ %.086164, %44 ], [ %.086164, %45 ], [ %.086164, %38 ], [ %.086164, %39 ], [ %.086164, %29 ], [ %.086164, %27 ]
+  %.285 = phi i32 [ %.083165, %146 ], [ %.083165, %153 ], [ %.083165, %151 ], [ %.083165, %139 ], [ %.083165, %137 ], [ %.083165, %125 ], [ %.083165, %123 ], [ %.083165, %111 ], [ %.083165, %109 ], [ %.083165, %97 ], [ %.083165, %95 ], [ 1, %83 ], [ 1, %81 ], [ %.083165, %69 ], [ %.083165, %67 ], [ %.083165, %55 ], [ %.083165, %53 ], [ %.083165, %44 ], [ %.083165, %45 ], [ %.083165, %38 ], [ %.083165, %39 ], [ %.083165, %29 ], [ %.083165, %27 ]
+  %.282 = phi i32 [ %.080166, %146 ], [ %.080166, %153 ], [ %.080166, %151 ], [ %.080166, %139 ], [ %.080166, %137 ], [ %.080166, %125 ], [ %.080166, %123 ], [ %.080166, %111 ], [ %.080166, %109 ], [ 1, %97 ], [ 1, %95 ], [ %.080166, %83 ], [ %.080166, %81 ], [ %.080166, %69 ], [ %.080166, %67 ], [ %.080166, %55 ], [ %.080166, %53 ], [ %.080166, %44 ], [ %.080166, %45 ], [ %.080166, %38 ], [ %.080166, %39 ], [ %.080166, %29 ], [ %.080166, %27 ]
+  %.279 = phi i32 [ %.077167, %146 ], [ %.077167, %153 ], [ %.077167, %151 ], [ %.077167, %139 ], [ %.077167, %137 ], [ %.077167, %125 ], [ %.077167, %123 ], [ 1, %111 ], [ 1, %109 ], [ %.077167, %97 ], [ %.077167, %95 ], [ %.077167, %83 ], [ %.077167, %81 ], [ %.077167, %69 ], [ %.077167, %67 ], [ %.077167, %55 ], [ %.077167, %53 ], [ %.077167, %44 ], [ %.077167, %45 ], [ %.077167, %38 ], [ %.077167, %39 ], [ %.077167, %29 ], [ %.077167, %27 ]
+  %.275 = phi i32 [ %.073169, %146 ], [ %.073169, %153 ], [ %.073169, %151 ], [ %.073169, %139 ], [ %.073169, %137 ], [ 1, %125 ], [ 1, %123 ], [ %.073169, %111 ], [ %.073169, %109 ], [ %.073169, %97 ], [ %.073169, %95 ], [ %.073169, %83 ], [ %.073169, %81 ], [ %.073169, %69 ], [ %.073169, %67 ], [ %.073169, %55 ], [ %.073169, %53 ], [ %.073169, %44 ], [ %.073169, %45 ], [ %.073169, %38 ], [ %.073169, %39 ], [ %.073169, %29 ], [ %.073169, %27 ]
+  %.272 = phi i32 [ %.070170, %146 ], [ %.070170, %153 ], [ %.070170, %151 ], [ 1, %139 ], [ 1, %137 ], [ %.070170, %125 ], [ %.070170, %123 ], [ %.070170, %111 ], [ %.070170, %109 ], [ %.070170, %97 ], [ %.070170, %95 ], [ %.070170, %83 ], [ %.070170, %81 ], [ %.070170, %69 ], [ %.070170, %67 ], [ %.070170, %55 ], [ %.070170, %53 ], [ %.070170, %44 ], [ %.070170, %45 ], [ %.070170, %38 ], [ %.070170, %39 ], [ %.070170, %29 ], [ %.070170, %27 ]
+  %.2 = phi i32 [ %.0171, %146 ], [ 1, %153 ], [ 1, %151 ], [ %.0171, %139 ], [ %.0171, %137 ], [ %.0171, %125 ], [ %.0171, %123 ], [ %.0171, %111 ], [ %.0171, %109 ], [ %.0171, %97 ], [ %.0171, %95 ], [ %.0171, %83 ], [ %.0171, %81 ], [ %.0171, %69 ], [ %.0171, %67 ], [ %.0171, %55 ], [ %.0171, %53 ], [ %.0171, %44 ], [ %.0171, %45 ], [ %.0171, %38 ], [ %.0171, %39 ], [ %.0171, %29 ], [ %.0171, %27 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %161 = getelementptr inbounds [92 x %struct.dconf_module], ptr @modules, i64 0, i64 %indvars.iv.next
+  %162 = load ptr, ptr %161, align 8
+  %exitcond = icmp eq i64 %indvars.iv.next, 91
+  br i1 %exitcond, label %163, label %sub_0
+
+163:                                              ; preds = %160
   ret void
 }
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [8192 x i8], align 16
   %6 = alloca i32, align 4
   %7 = call ptr @cli_dbgets(ptr noundef nonnull %5, i32 noundef 8192, ptr noundef %0, ptr noundef %3) #8
@@ -967,7 +1009,7 @@ declare ptr @cli_dbgets(ptr noundef, i32 noundef, ptr noundef, ptr noundef) loca
 declare i32 @cli_chomp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @chkflevel(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @chkflevel(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @cli_strtok(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.130) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %28, label %3

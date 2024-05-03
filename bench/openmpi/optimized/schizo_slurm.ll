@@ -62,7 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_allow_run_as_root = external local_unnamed_addr global i8, align 1
 @.str.29 = private unnamed_addr constant [23 x i8] c"PRTE_ALLOW_RUN_AS_ROOT\00", align 1
 @.str.30 = private unnamed_addr constant [31 x i8] c"PRTE_ALLOW_RUN_AS_ROOT_CONFIRM\00", align 1
-@.str.31 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 zeroext %2) #0 {
@@ -290,37 +289,49 @@ define internal void @allow_run_as_root(ptr noundef readonly %0) #0 {
 
 10:                                               ; preds = %.lr.ph.i.i
   store i8 1, ptr @prte_allow_run_as_root, align 1
-  br label %22
+  br label %23
 
 pmix_cmd_line_is_taken.exit:                      ; preds = %8, %1
   %11 = tail call ptr @getenv(ptr noundef nonnull @.str.29) #8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %21, label %12
+  br i1 %.not, label %.tail.thread, label %12
 
 12:                                               ; preds = %pmix_cmd_line_is_taken.exit
   %13 = tail call ptr @getenv(ptr noundef nonnull @.str.30) #8
   %.not4 = icmp eq ptr %13, null
-  br i1 %.not4, label %21, label %14
+  br i1 %.not4, label %.tail.thread, label %sub_0
 
-14:                                               ; preds = %12
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(2) @.str.31) #7
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %21
+sub_0:                                            ; preds = %12
+  %14 = load i8, ptr %11, align 1
+  %.not12 = icmp eq i8 %14, 49
+  br i1 %.not12, label %.tail, label %.tail.thread
 
-17:                                               ; preds = %14
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(2) @.str.31) #7
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %21
+.tail:                                            ; preds = %sub_0
+  %15 = getelementptr inbounds i8, ptr %11, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %sub_09, label %.tail.thread
 
-20:                                               ; preds = %17
+sub_09:                                           ; preds = %.tail
+  %18 = load i8, ptr %13, align 1
+  %.not13 = icmp eq i8 %18, 49
+  br i1 %.not13, label %.tail8, label %.tail.thread
+
+.tail8:                                           ; preds = %sub_09
+  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %.tail.thread
+
+22:                                               ; preds = %.tail8
   store i8 1, ptr @prte_allow_run_as_root, align 1
-  br label %22
+  br label %23
 
-21:                                               ; preds = %14, %17, %12, %pmix_cmd_line_is_taken.exit
+.tail.thread:                                     ; preds = %sub_09, %sub_0, %.tail, %.tail8, %12, %pmix_cmd_line_is_taken.exit
   tail call void @prte_schizo_base_root_error_msg() #8
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %20, %10
+23:                                               ; preds = %.tail.thread, %22, %10
   ret void
 }
 

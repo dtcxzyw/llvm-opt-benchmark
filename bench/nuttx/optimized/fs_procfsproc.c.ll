@@ -70,13 +70,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.49 = private unnamed_addr constant [25 x i8] c"%-3d %-7d %-4x %-9ld %s\0A\00", align 1
 @.str.50 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.51 = private unnamed_addr constant [7 x i8] c"%s=%s\0A\00", align 1
-@.str.52 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @g_level0node = internal constant %struct.proc_node_s { ptr @.str.50, ptr @.str.50, i8 0, i8 4 }, align 8
 @g_level0info = internal unnamed_addr constant [4 x ptr] [ptr @g_status, ptr @g_cmdline, ptr @g_stack, ptr @g_group], align 16
 @g_groupinfo = internal unnamed_addr constant [3 x ptr] [ptr @g_groupstatus, ptr @g_groupfd, ptr @g_groupenv], align 16
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @proc_open(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 %2, i32 %3) #0 {
+define internal range(i32 -21, 1) i32 @proc_open(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 %2, i32 %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #15
@@ -652,7 +651,7 @@ proc_groupfd.exit:                                ; preds = %250, %266, %227, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @proc_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i64 %2) #0 {
+define internal range(i64 -22, -18) i64 @proc_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -664,7 +663,7 @@ define internal i64 @proc_write(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @proc_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 -12, 1) i32 @proc_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(280) ptr @malloc(i64 noundef 280) #17
@@ -683,7 +682,7 @@ define internal noundef i32 @proc_dup(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @proc_opendir(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -20, 1) i32 @proc_opendir(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #15
@@ -728,20 +727,23 @@ define internal noundef i32 @proc_opendir(ptr noundef %0, ptr nocapture noundef 
 
 24:                                               ; preds = %21
   %25 = load i8, ptr %13, align 1
-  %.not29 = icmp eq i8 %25, 0
-  br i1 %.not29, label %split.thread, label %26
+  switch i8 %25, label %.tail.thread [
+    i8 0, label %split.thread
+    i8 47, label %.tail
+  ]
 
-26:                                               ; preds = %24
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(2) @.str.52) #15
-  %.not30 = icmp eq i32 %27, 0
-  br i1 %.not30, label %split.thread, label %28
+.tail:                                            ; preds = %24
+  %26 = getelementptr inbounds i8, ptr %13, i64 1
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %split.thread, label %.tail.thread
 
-28:                                               ; preds = %26
+.tail.thread:                                     ; preds = %24, %.tail
   %29 = getelementptr inbounds i8, ptr %13, i64 1
   br label %30
 
-30:                                               ; preds = %48, %28
-  %indvars.iv.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i, %48 ]
+30:                                               ; preds = %48, %.tail.thread
+  %indvars.iv.i = phi i64 [ 0, %.tail.thread ], [ %indvars.iv.next.i, %48 ]
   %31 = getelementptr inbounds [7 x ptr], ptr @g_nodeinfo, i64 0, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
@@ -789,12 +791,12 @@ split:                                            ; preds = %37
   tail call void @free(ptr noundef %22)
   br label %55
 
-split.thread:                                     ; preds = %44, %24, %26, %split
-  %.sink40 = phi i8 [ 2, %split ], [ 1, %26 ], [ 1, %24 ], [ 2, %44 ]
-  %.sink = phi i16 [ 3, %split ], [ 4, %26 ], [ 4, %24 ], [ 3, %44 ]
-  %g_level0node.sink = phi ptr [ %32, %split ], [ @g_level0node, %26 ], [ @g_level0node, %24 ], [ %32, %44 ]
+split.thread:                                     ; preds = %44, %.tail, %24, %split
+  %.sink41 = phi i8 [ 2, %split ], [ 1, %24 ], [ 1, %.tail ], [ 2, %44 ]
+  %.sink = phi i16 [ 3, %split ], [ 4, %24 ], [ 4, %.tail ], [ 3, %44 ]
+  %g_level0node.sink = phi ptr [ %32, %split ], [ @g_level0node, %24 ], [ @g_level0node, %.tail ], [ %32, %44 ]
   %51 = getelementptr inbounds i8, ptr %22, i64 16
-  store i8 %.sink40, ptr %51, align 8
+  store i8 %.sink41, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %22, i64 20
   store i16 %.sink, ptr %52, align 4
   %53 = getelementptr inbounds i8, ptr %22, i64 32
@@ -816,7 +818,7 @@ define internal noundef i32 @proc_closedir(ptr nocapture noundef %0) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @proc_readdir(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -2, 1) i32 @proc_readdir(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 18
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -878,7 +880,7 @@ define internal noundef i32 @proc_rewinddir(ptr nocapture noundef writeonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @proc_stat(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -2, 1) i32 @proc_stat(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #15
@@ -913,74 +915,73 @@ define internal noundef i32 @proc_stat(ptr noundef %0, ptr nocapture noundef wri
 20:                                               ; preds = %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %21 = load i8, ptr %13, align 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %proc_findnode.exit.sink.split, label %23
-
-23:                                               ; preds = %20
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(2) @.str.52) #15
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %proc_findnode.exit.sink.split, label %26
-
-26:                                               ; preds = %23
-  %.not = icmp eq i8 %21, 47
-  br i1 %.not, label %27, label %proc_findnode.exit
-
-27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %13, i64 1
-  br label %29
-
-29:                                               ; preds = %47, %27
-  %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %47 ]
-  %30 = getelementptr inbounds [7 x ptr], ptr @g_nodeinfo, i64 0, i64 %indvars.iv.i
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #15
-  %34 = tail call i32 @strncmp(ptr noundef %32, ptr noundef nonnull %28, i64 noundef %33) #15
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %47
-
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %28, i64 %33
-  %38 = load i8, ptr %37, align 1
-  switch i8 %38, label %47 [
-    i8 0, label %split
-    i8 47, label %39
+  switch i8 %21, label %proc_findnode.exit [
+    i8 0, label %proc_findnode.exit.sink.split
+    i8 47, label %.tail
   ]
 
-39:                                               ; preds = %36
-  %40 = getelementptr i8, ptr %37, i64 1
-  %41 = load i8, ptr %40, align 1
-  %42 = icmp eq i8 %41, 0
-  br i1 %42, label %43, label %47
+.tail:                                            ; preds = %20
+  %22 = getelementptr inbounds i8, ptr %13, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %proc_findnode.exit.sink.split, label %25
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %31, i64 17
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, 4
-  br i1 %46, label %split.thread, label %47
+25:                                               ; preds = %.tail
+  %26 = getelementptr inbounds i8, ptr %13, i64 1
+  br label %27
 
-47:                                               ; preds = %43, %39, %36, %29
+27:                                               ; preds = %45, %25
+  %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %45 ]
+  %28 = getelementptr inbounds [7 x ptr], ptr @g_nodeinfo, i64 0, i64 %indvars.iv.i
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #15
+  %32 = tail call i32 @strncmp(ptr noundef %30, ptr noundef nonnull %26, i64 noundef %31) #15
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %45
+
+34:                                               ; preds = %27
+  %35 = getelementptr inbounds i8, ptr %26, i64 %31
+  %36 = load i8, ptr %35, align 1
+  switch i8 %36, label %45 [
+    i8 0, label %split
+    i8 47, label %37
+  ]
+
+37:                                               ; preds = %34
+  %38 = getelementptr i8, ptr %35, i64 1
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp eq i8 %39, 0
+  br i1 %40, label %41, label %45
+
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %29, i64 17
+  %43 = load i8, ptr %42, align 1
+  %44 = icmp eq i8 %43, 4
+  br i1 %44, label %split.thread, label %45
+
+45:                                               ; preds = %41, %37, %34, %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %proc_findnode.exit, label %29, !llvm.loop !6
+  br i1 %exitcond.not.i, label %proc_findnode.exit, label %27, !llvm.loop !6
 
-split:                                            ; preds = %36
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %31, i64 17
-  %.pre20 = load i8, ptr %.phi.trans.insert, align 1
-  %48 = icmp eq i8 %.pre20, 8
-  br i1 %48, label %proc_findnode.exit.sink.split, label %split.thread
+split:                                            ; preds = %34
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %29, i64 17
+  %.pre21 = load i8, ptr %.phi.trans.insert, align 1
+  %46 = icmp eq i8 %.pre21, 8
+  br i1 %46, label %proc_findnode.exit.sink.split, label %split.thread
 
-split.thread:                                     ; preds = %43, %split
+split.thread:                                     ; preds = %41, %split
   br label %proc_findnode.exit.sink.split
 
-proc_findnode.exit.sink.split:                    ; preds = %split, %20, %23, %split.thread
-  %.sink = phi i32 [ 16676, %split.thread ], [ 16676, %23 ], [ 16676, %20 ], [ 33060, %split ]
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %.sink, ptr %49, align 8
+proc_findnode.exit.sink.split:                    ; preds = %split, %.tail, %20, %split.thread
+  %.sink = phi i32 [ 16676, %split.thread ], [ 16676, %20 ], [ 16676, %.tail ], [ 33060, %split ]
+  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %.sink, ptr %47, align 8
   br label %proc_findnode.exit
 
-proc_findnode.exit:                               ; preds = %47, %proc_findnode.exit.sink.split, %26, %16, %12
-  %.0 = phi i32 [ -2, %12 ], [ -2, %16 ], [ -2, %26 ], [ 0, %proc_findnode.exit.sink.split ], [ -2, %47 ]
+proc_findnode.exit:                               ; preds = %45, %proc_findnode.exit.sink.split, %20, %16, %12
+  %.0 = phi i32 [ -2, %12 ], [ -2, %16 ], [ -2, %20 ], [ 0, %proc_findnode.exit.sink.split ], [ -2, %45 ]
   ret i32 %.0
 }
 
@@ -1023,7 +1024,7 @@ declare i32 @file_ioctl(ptr noundef, i32 noundef, ...) local_unnamed_addr #6
 declare i32 @env_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @proc_groupenv_callback(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @proc_groupenv_callback(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [17 x i8], align 16
   br label %4
 
@@ -1090,9 +1091,6 @@ define internal i32 @proc_groupenv_callback(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #12

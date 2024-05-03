@@ -212,7 +212,7 @@ entry:
 lor.lhs.false.thread:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i4)
-  br label %lor.lhs.false2.thread
+  br label %lor.lhs.false2.thread58
 
 if.end6.i:                                        ; preds = %entry
   %1 = ptrtoint ptr %0 to i64
@@ -232,9 +232,9 @@ _ZeqRK6symbolPKc.exit:                            ; preds = %if.end6.i
   %call9.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.57) #8
   %cmp10.i = icmp eq i32 %call9.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  br i1 %cmp10.i, label %lor.end, label %lor.lhs.false.thread51
+  br i1 %cmp10.i, label %lor.end, label %lor.lhs.false.thread52
 
-lor.lhs.false.thread51:                           ; preds = %_ZeqRK6symbolPKc.exit
+lor.lhs.false.thread52:                           ; preds = %_ZeqRK6symbolPKc.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i4)
   br label %if.end6.i6
 
@@ -242,14 +242,14 @@ lor.lhs.false:                                    ; preds = %if.end11.i
   %.pr.pre = load ptr, ptr %s, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i4)
   %cmp.i5 = icmp eq ptr %.pr.pre, null
-  br i1 %cmp.i5, label %lor.lhs.false2.thread, label %if.end6.i6
+  br i1 %cmp.i5, label %lor.lhs.false2.thread58, label %if.end6.i6
 
-if.end6.i6:                                       ; preds = %lor.lhs.false.thread51, %lor.lhs.false
-  %.pr54 = phi ptr [ %0, %lor.lhs.false.thread51 ], [ %.pr.pre, %lor.lhs.false ]
-  %2 = ptrtoint ptr %.pr54 to i64
+if.end6.i6:                                       ; preds = %lor.lhs.false.thread52, %lor.lhs.false
+  %.pr55 = phi ptr [ %0, %lor.lhs.false.thread52 ], [ %.pr.pre, %lor.lhs.false ]
+  %2 = ptrtoint ptr %.pr55 to i64
   %and.i.i7 = and i64 %2, 7
   %cmp.i.i8 = icmp eq i64 %and.i.i7, 1
-  br i1 %cmp.i.i8, label %if.end11.i13, label %_ZeqRK6symbolPKc.exit16
+  br i1 %cmp.i.i8, label %if.end11.i13, label %sub_0
 
 if.end11.i13:                                     ; preds = %if.end6.i6
   call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(8) %s)
@@ -259,18 +259,34 @@ if.end11.i13:                                     ; preds = %if.end6.i6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i4)
   br i1 %cmp.i9.i15, label %lor.end, label %lor.lhs.false2
 
-lor.lhs.false2.thread:                            ; preds = %lor.lhs.false.thread, %lor.lhs.false
+lor.lhs.false2.thread58:                          ; preds = %lor.lhs.false.thread, %lor.lhs.false
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i17)
   br label %lor.rhs.thread
 
-_ZeqRK6symbolPKc.exit16:                          ; preds = %if.end6.i6
-  %call9.i10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr54, ptr noundef nonnull dereferenceable(3) @.str.58) #8
-  %cmp10.i11 = icmp eq i32 %call9.i10, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i4)
-  br i1 %cmp10.i11, label %lor.end, label %lor.lhs.false2.thread56
+sub_0:                                            ; preds = %if.end6.i6
+  %3 = load i8, ptr %.pr55, align 1
+  %.not = icmp eq i8 %3, 85
+  br i1 %.not, label %sub_1, label %_ZeqRK6symbolPKc.exit16.tail.thread
 
-lor.lhs.false2.thread56:                          ; preds = %_ZeqRK6symbolPKc.exit16
+sub_1:                                            ; preds = %sub_0
+  %4 = getelementptr inbounds i8, ptr %.pr55, i64 1
+  %5 = load i8, ptr %4, align 1
+  %.not49 = icmp eq i8 %5, 70
+  br i1 %.not49, label %_ZeqRK6symbolPKc.exit16.tail, label %_ZeqRK6symbolPKc.exit16.tail.thread
+
+_ZeqRK6symbolPKc.exit16.tail.thread:              ; preds = %sub_0, %sub_1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i4)
+  br label %lor.lhs.false2.thread
+
+_ZeqRK6symbolPKc.exit16.tail:                     ; preds = %sub_1
+  %6 = getelementptr inbounds i8, ptr %.pr55, i64 2
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i4)
+  br i1 %8, label %lor.end, label %lor.lhs.false2.thread
+
+lor.lhs.false2.thread:                            ; preds = %_ZeqRK6symbolPKc.exit16.tail, %_ZeqRK6symbolPKc.exit16.tail.thread
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i17)
   br label %if.end6.i19
 
@@ -280,15 +296,15 @@ lor.lhs.false2:                                   ; preds = %if.end11.i13
   %cmp.i18 = icmp eq ptr %.pre, null
   br i1 %cmp.i18, label %lor.rhs.thread, label %if.end6.i19
 
-lor.rhs.thread:                                   ; preds = %lor.lhs.false2.thread, %lor.lhs.false2
+lor.rhs.thread:                                   ; preds = %lor.lhs.false2.thread58, %lor.lhs.false2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i30)
   br label %_ZeqRK6symbolPKc.exit42
 
-if.end6.i19:                                      ; preds = %lor.lhs.false2.thread56, %lor.lhs.false2
-  %3 = phi ptr [ %.pr54, %lor.lhs.false2.thread56 ], [ %.pre, %lor.lhs.false2 ]
-  %4 = ptrtoint ptr %3 to i64
-  %and.i.i20 = and i64 %4, 7
+if.end6.i19:                                      ; preds = %lor.lhs.false2.thread, %lor.lhs.false2
+  %9 = phi ptr [ %.pr55, %lor.lhs.false2.thread ], [ %.pre, %lor.lhs.false2 ]
+  %10 = ptrtoint ptr %9 to i64
+  %and.i.i20 = and i64 %10, 7
   %cmp.i.i21 = icmp eq i64 %and.i.i20, 1
   br i1 %cmp.i.i21, label %if.end11.i26, label %_ZeqRK6symbolPKc.exit29
 
@@ -301,12 +317,12 @@ if.end11.i26:                                     ; preds = %if.end6.i19
   br i1 %cmp.i9.i28, label %lor.end, label %lor.rhs
 
 _ZeqRK6symbolPKc.exit29:                          ; preds = %if.end6.i19
-  %call9.i23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.59) #8
+  %call9.i23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.59) #8
   %cmp10.i24 = icmp eq i32 %call9.i23, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i17)
-  br i1 %cmp10.i24, label %lor.end, label %lor.rhs.thread58
+  br i1 %cmp10.i24, label %lor.end, label %lor.rhs.thread60
 
-lor.rhs.thread58:                                 ; preds = %_ZeqRK6symbolPKc.exit29
+lor.rhs.thread60:                                 ; preds = %_ZeqRK6symbolPKc.exit29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i30)
   br label %if.end6.i32
 
@@ -316,15 +332,15 @@ lor.rhs:                                          ; preds = %if.end11.i26
   %cmp.i31 = icmp eq ptr %.pr47.pre, null
   br i1 %cmp.i31, label %_ZeqRK6symbolPKc.exit42, label %if.end6.i32
 
-if.end6.i32:                                      ; preds = %lor.rhs.thread58, %lor.rhs
-  %.pr4761 = phi ptr [ %3, %lor.rhs.thread58 ], [ %.pr47.pre, %lor.rhs ]
-  %5 = ptrtoint ptr %.pr4761 to i64
-  %and.i.i33 = and i64 %5, 7
+if.end6.i32:                                      ; preds = %lor.rhs.thread60, %lor.rhs
+  %.pr4763 = phi ptr [ %9, %lor.rhs.thread60 ], [ %.pr47.pre, %lor.rhs ]
+  %11 = ptrtoint ptr %.pr4763 to i64
+  %and.i.i33 = and i64 %11, 7
   %cmp.i.i34 = icmp eq i64 %and.i.i33, 1
   br i1 %cmp.i.i34, label %if.end11.i39, label %if.then7.i35
 
 if.then7.i35:                                     ; preds = %if.end6.i32
-  %call9.i36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr4761, ptr noundef nonnull dereferenceable(6) @.str.55) #8
+  %call9.i36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr4763, ptr noundef nonnull dereferenceable(6) @.str.55) #8
   %cmp10.i37 = icmp eq i32 %call9.i36, 0
   br label %_ZeqRK6symbolPKc.exit42
 
@@ -340,9 +356,9 @@ _ZeqRK6symbolPKc.exit42:                          ; preds = %lor.rhs.thread, %lo
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i30)
   br label %lor.end
 
-lor.end:                                          ; preds = %if.end11.i26, %if.end11.i13, %if.end11.i, %_ZeqRK6symbolPKc.exit42, %_ZeqRK6symbolPKc.exit29, %_ZeqRK6symbolPKc.exit16, %_ZeqRK6symbolPKc.exit
-  %6 = phi i1 [ true, %_ZeqRK6symbolPKc.exit29 ], [ true, %_ZeqRK6symbolPKc.exit16 ], [ true, %_ZeqRK6symbolPKc.exit ], [ %retval.0.i38, %_ZeqRK6symbolPKc.exit42 ], [ true, %if.end11.i ], [ true, %if.end11.i13 ], [ true, %if.end11.i26 ]
-  ret i1 %6
+lor.end:                                          ; preds = %if.end11.i26, %if.end11.i13, %if.end11.i, %_ZeqRK6symbolPKc.exit42, %_ZeqRK6symbolPKc.exit29, %_ZeqRK6symbolPKc.exit16.tail, %_ZeqRK6symbolPKc.exit
+  %12 = phi i1 [ true, %_ZeqRK6symbolPKc.exit29 ], [ true, %_ZeqRK6symbolPKc.exit16.tail ], [ true, %_ZeqRK6symbolPKc.exit ], [ %retval.0.i38, %_ZeqRK6symbolPKc.exit42 ], [ true, %if.end11.i ], [ true, %if.end11.i13 ], [ true, %if.end11.i26 ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -802,9 +818,9 @@ _ZeqRK6symbolPKc.exit:                            ; preds = %if.end6.i
   %call9.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.47) #8
   %cmp10.i = icmp eq i32 %call9.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  br i1 %cmp10.i, label %lor.end, label %lor.lhs.false.thread96
+  br i1 %cmp10.i, label %lor.end, label %lor.lhs.false.thread97
 
-lor.lhs.false.thread96:                           ; preds = %_ZeqRK6symbolPKc.exit
+lor.lhs.false.thread97:                           ; preds = %_ZeqRK6symbolPKc.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i16)
   br label %if.end6.i18
 
@@ -814,9 +830,9 @@ lor.lhs.false:                                    ; preds = %if.end11.i
   %cmp.i17 = icmp eq ptr %.pr.pre, null
   br i1 %cmp.i17, label %lor.lhs.false2.thread, label %if.end6.i18
 
-if.end6.i18:                                      ; preds = %lor.lhs.false.thread96, %lor.lhs.false
-  %.pr99 = phi ptr [ %0, %lor.lhs.false.thread96 ], [ %.pr.pre, %lor.lhs.false ]
-  %2 = ptrtoint ptr %.pr99 to i64
+if.end6.i18:                                      ; preds = %lor.lhs.false.thread97, %lor.lhs.false
+  %.pr100 = phi ptr [ %0, %lor.lhs.false.thread97 ], [ %.pr.pre, %lor.lhs.false ]
+  %2 = ptrtoint ptr %.pr100 to i64
   %and.i.i19 = and i64 %2, 7
   %cmp.i.i20 = icmp eq i64 %and.i.i19, 1
   br i1 %cmp.i.i20, label %if.end11.i25, label %_ZeqRK6symbolPKc.exit28
@@ -835,12 +851,12 @@ lor.lhs.false2.thread:                            ; preds = %lor.lhs.false.threa
   br label %lor.lhs.false4.thread
 
 _ZeqRK6symbolPKc.exit28:                          ; preds = %if.end6.i18
-  %call9.i22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr99, ptr noundef nonnull dereferenceable(6) @.str.48) #8
+  %call9.i22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr100, ptr noundef nonnull dereferenceable(6) @.str.48) #8
   %cmp10.i23 = icmp eq i32 %call9.i22, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i16)
-  br i1 %cmp10.i23, label %lor.end, label %lor.lhs.false2.thread101
+  br i1 %cmp10.i23, label %lor.end, label %lor.lhs.false2.thread102
 
-lor.lhs.false2.thread101:                         ; preds = %_ZeqRK6symbolPKc.exit28
+lor.lhs.false2.thread102:                         ; preds = %_ZeqRK6symbolPKc.exit28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i29)
   br label %if.end6.i31
 
@@ -853,10 +869,10 @@ lor.lhs.false2:                                   ; preds = %if.end11.i25
 lor.lhs.false4.thread:                            ; preds = %lor.lhs.false2.thread, %lor.lhs.false2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i42)
-  br label %lor.lhs.false6.thread
+  br label %lor.lhs.false6.thread110
 
-if.end6.i31:                                      ; preds = %lor.lhs.false2.thread101, %lor.lhs.false2
-  %3 = phi ptr [ %.pr99, %lor.lhs.false2.thread101 ], [ %.pre, %lor.lhs.false2 ]
+if.end6.i31:                                      ; preds = %lor.lhs.false2.thread102, %lor.lhs.false2
+  %3 = phi ptr [ %.pr100, %lor.lhs.false2.thread102 ], [ %.pre, %lor.lhs.false2 ]
   %4 = ptrtoint ptr %3 to i64
   %and.i.i32 = and i64 %4, 7
   %cmp.i.i33 = icmp eq i64 %and.i.i32, 1
@@ -874,9 +890,9 @@ _ZeqRK6symbolPKc.exit41:                          ; preds = %if.end6.i31
   %call9.i35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.49) #8
   %cmp10.i36 = icmp eq i32 %call9.i35, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i29)
-  br i1 %cmp10.i36, label %lor.end, label %lor.lhs.false4.thread103
+  br i1 %cmp10.i36, label %lor.end, label %lor.lhs.false4.thread104
 
-lor.lhs.false4.thread103:                         ; preds = %_ZeqRK6symbolPKc.exit41
+lor.lhs.false4.thread104:                         ; preds = %_ZeqRK6symbolPKc.exit41
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i42)
   br label %if.end6.i44
 
@@ -884,14 +900,14 @@ lor.lhs.false4:                                   ; preds = %if.end11.i38
   %.pr85.pre = load ptr, ptr %s, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i42)
   %cmp.i43 = icmp eq ptr %.pr85.pre, null
-  br i1 %cmp.i43, label %lor.lhs.false6.thread, label %if.end6.i44
+  br i1 %cmp.i43, label %lor.lhs.false6.thread110, label %if.end6.i44
 
-if.end6.i44:                                      ; preds = %lor.lhs.false4.thread103, %lor.lhs.false4
-  %.pr85106 = phi ptr [ %3, %lor.lhs.false4.thread103 ], [ %.pr85.pre, %lor.lhs.false4 ]
-  %5 = ptrtoint ptr %.pr85106 to i64
+if.end6.i44:                                      ; preds = %lor.lhs.false4.thread104, %lor.lhs.false4
+  %.pr85107 = phi ptr [ %3, %lor.lhs.false4.thread104 ], [ %.pr85.pre, %lor.lhs.false4 ]
+  %5 = ptrtoint ptr %.pr85107 to i64
   %and.i.i45 = and i64 %5, 7
   %cmp.i.i46 = icmp eq i64 %and.i.i45, 1
-  br i1 %cmp.i.i46, label %if.end11.i51, label %_ZeqRK6symbolPKc.exit54
+  br i1 %cmp.i.i46, label %if.end11.i51, label %sub_0
 
 if.end11.i51:                                     ; preds = %if.end6.i44
   call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i42, ptr noundef nonnull align 8 dereferenceable(8) %s)
@@ -901,36 +917,52 @@ if.end11.i51:                                     ; preds = %if.end6.i44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i42)
   br i1 %cmp.i9.i53, label %lor.end, label %lor.lhs.false6
 
-lor.lhs.false6.thread:                            ; preds = %lor.lhs.false4.thread, %lor.lhs.false4
+lor.lhs.false6.thread110:                         ; preds = %lor.lhs.false4.thread, %lor.lhs.false4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i42)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i55)
   br label %lor.lhs.false8.thread
 
-_ZeqRK6symbolPKc.exit54:                          ; preds = %if.end6.i44
-  %call9.i48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr85106, ptr noundef nonnull dereferenceable(3) @.str.50) #8
-  %cmp10.i49 = icmp eq i32 %call9.i48, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i42)
-  br i1 %cmp10.i49, label %lor.end, label %lor.lhs.false6.thread108
+sub_0:                                            ; preds = %if.end6.i44
+  %6 = load i8, ptr %.pr85107, align 1
+  %.not = icmp eq i8 %6, 66
+  br i1 %.not, label %sub_1, label %_ZeqRK6symbolPKc.exit54.tail.thread
 
-lor.lhs.false6.thread108:                         ; preds = %_ZeqRK6symbolPKc.exit54
+sub_1:                                            ; preds = %sub_0
+  %7 = getelementptr inbounds i8, ptr %.pr85107, i64 1
+  %8 = load i8, ptr %7, align 1
+  %.not92 = icmp eq i8 %8, 86
+  br i1 %.not92, label %_ZeqRK6symbolPKc.exit54.tail, label %_ZeqRK6symbolPKc.exit54.tail.thread
+
+_ZeqRK6symbolPKc.exit54.tail.thread:              ; preds = %sub_0, %sub_1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i42)
+  br label %lor.lhs.false6.thread
+
+_ZeqRK6symbolPKc.exit54.tail:                     ; preds = %sub_1
+  %9 = getelementptr inbounds i8, ptr %.pr85107, i64 2
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp eq i8 %10, 0
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i42)
+  br i1 %11, label %lor.end, label %lor.lhs.false6.thread
+
+lor.lhs.false6.thread:                            ; preds = %_ZeqRK6symbolPKc.exit54.tail, %_ZeqRK6symbolPKc.exit54.tail.thread
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i55)
   br label %if.end6.i57
 
 lor.lhs.false6:                                   ; preds = %if.end11.i51
-  %.pre94 = load ptr, ptr %s, align 8
+  %.pre95 = load ptr, ptr %s, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i55)
-  %cmp.i56 = icmp eq ptr %.pre94, null
+  %cmp.i56 = icmp eq ptr %.pre95, null
   br i1 %cmp.i56, label %lor.lhs.false8.thread, label %if.end6.i57
 
-lor.lhs.false8.thread:                            ; preds = %lor.lhs.false6.thread, %lor.lhs.false6
+lor.lhs.false8.thread:                            ; preds = %lor.lhs.false6.thread110, %lor.lhs.false6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i55)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i68)
   br label %_ZeqRK6symbolPKc.exit80.thread
 
-if.end6.i57:                                      ; preds = %lor.lhs.false6.thread108, %lor.lhs.false6
-  %6 = phi ptr [ %.pr85106, %lor.lhs.false6.thread108 ], [ %.pre94, %lor.lhs.false6 ]
-  %7 = ptrtoint ptr %6 to i64
-  %and.i.i58 = and i64 %7, 7
+if.end6.i57:                                      ; preds = %lor.lhs.false6.thread, %lor.lhs.false6
+  %12 = phi ptr [ %.pr85107, %lor.lhs.false6.thread ], [ %.pre95, %lor.lhs.false6 ]
+  %13 = ptrtoint ptr %12 to i64
+  %and.i.i58 = and i64 %13, 7
   %cmp.i.i59 = icmp eq i64 %and.i.i58, 1
   br i1 %cmp.i.i59, label %if.end11.i64, label %_ZeqRK6symbolPKc.exit67
 
@@ -943,12 +975,12 @@ if.end11.i64:                                     ; preds = %if.end6.i57
   br i1 %cmp.i9.i66, label %lor.end, label %lor.lhs.false8
 
 _ZeqRK6symbolPKc.exit67:                          ; preds = %if.end6.i57
-  %call9.i61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.51) #8
+  %call9.i61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(6) @.str.51) #8
   %cmp10.i62 = icmp eq i32 %call9.i61, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i55)
-  br i1 %cmp10.i62, label %lor.end, label %lor.lhs.false8.thread110
+  br i1 %cmp10.i62, label %lor.end, label %lor.lhs.false8.thread112
 
-lor.lhs.false8.thread110:                         ; preds = %_ZeqRK6symbolPKc.exit67
+lor.lhs.false8.thread112:                         ; preds = %_ZeqRK6symbolPKc.exit67
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i68)
   br label %if.end6.i70
 
@@ -958,10 +990,10 @@ lor.lhs.false8:                                   ; preds = %if.end11.i64
   %cmp.i69 = icmp eq ptr %.pr89.pre, null
   br i1 %cmp.i69, label %_ZeqRK6symbolPKc.exit80.thread, label %if.end6.i70
 
-if.end6.i70:                                      ; preds = %lor.lhs.false8.thread110, %lor.lhs.false8
-  %.pr89113 = phi ptr [ %6, %lor.lhs.false8.thread110 ], [ %.pr89.pre, %lor.lhs.false8 ]
-  %8 = ptrtoint ptr %.pr89113 to i64
-  %and.i.i71 = and i64 %8, 7
+if.end6.i70:                                      ; preds = %lor.lhs.false8.thread112, %lor.lhs.false8
+  %.pr89115 = phi ptr [ %12, %lor.lhs.false8.thread112 ], [ %.pr89.pre, %lor.lhs.false8 ]
+  %14 = ptrtoint ptr %.pr89115 to i64
+  %and.i.i71 = and i64 %14, 7
   %cmp.i.i72 = icmp eq i64 %and.i.i71, 1
   br i1 %cmp.i.i72, label %if.end11.i77, label %_ZeqRK6symbolPKc.exit80
 
@@ -978,7 +1010,7 @@ _ZeqRK6symbolPKc.exit80.thread:                   ; preds = %lor.lhs.false8, %lo
   br label %lor.lhs.false10
 
 _ZeqRK6symbolPKc.exit80:                          ; preds = %if.end6.i70
-  %call9.i74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr89113, ptr noundef nonnull dereferenceable(8) @.str.52) #8
+  %call9.i74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr89115, ptr noundef nonnull dereferenceable(8) @.str.52) #8
   %cmp10.i75 = icmp eq i32 %call9.i74, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i68)
   br i1 %cmp10.i75, label %lor.end, label %lor.lhs.false10
@@ -1023,9 +1055,9 @@ lor.rhs:                                          ; preds = %lor.lhs.false26
   %call28 = call noundef zeroext i1 @_ZeqRK6symbolPKc(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull @.str.45)
   br label %lor.end
 
-lor.end:                                          ; preds = %if.end11.i77, %if.end11.i64, %if.end11.i51, %if.end11.i38, %if.end11.i25, %if.end11.i, %lor.rhs, %lor.lhs.false26, %lor.lhs.false24, %lor.lhs.false22, %lor.lhs.false20, %lor.lhs.false18, %lor.lhs.false16, %lor.lhs.false14, %lor.lhs.false12, %lor.lhs.false10, %_ZeqRK6symbolPKc.exit80, %_ZeqRK6symbolPKc.exit67, %_ZeqRK6symbolPKc.exit54, %_ZeqRK6symbolPKc.exit41, %_ZeqRK6symbolPKc.exit28, %_ZeqRK6symbolPKc.exit
-  %9 = phi i1 [ true, %lor.lhs.false26 ], [ true, %lor.lhs.false24 ], [ true, %lor.lhs.false22 ], [ true, %lor.lhs.false20 ], [ true, %lor.lhs.false18 ], [ true, %lor.lhs.false16 ], [ true, %lor.lhs.false14 ], [ true, %lor.lhs.false12 ], [ true, %lor.lhs.false10 ], [ true, %_ZeqRK6symbolPKc.exit80 ], [ true, %_ZeqRK6symbolPKc.exit67 ], [ true, %_ZeqRK6symbolPKc.exit54 ], [ true, %_ZeqRK6symbolPKc.exit41 ], [ true, %_ZeqRK6symbolPKc.exit28 ], [ true, %_ZeqRK6symbolPKc.exit ], [ %call28, %lor.rhs ], [ true, %if.end11.i ], [ true, %if.end11.i25 ], [ true, %if.end11.i38 ], [ true, %if.end11.i51 ], [ true, %if.end11.i64 ], [ true, %if.end11.i77 ]
-  ret i1 %9
+lor.end:                                          ; preds = %if.end11.i77, %if.end11.i64, %if.end11.i51, %if.end11.i38, %if.end11.i25, %if.end11.i, %lor.rhs, %lor.lhs.false26, %lor.lhs.false24, %lor.lhs.false22, %lor.lhs.false20, %lor.lhs.false18, %lor.lhs.false16, %lor.lhs.false14, %lor.lhs.false12, %lor.lhs.false10, %_ZeqRK6symbolPKc.exit80, %_ZeqRK6symbolPKc.exit67, %_ZeqRK6symbolPKc.exit54.tail, %_ZeqRK6symbolPKc.exit41, %_ZeqRK6symbolPKc.exit28, %_ZeqRK6symbolPKc.exit
+  %15 = phi i1 [ true, %lor.lhs.false26 ], [ true, %lor.lhs.false24 ], [ true, %lor.lhs.false22 ], [ true, %lor.lhs.false20 ], [ true, %lor.lhs.false18 ], [ true, %lor.lhs.false16 ], [ true, %lor.lhs.false14 ], [ true, %lor.lhs.false12 ], [ true, %lor.lhs.false10 ], [ true, %_ZeqRK6symbolPKc.exit80 ], [ true, %_ZeqRK6symbolPKc.exit67 ], [ true, %_ZeqRK6symbolPKc.exit54.tail ], [ true, %_ZeqRK6symbolPKc.exit41 ], [ true, %_ZeqRK6symbolPKc.exit28 ], [ true, %_ZeqRK6symbolPKc.exit ], [ %call28, %lor.rhs ], [ true, %if.end11.i ], [ true, %if.end11.i25 ], [ true, %if.end11.i38 ], [ true, %if.end11.i51 ], [ true, %if.end11.i64 ], [ true, %if.end11.i77 ]
+  ret i1 %15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1618,7 +1650,7 @@ if.end6.i:                                        ; preds = %entry
   %1 = ptrtoint ptr %0 to i64
   %and.i.i = and i64 %1, 7
   %cmp.i.i = icmp eq i64 %and.i.i, 1
-  br i1 %cmp.i.i, label %if.end11.i, label %_ZeqRK6symbolPKc.exit
+  br i1 %cmp.i.i, label %if.end11.i, label %sub_0
 
 if.end11.i:                                       ; preds = %if.end6.i
   call void @_ZNK6symbol3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %s)
@@ -1628,13 +1660,29 @@ if.end11.i:                                       ; preds = %if.end6.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br i1 %cmp.i9.i, label %lor.end, label %lor.lhs.false
 
-_ZeqRK6symbolPKc.exit:                            ; preds = %if.end6.i
-  %call9.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.39) #8
-  %cmp10.i = icmp eq i32 %call9.i, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  br i1 %cmp10.i, label %lor.end, label %lor.lhs.false.thread73
+sub_0:                                            ; preds = %if.end6.i
+  %2 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %2, 70
+  br i1 %.not, label %sub_1, label %_ZeqRK6symbolPKc.exit.tail.thread
 
-lor.lhs.false.thread73:                           ; preds = %_ZeqRK6symbolPKc.exit
+sub_1:                                            ; preds = %sub_0
+  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = load i8, ptr %3, align 1
+  %.not69 = icmp eq i8 %4, 80
+  br i1 %.not69, label %_ZeqRK6symbolPKc.exit.tail, label %_ZeqRK6symbolPKc.exit.tail.thread
+
+_ZeqRK6symbolPKc.exit.tail.thread:                ; preds = %sub_0, %sub_1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  br label %lor.lhs.false.thread75
+
+_ZeqRK6symbolPKc.exit.tail:                       ; preds = %sub_1
+  %5 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  br i1 %7, label %lor.end, label %lor.lhs.false.thread75
+
+lor.lhs.false.thread75:                           ; preds = %_ZeqRK6symbolPKc.exit.tail, %_ZeqRK6symbolPKc.exit.tail.thread
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i6)
   br label %if.end6.i8
 
@@ -1644,10 +1692,10 @@ lor.lhs.false:                                    ; preds = %if.end11.i
   %cmp.i7 = icmp eq ptr %.pr.pre, null
   br i1 %cmp.i7, label %lor.lhs.false2.thread, label %if.end6.i8
 
-if.end6.i8:                                       ; preds = %lor.lhs.false.thread73, %lor.lhs.false
-  %.pr76 = phi ptr [ %0, %lor.lhs.false.thread73 ], [ %.pr.pre, %lor.lhs.false ]
-  %2 = ptrtoint ptr %.pr76 to i64
-  %and.i.i9 = and i64 %2, 7
+if.end6.i8:                                       ; preds = %lor.lhs.false.thread75, %lor.lhs.false
+  %.pr78 = phi ptr [ %0, %lor.lhs.false.thread75 ], [ %.pr.pre, %lor.lhs.false ]
+  %8 = ptrtoint ptr %.pr78 to i64
+  %and.i.i9 = and i64 %8, 7
   %cmp.i.i10 = icmp eq i64 %and.i.i9, 1
   br i1 %cmp.i.i10, label %if.end11.i15, label %_ZeqRK6symbolPKc.exit18
 
@@ -1665,12 +1713,12 @@ lor.lhs.false2.thread:                            ; preds = %lor.lhs.false.threa
   br label %lor.lhs.false4.thread
 
 _ZeqRK6symbolPKc.exit18:                          ; preds = %if.end6.i8
-  %call9.i12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr76, ptr noundef nonnull dereferenceable(6) @.str.38) #8
+  %call9.i12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr78, ptr noundef nonnull dereferenceable(6) @.str.38) #8
   %cmp10.i13 = icmp eq i32 %call9.i12, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i6)
-  br i1 %cmp10.i13, label %lor.end, label %lor.lhs.false2.thread78
+  br i1 %cmp10.i13, label %lor.end, label %lor.lhs.false2.thread80
 
-lor.lhs.false2.thread78:                          ; preds = %_ZeqRK6symbolPKc.exit18
+lor.lhs.false2.thread80:                          ; preds = %_ZeqRK6symbolPKc.exit18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i19)
   br label %if.end6.i21
 
@@ -1685,10 +1733,10 @@ lor.lhs.false4.thread:                            ; preds = %lor.lhs.false2.thre
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i32)
   br label %lor.lhs.false6.thread
 
-if.end6.i21:                                      ; preds = %lor.lhs.false2.thread78, %lor.lhs.false2
-  %3 = phi ptr [ %.pr76, %lor.lhs.false2.thread78 ], [ %.pre, %lor.lhs.false2 ]
-  %4 = ptrtoint ptr %3 to i64
-  %and.i.i22 = and i64 %4, 7
+if.end6.i21:                                      ; preds = %lor.lhs.false2.thread80, %lor.lhs.false2
+  %9 = phi ptr [ %.pr78, %lor.lhs.false2.thread80 ], [ %.pre, %lor.lhs.false2 ]
+  %10 = ptrtoint ptr %9 to i64
+  %and.i.i22 = and i64 %10, 7
   %cmp.i.i23 = icmp eq i64 %and.i.i22, 1
   br i1 %cmp.i.i23, label %if.end11.i28, label %_ZeqRK6symbolPKc.exit31
 
@@ -1701,12 +1749,12 @@ if.end11.i28:                                     ; preds = %if.end6.i21
   br i1 %cmp.i9.i30, label %lor.end, label %lor.lhs.false4
 
 _ZeqRK6symbolPKc.exit31:                          ; preds = %if.end6.i21
-  %call9.i25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.40) #8
+  %call9.i25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.40) #8
   %cmp10.i26 = icmp eq i32 %call9.i25, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i19)
-  br i1 %cmp10.i26, label %lor.end, label %lor.lhs.false4.thread80
+  br i1 %cmp10.i26, label %lor.end, label %lor.lhs.false4.thread82
 
-lor.lhs.false4.thread80:                          ; preds = %_ZeqRK6symbolPKc.exit31
+lor.lhs.false4.thread82:                          ; preds = %_ZeqRK6symbolPKc.exit31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i32)
   br label %if.end6.i34
 
@@ -1716,10 +1764,10 @@ lor.lhs.false4:                                   ; preds = %if.end11.i28
   %cmp.i33 = icmp eq ptr %.pr63.pre, null
   br i1 %cmp.i33, label %lor.lhs.false6.thread, label %if.end6.i34
 
-if.end6.i34:                                      ; preds = %lor.lhs.false4.thread80, %lor.lhs.false4
-  %.pr6383 = phi ptr [ %3, %lor.lhs.false4.thread80 ], [ %.pr63.pre, %lor.lhs.false4 ]
-  %5 = ptrtoint ptr %.pr6383 to i64
-  %and.i.i35 = and i64 %5, 7
+if.end6.i34:                                      ; preds = %lor.lhs.false4.thread82, %lor.lhs.false4
+  %.pr6385 = phi ptr [ %9, %lor.lhs.false4.thread82 ], [ %.pr63.pre, %lor.lhs.false4 ]
+  %11 = ptrtoint ptr %.pr6385 to i64
+  %and.i.i35 = and i64 %11, 7
   %cmp.i.i36 = icmp eq i64 %and.i.i35, 1
   br i1 %cmp.i.i36, label %if.end11.i41, label %_ZeqRK6symbolPKc.exit44
 
@@ -1737,19 +1785,19 @@ lor.lhs.false6.thread:                            ; preds = %lor.lhs.false4.thre
   br label %lor.rhs.thread
 
 _ZeqRK6symbolPKc.exit44:                          ; preds = %if.end6.i34
-  %call9.i38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr6383, ptr noundef nonnull dereferenceable(8) @.str.41) #8
+  %call9.i38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr6385, ptr noundef nonnull dereferenceable(8) @.str.41) #8
   %cmp10.i39 = icmp eq i32 %call9.i38, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i32)
-  br i1 %cmp10.i39, label %lor.end, label %lor.lhs.false6.thread85
+  br i1 %cmp10.i39, label %lor.end, label %lor.lhs.false6.thread87
 
-lor.lhs.false6.thread85:                          ; preds = %_ZeqRK6symbolPKc.exit44
+lor.lhs.false6.thread87:                          ; preds = %_ZeqRK6symbolPKc.exit44
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i45)
   br label %if.end6.i47
 
 lor.lhs.false6:                                   ; preds = %if.end11.i41
-  %.pre71 = load ptr, ptr %s, align 8
+  %.pre72 = load ptr, ptr %s, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i45)
-  %cmp.i46 = icmp eq ptr %.pre71, null
+  %cmp.i46 = icmp eq ptr %.pre72, null
   br i1 %cmp.i46, label %lor.rhs.thread, label %if.end6.i47
 
 lor.rhs.thread:                                   ; preds = %lor.lhs.false6.thread, %lor.lhs.false6
@@ -1757,10 +1805,10 @@ lor.rhs.thread:                                   ; preds = %lor.lhs.false6.thre
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   br label %_ZN10smt_logics12logic_is_allERK6symbol.exit
 
-if.end6.i47:                                      ; preds = %lor.lhs.false6.thread85, %lor.lhs.false6
-  %6 = phi ptr [ %.pr6383, %lor.lhs.false6.thread85 ], [ %.pre71, %lor.lhs.false6 ]
-  %7 = ptrtoint ptr %6 to i64
-  %and.i.i48 = and i64 %7, 7
+if.end6.i47:                                      ; preds = %lor.lhs.false6.thread87, %lor.lhs.false6
+  %12 = phi ptr [ %.pr6385, %lor.lhs.false6.thread87 ], [ %.pre72, %lor.lhs.false6 ]
+  %13 = ptrtoint ptr %12 to i64
+  %and.i.i48 = and i64 %13, 7
   %cmp.i.i49 = icmp eq i64 %and.i.i48, 1
   br i1 %cmp.i.i49, label %if.end11.i54, label %_ZeqRK6symbolPKc.exit57
 
@@ -1773,12 +1821,12 @@ if.end11.i54:                                     ; preds = %if.end6.i47
   br i1 %cmp.i9.i56, label %lor.end, label %lor.rhs
 
 _ZeqRK6symbolPKc.exit57:                          ; preds = %if.end6.i47
-  %call9.i51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.46) #8
+  %call9.i51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(9) @.str.46) #8
   %cmp10.i52 = icmp eq i32 %call9.i51, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i45)
-  br i1 %cmp10.i52, label %lor.end, label %lor.rhs.thread87
+  br i1 %cmp10.i52, label %lor.end, label %lor.rhs.thread89
 
-lor.rhs.thread87:                                 ; preds = %_ZeqRK6symbolPKc.exit57
+lor.rhs.thread89:                                 ; preds = %_ZeqRK6symbolPKc.exit57
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   br label %if.end6.i.i
 
@@ -1788,15 +1836,15 @@ lor.rhs:                                          ; preds = %if.end11.i54
   %cmp.i.i58 = icmp eq ptr %.pr67.pre, null
   br i1 %cmp.i.i58, label %_ZN10smt_logics12logic_is_allERK6symbol.exit, label %if.end6.i.i
 
-if.end6.i.i:                                      ; preds = %lor.rhs.thread87, %lor.rhs
-  %.pr6790 = phi ptr [ %6, %lor.rhs.thread87 ], [ %.pr67.pre, %lor.rhs ]
-  %8 = ptrtoint ptr %.pr6790 to i64
-  %and.i.i.i = and i64 %8, 7
+if.end6.i.i:                                      ; preds = %lor.rhs.thread89, %lor.rhs
+  %.pr6792 = phi ptr [ %12, %lor.rhs.thread89 ], [ %.pr67.pre, %lor.rhs ]
+  %14 = ptrtoint ptr %.pr6792 to i64
+  %and.i.i.i = and i64 %14, 7
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 1
   br i1 %cmp.i.i.i, label %if.end11.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end6.i.i
-  %call9.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr6790, ptr noundef nonnull dereferenceable(4) @.str.61) #8
+  %call9.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr6792, ptr noundef nonnull dereferenceable(4) @.str.61) #8
   %cmp10.i.i = icmp eq i32 %call9.i.i, 0
   br label %_ZN10smt_logics12logic_is_allERK6symbol.exit
 
@@ -1812,9 +1860,9 @@ _ZN10smt_logics12logic_is_allERK6symbol.exit:     ; preds = %lor.rhs.thread, %lo
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   br label %lor.end
 
-lor.end:                                          ; preds = %if.end11.i54, %if.end11.i41, %if.end11.i28, %if.end11.i15, %if.end11.i, %_ZN10smt_logics12logic_is_allERK6symbol.exit, %_ZeqRK6symbolPKc.exit57, %_ZeqRK6symbolPKc.exit44, %_ZeqRK6symbolPKc.exit31, %_ZeqRK6symbolPKc.exit18, %_ZeqRK6symbolPKc.exit
-  %9 = phi i1 [ true, %_ZeqRK6symbolPKc.exit57 ], [ true, %_ZeqRK6symbolPKc.exit44 ], [ true, %_ZeqRK6symbolPKc.exit31 ], [ true, %_ZeqRK6symbolPKc.exit18 ], [ true, %_ZeqRK6symbolPKc.exit ], [ %retval.0.i.i, %_ZN10smt_logics12logic_is_allERK6symbol.exit ], [ true, %if.end11.i ], [ true, %if.end11.i15 ], [ true, %if.end11.i28 ], [ true, %if.end11.i41 ], [ true, %if.end11.i54 ]
-  ret i1 %9
+lor.end:                                          ; preds = %if.end11.i54, %if.end11.i41, %if.end11.i28, %if.end11.i15, %if.end11.i, %_ZN10smt_logics12logic_is_allERK6symbol.exit, %_ZeqRK6symbolPKc.exit57, %_ZeqRK6symbolPKc.exit44, %_ZeqRK6symbolPKc.exit31, %_ZeqRK6symbolPKc.exit18, %_ZeqRK6symbolPKc.exit.tail
+  %15 = phi i1 [ true, %_ZeqRK6symbolPKc.exit57 ], [ true, %_ZeqRK6symbolPKc.exit44 ], [ true, %_ZeqRK6symbolPKc.exit31 ], [ true, %_ZeqRK6symbolPKc.exit18 ], [ true, %_ZeqRK6symbolPKc.exit.tail ], [ %retval.0.i.i, %_ZN10smt_logics12logic_is_allERK6symbol.exit ], [ true, %if.end11.i ], [ true, %if.end11.i15 ], [ true, %if.end11.i28 ], [ true, %if.end11.i41 ], [ true, %if.end11.i54 ]
+  ret i1 %15
 }
 
 ; Function Attrs: mustprogress uwtable

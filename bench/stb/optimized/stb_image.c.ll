@@ -160,7 +160,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.105 = private unnamed_addr constant [19 x i8] c"unsupported format\00", align 1
 @.str.106 = private unnamed_addr constant [4 x i8] c"-Y \00", align 1
 @.str.107 = private unnamed_addr constant [24 x i8] c"unsupported data layout\00", align 1
-@.str.108 = private unnamed_addr constant [4 x i8] c"+X \00", align 1
 @.str.109 = private unnamed_addr constant [32 x i8] c"invalid decoded scanline length\00", align 1
 @.str.110 = private unnamed_addr constant [8 x i8] c"bad PNM\00", align 1
 @.str.111 = private unnamed_addr constant [23 x i8] c"integer parse overflow\00", align 1
@@ -214,7 +213,7 @@ entry:
   %img_buffer = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start, ptr %img_buffer, align 8
   %0 = load ptr, ptr %io, align 8
-  %call.i = tail call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start, i32 noundef 128) #39
+  %call.i = tail call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer, align 8
   %2 = load ptr, ptr %img_buffer_original, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -261,7 +260,7 @@ entry:
   %buffer_start = getelementptr inbounds i8, ptr %s, i64 56
   %buflen = getelementptr inbounds i8, ptr %s, i64 52
   %2 = load i32, ptr %buflen, align 4
-  %call = tail call i32 %0(ptr noundef %1, ptr noundef nonnull %buffer_start, i32 noundef %2) #39
+  %call = tail call i32 %0(ptr noundef %1, ptr noundef nonnull %buffer_start, i32 noundef %2) #38
   %img_buffer = getelementptr inbounds i8, ptr %s, i64 192
   %3 = load ptr, ptr %img_buffer, align 8
   %img_buffer_original = getelementptr inbounds i8, ptr %s, i64 208
@@ -338,12 +337,12 @@ declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_ad
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @stbi__stdio_eof(ptr nocapture noundef %user) #4 {
 entry:
-  %call = tail call i32 @feof(ptr noundef %user) #39
+  %call = tail call i32 @feof(ptr noundef %user) #38
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %call1 = tail call i32 @ferror(ptr noundef %user) #39
+  %call1 = tail call i32 @ferror(ptr noundef %user) #38
   %tobool2 = icmp ne i32 %call1, 0
   %0 = zext i1 %tobool2 to i32
   br label %lor.end
@@ -378,7 +377,7 @@ entry:
   %img_buffer.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = tail call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #39
+  %call.i.i = tail call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -444,7 +443,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @stbi__malloc(i64 noundef %size) local_unnamed_addr #11 {
 entry:
-  %call = tail call noalias ptr @malloc(i64 noundef %size) #40
+  %call = tail call noalias ptr @malloc(i64 noundef %size) #39
   ret ptr %call
 }
 
@@ -646,7 +645,7 @@ stbi__mad2sizes_valid.exit:                       ; preds = %if.end.i.i, %stbi__
 if.end:                                           ; preds = %stbi__mad2sizes_valid.exit
   %add1 = add nsw i32 %mul.i, %add
   %conv = sext i32 %add1 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   br label %return
 
 return:                                           ; preds = %entry, %stbi__mul2sizes_valid.exit.i, %stbi__mad2sizes_valid.exit, %if.end
@@ -696,7 +695,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %if.end.i8.i, %stbi_
 if.end:                                           ; preds = %stbi__mad3sizes_valid.exit
   %add2 = add nsw i32 %mul4.i, %add
   %conv = sext i32 %add2 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %entry, %stbi__mul2sizes_valid.exit.i, %stbi__mul2sizes_valid.exit14.i, %stbi__mad3sizes_valid.exit, %if.end
@@ -761,7 +760,7 @@ stbi__mad4sizes_valid.exit:                       ; preds = %if.end.i21.i, %stbi
 if.end:                                           ; preds = %stbi__mad4sizes_valid.exit
   %add3 = add nsw i32 %mul10.i, %add
   %conv = sext i32 %add3 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   br label %return
 
 return:                                           ; preds = %land.lhs.true3.i, %land.lhs.true.i, %entry, %stbi__mul2sizes_valid.exit.i, %stbi__mul2sizes_valid.exit18.i, %stbi__mul2sizes_valid.exit27.i, %stbi__mad4sizes_valid.exit, %if.end
@@ -839,7 +838,7 @@ return:                                           ; preds = %entry, %if.end17, %
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @stbi_image_free(ptr nocapture noundef %retval_from_stbi_load) local_unnamed_addr #13 {
 entry:
-  tail call void @free(ptr noundef %retval_from_stbi_load) #39
+  tail call void @free(ptr noundef %retval_from_stbi_load) #38
   ret void
 }
 
@@ -914,7 +913,7 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   %4 = load ptr, ptr %io.i.i.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i.i.i, align 8
   %6 = load i32, ptr %buflen.i.i.i.i, align 4
-  %call.i.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i.i, i32 noundef %6) #39
+  %call.i.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i.i.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -1015,17 +1014,17 @@ if.else.i:                                        ; preds = %if.then9
   br i1 %tobool9.not.i, label %stbi__gif_load.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.else.i
-  call void @free(ptr noundef nonnull %22) #39
+  call void @free(ptr noundef nonnull %22) #38
   br label %stbi__gif_load.exit
 
 stbi__gif_load.exit:                              ; preds = %if.then1.i, %if.then4.i, %if.else.i, %if.then10.i
   %u.0.i = phi ptr [ %call7.i, %if.then4.i ], [ %call.i74, %if.then1.i ], [ null, %if.then10.i ], [ null, %if.else.i ]
   %history.i = getelementptr inbounds i8, ptr %g.i, i64 24
   %23 = load ptr, ptr %history.i, align 8
-  call void @free(ptr noundef %23) #39
+  call void @free(ptr noundef %23) #38
   %background.i = getelementptr inbounds i8, ptr %g.i, i64 16
   %24 = load ptr, ptr %background.i, align 8
-  call void @free(ptr noundef %24) #39
+  call void @free(ptr noundef %24) #38
   call void @llvm.lifetime.end.p0(i64 34928, ptr nonnull %g.i)
   br label %return
 
@@ -1158,7 +1157,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %io.i.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i.i, align 8
   %6 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #39
+  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %7 to i64
@@ -1441,7 +1440,7 @@ stbi__mul2sizes_valid.exit14.i.i:                 ; preds = %if.end.i8.i.i
 stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stbi__mul2sizes_valid.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul.i, %31
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %tobool103.not = icmp eq ptr %call.i.i, null
   br i1 %tobool103.not, label %if.then104, label %if.end108
 
@@ -1480,7 +1479,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 if.then118:                                       ; preds = %if.then112
-  tail call void @free(ptr noundef nonnull %call.i.i) #39
+  tail call void @free(ptr noundef nonnull %call.i.i) #38
   %35 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.77, ptr %35, align 8
   br label %return
@@ -1509,7 +1508,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %42 = load ptr, ptr %io.i.i, align 8
   %43 = load ptr, ptr %io_user_data.i.i, align 8
   %44 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i239 = tail call i32 %42(ptr noundef %43, ptr noundef nonnull %buffer_start.i.i, i32 noundef %44) #39
+  %call.i.i239 = tail call i32 %42(ptr noundef %43, ptr noundef nonnull %buffer_start.i.i, i32 noundef %44) #38
   %45 = load ptr, ptr %img_buffer.i, align 8
   %46 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %45 to i64
@@ -1567,7 +1566,7 @@ if.then2.i247:                                    ; preds = %if.end.i244
   %55 = load ptr, ptr %io.i.i, align 8
   %56 = load ptr, ptr %io_user_data.i.i, align 8
   %57 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i252 = tail call i32 %55(ptr noundef %56, ptr noundef nonnull %buffer_start.i.i, i32 noundef %57) #39
+  %call.i.i252 = tail call i32 %55(ptr noundef %56, ptr noundef nonnull %buffer_start.i.i, i32 noundef %57) #38
   %58 = load ptr, ptr %img_buffer.i, align 8
   %59 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i254 = ptrtoint ptr %58 to i64
@@ -1624,7 +1623,7 @@ if.then2.i280:                                    ; preds = %if.end.i277
   %68 = load ptr, ptr %io.i.i, align 8
   %69 = load ptr, ptr %io_user_data.i.i, align 8
   %70 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i285 = tail call i32 %68(ptr noundef %69, ptr noundef nonnull %buffer_start.i.i, i32 noundef %70) #39
+  %call.i.i285 = tail call i32 %68(ptr noundef %69, ptr noundef nonnull %buffer_start.i.i, i32 noundef %70) #38
   %71 = load ptr, ptr %img_buffer.i, align 8
   %72 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i287 = ptrtoint ptr %71 to i64
@@ -1681,7 +1680,7 @@ if.then2.i313:                                    ; preds = %if.end.i310
   %80 = load ptr, ptr %io.i.i, align 8
   %81 = load ptr, ptr %io_user_data.i.i, align 8
   %82 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i318 = tail call i32 %80(ptr noundef %81, ptr noundef nonnull %buffer_start.i.i, i32 noundef %82) #39
+  %call.i.i318 = tail call i32 %80(ptr noundef %81, ptr noundef nonnull %buffer_start.i.i, i32 noundef %82) #38
   %83 = load ptr, ptr %img_buffer.i, align 8
   %84 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i320 = ptrtoint ptr %83 to i64
@@ -1752,7 +1751,7 @@ if.then173:                                       ; preds = %for.end
   br label %for.cond245.preheader
 
 if.else175:                                       ; preds = %for.end
-  tail call void @free(ptr noundef %call.i.i) #39
+  tail call void @free(ptr noundef %call.i.i) #38
   %95 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.78, ptr %95, align 8
   br label %return
@@ -1834,7 +1833,7 @@ if.then2.i346:                                    ; preds = %if.end.i343
   %103 = load ptr, ptr %io.i.i347, align 8
   %104 = load ptr, ptr %io_user_data.i.i348, align 8
   %105 = load i32, ptr %buflen.i.i350, align 4
-  %call.i.i351 = tail call i32 %103(ptr noundef %104, ptr noundef nonnull %buffer_start.i.i349, i32 noundef %105) #39
+  %call.i.i351 = tail call i32 %103(ptr noundef %104, ptr noundef nonnull %buffer_start.i.i349, i32 noundef %105) #38
   %106 = load ptr, ptr %img_buffer.i340, align 8
   %107 = load ptr, ptr %img_buffer_original.i.i352, align 8
   %sub.ptr.lhs.cast.i.i353 = ptrtoint ptr %106 to i64
@@ -1942,7 +1941,7 @@ if.then2.i379:                                    ; preds = %if.end.i376
   %121 = load ptr, ptr %io.i.i347, align 8
   %122 = load ptr, ptr %io_user_data.i.i348, align 8
   %123 = load i32, ptr %buflen.i.i350, align 4
-  %call.i.i384 = tail call i32 %121(ptr noundef %122, ptr noundef nonnull %buffer_start.i.i349, i32 noundef %123) #39
+  %call.i.i384 = tail call i32 %121(ptr noundef %122, ptr noundef nonnull %buffer_start.i.i349, i32 noundef %123) #38
   %124 = load ptr, ptr %img_buffer.i340, align 8
   %125 = load ptr, ptr %img_buffer_original.i.i352, align 8
   %sub.ptr.lhs.cast.i.i386 = ptrtoint ptr %124 to i64
@@ -2016,7 +2015,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %135 = load ptr, ptr %skip.i, align 8
   %136 = load ptr, ptr %io_user_data.i.i348, align 8
   %sub.i = sub nsw i32 %and, %conv.i409
-  tail call void %135(ptr noundef %136, i32 noundef %sub.i) #39
+  tail call void %135(ptr noundef %136, i32 noundef %sub.i) #38
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.end.i407, %if.then4.i
@@ -2067,7 +2066,7 @@ if.then2.i420:                                    ; preds = %if.end.i417
   %145 = load ptr, ptr %io.i.i421, align 8
   %146 = load ptr, ptr %io_user_data.i.i422, align 8
   %147 = load i32, ptr %buflen.i.i424, align 4
-  %call.i.i425 = tail call i32 %145(ptr noundef %146, ptr noundef nonnull %buffer_start.i.i423, i32 noundef %147) #39
+  %call.i.i425 = tail call i32 %145(ptr noundef %146, ptr noundef nonnull %buffer_start.i.i423, i32 noundef %147) #38
   %148 = load ptr, ptr %img_buffer.i414, align 8
   %149 = load ptr, ptr %img_buffer_original.i.i426, align 8
   %sub.ptr.lhs.cast.i.i427 = ptrtoint ptr %148 to i64
@@ -2162,7 +2161,7 @@ if.then2.i453:                                    ; preds = %if.end.i450
   %162 = load ptr, ptr %io.i.i421, align 8
   %163 = load ptr, ptr %io_user_data.i.i422, align 8
   %164 = load i32, ptr %buflen.i.i424, align 4
-  %call.i.i458 = tail call i32 %162(ptr noundef %163, ptr noundef nonnull %buffer_start.i.i423, i32 noundef %164) #39
+  %call.i.i458 = tail call i32 %162(ptr noundef %163, ptr noundef nonnull %buffer_start.i.i423, i32 noundef %164) #38
   %165 = load ptr, ptr %img_buffer.i414, align 8
   %166 = load ptr, ptr %img_buffer_original.i.i426, align 8
   %sub.ptr.lhs.cast.i.i460 = ptrtoint ptr %165 to i64
@@ -2265,7 +2264,7 @@ if.then9.i496:                                    ; preds = %if.then4.i484
   %182 = load ptr, ptr %skip.i497, align 8
   %183 = load ptr, ptr %io_user_data.i.i422, align 8
   %sub.i499 = sub nsw i32 %and864, %conv.i490
-  tail call void %182(ptr noundef %183, i32 noundef %sub.i499) #39
+  tail call void %182(ptr noundef %183, i32 noundef %sub.i499) #38
   br label %stbi__skip.exit506
 
 if.end14.i492:                                    ; preds = %if.then4.i484, %if.end3.if.end14_crit_edge.i500
@@ -2329,7 +2328,7 @@ if.then9.i523:                                    ; preds = %if.then4.i511
   %io_user_data.i525 = getelementptr inbounds i8, ptr %s, i64 40
   %193 = load ptr, ptr %io_user_data.i525, align 8
   %sub.i526 = sub nsw i32 %sub340, %conv.i517
-  tail call void %192(ptr noundef %193, i32 noundef %sub.i526) #39
+  tail call void %192(ptr noundef %193, i32 noundef %sub.i526) #38
   br label %stbi__skip.exit533
 
 if.end14.i519:                                    ; preds = %if.then4.i511, %if.end3.if.end14_crit_edge.i527
@@ -2377,7 +2376,7 @@ if.then384:                                       ; preds = %stbi__skip.exit533,
   br i1 %or.cond7, label %if.end394, label %if.then390
 
 if.then390:                                       ; preds = %if.then384
-  tail call void @free(ptr noundef nonnull %call.i.i) #39
+  tail call void @free(ptr noundef nonnull %call.i.i) #38
   %197 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.79, ptr %197, align 8
   br label %return
@@ -2405,7 +2404,7 @@ if.end394:                                        ; preds = %if.then384
   br i1 %or.cond10, label %if.then418, label %if.end423
 
 if.then418:                                       ; preds = %if.end394
-  tail call void @free(ptr noundef nonnull %call.i.i) #39
+  tail call void @free(ptr noundef nonnull %call.i.i) #38
   %198 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.79, ptr %198, align 8
   br label %return
@@ -2527,7 +2526,7 @@ if.then2.i540:                                    ; preds = %if.end.i537
   %223 = load ptr, ptr %io.i.i541, align 8
   %224 = load ptr, ptr %io_user_data.i.i542, align 8
   %225 = load i32, ptr %buflen.i.i544, align 4
-  %call.i.i545 = tail call i32 %223(ptr noundef %224, ptr noundef nonnull %buffer_start.i.i543, i32 noundef %225) #39
+  %call.i.i545 = tail call i32 %223(ptr noundef %224, ptr noundef nonnull %buffer_start.i.i543, i32 noundef %225) #38
   %226 = load ptr, ptr %img_buffer.i534, align 8
   %227 = load ptr, ptr %img_buffer_original.i.i546, align 8
   %sub.ptr.lhs.cast.i.i547 = ptrtoint ptr %226 to i64
@@ -2586,7 +2585,7 @@ if.then2.i573:                                    ; preds = %if.end.i570
   %238 = load ptr, ptr %io.i.i541, align 8
   %239 = load ptr, ptr %io_user_data.i.i542, align 8
   %240 = load i32, ptr %buflen.i.i544, align 4
-  %call.i.i578 = tail call i32 %238(ptr noundef %239, ptr noundef nonnull %buffer_start.i.i543, i32 noundef %240) #39
+  %call.i.i578 = tail call i32 %238(ptr noundef %239, ptr noundef nonnull %buffer_start.i.i543, i32 noundef %240) #38
   %241 = load ptr, ptr %img_buffer.i534, align 8
   %242 = load ptr, ptr %img_buffer_original.i.i546, align 8
   %sub.ptr.lhs.cast.i.i580 = ptrtoint ptr %241 to i64
@@ -2643,7 +2642,7 @@ if.then2.i606:                                    ; preds = %if.end.i603
   %251 = load ptr, ptr %io.i.i541, align 8
   %252 = load ptr, ptr %io_user_data.i.i542, align 8
   %253 = load i32, ptr %buflen.i.i544, align 4
-  %call.i.i611 = tail call i32 %251(ptr noundef %252, ptr noundef nonnull %buffer_start.i.i543, i32 noundef %253) #39
+  %call.i.i611 = tail call i32 %251(ptr noundef %252, ptr noundef nonnull %buffer_start.i.i543, i32 noundef %253) #38
   %254 = load ptr, ptr %img_buffer.i534, align 8
   %255 = load ptr, ptr %img_buffer_original.i.i546, align 8
   %sub.ptr.lhs.cast.i.i613 = ptrtoint ptr %254 to i64
@@ -2703,7 +2702,7 @@ if.then2.i639:                                    ; preds = %if.end.i636
   %264 = load ptr, ptr %io.i.i541, align 8
   %265 = load ptr, ptr %io_user_data.i.i542, align 8
   %266 = load i32, ptr %buflen.i.i544, align 4
-  %call.i.i644 = tail call i32 %264(ptr noundef %265, ptr noundef nonnull %buffer_start.i.i543, i32 noundef %266) #39
+  %call.i.i644 = tail call i32 %264(ptr noundef %265, ptr noundef nonnull %buffer_start.i.i543, i32 noundef %266) #38
   %267 = load ptr, ptr %img_buffer.i534, align 8
   %268 = load ptr, ptr %img_buffer_original.i.i546, align 8
   %sub.ptr.lhs.cast.i.i646 = ptrtoint ptr %267 to i64
@@ -2905,7 +2904,7 @@ if.then9.i727:                                    ; preds = %if.then4.i715
   %288 = load ptr, ptr %skip.i728, align 8
   %289 = load ptr, ptr %io_user_data.i.i542, align 8
   %sub.i730 = sub nsw i32 %and358750758, %conv.i721
-  tail call void %288(ptr noundef %289, i32 noundef %sub.i730) #39
+  tail call void %288(ptr noundef %289, i32 noundef %sub.i730) #38
   br label %stbi__skip.exit737
 
 if.end14.i723:                                    ; preds = %if.then4.i715, %if.end3.if.end14_crit_edge.i731
@@ -3079,17 +3078,17 @@ if.else:                                          ; preds = %entry
   br i1 %tobool9.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.else
-  call void @free(ptr noundef nonnull %3) #39
+  call void @free(ptr noundef nonnull %3) #38
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then10, %if.then1, %if.then4
   %u.0 = phi ptr [ %call7, %if.then4 ], [ %call, %if.then1 ], [ null, %if.then10 ], [ null, %if.else ]
   %history = getelementptr inbounds i8, ptr %g, i64 24
   %4 = load ptr, ptr %history, align 8
-  call void @free(ptr noundef %4) #39
+  call void @free(ptr noundef %4) #38
   %background = getelementptr inbounds i8, ptr %g, i64 16
   %5 = load ptr, ptr %background, align 8
-  call void @free(ptr noundef %5) #39
+  call void @free(ptr noundef %5) #38
   ret ptr %u.0
 }
 
@@ -3164,7 +3163,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   %6 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 6, %conv.i
-  tail call void %5(ptr noundef %6, i32 noundef %sub.i) #39
+  tail call void %5(ptr noundef %6, i32 noundef %sub.i) #38
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -3276,7 +3275,7 @@ if.else:                                          ; preds = %if.end62
   %mul = shl i32 %add.i149, 2
   %mul70 = mul i32 %mul, %add.i153
   %conv = sext i32 %mul70 to i64
-  %call.i154 = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i154 = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   br label %if.end72
 
 if.end72:                                         ; preds = %if.else, %if.then68
@@ -3359,7 +3358,7 @@ if.else98:                                        ; preds = %for.body
   br i1 %tobool100.not, label %if.then101, label %for.inc107
 
 if.then101:                                       ; preds = %if.else98, %if.else98.us
-  tail call void @free(ptr noundef %out.0) #39
+  tail call void @free(ptr noundef %out.0) #38
   %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.87, ptr %18, align 8
   br label %return
@@ -3485,7 +3484,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %24 = load ptr, ptr %io.i, align 8
   %25 = load ptr, ptr %io_user_data.i.i, align 8
   %26 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %buffer_start.i.i, i32 noundef %26) #39
+  %call.i.i = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %buffer_start.i.i, i32 noundef %26) #38
   %27 = load ptr, ptr %img_buffer.i, align 8
   %28 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
@@ -3727,7 +3726,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %io.i.i, align 8
   %4 = load ptr, ptr %io_user_data.i.i, align 8
   %5 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #39
+  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #38
   %6 = load ptr, ptr %img_buffer.i, align 8
   %7 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
@@ -3780,7 +3779,7 @@ if.then.i30:                                      ; preds = %for.end
   %eof.i = getelementptr inbounds i8, ptr %s, i64 32
   %12 = load ptr, ptr %eof.i, align 8
   %13 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i = tail call i32 %12(ptr noundef %13) #39
+  %call.i = tail call i32 %12(ptr noundef %13) #38
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end20, label %if.end.i31
 
@@ -3844,7 +3843,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i.i.c
 stbi__malloc_mad3.exit:                           ; preds = %land.lhs.true.i.i
   %mul4.i.i = shl nuw nsw i32 %mul.i.i, 2
   %conv.i40 = zext nneg i32 %mul4.i.i to i64
-  %call.i.i41 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i40) #40
+  %call.i.i41 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i40) #39
   %tobool32.not = icmp eq ptr %call.i.i41, null
   br i1 %tobool32.not, label %if.then33, label %if.end37
 
@@ -3860,7 +3859,7 @@ if.end37:                                         ; preds = %stbi__malloc_mad3.e
   br i1 %tobool40.not, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end37
-  tail call void @free(ptr noundef nonnull %call.i.i41) #39
+  tail call void @free(ptr noundef nonnull %call.i.i41) #38
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %if.end37
@@ -3923,7 +3922,7 @@ stbi__decode_jpeg_header.exit:                    ; preds = %if.end, %if.then.i
   %img_buffer.i = getelementptr inbounds i8, ptr %s, i64 192
   %2 = load <2 x ptr>, ptr %img_buffer_original.i, align 8
   store <2 x ptr> %2, ptr %img_buffer.i, align 8
-  tail call void @free(ptr noundef nonnull %calloc) #39
+  tail call void @free(ptr noundef nonnull %calloc) #38
   br label %return
 
 return:                                           ; preds = %stbi__decode_jpeg_header.exit, %if.then
@@ -3952,7 +3951,7 @@ if.end:                                           ; preds = %entry
   store ptr @stbi__YCbCr_to_RGB_simd, ptr %YCbCr_to_RGB_kernel.i, align 8
   store ptr @stbi__resample_row_hv_2_simd, ptr %resample_row_hv_2_kernel.i, align 8
   %call4 = tail call ptr @load_jpeg_image(ptr noundef nonnull %calloc, ptr noundef %x, ptr noundef %y, ptr noundef %comp, i32 noundef %req_comp)
-  tail call void @free(ptr noundef nonnull %calloc) #39
+  tail call void @free(ptr noundef nonnull %calloc) #38
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -3990,7 +3989,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -4052,7 +4051,7 @@ if.then2.i11:                                     ; preds = %if.end.i8
   %buffer_start.i.i14 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i15 = getelementptr inbounds i8, ptr %s, i64 52
   %17 = load i32, ptr %buflen.i.i15, align 4
-  %call.i.i16 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i14, i32 noundef %17) #39
+  %call.i.i16 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i14, i32 noundef %17) #38
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i17 = getelementptr inbounds i8, ptr %s, i64 208
   %19 = load ptr, ptr %img_buffer_original.i.i17, align 8
@@ -4230,7 +4229,7 @@ stbi__mul2sizes_valid.exit27.i.i:                 ; preds = %if.end.i21.i.i
 stbi__malloc_mad4.exit:                           ; preds = %if.end.i21.i.i, %stbi__mul2sizes_valid.exit27.i.i
   %mul10.i.i = mul i32 %div, %mul5.i
   %conv.i = sext i32 %mul10.i.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %tobool37.not = icmp eq ptr %call.i.i, null
   br i1 %tobool37.not, label %if.then38, label %if.end42
 
@@ -4285,14 +4284,14 @@ stbi__getn.exit:                                  ; preds = %if.then.i
   %18 = load ptr, ptr %io_user_data.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %conv4.i
   %sub.i = sub nsw i32 %mul10.i.i, %conv.i43
-  %call.i = tail call i32 %13(ptr noundef %18, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i) #39
+  %call.i = tail call i32 %13(ptr noundef %18, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i) #38
   %cmp8.i.not = icmp eq i32 %call.i, %sub.i
   %19 = load ptr, ptr %img_buffer_end.i, align 8
   store ptr %19, ptr %img_buffer.i, align 8
   br i1 %cmp8.i.not, label %if.end56, label %if.then52
 
 if.then52:                                        ; preds = %if.end12.i, %stbi__getn.exit
-  tail call void @free(ptr noundef nonnull %call.i.i) #39
+  tail call void @free(ptr noundef nonnull %call.i.i) #38
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.110, ptr %20, align 8
   br label %return
@@ -4371,7 +4370,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %io.i.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i.i, align 8
   %6 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #39
+  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %7 to i64
@@ -4454,7 +4453,7 @@ if.then2.i.i23:                                   ; preds = %if.end.i.i21
   %22 = load ptr, ptr %io.i.i.i, align 8
   %23 = load ptr, ptr %io_user_data.i.i.i, align 8
   %24 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i24 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %24) #39
+  %call.i.i.i24 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %24) #38
   %25 = load ptr, ptr %img_buffer.i.i, align 8
   %26 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i25 = ptrtoint ptr %25 to i64
@@ -4567,7 +4566,7 @@ if.then26:                                        ; preds = %if.end21
 if.end30:                                         ; preds = %if.end21
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 3
   store ptr %add.ptr, ptr %token, align 8
-  %call31 = call i64 @strtol(ptr noundef nonnull %add.ptr, ptr noundef nonnull %token, i32 noundef 10) #39
+  %call31 = call i64 @strtol(ptr noundef nonnull %add.ptr, ptr noundef nonnull %token, i32 noundef 10) #38
   %token.promoted = load ptr, ptr %token, align 8
   br label %while.cond
 
@@ -4576,31 +4575,51 @@ while.cond:                                       ; preds = %while.cond, %if.end
   %5 = load i8, ptr %incdec.ptr217, align 1
   %cmp34 = icmp eq i8 %5, 32
   %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr217, i64 1
-  br i1 %cmp34, label %while.cond, label %while.end, !llvm.loop !29
+  br i1 %cmp34, label %while.cond, label %sub_0, !llvm.loop !29
 
-while.end:                                        ; preds = %while.cond
+sub_0:                                            ; preds = %while.cond
   %conv32 = trunc i64 %call31 to i32
-  %call36 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr217, ptr noundef nonnull dereferenceable(4) @.str.108, i64 noundef 3) #41
-  %tobool37.not = icmp eq i32 %call36, 0
+  %6 = zext i8 %5 to i32
+  %7 = add nsw i32 %6, -43
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %sub_1, label %while.end.tail
+
+sub_1:                                            ; preds = %sub_0
+  %8 = load i8, ptr %incdec.ptr, align 1
+  %9 = zext i8 %8 to i32
+  %10 = add nsw i32 %9, -88
+  %.not242 = icmp eq i32 %10, 0
+  br i1 %.not242, label %sub_2, label %while.end.tail
+
+sub_2:                                            ; preds = %sub_1
+  %11 = getelementptr inbounds i8, ptr %incdec.ptr217, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = add nsw i32 %13, -32
+  br label %while.end.tail
+
+while.end.tail:                                   ; preds = %sub_0, %sub_1, %sub_2
+  %15 = phi i32 [ %7, %sub_0 ], [ %10, %sub_1 ], [ %14, %sub_2 ]
+  %tobool37.not = icmp eq i32 %15, 0
   br i1 %tobool37.not, label %if.end42, label %if.then38
 
-if.then38:                                        ; preds = %while.end
-  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.107, ptr %6, align 8
+if.then38:                                        ; preds = %while.end.tail
+  %16 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.107, ptr %16, align 8
   br label %return
 
-if.end42:                                         ; preds = %while.end
+if.end42:                                         ; preds = %while.end.tail
   %add.ptr43 = getelementptr inbounds i8, ptr %incdec.ptr217, i64 3
   store ptr %add.ptr43, ptr %token, align 8
-  %call44 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr43, ptr noundef null, i32 noundef 10) #39
+  %call44 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr43, ptr noundef null, i32 noundef 10) #38
   %call44.fr = freeze i64 %call44
   %conv45 = trunc i64 %call44.fr to i32
   %cmp46 = icmp sgt i32 %conv32, 16777216
   br i1 %cmp46, label %if.then48, label %if.end52
 
 if.then48:                                        ; preds = %if.end42
-  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.28, ptr %7, align 8
+  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.28, ptr %17, align 8
   br label %return
 
 if.end52:                                         ; preds = %if.end42
@@ -4608,8 +4627,8 @@ if.end52:                                         ; preds = %if.end42
   br i1 %cmp53, label %if.then55, label %if.end59
 
 if.then55:                                        ; preds = %if.end52
-  %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.28, ptr %8, align 8
+  %18 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.28, ptr %18, align 8
   br label %return
 
 if.end59:                                         ; preds = %if.end52
@@ -4630,8 +4649,8 @@ if.end62:                                         ; preds = %if.then61, %if.end5
   br i1 %tobool68.not, label %if.then69, label %if.end73
 
 if.then69:                                        ; preds = %if.end62
-  %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.28, ptr %9, align 8
+  %19 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.28, ptr %19, align 8
   br label %return
 
 if.end73:                                         ; preds = %if.end62
@@ -4640,13 +4659,13 @@ if.end73:                                         ; preds = %if.end62
   br i1 %tobool75.not, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %if.end73
-  %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.1, ptr %10, align 8
+  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.1, ptr %20, align 8
   br label %return
 
 if.end80:                                         ; preds = %if.end73
-  %11 = add i32 %conv45, -32768
-  %or.cond = icmp ult i32 %11, -32760
+  %21 = add i32 %conv45, -32768
+  %or.cond = icmp ult i32 %21, -32760
   br i1 %or.cond, label %for.cond86, label %for.cond105.preheader
 
 for.cond105.preheader:                            ; preds = %if.end80
@@ -4666,14 +4685,14 @@ for.body108.us.preheader:                         ; preds = %for.cond105.prehead
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %callback_already_read.i.i = getelementptr inbounds i8, ptr %s, i64 184
   %add.ptr.i.i = getelementptr inbounds i8, ptr %s, i64 57
-  %12 = sext i32 %spec.store.select to i64
-  %13 = and i64 %call44.fr, 2147483647
-  %wide.trip.count319 = and i64 %call31, 2147483647
-  %wide.trip.count313 = and i64 %call44.fr, 2147483647
+  %22 = sext i32 %spec.store.select to i64
+  %23 = and i64 %call44.fr, 2147483647
+  %wide.trip.count320 = and i64 %call31, 2147483647
+  %wide.trip.count314 = and i64 %call44.fr, 2147483647
   br label %for.body108.us
 
 for.body108.us:                                   ; preds = %for.body108.us.preheader, %for.inc241.us
-  %indvars.iv315 = phi i64 [ 0, %for.body108.us.preheader ], [ %indvars.iv.next316, %for.inc241.us ]
+  %indvars.iv316 = phi i64 [ 0, %for.body108.us.preheader ], [ %indvars.iv.next317, %for.inc241.us ]
   %scanline.0233.us = phi ptr [ null, %for.body108.us.preheader ], [ %scanline.1.us, %for.inc241.us ]
   %call109.us = call zeroext i8 @stbi__get8(ptr noundef %s)
   %call111.us = call zeroext i8 @stbi__get8(ptr noundef %s)
@@ -4699,7 +4718,7 @@ if.end142.us:                                     ; preds = %if.end133.us
   br i1 %cmp143.us, label %if.then145.us, label %if.end153.us
 
 if.then145.us:                                    ; preds = %if.end142.us
-  %call.i.i.us = call noalias noundef ptr @malloc(i64 noundef %conv.i102) #40
+  %call.i.i.us = call noalias noundef ptr @malloc(i64 noundef %conv.i102) #39
   %tobool147.not.us = icmp eq ptr %call.i.i.us, null
   br i1 %tobool147.not.us, label %if.then148, label %if.end153.us
 
@@ -4708,52 +4727,52 @@ if.end153.us:                                     ; preds = %if.then145.us, %if.
   br label %while.cond158.preheader.us.us
 
 for.inc241.us:                                    ; preds = %for.body229.us
-  %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
-  %exitcond320.not = icmp eq i64 %indvars.iv.next316, %wide.trip.count319
-  br i1 %exitcond320.not, label %if.then245, label %for.body108.us, !llvm.loop !30
+  %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
+  %exitcond321.not = icmp eq i64 %indvars.iv.next317, %wide.trip.count320
+  br i1 %exitcond321.not, label %if.then245, label %for.body108.us, !llvm.loop !30
 
 for.body229.us:                                   ; preds = %for.body229.lr.ph.us, %for.body229.us
-  %indvars.iv307 = phi i64 [ 0, %for.body229.lr.ph.us ], [ %indvars.iv.next308, %for.body229.us ]
-  %14 = add nuw nsw i64 %indvars.iv307, %58
-  %15 = mul nsw i64 %14, %12
-  %add.ptr234.us = getelementptr inbounds float, ptr %call74, i64 %15
-  %16 = shl nsw i64 %indvars.iv307, 2
-  %add.ptr237.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %16
+  %indvars.iv308 = phi i64 [ 0, %for.body229.lr.ph.us ], [ %indvars.iv.next309, %for.body229.us ]
+  %24 = add nuw nsw i64 %indvars.iv308, %68
+  %25 = mul nsw i64 %24, %22
+  %add.ptr234.us = getelementptr inbounds float, ptr %call74, i64 %25
+  %26 = shl nsw i64 %indvars.iv308, 2
+  %add.ptr237.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %26
   call void @stbi__hdr_convert(ptr noundef nonnull %add.ptr234.us, ptr noundef nonnull %add.ptr237.us, i32 noundef %spec.store.select)
-  %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
-  %exitcond314.not = icmp eq i64 %indvars.iv.next308, %wide.trip.count313
-  br i1 %exitcond314.not, label %for.inc241.us, label %for.body229.us, !llvm.loop !31
+  %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
+  %exitcond315.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count314
+  br i1 %exitcond315.not, label %for.inc241.us, label %for.body229.us, !llvm.loop !31
 
 while.cond158.preheader.us.us:                    ; preds = %while.cond158.for.inc223_crit_edge.us.us, %if.end153.us
-  %indvars.iv303 = phi i64 [ %indvars.iv.next304, %while.cond158.for.inc223_crit_edge.us.us ], [ 0, %if.end153.us ]
+  %indvars.iv304 = phi i64 [ %indvars.iv.next305, %while.cond158.for.inc223_crit_edge.us.us ], [ 0, %if.end153.us ]
   br label %while.body161.us.us
 
 while.body161.us.us:                              ; preds = %if.end221.us.us, %while.cond158.preheader.us.us
   %sub226.us.us = phi i32 [ %conv45, %while.cond158.preheader.us.us ], [ %sub.us.us, %if.end221.us.us ]
   %i.2225.us.us = phi i32 [ 0, %while.cond158.preheader.us.us ], [ %i.5.us.us, %if.end221.us.us ]
-  %17 = load ptr, ptr %img_buffer.i103, align 8
-  %18 = load ptr, ptr %img_buffer_end.i104, align 8
-  %cmp.i105.us.us = icmp ult ptr %17, %18
+  %27 = load ptr, ptr %img_buffer.i103, align 8
+  %28 = load ptr, ptr %img_buffer_end.i104, align 8
+  %cmp.i105.us.us = icmp ult ptr %27, %28
   br i1 %cmp.i105.us.us, label %if.then.i112.us.us, label %if.end.i106.us.us
 
 if.end.i106.us.us:                                ; preds = %while.body161.us.us
-  %19 = load i32, ptr %read_from_callbacks.i, align 8
-  %tobool.not.i107.us.us = icmp eq i32 %19, 0
+  %29 = load i32, ptr %read_from_callbacks.i, align 8
+  %tobool.not.i107.us.us = icmp eq i32 %29, 0
   br i1 %tobool.not.i107.us.us, label %if.then202, label %if.then2.i108.us.us
 
 if.then2.i108.us.us:                              ; preds = %if.end.i106.us.us
-  %20 = load ptr, ptr %io.i.i, align 8
-  %21 = load ptr, ptr %io_user_data.i.i, align 8
-  %22 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i109.us.us = call i32 %20(ptr noundef %21, ptr noundef nonnull %buffer_start.i.i, i32 noundef %22) #39
-  %23 = load ptr, ptr %img_buffer.i103, align 8
-  %24 = load ptr, ptr %img_buffer_original.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.us.us = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i.i.us.us = ptrtoint ptr %24 to i64
+  %30 = load ptr, ptr %io.i.i, align 8
+  %31 = load ptr, ptr %io_user_data.i.i, align 8
+  %32 = load i32, ptr %buflen.i.i, align 4
+  %call.i.i109.us.us = call i32 %30(ptr noundef %31, ptr noundef nonnull %buffer_start.i.i, i32 noundef %32) #38
+  %33 = load ptr, ptr %img_buffer.i103, align 8
+  %34 = load ptr, ptr %img_buffer_original.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.us.us = ptrtoint ptr %33 to i64
+  %sub.ptr.rhs.cast.i.i.us.us = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i.us.us = sub i64 %sub.ptr.lhs.cast.i.i.us.us, %sub.ptr.rhs.cast.i.i.us.us
   %conv.i.i.us.us = trunc i64 %sub.ptr.sub.i.i.us.us to i32
-  %25 = load i32, ptr %callback_already_read.i.i, align 8
-  %add.i.i.us.us = add nsw i32 %25, %conv.i.i.us.us
+  %35 = load i32, ptr %callback_already_read.i.i, align 8
+  %add.i.i.us.us = add nsw i32 %35, %conv.i.i.us.us
   store i32 %add.i.i.us.us, ptr %callback_already_read.i.i, align 8
   %cmp.i.i.us.us = icmp eq i32 %call.i.i109.us.us, 0
   br i1 %cmp.i.i.us.us, label %if.then.i.i.us.us, label %if.else.i.i.us.us
@@ -4770,22 +4789,22 @@ if.then.i.i.us.us:                                ; preds = %if.then2.i108.us.us
   br label %stbi__refill_buffer.exit.i.us.us
 
 stbi__refill_buffer.exit.i.us.us:                 ; preds = %if.then.i.i.us.us, %if.else.i.i.us.us
-  %26 = phi i8 [ 0, %if.then.i.i.us.us ], [ %.pre.i110.us.us, %if.else.i.i.us.us ]
+  %36 = phi i8 [ 0, %if.then.i.i.us.us ], [ %.pre.i110.us.us, %if.else.i.i.us.us ]
   %add.ptr13.sink.i.i.us.us = phi ptr [ %add.ptr.i.i, %if.then.i.i.us.us ], [ %add.ptr13.i.i.us.us, %if.else.i.i.us.us ]
   store ptr %add.ptr13.sink.i.i.us.us, ptr %img_buffer_end.i104, align 8
   store ptr %add.ptr.i.i, ptr %img_buffer.i103, align 8
   br label %stbi__get8.exit.us.us
 
 if.then.i112.us.us:                               ; preds = %while.body161.us.us
-  %incdec.ptr.i.us.us = getelementptr inbounds i8, ptr %17, i64 1
+  %incdec.ptr.i.us.us = getelementptr inbounds i8, ptr %27, i64 1
   store ptr %incdec.ptr.i.us.us, ptr %img_buffer.i103, align 8
-  %27 = load i8, ptr %17, align 1
+  %37 = load i8, ptr %27, align 1
   br label %stbi__get8.exit.us.us
 
 stbi__get8.exit.us.us:                            ; preds = %if.then.i112.us.us, %stbi__refill_buffer.exit.i.us.us
-  %28 = phi ptr [ %18, %if.then.i112.us.us ], [ %add.ptr13.sink.i.i.us.us, %stbi__refill_buffer.exit.i.us.us ]
-  %29 = phi ptr [ %incdec.ptr.i.us.us, %if.then.i112.us.us ], [ %add.ptr.i.i, %stbi__refill_buffer.exit.i.us.us ]
-  %retval.0.i111.us.us = phi i8 [ %27, %if.then.i112.us.us ], [ %26, %stbi__refill_buffer.exit.i.us.us ]
+  %38 = phi ptr [ %28, %if.then.i112.us.us ], [ %add.ptr13.sink.i.i.us.us, %stbi__refill_buffer.exit.i.us.us ]
+  %39 = phi ptr [ %incdec.ptr.i.us.us, %if.then.i112.us.us ], [ %add.ptr.i.i, %stbi__refill_buffer.exit.i.us.us ]
+  %retval.0.i111.us.us = phi i8 [ %37, %if.then.i112.us.us ], [ %36, %stbi__refill_buffer.exit.i.us.us ]
   %conv163.us.us = zext i8 %retval.0.i111.us.us to i32
   %cmp164.us.us = icmp ugt i8 %retval.0.i111.us.us, -128
   br i1 %cmp164.us.us, label %if.then166.us.us, label %if.else194.us.us
@@ -4797,35 +4816,35 @@ if.else194.us.us:                                 ; preds = %stbi__get8.exit.us.
   br i1 %or.cond93.us.us, label %if.then202, label %for.body211.us.us.preheader
 
 for.body211.us.us.preheader:                      ; preds = %if.else194.us.us
-  %30 = sext i32 %i.2225.us.us to i64
+  %40 = sext i32 %i.2225.us.us to i64
   br label %for.body211.us.us
 
 for.body211.us.us:                                ; preds = %for.body211.us.us.preheader, %stbi__get8.exit178.us.us
-  %indvars.iv291 = phi i64 [ %30, %for.body211.us.us.preheader ], [ %indvars.iv.next292, %stbi__get8.exit178.us.us ]
+  %indvars.iv292 = phi i64 [ %40, %for.body211.us.us.preheader ], [ %indvars.iv.next293, %stbi__get8.exit178.us.us ]
   %z.1219.us.us = phi i32 [ 0, %for.body211.us.us.preheader ], [ %inc219.us.us, %stbi__get8.exit178.us.us ]
-  %31 = load ptr, ptr %img_buffer.i103, align 8
-  %32 = load ptr, ptr %img_buffer_end.i104, align 8
-  %cmp.i148.us.us = icmp ult ptr %31, %32
+  %41 = load ptr, ptr %img_buffer.i103, align 8
+  %42 = load ptr, ptr %img_buffer_end.i104, align 8
+  %cmp.i148.us.us = icmp ult ptr %41, %42
   br i1 %cmp.i148.us.us, label %if.then.i176.us.us, label %if.end.i149.us.us
 
 if.end.i149.us.us:                                ; preds = %for.body211.us.us
-  %33 = load i32, ptr %read_from_callbacks.i, align 8
-  %tobool.not.i151.us.us = icmp eq i32 %33, 0
+  %43 = load i32, ptr %read_from_callbacks.i, align 8
+  %tobool.not.i151.us.us = icmp eq i32 %43, 0
   br i1 %tobool.not.i151.us.us, label %stbi__get8.exit178.us.us, label %if.then2.i152.us.us
 
 if.then2.i152.us.us:                              ; preds = %if.end.i149.us.us
-  %34 = load ptr, ptr %io.i.i, align 8
-  %35 = load ptr, ptr %io_user_data.i.i, align 8
-  %36 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i157.us.us = call i32 %34(ptr noundef %35, ptr noundef nonnull %buffer_start.i.i, i32 noundef %36) #39
-  %37 = load ptr, ptr %img_buffer.i103, align 8
-  %38 = load ptr, ptr %img_buffer_original.i.i, align 8
-  %sub.ptr.lhs.cast.i.i159.us.us = ptrtoint ptr %37 to i64
-  %sub.ptr.rhs.cast.i.i160.us.us = ptrtoint ptr %38 to i64
+  %44 = load ptr, ptr %io.i.i, align 8
+  %45 = load ptr, ptr %io_user_data.i.i, align 8
+  %46 = load i32, ptr %buflen.i.i, align 4
+  %call.i.i157.us.us = call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i, i32 noundef %46) #38
+  %47 = load ptr, ptr %img_buffer.i103, align 8
+  %48 = load ptr, ptr %img_buffer_original.i.i, align 8
+  %sub.ptr.lhs.cast.i.i159.us.us = ptrtoint ptr %47 to i64
+  %sub.ptr.rhs.cast.i.i160.us.us = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i.i161.us.us = sub i64 %sub.ptr.lhs.cast.i.i159.us.us, %sub.ptr.rhs.cast.i.i160.us.us
   %conv.i.i162.us.us = trunc i64 %sub.ptr.sub.i.i161.us.us to i32
-  %39 = load i32, ptr %callback_already_read.i.i, align 8
-  %add.i.i164.us.us = add nsw i32 %39, %conv.i.i162.us.us
+  %49 = load i32, ptr %callback_already_read.i.i, align 8
+  %add.i.i164.us.us = add nsw i32 %49, %conv.i.i162.us.us
   store i32 %add.i.i164.us.us, ptr %callback_already_read.i.i, align 8
   %cmp.i.i165.us.us = icmp eq i32 %call.i.i157.us.us, 0
   br i1 %cmp.i.i165.us.us, label %if.then.i.i174.us.us, label %if.else.i.i166.us.us
@@ -4842,51 +4861,51 @@ if.then.i.i174.us.us:                             ; preds = %if.then2.i152.us.us
   br label %stbi__refill_buffer.exit.i170.us.us
 
 stbi__refill_buffer.exit.i170.us.us:              ; preds = %if.then.i.i174.us.us, %if.else.i.i166.us.us
-  %40 = phi i8 [ 0, %if.then.i.i174.us.us ], [ %.pre.i169.us.us, %if.else.i.i166.us.us ]
+  %50 = phi i8 [ 0, %if.then.i.i174.us.us ], [ %.pre.i169.us.us, %if.else.i.i166.us.us ]
   %add.ptr13.sink.i.i171.us.us = phi ptr [ %add.ptr.i.i, %if.then.i.i174.us.us ], [ %add.ptr13.i.i168.us.us, %if.else.i.i166.us.us ]
   store ptr %add.ptr13.sink.i.i171.us.us, ptr %img_buffer_end.i104, align 8
   store ptr %add.ptr.i.i, ptr %img_buffer.i103, align 8
   br label %stbi__get8.exit178.us.us
 
 if.then.i176.us.us:                               ; preds = %for.body211.us.us
-  %incdec.ptr.i177.us.us = getelementptr inbounds i8, ptr %31, i64 1
+  %incdec.ptr.i177.us.us = getelementptr inbounds i8, ptr %41, i64 1
   store ptr %incdec.ptr.i177.us.us, ptr %img_buffer.i103, align 8
-  %41 = load i8, ptr %31, align 1
+  %51 = load i8, ptr %41, align 1
   br label %stbi__get8.exit178.us.us
 
 stbi__get8.exit178.us.us:                         ; preds = %if.then.i176.us.us, %stbi__refill_buffer.exit.i170.us.us, %if.end.i149.us.us
-  %retval.0.i173.us.us = phi i8 [ %41, %if.then.i176.us.us ], [ %40, %stbi__refill_buffer.exit.i170.us.us ], [ 0, %if.end.i149.us.us ]
-  %indvars.iv.next292 = add nsw i64 %indvars.iv291, 1
-  %42 = shl nsw i64 %indvars.iv291, 2
-  %43 = add nuw nsw i64 %42, %indvars.iv303
-  %arrayidx217.us.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %43
+  %retval.0.i173.us.us = phi i8 [ %51, %if.then.i176.us.us ], [ %50, %stbi__refill_buffer.exit.i170.us.us ], [ 0, %if.end.i149.us.us ]
+  %indvars.iv.next293 = add nsw i64 %indvars.iv292, 1
+  %52 = shl nsw i64 %indvars.iv292, 2
+  %53 = add nuw nsw i64 %52, %indvars.iv304
+  %arrayidx217.us.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %53
   store i8 %retval.0.i173.us.us, ptr %arrayidx217.us.us, align 1
   %inc219.us.us = add nuw nsw i32 %z.1219.us.us, 1
-  %exitcond296.not = icmp eq i32 %inc219.us.us, %conv163.us.us
-  br i1 %exitcond296.not, label %if.end221.us.us.loopexit242, label %for.body211.us.us, !llvm.loop !32
+  %exitcond297.not = icmp eq i32 %inc219.us.us, %conv163.us.us
+  br i1 %exitcond297.not, label %if.end221.us.us.loopexit243, label %for.body211.us.us, !llvm.loop !32
 
 if.then166.us.us:                                 ; preds = %stbi__get8.exit.us.us
-  %cmp.i115.us.us = icmp ult ptr %29, %28
+  %cmp.i115.us.us = icmp ult ptr %39, %38
   br i1 %cmp.i115.us.us, label %if.then.i143.us.us, label %if.end.i116.us.us
 
 if.end.i116.us.us:                                ; preds = %if.then166.us.us
-  %44 = load i32, ptr %read_from_callbacks.i, align 8
-  %tobool.not.i118.us.us = icmp eq i32 %44, 0
+  %54 = load i32, ptr %read_from_callbacks.i, align 8
+  %tobool.not.i118.us.us = icmp eq i32 %54, 0
   br i1 %tobool.not.i118.us.us, label %stbi__get8.exit145.us.us, label %if.then2.i119.us.us
 
 if.then2.i119.us.us:                              ; preds = %if.end.i116.us.us
-  %45 = load ptr, ptr %io.i.i, align 8
-  %46 = load ptr, ptr %io_user_data.i.i, align 8
-  %47 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i124.us.us = call i32 %45(ptr noundef %46, ptr noundef nonnull %buffer_start.i.i, i32 noundef %47) #39
-  %48 = load ptr, ptr %img_buffer.i103, align 8
-  %49 = load ptr, ptr %img_buffer_original.i.i, align 8
-  %sub.ptr.lhs.cast.i.i126.us.us = ptrtoint ptr %48 to i64
-  %sub.ptr.rhs.cast.i.i127.us.us = ptrtoint ptr %49 to i64
+  %55 = load ptr, ptr %io.i.i, align 8
+  %56 = load ptr, ptr %io_user_data.i.i, align 8
+  %57 = load i32, ptr %buflen.i.i, align 4
+  %call.i.i124.us.us = call i32 %55(ptr noundef %56, ptr noundef nonnull %buffer_start.i.i, i32 noundef %57) #38
+  %58 = load ptr, ptr %img_buffer.i103, align 8
+  %59 = load ptr, ptr %img_buffer_original.i.i, align 8
+  %sub.ptr.lhs.cast.i.i126.us.us = ptrtoint ptr %58 to i64
+  %sub.ptr.rhs.cast.i.i127.us.us = ptrtoint ptr %59 to i64
   %sub.ptr.sub.i.i128.us.us = sub i64 %sub.ptr.lhs.cast.i.i126.us.us, %sub.ptr.rhs.cast.i.i127.us.us
   %conv.i.i129.us.us = trunc i64 %sub.ptr.sub.i.i128.us.us to i32
-  %50 = load i32, ptr %callback_already_read.i.i, align 8
-  %add.i.i131.us.us = add nsw i32 %50, %conv.i.i129.us.us
+  %60 = load i32, ptr %callback_already_read.i.i, align 8
+  %add.i.i131.us.us = add nsw i32 %60, %conv.i.i129.us.us
   store i32 %add.i.i131.us.us, ptr %callback_already_read.i.i, align 8
   %cmp.i.i132.us.us = icmp eq i32 %call.i.i124.us.us, 0
   br i1 %cmp.i.i132.us.us, label %if.then.i.i141.us.us, label %if.else.i.i133.us.us
@@ -4903,66 +4922,66 @@ if.then.i.i141.us.us:                             ; preds = %if.then2.i119.us.us
   br label %stbi__refill_buffer.exit.i137.us.us
 
 stbi__refill_buffer.exit.i137.us.us:              ; preds = %if.then.i.i141.us.us, %if.else.i.i133.us.us
-  %51 = phi i8 [ 0, %if.then.i.i141.us.us ], [ %.pre.i136.us.us, %if.else.i.i133.us.us ]
+  %61 = phi i8 [ 0, %if.then.i.i141.us.us ], [ %.pre.i136.us.us, %if.else.i.i133.us.us ]
   %add.ptr13.sink.i.i138.us.us = phi ptr [ %add.ptr.i.i, %if.then.i.i141.us.us ], [ %add.ptr13.i.i135.us.us, %if.else.i.i133.us.us ]
   store ptr %add.ptr13.sink.i.i138.us.us, ptr %img_buffer_end.i104, align 8
   store ptr %add.ptr.i.i, ptr %img_buffer.i103, align 8
   br label %stbi__get8.exit145.us.us
 
 if.then.i143.us.us:                               ; preds = %if.then166.us.us
-  %incdec.ptr.i144.us.us = getelementptr inbounds i8, ptr %29, i64 1
+  %incdec.ptr.i144.us.us = getelementptr inbounds i8, ptr %39, i64 1
   store ptr %incdec.ptr.i144.us.us, ptr %img_buffer.i103, align 8
-  %52 = load i8, ptr %29, align 1
+  %62 = load i8, ptr %39, align 1
   br label %stbi__get8.exit145.us.us
 
 stbi__get8.exit145.us.us:                         ; preds = %if.then.i143.us.us, %stbi__refill_buffer.exit.i137.us.us, %if.end.i116.us.us
-  %retval.0.i140.us.us = phi i8 [ %52, %if.then.i143.us.us ], [ %51, %stbi__refill_buffer.exit.i137.us.us ], [ 0, %if.end.i116.us.us ]
+  %retval.0.i140.us.us = phi i8 [ %62, %if.then.i143.us.us ], [ %61, %stbi__refill_buffer.exit.i137.us.us ], [ 0, %if.end.i116.us.us ]
   %sub169.us.us = and i8 %retval.0.i111.us.us, 127
   %conv171.us.us = zext nneg i8 %sub169.us.us to i32
   %cmp176.us.us = icmp ult i32 %sub226.us.us, %conv171.us.us
   br i1 %cmp176.us.us, label %if.then178, label %for.cond183.preheader.us.us
 
 if.end221.us.us.loopexit:                         ; preds = %for.body187.us.us
-  %53 = trunc nsw i64 %indvars.iv.next298 to i32
+  %63 = trunc nsw i64 %indvars.iv.next299 to i32
   br label %if.end221.us.us
 
-if.end221.us.us.loopexit242:                      ; preds = %stbi__get8.exit178.us.us
-  %54 = trunc nsw i64 %indvars.iv.next292 to i32
+if.end221.us.us.loopexit243:                      ; preds = %stbi__get8.exit178.us.us
+  %64 = trunc nsw i64 %indvars.iv.next293 to i32
   br label %if.end221.us.us
 
-if.end221.us.us:                                  ; preds = %if.end221.us.us.loopexit242, %if.end221.us.us.loopexit, %for.cond183.preheader.us.us
-  %i.5.us.us = phi i32 [ %i.2225.us.us, %for.cond183.preheader.us.us ], [ %53, %if.end221.us.us.loopexit ], [ %54, %if.end221.us.us.loopexit242 ]
+if.end221.us.us:                                  ; preds = %if.end221.us.us.loopexit243, %if.end221.us.us.loopexit, %for.cond183.preheader.us.us
+  %i.5.us.us = phi i32 [ %i.2225.us.us, %for.cond183.preheader.us.us ], [ %63, %if.end221.us.us.loopexit ], [ %64, %if.end221.us.us.loopexit243 ]
   %sub.us.us = sub nsw i32 %conv45, %i.5.us.us
   %cmp159.us.us = icmp sgt i32 %sub.us.us, 0
   br i1 %cmp159.us.us, label %while.body161.us.us, label %while.cond158.for.inc223_crit_edge.us.us, !llvm.loop !33
 
 for.body187.us.us:                                ; preds = %for.body187.us.us.preheader, %for.body187.us.us
-  %indvars.iv297 = phi i64 [ %57, %for.body187.us.us.preheader ], [ %indvars.iv.next298, %for.body187.us.us ]
+  %indvars.iv298 = phi i64 [ %67, %for.body187.us.us.preheader ], [ %indvars.iv.next299, %for.body187.us.us ]
   %z.0222.us.us = phi i32 [ 0, %for.body187.us.us.preheader ], [ %inc192.us.us, %for.body187.us.us ]
-  %indvars.iv.next298 = add nsw i64 %indvars.iv297, 1
-  %55 = shl nsw i64 %indvars.iv297, 2
-  %56 = add nuw nsw i64 %55, %indvars.iv303
-  %arrayidx190.us.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %56
+  %indvars.iv.next299 = add nsw i64 %indvars.iv298, 1
+  %65 = shl nsw i64 %indvars.iv298, 2
+  %66 = add nuw nsw i64 %65, %indvars.iv304
+  %arrayidx190.us.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %66
   store i8 %retval.0.i140.us.us, ptr %arrayidx190.us.us, align 1
   %inc192.us.us = add nuw nsw i32 %z.0222.us.us, 1
-  %exitcond302.not = icmp eq i32 %inc192.us.us, %conv171.us.us
-  br i1 %exitcond302.not, label %if.end221.us.us.loopexit, label %for.body187.us.us, !llvm.loop !34
+  %exitcond303.not = icmp eq i32 %inc192.us.us, %conv171.us.us
+  br i1 %exitcond303.not, label %if.end221.us.us.loopexit, label %for.body187.us.us, !llvm.loop !34
 
 for.cond183.preheader.us.us:                      ; preds = %stbi__get8.exit145.us.us
   %cmp185220.us.us.not = icmp eq i8 %sub169.us.us, 0
   br i1 %cmp185220.us.us.not, label %if.end221.us.us, label %for.body187.us.us.preheader
 
 for.body187.us.us.preheader:                      ; preds = %for.cond183.preheader.us.us
-  %57 = sext i32 %i.2225.us.us to i64
+  %67 = sext i32 %i.2225.us.us to i64
   br label %for.body187.us.us
 
 while.cond158.for.inc223_crit_edge.us.us:         ; preds = %if.end221.us.us
-  %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
-  %exitcond306.not = icmp eq i64 %indvars.iv.next304, 4
-  br i1 %exitcond306.not, label %for.body229.lr.ph.us, label %while.cond158.preheader.us.us, !llvm.loop !35
+  %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
+  %exitcond307.not = icmp eq i64 %indvars.iv.next305, 4
+  br i1 %exitcond307.not, label %for.body229.lr.ph.us, label %while.cond158.preheader.us.us, !llvm.loop !35
 
 for.body229.lr.ph.us:                             ; preds = %while.cond158.for.inc223_crit_edge.us.us
-  %58 = mul nuw nsw i64 %indvars.iv315, %13
+  %68 = mul nuw nsw i64 %indvars.iv316, %23
   br label %for.body229.us
 
 for.cond86:                                       ; preds = %if.end80, %for.inc102
@@ -4980,8 +4999,8 @@ main_decode_loop:                                 ; preds = %for.cond89, %if.the
   %i.1 = phi i32 [ %i.0, %for.cond89 ], [ 1, %if.then122 ]
   %j.2 = phi i32 [ %j.1, %for.cond89 ], [ 0, %if.then122 ]
   %io.i = getelementptr inbounds i8, ptr %s, i64 16
-  %59 = load ptr, ptr %io.i, align 8
-  %tobool.not.i = icmp eq ptr %59, null
+  %69 = load ptr, ptr %io.i, align 8
+  %tobool.not.i = icmp eq ptr %69, null
   br i1 %tobool.not.i, label %entry.if.end12_crit_edge.i, label %if.then.i
 
 entry.if.end12_crit_edge.i:                       ; preds = %main_decode_loop
@@ -4993,11 +5012,11 @@ entry.if.end12_crit_edge.i:                       ; preds = %main_decode_loop
 
 if.then.i:                                        ; preds = %main_decode_loop
   %img_buffer_end.i = getelementptr inbounds i8, ptr %s, i64 200
-  %60 = load ptr, ptr %img_buffer_end.i, align 8
+  %70 = load ptr, ptr %img_buffer_end.i, align 8
   %img_buffer.i = getelementptr inbounds i8, ptr %s, i64 192
-  %61 = load ptr, ptr %img_buffer.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %60 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %61 to i64
+  %71 = load ptr, ptr %img_buffer.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %70 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %71 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
   %cmp.i = icmp slt i32 %conv.i, 4
@@ -5006,27 +5025,27 @@ if.then.i:                                        ; preds = %main_decode_loop
 if.then2.i:                                       ; preds = %if.then.i
   %sext.i = shl i64 %sub.ptr.sub.i, 32
   %conv4.i = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %rgbe, ptr align 1 %61, i64 %conv4.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %rgbe, ptr align 1 %71, i64 %conv4.i, i1 false)
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
-  %62 = load ptr, ptr %io_user_data.i, align 8
+  %72 = load ptr, ptr %io_user_data.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %rgbe, i64 %conv4.i
   %sub.i = sub nsw i32 4, %conv.i
-  %call.i = call i32 %59(ptr noundef %62, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i) #39
-  %63 = load ptr, ptr %img_buffer_end.i, align 8
-  store ptr %63, ptr %img_buffer.i, align 8
+  %call.i = call i32 %69(ptr noundef %72, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i) #38
+  %73 = load ptr, ptr %img_buffer_end.i, align 8
+  store ptr %73, ptr %img_buffer.i, align 8
   br label %stbi__getn.exit
 
 if.end12.i:                                       ; preds = %if.then.i, %entry.if.end12_crit_edge.i
-  %64 = phi ptr [ %.pre23.i, %entry.if.end12_crit_edge.i ], [ %60, %if.then.i ]
-  %65 = phi ptr [ %.pre.i, %entry.if.end12_crit_edge.i ], [ %61, %if.then.i ]
-  %add.ptr15.i = getelementptr inbounds i8, ptr %65, i64 4
-  %cmp17.not.i = icmp ugt ptr %add.ptr15.i, %64
+  %74 = phi ptr [ %.pre23.i, %entry.if.end12_crit_edge.i ], [ %70, %if.then.i ]
+  %75 = phi ptr [ %.pre.i, %entry.if.end12_crit_edge.i ], [ %71, %if.then.i ]
+  %add.ptr15.i = getelementptr inbounds i8, ptr %75, i64 4
+  %cmp17.not.i = icmp ugt ptr %add.ptr15.i, %74
   br i1 %cmp17.not.i, label %stbi__getn.exit, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end12.i
   %img_buffer13.i = getelementptr inbounds i8, ptr %s, i64 192
-  %66 = load i32, ptr %65, align 1
-  store i32 %66, ptr %rgbe, align 4
+  %76 = load i32, ptr %75, align 1
+  store i32 %76, ptr %rgbe, align 4
   store ptr %add.ptr15.i, ptr %img_buffer13.i, align 8
   br label %stbi__getn.exit
 
@@ -5039,28 +5058,28 @@ stbi__getn.exit:                                  ; preds = %if.then2.i, %if.end
   %idx.ext98 = sext i32 %mul97 to i64
   %add.ptr99 = getelementptr inbounds float, ptr %add.ptr96, i64 %idx.ext98
   %arrayidx.i = getelementptr inbounds i8, ptr %rgbe, i64 3
-  %67 = load i8, ptr %arrayidx.i, align 1
-  %cmp.not.i = icmp eq i8 %67, 0
+  %77 = load i8, ptr %arrayidx.i, align 1
+  %cmp.not.i = icmp eq i8 %77, 0
   br i1 %cmp.not.i, label %if.else42.i, label %if.then.i94
 
 if.then.i94:                                      ; preds = %stbi__getn.exit
-  %conv.i95 = zext i8 %67 to i32
+  %conv.i95 = zext i8 %77 to i32
   %sub.i96 = add nsw i32 %conv.i95, -136
-  %call.i97 = call double @ldexp(double noundef 1.000000e+00, i32 noundef %sub.i96) #39
+  %call.i97 = call double @ldexp(double noundef 1.000000e+00, i32 noundef %sub.i96) #38
   %conv4.i98 = fptrunc double %call.i97 to float
   %cmp5.i = icmp slt i32 %spec.store.select, 3
-  %68 = load i8, ptr %rgbe, align 4
+  %78 = load i8, ptr %rgbe, align 4
   br i1 %cmp5.i, label %if.then7.i, label %if.else.i
 
 if.then7.i:                                       ; preds = %if.then.i94
-  %conv9.i99 = zext i8 %68 to i32
+  %conv9.i99 = zext i8 %78 to i32
   %arrayidx10.i = getelementptr inbounds i8, ptr %rgbe, i64 1
-  %69 = load i8, ptr %arrayidx10.i, align 1
-  %conv11.i = zext i8 %69 to i32
+  %79 = load i8, ptr %arrayidx10.i, align 1
+  %conv11.i = zext i8 %79 to i32
   %add.i = add nuw nsw i32 %conv11.i, %conv9.i99
   %arrayidx12.i = getelementptr inbounds i8, ptr %rgbe, i64 2
-  %70 = load i8, ptr %arrayidx12.i, align 2
-  %conv13.i = zext i8 %70 to i32
+  %80 = load i8, ptr %arrayidx12.i, align 2
+  %conv13.i = zext i8 %80 to i32
   %add14.i = add nuw nsw i32 %add.i, %conv13.i
   %conv15.i = uitofp nneg i32 %add14.i to float
   %mul.i = fmul float %conv4.i98, %conv15.i
@@ -5068,16 +5087,16 @@ if.then7.i:                                       ; preds = %if.then.i94
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i94
-  %conv19.i = uitofp i8 %68 to float
+  %conv19.i = uitofp i8 %78 to float
   %mul20.i = fmul float %conv4.i98, %conv19.i
   %arrayidx22.i = getelementptr inbounds i8, ptr %rgbe, i64 1
   %arrayidx26.i = getelementptr inbounds i8, ptr %add.ptr99, i64 4
-  %71 = load <2 x i8>, ptr %arrayidx22.i, align 1
-  %72 = uitofp <2 x i8> %71 to <2 x float>
-  %73 = insertelement <2 x float> poison, float %conv4.i98, i64 0
-  %74 = shufflevector <2 x float> %73, <2 x float> poison, <2 x i32> zeroinitializer
-  %75 = fmul <2 x float> %74, %72
-  store <2 x float> %75, ptr %arrayidx26.i, align 4
+  %81 = load <2 x i8>, ptr %arrayidx22.i, align 1
+  %82 = uitofp <2 x i8> %81 to <2 x float>
+  %83 = insertelement <2 x float> poison, float %conv4.i98, i64 0
+  %84 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> zeroinitializer
+  %85 = fmul <2 x float> %84, %82
+  store <2 x float> %85, ptr %arrayidx26.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then7.i
@@ -5144,38 +5163,38 @@ if.then122:                                       ; preds = %for.body108.us
   %arrayidx131 = getelementptr inbounds i8, ptr %rgbe123, i64 3
   store i8 %call130, ptr %arrayidx131, align 1
   call void @stbi__hdr_convert(ptr noundef nonnull %call74, ptr noundef nonnull %rgbe123, i32 noundef %spec.store.select)
-  call void @free(ptr noundef %scanline.0233.us) #39
+  call void @free(ptr noundef %scanline.0233.us) #38
   br label %main_decode_loop
 
 if.then138:                                       ; preds = %if.end133.us
-  call void @free(ptr noundef %call74) #39
-  call void @free(ptr noundef %scanline.0233.us) #39
-  %76 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.109, ptr %76, align 8
+  call void @free(ptr noundef %call74) #38
+  call void @free(ptr noundef %scanline.0233.us) #38
+  %86 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.109, ptr %86, align 8
   br label %return
 
 if.then148:                                       ; preds = %if.then145.us
-  call void @free(ptr noundef %call74) #39
-  %77 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.1, ptr %77, align 8
+  call void @free(ptr noundef %call74) #38
+  %87 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.1, ptr %87, align 8
   br label %return
 
 if.then178:                                       ; preds = %stbi__get8.exit145.us.us
-  call void @free(ptr noundef %call74) #39
-  call void @free(ptr noundef nonnull %scanline.1.us) #39
-  %78 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.87, ptr %78, align 8
+  call void @free(ptr noundef %call74) #38
+  call void @free(ptr noundef nonnull %scanline.1.us) #38
+  %88 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.87, ptr %88, align 8
   br label %return
 
 if.then202:                                       ; preds = %if.else194.us.us, %if.end.i106.us.us
-  call void @free(ptr noundef %call74) #39
-  call void @free(ptr noundef nonnull %scanline.1.us) #39
-  %79 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.87, ptr %79, align 8
+  call void @free(ptr noundef %call74) #38
+  call void @free(ptr noundef nonnull %scanline.1.us) #38
+  %89 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.87, ptr %89, align 8
   br label %return
 
 if.then245:                                       ; preds = %for.inc241.us
-  call void @free(ptr noundef nonnull %scanline.1.us) #39
+  call void @free(ptr noundef nonnull %scanline.1.us) #38
   br label %return
 
 return:                                           ; preds = %for.cond105.preheader, %for.cond86, %if.then245, %if.then202, %if.then178, %if.then148, %if.then138, %if.then76, %if.then69, %if.then55, %if.then48, %if.then38, %if.then26, %if.then17, %if.then
@@ -5221,12 +5240,12 @@ stbi__mul2sizes_valid.exit14.i.i:                 ; preds = %if.end.i8.i.i
 stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stbi__mul2sizes_valid.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul.i.i, %comp
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %cmp = icmp eq ptr %call.i.i, null
   br i1 %cmp, label %if.then1, label %if.end4
 
 if.then1:                                         ; preds = %land.lhs.true.i.i, %if.end, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit14.i.i, %stbi__malloc_mad3.exit
-  tail call void @free(ptr noundef nonnull %data) #39
+  tail call void @free(ptr noundef nonnull %data) #38
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %2, align 8
   br label %return
@@ -5285,7 +5304,7 @@ for.body11.us:                                    ; preds = %for.cond9.preheader
   %conv.us = fpext float %mul13.us to double
   %12 = load float, ptr @stbi__h2l_gamma_i, align 4
   %conv14.us = fpext float %12 to double
-  %call15.us = tail call double @pow(double noundef %conv.us, double noundef %conv14.us) #39
+  %call15.us = tail call double @pow(double noundef %conv.us, double noundef %conv14.us) #38
   %conv16.us = fptrunc double %call15.us to float
   %13 = tail call float @llvm.fmuladd.f32(float %conv16.us, float 2.550000e+02, float 5.000000e-01)
   %cmp18.us = fcmp olt float %13, 0.000000e+00
@@ -5331,7 +5350,7 @@ for.cond9.preheader.us40:                         ; preds = %for.cond9.preheader
   br i1 %exitcond.not, label %for.end58, label %for.cond9.preheader.us40, !llvm.loop !38
 
 for.end58:                                        ; preds = %for.cond9.preheader.us40, %for.inc56.us, %for.cond9.preheader.lr.ph.split, %if.end4
-  tail call void @free(ptr noundef nonnull %data) #39
+  tail call void @free(ptr noundef nonnull %data) #38
   br label %return
 
 return:                                           ; preds = %entry, %for.end58, %if.then1
@@ -5367,7 +5386,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %5 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #39
+  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #38
   %6 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %7 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -5431,7 +5450,7 @@ if.then2.i49:                                     ; preds = %if.end.i46
   %buffer_start.i.i52 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i53 = getelementptr inbounds i8, ptr %s, i64 52
   %15 = load i32, ptr %buflen.i.i53, align 4
-  %call.i.i54 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i52, i32 noundef %15) #39
+  %call.i.i54 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i52, i32 noundef %15) #38
   %16 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i55 = getelementptr inbounds i8, ptr %s, i64 208
   %17 = load ptr, ptr %img_buffer_original.i.i55, align 8
@@ -5500,7 +5519,7 @@ if.then2.i82:                                     ; preds = %if.end.i79
   %buffer_start.i.i85 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i86 = getelementptr inbounds i8, ptr %s, i64 52
   %28 = load i32, ptr %buflen.i.i86, align 4
-  %call.i.i87 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i85, i32 noundef %28) #39
+  %call.i.i87 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i85, i32 noundef %28) #38
   %29 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i88 = getelementptr inbounds i8, ptr %s, i64 208
   %30 = load ptr, ptr %img_buffer_original.i.i88, align 8
@@ -5567,7 +5586,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   %37 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 4, %conv.i
-  tail call void %36(ptr noundef %37, i32 noundef %sub.i) #39
+  tail call void %36(ptr noundef %37, i32 noundef %sub.i) #38
   %.pre = load ptr, ptr %img_buffer.i, align 8
   %.pre228 = load ptr, ptr %img_buffer_end.i, align 8
   br label %stbi__skip.exit
@@ -5602,7 +5621,7 @@ if.then2.i118:                                    ; preds = %if.end.i115
   %buffer_start.i.i121 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i122 = getelementptr inbounds i8, ptr %s, i64 52
   %44 = load i32, ptr %buflen.i.i122, align 4
-  %call.i.i123 = tail call i32 %42(ptr noundef %43, ptr noundef nonnull %buffer_start.i.i121, i32 noundef %44) #39
+  %call.i.i123 = tail call i32 %42(ptr noundef %43, ptr noundef nonnull %buffer_start.i.i121, i32 noundef %44) #38
   %45 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i124 = getelementptr inbounds i8, ptr %s, i64 208
   %46 = load ptr, ptr %img_buffer_original.i.i124, align 8
@@ -5668,7 +5687,7 @@ if.then9.i159:                                    ; preds = %if.then4.i148
   %io_user_data.i161 = getelementptr inbounds i8, ptr %s, i64 40
   %52 = load ptr, ptr %io_user_data.i161, align 8
   %sub.i162 = sub nsw i32 4, %conv.i154
-  tail call void %51(ptr noundef %52, i32 noundef %sub.i162) #39
+  tail call void %51(ptr noundef %52, i32 noundef %sub.i162) #38
   br label %if.end45
 
 if.end14.i156:                                    ; preds = %if.end31, %if.then4.i148
@@ -5702,7 +5721,7 @@ if.then9.i181:                                    ; preds = %if.then4.i170
   %io_user_data.i183 = getelementptr inbounds i8, ptr %s, i64 40
   %56 = load ptr, ptr %io_user_data.i183, align 8
   %sub.i184 = sub nsw i32 9, %conv.i176
-  tail call void %55(ptr noundef %56, i32 noundef %sub.i184) #39
+  tail call void %55(ptr noundef %56, i32 noundef %sub.i184) #38
   br label %if.end45
 
 if.end14.i178:                                    ; preds = %if.end44, %if.then4.i170
@@ -5746,7 +5765,7 @@ if.then2.i195:                                    ; preds = %if.end.i192
   %buffer_start.i.i198 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i199 = getelementptr inbounds i8, ptr %s, i64 52
   %63 = load i32, ptr %buflen.i.i199, align 4
-  %call.i.i200 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i198, i32 noundef %63) #39
+  %call.i.i200 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i198, i32 noundef %63) #38
   %64 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i201 = getelementptr inbounds i8, ptr %s, i64 208
   %65 = load ptr, ptr %img_buffer_original.i.i201, align 8
@@ -5843,7 +5862,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -5906,7 +5925,7 @@ if.then2.i146:                                    ; preds = %if.end.i143
   %buffer_start.i.i149 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i150 = getelementptr inbounds i8, ptr %s, i64 52
   %17 = load i32, ptr %buflen.i.i150, align 4
-  %call.i.i151 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i149, i32 noundef %17) #39
+  %call.i.i151 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i149, i32 noundef %17) #38
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i152 = getelementptr inbounds i8, ptr %s, i64 208
   %19 = load ptr, ptr %img_buffer_original.i.i152, align 8
@@ -5968,7 +5987,7 @@ if.then2.i179:                                    ; preds = %if.end.i176
   %buffer_start.i.i182 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i183 = getelementptr inbounds i8, ptr %s, i64 52
   %28 = load i32, ptr %buflen.i.i183, align 4
-  %call.i.i184 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i182, i32 noundef %28) #39
+  %call.i.i184 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i182, i32 noundef %28) #38
   %29 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i185 = getelementptr inbounds i8, ptr %s, i64 208
   %30 = load ptr, ptr %img_buffer_original.i.i185, align 8
@@ -6033,7 +6052,7 @@ if.then2.i212:                                    ; preds = %if.end.i209
   %buffer_start.i.i215 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i216 = getelementptr inbounds i8, ptr %s, i64 52
   %39 = load i32, ptr %buflen.i.i216, align 4
-  %call.i.i217 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i215, i32 noundef %39) #39
+  %call.i.i217 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i215, i32 noundef %39) #38
   %40 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i218 = getelementptr inbounds i8, ptr %s, i64 208
   %41 = load ptr, ptr %img_buffer_original.i.i218, align 8
@@ -6099,7 +6118,7 @@ if.then2.i245:                                    ; preds = %if.end.i242
   %buffer_start.i.i248 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i249 = getelementptr inbounds i8, ptr %s, i64 52
   %50 = load i32, ptr %buflen.i.i249, align 4
-  %call.i.i250 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i248, i32 noundef %50) #39
+  %call.i.i250 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i248, i32 noundef %50) #38
   %51 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i251 = getelementptr inbounds i8, ptr %s, i64 208
   %52 = load ptr, ptr %img_buffer_original.i.i251, align 8
@@ -6161,7 +6180,7 @@ if.then2.i278:                                    ; preds = %if.end.i275
   %buffer_start.i.i281 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i282 = getelementptr inbounds i8, ptr %s, i64 52
   %61 = load i32, ptr %buflen.i.i282, align 4
-  %call.i.i283 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i281, i32 noundef %61) #39
+  %call.i.i283 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i281, i32 noundef %61) #38
   %62 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i284 = getelementptr inbounds i8, ptr %s, i64 208
   %63 = load ptr, ptr %img_buffer_original.i.i284, align 8
@@ -6299,7 +6318,7 @@ stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_val
   %mul.i598602 = phi i32 [ %mul.i595, %stbi__mul2sizes_valid.exit.i.i ], [ %mul.i, %stbi__mul2sizes_valid.exit14.i ]
   %mul4.i.i = mul nuw nsw i32 %mul.i598602, %tga_comp.0.ph
   %conv.i = zext nneg i32 %mul4.i.i to i64
-  %call.i.i322 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i322 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %tobool55.not = icmp eq ptr %call.i.i322, null
   br i1 %tobool55.not, label %if.then56, label %if.end60
 
@@ -6339,7 +6358,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   %78 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 %conv, %conv.i326
-  tail call void %77(ptr noundef %78, i32 noundef %sub.i) #39
+  tail call void %77(ptr noundef %78, i32 noundef %sub.i) #38
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -6453,7 +6472,7 @@ if.then2.i342:                                    ; preds = %if.then.i333
   %90 = load ptr, ptr %io_user_data.i343, align 8
   %add.ptr.i344 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv4.i
   %sub.i345 = sub nsw i32 %mul, %conv.i339
-  %call.i = tail call i32 %87(ptr noundef %90, ptr noundef nonnull %add.ptr.i344, i32 noundef %sub.i345) #39
+  %call.i = tail call i32 %87(ptr noundef %90, ptr noundef nonnull %add.ptr.i344, i32 noundef %sub.i345) #38
   %91 = load ptr, ptr %img_buffer_end.i, align 8
   br label %stbi__getn.exit.sink.split
 
@@ -6486,7 +6505,7 @@ if.then77:                                        ; preds = %if.else75
   br i1 %cmp78, label %if.then80, label %if.end84
 
 if.then80:                                        ; preds = %if.then77
-  tail call void @free(ptr noundef nonnull %call.i.i322) #39
+  tail call void @free(ptr noundef nonnull %call.i.i322) #38
   %94 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.81, ptr %94, align 8
   br label %return
@@ -6522,7 +6541,7 @@ if.then9.i363:                                    ; preds = %if.then4.i351
   %io_user_data.i365 = getelementptr inbounds i8, ptr %s, i64 40
   %99 = load ptr, ptr %io_user_data.i365, align 8
   %sub.i366 = sub nsw i32 %call5, %conv.i357
-  tail call void %98(ptr noundef %99, i32 noundef %sub.i366) #39
+  tail call void %98(ptr noundef %99, i32 noundef %sub.i366) #38
   br label %stbi__skip.exit373
 
 if.end14.i359:                                    ; preds = %if.then4.i351, %if.end3.if.end14_crit_edge.i367
@@ -6535,12 +6554,12 @@ if.end14.i359:                                    ; preds = %if.then4.i351, %if.
 stbi__skip.exit373:                               ; preds = %if.end84, %if.then9.i363, %if.end14.i359
   %mul.i.i381 = mul nuw nsw i32 %call6, %tga_comp.0.ph
   %conv.i383 = zext nneg i32 %mul.i.i381 to i64
-  %call.i.i384 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i383) #40
+  %call.i.i384 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i383) #39
   %tobool86.not = icmp eq ptr %call.i.i384, null
   br i1 %tobool86.not, label %if.then87, label %if.end91
 
 if.then87:                                        ; preds = %stbi__skip.exit373
-  tail call void @free(ptr noundef nonnull %call.i.i322) #39
+  tail call void @free(ptr noundef nonnull %call.i.i322) #38
   %101 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %101, align 8
   br label %return
@@ -6587,8 +6606,8 @@ if.else103:                                       ; preds = %if.end91
   br i1 %tobool106.not, label %if.then107, label %if.end113
 
 if.then107:                                       ; preds = %if.else103
-  tail call void @free(ptr noundef nonnull %call.i.i322) #39
-  tail call void @free(ptr noundef nonnull %call.i.i384) #39
+  tail call void @free(ptr noundef nonnull %call.i.i322) #38
+  tail call void @free(ptr noundef nonnull %call.i.i384) #38
   %108 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.81, ptr %108, align 8
   br label %return
@@ -6653,7 +6672,7 @@ if.then2.i392:                                    ; preds = %if.end.i389
   %117 = load ptr, ptr %io.i.i393, align 8
   %118 = load ptr, ptr %io_user_data.i.i394, align 8
   %119 = load i32, ptr %buflen.i.i396, align 4
-  %call.i.i397 = tail call i32 %117(ptr noundef %118, ptr noundef nonnull %buffer_start.i.i395, i32 noundef %119) #39
+  %call.i.i397 = tail call i32 %117(ptr noundef %118, ptr noundef nonnull %buffer_start.i.i395, i32 noundef %119) #38
   %120 = load ptr, ptr %img_buffer.i, align 8
   %121 = load ptr, ptr %img_buffer_original.i.i398, align 8
   %sub.ptr.lhs.cast.i.i399 = ptrtoint ptr %120 to i64
@@ -6728,7 +6747,7 @@ if.then2.i425:                                    ; preds = %if.end.i422
   %128 = load ptr, ptr %io.i.i393, align 8
   %129 = load ptr, ptr %io_user_data.i.i394, align 8
   %130 = load i32, ptr %buflen.i.i396, align 4
-  %call.i.i430 = tail call i32 %128(ptr noundef %129, ptr noundef nonnull %buffer_start.i.i395, i32 noundef %130) #39
+  %call.i.i430 = tail call i32 %128(ptr noundef %129, ptr noundef nonnull %buffer_start.i.i395, i32 noundef %130) #38
   %131 = load ptr, ptr %img_buffer.i, align 8
   %132 = load ptr, ptr %img_buffer_original.i.i398, align 8
   %sub.ptr.lhs.cast.i.i432 = ptrtoint ptr %131 to i64
@@ -6830,7 +6849,7 @@ if.then2.i470:                                    ; preds = %if.end.i467
   %147 = load ptr, ptr %io.i.i393, align 8
   %148 = load ptr, ptr %io_user_data.i.i394, align 8
   %149 = load i32, ptr %buflen.i.i396, align 4
-  %call.i.i475 = tail call i32 %147(ptr noundef %148, ptr noundef nonnull %buffer_start.i.i395, i32 noundef %149) #39
+  %call.i.i475 = tail call i32 %147(ptr noundef %148, ptr noundef nonnull %buffer_start.i.i395, i32 noundef %149) #38
   %150 = load ptr, ptr %img_buffer.i, align 8
   %151 = load ptr, ptr %img_buffer_original.i.i398, align 8
   %sub.ptr.lhs.cast.i.i477 = ptrtoint ptr %150 to i64
@@ -6934,7 +6953,7 @@ if.end230:                                        ; preds = %for.cond210.for.inc
   br i1 %cmp231.not, label %if.end235, label %if.then233
 
 if.then233:                                       ; preds = %if.end230
-  tail call void @free(ptr noundef nonnull %tga_palette.0) #39
+  tail call void @free(ptr noundef nonnull %tga_palette.0) #38
   br label %if.end235
 
 if.end235:                                        ; preds = %stbi__getn.exit, %stbi__getn.exit.us, %stbi__getn.exit.us.us, %for.cond.preheader, %if.end230, %if.then233
@@ -6982,7 +7001,7 @@ entry:
   %mul = mul nsw i32 %h, %w
   %mul1 = mul nsw i32 %mul, %channels
   %conv = sext i32 %mul1 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
@@ -7012,7 +7031,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !49
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  tail call void @free(ptr noundef %orig) #39
+  tail call void @free(ptr noundef %orig) #38
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
@@ -7026,7 +7045,7 @@ entry:
   %mul1 = mul nsw i32 %mul, %channels
   %mul2 = shl nsw i32 %mul1, 1
   %conv = sext i32 %mul2 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
@@ -7056,7 +7075,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !50
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  tail call void @free(ptr noundef %orig) #39
+  tail call void @free(ptr noundef %orig) #38
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
@@ -7213,7 +7232,7 @@ cond.end:                                         ; preds = %if.then2, %cond.tru
   %mul.i = mul nsw i32 %2, %1
   %mul1.i = mul nsw i32 %mul.i, %cond
   %conv.i = sext i32 %mul1.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -7243,7 +7262,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !49
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
-  tail call void @free(ptr noundef nonnull %call) #39
+  tail call void @free(ptr noundef nonnull %call) #38
   br label %stbi__convert_16_to_8.exit
 
 stbi__convert_16_to_8.exit:                       ; preds = %if.then.i, %for.end.i
@@ -7364,7 +7383,7 @@ cond.end:                                         ; preds = %if.then2, %cond.tru
   %mul1.i = mul nsw i32 %mul.i, %cond
   %mul2.i = shl nsw i32 %mul1.i, 1
   %conv.i = sext i32 %mul2.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -7394,7 +7413,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !50
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
-  tail call void @free(ptr noundef nonnull %call) #39
+  tail call void @free(ptr noundef nonnull %call) #38
   br label %stbi__convert_8_to_16.exit
 
 stbi__convert_8_to_16.exit:                       ; preds = %if.then.i, %for.end.i
@@ -7617,7 +7636,7 @@ if.end:                                           ; preds = %entry
   %img_buffer.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 192
   store ptr %buffer_start.i.i.i, ptr %img_buffer.i.i.i, align 8
   %1 = load ptr, ptr %io.i.i.i, align 8
-  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #39
+  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #38
   %2 = load ptr, ptr %img_buffer.i.i.i, align 8
   %3 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -7693,7 +7712,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #39
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -7766,7 +7785,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #39
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -7847,7 +7866,7 @@ if.end:                                           ; preds = %entry
   %img_buffer.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 192
   store ptr %buffer_start.i.i.i, ptr %img_buffer.i.i.i, align 8
   %1 = load ptr, ptr %io.i.i.i, align 8
-  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #39
+  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #38
   %2 = load ptr, ptr %img_buffer.i.i.i, align 8
   %3 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -7947,7 +7966,7 @@ entry:
   %img_buffer.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #39
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -8026,7 +8045,7 @@ entry:
   %img_buffer.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #39
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -8221,21 +8240,21 @@ if.then7:                                         ; preds = %if.then7.lr.ph, %do
   br i1 %tobool11.not, label %if.else33, label %if.then12
 
 if.then12:                                        ; preds = %if.then7
-  %call14 = call ptr @realloc(ptr noundef nonnull %out.0106, i64 noundef %conv35) #42
+  %call14 = call ptr @realloc(ptr noundef nonnull %out.0106, i64 noundef %conv35) #40
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %if.end.i, label %if.else
 
 if.end.i:                                         ; preds = %if.then12
   %out1.i = getelementptr inbounds i8, ptr %g, i64 8
   %4 = load ptr, ptr %out1.i, align 8
-  call void @free(ptr noundef %4) #39
+  call void @free(ptr noundef %4) #38
   %history.i = getelementptr inbounds i8, ptr %g, i64 24
   %5 = load ptr, ptr %history.i, align 8
-  call void @free(ptr noundef %5) #39
+  call void @free(ptr noundef %5) #38
   %background.i = getelementptr inbounds i8, ptr %g, i64 16
   %6 = load ptr, ptr %background.i, align 8
-  call void @free(ptr noundef %6) #39
-  call void @free(ptr noundef nonnull %out.0106) #39
+  call void @free(ptr noundef %6) #38
+  call void @free(ptr noundef nonnull %out.0106) #38
   br i1 %tobool1.not, label %stbi__load_gif_main_outofmem.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -8244,7 +8263,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool3.not.i, label %stbi__load_gif_main_outofmem.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  call void @free(ptr noundef nonnull %7) #39
+  call void @free(ptr noundef nonnull %7) #38
   br label %stbi__load_gif_main_outofmem.exit
 
 stbi__load_gif_main_outofmem.exit:                ; preds = %if.end.i, %land.lhs.true.i, %if.then4.i
@@ -8258,27 +8277,27 @@ if.else:                                          ; preds = %if.then12
 if.then21:                                        ; preds = %if.else
   %9 = load ptr, ptr %delays, align 8
   %mul23 = shl nuw nsw i64 %indvars.iv.next, 2
-  %call24 = call ptr @realloc(ptr noundef %9, i64 noundef %mul23) #42
+  %call24 = call ptr @realloc(ptr noundef %9, i64 noundef %mul23) #40
   %tobool25.not = icmp eq ptr %call24, null
   br i1 %tobool25.not, label %land.lhs.true.i61, label %if.end28
 
 land.lhs.true.i61:                                ; preds = %if.then21
   %out1.i54 = getelementptr inbounds i8, ptr %g, i64 8
   %10 = load ptr, ptr %out1.i54, align 8
-  call void @free(ptr noundef %10) #39
+  call void @free(ptr noundef %10) #38
   %history.i55 = getelementptr inbounds i8, ptr %g, i64 24
   %11 = load ptr, ptr %history.i55, align 8
-  call void @free(ptr noundef %11) #39
+  call void @free(ptr noundef %11) #38
   %background.i56 = getelementptr inbounds i8, ptr %g, i64 16
   %12 = load ptr, ptr %background.i56, align 8
-  call void @free(ptr noundef %12) #39
-  call void @free(ptr noundef nonnull %call14) #39
+  call void @free(ptr noundef %12) #38
+  call void @free(ptr noundef nonnull %call14) #38
   %13 = load ptr, ptr %delays, align 8
   %tobool3.not.i62 = icmp eq ptr %13, null
   br i1 %tobool3.not.i62, label %stbi__load_gif_main_outofmem.exit64, label %if.then4.i63
 
 if.then4.i63:                                     ; preds = %land.lhs.true.i61
-  call void @free(ptr noundef nonnull %13) #39
+  call void @free(ptr noundef nonnull %13) #38
   br label %stbi__load_gif_main_outofmem.exit64
 
 stbi__load_gif_main_outofmem.exit64:              ; preds = %land.lhs.true.i61, %if.then4.i63
@@ -8291,20 +8310,20 @@ if.end28:                                         ; preds = %if.then21
   br label %if.end55
 
 if.else33:                                        ; preds = %if.then7
-  %call.i65 = call noalias noundef ptr @malloc(i64 noundef %conv35) #40
+  %call.i65 = call noalias noundef ptr @malloc(i64 noundef %conv35) #39
   %tobool37.not = icmp eq ptr %call.i65, null
   br i1 %tobool37.not, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %if.else33
   %out1.i66 = getelementptr inbounds i8, ptr %g, i64 8
   %15 = load ptr, ptr %out1.i66, align 8
-  call void @free(ptr noundef %15) #39
+  call void @free(ptr noundef %15) #38
   %history.i67 = getelementptr inbounds i8, ptr %g, i64 24
   %16 = load ptr, ptr %history.i67, align 8
-  call void @free(ptr noundef %16) #39
+  call void @free(ptr noundef %16) #38
   %background.i68 = getelementptr inbounds i8, ptr %g, i64 16
   %17 = load ptr, ptr %background.i68, align 8
-  call void @free(ptr noundef %17) #39
+  call void @free(ptr noundef %17) #38
   br i1 %tobool1.not, label %stbi__load_gif_main_outofmem.exit74, label %land.lhs.true.i71
 
 land.lhs.true.i71:                                ; preds = %if.then38
@@ -8313,7 +8332,7 @@ land.lhs.true.i71:                                ; preds = %if.then38
   br i1 %tobool3.not.i72, label %stbi__load_gif_main_outofmem.exit74, label %if.then4.i73
 
 if.then4.i73:                                     ; preds = %land.lhs.true.i71
-  call void @free(ptr noundef nonnull %18) #39
+  call void @free(ptr noundef nonnull %18) #38
   br label %stbi__load_gif_main_outofmem.exit74
 
 stbi__load_gif_main_outofmem.exit74:              ; preds = %if.then38, %land.lhs.true.i71, %if.then4.i73
@@ -8326,7 +8345,7 @@ if.end40:                                         ; preds = %if.else33
 
 if.then43:                                        ; preds = %if.end40
   %mul45 = shl nuw nsw i64 %indvars.iv.next, 2
-  %call.i75 = call noalias noundef ptr @malloc(i64 noundef %mul45) #40
+  %call.i75 = call noalias noundef ptr @malloc(i64 noundef %mul45) #39
   store ptr %call.i75, ptr %delays, align 8
   %tobool47.not = icmp eq ptr %call.i75, null
   br i1 %tobool47.not, label %land.lhs.true.i83, label %if.end55
@@ -8334,20 +8353,20 @@ if.then43:                                        ; preds = %if.end40
 land.lhs.true.i83:                                ; preds = %if.then43
   %out1.i76 = getelementptr inbounds i8, ptr %g, i64 8
   %20 = load ptr, ptr %out1.i76, align 8
-  call void @free(ptr noundef %20) #39
+  call void @free(ptr noundef %20) #38
   %history.i77 = getelementptr inbounds i8, ptr %g, i64 24
   %21 = load ptr, ptr %history.i77, align 8
-  call void @free(ptr noundef %21) #39
+  call void @free(ptr noundef %21) #38
   %background.i78 = getelementptr inbounds i8, ptr %g, i64 16
   %22 = load ptr, ptr %background.i78, align 8
-  call void @free(ptr noundef %22) #39
-  call void @free(ptr noundef nonnull %call.i65) #39
+  call void @free(ptr noundef %22) #38
+  call void @free(ptr noundef nonnull %call.i65) #38
   %23 = load ptr, ptr %delays, align 8
   %tobool3.not.i84 = icmp eq ptr %23, null
   br i1 %tobool3.not.i84, label %stbi__load_gif_main_outofmem.exit86, label %if.then4.i85
 
 if.then4.i85:                                     ; preds = %land.lhs.true.i83
-  call void @free(ptr noundef nonnull %23) #39
+  call void @free(ptr noundef nonnull %23) #38
   br label %stbi__load_gif_main_outofmem.exit86
 
 stbi__load_gif_main_outofmem.exit86:              ; preds = %land.lhs.true.i83, %if.then4.i85
@@ -8394,13 +8413,13 @@ do.end:                                           ; preds = %do.end.loopexit, %i
   %layers.0.lcssa = phi i32 [ 0, %if.end ], [ %28, %do.end.loopexit ]
   %out72 = getelementptr inbounds i8, ptr %g, i64 8
   %29 = load ptr, ptr %out72, align 8
-  call void @free(ptr noundef %29) #39
+  call void @free(ptr noundef %29) #38
   %history = getelementptr inbounds i8, ptr %g, i64 24
   %30 = load ptr, ptr %history, align 8
-  call void @free(ptr noundef %30) #39
+  call void @free(ptr noundef %30) #38
   %background = getelementptr inbounds i8, ptr %g, i64 16
   %31 = load ptr, ptr %background, align 8
-  call void @free(ptr noundef %31) #39
+  call void @free(ptr noundef %31) #38
   %32 = and i32 %req_comp, -5
   %or.cond.not = icmp eq i32 %32, 0
   br i1 %or.cond.not, label %if.end81, label %if.then76
@@ -8593,12 +8612,12 @@ land.lhs.true3.i.i:                               ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad4.exit:                           ; preds = %land.lhs.true3.i.i
   %mul10.i.i = shl nuw nsw i32 %mul5.i.i, 2
   %conv.i = zext nneg i32 %mul10.i.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %cmp = icmp eq ptr %call.i.i, null
   br i1 %cmp, label %if.then1, label %if.end4
 
 if.then1:                                         ; preds = %land.lhs.true3.i.i, %land.lhs.true.i.i, %if.end, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit18.i.i, %stbi__malloc_mad4.exit
-  tail call void @free(ptr noundef nonnull %data) #39
+  tail call void @free(ptr noundef nonnull %data) #38
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %2, align 8
   br label %return
@@ -8636,7 +8655,7 @@ for.body11.us:                                    ; preds = %for.cond9.preheader
   %conv14.us = fpext float %div.us to double
   %7 = load float, ptr @stbi__l2h_gamma, align 4
   %conv15.us = fpext float %7 to double
-  %call16.us = tail call double @pow(double noundef %conv14.us, double noundef %conv15.us) #39
+  %call16.us = tail call double @pow(double noundef %conv14.us, double noundef %conv15.us) #38
   %8 = load float, ptr @stbi__l2h_scale, align 4
   %conv17.us = fpext float %8 to double
   %mul18.us = fmul double %call16.us, %conv17.us
@@ -8677,7 +8696,7 @@ for.body34:                                       ; preds = %for.body34.preheade
   br i1 %exitcond57.not, label %if.end49, label %for.body34, !llvm.loop !56
 
 if.end49:                                         ; preds = %for.body34, %if.end4, %for.end26
-  tail call void @free(ptr noundef nonnull %data) #39
+  tail call void @free(ptr noundef nonnull %data) #38
   br label %return
 
 return:                                           ; preds = %entry, %if.end49, %if.then1
@@ -8729,7 +8748,7 @@ entry:
   %img_buffer.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #39
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -8795,7 +8814,7 @@ if.end:                                           ; preds = %entry
   %img_buffer.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 192
   store ptr %buffer_start.i.i.i, ptr %img_buffer.i.i.i, align 8
   %1 = load ptr, ptr %io.i.i.i, align 8
-  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #39
+  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #38
   %2 = load ptr, ptr %img_buffer.i.i.i, align 8
   %3 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -8856,7 +8875,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #39
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -8942,7 +8961,7 @@ if.then:                                          ; preds = %entry
   %img_buffer.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 192
   store ptr %buffer_start.i.i.i, ptr %img_buffer.i.i.i, align 8
   %0 = load ptr, ptr %io.i.i.i, align 8
-  %call.i.i.i.i = call i32 %0(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #39
+  %call.i.i.i.i = call i32 %0(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -9005,7 +9024,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #39
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -9064,7 +9083,7 @@ entry:
   %img_buffer.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #39
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -9159,7 +9178,7 @@ if.then2:                                         ; preds = %if.end
   %buffer_start.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i, align 4
-  %call.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i, i32 noundef %6) #39
+  %call.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer, align 8
   %img_buffer_original.i = getelementptr inbounds i8, ptr %s, i64 208
   %8 = load ptr, ptr %img_buffer_original.i, align 8
@@ -9212,7 +9231,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %eof, align 8
   %io_user_data = getelementptr inbounds i8, ptr %s, i64 40
   %2 = load ptr, ptr %io_user_data, align 8
-  %call = tail call i32 %1(ptr noundef %2) #39
+  %call = tail call i32 %1(ptr noundef %2) #38
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -9283,7 +9302,7 @@ if.then9:                                         ; preds = %if.then4
   %io_user_data = getelementptr inbounds i8, ptr %s, i64 40
   %5 = load ptr, ptr %io_user_data, align 8
   %sub = sub nsw i32 %n, %conv
-  tail call void %4(ptr noundef %5, i32 noundef %sub) #39
+  tail call void %4(ptr noundef %5, i32 noundef %sub) #38
   br label %return
 
 if.end14:                                         ; preds = %if.end3.if.end14_crit_edge, %if.then4
@@ -9334,7 +9353,7 @@ if.then2:                                         ; preds = %if.then
   %4 = load ptr, ptr %io_user_data, align 8
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %conv4
   %sub = sub nsw i32 %n, %conv
-  %call = tail call i32 %3(ptr noundef %4, ptr noundef %add.ptr, i32 noundef %sub) #39
+  %call = tail call i32 %3(ptr noundef %4, ptr noundef %add.ptr, i32 noundef %sub) #38
   %cmp8 = icmp eq i32 %call, %sub
   %conv9 = zext i1 %cmp8 to i32
   %5 = load ptr, ptr %img_buffer_end, align 8
@@ -9392,7 +9411,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -9454,7 +9473,7 @@ if.then2.i8:                                      ; preds = %if.end.i5
   %buffer_start.i.i11 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i12 = getelementptr inbounds i8, ptr %s, i64 52
   %17 = load i32, ptr %buflen.i.i12, align 4
-  %call.i.i13 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i11, i32 noundef %17) #39
+  %call.i.i13 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i11, i32 noundef %17) #38
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i14 = getelementptr inbounds i8, ptr %s, i64 208
   %19 = load ptr, ptr %img_buffer_original.i.i14, align 8
@@ -9538,7 +9557,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -9600,7 +9619,7 @@ if.then2.i8:                                      ; preds = %if.end.i5
   %buffer_start.i.i11 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i12 = getelementptr inbounds i8, ptr %s, i64 52
   %17 = load i32, ptr %buflen.i.i12, align 4
-  %call.i.i13 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i11, i32 noundef %17) #39
+  %call.i.i13 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i11, i32 noundef %17) #38
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i14 = getelementptr inbounds i8, ptr %s, i64 208
   %19 = load ptr, ptr %img_buffer_original.i.i14, align 8
@@ -9705,7 +9724,7 @@ stbi__mul2sizes_valid.exit14.i.i:                 ; preds = %if.end.i8.i.i
 stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stbi__mul2sizes_valid.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul.i.i, %y
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %cmp1 = icmp eq ptr %call.i.i, null
   br i1 %cmp1, label %if.then2, label %for.cond.preheader
 
@@ -9738,7 +9757,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph, %fo
   br label %for.body
 
 if.then2:                                         ; preds = %land.lhs.true.i.i, %if.end, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit14.i.i, %stbi__malloc_mad3.exit
-  tail call void @free(ptr noundef %data) #39
+  tail call void @free(ptr noundef %data) #38
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %2, align 8
   br label %return
@@ -10052,8 +10071,8 @@ for.body189:                                      ; preds = %for.cond186.prehead
   br i1 %cmp187.not, label %for.inc204, label %for.body189, !llvm.loop !68
 
 sw.default:                                       ; preds = %for.body.lr.ph
-  tail call void @free(ptr noundef %data) #39
-  tail call void @free(ptr noundef nonnull %call.i.i) #39
+  tail call void @free(ptr noundef %data) #38
+  tail call void @free(ptr noundef nonnull %call.i.i) #38
   %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.4, ptr %30, align 8
   br label %return
@@ -10064,7 +10083,7 @@ for.inc204:                                       ; preds = %for.body168, %for.b
   br i1 %exitcond.not, label %for.end205, label %for.body, !llvm.loop !69
 
 for.end205:                                       ; preds = %for.inc204, %for.cond.preheader
-  tail call void @free(ptr noundef %data) #39
+  tail call void @free(ptr noundef %data) #38
   br label %return
 
 return:                                           ; preds = %entry, %for.end205, %sw.default, %if.then2
@@ -10096,7 +10115,7 @@ if.end:                                           ; preds = %entry
   %mul1 = mul i32 %mul, %x
   %mul2 = mul i32 %mul1, %y
   %conv = zext i32 %mul2 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   %cmp3 = icmp eq ptr %call.i, null
   br i1 %cmp3, label %if.then5, label %for.cond.preheader
 
@@ -10129,7 +10148,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph, %fo
   br label %for.body
 
 if.then5:                                         ; preds = %if.end
-  tail call void @free(ptr noundef %data) #39
+  tail call void @free(ptr noundef %data) #38
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %0, align 8
   br label %return
@@ -10424,8 +10443,8 @@ for.body203:                                      ; preds = %for.cond200.prehead
   br i1 %cmp201.not, label %for.inc218, label %for.body203, !llvm.loop !81
 
 sw.default:                                       ; preds = %for.body.lr.ph
-  tail call void @free(ptr noundef %data) #39
-  tail call void @free(ptr noundef nonnull %call.i) #39
+  tail call void @free(ptr noundef %data) #38
+  tail call void @free(ptr noundef nonnull %call.i) #38
   %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.4, ptr %28, align 8
   br label %return
@@ -10436,7 +10455,7 @@ for.inc218:                                       ; preds = %for.body182, %for.b
   br i1 %exitcond.not, label %for.end219, label %for.body, !llvm.loop !82
 
 for.end219:                                       ; preds = %for.inc218, %for.cond.preheader
-  tail call void @free(ptr noundef %data) #39
+  tail call void @free(ptr noundef %data) #38
   br label %return
 
 return:                                           ; preds = %entry, %for.end219, %sw.default, %if.then5
@@ -10735,7 +10754,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %8, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %8, i64 52
   %15 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i, i32 noundef %15) #39
+  %call.i.i = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i, i32 noundef %15) #38
   %16 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %8, i64 208
   %17 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -10804,7 +10823,7 @@ if.then2.i19:                                     ; preds = %if.end.i16
   %buffer_start.i.i22 = getelementptr inbounds i8, ptr %20, i64 56
   %buflen.i.i23 = getelementptr inbounds i8, ptr %20, i64 52
   %27 = load i32, ptr %buflen.i.i23, align 4
-  %call.i.i24 = tail call i32 %25(ptr noundef %26, ptr noundef nonnull %buffer_start.i.i22, i32 noundef %27) #39
+  %call.i.i24 = tail call i32 %25(ptr noundef %26, ptr noundef nonnull %buffer_start.i.i22, i32 noundef %27) #38
   %28 = load ptr, ptr %img_buffer.i13, align 8
   %img_buffer_original.i.i25 = getelementptr inbounds i8, ptr %20, i64 208
   %29 = load ptr, ptr %img_buffer_original.i.i25, align 8
@@ -10883,7 +10902,7 @@ if.then2.i52:                                     ; preds = %if.end.i49
   %buffer_start.i.i55 = getelementptr inbounds i8, ptr %32, i64 56
   %buflen.i.i56 = getelementptr inbounds i8, ptr %32, i64 52
   %39 = load i32, ptr %buflen.i.i56, align 4
-  %call.i.i57 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i55, i32 noundef %39) #39
+  %call.i.i57 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i55, i32 noundef %39) #38
   %40 = load ptr, ptr %img_buffer.i46, align 8
   %img_buffer_original.i.i58 = getelementptr inbounds i8, ptr %32, i64 208
   %41 = load ptr, ptr %img_buffer_original.i.i58, align 8
@@ -13144,7 +13163,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %1, i64 52
   %8 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #39
+  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #38
   %9 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %1, i64 208
   %10 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -13213,7 +13232,7 @@ if.then2.i14:                                     ; preds = %if.end.i11
   %buffer_start.i.i17 = getelementptr inbounds i8, ptr %13, i64 56
   %buflen.i.i18 = getelementptr inbounds i8, ptr %13, i64 52
   %20 = load i32, ptr %buflen.i.i18, align 4
-  %call.i.i19 = tail call i32 %18(ptr noundef %19, ptr noundef nonnull %buffer_start.i.i17, i32 noundef %20) #39
+  %call.i.i19 = tail call i32 %18(ptr noundef %19, ptr noundef nonnull %buffer_start.i.i17, i32 noundef %20) #38
   %21 = load ptr, ptr %img_buffer.i8, align 8
   %img_buffer_original.i.i20 = getelementptr inbounds i8, ptr %13, i64 208
   %22 = load ptr, ptr %img_buffer_original.i.i20, align 8
@@ -13412,7 +13431,7 @@ if.end.us:                                        ; preds = %for.body11.us
   %add.ptr43.us = getelementptr inbounds i8, ptr %13, i64 %idx.ext42.us
   %15 = shl nsw i64 %indvars.iv267, 3
   %add.ptr46.us = getelementptr inbounds i8, ptr %add.ptr43.us, i64 %15
-  call void %12(ptr noundef %add.ptr46.us, i32 noundef %14, ptr noundef nonnull %data) #39
+  call void %12(ptr noundef %add.ptr46.us, i32 noundef %14, ptr noundef nonnull %data) #38
   %16 = load i32, ptr %todo.i, align 4
   %dec.us = add nsw i32 %16, -1
   store i32 %dec.us, ptr %todo.i, align 4
@@ -13538,7 +13557,7 @@ if.end153:                                        ; preds = %for.body105
   %add.ptr165 = getelementptr inbounds i8, ptr %39, i64 %idx.ext164
   %idx.ext166 = sext i32 %mul112 to i64
   %add.ptr167 = getelementptr inbounds i8, ptr %add.ptr165, i64 %idx.ext166
-  call void %38(ptr noundef %add.ptr167, i32 noundef %40, ptr noundef nonnull %data73) #39
+  call void %38(ptr noundef %add.ptr167, i32 noundef %40, ptr noundef nonnull %data73) #38
   %inc174 = add nuw nsw i32 %x71.0233, 1
   %41 = load i32, ptr %h102, align 4
   %cmp103 = icmp slt i32 %inc174, %41
@@ -14026,7 +14045,7 @@ stbi__jpeg_dequantize.exit.us:                    ; preds = %for.body.i.us
   %add.ptr35.us = getelementptr inbounds i8, ptr %13, i64 %idx.ext34.us
   %15 = shl nsw i64 %indvars.iv, 3
   %add.ptr38.us = getelementptr inbounds i8, ptr %add.ptr35.us, i64 %15
-  tail call void %12(ptr noundef %add.ptr38.us, i32 noundef %14, ptr noundef nonnull %add.ptr.us) #39
+  tail call void %12(ptr noundef %add.ptr38.us, i32 noundef %14, ptr noundef nonnull %add.ptr.us) #38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond9.for.inc43_crit_edge.us, label %for.body11.us, !llvm.loop !115
@@ -14128,7 +14147,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %5, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %5, i64 52
   %12 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %10(ptr noundef %11, ptr noundef nonnull %buffer_start.i.i, i32 noundef %12) #39
+  %call.i.i = tail call i32 %10(ptr noundef %11, ptr noundef nonnull %buffer_start.i.i, i32 noundef %12) #38
   %13 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %5, i64 208
   %14 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -14239,7 +14258,7 @@ if.then2.i89:                                     ; preds = %if.end.i86
   %buffer_start.i.i92 = getelementptr inbounds i8, ptr %21, i64 56
   %buflen.i.i93 = getelementptr inbounds i8, ptr %21, i64 52
   %28 = load i32, ptr %buflen.i.i93, align 4
-  %call.i.i94 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i92, i32 noundef %28) #39
+  %call.i.i94 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i92, i32 noundef %28) #38
   %29 = load ptr, ptr %img_buffer.i83, align 8
   %img_buffer_original.i.i95 = getelementptr inbounds i8, ptr %21, i64 208
   %30 = load ptr, ptr %img_buffer_original.i.i95, align 8
@@ -14340,7 +14359,7 @@ if.then2.i122:                                    ; preds = %if.end.i119
   %buffer_start.i.i125 = getelementptr inbounds i8, ptr %35, i64 56
   %buflen.i.i126 = getelementptr inbounds i8, ptr %35, i64 52
   %42 = load i32, ptr %buflen.i.i126, align 4
-  %call.i.i127 = tail call i32 %40(ptr noundef %41, ptr noundef nonnull %buffer_start.i.i125, i32 noundef %42) #39
+  %call.i.i127 = tail call i32 %40(ptr noundef %41, ptr noundef nonnull %buffer_start.i.i125, i32 noundef %42) #38
   %43 = load ptr, ptr %img_buffer.i116, align 8
   %img_buffer_original.i.i128 = getelementptr inbounds i8, ptr %35, i64 208
   %44 = load ptr, ptr %img_buffer_original.i.i128, align 8
@@ -14419,7 +14438,7 @@ if.then2.i155:                                    ; preds = %if.end.i152
   %buffer_start.i.i158 = getelementptr inbounds i8, ptr %49, i64 56
   %buflen.i.i159 = getelementptr inbounds i8, ptr %49, i64 52
   %56 = load i32, ptr %buflen.i.i159, align 4
-  %call.i.i160 = tail call i32 %54(ptr noundef %55, ptr noundef nonnull %buffer_start.i.i158, i32 noundef %56) #39
+  %call.i.i160 = tail call i32 %54(ptr noundef %55, ptr noundef nonnull %buffer_start.i.i158, i32 noundef %56) #38
   %57 = load ptr, ptr %img_buffer.i149, align 8
   %img_buffer_original.i.i161 = getelementptr inbounds i8, ptr %49, i64 208
   %58 = load ptr, ptr %img_buffer_original.i.i161, align 8
@@ -14532,7 +14551,7 @@ if.then2.i188:                                    ; preds = %if.end.i185
   %buffer_start.i.i191 = getelementptr inbounds i8, ptr %64, i64 56
   %buflen.i.i192 = getelementptr inbounds i8, ptr %64, i64 52
   %71 = load i32, ptr %buflen.i.i192, align 4
-  %call.i.i193 = tail call i32 %69(ptr noundef %70, ptr noundef nonnull %buffer_start.i.i191, i32 noundef %71) #39
+  %call.i.i193 = tail call i32 %69(ptr noundef %70, ptr noundef nonnull %buffer_start.i.i191, i32 noundef %71) #38
   %72 = load ptr, ptr %img_buffer.i182, align 8
   %img_buffer_original.i.i194 = getelementptr inbounds i8, ptr %64, i64 208
   %73 = load ptr, ptr %img_buffer_original.i.i194, align 8
@@ -14713,7 +14732,7 @@ if.then2.i223:                                    ; preds = %if.end.i220
   %buffer_start.i.i226 = getelementptr inbounds i8, ptr %84, i64 56
   %buflen.i.i227 = getelementptr inbounds i8, ptr %84, i64 52
   %91 = load i32, ptr %buflen.i.i227, align 4
-  %call.i.i228 = tail call i32 %89(ptr noundef %90, ptr noundef nonnull %buffer_start.i.i226, i32 noundef %91) #39
+  %call.i.i228 = tail call i32 %89(ptr noundef %90, ptr noundef nonnull %buffer_start.i.i226, i32 noundef %91) #38
   %92 = load ptr, ptr %img_buffer.i217, align 8
   %img_buffer_original.i.i229 = getelementptr inbounds i8, ptr %84, i64 208
   %93 = load ptr, ptr %img_buffer_original.i.i229, align 8
@@ -14806,7 +14825,7 @@ if.then2.i256:                                    ; preds = %if.end.i253
   %buffer_start.i.i259 = getelementptr inbounds i8, ptr %97, i64 56
   %buflen.i.i260 = getelementptr inbounds i8, ptr %97, i64 52
   %104 = load i32, ptr %buflen.i.i260, align 4
-  %call.i.i261 = tail call i32 %102(ptr noundef %103, ptr noundef nonnull %buffer_start.i.i259, i32 noundef %104) #39
+  %call.i.i261 = tail call i32 %102(ptr noundef %103, ptr noundef nonnull %buffer_start.i.i259, i32 noundef %104) #38
   %105 = load ptr, ptr %img_buffer.i250, align 8
   %img_buffer_original.i.i262 = getelementptr inbounds i8, ptr %97, i64 208
   %106 = load ptr, ptr %img_buffer_original.i.i262, align 8
@@ -14918,7 +14937,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds i8, ptr %114, i64 40
   %120 = load ptr, ptr %io_user_data.i, align 8
   %sub.i286 = sub nsw i32 %L.2, %conv.i
-  tail call void %119(ptr noundef %120, i32 noundef %sub.i286) #39
+  tail call void %119(ptr noundef %120, i32 noundef %sub.i286) #38
   br label %return
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -14978,7 +14997,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %1, i64 52
   %8 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #39
+  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #38
   %9 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %1, i64 208
   %10 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -15080,7 +15099,7 @@ if.then2.i59:                                     ; preds = %if.end.i56
   %buffer_start.i.i62 = getelementptr inbounds i8, ptr %18, i64 56
   %buflen.i.i63 = getelementptr inbounds i8, ptr %18, i64 52
   %25 = load i32, ptr %buflen.i.i63, align 4
-  %call.i.i64 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull %buffer_start.i.i62, i32 noundef %25) #39
+  %call.i.i64 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull %buffer_start.i.i62, i32 noundef %25) #38
   %26 = load ptr, ptr %img_buffer.i53, align 8
   %img_buffer_original.i.i65 = getelementptr inbounds i8, ptr %18, i64 208
   %27 = load ptr, ptr %img_buffer_original.i.i65, align 8
@@ -15146,7 +15165,7 @@ if.then2.i92:                                     ; preds = %if.end.i89
   %buffer_start.i.i95 = getelementptr inbounds i8, ptr %30, i64 56
   %buflen.i.i96 = getelementptr inbounds i8, ptr %30, i64 52
   %37 = load i32, ptr %buflen.i.i96, align 4
-  %call.i.i97 = tail call i32 %35(ptr noundef %36, ptr noundef nonnull %buffer_start.i.i95, i32 noundef %37) #39
+  %call.i.i97 = tail call i32 %35(ptr noundef %36, ptr noundef nonnull %buffer_start.i.i95, i32 noundef %37) #38
   %38 = load ptr, ptr %img_buffer.i86, align 8
   %img_buffer_original.i.i98 = getelementptr inbounds i8, ptr %30, i64 208
   %39 = load ptr, ptr %img_buffer_original.i.i98, align 8
@@ -15278,7 +15297,7 @@ if.then2.i125:                                    ; preds = %if.end.i122
   %buffer_start.i.i128 = getelementptr inbounds i8, ptr %42, i64 56
   %buflen.i.i129 = getelementptr inbounds i8, ptr %42, i64 52
   %56 = load i32, ptr %buflen.i.i129, align 4
-  %call.i.i130 = tail call i32 %54(ptr noundef %55, ptr noundef nonnull %buffer_start.i.i128, i32 noundef %56) #39
+  %call.i.i130 = tail call i32 %54(ptr noundef %55, ptr noundef nonnull %buffer_start.i.i128, i32 noundef %56) #38
   %57 = load ptr, ptr %img_buffer.i119, align 8
   %img_buffer_original.i.i131 = getelementptr inbounds i8, ptr %42, i64 208
   %58 = load ptr, ptr %img_buffer_original.i.i131, align 8
@@ -15346,7 +15365,7 @@ if.then2.i158:                                    ; preds = %if.end.i155
   %buffer_start.i.i161 = getelementptr inbounds i8, ptr %61, i64 56
   %buflen.i.i162 = getelementptr inbounds i8, ptr %61, i64 52
   %68 = load i32, ptr %buflen.i.i162, align 4
-  %call.i.i163 = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %buffer_start.i.i161, i32 noundef %68) #39
+  %call.i.i163 = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %buffer_start.i.i161, i32 noundef %68) #38
   %69 = load ptr, ptr %img_buffer.i152, align 8
   %img_buffer_original.i.i164 = getelementptr inbounds i8, ptr %61, i64 208
   %70 = load ptr, ptr %img_buffer_original.i.i164, align 8
@@ -15414,7 +15433,7 @@ if.then2.i191:                                    ; preds = %if.end.i188
   %buffer_start.i.i194 = getelementptr inbounds i8, ptr %73, i64 56
   %buflen.i.i195 = getelementptr inbounds i8, ptr %73, i64 52
   %80 = load i32, ptr %buflen.i.i195, align 4
-  %call.i.i196 = tail call i32 %78(ptr noundef %79, ptr noundef nonnull %buffer_start.i.i194, i32 noundef %80) #39
+  %call.i.i196 = tail call i32 %78(ptr noundef %79, ptr noundef nonnull %buffer_start.i.i194, i32 noundef %80) #38
   %81 = load ptr, ptr %img_buffer.i185, align 8
   %img_buffer_original.i.i197 = getelementptr inbounds i8, ptr %73, i64 208
   %82 = load ptr, ptr %img_buffer_original.i.i197, align 8
@@ -15535,7 +15554,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  tail call void @free(ptr noundef nonnull %0) #39
+  tail call void @free(ptr noundef nonnull %0) #38
   %data = getelementptr inbounds i8, ptr %arrayidx, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data, i8 0, i64 16, i1 false)
   br label %if.end
@@ -15547,7 +15566,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %tobool15.not, label %if.end28, label %if.then16
 
 if.then16:                                        ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %1) #39
+  tail call void @free(ptr noundef nonnull %1) #38
   store ptr null, ptr %raw_coeff, align 8
   %coeff = getelementptr inbounds i8, ptr %arrayidx, i64 80
   store ptr null, ptr %coeff, align 8
@@ -15560,7 +15579,7 @@ if.end28:                                         ; preds = %if.then16, %if.end
   br i1 %tobool32.not, label %for.inc, label %if.then33
 
 if.then33:                                        ; preds = %if.end28
-  tail call void @free(ptr noundef nonnull %2) #39
+  tail call void @free(ptr noundef nonnull %2) #38
   store ptr null, ptr %linebuf, align 8
   br label %for.inc
 
@@ -15614,7 +15633,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %0, i64 52
   %8 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #39
+  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #38
   %9 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %0, i64 208
   %10 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -15718,7 +15737,7 @@ if.then2.i173:                                    ; preds = %if.end.i170
   %buffer_start.i.i176 = getelementptr inbounds i8, ptr %0, i64 56
   %buflen.i.i177 = getelementptr inbounds i8, ptr %0, i64 52
   %24 = load i32, ptr %buflen.i.i177, align 4
-  %call.i.i178 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %buffer_start.i.i176, i32 noundef %24) #39
+  %call.i.i178 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %buffer_start.i.i176, i32 noundef %24) #38
   %25 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i179 = getelementptr inbounds i8, ptr %0, i64 208
   %26 = load ptr, ptr %img_buffer_original.i.i179, align 8
@@ -15838,7 +15857,7 @@ if.then2.i206:                                    ; preds = %if.end.i203
   %36 = load ptr, ptr %io.i.i207, align 8
   %37 = load ptr, ptr %io_user_data.i.i208, align 8
   %38 = load i32, ptr %buflen.i.i210, align 4
-  %call.i.i211 = tail call i32 %36(ptr noundef %37, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %38) #39
+  %call.i.i211 = tail call i32 %36(ptr noundef %37, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %38) #38
   %39 = load ptr, ptr %img_buffer.i, align 8
   %40 = load ptr, ptr %img_buffer_original.i.i212, align 8
   %sub.ptr.lhs.cast.i.i213 = ptrtoint ptr %39 to i64
@@ -15916,7 +15935,7 @@ if.then2.i239:                                    ; preds = %if.end.i236
   %50 = load ptr, ptr %io.i.i207, align 8
   %51 = load ptr, ptr %io_user_data.i.i208, align 8
   %52 = load i32, ptr %buflen.i.i210, align 4
-  %call.i.i244 = tail call i32 %50(ptr noundef %51, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %52) #39
+  %call.i.i244 = tail call i32 %50(ptr noundef %51, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %52) #38
   %53 = load ptr, ptr %img_buffer.i, align 8
   %54 = load ptr, ptr %img_buffer_original.i.i212, align 8
   %sub.ptr.lhs.cast.i.i246 = ptrtoint ptr %53 to i64
@@ -16001,7 +16020,7 @@ if.then2.i272:                                    ; preds = %if.end.i269
   %65 = load ptr, ptr %io.i.i207, align 8
   %66 = load ptr, ptr %io_user_data.i.i208, align 8
   %67 = load i32, ptr %buflen.i.i210, align 4
-  %call.i.i277 = tail call i32 %65(ptr noundef %66, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %67) #39
+  %call.i.i277 = tail call i32 %65(ptr noundef %66, ptr noundef nonnull %buffer_start.i.i209, i32 noundef %67) #38
   %68 = load ptr, ptr %img_buffer.i, align 8
   %69 = load ptr, ptr %img_buffer_original.i.i212, align 8
   %sub.ptr.lhs.cast.i.i279 = ptrtoint ptr %68 to i64
@@ -16324,7 +16343,7 @@ if.then.i:                                        ; preds = %while.body23
   %5 = load ptr, ptr %eof.i, align 8
   %io_user_data.i = getelementptr inbounds i8, ptr %3, i64 40
   %6 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %5(ptr noundef %6) #39
+  %call.i = tail call i32 %5(ptr noundef %6) #38
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end28, label %if.end.i
 
@@ -16384,7 +16403,7 @@ if.then.i:                                        ; preds = %while.cond
   %2 = load ptr, ptr %eof.i, align 8
   %io_user_data.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %2(ptr noundef %3) #39
+  %call.i = tail call i32 %2(ptr noundef %3) #38
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %while.body, label %if.end.i
 
@@ -16431,7 +16450,7 @@ if.then2.i:                                       ; preds = %if.end.i10
   %buffer_start.i.i = getelementptr inbounds i8, ptr %7, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %7, i64 52
   %14 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %12(ptr noundef %13, ptr noundef nonnull %buffer_start.i.i, i32 noundef %14) #39
+  %call.i.i = tail call i32 %12(ptr noundef %13, ptr noundef nonnull %buffer_start.i.i, i32 noundef %14) #38
   %15 = load ptr, ptr %img_buffer.i7, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %7, i64 208
   %16 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -16487,7 +16506,7 @@ if.then.i17:                                      ; preds = %while.body5
   %21 = load ptr, ptr %eof.i18, align 8
   %io_user_data.i19 = getelementptr inbounds i8, ptr %19, i64 40
   %22 = load ptr, ptr %io_user_data.i19, align 8
-  %call.i20 = tail call i32 %21(ptr noundef %22) #39
+  %call.i20 = tail call i32 %21(ptr noundef %22) #38
   %tobool2.not.i21 = icmp eq i32 %call.i20, 0
   br i1 %tobool2.not.i21, label %if.end, label %if.end.i22
 
@@ -16534,7 +16553,7 @@ if.then2.i38:                                     ; preds = %if.end.i35
   %buffer_start.i.i41 = getelementptr inbounds i8, ptr %26, i64 56
   %buflen.i.i42 = getelementptr inbounds i8, ptr %26, i64 52
   %33 = load i32, ptr %buflen.i.i42, align 4
-  %call.i.i43 = tail call i32 %31(ptr noundef %32, ptr noundef nonnull %buffer_start.i.i41, i32 noundef %33) #39
+  %call.i.i43 = tail call i32 %31(ptr noundef %32, ptr noundef nonnull %buffer_start.i.i41, i32 noundef %33) #38
   %34 = load ptr, ptr %img_buffer.i32, align 8
   %img_buffer_original.i.i44 = getelementptr inbounds i8, ptr %26, i64 208
   %35 = load ptr, ptr %img_buffer_original.i.i44, align 8
@@ -16765,7 +16784,7 @@ stbi__jpeg_dequantize.exit.us.i:                  ; preds = %for.body.i.us.i
   %add.ptr35.us.i = getelementptr inbounds i8, ptr %19, i64 %idx.ext34.us.i
   %21 = shl nsw i64 %indvars.iv.i, 3
   %add.ptr38.us.i = getelementptr inbounds i8, ptr %add.ptr35.us.i, i64 %21
-  tail call void %18(ptr noundef %add.ptr38.us.i, i32 noundef %20, ptr noundef nonnull %add.ptr.us.i) #39
+  tail call void %18(ptr noundef %add.ptr38.us.i, i32 noundef %20, ptr noundef nonnull %add.ptr.us.i) #38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.cond9.for.inc43_crit_edge.us.i, label %for.body11.us.i, !llvm.loop !115
@@ -17466,7 +17485,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  tail call void @free(ptr noundef nonnull %2) #39
+  tail call void @free(ptr noundef nonnull %2) #38
   %data.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i, i8 0, i64 16, i1 false)
   br label %if.end.i
@@ -17478,7 +17497,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.bod
   br i1 %tobool15.not.i, label %if.end28.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end.i
-  tail call void @free(ptr noundef nonnull %3) #39
+  tail call void @free(ptr noundef nonnull %3) #38
   store ptr null, ptr %raw_coeff.i, align 8
   %coeff.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
   store ptr null, ptr %coeff.i, align 8
@@ -17491,7 +17510,7 @@ if.end28.i:                                       ; preds = %if.then16.i, %if.en
   br i1 %tobool32.not.i, label %for.inc.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end28.i
-  tail call void @free(ptr noundef nonnull %4) #39
+  tail call void @free(ptr noundef nonnull %4) #38
   store ptr null, ptr %linebuf.i, align 8
   br label %for.inc.i
 
@@ -17560,7 +17579,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  tail call void @free(ptr noundef nonnull %4) #39
+  tail call void @free(ptr noundef nonnull %4) #38
   %data.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i, i8 0, i64 16, i1 false)
   br label %if.end.i.i
@@ -17572,7 +17591,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %for.b
   br i1 %tobool15.not.i.i, label %if.end28.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %if.end.i.i
-  tail call void @free(ptr noundef nonnull %5) #39
+  tail call void @free(ptr noundef nonnull %5) #38
   store ptr null, ptr %raw_coeff.i.i, align 8
   %coeff.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 80
   store ptr null, ptr %coeff.i.i, align 8
@@ -17585,7 +17604,7 @@ if.end28.i.i:                                     ; preds = %if.then16.i.i, %if.
   br i1 %tobool32.not.i.i, label %for.inc.i.i, label %if.then33.i.i
 
 if.then33.i.i:                                    ; preds = %if.end28.i.i
-  tail call void @free(ptr noundef nonnull %6) #39
+  tail call void @free(ptr noundef nonnull %6) #38
   store ptr null, ptr %linebuf.i.i, align 8
   br label %for.inc.i.i
 
@@ -17652,7 +17671,7 @@ for.body.i.i236:                                  ; preds = %for.inc.i.i252, %fo
   br i1 %tobool.not.i.i240, label %if.end.i.i243, label %if.then.i.i241
 
 if.then.i.i241:                                   ; preds = %for.body.i.i236
-  tail call void @free(ptr noundef nonnull %12) #39
+  tail call void @free(ptr noundef nonnull %12) #38
   %data.i.i242 = getelementptr inbounds i8, ptr %arrayidx.i.i238, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i242, i8 0, i64 16, i1 false)
   br label %if.end.i.i243
@@ -17664,7 +17683,7 @@ if.end.i.i243:                                    ; preds = %if.then.i.i241, %fo
   br i1 %tobool15.not.i.i245, label %if.end28.i.i248, label %if.then16.i.i246
 
 if.then16.i.i246:                                 ; preds = %if.end.i.i243
-  tail call void @free(ptr noundef nonnull %13) #39
+  tail call void @free(ptr noundef nonnull %13) #38
   store ptr null, ptr %raw_coeff.i.i244, align 8
   %coeff.i.i247 = getelementptr inbounds i8, ptr %arrayidx.i.i238, i64 80
   store ptr null, ptr %coeff.i.i247, align 8
@@ -17677,7 +17696,7 @@ if.end28.i.i248:                                  ; preds = %if.then16.i.i246, %
   br i1 %tobool32.not.i.i250, label %for.inc.i.i252, label %if.then33.i.i251
 
 if.then33.i.i251:                                 ; preds = %if.end28.i.i248
-  tail call void @free(ptr noundef nonnull %14) #39
+  tail call void @free(ptr noundef nonnull %14) #38
   store ptr null, ptr %linebuf.i.i249, align 8
   br label %for.inc.i.i252
 
@@ -17702,7 +17721,7 @@ for.body:                                         ; preds = %if.end32, %for.inc
   %arrayidx = getelementptr inbounds [4 x %struct.stbi__resample], ptr %res_comp, i64 0, i64 %indvars.iv
   %add = add i32 %15, 3
   %conv = zext i32 %add to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   %arrayidx37 = getelementptr inbounds [4 x %struct.anon], ptr %img_comp, i64 0, i64 %indvars.iv
   %linebuf = getelementptr inbounds i8, ptr %arrayidx37, i64 72
   store ptr %call.i, ptr %linebuf, align 8
@@ -17727,7 +17746,7 @@ for.body.i.i261:                                  ; preds = %for.inc.i.i277, %fo
   br i1 %tobool.not.i.i265, label %if.end.i.i268, label %if.then.i.i266
 
 if.then.i.i266:                                   ; preds = %for.body.i.i261
-  tail call void @free(ptr noundef nonnull %17) #39
+  tail call void @free(ptr noundef nonnull %17) #38
   %data.i.i267 = getelementptr inbounds i8, ptr %arrayidx.i.i263, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i267, i8 0, i64 16, i1 false)
   br label %if.end.i.i268
@@ -17739,7 +17758,7 @@ if.end.i.i268:                                    ; preds = %if.then.i.i266, %fo
   br i1 %tobool15.not.i.i270, label %if.end28.i.i273, label %if.then16.i.i271
 
 if.then16.i.i271:                                 ; preds = %if.end.i.i268
-  tail call void @free(ptr noundef nonnull %18) #39
+  tail call void @free(ptr noundef nonnull %18) #38
   store ptr null, ptr %raw_coeff.i.i269, align 8
   %coeff.i.i272 = getelementptr inbounds i8, ptr %arrayidx.i.i263, i64 80
   store ptr null, ptr %coeff.i.i272, align 8
@@ -17752,7 +17771,7 @@ if.end28.i.i273:                                  ; preds = %if.then16.i.i271, %
   br i1 %tobool32.not.i.i275, label %for.inc.i.i277, label %if.then33.i.i276
 
 if.then33.i.i276:                                 ; preds = %if.end28.i.i273
-  tail call void @free(ptr noundef nonnull %19) #39
+  tail call void @free(ptr noundef nonnull %19) #38
   store ptr null, ptr %linebuf.i.i274, align 8
   br label %for.inc.i.i277
 
@@ -17867,7 +17886,7 @@ stbi__mad3sizes_valid.exit.i:                     ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mad3sizes_valid.exit.i
   %add2.i = add nsw i32 %mul4.i.i, 1
   %conv.i = sext i32 %add2.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %tobool113.not = icmp eq ptr %call.i.i, null
   br i1 %tobool113.not, label %if.then114, label %for.cond119.preheader
 
@@ -17904,7 +17923,7 @@ for.body.i.i286:                                  ; preds = %for.inc.i.i302, %fo
   br i1 %tobool.not.i.i290, label %if.end.i.i293, label %if.then.i.i291
 
 if.then.i.i291:                                   ; preds = %for.body.i.i286
-  tail call void @free(ptr noundef nonnull %32) #39
+  tail call void @free(ptr noundef nonnull %32) #38
   %data.i.i292 = getelementptr inbounds i8, ptr %arrayidx.i.i288, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i292, i8 0, i64 16, i1 false)
   br label %if.end.i.i293
@@ -17916,7 +17935,7 @@ if.end.i.i293:                                    ; preds = %if.then.i.i291, %fo
   br i1 %tobool15.not.i.i295, label %if.end28.i.i298, label %if.then16.i.i296
 
 if.then16.i.i296:                                 ; preds = %if.end.i.i293
-  tail call void @free(ptr noundef nonnull %33) #39
+  tail call void @free(ptr noundef nonnull %33) #38
   store ptr null, ptr %raw_coeff.i.i294, align 8
   %coeff.i.i297 = getelementptr inbounds i8, ptr %arrayidx.i.i288, i64 80
   store ptr null, ptr %coeff.i.i297, align 8
@@ -17929,7 +17948,7 @@ if.end28.i.i298:                                  ; preds = %if.then16.i.i296, %
   br i1 %tobool32.not.i.i300, label %for.inc.i.i302, label %if.then33.i.i301
 
 if.then33.i.i301:                                 ; preds = %if.end28.i.i298
-  tail call void @free(ptr noundef nonnull %34) #39
+  tail call void @free(ptr noundef nonnull %34) #38
   store ptr null, ptr %linebuf.i.i299, align 8
   br label %for.inc.i.i302
 
@@ -17976,7 +17995,7 @@ for.body131:                                      ; preds = %for.body131.prehead
   %42 = load i32, ptr %w_lores159, align 16
   %hs160 = getelementptr inbounds i8, ptr %arrayidx134, i64 24
   %43 = load i32, ptr %hs160, align 8
-  %call161 = tail call ptr %40(ptr noundef %41, ptr noundef %cond151, ptr noundef %cond158, i32 noundef %42, i32 noundef %43) #39
+  %call161 = tail call ptr %40(ptr noundef %41, ptr noundef %cond151, ptr noundef %cond158, i32 noundef %42, i32 noundef %43) #38
   %arrayidx163 = getelementptr inbounds [4 x ptr], ptr %coutput, i64 0, i64 %indvars.iv487
   store ptr %call161, ptr %arrayidx163, align 8
   %inc165 = add nsw i32 %38, 1
@@ -18134,7 +18153,7 @@ if.then277:                                       ; preds = %if.then238
   %72 = load ptr, ptr %arrayidx424, align 8
   %73 = load ptr, ptr %arrayidx428, align 16
   %74 = load i32, ptr %49, align 8
-  tail call void %71(ptr noundef nonnull %add.ptr, ptr noundef %48, ptr noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef %cond11) #39
+  tail call void %71(ptr noundef nonnull %add.ptr, ptr noundef %48, ptr noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef %cond11) #38
   %75 = load ptr, ptr %z, align 8
   %76 = load i32, ptr %75, align 8
   %cmp286460.not = icmp eq i32 %76, 0
@@ -18443,7 +18462,7 @@ for.inc514.sink.split:                            ; preds = %if.then238, %if.the
   %138 = load ptr, ptr %arrayidx424, align 8
   %139 = load ptr, ptr %arrayidx428, align 16
   %140 = load i32, ptr %49, align 8
-  tail call void %137(ptr noundef nonnull %add.ptr, ptr noundef %48, ptr noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %cond11) #39
+  tail call void %137(ptr noundef nonnull %add.ptr, ptr noundef %48, ptr noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %cond11) #38
   br label %for.inc514
 
 for.inc514:                                       ; preds = %for.body458, %for.body414, %for.body501, %for.body487, %for.body378, %for.body355, %for.body288, %for.body248, %for.body209, %for.body330, %for.inc514.sink.split, %for.cond496.preheader, %for.cond482.preheader, %for.cond453.preheader, %for.cond409.preheader, %for.cond373.preheader, %for.cond350.preheader, %if.then277, %for.cond243.preheader, %for.cond204.preheader, %for.cond325.preheader
@@ -18474,7 +18493,7 @@ for.body.i.i403:                                  ; preds = %for.inc.i.i419, %fo
   br i1 %tobool.not.i.i407, label %if.end.i.i410, label %if.then.i.i408
 
 if.then.i.i408:                                   ; preds = %for.body.i.i403
-  tail call void @free(ptr noundef nonnull %144) #39
+  tail call void @free(ptr noundef nonnull %144) #38
   %data.i.i409 = getelementptr inbounds i8, ptr %arrayidx.i.i405, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i409, i8 0, i64 16, i1 false)
   br label %if.end.i.i410
@@ -18486,7 +18505,7 @@ if.end.i.i410:                                    ; preds = %if.then.i.i408, %fo
   br i1 %tobool15.not.i.i412, label %if.end28.i.i415, label %if.then16.i.i413
 
 if.then16.i.i413:                                 ; preds = %if.end.i.i410
-  tail call void @free(ptr noundef nonnull %145) #39
+  tail call void @free(ptr noundef nonnull %145) #38
   store ptr null, ptr %raw_coeff.i.i411, align 8
   %coeff.i.i414 = getelementptr inbounds i8, ptr %arrayidx.i.i405, i64 80
   store ptr null, ptr %coeff.i.i414, align 8
@@ -18499,7 +18518,7 @@ if.end28.i.i415:                                  ; preds = %if.then16.i.i413, %
   br i1 %tobool32.not.i.i417, label %for.inc.i.i419, label %if.then33.i.i418
 
 if.then33.i.i418:                                 ; preds = %if.end28.i.i415
-  tail call void @free(ptr noundef nonnull %146) #39
+  tail call void @free(ptr noundef nonnull %146) #38
   store ptr null, ptr %linebuf.i.i416, align 8
   br label %for.inc.i.i419
 
@@ -18653,7 +18672,7 @@ if.then10.i:                                      ; preds = %if.end8.i
 
 stbi__jpeg_info_raw.exit:                         ; preds = %if.then.i, %if.end8.i, %if.then10.i
   %retval.0.i = phi i32 [ 0, %if.then.i ], [ 1, %if.then10.i ], [ 1, %if.end8.i ]
-  tail call void @free(ptr noundef nonnull %calloc) #39
+  tail call void @free(ptr noundef nonnull %calloc) #38
   br label %return
 
 return:                                           ; preds = %stbi__jpeg_info_raw.exit, %if.then
@@ -19270,7 +19289,7 @@ if.end18:                                         ; preds = %while.body
 while.end:                                        ; preds = %if.end18, %while.cond.preheader
   %limit.0.lcssa = phi i32 [ %conv7, %while.cond.preheader ], [ %mul, %if.end18 ]
   %conv20 = zext i32 %limit.0.lcssa to i64
-  %call21 = tail call ptr @realloc(ptr noundef %2, i64 noundef %conv20) #42
+  %call21 = tail call ptr @realloc(ptr noundef %2, i64 noundef %conv20) #40
   %cmp22 = icmp eq ptr %call21, null
   br i1 %cmp22, label %if.then24, label %if.end26
 
@@ -19361,7 +19380,7 @@ if.end18.i:                                       ; preds = %while.body.i
 while.end.i:                                      ; preds = %if.end18.i, %while.cond.preheader.i
   %limit.0.lcssa.i = phi i32 [ %conv7.i, %while.cond.preheader.i ], [ %mul.i, %if.end18.i ]
   %conv20.i = zext i32 %limit.0.lcssa.i to i64
-  %call21.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %conv20.i) #42
+  %call21.i = tail call ptr @realloc(ptr noundef %3, i64 noundef %conv20.i) #40
   %cmp22.i = icmp eq ptr %call21.i, null
   br i1 %cmp22.i, label %return.sink.split, label %if.end9
 
@@ -19585,7 +19604,7 @@ if.end18.i115:                                    ; preds = %while.body.i112
 while.end.i101:                                   ; preds = %if.end18.i115, %while.cond.preheader.i95
   %limit.0.lcssa.i102 = phi i32 [ %conv7.i98, %while.cond.preheader.i95 ], [ %mul.i116, %if.end18.i115 ]
   %conv20.i103 = zext i32 %limit.0.lcssa.i102 to i64
-  %call21.i104 = tail call ptr @realloc(ptr noundef %29, i64 noundef %conv20.i103) #42
+  %call21.i104 = tail call ptr @realloc(ptr noundef %29, i64 noundef %conv20.i103) #40
   %cmp22.i105 = icmp eq ptr %call21.i104, null
   br i1 %cmp22.i105, label %return.sink.split, label %if.end72
 
@@ -20361,7 +20380,7 @@ if.end18.i:                                       ; preds = %while.body.i
 while.end.i:                                      ; preds = %if.end18.i, %while.cond.preheader.i
   %limit.0.lcssa.i = phi i32 [ %conv7.i, %while.cond.preheader.i ], [ %mul.i, %if.end18.i ]
   %conv20.i = zext i32 %limit.0.lcssa.i to i64
-  %call21.i = tail call ptr @realloc(ptr noundef %30, i64 noundef %conv20.i) #42
+  %call21.i = tail call ptr @realloc(ptr noundef %30, i64 noundef %conv20.i) #40
   %cmp22.i = icmp eq ptr %call21.i, null
   br i1 %cmp22.i, label %if.then24.i, label %stbi__zexpand.exit
 
@@ -20704,7 +20723,7 @@ define ptr @stbi_zlib_decode_malloc_guesssize(ptr noundef %buffer, i32 noundef %
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
   %conv = sext i32 %initial_size to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -20743,7 +20762,7 @@ if.then5:                                         ; preds = %if.then3
 
 if.else:                                          ; preds = %if.end
   %1 = load ptr, ptr %zout_start.i, align 8
-  tail call void @free(ptr noundef %1) #39
+  tail call void @free(ptr noundef %1) #38
   br label %return
 
 return:                                           ; preds = %if.then3, %if.then5, %entry, %if.else
@@ -20756,7 +20775,7 @@ define ptr @stbi_zlib_decode_malloc(ptr noundef %buffer, i32 noundef %len, ptr n
 entry:
   %a.i = alloca %struct.stbi__zbuf, align 8
   call void @llvm.lifetime.start.p0(i64 4104, ptr nonnull %a.i)
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #40
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #39
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %stbi_zlib_decode_malloc_guesssize.exit, label %if.end.i
 
@@ -20795,7 +20814,7 @@ if.then5.i:                                       ; preds = %if.then3.i
 
 if.else.i:                                        ; preds = %if.end.i
   %1 = load ptr, ptr %zout_start.i.i, align 8
-  tail call void @free(ptr noundef %1) #39
+  tail call void @free(ptr noundef %1) #38
   br label %stbi_zlib_decode_malloc_guesssize.exit
 
 stbi_zlib_decode_malloc_guesssize.exit:           ; preds = %entry, %if.then3.i, %if.then5.i, %if.else.i
@@ -20809,7 +20828,7 @@ define ptr @stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %buffer, i3
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
   %conv = sext i32 %initial_size to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -20848,7 +20867,7 @@ if.then5:                                         ; preds = %if.then3
 
 if.else:                                          ; preds = %if.end
   %1 = load ptr, ptr %zout_start.i, align 8
-  tail call void @free(ptr noundef %1) #39
+  tail call void @free(ptr noundef %1) #38
   br label %return
 
 return:                                           ; preds = %if.then3, %if.then5, %entry, %if.else
@@ -20891,7 +20910,7 @@ entry:
 define ptr @stbi_zlib_decode_noheader_malloc(ptr noundef %buffer, i32 noundef %len, ptr noundef writeonly %outlen) local_unnamed_addr #2 {
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
-  %call.i = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #40
+  %call.i = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #39
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -20930,7 +20949,7 @@ if.then4:                                         ; preds = %if.then2
 
 if.else:                                          ; preds = %if.end
   %1 = load ptr, ptr %zout_start.i, align 8
-  tail call void @free(ptr noundef %1) #39
+  tail call void @free(ptr noundef %1) #38
   br label %return
 
 return:                                           ; preds = %if.then2, %if.then4, %entry, %if.else
@@ -21031,7 +21050,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %io.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i, align 8
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -21209,7 +21228,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stbi__mul2sizes_valid.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul4, %mul.i.i
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %out = getelementptr inbounds i8, ptr %a, i64 24
   store ptr %call.i.i, ptr %out, align 8
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -21297,7 +21316,7 @@ if.then23:                                        ; preds = %if.end19
 if.end25:                                         ; preds = %if.end19
   %mul.i.i218 = shl nuw nsw i32 %shr, 1
   %conv.i219 = zext nneg i32 %mul.i.i218 to i64
-  %call.i.i220 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i219) #40
+  %call.i.i220 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i219) #39
   %tobool27.not = icmp eq ptr %call.i.i220, null
   br i1 %tobool27.not, label %if.then28, label %if.end30
 
@@ -21864,7 +21883,7 @@ for.inc393:                                       ; preds = %for.body357, %for.b
 
 for.end395:                                       ; preds = %for.inc393, %if.end30, %if.then47
   %cmp34269 = phi i1 [ %cmp34314.lcssa, %if.then47 ], [ true, %if.end30 ], [ true, %for.inc393 ]
-  tail call void @free(ptr noundef %call.i.i220) #39
+  tail call void @free(ptr noundef %call.i.i220) #38
   %. = zext i1 %cmp34269 to i32
   br label %return
 
@@ -21922,7 +21941,7 @@ stbi__mul2sizes_valid.exit14.i.i:                 ; preds = %if.end.i8.i.i
 stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stbi__mul2sizes_valid.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul.i.i, %mul
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %tobool7.not = icmp eq ptr %call.i.i, null
   br i1 %tobool7.not, label %if.then8, label %for.cond.preheader
 
@@ -22026,12 +22045,12 @@ for.cond47.for.inc74_crit_edge.us:                ; preds = %for.body49.us
   br i1 %cmp45.us, label %for.cond47.preheader.us, label %for.end76, !llvm.loop !192
 
 if.then42:                                        ; preds = %if.then33
-  tail call void @free(ptr noundef %call.i.i) #39
+  tail call void @free(ptr noundef %call.i.i) #38
   br label %return
 
 for.end76:                                        ; preds = %for.cond47.for.inc74_crit_edge.us, %for.cond44.preheader
   %32 = load ptr, ptr %out, align 8
-  tail call void @free(ptr noundef %32) #39
+  tail call void @free(ptr noundef %32) #38
   %idx.ext78 = zext i32 %mul39 to i64
   %add.ptr79 = getelementptr inbounds i8, ptr %image_data.addr.064, i64 %idx.ext78
   %sub80 = sub i32 %image_data_len.addr.063, %mul39
@@ -22231,7 +22250,7 @@ stbi__mul2sizes_valid.exit.i.i:                   ; preds = %if.end.i.i.i
 stbi__malloc_mad2.exit:                           ; preds = %if.end.i.i.i, %stbi__mul2sizes_valid.exit.i.i
   %mul.i.i = mul nsw i32 %mul, %pal_img_n
   %conv.i = sext i32 %mul.i.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #40
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
   %cmp = icmp eq ptr %call.i.i, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -22303,7 +22322,7 @@ for.body20:                                       ; preds = %for.body20.preheade
   br i1 %exitcond.not, label %if.end45, label %for.body20, !llvm.loop !199
 
 if.end45:                                         ; preds = %for.body20, %for.body, %for.cond17.preheader, %for.cond.preheader
-  tail call void @free(ptr noundef %3) #39
+  tail call void @free(ptr noundef %3) #38
   store ptr %call.i.i, ptr %out, align 8
   br label %return
 
@@ -22527,7 +22546,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %5 = load ptr, ptr %io.i.i.i, align 8
   %6 = load ptr, ptr %io_user_data.i.i.i, align 8
   %7 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %7) #39
+  %call.i.i.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %7) #38
   %8 = load ptr, ptr %img_buffer.i.i, align 8
   %9 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %8 to i64
@@ -22648,7 +22667,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %20 = load ptr, ptr %skip.i, align 8
   %21 = load ptr, ptr %io_user_data.i.i.i, align 8
   %sub.i = sub nsw i32 %add.i.i, %conv.i
-  tail call void %20(ptr noundef %21, i32 noundef %sub.i) #39
+  tail call void %20(ptr noundef %21, i32 noundef %sub.i) #38
   br label %sw.epilog
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -22730,7 +22749,7 @@ if.then2.i193:                                    ; preds = %if.end.i191
   %32 = load ptr, ptr %io.i.i.i, align 8
   %33 = load ptr, ptr %io_user_data.i.i.i, align 8
   %34 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i194 = tail call i32 %32(ptr noundef %33, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %34) #39
+  %call.i.i194 = tail call i32 %32(ptr noundef %33, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %34) #38
   %35 = load ptr, ptr %img_buffer.i.i, align 8
   %36 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %35 to i64
@@ -22799,7 +22818,7 @@ if.then2.i207:                                    ; preds = %if.end.i204
   %44 = load ptr, ptr %io.i.i.i, align 8
   %45 = load ptr, ptr %io_user_data.i.i.i, align 8
   %46 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i212 = tail call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %46) #39
+  %call.i.i212 = tail call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %46) #38
   %47 = load ptr, ptr %img_buffer.i.i, align 8
   %48 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i214 = ptrtoint ptr %47 to i64
@@ -22891,7 +22910,7 @@ if.then2.i240:                                    ; preds = %if.end.i237
   %61 = load ptr, ptr %io.i.i.i, align 8
   %62 = load ptr, ptr %io_user_data.i.i.i, align 8
   %63 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i245 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %63) #39
+  %call.i.i245 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %63) #38
   %64 = load ptr, ptr %img_buffer.i.i, align 8
   %65 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i247 = ptrtoint ptr %64 to i64
@@ -22955,7 +22974,7 @@ if.then2.i273:                                    ; preds = %if.end.i270
   %75 = load ptr, ptr %io.i.i.i, align 8
   %76 = load ptr, ptr %io_user_data.i.i.i, align 8
   %77 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i278 = tail call i32 %75(ptr noundef %76, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %77) #39
+  %call.i.i278 = tail call i32 %75(ptr noundef %76, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %77) #38
   %78 = load ptr, ptr %img_buffer.i.i, align 8
   %79 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i280 = ptrtoint ptr %78 to i64
@@ -23019,7 +23038,7 @@ if.then2.i306:                                    ; preds = %if.end.i303
   %89 = load ptr, ptr %io.i.i.i, align 8
   %90 = load ptr, ptr %io_user_data.i.i.i, align 8
   %91 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i311 = tail call i32 %89(ptr noundef %90, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %91) #39
+  %call.i.i311 = tail call i32 %89(ptr noundef %90, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %91) #38
   %92 = load ptr, ptr %img_buffer.i.i, align 8
   %93 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i313 = ptrtoint ptr %92 to i64
@@ -23174,7 +23193,7 @@ if.then2.i339:                                    ; preds = %if.end.i336
   %109 = load ptr, ptr %io.i.i.i, align 8
   %110 = load ptr, ptr %io_user_data.i.i.i, align 8
   %111 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i344 = tail call i32 %109(ptr noundef %110, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %111) #39
+  %call.i.i344 = tail call i32 %109(ptr noundef %110, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %111) #38
   %112 = load ptr, ptr %img_buffer.i.i, align 8
   %113 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i346 = ptrtoint ptr %112 to i64
@@ -23230,7 +23249,7 @@ if.then2.i372:                                    ; preds = %if.end.i369
   %121 = load ptr, ptr %io.i.i.i, align 8
   %122 = load ptr, ptr %io_user_data.i.i.i, align 8
   %123 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i377 = tail call i32 %121(ptr noundef %122, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %123) #39
+  %call.i.i377 = tail call i32 %121(ptr noundef %122, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %123) #38
   %124 = load ptr, ptr %img_buffer.i.i, align 8
   %125 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i379 = ptrtoint ptr %124 to i64
@@ -23286,7 +23305,7 @@ if.then2.i405:                                    ; preds = %if.end.i402
   %133 = load ptr, ptr %io.i.i.i, align 8
   %134 = load ptr, ptr %io_user_data.i.i.i, align 8
   %135 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i410 = tail call i32 %133(ptr noundef %134, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %135) #39
+  %call.i.i410 = tail call i32 %133(ptr noundef %134, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %135) #38
   %136 = load ptr, ptr %img_buffer.i.i, align 8
   %137 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i412 = ptrtoint ptr %136 to i64
@@ -23412,7 +23431,7 @@ if.then2.i438:                                    ; preds = %if.end.i435
   %154 = load ptr, ptr %io.i.i.i, align 8
   %155 = load ptr, ptr %io_user_data.i.i.i, align 8
   %156 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i443 = tail call i32 %154(ptr noundef %155, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %156) #39
+  %call.i.i443 = tail call i32 %154(ptr noundef %155, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %156) #38
   %157 = load ptr, ptr %img_buffer.i.i, align 8
   %158 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i445 = ptrtoint ptr %157 to i64
@@ -23594,7 +23613,7 @@ while.cond:                                       ; preds = %while.cond, %if.the
 while.end:                                        ; preds = %while.cond
   %177 = load ptr, ptr %idata, align 8
   %conv320 = zext i32 %idata_limit.2 to i64
-  %call321 = tail call ptr @realloc(ptr noundef %177, i64 noundef %conv320) #42
+  %call321 = tail call ptr @realloc(ptr noundef %177, i64 noundef %conv320) #40
   %cmp322 = icmp eq ptr %call321, null
   br i1 %cmp322, label %if.then324, label %if.end326
 
@@ -23654,7 +23673,7 @@ stbi__getn.exit:                                  ; preds = %if.then.i467
   %187 = load ptr, ptr %io_user_data.i.i.i, align 8
   %add.ptr.i478 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv4.i
   %sub.i479 = sub nsw i32 %add.i.i, %conv.i473
-  %call.i480 = tail call i32 %186(ptr noundef %187, ptr noundef %add.ptr.i478, i32 noundef %sub.i479) #39
+  %call.i480 = tail call i32 %186(ptr noundef %187, ptr noundef %add.ptr.i478, i32 noundef %sub.i479) #38
   %cmp8.i.not = icmp eq i32 %call.i480, %sub.i479
   %188 = load ptr, ptr %img_buffer_end.i.i, align 8
   store ptr %188, ptr %img_buffer.i.i, align 8
@@ -23709,7 +23728,7 @@ if.end352:                                        ; preds = %if.end346
 
 if.end372:                                        ; preds = %if.end352
   %197 = load ptr, ptr %idata, align 8
-  call void @free(ptr noundef %197) #39
+  call void @free(ptr noundef %197) #38
   store ptr null, ptr %idata, align 8
   %198 = load i32, ptr %img_n208, align 8
   %add376 = add nsw i32 %198, 1
@@ -23801,7 +23820,7 @@ if.then453:                                       ; preds = %if.else451
 
 if.end457:                                        ; preds = %if.else451, %if.then453, %if.then435
   %212 = load ptr, ptr %expanded, align 8
-  call void @free(ptr noundef %212) #39
+  call void @free(ptr noundef %212) #38
   store ptr null, ptr %expanded, align 8
   %call460 = call i32 @stbi__get32be(ptr noundef nonnull %0)
   br label %return
@@ -23862,7 +23881,7 @@ if.then9.i500:                                    ; preds = %if.then4.i488
   %220 = load ptr, ptr %skip.i, align 8
   %221 = load ptr, ptr %io_user_data.i.i.i, align 8
   %sub.i503 = sub nsw i32 %add.i.i, %conv.i494
-  tail call void %220(ptr noundef %221, i32 noundef %sub.i503) #39
+  tail call void %220(ptr noundef %221, i32 noundef %sub.i503) #38
   br label %sw.epilog
 
 if.end14.i496:                                    ; preds = %if.then4.i488, %if.end3.if.end14_crit_edge.i504
@@ -23989,15 +24008,15 @@ if.end52:                                         ; preds = %if.end43, %if.then4
   %result.2 = phi ptr [ %result.1, %if.then49 ], [ %result.1, %if.end43 ], [ null, %if.end ]
   %out53 = getelementptr inbounds i8, ptr %p, i64 24
   %15 = load ptr, ptr %out53, align 8
-  tail call void @free(ptr noundef %15) #39
+  tail call void @free(ptr noundef %15) #38
   store ptr null, ptr %out53, align 8
   %expanded = getelementptr inbounds i8, ptr %p, i64 16
   %16 = load ptr, ptr %expanded, align 8
-  tail call void @free(ptr noundef %16) #39
+  tail call void @free(ptr noundef %16) #38
   store ptr null, ptr %expanded, align 8
   %idata = getelementptr inbounds i8, ptr %p, i64 8
   %17 = load ptr, ptr %idata, align 8
-  tail call void @free(ptr noundef %17) #39
+  tail call void @free(ptr noundef %17) #38
   store ptr null, ptr %idata, align 8
   br label %return
 
@@ -24168,7 +24187,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -24234,7 +24253,7 @@ if.then2.i19:                                     ; preds = %if.end.i16
   %buffer_start.i.i22 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i23 = getelementptr inbounds i8, ptr %s, i64 52
   %17 = load i32, ptr %buflen.i.i23, align 4
-  %call.i.i24 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i22, i32 noundef %17) #39
+  %call.i.i24 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i22, i32 noundef %17) #38
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i25 = getelementptr inbounds i8, ptr %s, i64 208
   %19 = load ptr, ptr %img_buffer_original.i.i25, align 8
@@ -24462,7 +24481,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -24528,7 +24547,7 @@ if.then2.i101:                                    ; preds = %if.end.i98
   %buffer_start.i.i104 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i105 = getelementptr inbounds i8, ptr %s, i64 52
   %17 = load i32, ptr %buflen.i.i105, align 4
-  %call.i.i106 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i104, i32 noundef %17) #39
+  %call.i.i106 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i104, i32 noundef %17) #38
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i107 = getelementptr inbounds i8, ptr %s, i64 208
   %19 = load ptr, ptr %img_buffer_original.i.i107, align 8
@@ -24884,7 +24903,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %5 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #39
+  %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %buffer_start.i.i, i32 noundef %5) #38
   %6 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %7 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -24948,7 +24967,7 @@ if.then2.i55:                                     ; preds = %if.end.i52
   %buffer_start.i.i58 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i59 = getelementptr inbounds i8, ptr %s, i64 52
   %15 = load i32, ptr %buflen.i.i59, align 4
-  %call.i.i60 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i58, i32 noundef %15) #39
+  %call.i.i60 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i58, i32 noundef %15) #38
   %16 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i61 = getelementptr inbounds i8, ptr %s, i64 208
   %17 = load ptr, ptr %img_buffer_original.i.i61, align 8
@@ -25023,7 +25042,7 @@ if.then2.i90:                                     ; preds = %if.end.i87
   %buffer_start.i.i93 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i94 = getelementptr inbounds i8, ptr %s, i64 52
   %29 = load i32, ptr %buflen.i.i94, align 4
-  %call.i.i95 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i93, i32 noundef %29) #39
+  %call.i.i95 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i93, i32 noundef %29) #38
   %30 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i96 = getelementptr inbounds i8, ptr %s, i64 208
   %31 = load ptr, ptr %img_buffer_original.i.i96, align 8
@@ -25097,7 +25116,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   %39 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 4, %conv.i
-  tail call void %38(ptr noundef %39, i32 noundef %sub.i) #39
+  tail call void %38(ptr noundef %39, i32 noundef %sub.i) #38
   %.pre = load ptr, ptr %img_buffer.i, align 8
   %.pre308 = load ptr, ptr %img_buffer_end.i, align 8
   br label %stbi__skip.exit
@@ -25132,7 +25151,7 @@ if.then2.i130:                                    ; preds = %if.end.i127
   %buffer_start.i.i133 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i134 = getelementptr inbounds i8, ptr %s, i64 52
   %46 = load i32, ptr %buflen.i.i134, align 4
-  %call.i.i135 = tail call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i133, i32 noundef %46) #39
+  %call.i.i135 = tail call i32 %44(ptr noundef %45, ptr noundef nonnull %buffer_start.i.i133, i32 noundef %46) #38
   %47 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i136 = getelementptr inbounds i8, ptr %s, i64 208
   %48 = load ptr, ptr %img_buffer_original.i.i136, align 8
@@ -25205,7 +25224,7 @@ if.then9.i175:                                    ; preds = %if.then4.i164
   %io_user_data.i177 = getelementptr inbounds i8, ptr %s, i64 40
   %55 = load ptr, ptr %io_user_data.i177, align 8
   %sub.i178 = sub nsw i32 4, %conv.i170
-  tail call void %54(ptr noundef %55, i32 noundef %sub.i178) #39
+  tail call void %54(ptr noundef %55, i32 noundef %sub.i178) #38
   br label %if.end45
 
 if.end14.i172:                                    ; preds = %if.end31, %if.then4.i164
@@ -25245,7 +25264,7 @@ if.then9.i201:                                    ; preds = %if.then4.i190
   %io_user_data.i203 = getelementptr inbounds i8, ptr %s, i64 40
   %60 = load ptr, ptr %io_user_data.i203, align 8
   %sub.i204 = sub nsw i32 9, %conv.i196
-  tail call void %59(ptr noundef %60, i32 noundef %sub.i204) #39
+  tail call void %59(ptr noundef %60, i32 noundef %sub.i204) #38
   br label %if.end45
 
 if.end14.i198:                                    ; preds = %if.end44, %if.then4.i190
@@ -25302,7 +25321,7 @@ if.then2.i223:                                    ; preds = %if.end.i220
   %buffer_start.i.i226 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i227 = getelementptr inbounds i8, ptr %s, i64 52
   %69 = load i32, ptr %buflen.i.i227, align 4
-  %call.i.i228 = tail call i32 %67(ptr noundef %68, ptr noundef nonnull %buffer_start.i.i226, i32 noundef %69) #39
+  %call.i.i228 = tail call i32 %67(ptr noundef %68, ptr noundef nonnull %buffer_start.i.i226, i32 noundef %69) #38
   %70 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i229 = getelementptr inbounds i8, ptr %s, i64 208
   %71 = load ptr, ptr %img_buffer_original.i.i229, align 8
@@ -25362,7 +25381,7 @@ if.then2.i256:                                    ; preds = %if.end.i253
   %buffer_start.i.i259 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i260 = getelementptr inbounds i8, ptr %s, i64 52
   %79 = load i32, ptr %buflen.i.i260, align 4
-  %call.i.i261 = tail call i32 %77(ptr noundef %78, ptr noundef nonnull %buffer_start.i.i259, i32 noundef %79) #39
+  %call.i.i261 = tail call i32 %77(ptr noundef %78, ptr noundef nonnull %buffer_start.i.i259, i32 noundef %79) #38
   %80 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i262 = getelementptr inbounds i8, ptr %s, i64 208
   %81 = load ptr, ptr %img_buffer_original.i.i262, align 8
@@ -25564,7 +25583,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %io.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i, align 8
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -25639,7 +25658,7 @@ if.then2.i27:                                     ; preds = %if.end.i24
   %17 = load ptr, ptr %io.i.i, align 8
   %18 = load ptr, ptr %io_user_data.i.i, align 8
   %19 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i32 = tail call i32 %17(ptr noundef %18, ptr noundef nonnull %buffer_start.i.i, i32 noundef %19) #39
+  %call.i.i32 = tail call i32 %17(ptr noundef %18, ptr noundef nonnull %buffer_start.i.i, i32 noundef %19) #38
   %20 = load ptr, ptr %img_buffer.i, align 8
   %21 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i34 = ptrtoint ptr %20 to i64
@@ -25702,7 +25721,7 @@ if.then2.i60:                                     ; preds = %if.end.i57
   %26 = load ptr, ptr %io.i.i, align 8
   %27 = load ptr, ptr %io_user_data.i.i, align 8
   %28 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i65 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i, i32 noundef %28) #39
+  %call.i.i65 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i, i32 noundef %28) #38
   %29 = load ptr, ptr %img_buffer.i, align 8
   %30 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i67 = ptrtoint ptr %29 to i64
@@ -25810,7 +25829,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %io.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i, align 8
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -25899,7 +25918,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %io.i.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i.i, align 8
   %6 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #39
+  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %7 to i64
@@ -25959,7 +25978,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %17 = load ptr, ptr %io.i.i.i, align 8
   %18 = load ptr, ptr %io_user_data.i.i.i, align 8
   %19 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i = tail call i32 %17(ptr noundef %18, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %19) #39
+  %call.i.i = tail call i32 %17(ptr noundef %18, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %19) #38
   %20 = load ptr, ptr %img_buffer.i.i, align 8
   %21 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %20 to i64
@@ -26027,7 +26046,7 @@ if.then2.i.i25:                                   ; preds = %if.end.i.i23
   %27 = load ptr, ptr %io.i.i.i, align 8
   %28 = load ptr, ptr %io_user_data.i.i.i, align 8
   %29 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i26 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %29) #39
+  %call.i.i.i26 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %29) #38
   %30 = load ptr, ptr %img_buffer.i.i, align 8
   %31 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i27 = ptrtoint ptr %30 to i64
@@ -26103,7 +26122,7 @@ if.then:                                          ; preds = %for.body
 if.then.i:                                        ; preds = %if.then
   %1 = load ptr, ptr %eof.i, align 8
   %2 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %1(ptr noundef %2) #39
+  %call.i = tail call i32 %1(ptr noundef %2) #38
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.then.i.if.end_crit_edge, label %if.end.i
 
@@ -26149,7 +26168,7 @@ if.then2.i:                                       ; preds = %if.end.i9
   %11 = load ptr, ptr %io.i, align 8
   %12 = load ptr, ptr %io_user_data.i, align 8
   %13 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %11(ptr noundef %12, ptr noundef nonnull %buffer_start.i.i, i32 noundef %13) #39
+  %call.i.i = tail call i32 %11(ptr noundef %12, ptr noundef nonnull %buffer_start.i.i, i32 noundef %13) #38
   %14 = load ptr, ptr %img_buffer.i, align 8
   %15 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %14 to i64
@@ -26275,7 +26294,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %io.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i, align 8
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -26328,7 +26347,7 @@ if.then2.i69:                                     ; preds = %if.end.i66
   %15 = load ptr, ptr %io.i.i, align 8
   %16 = load ptr, ptr %io_user_data.i.i, align 8
   %17 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i74 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i, i32 noundef %17) #39
+  %call.i.i74 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i, i32 noundef %17) #38
   %18 = load ptr, ptr %img_buffer.i, align 8
   %19 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i76 = ptrtoint ptr %18 to i64
@@ -26382,7 +26401,7 @@ if.then2.i102:                                    ; preds = %if.end.i99
   %27 = load ptr, ptr %io.i.i, align 8
   %28 = load ptr, ptr %io_user_data.i.i, align 8
   %29 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i107 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i, i32 noundef %29) #39
+  %call.i.i107 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i, i32 noundef %29) #38
   %30 = load ptr, ptr %img_buffer.i, align 8
   %31 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i109 = ptrtoint ptr %30 to i64
@@ -26437,7 +26456,7 @@ if.then2.i135:                                    ; preds = %if.end.i132
   %38 = load ptr, ptr %io.i.i, align 8
   %39 = load ptr, ptr %io_user_data.i.i, align 8
   %40 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i140 = tail call i32 %38(ptr noundef %39, ptr noundef nonnull %buffer_start.i.i, i32 noundef %40) #39
+  %call.i.i140 = tail call i32 %38(ptr noundef %39, ptr noundef nonnull %buffer_start.i.i, i32 noundef %40) #38
   %41 = load ptr, ptr %img_buffer.i, align 8
   %42 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i142 = ptrtoint ptr %41 to i64
@@ -26483,7 +26502,7 @@ stbi__get8.exit161:                               ; preds = %if.then.i159, %if.e
 if.then.i163:                                     ; preds = %stbi__get8.exit161
   %48 = load ptr, ptr %eof.i, align 8
   %49 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i = tail call i32 %48(ptr noundef %49) #39
+  %call.i = tail call i32 %48(ptr noundef %49) #38
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end15, label %if.end.i164
 
@@ -26589,7 +26608,7 @@ if.then.i173:                                     ; preds = %for.body.i
 if.then.i.i174:                                   ; preds = %if.then.i173
   %57 = load ptr, ptr %eof.i, align 8
   %58 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i.i175 = tail call i32 %57(ptr noundef %58) #39
+  %call.i.i175 = tail call i32 %57(ptr noundef %58) #38
   %tobool2.not.i.i = icmp eq i32 %call.i.i175, 0
   br i1 %tobool2.not.i.i, label %if.then.i.if.end_crit_edge.i, label %if.end.i.i
 
@@ -26630,7 +26649,7 @@ if.then2.i.i:                                     ; preds = %if.end.i9.i
   %66 = load ptr, ptr %io.i.i, align 8
   %67 = load ptr, ptr %io_user_data.i.i, align 8
   %68 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i.i = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %buffer_start.i.i, i32 noundef %68) #39
+  %call.i.i.i = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %buffer_start.i.i, i32 noundef %68) #38
   %69 = load ptr, ptr %img_buffer.i, align 8
   %70 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %69 to i64
@@ -26706,7 +26725,7 @@ if.then2.i187:                                    ; preds = %if.end.i184
   %77 = load ptr, ptr %io.i.i, align 8
   %78 = load ptr, ptr %io_user_data.i.i, align 8
   %79 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i192 = tail call i32 %77(ptr noundef %78, ptr noundef nonnull %buffer_start.i.i, i32 noundef %79) #39
+  %call.i.i192 = tail call i32 %77(ptr noundef %78, ptr noundef nonnull %buffer_start.i.i, i32 noundef %79) #38
   %80 = load ptr, ptr %img_buffer.i, align 8
   %81 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i194 = ptrtoint ptr %80 to i64
@@ -26748,7 +26767,7 @@ stbi__get8.exit213:                               ; preds = %if.then.i211, %if.e
 if.then.i216:                                     ; preds = %stbi__get8.exit213
   %87 = load ptr, ptr %eof.i, align 8
   %88 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i219 = tail call i32 %87(ptr noundef %88) #39
+  %call.i219 = tail call i32 %87(ptr noundef %88) #38
   %tobool2.not.i220 = icmp eq i32 %call.i219, 0
   br i1 %tobool2.not.i220, label %if.end65, label %if.end.i221
 
@@ -26792,7 +26811,7 @@ if.then.i247:                                     ; preds = %for.body.i242
 if.then.i.i249:                                   ; preds = %if.then.i247
   %94 = load ptr, ptr %eof.i, align 8
   %95 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i.i250 = tail call i32 %94(ptr noundef %95) #39
+  %call.i.i250 = tail call i32 %94(ptr noundef %95) #38
   %tobool2.not.i.i251 = icmp eq i32 %call.i.i250, 0
   br i1 %tobool2.not.i.i251, label %if.then.i.if.end_crit_edge.i286, label %if.end.i.i252
 
@@ -26833,7 +26852,7 @@ if.then2.i.i262:                                  ; preds = %if.end.i9.i260
   %103 = load ptr, ptr %io.i.i, align 8
   %104 = load ptr, ptr %io_user_data.i.i, align 8
   %105 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i.i263 = tail call i32 %103(ptr noundef %104, ptr noundef nonnull %buffer_start.i.i, i32 noundef %105) #39
+  %call.i.i.i263 = tail call i32 %103(ptr noundef %104, ptr noundef nonnull %buffer_start.i.i, i32 noundef %105) #38
   %106 = load ptr, ptr %img_buffer.i, align 8
   %107 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i264 = ptrtoint ptr %106 to i64
@@ -26943,7 +26962,7 @@ if.then2.i306:                                    ; preds = %if.end.i303
   %116 = load ptr, ptr %io.i.i, align 8
   %117 = load ptr, ptr %io_user_data.i.i, align 8
   %118 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i311 = tail call i32 %116(ptr noundef %117, ptr noundef nonnull %buffer_start.i.i, i32 noundef %118) #39
+  %call.i.i311 = tail call i32 %116(ptr noundef %117, ptr noundef nonnull %buffer_start.i.i, i32 noundef %118) #38
   %119 = load ptr, ptr %img_buffer.i, align 8
   %120 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i313 = ptrtoint ptr %119 to i64
@@ -26986,7 +27005,7 @@ stbi__get8.exit332:                               ; preds = %if.then.i330, %if.e
 if.then.i335:                                     ; preds = %stbi__get8.exit332
   %126 = load ptr, ptr %eof.i, align 8
   %127 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i338 = tail call i32 %126(ptr noundef %127) #39
+  %call.i338 = tail call i32 %126(ptr noundef %127) #38
   %tobool2.not.i339 = icmp eq i32 %call.i338, 0
   br i1 %tobool2.not.i339, label %if.end107, label %if.end.i340
 
@@ -27047,7 +27066,7 @@ if.then.i366:                                     ; preds = %for.body.i361
 if.then.i.i368:                                   ; preds = %if.then.i366
   %133 = load ptr, ptr %eof.i, align 8
   %134 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i.i369 = tail call i32 %133(ptr noundef %134) #39
+  %call.i.i369 = tail call i32 %133(ptr noundef %134) #38
   %tobool2.not.i.i370 = icmp eq i32 %call.i.i369, 0
   br i1 %tobool2.not.i.i370, label %if.then.i.if.end_crit_edge.i405, label %if.end.i.i371
 
@@ -27088,7 +27107,7 @@ if.then2.i.i381:                                  ; preds = %if.end.i9.i379
   %142 = load ptr, ptr %io.i.i, align 8
   %143 = load ptr, ptr %io_user_data.i.i, align 8
   %144 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i.i382 = tail call i32 %142(ptr noundef %143, ptr noundef nonnull %buffer_start.i.i, i32 noundef %144) #39
+  %call.i.i.i382 = tail call i32 %142(ptr noundef %143, ptr noundef nonnull %buffer_start.i.i, i32 noundef %144) #38
   %145 = load ptr, ptr %img_buffer.i, align 8
   %146 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i383 = ptrtoint ptr %145 to i64
@@ -27195,7 +27214,7 @@ if.then.i438:                                     ; preds = %for.body.i433
 if.then.i.i440:                                   ; preds = %if.then.i438
   %153 = load ptr, ptr %eof.i, align 8
   %154 = load ptr, ptr %io_user_data.i.i, align 8
-  %call.i.i441 = tail call i32 %153(ptr noundef %154) #39
+  %call.i.i441 = tail call i32 %153(ptr noundef %154) #38
   %tobool2.not.i.i442 = icmp eq i32 %call.i.i441, 0
   br i1 %tobool2.not.i.i442, label %if.then.i.if.end_crit_edge.i477, label %if.end.i.i443
 
@@ -27236,7 +27255,7 @@ if.then2.i.i453:                                  ; preds = %if.end.i9.i451
   %162 = load ptr, ptr %io.i.i, align 8
   %163 = load ptr, ptr %io_user_data.i.i, align 8
   %164 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i.i454 = tail call i32 %162(ptr noundef %163, ptr noundef nonnull %buffer_start.i.i, i32 noundef %164) #39
+  %call.i.i.i454 = tail call i32 %162(ptr noundef %163, ptr noundef nonnull %buffer_start.i.i, i32 noundef %164) #38
   %165 = load ptr, ptr %img_buffer.i, align 8
   %166 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i455 = ptrtoint ptr %165 to i64
@@ -27347,7 +27366,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -27413,7 +27432,7 @@ if.then2.i13:                                     ; preds = %if.end.i10
   %buffer_start.i.i16 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i17 = getelementptr inbounds i8, ptr %s, i64 52
   %17 = load i32, ptr %buflen.i.i17, align 4
-  %call.i.i18 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i16, i32 noundef %17) #39
+  %call.i.i18 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i16, i32 noundef %17) #38
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i19 = getelementptr inbounds i8, ptr %s, i64 208
   %19 = load ptr, ptr %img_buffer_original.i.i19, align 8
@@ -27479,7 +27498,7 @@ if.then2.i46:                                     ; preds = %if.end.i43
   %buffer_start.i.i49 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i50 = getelementptr inbounds i8, ptr %s, i64 52
   %28 = load i32, ptr %buflen.i.i50, align 4
-  %call.i.i51 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i49, i32 noundef %28) #39
+  %call.i.i51 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i49, i32 noundef %28) #38
   %29 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i52 = getelementptr inbounds i8, ptr %s, i64 208
   %30 = load ptr, ptr %img_buffer_original.i.i52, align 8
@@ -27545,7 +27564,7 @@ if.then2.i79:                                     ; preds = %if.end.i76
   %buffer_start.i.i82 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i83 = getelementptr inbounds i8, ptr %s, i64 52
   %39 = load i32, ptr %buflen.i.i83, align 4
-  %call.i.i84 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i82, i32 noundef %39) #39
+  %call.i.i84 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i82, i32 noundef %39) #38
   %40 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i85 = getelementptr inbounds i8, ptr %s, i64 208
   %41 = load ptr, ptr %img_buffer_original.i.i85, align 8
@@ -27611,7 +27630,7 @@ if.then2.i112:                                    ; preds = %if.end.i109
   %buffer_start.i.i115 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i116 = getelementptr inbounds i8, ptr %s, i64 52
   %50 = load i32, ptr %buflen.i.i116, align 4
-  %call.i.i117 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i115, i32 noundef %50) #39
+  %call.i.i117 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i115, i32 noundef %50) #38
   %51 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i118 = getelementptr inbounds i8, ptr %s, i64 208
   %52 = load ptr, ptr %img_buffer_original.i.i118, align 8
@@ -27679,7 +27698,7 @@ if.then2.i145:                                    ; preds = %if.end.i142
   %buffer_start.i.i148 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i149 = getelementptr inbounds i8, ptr %s, i64 52
   %61 = load i32, ptr %buflen.i.i149, align 4
-  %call.i.i150 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i148, i32 noundef %61) #39
+  %call.i.i150 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i148, i32 noundef %61) #38
   %62 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i151 = getelementptr inbounds i8, ptr %s, i64 208
   %63 = load ptr, ptr %img_buffer_original.i.i151, align 8
@@ -27769,7 +27788,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr %io.i.i, align 8
   %6 = load ptr, ptr %io_user_data.i.i, align 8
   %7 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %buffer_start.i.i, i32 noundef %7) #39
+  %call.i.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %buffer_start.i.i, i32 noundef %7) #38
   %8 = load ptr, ptr %img_buffer.i, align 8
   %9 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
@@ -27825,7 +27844,7 @@ if.then2.i18:                                     ; preds = %if.end.i15
   %16 = load ptr, ptr %io.i.i, align 8
   %17 = load ptr, ptr %io_user_data.i.i, align 8
   %18 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i23 = tail call i32 %16(ptr noundef %17, ptr noundef nonnull %buffer_start.i.i, i32 noundef %18) #39
+  %call.i.i23 = tail call i32 %16(ptr noundef %17, ptr noundef nonnull %buffer_start.i.i, i32 noundef %18) #38
   %19 = load ptr, ptr %img_buffer.i, align 8
   %20 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %19 to i64
@@ -27880,7 +27899,7 @@ if.then2.i51:                                     ; preds = %if.end.i48
   %27 = load ptr, ptr %io.i.i, align 8
   %28 = load ptr, ptr %io_user_data.i.i, align 8
   %29 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i56 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i, i32 noundef %29) #39
+  %call.i.i56 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i, i32 noundef %29) #38
   %30 = load ptr, ptr %img_buffer.i, align 8
   %31 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i58 = ptrtoint ptr %30 to i64
@@ -27956,7 +27975,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -28022,7 +28041,7 @@ if.then2.i30:                                     ; preds = %if.end.i27
   %buffer_start.i.i33 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i34 = getelementptr inbounds i8, ptr %s, i64 52
   %17 = load i32, ptr %buflen.i.i34, align 4
-  %call.i.i35 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i33, i32 noundef %17) #39
+  %call.i.i35 = tail call i32 %15(ptr noundef %16, ptr noundef nonnull %buffer_start.i.i33, i32 noundef %17) #38
   %18 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i36 = getelementptr inbounds i8, ptr %s, i64 208
   %19 = load ptr, ptr %img_buffer_original.i.i36, align 8
@@ -28088,7 +28107,7 @@ if.then2.i63:                                     ; preds = %if.end.i60
   %buffer_start.i.i66 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i67 = getelementptr inbounds i8, ptr %s, i64 52
   %28 = load i32, ptr %buflen.i.i67, align 4
-  %call.i.i68 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i66, i32 noundef %28) #39
+  %call.i.i68 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i66, i32 noundef %28) #38
   %29 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i69 = getelementptr inbounds i8, ptr %s, i64 208
   %30 = load ptr, ptr %img_buffer_original.i.i69, align 8
@@ -28154,7 +28173,7 @@ if.then2.i96:                                     ; preds = %if.end.i93
   %buffer_start.i.i99 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i100 = getelementptr inbounds i8, ptr %s, i64 52
   %39 = load i32, ptr %buflen.i.i100, align 4
-  %call.i.i101 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i99, i32 noundef %39) #39
+  %call.i.i101 = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i99, i32 noundef %39) #38
   %40 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i102 = getelementptr inbounds i8, ptr %s, i64 208
   %41 = load ptr, ptr %img_buffer_original.i.i102, align 8
@@ -28225,7 +28244,7 @@ if.then2.i129:                                    ; preds = %if.end.i126
   %buffer_start.i.i132 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i133 = getelementptr inbounds i8, ptr %s, i64 52
   %51 = load i32, ptr %buflen.i.i133, align 4
-  %call.i.i134 = tail call i32 %49(ptr noundef %50, ptr noundef nonnull %buffer_start.i.i132, i32 noundef %51) #39
+  %call.i.i134 = tail call i32 %49(ptr noundef %50, ptr noundef nonnull %buffer_start.i.i132, i32 noundef %51) #38
   %52 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i135 = getelementptr inbounds i8, ptr %s, i64 208
   %53 = load ptr, ptr %img_buffer_original.i.i135, align 8
@@ -28298,7 +28317,7 @@ if.then2.i162:                                    ; preds = %if.end.i159
   %buffer_start.i.i165 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i166 = getelementptr inbounds i8, ptr %s, i64 52
   %63 = load i32, ptr %buflen.i.i166, align 4
-  %call.i.i167 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i165, i32 noundef %63) #39
+  %call.i.i167 = tail call i32 %61(ptr noundef %62, ptr noundef nonnull %buffer_start.i.i165, i32 noundef %63) #38
   %64 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i168 = getelementptr inbounds i8, ptr %s, i64 208
   %65 = load ptr, ptr %img_buffer_original.i.i168, align 8
@@ -28376,7 +28395,7 @@ if.then2.i195:                                    ; preds = %if.end.i192
   %buffer_start.i.i198 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i199 = getelementptr inbounds i8, ptr %s, i64 52
   %76 = load i32, ptr %buflen.i.i199, align 4
-  %call.i.i200 = tail call i32 %74(ptr noundef %75, ptr noundef nonnull %buffer_start.i.i198, i32 noundef %76) #39
+  %call.i.i200 = tail call i32 %74(ptr noundef %75, ptr noundef nonnull %buffer_start.i.i198, i32 noundef %76) #38
   %77 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i201 = getelementptr inbounds i8, ptr %s, i64 208
   %78 = load ptr, ptr %img_buffer_original.i.i201, align 8
@@ -28441,7 +28460,7 @@ if.then2.i228:                                    ; preds = %if.end.i225
   %buffer_start.i.i231 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i232 = getelementptr inbounds i8, ptr %s, i64 52
   %87 = load i32, ptr %buflen.i.i232, align 4
-  %call.i.i233 = tail call i32 %85(ptr noundef %86, ptr noundef nonnull %buffer_start.i.i231, i32 noundef %87) #39
+  %call.i.i233 = tail call i32 %85(ptr noundef %86, ptr noundef nonnull %buffer_start.i.i231, i32 noundef %87) #38
   %88 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i234 = getelementptr inbounds i8, ptr %s, i64 208
   %89 = load ptr, ptr %img_buffer_original.i.i234, align 8
@@ -28506,7 +28525,7 @@ if.then2.i261:                                    ; preds = %if.end.i258
   %buffer_start.i.i264 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i265 = getelementptr inbounds i8, ptr %s, i64 52
   %98 = load i32, ptr %buflen.i.i265, align 4
-  %call.i.i266 = tail call i32 %96(ptr noundef %97, ptr noundef nonnull %buffer_start.i.i264, i32 noundef %98) #39
+  %call.i.i266 = tail call i32 %96(ptr noundef %97, ptr noundef nonnull %buffer_start.i.i264, i32 noundef %98) #38
   %99 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i267 = getelementptr inbounds i8, ptr %s, i64 208
   %100 = load ptr, ptr %img_buffer_original.i.i267, align 8
@@ -28598,7 +28617,7 @@ return:                                           ; preds = %if.end59, %if.then6
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__gif_info_raw(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
-  %call.i = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #40
+  %call.i = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #39
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -28613,7 +28632,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %call.i) #39
+  tail call void @free(ptr noundef nonnull %call.i) #38
   %img_buffer_original.i = getelementptr inbounds i8, ptr %s, i64 208
   %img_buffer.i = getelementptr inbounds i8, ptr %s, i64 192
   %1 = load <2 x ptr>, ptr %img_buffer_original.i, align 8
@@ -28640,7 +28659,7 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end8
-  tail call void @free(ptr noundef nonnull %call.i) #39
+  tail call void @free(ptr noundef nonnull %call.i) #38
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then4, %if.then
@@ -28793,7 +28812,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -28913,7 +28932,7 @@ if.then2.i67:                                     ; preds = %if.end.i64
   %13 = load ptr, ptr %io.i.i68, align 8
   %14 = load ptr, ptr %io_user_data.i.i69, align 8
   %15 = load i32, ptr %buflen.i.i71, align 4
-  %call.i.i72 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %15) #39
+  %call.i.i72 = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %15) #38
   %16 = load ptr, ptr %img_buffer.i, align 8
   %17 = load ptr, ptr %img_buffer_original.i.i73, align 8
   %sub.ptr.lhs.cast.i.i74 = ptrtoint ptr %16 to i64
@@ -28980,7 +28999,7 @@ if.then2.i100:                                    ; preds = %if.end.i97
   %27 = load ptr, ptr %io.i.i68, align 8
   %28 = load ptr, ptr %io_user_data.i.i69, align 8
   %29 = load i32, ptr %buflen.i.i71, align 4
-  %call.i.i105 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %29) #39
+  %call.i.i105 = tail call i32 %27(ptr noundef %28, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %29) #38
   %30 = load ptr, ptr %img_buffer.i, align 8
   %31 = load ptr, ptr %img_buffer_original.i.i73, align 8
   %sub.ptr.lhs.cast.i.i107 = ptrtoint ptr %30 to i64
@@ -29068,7 +29087,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %38 = load ptr, ptr %skip.i, align 8
   %39 = load ptr, ptr %io_user_data.i.i69, align 8
   %sub.i = sub nsw i32 %len.0, %conv.i
-  tail call void %38(ptr noundef %39, i32 noundef %sub.i) #39
+  tail call void %38(ptr noundef %39, i32 noundef %sub.i) #38
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -29103,7 +29122,7 @@ if.then2.i140:                                    ; preds = %if.end.i137
   %45 = load ptr, ptr %io.i.i68, align 8
   %46 = load ptr, ptr %io_user_data.i.i69, align 8
   %47 = load i32, ptr %buflen.i.i71, align 4
-  %call.i.i145 = tail call i32 %45(ptr noundef %46, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %47) #39
+  %call.i.i145 = tail call i32 %45(ptr noundef %46, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %47) #38
   %48 = load ptr, ptr %img_buffer.i, align 8
   %49 = load ptr, ptr %img_buffer_original.i.i73, align 8
   %sub.ptr.lhs.cast.i.i147 = ptrtoint ptr %48 to i64
@@ -29160,7 +29179,7 @@ if.then9.i185:                                    ; preds = %if.then4.i173
   %54 = load ptr, ptr %skip.i186, align 8
   %55 = load ptr, ptr %io_user_data.i.i69, align 8
   %sub.i188 = sub nsw i32 %conv50, %conv.i179
-  tail call void %54(ptr noundef %55, i32 noundef %sub.i188) #39
+  tail call void %54(ptr noundef %55, i32 noundef %sub.i188) #38
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then9.i185, %if.end14.i181
@@ -29307,13 +29326,13 @@ if.end7:                                          ; preds = %stbi__mul2sizes_val
   %mul = mul nuw nsw i32 %2, %1
   %mul10 = shl nsw i32 %mul, 2
   %conv = zext nneg i32 %mul10 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   store ptr %call.i, ptr %out, align 8
-  %call.i141 = tail call noalias noundef ptr @malloc(i64 noundef %conv) #40
+  %call.i141 = tail call noalias noundef ptr @malloc(i64 noundef %conv) #39
   %background = getelementptr inbounds i8, ptr %g, i64 16
   store ptr %call.i141, ptr %background, align 8
   %conv16 = zext nneg i32 %mul to i64
-  %call.i142 = tail call noalias noundef ptr @malloc(i64 noundef %conv16) #40
+  %call.i142 = tail call noalias noundef ptr @malloc(i64 noundef %conv16) #39
   %history = getelementptr inbounds i8, ptr %g, i64 24
   store ptr %call.i142, ptr %history, align 8
   %tobool19.not = icmp eq ptr %call.i, null
@@ -29475,7 +29494,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %26 = load ptr, ptr %io.i.i, align 8
   %27 = load ptr, ptr %io_user_data.i.i, align 8
   %28 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i, i32 noundef %28) #39
+  %call.i.i = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %buffer_start.i.i, i32 noundef %28) #38
   %29 = load ptr, ptr %img_buffer.i, align 8
   %30 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %29 to i64
@@ -29579,7 +29598,7 @@ if.then2.i149:                                    ; preds = %if.end.i146
   %41 = load ptr, ptr %io.i.i, align 8
   %42 = load ptr, ptr %io_user_data.i.i, align 8
   %43 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i154 = tail call i32 %41(ptr noundef %42, ptr noundef nonnull %buffer_start.i.i, i32 noundef %43) #39
+  %call.i.i154 = tail call i32 %41(ptr noundef %42, ptr noundef nonnull %buffer_start.i.i, i32 noundef %43) #38
   %44 = load ptr, ptr %img_buffer.i, align 8
   %45 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i156 = ptrtoint ptr %44 to i64
@@ -29732,7 +29751,7 @@ if.then2.i182:                                    ; preds = %if.end.i179
   %63 = load ptr, ptr %io.i.i, align 8
   %64 = load ptr, ptr %io_user_data.i.i, align 8
   %65 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i187 = tail call i32 %63(ptr noundef %64, ptr noundef nonnull %buffer_start.i.i, i32 noundef %65) #39
+  %call.i.i187 = tail call i32 %63(ptr noundef %64, ptr noundef nonnull %buffer_start.i.i, i32 noundef %65) #38
   %66 = load ptr, ptr %img_buffer.i, align 8
   %67 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i189 = ptrtoint ptr %66 to i64
@@ -29795,7 +29814,7 @@ if.then2.i215:                                    ; preds = %if.end.i212
   %74 = load ptr, ptr %io.i.i, align 8
   %75 = load ptr, ptr %io_user_data.i.i, align 8
   %76 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i220 = tail call i32 %74(ptr noundef %75, ptr noundef nonnull %buffer_start.i.i, i32 noundef %76) #39
+  %call.i.i220 = tail call i32 %74(ptr noundef %75, ptr noundef nonnull %buffer_start.i.i, i32 noundef %76) #38
   %77 = load ptr, ptr %img_buffer.i, align 8
   %78 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i222 = ptrtoint ptr %77 to i64
@@ -29852,7 +29871,7 @@ if.then2.i248:                                    ; preds = %if.end.i245
   %85 = load ptr, ptr %io.i.i, align 8
   %86 = load ptr, ptr %io_user_data.i.i, align 8
   %87 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i253 = tail call i32 %85(ptr noundef %86, ptr noundef nonnull %buffer_start.i.i, i32 noundef %87) #39
+  %call.i.i253 = tail call i32 %85(ptr noundef %86, ptr noundef nonnull %buffer_start.i.i, i32 noundef %87) #38
   %88 = load ptr, ptr %img_buffer.i, align 8
   %89 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i255 = ptrtoint ptr %88 to i64
@@ -29927,7 +29946,7 @@ if.then2.i281:                                    ; preds = %if.end.i278
   %98 = load ptr, ptr %io.i.i, align 8
   %99 = load ptr, ptr %io_user_data.i.i, align 8
   %100 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i286 = tail call i32 %98(ptr noundef %99, ptr noundef nonnull %buffer_start.i.i, i32 noundef %100) #39
+  %call.i.i286 = tail call i32 %98(ptr noundef %99, ptr noundef nonnull %buffer_start.i.i, i32 noundef %100) #38
   %101 = load ptr, ptr %img_buffer.i, align 8
   %102 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i288 = ptrtoint ptr %101 to i64
@@ -29991,7 +30010,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %108 = load ptr, ptr %skip.i327, align 8
   %109 = load ptr, ptr %io_user_data.i.i, align 8
   %sub.i = sub nsw i32 1, %conv.i
-  tail call void %108(ptr noundef %109, i32 noundef %sub.i) #39
+  tail call void %108(ptr noundef %109, i32 noundef %sub.i) #38
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -30027,7 +30046,7 @@ if.then9.i326:                                    ; preds = %if.then4.i315
   %112 = load ptr, ptr %skip.i327, align 8
   %113 = load ptr, ptr %io_user_data.i.i, align 8
   %sub.i329 = sub nsw i32 %conv231, %conv.i321
-  tail call void %112(ptr noundef %113, i32 noundef %sub.i329) #39
+  tail call void %112(ptr noundef %113, i32 noundef %sub.i329) #38
   br label %for.cond104.backedge
 
 if.end14.i323:                                    ; preds = %if.end.i312, %if.then4.i315
@@ -30057,7 +30076,7 @@ if.then2.i343:                                    ; preds = %if.end.i340
   %118 = load ptr, ptr %io.i.i, align 8
   %119 = load ptr, ptr %io_user_data.i.i, align 8
   %120 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i348 = tail call i32 %118(ptr noundef %119, ptr noundef nonnull %buffer_start.i.i, i32 noundef %120) #39
+  %call.i.i348 = tail call i32 %118(ptr noundef %119, ptr noundef nonnull %buffer_start.i.i, i32 noundef %120) #38
   %121 = load ptr, ptr %img_buffer.i, align 8
   %122 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i350 = ptrtoint ptr %121 to i64
@@ -30114,7 +30133,7 @@ if.then9.i386:                                    ; preds = %if.then4.i374
   %127 = load ptr, ptr %skip.i327, align 8
   %128 = load ptr, ptr %io_user_data.i.i, align 8
   %sub.i389 = sub nsw i32 %conv274, %conv.i380
-  tail call void %127(ptr noundef %128, i32 noundef %sub.i389) #39
+  tail call void %127(ptr noundef %128, i32 noundef %sub.i389) #38
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then9.i386, %if.end14.i382
@@ -30142,18 +30161,18 @@ define noalias noundef ptr @stbi__load_gif_main_outofmem(ptr nocapture noundef r
 entry:
   %out1 = getelementptr inbounds i8, ptr %g, i64 8
   %0 = load ptr, ptr %out1, align 8
-  tail call void @free(ptr noundef %0) #39
+  tail call void @free(ptr noundef %0) #38
   %history = getelementptr inbounds i8, ptr %g, i64 24
   %1 = load ptr, ptr %history, align 8
-  tail call void @free(ptr noundef %1) #39
+  tail call void @free(ptr noundef %1) #38
   %background = getelementptr inbounds i8, ptr %g, i64 16
   %2 = load ptr, ptr %background, align 8
-  tail call void @free(ptr noundef %2) #39
+  tail call void @free(ptr noundef %2) #38
   %tobool.not = icmp eq ptr %out, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %out) #39
+  tail call void @free(ptr noundef nonnull %out) #38
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -30166,7 +30185,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  tail call void @free(ptr noundef nonnull %3) #39
+  tail call void @free(ptr noundef nonnull %3) #38
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %land.lhs.true, %if.end
@@ -30178,7 +30197,7 @@ if.end5:                                          ; preds = %if.then4, %land.lhs
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__gif_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #40
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #39
   %tobool.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -30193,7 +30212,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool3.not.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  tail call void @free(ptr noundef nonnull %call.i.i) #39
+  tail call void @free(ptr noundef nonnull %call.i.i) #38
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %s, i64 208
   %img_buffer.i.i = getelementptr inbounds i8, ptr %s, i64 192
   %1 = load <2 x ptr>, ptr %img_buffer_original.i.i, align 8
@@ -30220,7 +30239,7 @@ if.then10.i:                                      ; preds = %if.end8.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then10.i, %if.end8.i
-  tail call void @free(ptr noundef nonnull %call.i.i) #39
+  tail call void @free(ptr noundef nonnull %call.i.i) #38
   br label %stbi__gif_info_raw.exit
 
 stbi__gif_info_raw.exit:                          ; preds = %if.then.i, %if.then4.i, %if.end11.i
@@ -30280,7 +30299,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %6 = load ptr, ptr %io.i.i, align 8
   %7 = load ptr, ptr %io_user_data.i.i, align 8
   %8 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #39
+  %call.i.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %buffer_start.i.i, i32 noundef %8) #38
   %9 = load ptr, ptr %img_buffer.i, align 8
   %10 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -30363,7 +30382,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %z, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %z, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %img_buffer_original.i.i = getelementptr inbounds i8, ptr %z, i64 208
   %8 = load ptr, ptr %img_buffer_original.i.i, align 8
@@ -30425,7 +30444,7 @@ while.cond:                                       ; preds = %while.cond.backedge
 if.then.i11:                                      ; preds = %while.cond
   %16 = load ptr, ptr %eof.i, align 8
   %17 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %16(ptr noundef %17) #39
+  %call.i = tail call i32 %16(ptr noundef %17) #38
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %stbi__at_eof.exit, label %if.end.i12
 
@@ -30468,7 +30487,7 @@ while.cond5:                                      ; preds = %while.body, %stbi__
 if.then.i20:                                      ; preds = %while.cond5
   %23 = load ptr, ptr %eof.i, align 8
   %24 = load ptr, ptr %io_user_data.i, align 8
-  %call.i23 = tail call i32 %23(ptr noundef %24) #39
+  %call.i23 = tail call i32 %23(ptr noundef %24) #38
   %tobool2.not.i24 = icmp eq i32 %call.i23, 0
   br i1 %tobool2.not.i24, label %if.then.i20.land.rhs8_crit_edge, label %if.end.i25
 
@@ -30509,7 +30528,7 @@ if.then2.i41:                                     ; preds = %if.end.i38
   %32 = load ptr, ptr %io.i, align 8
   %33 = load ptr, ptr %io_user_data.i, align 8
   %34 = load i32, ptr %buflen.i.i78, align 4
-  %call.i.i46 = tail call i32 %32(ptr noundef %33, ptr noundef nonnull %buffer_start.i.i77, i32 noundef %34) #39
+  %call.i.i46 = tail call i32 %32(ptr noundef %33, ptr noundef nonnull %buffer_start.i.i77, i32 noundef %34) #38
   %35 = load ptr, ptr %img_buffer.i, align 8
   %36 = load ptr, ptr %img_buffer_original.i.i80, align 8
   %sub.ptr.lhs.cast.i.i48 = ptrtoint ptr %35 to i64
@@ -30572,7 +30591,7 @@ if.then2.i74:                                     ; preds = %if.end.i71
   %43 = load ptr, ptr %io.i, align 8
   %44 = load ptr, ptr %io_user_data.i, align 8
   %45 = load i32, ptr %buflen.i.i78, align 4
-  %call.i.i79 = tail call i32 %43(ptr noundef %44, ptr noundef nonnull %buffer_start.i.i77, i32 noundef %45) #39
+  %call.i.i79 = tail call i32 %43(ptr noundef %44, ptr noundef nonnull %buffer_start.i.i77, i32 noundef %45) #38
   %46 = load ptr, ptr %img_buffer.i, align 8
   %47 = load ptr, ptr %img_buffer_original.i.i80, align 8
   %sub.ptr.lhs.cast.i.i81 = ptrtoint ptr %46 to i64
@@ -30625,7 +30644,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv = zext i8 %0 to i32
   %sub = add nsw i32 %conv, -136
-  %call = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %sub) #39
+  %call = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %sub) #38
   %conv4 = fptrunc double %call to float
   %cmp5 = icmp slt i32 %req_comp, 3
   %1 = load i8, ptr %input, align 1
@@ -30716,9 +30735,6 @@ if.end52:                                         ; preds = %if.then34, %if.end,
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #32
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #33
-
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #32
 
@@ -30784,7 +30800,7 @@ if.then26:                                        ; preds = %if.end21
 if.end27:                                         ; preds = %if.end21
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 3
   store ptr %add.ptr, ptr %token, align 8
-  %call28 = call i64 @strtol(ptr noundef nonnull %add.ptr, ptr noundef nonnull %token, i32 noundef 10) #39
+  %call28 = call i64 @strtol(ptr noundef nonnull %add.ptr, ptr noundef nonnull %token, i32 noundef 10) #38
   br i1 %tobool1.not, label %if.end27.cont, label %if.end27.else
 
 if.end27.else:                                    ; preds = %if.end27
@@ -30799,26 +30815,34 @@ if.end27.cont:                                    ; preds = %if.end27, %if.end27
 while.cond:                                       ; preds = %while.cond, %if.end27.cont
   %incdec.ptr31 = phi ptr [ %incdec.ptr, %while.cond ], [ %token.promoted, %if.end27.cont ]
   %6 = load i8, ptr %incdec.ptr31, align 1
-  %cmp31 = icmp eq i8 %6, 32
   %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr31, i64 1
-  br i1 %cmp31, label %while.cond, label %while.end, !llvm.loop !235
+  switch i8 %6, label %if.then35 [
+    i8 32, label %while.cond
+    i8 43, label %sub_1
+  ]
 
-while.end:                                        ; preds = %while.cond
-  %call33 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr31, ptr noundef nonnull dereferenceable(4) @.str.108, i64 noundef 3) #41
-  %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %if.end36, label %if.then35
+sub_1:                                            ; preds = %while.cond
+  %7 = load i8, ptr %incdec.ptr, align 1
+  %.not32 = icmp eq i8 %7, 88
+  br i1 %.not32, label %while.end.tail, label %if.then35
 
-if.then35:                                        ; preds = %while.end
+while.end.tail:                                   ; preds = %sub_1
+  %8 = getelementptr inbounds i8, ptr %incdec.ptr31, i64 2
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 32
+  br i1 %10, label %if.end36, label %if.then35
+
+if.then35:                                        ; preds = %while.cond, %sub_1, %while.end.tail
   %img_buffer_original.i20 = getelementptr inbounds i8, ptr %s, i64 208
   %img_buffer.i21 = getelementptr inbounds i8, ptr %s, i64 192
-  %7 = load <2 x ptr>, ptr %img_buffer_original.i20, align 8
-  store <2 x ptr> %7, ptr %img_buffer.i21, align 8
+  %11 = load <2 x ptr>, ptr %img_buffer_original.i20, align 8
+  store <2 x ptr> %11, ptr %img_buffer.i21, align 8
   br label %return
 
-if.end36:                                         ; preds = %while.end
+if.end36:                                         ; preds = %while.end.tail
   %add.ptr37 = getelementptr inbounds i8, ptr %incdec.ptr31, i64 3
   store ptr %add.ptr37, ptr %token, align 8
-  %call38 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr37, ptr noundef null, i32 noundef 10) #39
+  %call38 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr37, ptr noundef null, i32 noundef 10) #38
   br i1 %tobool.not, label %if.end36.cont24, label %if.end36.else26
 
 if.end36.else26:                                  ; preds = %if.end36
@@ -30964,7 +30988,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   %6 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 6, %conv.i
-  tail call void %5(ptr noundef %6, i32 noundef %sub.i) #39
+  tail call void %5(ptr noundef %6, i32 noundef %sub.i) #38
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -31092,7 +31116,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   %4 = load ptr, ptr %io_user_data.i, align 8
   %sub.i = sub nsw i32 6, %conv.i
-  tail call void %3(ptr noundef %4, i32 noundef %sub.i) #39
+  tail call void %3(ptr noundef %4, i32 noundef %sub.i) #38
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.then4.i, %if.end3.if.end14_crit_edge.i
@@ -31171,7 +31195,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %io.i.i.i, align 8
   %5 = load ptr, ptr %io_user_data.i.i.i, align 8
   %6 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #39
+  %call.i.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %7 to i64
@@ -31235,7 +31259,7 @@ if.then9.i:                                       ; preds = %if.then4.i
   %15 = load ptr, ptr %skip.i, align 8
   %16 = load ptr, ptr %io_user_data.i.i.i, align 8
   %sub.i = sub nsw i32 88, %conv.i
-  tail call void %15(ptr noundef %16, i32 noundef %sub.i) #39
+  tail call void %15(ptr noundef %16, i32 noundef %sub.i) #38
   br label %stbi__skip.exit
 
 if.end14.i:                                       ; preds = %if.end9, %if.then4.i
@@ -31269,7 +31293,7 @@ if.then.i:                                        ; preds = %stbi__skip.exit.con
   %eof.i = getelementptr inbounds i8, ptr %s, i64 32
   %18 = load ptr, ptr %eof.i, align 8
   %19 = load ptr, ptr %io_user_data.i.i.i, align 8
-  %call.i = tail call i32 %18(ptr noundef %19) #39
+  %call.i = tail call i32 %18(ptr noundef %19) #38
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end15, label %if.end.i
 
@@ -31344,7 +31368,7 @@ if.then9.i61:                                     ; preds = %if.then4.i50
   %30 = load ptr, ptr %skip.i62, align 8
   %31 = load ptr, ptr %io_user_data.i.i.i, align 8
   %sub.i64 = sub nsw i32 8, %conv.i56
-  tail call void %30(ptr noundef %31, i32 noundef %sub.i64) #39
+  tail call void %30(ptr noundef %31, i32 noundef %sub.i64) #38
   br label %stbi__skip.exit68
 
 if.end14.i58:                                     ; preds = %if.then4.i50, %if.end3.if.end14_crit_edge.i65
@@ -31385,7 +31409,7 @@ if.then2.i:                                       ; preds = %if.end.i72
   %37 = load ptr, ptr %io.i.i.i, align 8
   %38 = load ptr, ptr %io_user_data.i.i.i, align 8
   %39 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %39) #39
+  %call.i.i = tail call i32 %37(ptr noundef %38, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %39) #38
   %40 = load ptr, ptr %img_buffer.i.i, align 8
   %41 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %40 to i64
@@ -31438,7 +31462,7 @@ if.then2.i86:                                     ; preds = %if.end.i83
   %48 = load ptr, ptr %io.i.i.i, align 8
   %49 = load ptr, ptr %io_user_data.i.i.i, align 8
   %50 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i91 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %50) #39
+  %call.i.i91 = tail call i32 %48(ptr noundef %49, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %50) #38
   %51 = load ptr, ptr %img_buffer.i.i, align 8
   %52 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i93 = ptrtoint ptr %51 to i64
@@ -31489,7 +31513,7 @@ if.then2.i119:                                    ; preds = %if.end.i116
   %59 = load ptr, ptr %io.i.i.i, align 8
   %60 = load ptr, ptr %io_user_data.i.i.i, align 8
   %61 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i124 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %61) #39
+  %call.i.i124 = tail call i32 %59(ptr noundef %60, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %61) #38
   %62 = load ptr, ptr %img_buffer.i.i, align 8
   %63 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i126 = ptrtoint ptr %62 to i64
@@ -31544,7 +31568,7 @@ if.then2.i152:                                    ; preds = %if.end.i149
   %69 = load ptr, ptr %io.i.i.i, align 8
   %70 = load ptr, ptr %io_user_data.i.i.i, align 8
   %71 = load i32, ptr %buflen.i.i.i, align 4
-  %call.i.i157 = tail call i32 %69(ptr noundef %70, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %71) #39
+  %call.i.i157 = tail call i32 %69(ptr noundef %70, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef %71) #38
   %72 = load ptr, ptr %img_buffer.i.i, align 8
   %73 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i159 = ptrtoint ptr %72 to i64
@@ -31588,7 +31612,7 @@ stbi__get8.exit178:                               ; preds = %if.then.i176, %if.e
 if.then.i181:                                     ; preds = %stbi__get8.exit178
   %79 = load ptr, ptr %eof.i182, align 8
   %80 = load ptr, ptr %io_user_data.i.i.i, align 8
-  %call.i184 = tail call i32 %79(ptr noundef %80) #39
+  %call.i184 = tail call i32 %79(ptr noundef %80) #38
   %tobool2.not.i185 = icmp eq i32 %call.i184, 0
   br i1 %tobool2.not.i185, label %if.end33, label %if.end.i186
 
@@ -31624,7 +31648,7 @@ if.then38:                                        ; preds = %if.end33
 
 do.cond:                                          ; preds = %if.end33
   %tobool40.not = icmp eq i8 %retval.0.i77, 0
-  br i1 %tobool40.not, label %do.end, label %do.body, !llvm.loop !236
+  br i1 %tobool40.not, label %do.end, label %do.body, !llvm.loop !235
 
 do.end:                                           ; preds = %do.cond
   br i1 %tobool4.not, label %return, label %do.end.else
@@ -31679,7 +31703,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %buffer_start.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
   %6 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #39
+  %call.i.i = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %buffer_start.i.i, i32 noundef %6) #38
   %7 = load ptr, ptr %img_buffer.i, align 8
   %8 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -31741,7 +31765,7 @@ if.then2.i30:                                     ; preds = %if.end.i27
   %buffer_start.i.i33 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i34 = getelementptr inbounds i8, ptr %s, i64 52
   %18 = load i32, ptr %buflen.i.i34, align 4
-  %call.i.i35 = tail call i32 %16(ptr noundef %17, ptr noundef nonnull %buffer_start.i.i33, i32 noundef %18) #39
+  %call.i.i35 = tail call i32 %16(ptr noundef %17, ptr noundef nonnull %buffer_start.i.i33, i32 noundef %18) #38
   %19 = load ptr, ptr %img_buffer.i, align 8
   %20 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %19 to i64
@@ -31830,7 +31854,7 @@ if.then2.i67:                                     ; preds = %if.end.i64
   %buffer_start.i.i70 = getelementptr inbounds i8, ptr %s, i64 56
   %buflen.i.i71 = getelementptr inbounds i8, ptr %s, i64 52
   %35 = load i32, ptr %buflen.i.i71, align 4
-  %call.i.i72 = tail call i32 %33(ptr noundef %34, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %35) #39
+  %call.i.i72 = tail call i32 %33(ptr noundef %34, ptr noundef nonnull %buffer_start.i.i70, i32 noundef %35) #38
   %36 = load ptr, ptr %img_buffer.i, align 8
   %37 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i74 = ptrtoint ptr %36 to i64
@@ -31968,7 +31992,7 @@ while.cond:                                       ; preds = %while.cond.backedge
 if.then.i:                                        ; preds = %while.cond
   %1 = load ptr, ptr %eof.i, align 8
   %2 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %1(ptr noundef %2) #39
+  %call.i = tail call i32 %1(ptr noundef %2) #38
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.rhs, label %if.end.i
 
@@ -32015,7 +32039,7 @@ if.then2.i:                                       ; preds = %if.end.i13
   %11 = load ptr, ptr %io.i, align 8
   %12 = load ptr, ptr %io_user_data.i, align 8
   %13 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %11(ptr noundef %12, ptr noundef nonnull %buffer_start.i.i, i32 noundef %13) #39
+  %call.i.i = tail call i32 %11(ptr noundef %12, ptr noundef nonnull %buffer_start.i.i, i32 noundef %13) #38
   %14 = load ptr, ptr %img_buffer.i, align 8
   %15 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %14 to i64
@@ -32052,7 +32076,7 @@ stbi__get8.exit:                                  ; preds = %if.then.i17, %if.en
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %stbi__at_eof.exit51, %land.lhs.true, %land.lhs.true, %if.end.i42, %stbi__get8.exit
-  br label %while.cond, !llvm.loop !237
+  br label %while.cond, !llvm.loop !236
 
 while.end:                                        ; preds = %land.rhs, %if.end.i, %stbi__at_eof.exit
   %18 = load ptr, ptr %io.i, align 8
@@ -32062,7 +32086,7 @@ while.end:                                        ; preds = %land.rhs, %if.end.i
 if.then.i20:                                      ; preds = %while.end
   %19 = load ptr, ptr %eof.i, align 8
   %20 = load ptr, ptr %io_user_data.i, align 8
-  %call.i23 = tail call i32 %19(ptr noundef %20) #39
+  %call.i23 = tail call i32 %19(ptr noundef %20) #38
   %tobool2.not.i24 = icmp eq i32 %call.i23, 0
   br i1 %tobool2.not.i24, label %lor.lhs.false, label %if.end.i25
 
@@ -32090,7 +32114,7 @@ while.cond7:                                      ; preds = %lor.lhs.false, %stb
 if.then.i37:                                      ; preds = %while.cond7
   %26 = load ptr, ptr %eof.i, align 8
   %27 = load ptr, ptr %io_user_data.i, align 8
-  %call.i40 = tail call i32 %26(ptr noundef %27) #39
+  %call.i40 = tail call i32 %26(ptr noundef %27) #38
   %tobool2.not.i41 = icmp eq i32 %call.i40, 0
   br i1 %tobool2.not.i41, label %land.lhs.true, label %if.end.i42
 
@@ -32133,7 +32157,7 @@ if.then2.i58:                                     ; preds = %if.end.i55
   %36 = load ptr, ptr %io.i, align 8
   %37 = load ptr, ptr %io_user_data.i, align 8
   %38 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i63 = tail call i32 %36(ptr noundef %37, ptr noundef nonnull %buffer_start.i.i, i32 noundef %38) #39
+  %call.i.i63 = tail call i32 %36(ptr noundef %37, ptr noundef nonnull %buffer_start.i.i, i32 noundef %38) #38
   %39 = load ptr, ptr %img_buffer.i, align 8
   %40 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i65 = ptrtoint ptr %39 to i64
@@ -32167,7 +32191,7 @@ stbi__refill_buffer.exit.i76:                     ; preds = %if.else.i.i72, %if.
 stbi__get8.exit84:                                ; preds = %if.then.i82, %if.end.i55, %stbi__refill_buffer.exit.i76
   %retval.0.i79 = phi i8 [ %34, %if.then.i82 ], [ %42, %stbi__refill_buffer.exit.i76 ], [ 0, %if.end.i55 ]
   store i8 %retval.0.i79, ptr %c, align 1
-  br label %while.cond7, !llvm.loop !238
+  br label %while.cond7, !llvm.loop !237
 
 for.end:                                          ; preds = %if.end.i25, %stbi__at_eof.exit34, %lor.lhs.false
   ret void
@@ -32207,7 +32231,7 @@ while.cond:                                       ; preds = %lor.lhs.false, %ent
 if.then.i:                                        ; preds = %while.cond
   %1 = load ptr, ptr %eof.i, align 8
   %2 = load ptr, ptr %io_user_data.i, align 8
-  %call.i = tail call i32 %1(ptr noundef %2) #39
+  %call.i = tail call i32 %1(ptr noundef %2) #38
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.rhs, label %if.end.i
 
@@ -32253,7 +32277,7 @@ if.then2.i:                                       ; preds = %if.end.i11
   %13 = load ptr, ptr %io.i, align 8
   %14 = load ptr, ptr %io_user_data.i, align 8
   %15 = load i32, ptr %buflen.i.i, align 4
-  %call.i.i = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i, i32 noundef %15) #39
+  %call.i.i = tail call i32 %13(ptr noundef %14, ptr noundef nonnull %buffer_start.i.i, i32 noundef %15) #38
   %16 = load ptr, ptr %img_buffer.i, align 8
   %17 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
@@ -32294,7 +32318,7 @@ lor.lhs.false:                                    ; preds = %stbi__get8.exit
   %cmp5 = icmp eq i32 %add, 214748364
   %cmp8 = icmp sgt i8 %retval.0.i14, 55
   %or.cond = select i1 %cmp5, i1 %cmp8, i1 false
-  br i1 %or.cond, label %if.then, label %while.cond, !llvm.loop !239
+  br i1 %or.cond, label %if.then, label %while.cond, !llvm.loop !238
 
 if.then:                                          ; preds = %lor.lhs.false, %stbi__get8.exit
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
@@ -32370,7 +32394,7 @@ if.then10.i.i:                                    ; preds = %if.end8.i.i
   br label %stbi__jpeg_info.exit.thread68
 
 stbi__jpeg_info.exit.thread68:                    ; preds = %if.then10.i.i, %if.end8.i.i
-  tail call void @free(ptr noundef nonnull %calloc.i) #39
+  tail call void @free(ptr noundef nonnull %calloc.i) #38
   br label %return
 
 stbi__jpeg_info.exit:                             ; preds = %if.end.i
@@ -32379,7 +32403,7 @@ stbi__jpeg_info.exit:                             ; preds = %if.end.i
   %img_buffer.i.i.i = getelementptr inbounds i8, ptr %7, i64 192
   %8 = load <2 x ptr>, ptr %img_buffer_original.i.i.i, align 8
   store <2 x ptr> %8, ptr %img_buffer.i.i.i, align 8
-  tail call void @free(ptr noundef nonnull %calloc.i) #39
+  tail call void @free(ptr noundef nonnull %calloc.i) #38
   br label %if.end
 
 if.end:                                           ; preds = %stbi__jpeg_info.exit, %stbi__jpeg_info.exit.thread
@@ -32432,7 +32456,7 @@ if.end4:                                          ; preds = %if.end
   %16 = load <2 x ptr>, ptr %img_buffer_original.i.i.i47, align 8
   store <2 x ptr> %16, ptr %img_buffer.i.i.i48, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i)
-  %call.i.i.i = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #40
+  %call.i.i.i = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #39
   %tobool.not.i.i51 = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i51, label %if.then.i.i61, label %if.end.i.i52
 
@@ -32447,7 +32471,7 @@ if.end.i.i52:                                     ; preds = %if.end4
   br i1 %tobool3.not.i.i, label %if.then4.i.i, label %if.end5.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i52
-  tail call void @free(ptr noundef nonnull %call.i.i.i) #39
+  tail call void @free(ptr noundef nonnull %call.i.i.i) #38
   %img_buffer_original.i.i.i57 = getelementptr inbounds i8, ptr %s, i64 208
   %img_buffer.i.i.i58 = getelementptr inbounds i8, ptr %s, i64 192
   %18 = load <2 x ptr>, ptr %img_buffer_original.i.i.i57, align 8
@@ -32474,7 +32498,7 @@ if.then10.i.i55:                                  ; preds = %if.end8.i.i53
   br label %stbi__gif_info.exit
 
 stbi__gif_info.exit:                              ; preds = %if.end8.i.i53, %if.then10.i.i55
-  tail call void @free(ptr noundef nonnull %call.i.i.i) #39
+  tail call void @free(ptr noundef nonnull %call.i.i.i) #38
   br label %return
 
 if.end8:                                          ; preds = %if.then4.i.i, %if.then.i.i61
@@ -32637,7 +32661,7 @@ if.end:                                           ; preds = %entry
   %img_buffer.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 192
   store ptr %buffer_start.i.i.i, ptr %img_buffer.i.i.i, align 8
   %1 = load ptr, ptr %io.i.i.i, align 8
-  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #39
+  %call.i.i.i.i = call i32 %1(ptr noundef nonnull %call.i, ptr noundef nonnull %buffer_start.i.i.i, i32 noundef 128) #38
   %2 = load ptr, ptr %img_buffer.i.i.i, align 8
   %3 = load ptr, ptr %img_buffer_original.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -32700,7 +32724,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #39
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -32780,7 +32804,7 @@ entry:
   %img_buffer.i.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i.i, ptr %img_buffer.i.i, align 8
   %0 = load ptr, ptr %io.i.i, align 8
-  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #39
+  %call.i.i.i = call i32 %0(ptr noundef %f, ptr noundef nonnull %buffer_start.i.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -32892,7 +32916,7 @@ entry:
   %img_buffer.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #39
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -33005,7 +33029,7 @@ entry:
   %img_buffer.i = getelementptr inbounds i8, ptr %s, i64 192
   store ptr %buffer_start.i, ptr %img_buffer.i, align 8
   %0 = load ptr, ptr %io.i, align 8
-  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #39
+  %call.i.i = call i32 %0(ptr noundef %user, ptr noundef nonnull %buffer_start.i, i32 noundef 128) #38
   %1 = load ptr, ptr %img_buffer.i, align 8
   %2 = load ptr, ptr %img_buffer_original.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -33073,55 +33097,55 @@ stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #34
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #34
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #34
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #33
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #34
+declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #35
+declare i64 @llvm.umin.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #35
+declare i32 @llvm.fshl.i32(i32, i32, i32) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bitreverse.i16(i16) #35
+declare i16 @llvm.bitreverse.i16(i16) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #35
+declare i32 @llvm.smin.i32(i32, i32) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #35
+declare i32 @llvm.smax.i32(i32, i32) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #35
+declare i32 @llvm.umax.i32(i32, i32) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #35
+declare i32 @llvm.umin.i32(i32, i32) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #36
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #36
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #35
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #37
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #36
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #38
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #35
+declare i64 @llvm.umax.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #35
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #34
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -33156,16 +33180,14 @@ attributes #29 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: non
 attributes #30 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #32 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #35 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #36 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #37 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #38 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #39 = { nounwind }
-attributes #40 = { nounwind allocsize(0) }
-attributes #41 = { nounwind willreturn memory(read) }
-attributes #42 = { nounwind allocsize(1) }
+attributes #33 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #34 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #35 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #36 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #37 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #38 = { nounwind }
+attributes #39 = { nounwind allocsize(0) }
+attributes #40 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -33408,4 +33430,3 @@ attributes #42 = { nounwind allocsize(1) }
 !236 = distinct !{!236, !5}
 !237 = distinct !{!237, !5}
 !238 = distinct !{!238, !5}
-!239 = distinct !{!239, !5}

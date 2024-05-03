@@ -22,8 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [16 x i8] c"=(command line)\00", align 1
 @.str.12 = private unnamed_addr constant [8 x i8] c"require\00", align 1
 @.str.13 = private unnamed_addr constant [4 x i8] c"arg\00", align 1
-@.str.14 = private unnamed_addr constant [2 x i8] c"-\00", align 1
-@.str.15 = private unnamed_addr constant [3 x i8] c"--\00", align 1
 @.str.16 = private unnamed_addr constant [29 x i8] c"too many arguments to script\00", align 1
 @.str.17 = private unnamed_addr constant [6 x i8] c"print\00", align 1
 @.str.18 = private unnamed_addr constant [27 x i8] c"error calling 'print' (%s)\00", align 1
@@ -40,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [31 x i8] c"(error object is not a string)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %s = alloca %struct.Smain, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %s) #8
@@ -435,22 +433,40 @@ getargs.exit.i:                                   ; preds = %for.body9.i.i, %for
   %idxprom.i107 = zext nneg i32 %retval.0.i85140153168 to i64
   %arrayidx.i108 = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i107
   %35 = load ptr, ptr %arrayidx.i108, align 8, !tbaa !4
-  %call1.i109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(2) @.str.14) #10
-  %cmp.i110 = icmp eq i32 %call1.i109, 0
-  br i1 %cmp.i110, label %land.lhs.true.i, label %if.end.i111
+  %36 = load i8, ptr %35, align 1
+  %.not = icmp eq i8 %36, 45
+  br i1 %.not, label %getargs.exit.i.tail, label %if.end.i111
 
-land.lhs.true.i:                                  ; preds = %getargs.exit.i
-  %36 = sext i32 %retval.0.i85140153168 to i64
-  %37 = getelementptr ptr, ptr %0, i64 %36
-  %arrayidx3.i = getelementptr i8, ptr %37, i64 -8
-  %38 = load ptr, ptr %arrayidx3.i, align 8, !tbaa !4
-  %call4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(3) @.str.15) #10
-  %cmp5.not.i = icmp eq i32 %call4.i, 0
-  %spec.select.i = select i1 %cmp5.not.i, ptr %35, ptr null
+getargs.exit.i.tail:                              ; preds = %getargs.exit.i
+  %37 = getelementptr inbounds i8, ptr %35, i64 1
+  %38 = load i8, ptr %37, align 1
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %land.lhs.true.i, label %if.end.i111
+
+land.lhs.true.i:                                  ; preds = %getargs.exit.i.tail
+  %40 = sext i32 %retval.0.i85140153168 to i64
+  %41 = getelementptr ptr, ptr %0, i64 %40
+  %arrayidx3.i = getelementptr i8, ptr %41, i64 -8
+  %42 = load ptr, ptr %arrayidx3.i, align 8, !tbaa !4
+  %43 = load i8, ptr %42, align 1
+  %.not27 = icmp eq i8 %43, 45
+  br i1 %.not27, label %sub_17, label %if.end.i111
+
+sub_17:                                           ; preds = %land.lhs.true.i
+  %44 = getelementptr inbounds i8, ptr %42, i64 1
+  %45 = load i8, ptr %44, align 1
+  %.not28 = icmp eq i8 %45, 45
+  br i1 %.not28, label %sub_2, label %if.end.i111
+
+sub_2:                                            ; preds = %sub_17
+  %46 = getelementptr inbounds i8, ptr %42, i64 2
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp eq i8 %47, 0
+  %49 = select i1 %48, ptr %35, ptr null
   br label %if.end.i111
 
-if.end.i111:                                      ; preds = %land.lhs.true.i, %getargs.exit.i
-  %fname.0.i = phi ptr [ %35, %getargs.exit.i ], [ %spec.select.i, %land.lhs.true.i ]
+if.end.i111:                                      ; preds = %getargs.exit.i, %sub_2, %sub_17, %land.lhs.true.i, %getargs.exit.i.tail
+  %fname.0.i = phi ptr [ %35, %getargs.exit.i.tail ], [ null, %land.lhs.true.i ], [ null, %sub_17 ], [ %49, %sub_2 ], [ %35, %getargs.exit.i ]
   %call6.i = tail call i32 @luaL_loadfile(ptr noundef %L, ptr noundef %fname.0.i) #8
   %sub7.i = xor i32 %sub.i.i, -1
   tail call void @lua_insert(ptr noundef %L, i32 noundef %sub7.i) #8
@@ -479,16 +495,16 @@ if.then42:                                        ; preds = %if.end40
   br label %cleanup
 
 if.else:                                          ; preds = %if.end40
-  %39 = or i32 %has_v.2138155164, %has_e.3139154166
-  %40 = icmp ne i32 %39, 0
-  %or.cond57 = select i1 %tobool31, i1 true, i1 %40
+  %50 = or i32 %has_v.2138155164, %has_e.3139154166
+  %51 = icmp ne i32 %50, 0
+  %or.cond57 = select i1 %tobool31, i1 true, i1 %51
   br i1 %or.cond57, label %cleanup, label %if.then49
 
 if.then49:                                        ; preds = %if.else
-  %41 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %call1.i.i4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10) #9
-  %42 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %call2.i.i5 = tail call i32 @fflush(ptr noundef %42)
+  %52 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %call1.i.i4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10) #9
+  %53 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %call2.i.i5 = tail call i32 @fflush(ptr noundef %53)
   tail call fastcc void @dotty(ptr noundef %L)
   br label %cleanup
 
@@ -790,9 +806,6 @@ declare void @lua_pushstring(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
-
 declare void @luaL_checkstack(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -807,7 +820,7 @@ declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pushline(ptr noundef %L, i32 noundef %firstline) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @pushline(ptr noundef %L, i32 noundef %firstline) unnamed_addr #0 {
 entry:
   %buffer = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %buffer) #8

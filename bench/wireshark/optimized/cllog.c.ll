@@ -76,7 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 @packet_block_options_supported = internal constant [1 x %struct.supported_option_type] [%struct.supported_option_type { i32 2, i32 1 }], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [200 x i8], align 16
   %5 = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #9
   %6 = getelementptr inbounds i8, ptr %5, i64 4
@@ -119,11 +119,11 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
 
 20:                                               ; preds = %.lr.ph
   call void @g_free(ptr noundef %5) #10
-  br label %92
+  br label %101
 
 21:                                               ; preds = %.lr.ph
   call void @g_free(ptr noundef %5) #10
-  br label %92
+  br label %101
 
 22:                                               ; preds = %.lr.ph
   %23 = load i8, ptr %4, align 16
@@ -183,7 +183,7 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
 
 41:                                               ; preds = %37
   call void @g_free(ptr noundef %5) #10
-  br label %92
+  br label %101
 
 42:                                               ; preds = %.preheader, %30, %37
   %.2 = phi ptr [ %34, %37 ], [ %.183, %30 ], [ %.183, %.preheader ]
@@ -232,86 +232,107 @@ define hidden noundef i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, 
   %.2.i = phi i1 [ true, %57 ], [ %.132.i, %54 ]
   %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(5) @.str.42) #11
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %64
+  br i1 %61, label %62, label %sub_0.i
 
 62:                                               ; preds = %59
   %63 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
   store ptr @parseFieldMsgType, ptr %63, align 8
-  br label %64
+  br label %sub_0.i
 
-64:                                               ; preds = %62, %59
+sub_0.i:                                          ; preds = %62, %59
   %.3.i = phi i1 [ true, %62 ], [ %.2.i, %59 ]
-  %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(3) @.str.23) #11
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %69
+  %64 = load i8, ptr %.03035.i, align 1
+  %65 = zext i8 %64 to i32
+  %66 = add nsw i32 %65, -73
+  %.not.i = icmp eq i32 %66, 0
+  br i1 %.not.i, label %sub_1.i, label %.tail.i
 
-67:                                               ; preds = %64
-  %68 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
-  store ptr @parseFieldID, ptr %68, align 8
-  br label %69
+sub_1.i:                                          ; preds = %sub_0.i
+  %67 = getelementptr inbounds i8, ptr %.03035.i, i64 1
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %70 = add nsw i32 %69, -68
+  %.not37.i = icmp eq i32 %70, 0
+  br i1 %.not37.i, label %sub_2.i, label %.tail.i
 
-69:                                               ; preds = %67, %64
-  %.4.i = phi i1 [ true, %67 ], [ %.3.i, %64 ]
-  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(7) @.str.43) #11
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %74
+sub_2.i:                                          ; preds = %sub_1.i
+  %71 = getelementptr inbounds i8, ptr %.03035.i, i64 2
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  br label %.tail.i
 
-72:                                               ; preds = %69
-  %73 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
-  store ptr @parseFieldLength, ptr %73, align 8
-  br label %74
+.tail.i:                                          ; preds = %sub_2.i, %sub_1.i, %sub_0.i
+  %74 = phi i32 [ %66, %sub_0.i ], [ %70, %sub_1.i ], [ %73, %sub_2.i ]
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %72, %69
-  %.5.i = phi i1 [ true, %72 ], [ %.4.i, %69 ]
-  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(5) @.str.44) #11
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %.thread, label %77
+76:                                               ; preds = %.tail.i
+  %77 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  store ptr @parseFieldID, ptr %77, align 8
+  br label %78
 
-77:                                               ; preds = %74
-  %78 = icmp ult i64 %indvars.iv.i, 6
-  %79 = and i1 %78, %46
-  br i1 %79, label %.backedge, label %parseColumnHeaderFields.exit
+78:                                               ; preds = %76, %.tail.i
+  %.4.i = phi i1 [ true, %76 ], [ %.3.i, %.tail.i ]
+  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(7) @.str.43) #11
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %83
 
-.backedge:                                        ; preds = %77, %.thread
-  %.03134.i.be = phi i1 [ %.5.i, %77 ], [ true, %.thread ]
+81:                                               ; preds = %78
+  %82 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  store ptr @parseFieldLength, ptr %82, align 8
+  br label %83
+
+83:                                               ; preds = %81, %78
+  %.5.i = phi i1 [ true, %81 ], [ %.4.i, %78 ]
+  %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(5) @.str.44) #11
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %.thread, label %86
+
+86:                                               ; preds = %83
+  %87 = icmp ult i64 %indvars.iv.i, 6
+  %88 = and i1 %87, %46
+  br i1 %88, label %.backedge, label %parseColumnHeaderFields.exit
+
+.backedge:                                        ; preds = %86, %.thread
+  %.03134.i.be = phi i1 [ %.5.i, %86 ], [ true, %.thread ]
   %.03035.i.be = getelementptr i8, ptr %.0.i, i64 1
   %indvars.iv.i.be = add nuw nsw i64 %indvars.iv.i, 1
   br label %._crit_edge, !llvm.loop !7
 
-.thread:                                          ; preds = %74
-  %80 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
-  store ptr @parseFieldData, ptr %80, align 8
-  %81 = icmp ult i64 %indvars.iv.i, 6
-  %82 = and i1 %81, %46
-  br i1 %82, label %.backedge, label %parseColumnHeaderFields.exit.thread
+.thread:                                          ; preds = %83
+  %89 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  store ptr @parseFieldData, ptr %89, align 8
+  %90 = icmp ult i64 %indvars.iv.i, 6
+  %91 = and i1 %90, %46
+  br i1 %91, label %.backedge, label %parseColumnHeaderFields.exit.thread
 
-parseColumnHeaderFields.exit:                     ; preds = %77
-  br i1 %.5.i, label %parseColumnHeaderFields.exit.thread, label %83
+parseColumnHeaderFields.exit:                     ; preds = %86
+  br i1 %.5.i, label %parseColumnHeaderFields.exit.thread, label %92
 
-83:                                               ; preds = %parseColumnHeaderFields.exit
+92:                                               ; preds = %parseColumnHeaderFields.exit
   call void @g_free(ptr noundef nonnull %5) #10
-  br label %92
+  br label %101
 
 parseColumnHeaderFields.exit.thread:              ; preds = %.thread, %parseColumnHeaderFields.exit
-  %84 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %5, ptr %84, align 8
-  %85 = load i32, ptr @cllog_file_type_subtype, align 4
-  %86 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %85, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 125, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @cllog_read, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @cllog_seek_read, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 3, ptr %91, align 4
-  br label %92
+  %93 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %5, ptr %93, align 8
+  %94 = load i32, ptr @cllog_file_type_subtype, align 4
+  %95 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %94, ptr %95, align 4
+  %96 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 125, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @cllog_read, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @cllog_seek_read, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 3, ptr %100, align 4
+  br label %101
 
-92:                                               ; preds = %parseColumnHeaderFields.exit.thread, %83, %41, %21, %20
-  %.062 = phi i32 [ 0, %20 ], [ -1, %21 ], [ 1, %parseColumnHeaderFields.exit.thread ], [ 0, %83 ], [ -1, %41 ]
+101:                                              ; preds = %parseColumnHeaderFields.exit.thread, %92, %41, %21, %20
+  %.062 = phi i32 [ 0, %20 ], [ -1, %21 ], [ 1, %parseColumnHeaderFields.exit.thread ], [ 0, %92 ], [ -1, %41 ]
   ret i32 %.062
 }
 
@@ -332,17 +353,17 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cllog_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @cllog_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #10
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call fastcc i32 @cllog_read_common(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !8
+  %10 = tail call fastcc i32 @cllog_read_common(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cllog_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @cllog_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #10
@@ -351,7 +372,7 @@ define internal noundef i32 @cllog_seek_read(ptr nocapture noundef readonly %0, 
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @cllog_read_common(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !8
+  %13 = tail call fastcc i32 @cllog_read_common(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %14
 
 14:                                               ; preds = %6, %11
@@ -631,7 +652,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_timeFormat(ptr nocapt
   br label %17
 
 14:                                               ; preds = %9
-  %15 = trunc i32 %10 to i8
+  %15 = trunc nuw nsw i32 %10 to i8
   %16 = getelementptr inbounds i8, ptr %0, i64 85
   store i8 %15, ptr %16, align 1
   br label %17
@@ -1016,7 +1037,7 @@ checked_strcpy.exit19:                            ; preds = %15
   %.1.i = phi i8 [ %.024.i, %29 ], [ %.024.i, %33 ], [ %.024.i, %36 ], [ %.024.i, %39 ], [ %.024.i, %42 ], [ %46, %45 ]
   %50 = add nuw i64 %.02123.i, 1
   %exitcond.not.i = icmp eq i64 %50, %22
-  br i1 %exitcond.not.i, label %stripTimeStamp.exit.loopexit, label %29, !llvm.loop !9
+  br i1 %exitcond.not.i, label %stripTimeStamp.exit.loopexit, label %29, !llvm.loop !8
 
 stripTimeStamp.exit.loopexit:                     ; preds = %49
   %51 = zext i8 %.1.i to i64
@@ -1078,7 +1099,7 @@ stripTimeStamp.exit:                              ; preds = %stripTimeStamp.exit
   %.1.i24 = phi i8 [ %.024.i22, %60 ], [ %.024.i22, %64 ], [ %.024.i22, %67 ], [ %.024.i22, %70 ], [ %.024.i22, %73 ], [ %77, %76 ]
   %81 = add nuw i64 %.02123.i23, 1
   %exitcond.not.i25 = icmp eq i64 %81, %53
-  br i1 %exitcond.not.i25, label %stripTimeStamp.exit27.loopexit, label %60, !llvm.loop !9
+  br i1 %exitcond.not.i25, label %stripTimeStamp.exit27.loopexit, label %60, !llvm.loop !8
 
 stripTimeStamp.exit27.loopexit:                   ; preds = %80
   %82 = zext i8 %.1.i24 to i64
@@ -1291,7 +1312,7 @@ define internal noundef zeroext i1 @parseFieldData(ptr nocapture readnone %0, pt
   store i8 %29, ptr %6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !9
 
 .loopexit.sink.split:                             ; preds = %13, %20
   %.sink = phi ptr [ %21, %20 ], [ %14, %13 ]
@@ -1312,7 +1333,7 @@ declare i32 @ws_xton(i8 noundef signext) local_unnamed_addr #3
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cllog_read_common(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cllog_read_common(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [200 x i8], align 16
   %8 = alloca %struct.cCLLog_message_t, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1363,7 +1384,7 @@ define internal fastcc noundef i32 @cllog_read_common(ptr nocapture noundef read
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = icmp ugt i64 %indvars.iv.i, 5
   %.not27.i = or i1 %33, %23
-  br i1 %.not27.i, label %34, label %19, !llvm.loop !11
+  br i1 %.not27.i, label %34, label %19, !llvm.loop !10
 
 34:                                               ; preds = %31
   store i32 0, ptr %2, align 8
@@ -1415,7 +1436,7 @@ define internal fastcc noundef i32 @cllog_read_common(ptr nocapture noundef read
   %63 = getelementptr inbounds i8, ptr %8, i64 24
   %64 = load i32, ptr %63, align 8
   %65 = lshr i32 %64, 24
-  %66 = trunc i32 %65 to i8
+  %66 = trunc nuw i32 %65 to i8
   store i8 %66, ptr %62, align 1
   %67 = load i32, ptr %63, align 8
   %68 = lshr i32 %67, 16
@@ -1509,7 +1530,6 @@ attributes #11 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

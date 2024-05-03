@@ -448,7 +448,7 @@ define ptr @ompi_pmix_print_id(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ompi_rte_compare_name_fields(i8 noundef zeroext %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @ompi_rte_compare_name_fields(i8 noundef zeroext %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = and i1 %4, %5
@@ -542,7 +542,7 @@ define i32 @ompi_rte_compare_name_fields(i8 noundef zeroext %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_rte_convert_string_to_process_name(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @ompi_rte_convert_string_to_process_name(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pmix_name_invalid, align 4
   store i32 %3, ptr %0, align 4
   %4 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_invalid, i64 0, i32 1), align 4
@@ -560,7 +560,7 @@ define noundef i32 @ompi_rte_convert_string_to_process_name(ptr nocapture nounde
   %10 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #19
   %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 46) #21
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %15
+  br i1 %12, label %13, label %sub_0
 
 13:                                               ; preds = %9
   %14 = tail call ptr @opal_strerror(i32 noundef -5) #19
@@ -568,60 +568,78 @@ define noundef i32 @ompi_rte_convert_string_to_process_name(ptr nocapture nounde
   tail call void @free(ptr noundef %10) #19
   br label %43
 
-15:                                               ; preds = %9
+sub_0:                                            ; preds = %9
   store i8 0, ptr %11, align 1
-  %16 = getelementptr inbounds i8, ptr %11, i64 1
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(2) @.str.6) #21
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %21
+  %15 = getelementptr inbounds i8, ptr %11, i64 1
+  %16 = load i8, ptr %10, align 1
+  switch i8 %16, label %.tail25.thread [
+    i8 42, label %.tail
+    i8 36, label %.tail25
+  ]
 
-19:                                               ; preds = %15
-  %20 = load i32, ptr @pmix_name_wildcard, align 4
-  br label %29
+.tail:                                            ; preds = %sub_0
+  %17 = getelementptr inbounds i8, ptr %10, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %.tail25.thread
 
-21:                                               ; preds = %15
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(2) @.str.7) #21
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %26
+20:                                               ; preds = %.tail
+  %21 = load i32, ptr @pmix_name_wildcard, align 4
+  br label %sub_030
 
-24:                                               ; preds = %21
-  %25 = load i32, ptr @pmix_name_invalid, align 4
-  br label %29
+.tail25:                                          ; preds = %sub_0
+  %22 = getelementptr inbounds i8, ptr %10, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %.tail25.thread
 
-26:                                               ; preds = %21
-  %27 = tail call i64 @strtoul(ptr nocapture noundef %10, ptr noundef null, i32 noundef 10) #19
+25:                                               ; preds = %.tail25
+  %26 = load i32, ptr @pmix_name_invalid, align 4
+  br label %sub_030
+
+.tail25.thread:                                   ; preds = %sub_0, %.tail, %.tail25
+  %27 = tail call i64 @strtoul(ptr nocapture noundef nonnull %10, ptr noundef null, i32 noundef 10) #19
   %28 = trunc i64 %27 to i32
-  br label %29
+  br label %sub_030
 
-29:                                               ; preds = %24, %26, %19
-  %.022 = phi i32 [ %20, %19 ], [ %25, %24 ], [ %28, %26 ]
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(2) @.str.6) #21
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %34
+sub_030:                                          ; preds = %20, %.tail25.thread, %25
+  %.022 = phi i32 [ %21, %20 ], [ %26, %25 ], [ %28, %.tail25.thread ]
+  %29 = load i8, ptr %15, align 1
+  switch i8 %29, label %.tail33.thread [
+    i8 42, label %.tail29
+    i8 36, label %.tail33
+  ]
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_wildcard, i64 0, i32 1), align 4
+.tail29:                                          ; preds = %sub_030
+  %30 = getelementptr inbounds i8, ptr %11, i64 2
+  %31 = load i8, ptr %30, align 1
+  %32 = icmp eq i8 %31, 0
+  br i1 %32, label %33, label %.tail33.thread
+
+33:                                               ; preds = %.tail29
+  %34 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_wildcard, i64 0, i32 1), align 4
   br label %42
 
-34:                                               ; preds = %29
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(2) @.str.7) #21
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %39
+.tail33:                                          ; preds = %sub_030
+  %35 = getelementptr inbounds i8, ptr %11, i64 2
+  %36 = load i8, ptr %35, align 1
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %38, label %.tail33.thread
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_invalid, i64 0, i32 1), align 4
+38:                                               ; preds = %.tail33
+  %39 = load i32, ptr getelementptr inbounds (%struct.opal_process_name_t, ptr @pmix_name_invalid, i64 0, i32 1), align 4
   br label %42
 
-39:                                               ; preds = %34
-  %40 = tail call i64 @strtoul(ptr nocapture noundef nonnull %16, ptr noundef null, i32 noundef 10) #19
+.tail33.thread:                                   ; preds = %sub_030, %.tail29, %.tail33
+  %40 = tail call i64 @strtoul(ptr nocapture noundef nonnull %15, ptr noundef null, i32 noundef 10) #19
   %41 = trunc i64 %40 to i32
   br label %42
 
-42:                                               ; preds = %37, %39, %32
-  %.021 = phi i32 [ %33, %32 ], [ %38, %37 ], [ %41, %39 ]
+42:                                               ; preds = %38, %.tail33.thread, %33
+  %.021 = phi i32 [ %34, %33 ], [ %39, %38 ], [ %41, %.tail33.thread ]
   store i32 %.022, ptr %0, align 4
   store i32 %.021, ptr %5, align 4
-  tail call void @free(ptr noundef %10) #19
+  tail call void @free(ptr noundef nonnull %10) #19
   br label %43
 
 43:                                               ; preds = %42, %13, %7
@@ -638,14 +656,11 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
-
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_rte_convert_process_name_to_string(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @ompi_rte_convert_process_name_to_string(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %1, null
@@ -2346,7 +2361,7 @@ define internal ptr @_jobid_print_for_opal(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @_process_name_compare(i64 %0, i64 %1) #8 {
+define internal range(i32 -1, 2) i32 @_process_name_compare(i64 %0, i64 %1) #8 {
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.22.0.extract.shift = lshr i64 %0, 32
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
@@ -2373,19 +2388,19 @@ ompi_rte_compare_name_fields.exit:                ; preds = %8, %2, %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_convert_string_to_process_name(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @ompi_rte_convert_string_to_process_name(ptr noundef %0, ptr noundef %1), !range !9
+define internal range(i32 -5, 1) i32 @_convert_string_to_process_name(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+  %3 = tail call i32 @ompi_rte_convert_string_to_process_name(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_convert_process_name_to_string(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @ompi_rte_convert_process_name_to_string(ptr noundef %0, ptr noundef %1), !range !9
+define internal range(i32 -5, 1) i32 @_convert_process_name_to_string(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = tail call i32 @ompi_rte_convert_process_name_to_string(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ompi_pmix_snprintf_jobid(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @ompi_pmix_snprintf_jobid(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 {
   %4 = icmp eq i32 %2, -2
   br i1 %4, label %5, label %6
 
@@ -2408,33 +2423,52 @@ define internal noundef i32 @ompi_pmix_snprintf_jobid(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_convert_string_to_jobid(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -5, 1) i32 @_convert_string_to_jobid(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) #0 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %4, label %6
+  br i1 %3, label %4, label %sub_0.i
 
 4:                                                ; preds = %2
   %5 = tail call ptr @opal_strerror(i32 noundef -5) #19
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 447) #19
   br label %ompi_pmix_convert_string_to_jobid.exit
 
-6:                                                ; preds = %2
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @.str.6, ptr noundef nonnull dereferenceable(1) %1) #21
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %ompi_pmix_convert_string_to_jobid.exit, label %9
+sub_0.i:                                          ; preds = %2
+  %6 = load i8, ptr %1, align 1
+  %.not.i = icmp eq i8 %6, 42
+  br i1 %.not.i, label %.tail.thread.i, label %.tail.i
 
-9:                                                ; preds = %6
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @.str.7, ptr noundef nonnull dereferenceable(1) %1) #21
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %ompi_pmix_convert_string_to_jobid.exit, label %12
+.tail.i:                                          ; preds = %sub_0.i
+  %7 = zext i8 %6 to i32
+  %8 = sub nsw i32 36, %7
+  %.not13.i = icmp eq i8 %6, 36
+  br i1 %.not13.i, label %sub_111.i, label %.tail9.i
 
-12:                                               ; preds = %9
-  %13 = tail call i64 @strtoul(ptr nocapture noundef nonnull %1, ptr noundef null, i32 noundef 10) #19
-  %14 = trunc i64 %13 to i32
+.tail.thread.i:                                   ; preds = %sub_0.i
+  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %ompi_pmix_convert_string_to_jobid.exit, label %.tail9.thread.i
+
+sub_111.i:                                        ; preds = %.tail.i
+  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i32
+  %15 = sub nsw i32 0, %14
+  br label %.tail9.i
+
+.tail9.i:                                         ; preds = %sub_111.i, %.tail.i
+  %16 = phi i32 [ %8, %.tail.i ], [ %15, %sub_111.i ]
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %ompi_pmix_convert_string_to_jobid.exit, label %.tail9.thread.i
+
+.tail9.thread.i:                                  ; preds = %.tail9.i, %.tail.thread.i
+  %18 = tail call i64 @strtoul(ptr nocapture noundef nonnull %1, ptr noundef null, i32 noundef 10) #19
+  %19 = trunc i64 %18 to i32
   br label %ompi_pmix_convert_string_to_jobid.exit
 
-ompi_pmix_convert_string_to_jobid.exit:           ; preds = %4, %6, %9, %12
-  %.sink.i = phi i32 [ %14, %12 ], [ -1, %4 ], [ -2, %6 ], [ -1, %9 ]
-  %.0.i = phi i32 [ 0, %12 ], [ -5, %4 ], [ 0, %6 ], [ 0, %9 ]
+ompi_pmix_convert_string_to_jobid.exit:           ; preds = %4, %.tail.thread.i, %.tail9.i, %.tail9.thread.i
+  %.sink.i = phi i32 [ %19, %.tail9.thread.i ], [ -1, %4 ], [ -2, %.tail.thread.i ], [ -1, %.tail9.i ]
+  %.0.i = phi i32 [ 0, %.tail9.thread.i ], [ -5, %4 ], [ 0, %.tail.thread.i ], [ 0, %.tail9.i ]
   store i32 %.sink.i, ptr %0, align 4
   ret i32 %.0.i
 }
@@ -2500,7 +2534,7 @@ define internal fastcc void @_setup_top_session_dir() unnamed_addr #11 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_setup_job_session_dir() unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @_setup_job_session_dir() unnamed_addr #0 {
   %1 = tail call i32 @geteuid() #19
   %2 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 4), align 8
   %3 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
@@ -2524,7 +2558,7 @@ define internal fastcc noundef i32 @_setup_job_session_dir() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_setup_proc_session_dir() unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @_setup_proc_session_dir() unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), align 8
   %2 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 0, i32 1), align 4
   %3 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 6), ptr noundef nonnull @.str.77, ptr noundef %1, i32 noundef %2) #19
@@ -2674,7 +2708,7 @@ define noundef i32 @ompi_rte_finalize() local_unnamed_addr #0 {
   %37 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !9
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %31, %30
   tail call void @opal_pmix_finalize_nspace_tracker() #19
@@ -2825,7 +2859,7 @@ define void @ompi_rte_breakpoint(ptr noundef readonly %0) local_unnamed_addr #0 
   %32 = call i32 @opal_progress() #19
   %33 = load volatile i8, ptr @debugger_event_active, align 1
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %35 = call i32 @PMIx_Deregister_event_handler(i64 noundef -1, ptr noundef null, ptr noundef null) #19
@@ -2899,7 +2933,7 @@ define internal void @buffer_cleanup(ptr noundef %0) #0 {
   tail call void @free(ptr noundef %3) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %4, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %4, label %.preheader, !llvm.loop !11
 
 4:                                                ; preds = %.preheader
   tail call void @free(ptr noundef nonnull %0) #19
@@ -2973,7 +3007,6 @@ attributes #23 = { noreturn nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -5, i32 1}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

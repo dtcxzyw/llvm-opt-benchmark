@@ -71,7 +71,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.45 = private unnamed_addr constant [57 x i8] c"SELECT\09datname, datallowconn FROM\09pg_catalog.pg_database\00", align 1
 @.str.46 = private unnamed_addr constant [8 x i8] c"datname\00", align 1
 @.str.47 = private unnamed_addr constant [13 x i8] c"datallowconn\00", align 1
-@.str.48 = private unnamed_addr constant [2 x i8] c"f\00", align 1
 @.str.49 = private unnamed_addr constant [43 x i8] c"ALTER DATABASE %s ALLOW_CONNECTIONS = true\00", align 1
 @.str.50 = private unnamed_addr constant [84 x i8] c"UPDATE\09pg_catalog.pg_class SET\09relfrozenxid = '%u' WHERE\09relkind IN ('r', 'm', 't')\00", align 1
 @.str.51 = private unnamed_addr constant [82 x i8] c"UPDATE\09pg_catalog.pg_class SET\09relminmxid = '%u' WHERE\09relkind IN ('r', 'm', 't')\00", align 1
@@ -967,85 +966,79 @@ define internal fastcc void @set_frozenxids(i1 noundef zeroext %0) unnamed_addr 
   %13 = tail call i32 @PQfnumber(ptr noundef %11, ptr noundef nonnull @.str.47) #8
   %14 = tail call i32 @PQntuples(ptr noundef %11) #8
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  br i1 %15, label %sub_0, label %._crit_edge
 
-.lr.ph:                                           ; preds = %7
-  br i1 %0, label %.lr.ph.split.us, label %.lr.ph.split
+sub_0:                                            ; preds = %7, %47
+  %.033 = phi i32 [ %48, %47 ], [ 0, %7 ]
+  %16 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.033, i32 noundef %12) #8
+  %17 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.033, i32 noundef %13) #8
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i32
+  %20 = add nsw i32 %19, -102
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %sub_1, label %.tail
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %32
-  %.029.us = phi i32 [ %33, %32 ], [ 0, %.lr.ph ]
-  %16 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.029.us, i32 noundef %12) #8
-  %17 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.029.us, i32 noundef %13) #8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(2) @.str.48) #11
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %23
+sub_1:                                            ; preds = %sub_0
+  %21 = getelementptr inbounds i8, ptr %17, i64 1
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i32
+  br label %.tail
 
-20:                                               ; preds = %.lr.ph.split.us
-  %21 = tail call ptr @quote_identifier(ptr noundef %16) #8
-  %22 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.49, ptr noundef %21) #8
-  tail call void @PQclear(ptr noundef %22) #8
-  br label %23
+.tail:                                            ; preds = %sub_0, %sub_1
+  %24 = phi i32 [ %20, %sub_0 ], [ %23, %sub_1 ]
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %29
 
-23:                                               ; preds = %20, %.lr.ph.split.us
-  %24 = tail call ptr @connectToServer(ptr noundef nonnull @new_cluster, ptr noundef %16) #8
-  %25 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 0, i32 6), align 8
-  %26 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %24, ptr noundef nonnull @.str.51, i32 noundef %25) #8
-  tail call void @PQclear(ptr noundef %26) #8
-  tail call void @PQfinish(ptr noundef %24) #8
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(2) @.str.48) #11
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %32
+26:                                               ; preds = %.tail
+  %27 = tail call ptr @quote_identifier(ptr noundef %16) #8
+  %28 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.49, ptr noundef %27) #8
+  tail call void @PQclear(ptr noundef %28) #8
+  br label %29
 
-29:                                               ; preds = %23
-  %30 = tail call ptr @quote_identifier(ptr noundef %16) #8
-  %31 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef %30) #8
-  tail call void @PQclear(ptr noundef %31) #8
-  br label %32
+29:                                               ; preds = %26, %.tail
+  %30 = tail call ptr @connectToServer(ptr noundef nonnull @new_cluster, ptr noundef %16) #8
+  br i1 %0, label %sub_030, label %31
 
-32:                                               ; preds = %29, %23
-  %33 = add nuw nsw i32 %.029.us, 1
-  %exitcond31.not = icmp eq i32 %33, %14
-  br i1 %exitcond31.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+31:                                               ; preds = %29
+  %32 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 0, i32 3), align 4
+  %33 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %30, ptr noundef nonnull @.str.50, i32 noundef %32) #8
+  tail call void @PQclear(ptr noundef %33) #8
+  br label %sub_030
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %52
-  %.029 = phi i32 [ %53, %52 ], [ 0, %.lr.ph ]
-  %34 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.029, i32 noundef %12) #8
-  %35 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.029, i32 noundef %13) #8
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(2) @.str.48) #11
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %41
+sub_030:                                          ; preds = %31, %29
+  %34 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 0, i32 6), align 8
+  %35 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %30, ptr noundef nonnull @.str.51, i32 noundef %34) #8
+  tail call void @PQclear(ptr noundef %35) #8
+  tail call void @PQfinish(ptr noundef %30) #8
+  %36 = load i8, ptr %17, align 1
+  %37 = zext i8 %36 to i32
+  %38 = add nsw i32 %37, -102
+  %.not34 = icmp eq i32 %38, 0
+  br i1 %.not34, label %sub_131, label %.tail29
 
-38:                                               ; preds = %.lr.ph.split
-  %39 = tail call ptr @quote_identifier(ptr noundef %34) #8
-  %40 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.49, ptr noundef %39) #8
-  tail call void @PQclear(ptr noundef %40) #8
-  br label %41
+sub_131:                                          ; preds = %sub_030
+  %39 = getelementptr inbounds i8, ptr %17, i64 1
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  br label %.tail29
 
-41:                                               ; preds = %38, %.lr.ph.split
-  %42 = tail call ptr @connectToServer(ptr noundef nonnull @new_cluster, ptr noundef %34) #8
-  %43 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 0, i32 3), align 4
-  %44 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %42, ptr noundef nonnull @.str.50, i32 noundef %43) #8
-  tail call void @PQclear(ptr noundef %44) #8
-  %45 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i64 0, i32 0, i32 6), align 8
-  %46 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %42, ptr noundef nonnull @.str.51, i32 noundef %45) #8
+.tail29:                                          ; preds = %sub_030, %sub_131
+  %42 = phi i32 [ %38, %sub_030 ], [ %41, %sub_131 ]
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %.tail29
+  %45 = tail call ptr @quote_identifier(ptr noundef %16) #8
+  %46 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef %45) #8
   tail call void @PQclear(ptr noundef %46) #8
-  tail call void @PQfinish(ptr noundef %42) #8
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(2) @.str.48) #11
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %52
+  br label %47
 
-49:                                               ; preds = %41
-  %50 = tail call ptr @quote_identifier(ptr noundef %34) #8
-  %51 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef %50) #8
-  tail call void @PQclear(ptr noundef %51) #8
-  br label %52
+47:                                               ; preds = %.tail29, %44
+  %48 = add nuw nsw i32 %.033, 1
+  %exitcond.not = icmp eq i32 %48, %14
+  br i1 %exitcond.not, label %._crit_edge, label %sub_0, !llvm.loop !12
 
-52:                                               ; preds = %41, %49
-  %53 = add nuw nsw i32 %.029, 1
-  %exitcond.not = icmp eq i32 %53, %14
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
-
-._crit_edge:                                      ; preds = %52, %32, %7
+._crit_edge:                                      ; preds = %47, %7
   tail call void @PQclear(ptr noundef %11) #8
   tail call void @PQfinish(ptr noundef %8) #8
   tail call void @check_ok() #8

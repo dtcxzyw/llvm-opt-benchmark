@@ -42,7 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [7 x i8] c"dashed\00", align 1
 @.str.25 = private unnamed_addr constant [7 x i8] c"dotted\00", align 1
 @.str.26 = private unnamed_addr constant [6 x i8] c"label\00", align 1
-@.str.27 = private unnamed_addr constant [3 x i8] c"\\N\00", align 1
 @.str.28 = private unnamed_addr constant [9 x i8] c"penwidth\00", align 1
 @.str.29 = private unnamed_addr constant [6 x i8] c"width\00", align 1
 @.str.30 = private unnamed_addr constant [7 x i8] c"height\00", align 1
@@ -94,8 +93,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.77 = private unnamed_addr constant [5 x i8] c"last\00", align 1
 @.str.78 = private unnamed_addr constant [5 x i8] c"both\00", align 1
 @.str.79 = private unnamed_addr constant [5 x i8] c"none\00", align 1
-@.str.80 = private unnamed_addr constant [3 x i8] c"e,\00", align 1
-@.str.81 = private unnamed_addr constant [3 x i8] c"s,\00", align 1
 @.str.82 = private unnamed_addr constant [8 x i8] c"Line [\0A\00", align 1
 @.str.83 = private unnamed_addr constant [24 x i8] c"Illegal spline end: %s\0A\00", align 1
 @.str.84 = private unnamed_addr constant [21 x i8] c"point [ x %g y %g ]\0A\00", align 1
@@ -247,18 +244,18 @@ initargs.exit:                                    ; preds = %79, %81
   %83 = load ptr, ptr @Files, align 8
   %84 = call ptr @newIngraph(ptr noundef nonnull %33, ptr noundef %83) #14
   %85 = call ptr @nextGraph(ptr noundef nonnull %33) #14
-  %.not151 = icmp eq ptr %85, null
-  br i1 %.not151, label %._crit_edge, label %.lr.ph
+  %.not153 = icmp eq ptr %85, null
+  br i1 %.not153, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %initargs.exit, %gv_to_gml.exit
-  %86 = phi ptr [ %967, %gv_to_gml.exit ], [ %85, %initargs.exit ]
-  %.0152 = phi ptr [ %86, %gv_to_gml.exit ], [ null, %initargs.exit ]
-  %.not7 = icmp eq ptr %.0152, null
+  %86 = phi ptr [ %988, %gv_to_gml.exit ], [ %85, %initargs.exit ]
+  %.0154 = phi ptr [ %86, %gv_to_gml.exit ], [ null, %initargs.exit ]
+  %.not7 = icmp eq ptr %.0154, null
   br i1 %.not7, label %89, label %87
 
 87:                                               ; preds = %.lr.ph
   store i64 0, ptr @id, align 8
-  %88 = call i32 @agclose(ptr noundef nonnull %.0152) #14
+  %88 = call i32 @agclose(ptr noundef nonnull %.0154) #14
   br label %89
 
 89:                                               ; preds = %87, %.lr.ph
@@ -332,20 +329,20 @@ emitAttr.exit116:                                 ; preds = %.loopexit.i115, %10
 
 emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit116, %89
   %118 = call ptr @agfstnode(ptr noundef nonnull %86) #14
-  %.not20222.i = icmp eq ptr %118, null
-  br i1 %.not20222.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not20225.i = icmp eq ptr %118, null
+  br i1 %.not20225.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %emitGraphAttrs.exit.i, %emitNode.exit.i
-  %.019223.i = phi ptr [ %511, %emitNode.exit.i ], [ %118, %emitGraphAttrs.exit.i ]
-  %119 = call ptr @agbindrec(ptr noundef nonnull %.019223.i, ptr noundef nonnull @.str.19, i32 noundef 24, i32 noundef 1) #14
+  %.019226.i = phi ptr [ %520, %emitNode.exit.i ], [ %118, %emitGraphAttrs.exit.i ]
+  %119 = call ptr @agbindrec(ptr noundef nonnull %.019226.i, ptr noundef nonnull @.str.19, i32 noundef 24, i32 noundef 1) #14
   %120 = load ptr, ptr @outFile, align 8
   %121 = load i64, ptr @id, align 8
-  %122 = call ptr @agnameof(ptr noundef nonnull %.019223.i) #14
+  %122 = call ptr @agnameof(ptr noundef nonnull %.019226.i) #14
   %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.20, i64 noundef %121, ptr noundef %122) #14
   %124 = load i64, ptr @id, align 8
   %125 = add i64 %124, 1
   store i64 %125, ptr @id, align 8
-  %126 = getelementptr inbounds i8, ptr %.019223.i, i64 16
+  %126 = getelementptr inbounds i8, ptr %.019226.i, i64 16
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 16
   store i64 %124, ptr %128, align 8
@@ -356,7 +353,7 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit116, %
   br i1 %.not197.i.i.i, label %emitNode.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i, %emitAttr.exit108
-  %.0214.i.i.i = phi ptr [ %293, %emitAttr.exit108 ], [ %129, %.lr.ph.i ]
+  %.0214.i.i.i = phi ptr [ %302, %emitAttr.exit108 ], [ %129, %.lr.ph.i ]
   %.0125213.i.i.i = phi ptr [ %.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
   %.0126212.i.i.i = phi i32 [ %.1127.i.i.i, %emitAttr.exit108 ], [ 0, %.lr.ph.i ]
   %.0128211.i.i.i = phi i32 [ %.1129.i.i.i, %emitAttr.exit108 ], [ 0, %.lr.ph.i ]
@@ -380,7 +377,7 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit116, %
   br i1 %133, label %134, label %143
 
 134:                                              ; preds = %.lr.ph.i.i.i
-  %135 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %135 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
   %136 = load i8, ptr %135, align 1
   %.not158.i.i.i = icmp eq i8 %136, 0
   br i1 %.not158.i.i.i, label %emitAttr.exit108, label %137
@@ -403,1340 +400,1361 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit116, %
 143:                                              ; preds = %.lr.ph.i.i.i
   %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.26) #13
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %146, label %193
+  br i1 %145, label %sub_0.i.i.i, label %202
 
-146:                                              ; preds = %143
-  %147 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %148 = call i32 @strcmp(ptr noundef nonnull dereferenceable(3) @.str.27, ptr noundef nonnull dereferenceable(1) %147) #13
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %171
+sub_0.i.i.i:                                      ; preds = %143
+  %146 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %147 = load i8, ptr %146, align 1
+  %148 = zext i8 %147 to i32
+  %149 = sub nsw i32 92, %148
+  %.not230.i.i.i = icmp eq i8 %147, 92
+  br i1 %.not230.i.i.i, label %sub_1.i.i.i, label %.tail.i.i.i
 
-150:                                              ; preds = %146
-  %151 = call ptr @agnameof(ptr noundef nonnull %.019223.i) #14
-  %152 = load ptr, ptr %130, align 8
+sub_1.i.i.i:                                      ; preds = %sub_0.i.i.i
+  %150 = getelementptr inbounds i8, ptr %146, i64 1
+  %151 = load i8, ptr %150, align 1
+  %152 = zext i8 %151 to i32
+  %153 = sub nsw i32 78, %152
+  %.not231.i.i.i = icmp eq i8 %151, 78
+  br i1 %.not231.i.i.i, label %sub_2.i.i.i, label %.tail.i.i.i
+
+sub_2.i.i.i:                                      ; preds = %sub_1.i.i.i
+  %154 = getelementptr inbounds i8, ptr %146, i64 2
+  %155 = load i8, ptr %154, align 1
+  %156 = zext i8 %155 to i32
+  %157 = sub nsw i32 0, %156
+  br label %.tail.i.i.i
+
+.tail.i.i.i:                                      ; preds = %sub_2.i.i.i, %sub_1.i.i.i, %sub_0.i.i.i
+  %158 = phi i32 [ %149, %sub_0.i.i.i ], [ %153, %sub_1.i.i.i ], [ %157, %sub_2.i.i.i ]
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %160, label %181
+
+160:                                              ; preds = %.tail.i.i.i
+  %161 = call ptr @agnameof(ptr noundef nonnull %.019226.i) #14
+  %162 = load ptr, ptr %130, align 8
   br label %.lr.ph.i.i101
 
-.lr.ph.i.i101:                                    ; preds = %.lr.ph.i.i101, %150
-  %.02.i.i102 = phi i32 [ %153, %.lr.ph.i.i101 ], [ 2, %150 ]
-  %153 = add nsw i32 %.02.i.i102, -1
-  %154 = load ptr, ptr @outFile, align 8
-  %155 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %154)
-  %.not.i.i103 = icmp eq i32 %153, 0
+.lr.ph.i.i101:                                    ; preds = %.lr.ph.i.i101, %160
+  %.02.i.i102 = phi i32 [ %163, %.lr.ph.i.i101 ], [ 2, %160 ]
+  %163 = add nsw i32 %.02.i.i102, -1
+  %164 = load ptr, ptr @outFile, align 8
+  %165 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %164)
+  %.not.i.i103 = icmp eq i32 %163, 0
   br i1 %.not.i.i103, label %indent.exit.i104, label %.lr.ph.i.i101
 
 indent.exit.i104:                                 ; preds = %.lr.ph.i.i101
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %151, ptr %4, align 8
-  %156 = call double @strtod(ptr noundef %151, ptr noundef nonnull %4) #14
-  %157 = load ptr, ptr %4, align 8
-  %.not.i5.i105 = icmp eq ptr %157, %151
+  store ptr %161, ptr %4, align 8
+  %166 = call double @strtod(ptr noundef %161, ptr noundef nonnull %4) #14
+  %167 = load ptr, ptr %4, align 8
+  %.not.i5.i105 = icmp eq ptr %167, %161
   br i1 %.not.i5.i105, label %.loopexit.i107, label %.preheader.i.i106
 
-.preheader.i.i106:                                ; preds = %indent.exit.i104, %160
-  %158 = phi ptr [ %161, %160 ], [ %157, %indent.exit.i104 ]
-  %159 = load i8, ptr %158, align 1
-  switch i8 %159, label %.loopexit.i107 [
-    i8 9, label %160
-    i8 10, label %160
-    i8 11, label %160
-    i8 12, label %160
-    i8 13, label %160
-    i8 32, label %160
-    i8 0, label %162
+.preheader.i.i106:                                ; preds = %indent.exit.i104, %170
+  %168 = phi ptr [ %171, %170 ], [ %167, %indent.exit.i104 ]
+  %169 = load i8, ptr %168, align 1
+  switch i8 %169, label %.loopexit.i107 [
+    i8 9, label %170
+    i8 10, label %170
+    i8 11, label %170
+    i8 12, label %170
+    i8 13, label %170
+    i8 32, label %170
+    i8 0, label %172
   ]
 
-160:                                              ; preds = %.preheader.i.i106, %.preheader.i.i106, %.preheader.i.i106, %.preheader.i.i106, %.preheader.i.i106, %.preheader.i.i106
-  %161 = getelementptr inbounds i8, ptr %158, i64 1
+170:                                              ; preds = %.preheader.i.i106, %.preheader.i.i106, %.preheader.i.i106, %.preheader.i.i106, %.preheader.i.i106, %.preheader.i.i106
+  %171 = getelementptr inbounds i8, ptr %168, i64 1
   br label %.preheader.i.i106
 
-162:                                              ; preds = %.preheader.i.i106
+172:                                              ; preds = %.preheader.i.i106
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %163 = load ptr, ptr @outFile, align 8
-  %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.15, ptr noundef %152, ptr noundef %151) #14
+  %173 = load ptr, ptr @outFile, align 8
+  %174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef nonnull @.str.15, ptr noundef %162, ptr noundef %161) #14
   br label %emitAttr.exit108
 
 .loopexit.i107:                                   ; preds = %.preheader.i.i106, %indent.exit.i104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %165 = load ptr, ptr @outFile, align 8
-  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str.16, ptr noundef %152) #14
-  %167 = load ptr, ptr @outFile, align 8
-  %168 = call i32 @xml_escape(ptr noundef %151, i32 6, ptr noundef nonnull @put, ptr noundef %167) #14
-  %169 = load ptr, ptr @outFile, align 8
-  %170 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %169)
+  %175 = load ptr, ptr @outFile, align 8
+  %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.16, ptr noundef %162) #14
+  %177 = load ptr, ptr @outFile, align 8
+  %178 = call i32 @xml_escape(ptr noundef %161, i32 6, ptr noundef nonnull @put, ptr noundef %177) #14
+  %179 = load ptr, ptr @outFile, align 8
+  %180 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %179)
   br label %emitAttr.exit108
 
-171:                                              ; preds = %146
-  %172 = load i8, ptr %147, align 1
-  %.not157.i.i.i = icmp eq i8 %172, 0
-  br i1 %.not157.i.i.i, label %emitAttr.exit108, label %173
+181:                                              ; preds = %.tail.i.i.i
+  %.not157.i.i.i = icmp eq i8 %147, 0
+  br i1 %.not157.i.i.i, label %emitAttr.exit108, label %182
 
-173:                                              ; preds = %171
-  %174 = load ptr, ptr %130, align 8
+182:                                              ; preds = %181
+  %183 = load ptr, ptr %130, align 8
   br label %.lr.ph.i.i93
 
-.lr.ph.i.i93:                                     ; preds = %.lr.ph.i.i93, %173
-  %.02.i.i94 = phi i32 [ %175, %.lr.ph.i.i93 ], [ 2, %173 ]
-  %175 = add nsw i32 %.02.i.i94, -1
-  %176 = load ptr, ptr @outFile, align 8
-  %177 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %176)
-  %.not.i.i95 = icmp eq i32 %175, 0
+.lr.ph.i.i93:                                     ; preds = %.lr.ph.i.i93, %182
+  %.02.i.i94 = phi i32 [ %184, %.lr.ph.i.i93 ], [ 2, %182 ]
+  %184 = add nsw i32 %.02.i.i94, -1
+  %185 = load ptr, ptr @outFile, align 8
+  %186 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %185)
+  %.not.i.i95 = icmp eq i32 %184, 0
   br i1 %.not.i.i95, label %indent.exit.i96, label %.lr.ph.i.i93
 
 indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %147, ptr %5, align 8
-  %178 = call double @strtod(ptr noundef nonnull %147, ptr noundef nonnull %5) #14
-  %179 = load ptr, ptr %5, align 8
-  %.not.i5.i97 = icmp eq ptr %179, %147
+  store ptr %146, ptr %5, align 8
+  %187 = call double @strtod(ptr noundef nonnull %146, ptr noundef nonnull %5) #14
+  %188 = load ptr, ptr %5, align 8
+  %.not.i5.i97 = icmp eq ptr %188, %146
   br i1 %.not.i5.i97, label %.loopexit.i99, label %.preheader.i.i98
 
-.preheader.i.i98:                                 ; preds = %indent.exit.i96, %182
-  %180 = phi ptr [ %183, %182 ], [ %179, %indent.exit.i96 ]
-  %181 = load i8, ptr %180, align 1
-  switch i8 %181, label %.loopexit.i99 [
-    i8 9, label %182
-    i8 10, label %182
-    i8 11, label %182
-    i8 12, label %182
-    i8 13, label %182
-    i8 32, label %182
-    i8 0, label %184
+.preheader.i.i98:                                 ; preds = %indent.exit.i96, %191
+  %189 = phi ptr [ %192, %191 ], [ %188, %indent.exit.i96 ]
+  %190 = load i8, ptr %189, align 1
+  switch i8 %190, label %.loopexit.i99 [
+    i8 9, label %191
+    i8 10, label %191
+    i8 11, label %191
+    i8 12, label %191
+    i8 13, label %191
+    i8 32, label %191
+    i8 0, label %193
   ]
 
-182:                                              ; preds = %.preheader.i.i98, %.preheader.i.i98, %.preheader.i.i98, %.preheader.i.i98, %.preheader.i.i98, %.preheader.i.i98
-  %183 = getelementptr inbounds i8, ptr %180, i64 1
+191:                                              ; preds = %.preheader.i.i98, %.preheader.i.i98, %.preheader.i.i98, %.preheader.i.i98, %.preheader.i.i98, %.preheader.i.i98
+  %192 = getelementptr inbounds i8, ptr %189, i64 1
   br label %.preheader.i.i98
 
-184:                                              ; preds = %.preheader.i.i98
+193:                                              ; preds = %.preheader.i.i98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %185 = load ptr, ptr @outFile, align 8
-  %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.15, ptr noundef %174, ptr noundef nonnull %147) #14
+  %194 = load ptr, ptr @outFile, align 8
+  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.15, ptr noundef %183, ptr noundef nonnull %146) #14
   br label %emitAttr.exit108
 
 .loopexit.i99:                                    ; preds = %.preheader.i.i98, %indent.exit.i96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %187 = load ptr, ptr @outFile, align 8
-  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.16, ptr noundef %174) #14
-  %189 = load ptr, ptr @outFile, align 8
-  %190 = call i32 @xml_escape(ptr noundef nonnull %147, i32 6, ptr noundef nonnull @put, ptr noundef %189) #14
-  %191 = load ptr, ptr @outFile, align 8
-  %192 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %191)
+  %196 = load ptr, ptr @outFile, align 8
+  %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.16, ptr noundef %183) #14
+  %198 = load ptr, ptr @outFile, align 8
+  %199 = call i32 @xml_escape(ptr noundef nonnull %146, i32 6, ptr noundef nonnull @put, ptr noundef %198) #14
+  %200 = load ptr, ptr @outFile, align 8
+  %201 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %200)
   br label %emitAttr.exit108
 
-193:                                              ; preds = %143
-  %194 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.28) #13
-  %195 = icmp eq i32 %194, 0
-  br i1 %195, label %196, label %199
+202:                                              ; preds = %143
+  %203 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.28) #13
+  %204 = icmp eq i32 %203, 0
+  br i1 %204, label %205, label %208
 
-196:                                              ; preds = %193
-  %197 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %198 = load i8, ptr %197, align 1
-  %.not156.i.i.i = icmp eq i8 %198, 0
-  %spec.select164.i.i.i = select i1 %.not156.i.i.i, ptr %.sroa.37.0206.i.i.i, ptr %197
+205:                                              ; preds = %202
+  %206 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %207 = load i8, ptr %206, align 1
+  %.not156.i.i.i = icmp eq i8 %207, 0
+  %spec.select164.i.i.i = select i1 %.not156.i.i.i, ptr %.sroa.37.0206.i.i.i, ptr %206
   %spec.select165.i.i.i = select i1 %.not156.i.i.i, i32 %.0128211.i.i.i, i32 1
   br label %emitAttr.exit108
 
-199:                                              ; preds = %193
-  %200 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.29) #13
-  %201 = icmp eq i32 %200, 0
-  br i1 %201, label %202, label %209
+208:                                              ; preds = %202
+  %209 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.29) #13
+  %210 = icmp eq i32 %209, 0
+  br i1 %210, label %211, label %218
 
-202:                                              ; preds = %199
-  %203 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %204 = load i8, ptr %203, align 1
-  %.not155.i.i.i = icmp eq i8 %204, 0
-  br i1 %.not155.i.i.i, label %emitAttr.exit108, label %205
+211:                                              ; preds = %208
+  %212 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %213 = load i8, ptr %212, align 1
+  %.not155.i.i.i = icmp eq i8 %213, 0
+  br i1 %.not155.i.i.i, label %emitAttr.exit108, label %214
 
-205:                                              ; preds = %202
-  %206 = call double @atof(ptr noundef nonnull %203) #13
-  %207 = fmul double %206, 7.200000e+01
-  %208 = or i32 %.sroa.0.0198.i.i.i, 2
+214:                                              ; preds = %211
+  %215 = call double @atof(ptr noundef nonnull %212) #13
+  %216 = fmul double %215, 7.200000e+01
+  %217 = or i32 %.sroa.0.0198.i.i.i, 2
   br label %emitAttr.exit108
 
-209:                                              ; preds = %199
-  %210 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(7) @.str.30) #13
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %212, label %219
+218:                                              ; preds = %208
+  %219 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(7) @.str.30) #13
+  %220 = icmp eq i32 %219, 0
+  br i1 %220, label %221, label %228
 
-212:                                              ; preds = %209
-  %213 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %214 = load i8, ptr %213, align 1
-  %.not154.i.i.i = icmp eq i8 %214, 0
-  br i1 %.not154.i.i.i, label %emitAttr.exit108, label %215
+221:                                              ; preds = %218
+  %222 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %223 = load i8, ptr %222, align 1
+  %.not154.i.i.i = icmp eq i8 %223, 0
+  br i1 %.not154.i.i.i, label %emitAttr.exit108, label %224
 
-215:                                              ; preds = %212
-  %216 = call double @atof(ptr noundef nonnull %213) #13
-  %217 = fmul double %216, 7.200000e+01
-  %218 = or i32 %.sroa.0.0198.i.i.i, 4
+224:                                              ; preds = %221
+  %225 = call double @atof(ptr noundef nonnull %222) #13
+  %226 = fmul double %225, 7.200000e+01
+  %227 = or i32 %.sroa.0.0198.i.i.i, 4
   br label %emitAttr.exit108
 
-219:                                              ; preds = %209
-  %220 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(4) @.str.31) #13
-  %221 = icmp eq i32 %220, 0
-  br i1 %221, label %222, label %230
+228:                                              ; preds = %218
+  %229 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(4) @.str.31) #13
+  %230 = icmp eq i32 %229, 0
+  br i1 %230, label %231, label %239
 
-222:                                              ; preds = %219
-  %223 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %224 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %223, ptr noundef nonnull @.str.32, ptr noundef nonnull %31, ptr noundef nonnull %32) #14
-  %225 = icmp eq i32 %224, 2
-  br i1 %225, label %226, label %emitAttr.exit108
+231:                                              ; preds = %228
+  %232 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %233 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %232, ptr noundef nonnull @.str.32, ptr noundef nonnull %31, ptr noundef nonnull %32) #14
+  %234 = icmp eq i32 %233, 2
+  br i1 %234, label %235, label %emitAttr.exit108
 
-226:                                              ; preds = %222
-  %227 = load double, ptr %31, align 8
-  %228 = load double, ptr %32, align 8
-  %229 = or i32 %.sroa.0.0198.i.i.i, 1
+235:                                              ; preds = %231
+  %236 = load double, ptr %31, align 8
+  %237 = load double, ptr %32, align 8
+  %238 = or i32 %.sroa.0.0198.i.i.i, 1
   br label %emitAttr.exit108
 
-230:                                              ; preds = %219
-  %231 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.33) #13
-  %232 = icmp eq i32 %231, 0
-  br i1 %232, label %233, label %236
+239:                                              ; preds = %228
+  %240 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.33) #13
+  %241 = icmp eq i32 %240, 0
+  br i1 %241, label %242, label %245
 
-233:                                              ; preds = %230
-  %234 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %235 = load i8, ptr %234, align 1
-  %.not153.i.i.i = icmp eq i8 %235, 0
-  %spec.select166.i.i.i = select i1 %.not153.i.i.i, ptr %.sroa.24.0203.i.i.i, ptr %234
+242:                                              ; preds = %239
+  %243 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %244 = load i8, ptr %243, align 1
+  %.not153.i.i.i = icmp eq i8 %244, 0
+  %spec.select166.i.i.i = select i1 %.not153.i.i.i, ptr %.sroa.24.0203.i.i.i, ptr %243
   %spec.select167.i.i.i = select i1 %.not153.i.i.i, i32 %.0128211.i.i.i, i32 1
   br label %emitAttr.exit108
 
-236:                                              ; preds = %230
-  %237 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.34) #13
-  %238 = icmp eq i32 %237, 0
-  br i1 %238, label %239, label %243
+245:                                              ; preds = %239
+  %246 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.34) #13
+  %247 = icmp eq i32 %246, 0
+  br i1 %247, label %248, label %252
 
-239:                                              ; preds = %236
-  %240 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %241 = load i8, ptr %240, align 1
-  %.not152.i.i.i = icmp eq i8 %241, 0
-  br i1 %.not152.i.i.i, label %emitAttr.exit108, label %242
+248:                                              ; preds = %245
+  %249 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %250 = load i8, ptr %249, align 1
+  %.not152.i.i.i = icmp eq i8 %250, 0
+  br i1 %.not152.i.i.i, label %emitAttr.exit108, label %251
 
-242:                                              ; preds = %239
+251:                                              ; preds = %248
   br label %emitAttr.exit108
 
-243:                                              ; preds = %236
-  %244 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(10) @.str.35) #13
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %246, label %249
+252:                                              ; preds = %245
+  %253 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(10) @.str.35) #13
+  %254 = icmp eq i32 %253, 0
+  br i1 %254, label %255, label %258
 
-246:                                              ; preds = %243
-  %247 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %248 = load i8, ptr %247, align 1
-  %.not151.i.i.i = icmp eq i8 %248, 0
-  %spec.select168.i.i.i = select i1 %.not151.i.i.i, ptr %.sroa.29.0204.i.i.i, ptr %247
+255:                                              ; preds = %252
+  %256 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %257 = load i8, ptr %256, align 1
+  %.not151.i.i.i = icmp eq i8 %257, 0
+  %spec.select168.i.i.i = select i1 %.not151.i.i.i, ptr %.sroa.29.0204.i.i.i, ptr %256
   %spec.select169.i.i.i = select i1 %.not151.i.i.i, i32 %.0128211.i.i.i, i32 1
   br label %emitAttr.exit108
 
-249:                                              ; preds = %243
-  %250 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.36) #13
-  %251 = icmp eq i32 %250, 0
-  br i1 %251, label %252, label %255
+258:                                              ; preds = %252
+  %259 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.36) #13
+  %260 = icmp eq i32 %259, 0
+  br i1 %260, label %261, label %264
 
-252:                                              ; preds = %249
-  %253 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %254 = load i8, ptr %253, align 1
-  %.not150.i.i.i = icmp eq i8 %254, 0
-  %spec.select170.i.i.i = select i1 %.not150.i.i.i, ptr %.sroa.33.0205.i.i.i, ptr %253
+261:                                              ; preds = %258
+  %262 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %263 = load i8, ptr %262, align 1
+  %.not150.i.i.i = icmp eq i8 %263, 0
+  %spec.select170.i.i.i = select i1 %.not150.i.i.i, ptr %.sroa.33.0205.i.i.i, ptr %262
   %spec.select171.i.i.i = select i1 %.not150.i.i.i, i32 %.0128211.i.i.i, i32 1
   br label %emitAttr.exit108
 
-255:                                              ; preds = %249
-  %256 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.37) #13
-  %257 = icmp eq i32 %256, 0
-  br i1 %257, label %258, label %261
+264:                                              ; preds = %258
+  %265 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.37) #13
+  %266 = icmp eq i32 %265, 0
+  br i1 %266, label %267, label %270
 
-258:                                              ; preds = %255
-  %259 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %260 = load i8, ptr %259, align 1
-  %.not149.i.i.i = icmp eq i8 %260, 0
-  %spec.select172.i.i.i = select i1 %.not149.i.i.i, ptr %.sroa.51.0210.i.i.i, ptr %259
+267:                                              ; preds = %264
+  %268 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %269 = load i8, ptr %268, align 1
+  %.not149.i.i.i = icmp eq i8 %269, 0
+  %spec.select172.i.i.i = select i1 %.not149.i.i.i, ptr %.sroa.51.0210.i.i.i, ptr %268
   %spec.select173.i.i.i = select i1 %.not149.i.i.i, i32 %.0126212.i.i.i, i32 1
   br label %emitAttr.exit108
 
-261:                                              ; preds = %255
-  %262 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.38) #13
-  %263 = icmp eq i32 %262, 0
-  br i1 %263, label %264, label %267
+270:                                              ; preds = %264
+  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.38) #13
+  %272 = icmp eq i32 %271, 0
+  br i1 %272, label %273, label %276
 
-264:                                              ; preds = %261
-  %265 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  %266 = load i8, ptr %265, align 1
-  %.not148.i.i.i = icmp eq i8 %266, 0
-  %spec.select174.i.i.i = select i1 %.not148.i.i.i, ptr %.sroa.48.0209.i.i.i, ptr %265
+273:                                              ; preds = %270
+  %274 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %275 = load i8, ptr %274, align 1
+  %.not148.i.i.i = icmp eq i8 %275, 0
+  %spec.select174.i.i.i = select i1 %.not148.i.i.i, ptr %.sroa.48.0209.i.i.i, ptr %274
   %spec.select175.i.i.i = select i1 %.not148.i.i.i, i32 %.0126212.i.i.i, i32 1
   br label %emitAttr.exit108
 
-267:                                              ; preds = %261
-  %268 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(10) @.str.39) #13
-  %269 = icmp eq i32 %268, 0
-  %270 = call ptr @agxget(ptr noundef nonnull %.019223.i, ptr noundef nonnull %.0214.i.i.i) #14
-  br i1 %269, label %271, label %273
+276:                                              ; preds = %270
+  %277 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(10) @.str.39) #13
+  %278 = icmp eq i32 %277, 0
+  %279 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  br i1 %278, label %280, label %282
 
-271:                                              ; preds = %267
-  %272 = load i8, ptr %270, align 1
-  %.not147.i.i.i = icmp eq i8 %272, 0
-  %spec.select176.i.i.i = select i1 %.not147.i.i.i, ptr %.sroa.45.0208.i.i.i, ptr %270
+280:                                              ; preds = %276
+  %281 = load i8, ptr %279, align 1
+  %.not147.i.i.i = icmp eq i8 %281, 0
+  %spec.select176.i.i.i = select i1 %.not147.i.i.i, ptr %.sroa.45.0208.i.i.i, ptr %279
   %spec.select177.i.i.i = select i1 %.not147.i.i.i, i32 %.0126212.i.i.i, i32 1
   br label %emitAttr.exit108
 
-273:                                              ; preds = %267
-  %274 = load ptr, ptr %130, align 8
+282:                                              ; preds = %276
+  %283 = load ptr, ptr %130, align 8
   br label %.lr.ph.i.i85
 
-.lr.ph.i.i85:                                     ; preds = %.lr.ph.i.i85, %273
-  %.02.i.i86 = phi i32 [ %275, %.lr.ph.i.i85 ], [ 2, %273 ]
-  %275 = add nsw i32 %.02.i.i86, -1
-  %276 = load ptr, ptr @outFile, align 8
-  %277 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %276)
-  %.not.i.i87 = icmp eq i32 %275, 0
+.lr.ph.i.i85:                                     ; preds = %.lr.ph.i.i85, %282
+  %.02.i.i86 = phi i32 [ %284, %.lr.ph.i.i85 ], [ 2, %282 ]
+  %284 = add nsw i32 %.02.i.i86, -1
+  %285 = load ptr, ptr @outFile, align 8
+  %286 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %285)
+  %.not.i.i87 = icmp eq i32 %284, 0
   br i1 %.not.i.i87, label %indent.exit.i88, label %.lr.ph.i.i85
 
 indent.exit.i88:                                  ; preds = %.lr.ph.i.i85
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr %270, ptr %6, align 8
-  %278 = call double @strtod(ptr noundef %270, ptr noundef nonnull %6) #14
-  %279 = load ptr, ptr %6, align 8
-  %.not.i5.i89 = icmp eq ptr %279, %270
+  store ptr %279, ptr %6, align 8
+  %287 = call double @strtod(ptr noundef %279, ptr noundef nonnull %6) #14
+  %288 = load ptr, ptr %6, align 8
+  %.not.i5.i89 = icmp eq ptr %288, %279
   br i1 %.not.i5.i89, label %.loopexit.i91, label %.preheader.i.i90
 
-.preheader.i.i90:                                 ; preds = %indent.exit.i88, %282
-  %280 = phi ptr [ %283, %282 ], [ %279, %indent.exit.i88 ]
-  %281 = load i8, ptr %280, align 1
-  switch i8 %281, label %.loopexit.i91 [
-    i8 9, label %282
-    i8 10, label %282
-    i8 11, label %282
-    i8 12, label %282
-    i8 13, label %282
-    i8 32, label %282
-    i8 0, label %284
+.preheader.i.i90:                                 ; preds = %indent.exit.i88, %291
+  %289 = phi ptr [ %292, %291 ], [ %288, %indent.exit.i88 ]
+  %290 = load i8, ptr %289, align 1
+  switch i8 %290, label %.loopexit.i91 [
+    i8 9, label %291
+    i8 10, label %291
+    i8 11, label %291
+    i8 12, label %291
+    i8 13, label %291
+    i8 32, label %291
+    i8 0, label %293
   ]
 
-282:                                              ; preds = %.preheader.i.i90, %.preheader.i.i90, %.preheader.i.i90, %.preheader.i.i90, %.preheader.i.i90, %.preheader.i.i90
-  %283 = getelementptr inbounds i8, ptr %280, i64 1
+291:                                              ; preds = %.preheader.i.i90, %.preheader.i.i90, %.preheader.i.i90, %.preheader.i.i90, %.preheader.i.i90, %.preheader.i.i90
+  %292 = getelementptr inbounds i8, ptr %289, i64 1
   br label %.preheader.i.i90
 
-284:                                              ; preds = %.preheader.i.i90
+293:                                              ; preds = %.preheader.i.i90
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %285 = load ptr, ptr @outFile, align 8
-  %286 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %285, ptr noundef nonnull @.str.15, ptr noundef %274, ptr noundef %270) #14
+  %294 = load ptr, ptr @outFile, align 8
+  %295 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.15, ptr noundef %283, ptr noundef %279) #14
   br label %emitAttr.exit108
 
 .loopexit.i91:                                    ; preds = %.preheader.i.i90, %indent.exit.i88
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %287 = load ptr, ptr @outFile, align 8
-  %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %287, ptr noundef nonnull @.str.16, ptr noundef %274) #14
-  %289 = load ptr, ptr @outFile, align 8
-  %290 = call i32 @xml_escape(ptr noundef %270, i32 6, ptr noundef nonnull @put, ptr noundef %289) #14
-  %291 = load ptr, ptr @outFile, align 8
-  %292 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %291)
+  %296 = load ptr, ptr @outFile, align 8
+  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %296, ptr noundef nonnull @.str.16, ptr noundef %283) #14
+  %298 = load ptr, ptr @outFile, align 8
+  %299 = call i32 @xml_escape(ptr noundef %279, i32 6, ptr noundef nonnull @put, ptr noundef %298) #14
+  %300 = load ptr, ptr @outFile, align 8
+  %301 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %300)
   br label %emitAttr.exit108
 
-emitAttr.exit108:                                 ; preds = %.loopexit.i91, %284, %.loopexit.i99, %184, %.loopexit.i107, %162, %271, %264, %258, %252, %246, %242, %239, %233, %226, %222, %215, %212, %205, %202, %196, %171, %137, %134
-  %.sroa.0.3.i.i.i = phi i32 [ %.sroa.0.2.i.i.i, %137 ], [ %.sroa.0.0198.i.i.i, %134 ], [ %.sroa.0.0198.i.i.i, %171 ], [ %208, %205 ], [ %.sroa.0.0198.i.i.i, %202 ], [ %218, %215 ], [ %.sroa.0.0198.i.i.i, %212 ], [ %229, %226 ], [ %.sroa.0.0198.i.i.i, %222 ], [ %.sroa.0.0198.i.i.i, %242 ], [ %.sroa.0.0198.i.i.i, %239 ], [ %.sroa.0.0198.i.i.i, %196 ], [ %.sroa.0.0198.i.i.i, %233 ], [ %.sroa.0.0198.i.i.i, %246 ], [ %.sroa.0.0198.i.i.i, %252 ], [ %.sroa.0.0198.i.i.i, %258 ], [ %.sroa.0.0198.i.i.i, %264 ], [ %.sroa.0.0198.i.i.i, %271 ], [ %.sroa.0.0198.i.i.i, %162 ], [ %.sroa.0.0198.i.i.i, %.loopexit.i107 ], [ %.sroa.0.0198.i.i.i, %184 ], [ %.sroa.0.0198.i.i.i, %.loopexit.i99 ], [ %.sroa.0.0198.i.i.i, %284 ], [ %.sroa.0.0198.i.i.i, %.loopexit.i91 ]
-  %.sroa.1619.1.i.i.i = phi double [ %.sroa.1619.0199.i.i.i, %137 ], [ %.sroa.1619.0199.i.i.i, %134 ], [ %.sroa.1619.0199.i.i.i, %171 ], [ %.sroa.1619.0199.i.i.i, %205 ], [ %.sroa.1619.0199.i.i.i, %202 ], [ %.sroa.1619.0199.i.i.i, %215 ], [ %.sroa.1619.0199.i.i.i, %212 ], [ %227, %226 ], [ %.sroa.1619.0199.i.i.i, %222 ], [ %.sroa.1619.0199.i.i.i, %242 ], [ %.sroa.1619.0199.i.i.i, %239 ], [ %.sroa.1619.0199.i.i.i, %196 ], [ %.sroa.1619.0199.i.i.i, %233 ], [ %.sroa.1619.0199.i.i.i, %246 ], [ %.sroa.1619.0199.i.i.i, %252 ], [ %.sroa.1619.0199.i.i.i, %258 ], [ %.sroa.1619.0199.i.i.i, %264 ], [ %.sroa.1619.0199.i.i.i, %271 ], [ %.sroa.1619.0199.i.i.i, %162 ], [ %.sroa.1619.0199.i.i.i, %.loopexit.i107 ], [ %.sroa.1619.0199.i.i.i, %184 ], [ %.sroa.1619.0199.i.i.i, %.loopexit.i99 ], [ %.sroa.1619.0199.i.i.i, %284 ], [ %.sroa.1619.0199.i.i.i, %.loopexit.i91 ]
-  %.sroa.18.1.i.i.i = phi double [ %.sroa.18.0200.i.i.i, %137 ], [ %.sroa.18.0200.i.i.i, %134 ], [ %.sroa.18.0200.i.i.i, %171 ], [ %.sroa.18.0200.i.i.i, %205 ], [ %.sroa.18.0200.i.i.i, %202 ], [ %.sroa.18.0200.i.i.i, %215 ], [ %.sroa.18.0200.i.i.i, %212 ], [ %228, %226 ], [ %.sroa.18.0200.i.i.i, %222 ], [ %.sroa.18.0200.i.i.i, %242 ], [ %.sroa.18.0200.i.i.i, %239 ], [ %.sroa.18.0200.i.i.i, %196 ], [ %.sroa.18.0200.i.i.i, %233 ], [ %.sroa.18.0200.i.i.i, %246 ], [ %.sroa.18.0200.i.i.i, %252 ], [ %.sroa.18.0200.i.i.i, %258 ], [ %.sroa.18.0200.i.i.i, %264 ], [ %.sroa.18.0200.i.i.i, %271 ], [ %.sroa.18.0200.i.i.i, %162 ], [ %.sroa.18.0200.i.i.i, %.loopexit.i107 ], [ %.sroa.18.0200.i.i.i, %184 ], [ %.sroa.18.0200.i.i.i, %.loopexit.i99 ], [ %.sroa.18.0200.i.i.i, %284 ], [ %.sroa.18.0200.i.i.i, %.loopexit.i91 ]
-  %.sroa.20.1.i.i.i = phi double [ %.sroa.20.0201.i.i.i, %137 ], [ %.sroa.20.0201.i.i.i, %134 ], [ %.sroa.20.0201.i.i.i, %171 ], [ %207, %205 ], [ %.sroa.20.0201.i.i.i, %202 ], [ %.sroa.20.0201.i.i.i, %215 ], [ %.sroa.20.0201.i.i.i, %212 ], [ %.sroa.20.0201.i.i.i, %226 ], [ %.sroa.20.0201.i.i.i, %222 ], [ %.sroa.20.0201.i.i.i, %242 ], [ %.sroa.20.0201.i.i.i, %239 ], [ %.sroa.20.0201.i.i.i, %196 ], [ %.sroa.20.0201.i.i.i, %233 ], [ %.sroa.20.0201.i.i.i, %246 ], [ %.sroa.20.0201.i.i.i, %252 ], [ %.sroa.20.0201.i.i.i, %258 ], [ %.sroa.20.0201.i.i.i, %264 ], [ %.sroa.20.0201.i.i.i, %271 ], [ %.sroa.20.0201.i.i.i, %162 ], [ %.sroa.20.0201.i.i.i, %.loopexit.i107 ], [ %.sroa.20.0201.i.i.i, %184 ], [ %.sroa.20.0201.i.i.i, %.loopexit.i99 ], [ %.sroa.20.0201.i.i.i, %284 ], [ %.sroa.20.0201.i.i.i, %.loopexit.i91 ]
-  %.sroa.22.1.i.i.i = phi double [ %.sroa.22.0202.i.i.i, %137 ], [ %.sroa.22.0202.i.i.i, %134 ], [ %.sroa.22.0202.i.i.i, %171 ], [ %.sroa.22.0202.i.i.i, %205 ], [ %.sroa.22.0202.i.i.i, %202 ], [ %217, %215 ], [ %.sroa.22.0202.i.i.i, %212 ], [ %.sroa.22.0202.i.i.i, %226 ], [ %.sroa.22.0202.i.i.i, %222 ], [ %.sroa.22.0202.i.i.i, %242 ], [ %.sroa.22.0202.i.i.i, %239 ], [ %.sroa.22.0202.i.i.i, %196 ], [ %.sroa.22.0202.i.i.i, %233 ], [ %.sroa.22.0202.i.i.i, %246 ], [ %.sroa.22.0202.i.i.i, %252 ], [ %.sroa.22.0202.i.i.i, %258 ], [ %.sroa.22.0202.i.i.i, %264 ], [ %.sroa.22.0202.i.i.i, %271 ], [ %.sroa.22.0202.i.i.i, %162 ], [ %.sroa.22.0202.i.i.i, %.loopexit.i107 ], [ %.sroa.22.0202.i.i.i, %184 ], [ %.sroa.22.0202.i.i.i, %.loopexit.i99 ], [ %.sroa.22.0202.i.i.i, %284 ], [ %.sroa.22.0202.i.i.i, %.loopexit.i91 ]
-  %.sroa.24.1.i.i.i = phi ptr [ %.sroa.24.0203.i.i.i, %137 ], [ %.sroa.24.0203.i.i.i, %134 ], [ %.sroa.24.0203.i.i.i, %171 ], [ %.sroa.24.0203.i.i.i, %205 ], [ %.sroa.24.0203.i.i.i, %202 ], [ %.sroa.24.0203.i.i.i, %215 ], [ %.sroa.24.0203.i.i.i, %212 ], [ %.sroa.24.0203.i.i.i, %226 ], [ %.sroa.24.0203.i.i.i, %222 ], [ %.sroa.24.0203.i.i.i, %242 ], [ %.sroa.24.0203.i.i.i, %239 ], [ %.sroa.24.0203.i.i.i, %196 ], [ %spec.select166.i.i.i, %233 ], [ %.sroa.24.0203.i.i.i, %246 ], [ %.sroa.24.0203.i.i.i, %252 ], [ %.sroa.24.0203.i.i.i, %258 ], [ %.sroa.24.0203.i.i.i, %264 ], [ %.sroa.24.0203.i.i.i, %271 ], [ %.sroa.24.0203.i.i.i, %162 ], [ %.sroa.24.0203.i.i.i, %.loopexit.i107 ], [ %.sroa.24.0203.i.i.i, %184 ], [ %.sroa.24.0203.i.i.i, %.loopexit.i99 ], [ %.sroa.24.0203.i.i.i, %284 ], [ %.sroa.24.0203.i.i.i, %.loopexit.i91 ]
-  %.sroa.29.1.i.i.i = phi ptr [ %.sroa.29.0204.i.i.i, %137 ], [ %.sroa.29.0204.i.i.i, %134 ], [ %.sroa.29.0204.i.i.i, %171 ], [ %.sroa.29.0204.i.i.i, %205 ], [ %.sroa.29.0204.i.i.i, %202 ], [ %.sroa.29.0204.i.i.i, %215 ], [ %.sroa.29.0204.i.i.i, %212 ], [ %.sroa.29.0204.i.i.i, %226 ], [ %.sroa.29.0204.i.i.i, %222 ], [ %240, %242 ], [ %.sroa.29.0204.i.i.i, %239 ], [ %.sroa.29.0204.i.i.i, %196 ], [ %.sroa.29.0204.i.i.i, %233 ], [ %spec.select168.i.i.i, %246 ], [ %.sroa.29.0204.i.i.i, %252 ], [ %.sroa.29.0204.i.i.i, %258 ], [ %.sroa.29.0204.i.i.i, %264 ], [ %.sroa.29.0204.i.i.i, %271 ], [ %.sroa.29.0204.i.i.i, %162 ], [ %.sroa.29.0204.i.i.i, %.loopexit.i107 ], [ %.sroa.29.0204.i.i.i, %184 ], [ %.sroa.29.0204.i.i.i, %.loopexit.i99 ], [ %.sroa.29.0204.i.i.i, %284 ], [ %.sroa.29.0204.i.i.i, %.loopexit.i91 ]
-  %.sroa.33.1.i.i.i = phi ptr [ %.sroa.33.0205.i.i.i, %137 ], [ %.sroa.33.0205.i.i.i, %134 ], [ %.sroa.33.0205.i.i.i, %171 ], [ %.sroa.33.0205.i.i.i, %205 ], [ %.sroa.33.0205.i.i.i, %202 ], [ %.sroa.33.0205.i.i.i, %215 ], [ %.sroa.33.0205.i.i.i, %212 ], [ %.sroa.33.0205.i.i.i, %226 ], [ %.sroa.33.0205.i.i.i, %222 ], [ %240, %242 ], [ %.sroa.33.0205.i.i.i, %239 ], [ %.sroa.33.0205.i.i.i, %196 ], [ %.sroa.33.0205.i.i.i, %233 ], [ %.sroa.33.0205.i.i.i, %246 ], [ %spec.select170.i.i.i, %252 ], [ %.sroa.33.0205.i.i.i, %258 ], [ %.sroa.33.0205.i.i.i, %264 ], [ %.sroa.33.0205.i.i.i, %271 ], [ %.sroa.33.0205.i.i.i, %162 ], [ %.sroa.33.0205.i.i.i, %.loopexit.i107 ], [ %.sroa.33.0205.i.i.i, %184 ], [ %.sroa.33.0205.i.i.i, %.loopexit.i99 ], [ %.sroa.33.0205.i.i.i, %284 ], [ %.sroa.33.0205.i.i.i, %.loopexit.i91 ]
-  %.sroa.37.1.i.i.i = phi ptr [ %.sroa.37.0206.i.i.i, %137 ], [ %.sroa.37.0206.i.i.i, %134 ], [ %.sroa.37.0206.i.i.i, %171 ], [ %.sroa.37.0206.i.i.i, %205 ], [ %.sroa.37.0206.i.i.i, %202 ], [ %.sroa.37.0206.i.i.i, %215 ], [ %.sroa.37.0206.i.i.i, %212 ], [ %.sroa.37.0206.i.i.i, %226 ], [ %.sroa.37.0206.i.i.i, %222 ], [ %.sroa.37.0206.i.i.i, %242 ], [ %.sroa.37.0206.i.i.i, %239 ], [ %spec.select164.i.i.i, %196 ], [ %.sroa.37.0206.i.i.i, %233 ], [ %.sroa.37.0206.i.i.i, %246 ], [ %.sroa.37.0206.i.i.i, %252 ], [ %.sroa.37.0206.i.i.i, %258 ], [ %.sroa.37.0206.i.i.i, %264 ], [ %.sroa.37.0206.i.i.i, %271 ], [ %.sroa.37.0206.i.i.i, %162 ], [ %.sroa.37.0206.i.i.i, %.loopexit.i107 ], [ %.sroa.37.0206.i.i.i, %184 ], [ %.sroa.37.0206.i.i.i, %.loopexit.i99 ], [ %.sroa.37.0206.i.i.i, %284 ], [ %.sroa.37.0206.i.i.i, %.loopexit.i91 ]
-  %.sroa.40.4.i.i.i = phi ptr [ %.sroa.40.3.i.i.i, %137 ], [ %.sroa.40.0207.i.i.i, %134 ], [ %.sroa.40.0207.i.i.i, %171 ], [ %.sroa.40.0207.i.i.i, %205 ], [ %.sroa.40.0207.i.i.i, %202 ], [ %.sroa.40.0207.i.i.i, %215 ], [ %.sroa.40.0207.i.i.i, %212 ], [ %.sroa.40.0207.i.i.i, %226 ], [ %.sroa.40.0207.i.i.i, %222 ], [ %.sroa.40.0207.i.i.i, %242 ], [ %.sroa.40.0207.i.i.i, %239 ], [ %.sroa.40.0207.i.i.i, %196 ], [ %.sroa.40.0207.i.i.i, %233 ], [ %.sroa.40.0207.i.i.i, %246 ], [ %.sroa.40.0207.i.i.i, %252 ], [ %.sroa.40.0207.i.i.i, %258 ], [ %.sroa.40.0207.i.i.i, %264 ], [ %.sroa.40.0207.i.i.i, %271 ], [ %.sroa.40.0207.i.i.i, %162 ], [ %.sroa.40.0207.i.i.i, %.loopexit.i107 ], [ %.sroa.40.0207.i.i.i, %184 ], [ %.sroa.40.0207.i.i.i, %.loopexit.i99 ], [ %.sroa.40.0207.i.i.i, %284 ], [ %.sroa.40.0207.i.i.i, %.loopexit.i91 ]
-  %.sroa.45.1.i.i.i = phi ptr [ %.sroa.45.0208.i.i.i, %137 ], [ %.sroa.45.0208.i.i.i, %134 ], [ %.sroa.45.0208.i.i.i, %171 ], [ %.sroa.45.0208.i.i.i, %205 ], [ %.sroa.45.0208.i.i.i, %202 ], [ %.sroa.45.0208.i.i.i, %215 ], [ %.sroa.45.0208.i.i.i, %212 ], [ %.sroa.45.0208.i.i.i, %226 ], [ %.sroa.45.0208.i.i.i, %222 ], [ %.sroa.45.0208.i.i.i, %242 ], [ %.sroa.45.0208.i.i.i, %239 ], [ %.sroa.45.0208.i.i.i, %196 ], [ %.sroa.45.0208.i.i.i, %233 ], [ %.sroa.45.0208.i.i.i, %246 ], [ %.sroa.45.0208.i.i.i, %252 ], [ %.sroa.45.0208.i.i.i, %258 ], [ %.sroa.45.0208.i.i.i, %264 ], [ %spec.select176.i.i.i, %271 ], [ %.sroa.45.0208.i.i.i, %162 ], [ %.sroa.45.0208.i.i.i, %.loopexit.i107 ], [ %.sroa.45.0208.i.i.i, %184 ], [ %.sroa.45.0208.i.i.i, %.loopexit.i99 ], [ %.sroa.45.0208.i.i.i, %284 ], [ %.sroa.45.0208.i.i.i, %.loopexit.i91 ]
-  %.sroa.48.1.i.i.i = phi ptr [ %.sroa.48.0209.i.i.i, %137 ], [ %.sroa.48.0209.i.i.i, %134 ], [ %.sroa.48.0209.i.i.i, %171 ], [ %.sroa.48.0209.i.i.i, %205 ], [ %.sroa.48.0209.i.i.i, %202 ], [ %.sroa.48.0209.i.i.i, %215 ], [ %.sroa.48.0209.i.i.i, %212 ], [ %.sroa.48.0209.i.i.i, %226 ], [ %.sroa.48.0209.i.i.i, %222 ], [ %.sroa.48.0209.i.i.i, %242 ], [ %.sroa.48.0209.i.i.i, %239 ], [ %.sroa.48.0209.i.i.i, %196 ], [ %.sroa.48.0209.i.i.i, %233 ], [ %.sroa.48.0209.i.i.i, %246 ], [ %.sroa.48.0209.i.i.i, %252 ], [ %.sroa.48.0209.i.i.i, %258 ], [ %spec.select174.i.i.i, %264 ], [ %.sroa.48.0209.i.i.i, %271 ], [ %.sroa.48.0209.i.i.i, %162 ], [ %.sroa.48.0209.i.i.i, %.loopexit.i107 ], [ %.sroa.48.0209.i.i.i, %184 ], [ %.sroa.48.0209.i.i.i, %.loopexit.i99 ], [ %.sroa.48.0209.i.i.i, %284 ], [ %.sroa.48.0209.i.i.i, %.loopexit.i91 ]
-  %.sroa.51.1.i.i.i = phi ptr [ %.sroa.51.0210.i.i.i, %137 ], [ %.sroa.51.0210.i.i.i, %134 ], [ %.sroa.51.0210.i.i.i, %171 ], [ %.sroa.51.0210.i.i.i, %205 ], [ %.sroa.51.0210.i.i.i, %202 ], [ %.sroa.51.0210.i.i.i, %215 ], [ %.sroa.51.0210.i.i.i, %212 ], [ %.sroa.51.0210.i.i.i, %226 ], [ %.sroa.51.0210.i.i.i, %222 ], [ %.sroa.51.0210.i.i.i, %242 ], [ %.sroa.51.0210.i.i.i, %239 ], [ %.sroa.51.0210.i.i.i, %196 ], [ %.sroa.51.0210.i.i.i, %233 ], [ %.sroa.51.0210.i.i.i, %246 ], [ %.sroa.51.0210.i.i.i, %252 ], [ %spec.select172.i.i.i, %258 ], [ %.sroa.51.0210.i.i.i, %264 ], [ %.sroa.51.0210.i.i.i, %271 ], [ %.sroa.51.0210.i.i.i, %162 ], [ %.sroa.51.0210.i.i.i, %.loopexit.i107 ], [ %.sroa.51.0210.i.i.i, %184 ], [ %.sroa.51.0210.i.i.i, %.loopexit.i99 ], [ %.sroa.51.0210.i.i.i, %284 ], [ %.sroa.51.0210.i.i.i, %.loopexit.i91 ]
-  %.1129.i.i.i = phi i32 [ 1, %137 ], [ %.0128211.i.i.i, %134 ], [ %.0128211.i.i.i, %171 ], [ 1, %205 ], [ %.0128211.i.i.i, %202 ], [ 1, %215 ], [ %.0128211.i.i.i, %212 ], [ 1, %226 ], [ %.0128211.i.i.i, %222 ], [ 1, %242 ], [ %.0128211.i.i.i, %239 ], [ %spec.select165.i.i.i, %196 ], [ %spec.select167.i.i.i, %233 ], [ %spec.select169.i.i.i, %246 ], [ %spec.select171.i.i.i, %252 ], [ %.0128211.i.i.i, %258 ], [ %.0128211.i.i.i, %264 ], [ %.0128211.i.i.i, %271 ], [ %.0128211.i.i.i, %162 ], [ %.0128211.i.i.i, %.loopexit.i107 ], [ %.0128211.i.i.i, %184 ], [ %.0128211.i.i.i, %.loopexit.i99 ], [ %.0128211.i.i.i, %284 ], [ %.0128211.i.i.i, %.loopexit.i91 ]
-  %.1127.i.i.i = phi i32 [ %.0126212.i.i.i, %137 ], [ %.0126212.i.i.i, %134 ], [ %.0126212.i.i.i, %171 ], [ %.0126212.i.i.i, %205 ], [ %.0126212.i.i.i, %202 ], [ %.0126212.i.i.i, %215 ], [ %.0126212.i.i.i, %212 ], [ %.0126212.i.i.i, %226 ], [ %.0126212.i.i.i, %222 ], [ %.0126212.i.i.i, %242 ], [ %.0126212.i.i.i, %239 ], [ %.0126212.i.i.i, %196 ], [ %.0126212.i.i.i, %233 ], [ %.0126212.i.i.i, %246 ], [ %.0126212.i.i.i, %252 ], [ %spec.select173.i.i.i, %258 ], [ %spec.select175.i.i.i, %264 ], [ %spec.select177.i.i.i, %271 ], [ 1, %162 ], [ 1, %.loopexit.i107 ], [ 1, %184 ], [ 1, %.loopexit.i99 ], [ %.0126212.i.i.i, %284 ], [ %.0126212.i.i.i, %.loopexit.i91 ]
-  %.1.i.i.i = phi ptr [ %.0125213.i.i.i, %137 ], [ %.0125213.i.i.i, %134 ], [ %.0125213.i.i.i, %171 ], [ %.0125213.i.i.i, %205 ], [ %.0125213.i.i.i, %202 ], [ %.0125213.i.i.i, %215 ], [ %.0125213.i.i.i, %212 ], [ %.0125213.i.i.i, %226 ], [ %.0125213.i.i.i, %222 ], [ %.0125213.i.i.i, %242 ], [ %.0125213.i.i.i, %239 ], [ %.0125213.i.i.i, %196 ], [ %.0125213.i.i.i, %233 ], [ %.0125213.i.i.i, %246 ], [ %.0125213.i.i.i, %252 ], [ %.0125213.i.i.i, %258 ], [ %.0125213.i.i.i, %264 ], [ %.0125213.i.i.i, %271 ], [ %151, %162 ], [ %151, %.loopexit.i107 ], [ %147, %184 ], [ %147, %.loopexit.i99 ], [ %.0125213.i.i.i, %284 ], [ %.0125213.i.i.i, %.loopexit.i91 ]
-  %293 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 1, ptr noundef nonnull %.0214.i.i.i) #14
-  %.not.i.i.i = icmp eq ptr %293, null
+emitAttr.exit108:                                 ; preds = %.loopexit.i91, %293, %.loopexit.i99, %193, %.loopexit.i107, %172, %280, %273, %267, %261, %255, %251, %248, %242, %235, %231, %224, %221, %214, %211, %205, %181, %137, %134
+  %.sroa.0.3.i.i.i = phi i32 [ %.sroa.0.2.i.i.i, %137 ], [ %.sroa.0.0198.i.i.i, %134 ], [ %.sroa.0.0198.i.i.i, %181 ], [ %217, %214 ], [ %.sroa.0.0198.i.i.i, %211 ], [ %227, %224 ], [ %.sroa.0.0198.i.i.i, %221 ], [ %238, %235 ], [ %.sroa.0.0198.i.i.i, %231 ], [ %.sroa.0.0198.i.i.i, %251 ], [ %.sroa.0.0198.i.i.i, %248 ], [ %.sroa.0.0198.i.i.i, %205 ], [ %.sroa.0.0198.i.i.i, %242 ], [ %.sroa.0.0198.i.i.i, %255 ], [ %.sroa.0.0198.i.i.i, %261 ], [ %.sroa.0.0198.i.i.i, %267 ], [ %.sroa.0.0198.i.i.i, %273 ], [ %.sroa.0.0198.i.i.i, %280 ], [ %.sroa.0.0198.i.i.i, %172 ], [ %.sroa.0.0198.i.i.i, %.loopexit.i107 ], [ %.sroa.0.0198.i.i.i, %193 ], [ %.sroa.0.0198.i.i.i, %.loopexit.i99 ], [ %.sroa.0.0198.i.i.i, %293 ], [ %.sroa.0.0198.i.i.i, %.loopexit.i91 ]
+  %.sroa.1619.1.i.i.i = phi double [ %.sroa.1619.0199.i.i.i, %137 ], [ %.sroa.1619.0199.i.i.i, %134 ], [ %.sroa.1619.0199.i.i.i, %181 ], [ %.sroa.1619.0199.i.i.i, %214 ], [ %.sroa.1619.0199.i.i.i, %211 ], [ %.sroa.1619.0199.i.i.i, %224 ], [ %.sroa.1619.0199.i.i.i, %221 ], [ %236, %235 ], [ %.sroa.1619.0199.i.i.i, %231 ], [ %.sroa.1619.0199.i.i.i, %251 ], [ %.sroa.1619.0199.i.i.i, %248 ], [ %.sroa.1619.0199.i.i.i, %205 ], [ %.sroa.1619.0199.i.i.i, %242 ], [ %.sroa.1619.0199.i.i.i, %255 ], [ %.sroa.1619.0199.i.i.i, %261 ], [ %.sroa.1619.0199.i.i.i, %267 ], [ %.sroa.1619.0199.i.i.i, %273 ], [ %.sroa.1619.0199.i.i.i, %280 ], [ %.sroa.1619.0199.i.i.i, %172 ], [ %.sroa.1619.0199.i.i.i, %.loopexit.i107 ], [ %.sroa.1619.0199.i.i.i, %193 ], [ %.sroa.1619.0199.i.i.i, %.loopexit.i99 ], [ %.sroa.1619.0199.i.i.i, %293 ], [ %.sroa.1619.0199.i.i.i, %.loopexit.i91 ]
+  %.sroa.18.1.i.i.i = phi double [ %.sroa.18.0200.i.i.i, %137 ], [ %.sroa.18.0200.i.i.i, %134 ], [ %.sroa.18.0200.i.i.i, %181 ], [ %.sroa.18.0200.i.i.i, %214 ], [ %.sroa.18.0200.i.i.i, %211 ], [ %.sroa.18.0200.i.i.i, %224 ], [ %.sroa.18.0200.i.i.i, %221 ], [ %237, %235 ], [ %.sroa.18.0200.i.i.i, %231 ], [ %.sroa.18.0200.i.i.i, %251 ], [ %.sroa.18.0200.i.i.i, %248 ], [ %.sroa.18.0200.i.i.i, %205 ], [ %.sroa.18.0200.i.i.i, %242 ], [ %.sroa.18.0200.i.i.i, %255 ], [ %.sroa.18.0200.i.i.i, %261 ], [ %.sroa.18.0200.i.i.i, %267 ], [ %.sroa.18.0200.i.i.i, %273 ], [ %.sroa.18.0200.i.i.i, %280 ], [ %.sroa.18.0200.i.i.i, %172 ], [ %.sroa.18.0200.i.i.i, %.loopexit.i107 ], [ %.sroa.18.0200.i.i.i, %193 ], [ %.sroa.18.0200.i.i.i, %.loopexit.i99 ], [ %.sroa.18.0200.i.i.i, %293 ], [ %.sroa.18.0200.i.i.i, %.loopexit.i91 ]
+  %.sroa.20.1.i.i.i = phi double [ %.sroa.20.0201.i.i.i, %137 ], [ %.sroa.20.0201.i.i.i, %134 ], [ %.sroa.20.0201.i.i.i, %181 ], [ %216, %214 ], [ %.sroa.20.0201.i.i.i, %211 ], [ %.sroa.20.0201.i.i.i, %224 ], [ %.sroa.20.0201.i.i.i, %221 ], [ %.sroa.20.0201.i.i.i, %235 ], [ %.sroa.20.0201.i.i.i, %231 ], [ %.sroa.20.0201.i.i.i, %251 ], [ %.sroa.20.0201.i.i.i, %248 ], [ %.sroa.20.0201.i.i.i, %205 ], [ %.sroa.20.0201.i.i.i, %242 ], [ %.sroa.20.0201.i.i.i, %255 ], [ %.sroa.20.0201.i.i.i, %261 ], [ %.sroa.20.0201.i.i.i, %267 ], [ %.sroa.20.0201.i.i.i, %273 ], [ %.sroa.20.0201.i.i.i, %280 ], [ %.sroa.20.0201.i.i.i, %172 ], [ %.sroa.20.0201.i.i.i, %.loopexit.i107 ], [ %.sroa.20.0201.i.i.i, %193 ], [ %.sroa.20.0201.i.i.i, %.loopexit.i99 ], [ %.sroa.20.0201.i.i.i, %293 ], [ %.sroa.20.0201.i.i.i, %.loopexit.i91 ]
+  %.sroa.22.1.i.i.i = phi double [ %.sroa.22.0202.i.i.i, %137 ], [ %.sroa.22.0202.i.i.i, %134 ], [ %.sroa.22.0202.i.i.i, %181 ], [ %.sroa.22.0202.i.i.i, %214 ], [ %.sroa.22.0202.i.i.i, %211 ], [ %226, %224 ], [ %.sroa.22.0202.i.i.i, %221 ], [ %.sroa.22.0202.i.i.i, %235 ], [ %.sroa.22.0202.i.i.i, %231 ], [ %.sroa.22.0202.i.i.i, %251 ], [ %.sroa.22.0202.i.i.i, %248 ], [ %.sroa.22.0202.i.i.i, %205 ], [ %.sroa.22.0202.i.i.i, %242 ], [ %.sroa.22.0202.i.i.i, %255 ], [ %.sroa.22.0202.i.i.i, %261 ], [ %.sroa.22.0202.i.i.i, %267 ], [ %.sroa.22.0202.i.i.i, %273 ], [ %.sroa.22.0202.i.i.i, %280 ], [ %.sroa.22.0202.i.i.i, %172 ], [ %.sroa.22.0202.i.i.i, %.loopexit.i107 ], [ %.sroa.22.0202.i.i.i, %193 ], [ %.sroa.22.0202.i.i.i, %.loopexit.i99 ], [ %.sroa.22.0202.i.i.i, %293 ], [ %.sroa.22.0202.i.i.i, %.loopexit.i91 ]
+  %.sroa.24.1.i.i.i = phi ptr [ %.sroa.24.0203.i.i.i, %137 ], [ %.sroa.24.0203.i.i.i, %134 ], [ %.sroa.24.0203.i.i.i, %181 ], [ %.sroa.24.0203.i.i.i, %214 ], [ %.sroa.24.0203.i.i.i, %211 ], [ %.sroa.24.0203.i.i.i, %224 ], [ %.sroa.24.0203.i.i.i, %221 ], [ %.sroa.24.0203.i.i.i, %235 ], [ %.sroa.24.0203.i.i.i, %231 ], [ %.sroa.24.0203.i.i.i, %251 ], [ %.sroa.24.0203.i.i.i, %248 ], [ %.sroa.24.0203.i.i.i, %205 ], [ %spec.select166.i.i.i, %242 ], [ %.sroa.24.0203.i.i.i, %255 ], [ %.sroa.24.0203.i.i.i, %261 ], [ %.sroa.24.0203.i.i.i, %267 ], [ %.sroa.24.0203.i.i.i, %273 ], [ %.sroa.24.0203.i.i.i, %280 ], [ %.sroa.24.0203.i.i.i, %172 ], [ %.sroa.24.0203.i.i.i, %.loopexit.i107 ], [ %.sroa.24.0203.i.i.i, %193 ], [ %.sroa.24.0203.i.i.i, %.loopexit.i99 ], [ %.sroa.24.0203.i.i.i, %293 ], [ %.sroa.24.0203.i.i.i, %.loopexit.i91 ]
+  %.sroa.29.1.i.i.i = phi ptr [ %.sroa.29.0204.i.i.i, %137 ], [ %.sroa.29.0204.i.i.i, %134 ], [ %.sroa.29.0204.i.i.i, %181 ], [ %.sroa.29.0204.i.i.i, %214 ], [ %.sroa.29.0204.i.i.i, %211 ], [ %.sroa.29.0204.i.i.i, %224 ], [ %.sroa.29.0204.i.i.i, %221 ], [ %.sroa.29.0204.i.i.i, %235 ], [ %.sroa.29.0204.i.i.i, %231 ], [ %249, %251 ], [ %.sroa.29.0204.i.i.i, %248 ], [ %.sroa.29.0204.i.i.i, %205 ], [ %.sroa.29.0204.i.i.i, %242 ], [ %spec.select168.i.i.i, %255 ], [ %.sroa.29.0204.i.i.i, %261 ], [ %.sroa.29.0204.i.i.i, %267 ], [ %.sroa.29.0204.i.i.i, %273 ], [ %.sroa.29.0204.i.i.i, %280 ], [ %.sroa.29.0204.i.i.i, %172 ], [ %.sroa.29.0204.i.i.i, %.loopexit.i107 ], [ %.sroa.29.0204.i.i.i, %193 ], [ %.sroa.29.0204.i.i.i, %.loopexit.i99 ], [ %.sroa.29.0204.i.i.i, %293 ], [ %.sroa.29.0204.i.i.i, %.loopexit.i91 ]
+  %.sroa.33.1.i.i.i = phi ptr [ %.sroa.33.0205.i.i.i, %137 ], [ %.sroa.33.0205.i.i.i, %134 ], [ %.sroa.33.0205.i.i.i, %181 ], [ %.sroa.33.0205.i.i.i, %214 ], [ %.sroa.33.0205.i.i.i, %211 ], [ %.sroa.33.0205.i.i.i, %224 ], [ %.sroa.33.0205.i.i.i, %221 ], [ %.sroa.33.0205.i.i.i, %235 ], [ %.sroa.33.0205.i.i.i, %231 ], [ %249, %251 ], [ %.sroa.33.0205.i.i.i, %248 ], [ %.sroa.33.0205.i.i.i, %205 ], [ %.sroa.33.0205.i.i.i, %242 ], [ %.sroa.33.0205.i.i.i, %255 ], [ %spec.select170.i.i.i, %261 ], [ %.sroa.33.0205.i.i.i, %267 ], [ %.sroa.33.0205.i.i.i, %273 ], [ %.sroa.33.0205.i.i.i, %280 ], [ %.sroa.33.0205.i.i.i, %172 ], [ %.sroa.33.0205.i.i.i, %.loopexit.i107 ], [ %.sroa.33.0205.i.i.i, %193 ], [ %.sroa.33.0205.i.i.i, %.loopexit.i99 ], [ %.sroa.33.0205.i.i.i, %293 ], [ %.sroa.33.0205.i.i.i, %.loopexit.i91 ]
+  %.sroa.37.1.i.i.i = phi ptr [ %.sroa.37.0206.i.i.i, %137 ], [ %.sroa.37.0206.i.i.i, %134 ], [ %.sroa.37.0206.i.i.i, %181 ], [ %.sroa.37.0206.i.i.i, %214 ], [ %.sroa.37.0206.i.i.i, %211 ], [ %.sroa.37.0206.i.i.i, %224 ], [ %.sroa.37.0206.i.i.i, %221 ], [ %.sroa.37.0206.i.i.i, %235 ], [ %.sroa.37.0206.i.i.i, %231 ], [ %.sroa.37.0206.i.i.i, %251 ], [ %.sroa.37.0206.i.i.i, %248 ], [ %spec.select164.i.i.i, %205 ], [ %.sroa.37.0206.i.i.i, %242 ], [ %.sroa.37.0206.i.i.i, %255 ], [ %.sroa.37.0206.i.i.i, %261 ], [ %.sroa.37.0206.i.i.i, %267 ], [ %.sroa.37.0206.i.i.i, %273 ], [ %.sroa.37.0206.i.i.i, %280 ], [ %.sroa.37.0206.i.i.i, %172 ], [ %.sroa.37.0206.i.i.i, %.loopexit.i107 ], [ %.sroa.37.0206.i.i.i, %193 ], [ %.sroa.37.0206.i.i.i, %.loopexit.i99 ], [ %.sroa.37.0206.i.i.i, %293 ], [ %.sroa.37.0206.i.i.i, %.loopexit.i91 ]
+  %.sroa.40.4.i.i.i = phi ptr [ %.sroa.40.3.i.i.i, %137 ], [ %.sroa.40.0207.i.i.i, %134 ], [ %.sroa.40.0207.i.i.i, %181 ], [ %.sroa.40.0207.i.i.i, %214 ], [ %.sroa.40.0207.i.i.i, %211 ], [ %.sroa.40.0207.i.i.i, %224 ], [ %.sroa.40.0207.i.i.i, %221 ], [ %.sroa.40.0207.i.i.i, %235 ], [ %.sroa.40.0207.i.i.i, %231 ], [ %.sroa.40.0207.i.i.i, %251 ], [ %.sroa.40.0207.i.i.i, %248 ], [ %.sroa.40.0207.i.i.i, %205 ], [ %.sroa.40.0207.i.i.i, %242 ], [ %.sroa.40.0207.i.i.i, %255 ], [ %.sroa.40.0207.i.i.i, %261 ], [ %.sroa.40.0207.i.i.i, %267 ], [ %.sroa.40.0207.i.i.i, %273 ], [ %.sroa.40.0207.i.i.i, %280 ], [ %.sroa.40.0207.i.i.i, %172 ], [ %.sroa.40.0207.i.i.i, %.loopexit.i107 ], [ %.sroa.40.0207.i.i.i, %193 ], [ %.sroa.40.0207.i.i.i, %.loopexit.i99 ], [ %.sroa.40.0207.i.i.i, %293 ], [ %.sroa.40.0207.i.i.i, %.loopexit.i91 ]
+  %.sroa.45.1.i.i.i = phi ptr [ %.sroa.45.0208.i.i.i, %137 ], [ %.sroa.45.0208.i.i.i, %134 ], [ %.sroa.45.0208.i.i.i, %181 ], [ %.sroa.45.0208.i.i.i, %214 ], [ %.sroa.45.0208.i.i.i, %211 ], [ %.sroa.45.0208.i.i.i, %224 ], [ %.sroa.45.0208.i.i.i, %221 ], [ %.sroa.45.0208.i.i.i, %235 ], [ %.sroa.45.0208.i.i.i, %231 ], [ %.sroa.45.0208.i.i.i, %251 ], [ %.sroa.45.0208.i.i.i, %248 ], [ %.sroa.45.0208.i.i.i, %205 ], [ %.sroa.45.0208.i.i.i, %242 ], [ %.sroa.45.0208.i.i.i, %255 ], [ %.sroa.45.0208.i.i.i, %261 ], [ %.sroa.45.0208.i.i.i, %267 ], [ %.sroa.45.0208.i.i.i, %273 ], [ %spec.select176.i.i.i, %280 ], [ %.sroa.45.0208.i.i.i, %172 ], [ %.sroa.45.0208.i.i.i, %.loopexit.i107 ], [ %.sroa.45.0208.i.i.i, %193 ], [ %.sroa.45.0208.i.i.i, %.loopexit.i99 ], [ %.sroa.45.0208.i.i.i, %293 ], [ %.sroa.45.0208.i.i.i, %.loopexit.i91 ]
+  %.sroa.48.1.i.i.i = phi ptr [ %.sroa.48.0209.i.i.i, %137 ], [ %.sroa.48.0209.i.i.i, %134 ], [ %.sroa.48.0209.i.i.i, %181 ], [ %.sroa.48.0209.i.i.i, %214 ], [ %.sroa.48.0209.i.i.i, %211 ], [ %.sroa.48.0209.i.i.i, %224 ], [ %.sroa.48.0209.i.i.i, %221 ], [ %.sroa.48.0209.i.i.i, %235 ], [ %.sroa.48.0209.i.i.i, %231 ], [ %.sroa.48.0209.i.i.i, %251 ], [ %.sroa.48.0209.i.i.i, %248 ], [ %.sroa.48.0209.i.i.i, %205 ], [ %.sroa.48.0209.i.i.i, %242 ], [ %.sroa.48.0209.i.i.i, %255 ], [ %.sroa.48.0209.i.i.i, %261 ], [ %.sroa.48.0209.i.i.i, %267 ], [ %spec.select174.i.i.i, %273 ], [ %.sroa.48.0209.i.i.i, %280 ], [ %.sroa.48.0209.i.i.i, %172 ], [ %.sroa.48.0209.i.i.i, %.loopexit.i107 ], [ %.sroa.48.0209.i.i.i, %193 ], [ %.sroa.48.0209.i.i.i, %.loopexit.i99 ], [ %.sroa.48.0209.i.i.i, %293 ], [ %.sroa.48.0209.i.i.i, %.loopexit.i91 ]
+  %.sroa.51.1.i.i.i = phi ptr [ %.sroa.51.0210.i.i.i, %137 ], [ %.sroa.51.0210.i.i.i, %134 ], [ %.sroa.51.0210.i.i.i, %181 ], [ %.sroa.51.0210.i.i.i, %214 ], [ %.sroa.51.0210.i.i.i, %211 ], [ %.sroa.51.0210.i.i.i, %224 ], [ %.sroa.51.0210.i.i.i, %221 ], [ %.sroa.51.0210.i.i.i, %235 ], [ %.sroa.51.0210.i.i.i, %231 ], [ %.sroa.51.0210.i.i.i, %251 ], [ %.sroa.51.0210.i.i.i, %248 ], [ %.sroa.51.0210.i.i.i, %205 ], [ %.sroa.51.0210.i.i.i, %242 ], [ %.sroa.51.0210.i.i.i, %255 ], [ %.sroa.51.0210.i.i.i, %261 ], [ %spec.select172.i.i.i, %267 ], [ %.sroa.51.0210.i.i.i, %273 ], [ %.sroa.51.0210.i.i.i, %280 ], [ %.sroa.51.0210.i.i.i, %172 ], [ %.sroa.51.0210.i.i.i, %.loopexit.i107 ], [ %.sroa.51.0210.i.i.i, %193 ], [ %.sroa.51.0210.i.i.i, %.loopexit.i99 ], [ %.sroa.51.0210.i.i.i, %293 ], [ %.sroa.51.0210.i.i.i, %.loopexit.i91 ]
+  %.1129.i.i.i = phi i32 [ 1, %137 ], [ %.0128211.i.i.i, %134 ], [ %.0128211.i.i.i, %181 ], [ 1, %214 ], [ %.0128211.i.i.i, %211 ], [ 1, %224 ], [ %.0128211.i.i.i, %221 ], [ 1, %235 ], [ %.0128211.i.i.i, %231 ], [ 1, %251 ], [ %.0128211.i.i.i, %248 ], [ %spec.select165.i.i.i, %205 ], [ %spec.select167.i.i.i, %242 ], [ %spec.select169.i.i.i, %255 ], [ %spec.select171.i.i.i, %261 ], [ %.0128211.i.i.i, %267 ], [ %.0128211.i.i.i, %273 ], [ %.0128211.i.i.i, %280 ], [ %.0128211.i.i.i, %172 ], [ %.0128211.i.i.i, %.loopexit.i107 ], [ %.0128211.i.i.i, %193 ], [ %.0128211.i.i.i, %.loopexit.i99 ], [ %.0128211.i.i.i, %293 ], [ %.0128211.i.i.i, %.loopexit.i91 ]
+  %.1127.i.i.i = phi i32 [ %.0126212.i.i.i, %137 ], [ %.0126212.i.i.i, %134 ], [ %.0126212.i.i.i, %181 ], [ %.0126212.i.i.i, %214 ], [ %.0126212.i.i.i, %211 ], [ %.0126212.i.i.i, %224 ], [ %.0126212.i.i.i, %221 ], [ %.0126212.i.i.i, %235 ], [ %.0126212.i.i.i, %231 ], [ %.0126212.i.i.i, %251 ], [ %.0126212.i.i.i, %248 ], [ %.0126212.i.i.i, %205 ], [ %.0126212.i.i.i, %242 ], [ %.0126212.i.i.i, %255 ], [ %.0126212.i.i.i, %261 ], [ %spec.select173.i.i.i, %267 ], [ %spec.select175.i.i.i, %273 ], [ %spec.select177.i.i.i, %280 ], [ 1, %172 ], [ 1, %.loopexit.i107 ], [ 1, %193 ], [ 1, %.loopexit.i99 ], [ %.0126212.i.i.i, %293 ], [ %.0126212.i.i.i, %.loopexit.i91 ]
+  %.1.i.i.i = phi ptr [ %.0125213.i.i.i, %137 ], [ %.0125213.i.i.i, %134 ], [ %.0125213.i.i.i, %181 ], [ %.0125213.i.i.i, %214 ], [ %.0125213.i.i.i, %211 ], [ %.0125213.i.i.i, %224 ], [ %.0125213.i.i.i, %221 ], [ %.0125213.i.i.i, %235 ], [ %.0125213.i.i.i, %231 ], [ %.0125213.i.i.i, %251 ], [ %.0125213.i.i.i, %248 ], [ %.0125213.i.i.i, %205 ], [ %.0125213.i.i.i, %242 ], [ %.0125213.i.i.i, %255 ], [ %.0125213.i.i.i, %261 ], [ %.0125213.i.i.i, %267 ], [ %.0125213.i.i.i, %273 ], [ %.0125213.i.i.i, %280 ], [ %161, %172 ], [ %161, %.loopexit.i107 ], [ %146, %193 ], [ %146, %.loopexit.i99 ], [ %.0125213.i.i.i, %293 ], [ %.0125213.i.i.i, %.loopexit.i91 ]
+  %302 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 1, ptr noundef nonnull %.0214.i.i.i) #14
+  %.not.i.i.i = icmp eq ptr %302, null
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %emitAttr.exit108
   %.not130.i.i.i = icmp eq i32 %.1129.i.i.i, 0
-  br i1 %.not130.i.i.i, label %429, label %294
+  br i1 %.not130.i.i.i, label %438, label %303
 
-294:                                              ; preds = %._crit_edge.i.i.i
-  %295 = load ptr, ptr @outFile, align 8
-  %296 = call i64 @fwrite(ptr nonnull @.str.40, i64 15, i64 1, ptr %295)
-  %297 = and i32 %.sroa.0.3.i.i.i, 1
-  %.not131.i.i.i = icmp eq i32 %297, 0
-  br i1 %.not131.i.i.i, label %308, label %.lr.ph.i.i.i.i.i
+303:                                              ; preds = %._crit_edge.i.i.i
+  %304 = load ptr, ptr @outFile, align 8
+  %305 = call i64 @fwrite(ptr nonnull @.str.40, i64 15, i64 1, ptr %304)
+  %306 = and i32 %.sroa.0.3.i.i.i, 1
+  %.not131.i.i.i = icmp eq i32 %306, 0
+  br i1 %.not131.i.i.i, label %317, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %294, %.lr.ph.i.i.i.i.i
-  %.02.i.i.i.i.i = phi i32 [ %298, %.lr.ph.i.i.i.i.i ], [ 3, %294 ]
-  %298 = add nsw i32 %.02.i.i.i.i.i, -1
-  %299 = load ptr, ptr @outFile, align 8
-  %300 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %299)
-  %.not.i.i.i.i.i = icmp eq i32 %298, 0
+.lr.ph.i.i.i.i.i:                                 ; preds = %303, %.lr.ph.i.i.i.i.i
+  %.02.i.i.i.i.i = phi i32 [ %307, %.lr.ph.i.i.i.i.i ], [ 3, %303 ]
+  %307 = add nsw i32 %.02.i.i.i.i.i, -1
+  %308 = load ptr, ptr @outFile, align 8
+  %309 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %308)
+  %.not.i.i.i.i.i = icmp eq i32 %307, 0
   br i1 %.not.i.i.i.i.i, label %emitReal.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 emitReal.exit.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i
-  %301 = load ptr, ptr @outFile, align 8
-  %302 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %301, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.41, double noundef %.sroa.1619.1.i.i.i) #14
+  %310 = load ptr, ptr @outFile, align 8
+  %311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.41, double noundef %.sroa.1619.1.i.i.i) #14
   br label %.lr.ph.i.i178.i.i.i
 
 .lr.ph.i.i178.i.i.i:                              ; preds = %.lr.ph.i.i178.i.i.i, %emitReal.exit.i.i.i
-  %.02.i.i179.i.i.i = phi i32 [ %303, %.lr.ph.i.i178.i.i.i ], [ 3, %emitReal.exit.i.i.i ]
-  %303 = add nsw i32 %.02.i.i179.i.i.i, -1
-  %304 = load ptr, ptr @outFile, align 8
-  %305 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %304)
-  %.not.i.i180.i.i.i = icmp eq i32 %303, 0
+  %.02.i.i179.i.i.i = phi i32 [ %312, %.lr.ph.i.i178.i.i.i ], [ 3, %emitReal.exit.i.i.i ]
+  %312 = add nsw i32 %.02.i.i179.i.i.i, -1
+  %313 = load ptr, ptr @outFile, align 8
+  %314 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %313)
+  %.not.i.i180.i.i.i = icmp eq i32 %312, 0
   br i1 %.not.i.i180.i.i.i, label %emitReal.exit181.i.i.i, label %.lr.ph.i.i178.i.i.i
 
 emitReal.exit181.i.i.i:                           ; preds = %.lr.ph.i.i178.i.i.i
-  %306 = load ptr, ptr @outFile, align 8
-  %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %306, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.42, double noundef %.sroa.18.1.i.i.i) #14
-  br label %308
+  %315 = load ptr, ptr @outFile, align 8
+  %316 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %315, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.42, double noundef %.sroa.18.1.i.i.i) #14
+  br label %317
 
-308:                                              ; preds = %emitReal.exit181.i.i.i, %294
-  %309 = and i32 %.sroa.0.3.i.i.i, 2
-  %.not132.i.i.i = icmp eq i32 %309, 0
-  br i1 %.not132.i.i.i, label %315, label %.lr.ph.i.i182.i.i.i
+317:                                              ; preds = %emitReal.exit181.i.i.i, %303
+  %318 = and i32 %.sroa.0.3.i.i.i, 2
+  %.not132.i.i.i = icmp eq i32 %318, 0
+  br i1 %.not132.i.i.i, label %324, label %.lr.ph.i.i182.i.i.i
 
-.lr.ph.i.i182.i.i.i:                              ; preds = %308, %.lr.ph.i.i182.i.i.i
-  %.02.i.i183.i.i.i = phi i32 [ %310, %.lr.ph.i.i182.i.i.i ], [ 3, %308 ]
-  %310 = add nsw i32 %.02.i.i183.i.i.i, -1
-  %311 = load ptr, ptr @outFile, align 8
-  %312 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %311)
-  %.not.i.i184.i.i.i = icmp eq i32 %310, 0
+.lr.ph.i.i182.i.i.i:                              ; preds = %317, %.lr.ph.i.i182.i.i.i
+  %.02.i.i183.i.i.i = phi i32 [ %319, %.lr.ph.i.i182.i.i.i ], [ 3, %317 ]
+  %319 = add nsw i32 %.02.i.i183.i.i.i, -1
+  %320 = load ptr, ptr @outFile, align 8
+  %321 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %320)
+  %.not.i.i184.i.i.i = icmp eq i32 %319, 0
   br i1 %.not.i.i184.i.i.i, label %emitReal.exit185.i.i.i, label %.lr.ph.i.i182.i.i.i
 
 emitReal.exit185.i.i.i:                           ; preds = %.lr.ph.i.i182.i.i.i
-  %313 = load ptr, ptr @outFile, align 8
-  %314 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, double noundef %.sroa.20.1.i.i.i) #14
-  br label %315
+  %322 = load ptr, ptr @outFile, align 8
+  %323 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %322, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, double noundef %.sroa.20.1.i.i.i) #14
+  br label %324
 
-315:                                              ; preds = %emitReal.exit185.i.i.i, %308
-  %316 = and i32 %.sroa.0.3.i.i.i, 4
-  %.not133.i.i.i = icmp eq i32 %316, 0
-  br i1 %.not133.i.i.i, label %322, label %.lr.ph.i.i186.i.i.i
+324:                                              ; preds = %emitReal.exit185.i.i.i, %317
+  %325 = and i32 %.sroa.0.3.i.i.i, 4
+  %.not133.i.i.i = icmp eq i32 %325, 0
+  br i1 %.not133.i.i.i, label %331, label %.lr.ph.i.i186.i.i.i
 
-.lr.ph.i.i186.i.i.i:                              ; preds = %315, %.lr.ph.i.i186.i.i.i
-  %.02.i.i187.i.i.i = phi i32 [ %317, %.lr.ph.i.i186.i.i.i ], [ 3, %315 ]
-  %317 = add nsw i32 %.02.i.i187.i.i.i, -1
-  %318 = load ptr, ptr @outFile, align 8
-  %319 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %318)
-  %.not.i.i188.i.i.i = icmp eq i32 %317, 0
+.lr.ph.i.i186.i.i.i:                              ; preds = %324, %.lr.ph.i.i186.i.i.i
+  %.02.i.i187.i.i.i = phi i32 [ %326, %.lr.ph.i.i186.i.i.i ], [ 3, %324 ]
+  %326 = add nsw i32 %.02.i.i187.i.i.i, -1
+  %327 = load ptr, ptr @outFile, align 8
+  %328 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %327)
+  %.not.i.i188.i.i.i = icmp eq i32 %326, 0
   br i1 %.not.i.i188.i.i.i, label %emitReal.exit189.i.i.i, label %.lr.ph.i.i186.i.i.i
 
 emitReal.exit189.i.i.i:                           ; preds = %.lr.ph.i.i186.i.i.i
-  %320 = load ptr, ptr @outFile, align 8
-  %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %320, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.43, double noundef %.sroa.22.1.i.i.i) #14
-  br label %322
+  %329 = load ptr, ptr @outFile, align 8
+  %330 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %329, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.43, double noundef %.sroa.22.1.i.i.i) #14
+  br label %331
 
-322:                                              ; preds = %emitReal.exit189.i.i.i, %315
-  %323 = and i32 %.sroa.0.3.i.i.i, 8
-  %.not134.i.i.i = icmp eq i32 %323, 0
-  br i1 %.not134.i.i.i, label %329, label %.lr.ph.i.i190.i.i.i
+331:                                              ; preds = %emitReal.exit189.i.i.i, %324
+  %332 = and i32 %.sroa.0.3.i.i.i, 8
+  %.not134.i.i.i = icmp eq i32 %332, 0
+  br i1 %.not134.i.i.i, label %338, label %.lr.ph.i.i190.i.i.i
 
-.lr.ph.i.i190.i.i.i:                              ; preds = %322, %.lr.ph.i.i190.i.i.i
-  %.02.i.i191.i.i.i = phi i32 [ %324, %.lr.ph.i.i190.i.i.i ], [ 3, %322 ]
-  %324 = add nsw i32 %.02.i.i191.i.i.i, -1
-  %325 = load ptr, ptr @outFile, align 8
-  %326 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %325)
-  %.not.i.i192.i.i.i = icmp eq i32 %324, 0
+.lr.ph.i.i190.i.i.i:                              ; preds = %331, %.lr.ph.i.i190.i.i.i
+  %.02.i.i191.i.i.i = phi i32 [ %333, %.lr.ph.i.i190.i.i.i ], [ 3, %331 ]
+  %333 = add nsw i32 %.02.i.i191.i.i.i, -1
+  %334 = load ptr, ptr @outFile, align 8
+  %335 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %334)
+  %.not.i.i192.i.i.i = icmp eq i32 %333, 0
   br i1 %.not.i.i192.i.i.i, label %emitInt.exit.i.i.i, label %.lr.ph.i.i190.i.i.i
 
 emitInt.exit.i.i.i:                               ; preds = %.lr.ph.i.i190.i.i.i
-  %327 = load ptr, ptr @outFile, align 8
-  %328 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %327, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.44, i32 noundef 0) #14
-  br label %329
+  %336 = load ptr, ptr @outFile, align 8
+  %337 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %336, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.44, i32 noundef 0) #14
+  br label %338
 
-329:                                              ; preds = %emitInt.exit.i.i.i, %322
-  %330 = and i32 %.sroa.0.3.i.i.i, 16
-  %.not135.i.i.i = icmp eq i32 %330, 0
-  br i1 %.not135.i.i.i, label %336, label %.lr.ph.i.i193.i.i.i
+338:                                              ; preds = %emitInt.exit.i.i.i, %331
+  %339 = and i32 %.sroa.0.3.i.i.i, 16
+  %.not135.i.i.i = icmp eq i32 %339, 0
+  br i1 %.not135.i.i.i, label %345, label %.lr.ph.i.i193.i.i.i
 
-.lr.ph.i.i193.i.i.i:                              ; preds = %329, %.lr.ph.i.i193.i.i.i
-  %.02.i.i194.i.i.i = phi i32 [ %331, %.lr.ph.i.i193.i.i.i ], [ 3, %329 ]
-  %331 = add nsw i32 %.02.i.i194.i.i.i, -1
-  %332 = load ptr, ptr @outFile, align 8
-  %333 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %332)
-  %.not.i.i195.i.i.i = icmp eq i32 %331, 0
+.lr.ph.i.i193.i.i.i:                              ; preds = %338, %.lr.ph.i.i193.i.i.i
+  %.02.i.i194.i.i.i = phi i32 [ %340, %.lr.ph.i.i193.i.i.i ], [ 3, %338 ]
+  %340 = add nsw i32 %.02.i.i194.i.i.i, -1
+  %341 = load ptr, ptr @outFile, align 8
+  %342 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %341)
+  %.not.i.i195.i.i.i = icmp eq i32 %340, 0
   br i1 %.not.i.i195.i.i.i, label %emitInt.exit196.i.i.i, label %.lr.ph.i.i193.i.i.i
 
 emitInt.exit196.i.i.i:                            ; preds = %.lr.ph.i.i193.i.i.i
-  %334 = load ptr, ptr @outFile, align 8
-  %335 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.45, i32 noundef 1) #14
-  br label %336
+  %343 = load ptr, ptr @outFile, align 8
+  %344 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %343, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.45, i32 noundef 1) #14
+  br label %345
 
-336:                                              ; preds = %emitInt.exit196.i.i.i, %329
+345:                                              ; preds = %emitInt.exit196.i.i.i, %338
   %.not136.i.i.i = icmp eq ptr %.sroa.24.1.i.i.i, null
   br i1 %.not136.i.i.i, label %emitAttr.exit84, label %.lr.ph.i.i77
 
-.lr.ph.i.i77:                                     ; preds = %336, %.lr.ph.i.i77
-  %.02.i.i78 = phi i32 [ %337, %.lr.ph.i.i77 ], [ 3, %336 ]
-  %337 = add nsw i32 %.02.i.i78, -1
-  %338 = load ptr, ptr @outFile, align 8
-  %339 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %338)
-  %.not.i.i79 = icmp eq i32 %337, 0
+.lr.ph.i.i77:                                     ; preds = %345, %.lr.ph.i.i77
+  %.02.i.i78 = phi i32 [ %346, %.lr.ph.i.i77 ], [ 3, %345 ]
+  %346 = add nsw i32 %.02.i.i78, -1
+  %347 = load ptr, ptr @outFile, align 8
+  %348 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %347)
+  %.not.i.i79 = icmp eq i32 %346, 0
   br i1 %.not.i.i79, label %indent.exit.i80, label %.lr.ph.i.i77
 
 indent.exit.i80:                                  ; preds = %.lr.ph.i.i77
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %.sroa.24.1.i.i.i, ptr %7, align 8
-  %340 = call double @strtod(ptr noundef nonnull %.sroa.24.1.i.i.i, ptr noundef nonnull %7) #14
-  %341 = load ptr, ptr %7, align 8
-  %.not.i5.i81 = icmp eq ptr %341, %.sroa.24.1.i.i.i
+  %349 = call double @strtod(ptr noundef nonnull %.sroa.24.1.i.i.i, ptr noundef nonnull %7) #14
+  %350 = load ptr, ptr %7, align 8
+  %.not.i5.i81 = icmp eq ptr %350, %.sroa.24.1.i.i.i
   br i1 %.not.i5.i81, label %.loopexit.i83, label %.preheader.i.i82
 
-.preheader.i.i82:                                 ; preds = %indent.exit.i80, %344
-  %342 = phi ptr [ %345, %344 ], [ %341, %indent.exit.i80 ]
-  %343 = load i8, ptr %342, align 1
-  switch i8 %343, label %.loopexit.i83 [
-    i8 9, label %344
-    i8 10, label %344
-    i8 11, label %344
-    i8 12, label %344
-    i8 13, label %344
-    i8 32, label %344
-    i8 0, label %346
+.preheader.i.i82:                                 ; preds = %indent.exit.i80, %353
+  %351 = phi ptr [ %354, %353 ], [ %350, %indent.exit.i80 ]
+  %352 = load i8, ptr %351, align 1
+  switch i8 %352, label %.loopexit.i83 [
+    i8 9, label %353
+    i8 10, label %353
+    i8 11, label %353
+    i8 12, label %353
+    i8 13, label %353
+    i8 32, label %353
+    i8 0, label %355
   ]
 
-344:                                              ; preds = %.preheader.i.i82, %.preheader.i.i82, %.preheader.i.i82, %.preheader.i.i82, %.preheader.i.i82, %.preheader.i.i82
-  %345 = getelementptr inbounds i8, ptr %342, i64 1
+353:                                              ; preds = %.preheader.i.i82, %.preheader.i.i82, %.preheader.i.i82, %.preheader.i.i82, %.preheader.i.i82, %.preheader.i.i82
+  %354 = getelementptr inbounds i8, ptr %351, i64 1
   br label %.preheader.i.i82
 
-346:                                              ; preds = %.preheader.i.i82
+355:                                              ; preds = %.preheader.i.i82
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %347 = load ptr, ptr @outFile, align 8
-  %348 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %347, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.46, ptr noundef nonnull %.sroa.24.1.i.i.i) #14
+  %356 = load ptr, ptr @outFile, align 8
+  %357 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %356, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.46, ptr noundef nonnull %.sroa.24.1.i.i.i) #14
   br label %emitAttr.exit84
 
 .loopexit.i83:                                    ; preds = %.preheader.i.i82, %indent.exit.i80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %349 = load ptr, ptr @outFile, align 8
-  %350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %349, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.46) #14
-  %351 = load ptr, ptr @outFile, align 8
-  %352 = call i32 @xml_escape(ptr noundef nonnull %.sroa.24.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %351) #14
-  %353 = load ptr, ptr @outFile, align 8
-  %354 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %353)
+  %358 = load ptr, ptr @outFile, align 8
+  %359 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %358, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.46) #14
+  %360 = load ptr, ptr @outFile, align 8
+  %361 = call i32 @xml_escape(ptr noundef nonnull %.sroa.24.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %360) #14
+  %362 = load ptr, ptr @outFile, align 8
+  %363 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %362)
   br label %emitAttr.exit84
 
-emitAttr.exit84:                                  ; preds = %.loopexit.i83, %346, %336
+emitAttr.exit84:                                  ; preds = %.loopexit.i83, %355, %345
   %.not137.i.i.i = icmp eq ptr %.sroa.29.1.i.i.i, null
   br i1 %.not137.i.i.i, label %emitAttr.exit76, label %.lr.ph.i.i69
 
 .lr.ph.i.i69:                                     ; preds = %emitAttr.exit84, %.lr.ph.i.i69
-  %.02.i.i70 = phi i32 [ %355, %.lr.ph.i.i69 ], [ 3, %emitAttr.exit84 ]
-  %355 = add nsw i32 %.02.i.i70, -1
-  %356 = load ptr, ptr @outFile, align 8
-  %357 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %356)
-  %.not.i.i71 = icmp eq i32 %355, 0
+  %.02.i.i70 = phi i32 [ %364, %.lr.ph.i.i69 ], [ 3, %emitAttr.exit84 ]
+  %364 = add nsw i32 %.02.i.i70, -1
+  %365 = load ptr, ptr @outFile, align 8
+  %366 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %365)
+  %.not.i.i71 = icmp eq i32 %364, 0
   br i1 %.not.i.i71, label %indent.exit.i72, label %.lr.ph.i.i69
 
 indent.exit.i72:                                  ; preds = %.lr.ph.i.i69
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %.sroa.29.1.i.i.i, ptr %8, align 8
-  %358 = call double @strtod(ptr noundef nonnull %.sroa.29.1.i.i.i, ptr noundef nonnull %8) #14
-  %359 = load ptr, ptr %8, align 8
-  %.not.i5.i73 = icmp eq ptr %359, %.sroa.29.1.i.i.i
+  %367 = call double @strtod(ptr noundef nonnull %.sroa.29.1.i.i.i, ptr noundef nonnull %8) #14
+  %368 = load ptr, ptr %8, align 8
+  %.not.i5.i73 = icmp eq ptr %368, %.sroa.29.1.i.i.i
   br i1 %.not.i5.i73, label %.loopexit.i75, label %.preheader.i.i74
 
-.preheader.i.i74:                                 ; preds = %indent.exit.i72, %362
-  %360 = phi ptr [ %363, %362 ], [ %359, %indent.exit.i72 ]
-  %361 = load i8, ptr %360, align 1
-  switch i8 %361, label %.loopexit.i75 [
-    i8 9, label %362
-    i8 10, label %362
-    i8 11, label %362
-    i8 12, label %362
-    i8 13, label %362
-    i8 32, label %362
-    i8 0, label %364
+.preheader.i.i74:                                 ; preds = %indent.exit.i72, %371
+  %369 = phi ptr [ %372, %371 ], [ %368, %indent.exit.i72 ]
+  %370 = load i8, ptr %369, align 1
+  switch i8 %370, label %.loopexit.i75 [
+    i8 9, label %371
+    i8 10, label %371
+    i8 11, label %371
+    i8 12, label %371
+    i8 13, label %371
+    i8 32, label %371
+    i8 0, label %373
   ]
 
-362:                                              ; preds = %.preheader.i.i74, %.preheader.i.i74, %.preheader.i.i74, %.preheader.i.i74, %.preheader.i.i74, %.preheader.i.i74
-  %363 = getelementptr inbounds i8, ptr %360, i64 1
+371:                                              ; preds = %.preheader.i.i74, %.preheader.i.i74, %.preheader.i.i74, %.preheader.i.i74, %.preheader.i.i74, %.preheader.i.i74
+  %372 = getelementptr inbounds i8, ptr %369, i64 1
   br label %.preheader.i.i74
 
-364:                                              ; preds = %.preheader.i.i74
+373:                                              ; preds = %.preheader.i.i74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %365 = load ptr, ptr @outFile, align 8
-  %366 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %365, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.48, ptr noundef nonnull %.sroa.29.1.i.i.i) #14
+  %374 = load ptr, ptr @outFile, align 8
+  %375 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %374, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.48, ptr noundef nonnull %.sroa.29.1.i.i.i) #14
   br label %emitAttr.exit76
 
 .loopexit.i75:                                    ; preds = %.preheader.i.i74, %indent.exit.i72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %367 = load ptr, ptr @outFile, align 8
-  %368 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %367, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.48) #14
-  %369 = load ptr, ptr @outFile, align 8
-  %370 = call i32 @xml_escape(ptr noundef nonnull %.sroa.29.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %369) #14
-  %371 = load ptr, ptr @outFile, align 8
-  %372 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %371)
+  %376 = load ptr, ptr @outFile, align 8
+  %377 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %376, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.48) #14
+  %378 = load ptr, ptr @outFile, align 8
+  %379 = call i32 @xml_escape(ptr noundef nonnull %.sroa.29.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %378) #14
+  %380 = load ptr, ptr @outFile, align 8
+  %381 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %380)
   br label %emitAttr.exit76
 
-emitAttr.exit76:                                  ; preds = %.loopexit.i75, %364, %emitAttr.exit84
+emitAttr.exit76:                                  ; preds = %.loopexit.i75, %373, %emitAttr.exit84
   %.not138.i.i.i = icmp eq ptr %.sroa.33.1.i.i.i, null
   br i1 %.not138.i.i.i, label %emitAttr.exit68, label %.lr.ph.i.i61
 
 .lr.ph.i.i61:                                     ; preds = %emitAttr.exit76, %.lr.ph.i.i61
-  %.02.i.i62 = phi i32 [ %373, %.lr.ph.i.i61 ], [ 3, %emitAttr.exit76 ]
-  %373 = add nsw i32 %.02.i.i62, -1
-  %374 = load ptr, ptr @outFile, align 8
-  %375 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %374)
-  %.not.i.i63 = icmp eq i32 %373, 0
+  %.02.i.i62 = phi i32 [ %382, %.lr.ph.i.i61 ], [ 3, %emitAttr.exit76 ]
+  %382 = add nsw i32 %.02.i.i62, -1
+  %383 = load ptr, ptr @outFile, align 8
+  %384 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %383)
+  %.not.i.i63 = icmp eq i32 %382, 0
   br i1 %.not.i.i63, label %indent.exit.i64, label %.lr.ph.i.i61
 
 indent.exit.i64:                                  ; preds = %.lr.ph.i.i61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %.sroa.33.1.i.i.i, ptr %9, align 8
-  %376 = call double @strtod(ptr noundef nonnull %.sroa.33.1.i.i.i, ptr noundef nonnull %9) #14
-  %377 = load ptr, ptr %9, align 8
-  %.not.i5.i65 = icmp eq ptr %377, %.sroa.33.1.i.i.i
+  %385 = call double @strtod(ptr noundef nonnull %.sroa.33.1.i.i.i, ptr noundef nonnull %9) #14
+  %386 = load ptr, ptr %9, align 8
+  %.not.i5.i65 = icmp eq ptr %386, %.sroa.33.1.i.i.i
   br i1 %.not.i5.i65, label %.loopexit.i67, label %.preheader.i.i66
 
-.preheader.i.i66:                                 ; preds = %indent.exit.i64, %380
-  %378 = phi ptr [ %381, %380 ], [ %377, %indent.exit.i64 ]
-  %379 = load i8, ptr %378, align 1
-  switch i8 %379, label %.loopexit.i67 [
-    i8 9, label %380
-    i8 10, label %380
-    i8 11, label %380
-    i8 12, label %380
-    i8 13, label %380
-    i8 32, label %380
-    i8 0, label %382
+.preheader.i.i66:                                 ; preds = %indent.exit.i64, %389
+  %387 = phi ptr [ %390, %389 ], [ %386, %indent.exit.i64 ]
+  %388 = load i8, ptr %387, align 1
+  switch i8 %388, label %.loopexit.i67 [
+    i8 9, label %389
+    i8 10, label %389
+    i8 11, label %389
+    i8 12, label %389
+    i8 13, label %389
+    i8 32, label %389
+    i8 0, label %391
   ]
 
-380:                                              ; preds = %.preheader.i.i66, %.preheader.i.i66, %.preheader.i.i66, %.preheader.i.i66, %.preheader.i.i66, %.preheader.i.i66
-  %381 = getelementptr inbounds i8, ptr %378, i64 1
+389:                                              ; preds = %.preheader.i.i66, %.preheader.i.i66, %.preheader.i.i66, %.preheader.i.i66, %.preheader.i.i66, %.preheader.i.i66
+  %390 = getelementptr inbounds i8, ptr %387, i64 1
   br label %.preheader.i.i66
 
-382:                                              ; preds = %.preheader.i.i66
+391:                                              ; preds = %.preheader.i.i66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %383 = load ptr, ptr @outFile, align 8
-  %384 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %383, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.49, ptr noundef nonnull %.sroa.33.1.i.i.i) #14
+  %392 = load ptr, ptr @outFile, align 8
+  %393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %392, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.49, ptr noundef nonnull %.sroa.33.1.i.i.i) #14
   br label %emitAttr.exit68
 
 .loopexit.i67:                                    ; preds = %.preheader.i.i66, %indent.exit.i64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %385 = load ptr, ptr @outFile, align 8
-  %386 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.49) #14
-  %387 = load ptr, ptr @outFile, align 8
-  %388 = call i32 @xml_escape(ptr noundef nonnull %.sroa.33.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %387) #14
-  %389 = load ptr, ptr @outFile, align 8
-  %390 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %389)
+  %394 = load ptr, ptr @outFile, align 8
+  %395 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %394, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.49) #14
+  %396 = load ptr, ptr @outFile, align 8
+  %397 = call i32 @xml_escape(ptr noundef nonnull %.sroa.33.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %396) #14
+  %398 = load ptr, ptr @outFile, align 8
+  %399 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %398)
   br label %emitAttr.exit68
 
-emitAttr.exit68:                                  ; preds = %.loopexit.i67, %382, %emitAttr.exit76
+emitAttr.exit68:                                  ; preds = %.loopexit.i67, %391, %emitAttr.exit76
   %.not139.i.i.i = icmp eq ptr %.sroa.37.1.i.i.i, null
   br i1 %.not139.i.i.i, label %emitAttr.exit60, label %.lr.ph.i.i53
 
 .lr.ph.i.i53:                                     ; preds = %emitAttr.exit68, %.lr.ph.i.i53
-  %.02.i.i54 = phi i32 [ %391, %.lr.ph.i.i53 ], [ 3, %emitAttr.exit68 ]
-  %391 = add nsw i32 %.02.i.i54, -1
-  %392 = load ptr, ptr @outFile, align 8
-  %393 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %392)
-  %.not.i.i55 = icmp eq i32 %391, 0
+  %.02.i.i54 = phi i32 [ %400, %.lr.ph.i.i53 ], [ 3, %emitAttr.exit68 ]
+  %400 = add nsw i32 %.02.i.i54, -1
+  %401 = load ptr, ptr @outFile, align 8
+  %402 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %401)
+  %.not.i.i55 = icmp eq i32 %400, 0
   br i1 %.not.i.i55, label %indent.exit.i56, label %.lr.ph.i.i53
 
 indent.exit.i56:                                  ; preds = %.lr.ph.i.i53
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr %.sroa.37.1.i.i.i, ptr %10, align 8
-  %394 = call double @strtod(ptr noundef nonnull %.sroa.37.1.i.i.i, ptr noundef nonnull %10) #14
-  %395 = load ptr, ptr %10, align 8
-  %.not.i5.i57 = icmp eq ptr %395, %.sroa.37.1.i.i.i
+  %403 = call double @strtod(ptr noundef nonnull %.sroa.37.1.i.i.i, ptr noundef nonnull %10) #14
+  %404 = load ptr, ptr %10, align 8
+  %.not.i5.i57 = icmp eq ptr %404, %.sroa.37.1.i.i.i
   br i1 %.not.i5.i57, label %.loopexit.i59, label %.preheader.i.i58
 
-.preheader.i.i58:                                 ; preds = %indent.exit.i56, %398
-  %396 = phi ptr [ %399, %398 ], [ %395, %indent.exit.i56 ]
-  %397 = load i8, ptr %396, align 1
-  switch i8 %397, label %.loopexit.i59 [
-    i8 9, label %398
-    i8 10, label %398
-    i8 11, label %398
-    i8 12, label %398
-    i8 13, label %398
-    i8 32, label %398
-    i8 0, label %400
+.preheader.i.i58:                                 ; preds = %indent.exit.i56, %407
+  %405 = phi ptr [ %408, %407 ], [ %404, %indent.exit.i56 ]
+  %406 = load i8, ptr %405, align 1
+  switch i8 %406, label %.loopexit.i59 [
+    i8 9, label %407
+    i8 10, label %407
+    i8 11, label %407
+    i8 12, label %407
+    i8 13, label %407
+    i8 32, label %407
+    i8 0, label %409
   ]
 
-398:                                              ; preds = %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58
-  %399 = getelementptr inbounds i8, ptr %396, i64 1
+407:                                              ; preds = %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58
+  %408 = getelementptr inbounds i8, ptr %405, i64 1
   br label %.preheader.i.i58
 
-400:                                              ; preds = %.preheader.i.i58
+409:                                              ; preds = %.preheader.i.i58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %401 = load ptr, ptr @outFile, align 8
-  %402 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %401, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.29, ptr noundef nonnull %.sroa.37.1.i.i.i) #14
+  %410 = load ptr, ptr @outFile, align 8
+  %411 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.29, ptr noundef nonnull %.sroa.37.1.i.i.i) #14
   br label %emitAttr.exit60
 
 .loopexit.i59:                                    ; preds = %.preheader.i.i58, %indent.exit.i56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %403 = load ptr, ptr @outFile, align 8
-  %404 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %403, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.29) #14
-  %405 = load ptr, ptr @outFile, align 8
-  %406 = call i32 @xml_escape(ptr noundef nonnull %.sroa.37.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %405) #14
-  %407 = load ptr, ptr @outFile, align 8
-  %408 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %407)
+  %412 = load ptr, ptr @outFile, align 8
+  %413 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.29) #14
+  %414 = load ptr, ptr @outFile, align 8
+  %415 = call i32 @xml_escape(ptr noundef nonnull %.sroa.37.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %414) #14
+  %416 = load ptr, ptr @outFile, align 8
+  %417 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %416)
   br label %emitAttr.exit60
 
-emitAttr.exit60:                                  ; preds = %.loopexit.i59, %400, %emitAttr.exit68
+emitAttr.exit60:                                  ; preds = %.loopexit.i59, %409, %emitAttr.exit68
   %.not140.i.i.i = icmp eq ptr %.sroa.40.4.i.i.i, null
   br i1 %.not140.i.i.i, label %emitAttr.exit52, label %.lr.ph.i.i45
 
 .lr.ph.i.i45:                                     ; preds = %emitAttr.exit60, %.lr.ph.i.i45
-  %.02.i.i46 = phi i32 [ %409, %.lr.ph.i.i45 ], [ 3, %emitAttr.exit60 ]
-  %409 = add nsw i32 %.02.i.i46, -1
-  %410 = load ptr, ptr @outFile, align 8
-  %411 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %410)
-  %.not.i.i47 = icmp eq i32 %409, 0
+  %.02.i.i46 = phi i32 [ %418, %.lr.ph.i.i45 ], [ 3, %emitAttr.exit60 ]
+  %418 = add nsw i32 %.02.i.i46, -1
+  %419 = load ptr, ptr @outFile, align 8
+  %420 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %419)
+  %.not.i.i47 = icmp eq i32 %418, 0
   br i1 %.not.i.i47, label %indent.exit.i48, label %.lr.ph.i.i45
 
 indent.exit.i48:                                  ; preds = %.lr.ph.i.i45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %.sroa.40.4.i.i.i, ptr %11, align 8
-  %412 = call double @strtod(ptr noundef nonnull %.sroa.40.4.i.i.i, ptr noundef nonnull %11) #14
-  %413 = load ptr, ptr %11, align 8
-  %.not.i5.i49 = icmp eq ptr %413, %.sroa.40.4.i.i.i
+  %421 = call double @strtod(ptr noundef nonnull %.sroa.40.4.i.i.i, ptr noundef nonnull %11) #14
+  %422 = load ptr, ptr %11, align 8
+  %.not.i5.i49 = icmp eq ptr %422, %.sroa.40.4.i.i.i
   br i1 %.not.i5.i49, label %.loopexit.i51, label %.preheader.i.i50
 
-.preheader.i.i50:                                 ; preds = %indent.exit.i48, %416
-  %414 = phi ptr [ %417, %416 ], [ %413, %indent.exit.i48 ]
-  %415 = load i8, ptr %414, align 1
-  switch i8 %415, label %.loopexit.i51 [
-    i8 9, label %416
-    i8 10, label %416
-    i8 11, label %416
-    i8 12, label %416
-    i8 13, label %416
-    i8 32, label %416
-    i8 0, label %418
+.preheader.i.i50:                                 ; preds = %indent.exit.i48, %425
+  %423 = phi ptr [ %426, %425 ], [ %422, %indent.exit.i48 ]
+  %424 = load i8, ptr %423, align 1
+  switch i8 %424, label %.loopexit.i51 [
+    i8 9, label %425
+    i8 10, label %425
+    i8 11, label %425
+    i8 12, label %425
+    i8 13, label %425
+    i8 32, label %425
+    i8 0, label %427
   ]
 
-416:                                              ; preds = %.preheader.i.i50, %.preheader.i.i50, %.preheader.i.i50, %.preheader.i.i50, %.preheader.i.i50, %.preheader.i.i50
-  %417 = getelementptr inbounds i8, ptr %414, i64 1
+425:                                              ; preds = %.preheader.i.i50, %.preheader.i.i50, %.preheader.i.i50, %.preheader.i.i50, %.preheader.i.i50, %.preheader.i.i50
+  %426 = getelementptr inbounds i8, ptr %423, i64 1
   br label %.preheader.i.i50
 
-418:                                              ; preds = %.preheader.i.i50
+427:                                              ; preds = %.preheader.i.i50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %419 = load ptr, ptr @outFile, align 8
-  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %419, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.50, ptr noundef nonnull %.sroa.40.4.i.i.i) #14
+  %428 = load ptr, ptr @outFile, align 8
+  %429 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %428, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.50, ptr noundef nonnull %.sroa.40.4.i.i.i) #14
   br label %emitAttr.exit52
 
 .loopexit.i51:                                    ; preds = %.preheader.i.i50, %indent.exit.i48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %421 = load ptr, ptr @outFile, align 8
-  %422 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %421, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.50) #14
-  %423 = load ptr, ptr @outFile, align 8
-  %424 = call i32 @xml_escape(ptr noundef nonnull %.sroa.40.4.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %423) #14
-  %425 = load ptr, ptr @outFile, align 8
-  %426 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %425)
+  %430 = load ptr, ptr @outFile, align 8
+  %431 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %430, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.50) #14
+  %432 = load ptr, ptr @outFile, align 8
+  %433 = call i32 @xml_escape(ptr noundef nonnull %.sroa.40.4.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %432) #14
+  %434 = load ptr, ptr @outFile, align 8
+  %435 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %434)
   br label %emitAttr.exit52
 
-emitAttr.exit52:                                  ; preds = %.loopexit.i51, %418, %emitAttr.exit60
-  %427 = load ptr, ptr @outFile, align 8
-  %428 = call i64 @fwrite(ptr nonnull @.str.51, i64 6, i64 1, ptr %427)
-  br label %429
+emitAttr.exit52:                                  ; preds = %.loopexit.i51, %427, %emitAttr.exit60
+  %436 = load ptr, ptr @outFile, align 8
+  %437 = call i64 @fwrite(ptr nonnull @.str.51, i64 6, i64 1, ptr %436)
+  br label %438
 
-429:                                              ; preds = %emitAttr.exit52, %._crit_edge.i.i.i
+438:                                              ; preds = %emitAttr.exit52, %._crit_edge.i.i.i
   %.not141.i.i.i = icmp eq i32 %.1127.i.i.i, 0
-  br i1 %.not141.i.i.i, label %emitNode.exit.i, label %430
+  br i1 %.not141.i.i.i, label %emitNode.exit.i, label %439
 
-430:                                              ; preds = %429
-  %431 = load ptr, ptr @outFile, align 8
-  %432 = call i64 @fwrite(ptr nonnull @.str.52, i64 20, i64 1, ptr %431)
+439:                                              ; preds = %438
+  %440 = load ptr, ptr @outFile, align 8
+  %441 = call i64 @fwrite(ptr nonnull @.str.52, i64 20, i64 1, ptr %440)
   %.not142.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not142.i.i.i, label %emitAttr.exit44, label %.lr.ph.i.i37
 
-.lr.ph.i.i37:                                     ; preds = %430, %.lr.ph.i.i37
-  %.02.i.i38 = phi i32 [ %433, %.lr.ph.i.i37 ], [ 3, %430 ]
-  %433 = add nsw i32 %.02.i.i38, -1
-  %434 = load ptr, ptr @outFile, align 8
-  %435 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %434)
-  %.not.i.i39 = icmp eq i32 %433, 0
+.lr.ph.i.i37:                                     ; preds = %439, %.lr.ph.i.i37
+  %.02.i.i38 = phi i32 [ %442, %.lr.ph.i.i37 ], [ 3, %439 ]
+  %442 = add nsw i32 %.02.i.i38, -1
+  %443 = load ptr, ptr @outFile, align 8
+  %444 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %443)
+  %.not.i.i39 = icmp eq i32 %442, 0
   br i1 %.not.i.i39, label %indent.exit.i40, label %.lr.ph.i.i37
 
 indent.exit.i40:                                  ; preds = %.lr.ph.i.i37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr %.1.i.i.i, ptr %12, align 8
-  %436 = call double @strtod(ptr noundef nonnull %.1.i.i.i, ptr noundef nonnull %12) #14
-  %437 = load ptr, ptr %12, align 8
-  %.not.i5.i41 = icmp eq ptr %437, %.1.i.i.i
+  %445 = call double @strtod(ptr noundef nonnull %.1.i.i.i, ptr noundef nonnull %12) #14
+  %446 = load ptr, ptr %12, align 8
+  %.not.i5.i41 = icmp eq ptr %446, %.1.i.i.i
   br i1 %.not.i5.i41, label %.loopexit.i43, label %.preheader.i.i42
 
-.preheader.i.i42:                                 ; preds = %indent.exit.i40, %440
-  %438 = phi ptr [ %441, %440 ], [ %437, %indent.exit.i40 ]
-  %439 = load i8, ptr %438, align 1
-  switch i8 %439, label %.loopexit.i43 [
-    i8 9, label %440
-    i8 10, label %440
-    i8 11, label %440
-    i8 12, label %440
-    i8 13, label %440
-    i8 32, label %440
-    i8 0, label %442
+.preheader.i.i42:                                 ; preds = %indent.exit.i40, %449
+  %447 = phi ptr [ %450, %449 ], [ %446, %indent.exit.i40 ]
+  %448 = load i8, ptr %447, align 1
+  switch i8 %448, label %.loopexit.i43 [
+    i8 9, label %449
+    i8 10, label %449
+    i8 11, label %449
+    i8 12, label %449
+    i8 13, label %449
+    i8 32, label %449
+    i8 0, label %451
   ]
 
-440:                                              ; preds = %.preheader.i.i42, %.preheader.i.i42, %.preheader.i.i42, %.preheader.i.i42, %.preheader.i.i42, %.preheader.i.i42
-  %441 = getelementptr inbounds i8, ptr %438, i64 1
+449:                                              ; preds = %.preheader.i.i42, %.preheader.i.i42, %.preheader.i.i42, %.preheader.i.i42, %.preheader.i.i42, %.preheader.i.i42
+  %450 = getelementptr inbounds i8, ptr %447, i64 1
   br label %.preheader.i.i42
 
-442:                                              ; preds = %.preheader.i.i42
+451:                                              ; preds = %.preheader.i.i42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %443 = load ptr, ptr @outFile, align 8
-  %444 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %443, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.53, ptr noundef nonnull %.1.i.i.i) #14
+  %452 = load ptr, ptr @outFile, align 8
+  %453 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %452, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.53, ptr noundef nonnull %.1.i.i.i) #14
   br label %emitAttr.exit44
 
 .loopexit.i43:                                    ; preds = %.preheader.i.i42, %indent.exit.i40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %445 = load ptr, ptr @outFile, align 8
-  %446 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %445, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.53) #14
-  %447 = load ptr, ptr @outFile, align 8
-  %448 = call i32 @xml_escape(ptr noundef nonnull %.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %447) #14
-  %449 = load ptr, ptr @outFile, align 8
-  %450 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %449)
+  %454 = load ptr, ptr @outFile, align 8
+  %455 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %454, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.53) #14
+  %456 = load ptr, ptr @outFile, align 8
+  %457 = call i32 @xml_escape(ptr noundef nonnull %.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %456) #14
+  %458 = load ptr, ptr @outFile, align 8
+  %459 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %458)
   br label %emitAttr.exit44
 
-emitAttr.exit44:                                  ; preds = %.loopexit.i43, %442, %430
+emitAttr.exit44:                                  ; preds = %.loopexit.i43, %451, %439
   %.not143.i.i.i = icmp eq ptr %.sroa.45.1.i.i.i, null
-  br i1 %.not143.i.i.i, label %emitAttr.exit36, label %451
+  br i1 %.not143.i.i.i, label %emitAttr.exit36, label %460
 
-451:                                              ; preds = %emitAttr.exit44
+460:                                              ; preds = %emitAttr.exit44
   %.b144.i.i.i = load i1, ptr @yworks, align 1
   br label %.lr.ph.i.i29
 
-.lr.ph.i.i29:                                     ; preds = %.lr.ph.i.i29, %451
-  %.02.i.i30 = phi i32 [ %452, %.lr.ph.i.i29 ], [ 3, %451 ]
-  %452 = add nsw i32 %.02.i.i30, -1
-  %453 = load ptr, ptr @outFile, align 8
-  %454 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %453)
-  %.not.i.i31 = icmp eq i32 %452, 0
+.lr.ph.i.i29:                                     ; preds = %.lr.ph.i.i29, %460
+  %.02.i.i30 = phi i32 [ %461, %.lr.ph.i.i29 ], [ 3, %460 ]
+  %461 = add nsw i32 %.02.i.i30, -1
+  %462 = load ptr, ptr @outFile, align 8
+  %463 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %462)
+  %.not.i.i31 = icmp eq i32 %461, 0
   br i1 %.not.i.i31, label %indent.exit.i32, label %.lr.ph.i.i29
 
 indent.exit.i32:                                  ; preds = %.lr.ph.i.i29
-  %455 = select i1 %.b144.i.i.i, ptr @.str.34, ptr @.str.54
+  %464 = select i1 %.b144.i.i.i, ptr @.str.34, ptr @.str.54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr %.sroa.45.1.i.i.i, ptr %13, align 8
-  %456 = call double @strtod(ptr noundef nonnull %.sroa.45.1.i.i.i, ptr noundef nonnull %13) #14
-  %457 = load ptr, ptr %13, align 8
-  %.not.i5.i33 = icmp eq ptr %457, %.sroa.45.1.i.i.i
+  %465 = call double @strtod(ptr noundef nonnull %.sroa.45.1.i.i.i, ptr noundef nonnull %13) #14
+  %466 = load ptr, ptr %13, align 8
+  %.not.i5.i33 = icmp eq ptr %466, %.sroa.45.1.i.i.i
   br i1 %.not.i5.i33, label %.loopexit.i35, label %.preheader.i.i34
 
-.preheader.i.i34:                                 ; preds = %indent.exit.i32, %460
-  %458 = phi ptr [ %461, %460 ], [ %457, %indent.exit.i32 ]
-  %459 = load i8, ptr %458, align 1
-  switch i8 %459, label %.loopexit.i35 [
-    i8 9, label %460
-    i8 10, label %460
-    i8 11, label %460
-    i8 12, label %460
-    i8 13, label %460
-    i8 32, label %460
-    i8 0, label %462
+.preheader.i.i34:                                 ; preds = %indent.exit.i32, %469
+  %467 = phi ptr [ %470, %469 ], [ %466, %indent.exit.i32 ]
+  %468 = load i8, ptr %467, align 1
+  switch i8 %468, label %.loopexit.i35 [
+    i8 9, label %469
+    i8 10, label %469
+    i8 11, label %469
+    i8 12, label %469
+    i8 13, label %469
+    i8 32, label %469
+    i8 0, label %471
   ]
 
-460:                                              ; preds = %.preheader.i.i34, %.preheader.i.i34, %.preheader.i.i34, %.preheader.i.i34, %.preheader.i.i34, %.preheader.i.i34
-  %461 = getelementptr inbounds i8, ptr %458, i64 1
+469:                                              ; preds = %.preheader.i.i34, %.preheader.i.i34, %.preheader.i.i34, %.preheader.i.i34, %.preheader.i.i34, %.preheader.i.i34
+  %470 = getelementptr inbounds i8, ptr %467, i64 1
   br label %.preheader.i.i34
 
-462:                                              ; preds = %.preheader.i.i34
+471:                                              ; preds = %.preheader.i.i34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %463 = load ptr, ptr @outFile, align 8
-  %464 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %463, ptr noundef nonnull @.str.15, ptr noundef nonnull %455, ptr noundef nonnull %.sroa.45.1.i.i.i) #14
+  %472 = load ptr, ptr @outFile, align 8
+  %473 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %472, ptr noundef nonnull @.str.15, ptr noundef nonnull %464, ptr noundef nonnull %.sroa.45.1.i.i.i) #14
   br label %emitAttr.exit36
 
 .loopexit.i35:                                    ; preds = %.preheader.i.i34, %indent.exit.i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %465 = load ptr, ptr @outFile, align 8
-  %466 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %465, ptr noundef nonnull @.str.16, ptr noundef nonnull %455) #14
-  %467 = load ptr, ptr @outFile, align 8
-  %468 = call i32 @xml_escape(ptr noundef nonnull %.sroa.45.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %467) #14
-  %469 = load ptr, ptr @outFile, align 8
-  %470 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %469)
+  %474 = load ptr, ptr @outFile, align 8
+  %475 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %474, ptr noundef nonnull @.str.16, ptr noundef nonnull %464) #14
+  %476 = load ptr, ptr @outFile, align 8
+  %477 = call i32 @xml_escape(ptr noundef nonnull %.sroa.45.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %476) #14
+  %478 = load ptr, ptr @outFile, align 8
+  %479 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %478)
   br label %emitAttr.exit36
 
-emitAttr.exit36:                                  ; preds = %.loopexit.i35, %462, %emitAttr.exit44
+emitAttr.exit36:                                  ; preds = %.loopexit.i35, %471, %emitAttr.exit44
   %.not145.i.i.i = icmp eq ptr %.sroa.48.1.i.i.i, null
   br i1 %.not145.i.i.i, label %emitAttr.exit28, label %.lr.ph.i.i21
 
 .lr.ph.i.i21:                                     ; preds = %emitAttr.exit36, %.lr.ph.i.i21
-  %.02.i.i22 = phi i32 [ %471, %.lr.ph.i.i21 ], [ 3, %emitAttr.exit36 ]
-  %471 = add nsw i32 %.02.i.i22, -1
-  %472 = load ptr, ptr @outFile, align 8
-  %473 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %472)
-  %.not.i.i23 = icmp eq i32 %471, 0
+  %.02.i.i22 = phi i32 [ %480, %.lr.ph.i.i21 ], [ 3, %emitAttr.exit36 ]
+  %480 = add nsw i32 %.02.i.i22, -1
+  %481 = load ptr, ptr @outFile, align 8
+  %482 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %481)
+  %.not.i.i23 = icmp eq i32 %480, 0
   br i1 %.not.i.i23, label %indent.exit.i24, label %.lr.ph.i.i21
 
 indent.exit.i24:                                  ; preds = %.lr.ph.i.i21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store ptr %.sroa.48.1.i.i.i, ptr %14, align 8
-  %474 = call double @strtod(ptr noundef nonnull %.sroa.48.1.i.i.i, ptr noundef nonnull %14) #14
-  %475 = load ptr, ptr %14, align 8
-  %.not.i5.i25 = icmp eq ptr %475, %.sroa.48.1.i.i.i
+  %483 = call double @strtod(ptr noundef nonnull %.sroa.48.1.i.i.i, ptr noundef nonnull %14) #14
+  %484 = load ptr, ptr %14, align 8
+  %.not.i5.i25 = icmp eq ptr %484, %.sroa.48.1.i.i.i
   br i1 %.not.i5.i25, label %.loopexit.i27, label %.preheader.i.i26
 
-.preheader.i.i26:                                 ; preds = %indent.exit.i24, %478
-  %476 = phi ptr [ %479, %478 ], [ %475, %indent.exit.i24 ]
-  %477 = load i8, ptr %476, align 1
-  switch i8 %477, label %.loopexit.i27 [
-    i8 9, label %478
-    i8 10, label %478
-    i8 11, label %478
-    i8 12, label %478
-    i8 13, label %478
-    i8 32, label %478
-    i8 0, label %480
+.preheader.i.i26:                                 ; preds = %indent.exit.i24, %487
+  %485 = phi ptr [ %488, %487 ], [ %484, %indent.exit.i24 ]
+  %486 = load i8, ptr %485, align 1
+  switch i8 %486, label %.loopexit.i27 [
+    i8 9, label %487
+    i8 10, label %487
+    i8 11, label %487
+    i8 12, label %487
+    i8 13, label %487
+    i8 32, label %487
+    i8 0, label %489
   ]
 
-478:                                              ; preds = %.preheader.i.i26, %.preheader.i.i26, %.preheader.i.i26, %.preheader.i.i26, %.preheader.i.i26, %.preheader.i.i26
-  %479 = getelementptr inbounds i8, ptr %476, i64 1
+487:                                              ; preds = %.preheader.i.i26, %.preheader.i.i26, %.preheader.i.i26, %.preheader.i.i26, %.preheader.i.i26, %.preheader.i.i26
+  %488 = getelementptr inbounds i8, ptr %485, i64 1
   br label %.preheader.i.i26
 
-480:                                              ; preds = %.preheader.i.i26
+489:                                              ; preds = %.preheader.i.i26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  %481 = load ptr, ptr @outFile, align 8
-  %482 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %481, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.55, ptr noundef nonnull %.sroa.48.1.i.i.i) #14
+  %490 = load ptr, ptr @outFile, align 8
+  %491 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %490, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.55, ptr noundef nonnull %.sroa.48.1.i.i.i) #14
   br label %emitAttr.exit28
 
 .loopexit.i27:                                    ; preds = %.preheader.i.i26, %indent.exit.i24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  %483 = load ptr, ptr @outFile, align 8
-  %484 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %483, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.55) #14
-  %485 = load ptr, ptr @outFile, align 8
-  %486 = call i32 @xml_escape(ptr noundef nonnull %.sroa.48.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %485) #14
-  %487 = load ptr, ptr @outFile, align 8
-  %488 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %487)
+  %492 = load ptr, ptr @outFile, align 8
+  %493 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %492, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.55) #14
+  %494 = load ptr, ptr @outFile, align 8
+  %495 = call i32 @xml_escape(ptr noundef nonnull %.sroa.48.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %494) #14
+  %496 = load ptr, ptr @outFile, align 8
+  %497 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %496)
   br label %emitAttr.exit28
 
-emitAttr.exit28:                                  ; preds = %.loopexit.i27, %480, %emitAttr.exit36
+emitAttr.exit28:                                  ; preds = %.loopexit.i27, %489, %emitAttr.exit36
   %.not146.i.i.i = icmp eq ptr %.sroa.51.1.i.i.i, null
   br i1 %.not146.i.i.i, label %emitAttr.exit20, label %.lr.ph.i.i13
 
 .lr.ph.i.i13:                                     ; preds = %emitAttr.exit28, %.lr.ph.i.i13
-  %.02.i.i14 = phi i32 [ %489, %.lr.ph.i.i13 ], [ 3, %emitAttr.exit28 ]
-  %489 = add nsw i32 %.02.i.i14, -1
-  %490 = load ptr, ptr @outFile, align 8
-  %491 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %490)
-  %.not.i.i15 = icmp eq i32 %489, 0
+  %.02.i.i14 = phi i32 [ %498, %.lr.ph.i.i13 ], [ 3, %emitAttr.exit28 ]
+  %498 = add nsw i32 %.02.i.i14, -1
+  %499 = load ptr, ptr @outFile, align 8
+  %500 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %499)
+  %.not.i.i15 = icmp eq i32 %498, 0
   br i1 %.not.i.i15, label %indent.exit.i16, label %.lr.ph.i.i13
 
 indent.exit.i16:                                  ; preds = %.lr.ph.i.i13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store ptr %.sroa.51.1.i.i.i, ptr %15, align 8
-  %492 = call double @strtod(ptr noundef nonnull %.sroa.51.1.i.i.i, ptr noundef nonnull %15) #14
-  %493 = load ptr, ptr %15, align 8
-  %.not.i5.i17 = icmp eq ptr %493, %.sroa.51.1.i.i.i
+  %501 = call double @strtod(ptr noundef nonnull %.sroa.51.1.i.i.i, ptr noundef nonnull %15) #14
+  %502 = load ptr, ptr %15, align 8
+  %.not.i5.i17 = icmp eq ptr %502, %.sroa.51.1.i.i.i
   br i1 %.not.i5.i17, label %.loopexit.i19, label %.preheader.i.i18
 
-.preheader.i.i18:                                 ; preds = %indent.exit.i16, %496
-  %494 = phi ptr [ %497, %496 ], [ %493, %indent.exit.i16 ]
-  %495 = load i8, ptr %494, align 1
-  switch i8 %495, label %.loopexit.i19 [
-    i8 9, label %496
-    i8 10, label %496
-    i8 11, label %496
-    i8 12, label %496
-    i8 13, label %496
-    i8 32, label %496
-    i8 0, label %498
+.preheader.i.i18:                                 ; preds = %indent.exit.i16, %505
+  %503 = phi ptr [ %506, %505 ], [ %502, %indent.exit.i16 ]
+  %504 = load i8, ptr %503, align 1
+  switch i8 %504, label %.loopexit.i19 [
+    i8 9, label %505
+    i8 10, label %505
+    i8 11, label %505
+    i8 12, label %505
+    i8 13, label %505
+    i8 32, label %505
+    i8 0, label %507
   ]
 
-496:                                              ; preds = %.preheader.i.i18, %.preheader.i.i18, %.preheader.i.i18, %.preheader.i.i18, %.preheader.i.i18, %.preheader.i.i18
-  %497 = getelementptr inbounds i8, ptr %494, i64 1
+505:                                              ; preds = %.preheader.i.i18, %.preheader.i.i18, %.preheader.i.i18, %.preheader.i.i18, %.preheader.i.i18, %.preheader.i.i18
+  %506 = getelementptr inbounds i8, ptr %503, i64 1
   br label %.preheader.i.i18
 
-498:                                              ; preds = %.preheader.i.i18
+507:                                              ; preds = %.preheader.i.i18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  %499 = load ptr, ptr @outFile, align 8
-  %500 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %499, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.56, ptr noundef nonnull %.sroa.51.1.i.i.i) #14
+  %508 = load ptr, ptr @outFile, align 8
+  %509 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %508, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.56, ptr noundef nonnull %.sroa.51.1.i.i.i) #14
   br label %emitAttr.exit20
 
 .loopexit.i19:                                    ; preds = %.preheader.i.i18, %indent.exit.i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  %501 = load ptr, ptr @outFile, align 8
-  %502 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %501, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.56) #14
-  %503 = load ptr, ptr @outFile, align 8
-  %504 = call i32 @xml_escape(ptr noundef nonnull %.sroa.51.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %503) #14
-  %505 = load ptr, ptr @outFile, align 8
-  %506 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %505)
+  %510 = load ptr, ptr @outFile, align 8
+  %511 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %510, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.56) #14
+  %512 = load ptr, ptr @outFile, align 8
+  %513 = call i32 @xml_escape(ptr noundef nonnull %.sroa.51.1.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %512) #14
+  %514 = load ptr, ptr @outFile, align 8
+  %515 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %514)
   br label %emitAttr.exit20
 
-emitAttr.exit20:                                  ; preds = %.loopexit.i19, %498, %emitAttr.exit28
-  %507 = load ptr, ptr @outFile, align 8
-  %508 = call i64 @fwrite(ptr nonnull @.str.51, i64 6, i64 1, ptr %507)
+emitAttr.exit20:                                  ; preds = %.loopexit.i19, %507, %emitAttr.exit28
+  %516 = load ptr, ptr @outFile, align 8
+  %517 = call i64 @fwrite(ptr nonnull @.str.51, i64 6, i64 1, ptr %516)
   br label %emitNode.exit.i
 
-emitNode.exit.i:                                  ; preds = %emitAttr.exit20, %429, %.lr.ph.i
+emitNode.exit.i:                                  ; preds = %emitAttr.exit20, %438, %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
-  %509 = load ptr, ptr @outFile, align 8
-  %510 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %509)
-  %511 = call ptr @agnxtnode(ptr noundef nonnull %86, ptr noundef nonnull %.019223.i) #14
-  %.not20.i = icmp eq ptr %511, null
+  %518 = load ptr, ptr @outFile, align 8
+  %519 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %518)
+  %520 = call ptr @agnxtnode(ptr noundef nonnull %86, ptr noundef nonnull %.019226.i) #14
+  %.not20.i = icmp eq ptr %520, null
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %emitNode.exit.i, %emitGraphAttrs.exit.i
-  %512 = call ptr @agfstnode(ptr noundef nonnull %86) #14
-  %.not21239.i = icmp eq ptr %512, null
-  br i1 %.not21239.i, label %gv_to_gml.exit, label %.lr.ph246.i
+  %521 = call ptr @agfstnode(ptr noundef nonnull %86) #14
+  %.not21242.i = icmp eq ptr %521, null
+  br i1 %.not21242.i, label %gv_to_gml.exit, label %.lr.ph249.i
 
-.lr.ph246.i:                                      ; preds = %._crit_edge.i, %._crit_edge235.i
-  %.1244.i = phi ptr [ %962, %._crit_edge235.i ], [ %512, %._crit_edge.i ]
-  %.0154243.i = phi double [ %.1155.lcssa.i, %._crit_edge235.i ], [ undef, %._crit_edge.i ]
-  %.0156242.i = phi double [ %.1157.lcssa.i, %._crit_edge235.i ], [ undef, %._crit_edge.i ]
-  %.0162241.i = phi double [ %.1163.lcssa.i, %._crit_edge235.i ], [ undef, %._crit_edge.i ]
-  %.0168240.i = phi double [ %.1169.lcssa.i, %._crit_edge235.i ], [ undef, %._crit_edge.i ]
-  %513 = call ptr @agfstout(ptr noundef nonnull %86, ptr noundef nonnull %.1244.i) #14
-  %.not22225.i = icmp eq ptr %513, null
-  br i1 %.not22225.i, label %._crit_edge235.i, label %.lr.ph234.i
+.lr.ph249.i:                                      ; preds = %._crit_edge.i, %._crit_edge238.i
+  %.1247.i = phi ptr [ %983, %._crit_edge238.i ], [ %521, %._crit_edge.i ]
+  %.0154246.i = phi double [ %.1155.lcssa.i, %._crit_edge238.i ], [ undef, %._crit_edge.i ]
+  %.0156245.i = phi double [ %.1157.lcssa.i, %._crit_edge238.i ], [ undef, %._crit_edge.i ]
+  %.0162244.i = phi double [ %.1163.lcssa.i, %._crit_edge238.i ], [ undef, %._crit_edge.i ]
+  %.0168243.i = phi double [ %.1169.lcssa.i, %._crit_edge238.i ], [ undef, %._crit_edge.i ]
+  %522 = call ptr @agfstout(ptr noundef nonnull %86, ptr noundef nonnull %.1247.i) #14
+  %.not22228.i = icmp eq ptr %522, null
+  br i1 %.not22228.i, label %._crit_edge238.i, label %.lr.ph237.i
 
-.lr.ph234.i:                                      ; preds = %.lr.ph246.i, %emitEdge.exit.i
-  %.0230.i = phi ptr [ %961, %emitEdge.exit.i ], [ %513, %.lr.ph246.i ]
-  %.1155229.i = phi double [ %.5.i, %emitEdge.exit.i ], [ %.0154243.i, %.lr.ph246.i ]
-  %.1157228.i = phi double [ %.5161.i, %emitEdge.exit.i ], [ %.0156242.i, %.lr.ph246.i ]
-  %.1163227.i = phi double [ %.5167.i, %emitEdge.exit.i ], [ %.0162241.i, %.lr.ph246.i ]
-  %.1169226.i = phi double [ %.5173.i, %emitEdge.exit.i ], [ %.0168240.i, %.lr.ph246.i ]
-  %514 = load ptr, ptr @outFile, align 8
-  %515 = load i32, ptr %.0230.i, align 8
-  %516 = lshr i32 %515, 4
-  %517 = zext nneg i32 %516 to i64
-  %518 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %514, ptr noundef nonnull @.str.64, i64 noundef %517) #14
-  %519 = load ptr, ptr @outFile, align 8
-  %520 = load i32, ptr %.0230.i, align 8
-  %521 = and i32 %520, 3
-  %522 = icmp eq i32 %521, 3
-  %.idx.i.i = select i1 %522, i64 0, i64 64
-  %523 = getelementptr inbounds i8, ptr %.0230.i, i64 %.idx.i.i
-  %524 = getelementptr inbounds i8, ptr %523, i64 56
-  %525 = load ptr, ptr %524, align 8
-  %526 = getelementptr inbounds i8, ptr %525, i64 16
-  %527 = load ptr, ptr %526, align 8
-  %528 = getelementptr inbounds i8, ptr %527, i64 16
-  %529 = load i64, ptr %528, align 8
-  %530 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %519, ptr noundef nonnull @.str.65, i64 noundef %529) #14
-  %531 = load ptr, ptr @outFile, align 8
-  %532 = load i32, ptr %.0230.i, align 8
-  %533 = and i32 %532, 3
-  %534 = icmp eq i32 %533, 2
-  %.idx9.i.i = select i1 %534, i64 0, i64 -64
-  %535 = getelementptr inbounds i8, ptr %.0230.i, i64 %.idx9.i.i
-  %536 = getelementptr inbounds i8, ptr %535, i64 56
-  %537 = load ptr, ptr %536, align 8
-  %538 = getelementptr inbounds i8, ptr %537, i64 16
-  %539 = load ptr, ptr %538, align 8
-  %540 = getelementptr inbounds i8, ptr %539, i64 16
-  %541 = load i64, ptr %540, align 8
-  %542 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %531, ptr noundef nonnull @.str.66, i64 noundef %541) #14
-  %543 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef null) #14
-  %.not175.i.i.i = icmp eq ptr %543, null
+.lr.ph237.i:                                      ; preds = %.lr.ph249.i, %emitEdge.exit.i
+  %.0233.i = phi ptr [ %982, %emitEdge.exit.i ], [ %522, %.lr.ph249.i ]
+  %.1155232.i = phi double [ %.5.i, %emitEdge.exit.i ], [ %.0154246.i, %.lr.ph249.i ]
+  %.1157231.i = phi double [ %.5161.i, %emitEdge.exit.i ], [ %.0156245.i, %.lr.ph249.i ]
+  %.1163230.i = phi double [ %.5167.i, %emitEdge.exit.i ], [ %.0162244.i, %.lr.ph249.i ]
+  %.1169229.i = phi double [ %.5173.i, %emitEdge.exit.i ], [ %.0168243.i, %.lr.ph249.i ]
+  %523 = load ptr, ptr @outFile, align 8
+  %524 = load i32, ptr %.0233.i, align 8
+  %525 = lshr i32 %524, 4
+  %526 = zext nneg i32 %525 to i64
+  %527 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %523, ptr noundef nonnull @.str.64, i64 noundef %526) #14
+  %528 = load ptr, ptr @outFile, align 8
+  %529 = load i32, ptr %.0233.i, align 8
+  %530 = and i32 %529, 3
+  %531 = icmp eq i32 %530, 3
+  %.idx.i.i = select i1 %531, i64 0, i64 64
+  %532 = getelementptr inbounds i8, ptr %.0233.i, i64 %.idx.i.i
+  %533 = getelementptr inbounds i8, ptr %532, i64 56
+  %534 = load ptr, ptr %533, align 8
+  %535 = getelementptr inbounds i8, ptr %534, i64 16
+  %536 = load ptr, ptr %535, align 8
+  %537 = getelementptr inbounds i8, ptr %536, i64 16
+  %538 = load i64, ptr %537, align 8
+  %539 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %528, ptr noundef nonnull @.str.65, i64 noundef %538) #14
+  %540 = load ptr, ptr @outFile, align 8
+  %541 = load i32, ptr %.0233.i, align 8
+  %542 = and i32 %541, 3
+  %543 = icmp eq i32 %542, 2
+  %.idx9.i.i = select i1 %543, i64 0, i64 -64
+  %544 = getelementptr inbounds i8, ptr %.0233.i, i64 %.idx9.i.i
+  %545 = getelementptr inbounds i8, ptr %544, i64 56
+  %546 = load ptr, ptr %545, align 8
+  %547 = getelementptr inbounds i8, ptr %546, i64 16
+  %548 = load ptr, ptr %547, align 8
+  %549 = getelementptr inbounds i8, ptr %548, i64 16
+  %550 = load i64, ptr %549, align 8
+  %551 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %540, ptr noundef nonnull @.str.66, i64 noundef %550) #14
+  %552 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef null) #14
+  %.not175.i.i.i = icmp eq ptr %552, null
   br i1 %.not175.i.i.i, label %emitEdge.exit.i, label %.lr.ph.i.outer.i.i
 
-.lr.ph.i.outer.i.i:                               ; preds = %.lr.ph234.i, %.loopexit.i.i
-  %.0189.i.ph.i.i = phi ptr [ %658, %.loopexit.i.i ], [ %543, %.lr.ph234.i ]
-  %.0112188.i.ph.i.i = phi ptr [ %.1.i.i25.i, %.loopexit.i.i ], [ null, %.lr.ph234.i ]
-  %.0113187.i.ph.i.i = phi i32 [ %.1114.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph234.i ]
-  %.0115186.i.ph.i.i = phi i32 [ %.1116.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph234.i ]
-  %.sroa.42.0185.i.ph.i.i = phi ptr [ %.sroa.42.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph234.i ]
-  %.sroa.39.0184.i.ph.i.i = phi ptr [ %.sroa.39.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph234.i ]
-  %.sroa.36.0183.i.ph.i.i = phi ptr [ %.sroa.36.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph234.i ]
-  %.sroa.33.0182.i.ph.i.i = phi ptr [ %.sroa.33.1.i.i24.i, %.loopexit.i.i ], [ null, %.lr.ph234.i ]
-  %.sroa.30.0181.i.ph.i.i = phi ptr [ %.sroa.30.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph234.i ]
-  %.sroa.27.0180.i.ph.i.i = phi ptr [ %.sroa.27.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph234.i ]
-  %.sroa.21.0179.i.ph.i.i = phi ptr [ %.sroa.21.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph234.i ]
-  %.sroa.17.0178.i.ph.i.i = phi ptr [ %.sroa.17.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph234.i ]
-  %.sroa.1316.0177.i.ph.i.i = phi ptr [ %.sroa.1316.2.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph234.i ]
-  %.sroa.0.0176.i.ph.i.i = phi i32 [ %.sroa.0.0176.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph234.i ]
+.lr.ph.i.outer.i.i:                               ; preds = %.lr.ph237.i, %.loopexit.i.i
+  %.0189.i.ph.i.i = phi ptr [ %667, %.loopexit.i.i ], [ %552, %.lr.ph237.i ]
+  %.0112188.i.ph.i.i = phi ptr [ %.1.i.i25.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.0113187.i.ph.i.i = phi i32 [ %.1114.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph237.i ]
+  %.0115186.i.ph.i.i = phi i32 [ %.1116.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph237.i ]
+  %.sroa.42.0185.i.ph.i.i = phi ptr [ %.sroa.42.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.39.0184.i.ph.i.i = phi ptr [ %.sroa.39.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.36.0183.i.ph.i.i = phi ptr [ %.sroa.36.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.33.0182.i.ph.i.i = phi ptr [ %.sroa.33.1.i.i24.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.30.0181.i.ph.i.i = phi ptr [ %.sroa.30.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.27.0180.i.ph.i.i = phi ptr [ %.sroa.27.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.21.0179.i.ph.i.i = phi ptr [ %.sroa.21.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.17.0178.i.ph.i.i = phi ptr [ %.sroa.17.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.1316.0177.i.ph.i.i = phi ptr [ %.sroa.1316.2.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.0.0176.i.ph.i.i = phi i32 [ %.sroa.0.0176.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph237.i ]
   br label %.lr.ph.i.i23.i
 
 .lr.ph.i.i23.i:                                   ; preds = %.thread.i.i, %.lr.ph.i.outer.i.i
-  %.0189.i.i.i = phi ptr [ %661, %.thread.i.i ], [ %.0189.i.ph.i.i, %.lr.ph.i.outer.i.i ]
+  %.0189.i.i.i = phi ptr [ %670, %.thread.i.i ], [ %.0189.i.ph.i.i, %.lr.ph.i.outer.i.i ]
   %.0115186.i.i.i = phi i32 [ 1, %.thread.i.i ], [ %.0115186.i.ph.i.i, %.lr.ph.i.outer.i.i ]
   %.sroa.1316.0177.i.i.i = phi ptr [ %.sroa.1316.1.i.i.i, %.thread.i.i ], [ %.sroa.1316.0177.i.ph.i.i, %.lr.ph.i.outer.i.i ]
   %.sroa.0.0176.i.i.i = phi i32 [ %.sroa.0.4.i.i.i, %.thread.i.i ], [ %.sroa.0.0176.i.ph.i.i, %.lr.ph.i.outer.i.i ]
-  %544 = getelementptr inbounds i8, ptr %.0189.i.i.i, i64 16
-  %545 = load ptr, ptr %544, align 8
-  %546 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(6) @.str.22) #13
-  %547 = icmp eq i32 %546, 0
-  br i1 %547, label %548, label %551
+  %553 = getelementptr inbounds i8, ptr %.0189.i.i.i, i64 16
+  %554 = load ptr, ptr %553, align 8
+  %555 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(6) @.str.22) #13
+  %556 = icmp eq i32 %555, 0
+  br i1 %556, label %557, label %560
 
-548:                                              ; preds = %.lr.ph.i.i23.i
-  %549 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %550 = load i8, ptr %549, align 1
-  %.not145.i.i52.i = icmp eq i8 %550, 0
+557:                                              ; preds = %.lr.ph.i.i23.i
+  %558 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %559 = load i8, ptr %558, align 1
+  %.not145.i.i52.i = icmp eq i8 %559, 0
   br i1 %.not145.i.i52.i, label %.loopexit.i.i, label %.thread.i.i
 
-551:                                              ; preds = %.lr.ph.i.i23.i
-  %552 = getelementptr inbounds i8, ptr %.0189.i.i.i, i64 16
-  %553 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(6) @.str.26) #13
-  %554 = icmp eq i32 %553, 0
-  br i1 %554, label %555, label %578
+560:                                              ; preds = %.lr.ph.i.i23.i
+  %561 = getelementptr inbounds i8, ptr %.0189.i.i.i, i64 16
+  %562 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(6) @.str.26) #13
+  %563 = icmp eq i32 %562, 0
+  br i1 %563, label %564, label %587
 
-555:                                              ; preds = %551
-  %556 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %557 = load i8, ptr %556, align 1
-  %.not144.i.i.i = icmp eq i8 %557, 0
-  br i1 %.not144.i.i.i, label %.loopexit.i.i, label %558
+564:                                              ; preds = %560
+  %565 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %566 = load i8, ptr %565, align 1
+  %.not144.i.i.i = icmp eq i8 %566, 0
+  br i1 %.not144.i.i.i, label %.loopexit.i.i, label %567
 
-558:                                              ; preds = %555
-  %559 = load ptr, ptr %552, align 8
+567:                                              ; preds = %564
+  %568 = load ptr, ptr %561, align 8
   br label %.lr.ph.i.i140.i
 
-.lr.ph.i.i140.i:                                  ; preds = %.lr.ph.i.i140.i, %558
-  %.02.i.i141.i = phi i32 [ %560, %.lr.ph.i.i140.i ], [ 2, %558 ]
-  %560 = add nsw i32 %.02.i.i141.i, -1
-  %561 = load ptr, ptr @outFile, align 8
-  %562 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %561)
-  %.not.i.i142.i = icmp eq i32 %560, 0
+.lr.ph.i.i140.i:                                  ; preds = %.lr.ph.i.i140.i, %567
+  %.02.i.i141.i = phi i32 [ %569, %.lr.ph.i.i140.i ], [ 2, %567 ]
+  %569 = add nsw i32 %.02.i.i141.i, -1
+  %570 = load ptr, ptr @outFile, align 8
+  %571 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %570)
+  %.not.i.i142.i = icmp eq i32 %569, 0
   br i1 %.not.i.i142.i, label %indent.exit.i143.i, label %.lr.ph.i.i140.i
 
 indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
-  store ptr %556, ptr %17, align 8
-  %563 = call double @strtod(ptr noundef nonnull %556, ptr noundef nonnull %17) #14
-  %564 = load ptr, ptr %17, align 8
-  %.not.i5.i144.i = icmp eq ptr %564, %556
+  store ptr %565, ptr %17, align 8
+  %572 = call double @strtod(ptr noundef nonnull %565, ptr noundef nonnull %17) #14
+  %573 = load ptr, ptr %17, align 8
+  %.not.i5.i144.i = icmp eq ptr %573, %565
   br i1 %.not.i5.i144.i, label %.loopexit.i146.i, label %.preheader.i.i145.i
 
-.preheader.i.i145.i:                              ; preds = %indent.exit.i143.i, %567
-  %565 = phi ptr [ %568, %567 ], [ %564, %indent.exit.i143.i ]
-  %566 = load i8, ptr %565, align 1
-  switch i8 %566, label %.loopexit.i146.i [
-    i8 9, label %567
-    i8 10, label %567
-    i8 11, label %567
-    i8 12, label %567
-    i8 13, label %567
-    i8 32, label %567
-    i8 0, label %569
+.preheader.i.i145.i:                              ; preds = %indent.exit.i143.i, %576
+  %574 = phi ptr [ %577, %576 ], [ %573, %indent.exit.i143.i ]
+  %575 = load i8, ptr %574, align 1
+  switch i8 %575, label %.loopexit.i146.i [
+    i8 9, label %576
+    i8 10, label %576
+    i8 11, label %576
+    i8 12, label %576
+    i8 13, label %576
+    i8 32, label %576
+    i8 0, label %578
   ]
 
-567:                                              ; preds = %.preheader.i.i145.i, %.preheader.i.i145.i, %.preheader.i.i145.i, %.preheader.i.i145.i, %.preheader.i.i145.i, %.preheader.i.i145.i
-  %568 = getelementptr inbounds i8, ptr %565, i64 1
+576:                                              ; preds = %.preheader.i.i145.i, %.preheader.i.i145.i, %.preheader.i.i145.i, %.preheader.i.i145.i, %.preheader.i.i145.i, %.preheader.i.i145.i
+  %577 = getelementptr inbounds i8, ptr %574, i64 1
   br label %.preheader.i.i145.i
 
-569:                                              ; preds = %.preheader.i.i145.i
+578:                                              ; preds = %.preheader.i.i145.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  %570 = load ptr, ptr @outFile, align 8
-  %571 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %570, ptr noundef nonnull @.str.15, ptr noundef %559, ptr noundef nonnull %556) #14
+  %579 = load ptr, ptr @outFile, align 8
+  %580 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %579, ptr noundef nonnull @.str.15, ptr noundef %568, ptr noundef nonnull %565) #14
   br label %.loopexit.i.i
 
 .loopexit.i146.i:                                 ; preds = %.preheader.i.i145.i, %indent.exit.i143.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  %572 = load ptr, ptr @outFile, align 8
-  %573 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %572, ptr noundef nonnull @.str.16, ptr noundef %559) #14
-  %574 = load ptr, ptr @outFile, align 8
-  %575 = call i32 @xml_escape(ptr noundef nonnull %556, i32 6, ptr noundef nonnull @put, ptr noundef %574) #14
-  %576 = load ptr, ptr @outFile, align 8
-  %577 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %576)
+  %581 = load ptr, ptr @outFile, align 8
+  %582 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %581, ptr noundef nonnull @.str.16, ptr noundef %568) #14
+  %583 = load ptr, ptr @outFile, align 8
+  %584 = call i32 @xml_escape(ptr noundef nonnull %565, i32 6, ptr noundef nonnull @put, ptr noundef %583) #14
+  %585 = load ptr, ptr @outFile, align 8
+  %586 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %585)
   br label %.loopexit.i.i
 
-578:                                              ; preds = %551
-  %579 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(9) @.str.28) #13
-  %580 = icmp eq i32 %579, 0
-  br i1 %580, label %581, label %584
+587:                                              ; preds = %560
+  %588 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(9) @.str.28) #13
+  %589 = icmp eq i32 %588, 0
+  br i1 %589, label %590, label %593
 
-581:                                              ; preds = %578
-  %582 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %583 = load i8, ptr %582, align 1
-  %.not143.i.i51.i = icmp eq i8 %583, 0
-  %spec.select151.i.i.i = select i1 %.not143.i.i51.i, ptr %.sroa.1316.0177.i.i.i, ptr %582
+590:                                              ; preds = %587
+  %591 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %592 = load i8, ptr %591, align 1
+  %.not143.i.i51.i = icmp eq i8 %592, 0
+  %spec.select151.i.i.i = select i1 %.not143.i.i51.i, ptr %.sroa.1316.0177.i.i.i, ptr %591
   %spec.select152.i.i.i = select i1 %.not143.i.i51.i, i32 %.0115186.i.i.i, i32 1
   br label %.loopexit.i.i
 
-584:                                              ; preds = %578
-  %585 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(4) @.str.31) #13
-  %586 = icmp eq i32 %585, 0
-  br i1 %586, label %587, label %590
+593:                                              ; preds = %587
+  %594 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(4) @.str.31) #13
+  %595 = icmp eq i32 %594, 0
+  br i1 %595, label %596, label %599
 
-587:                                              ; preds = %584
-  %588 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %589 = load i8, ptr %588, align 1
-  %.not142.i.i50.i = icmp eq i8 %589, 0
-  %spec.select153.i.i.i = select i1 %.not142.i.i50.i, ptr %.sroa.33.0182.i.ph.i.i, ptr %588
+596:                                              ; preds = %593
+  %597 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %598 = load i8, ptr %597, align 1
+  %.not142.i.i50.i = icmp eq i8 %598, 0
+  %spec.select153.i.i.i = select i1 %.not142.i.i50.i, ptr %.sroa.33.0182.i.ph.i.i, ptr %597
   %spec.select154.i.i.i = select i1 %.not142.i.i50.i, i32 %.0115186.i.i.i, i32 1
   br label %.loopexit.i.i
 
-590:                                              ; preds = %584
-  %591 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(4) @.str.68) #13
-  %592 = icmp eq i32 %591, 0
-  br i1 %592, label %593, label %596
+599:                                              ; preds = %593
+  %600 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(4) @.str.68) #13
+  %601 = icmp eq i32 %600, 0
+  br i1 %601, label %602, label %605
 
-593:                                              ; preds = %590
-  %594 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %595 = load i8, ptr %594, align 1
-  %.not141.i.i49.i = icmp eq i8 %595, 0
-  %spec.select155.i.i.i = select i1 %.not141.i.i49.i, ptr %.sroa.21.0179.i.ph.i.i, ptr %594
+602:                                              ; preds = %599
+  %603 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %604 = load i8, ptr %603, align 1
+  %.not141.i.i49.i = icmp eq i8 %604, 0
+  %spec.select155.i.i.i = select i1 %.not141.i.i49.i, ptr %.sroa.21.0179.i.ph.i.i, ptr %603
   %spec.select156.i.i.i = select i1 %.not141.i.i49.i, i32 %.0115186.i.i.i, i32 1
   br label %.loopexit.i.i
 
-596:                                              ; preds = %590
-  %597 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(6) @.str.34) #13
-  %598 = icmp eq i32 %597, 0
-  br i1 %598, label %599, label %602
+605:                                              ; preds = %599
+  %606 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(6) @.str.34) #13
+  %607 = icmp eq i32 %606, 0
+  br i1 %607, label %608, label %611
 
-599:                                              ; preds = %596
-  %600 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %601 = load i8, ptr %600, align 1
-  %.not140.i.i48.i = icmp eq i8 %601, 0
-  %spec.select157.i.i.i = select i1 %.not140.i.i48.i, ptr %.sroa.17.0178.i.ph.i.i, ptr %600
+608:                                              ; preds = %605
+  %609 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %610 = load i8, ptr %609, align 1
+  %.not140.i.i48.i = icmp eq i8 %610, 0
+  %spec.select157.i.i.i = select i1 %.not140.i.i48.i, ptr %.sroa.17.0178.i.ph.i.i, ptr %609
   %spec.select158.i.i.i = select i1 %.not140.i.i48.i, i32 %.0115186.i.i.i, i32 1
   br label %.loopexit.i.i
 
-602:                                              ; preds = %596
-  %603 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(9) @.str.36) #13
-  %604 = icmp eq i32 %603, 0
-  br i1 %604, label %605, label %608
+611:                                              ; preds = %605
+  %612 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(9) @.str.36) #13
+  %613 = icmp eq i32 %612, 0
+  br i1 %613, label %614, label %617
 
-605:                                              ; preds = %602
-  %606 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %607 = load i8, ptr %606, align 1
-  %.not139.i.i47.i = icmp eq i8 %607, 0
-  %spec.select159.i.i.i = select i1 %.not139.i.i47.i, ptr %.sroa.17.0178.i.ph.i.i, ptr %606
+614:                                              ; preds = %611
+  %615 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %616 = load i8, ptr %615, align 1
+  %.not139.i.i47.i = icmp eq i8 %616, 0
+  %spec.select159.i.i.i = select i1 %.not139.i.i47.i, ptr %.sroa.17.0178.i.ph.i.i, ptr %615
   %spec.select160.i.i.i = select i1 %.not139.i.i47.i, i32 %.0115186.i.i.i, i32 1
   br label %.loopexit.i.i
 
-608:                                              ; preds = %602
-  %609 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(10) @.str.69) #13
-  %610 = icmp eq i32 %609, 0
-  br i1 %610, label %611, label %614
+617:                                              ; preds = %611
+  %618 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(10) @.str.69) #13
+  %619 = icmp eq i32 %618, 0
+  br i1 %619, label %620, label %623
 
-611:                                              ; preds = %608
-  %612 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %613 = load i8, ptr %612, align 1
-  %.not138.i.i46.i = icmp eq i8 %613, 0
-  %spec.select161.i.i.i = select i1 %.not138.i.i46.i, ptr %.sroa.27.0180.i.ph.i.i, ptr %612
+620:                                              ; preds = %617
+  %621 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %622 = load i8, ptr %621, align 1
+  %.not138.i.i46.i = icmp eq i8 %622, 0
+  %spec.select161.i.i.i = select i1 %.not138.i.i46.i, ptr %.sroa.27.0180.i.ph.i.i, ptr %621
   %spec.select162.i.i.i = select i1 %.not138.i.i46.i, i32 %.0115186.i.i.i, i32 1
   br label %.loopexit.i.i
 
-614:                                              ; preds = %608
-  %615 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(10) @.str.70) #13
-  %616 = icmp eq i32 %615, 0
-  br i1 %616, label %617, label %620
+623:                                              ; preds = %617
+  %624 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(10) @.str.70) #13
+  %625 = icmp eq i32 %624, 0
+  br i1 %625, label %626, label %629
 
-617:                                              ; preds = %614
-  %618 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %619 = load i8, ptr %618, align 1
-  %.not137.i.i44.i = icmp eq i8 %619, 0
-  %spec.select163.i.i.i = select i1 %.not137.i.i44.i, ptr %.sroa.30.0181.i.ph.i.i, ptr %618
+626:                                              ; preds = %623
+  %627 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %628 = load i8, ptr %627, align 1
+  %.not137.i.i44.i = icmp eq i8 %628, 0
+  %spec.select163.i.i.i = select i1 %.not137.i.i44.i, ptr %.sroa.30.0181.i.ph.i.i, ptr %627
   %spec.select164.i.i45.i = select i1 %.not137.i.i44.i, i32 %.0115186.i.i.i, i32 1
   br label %.loopexit.i.i
 
-620:                                              ; preds = %614
-  %621 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(9) @.str.37) #13
-  %622 = icmp eq i32 %621, 0
-  br i1 %622, label %623, label %626
+629:                                              ; preds = %623
+  %630 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(9) @.str.37) #13
+  %631 = icmp eq i32 %630, 0
+  br i1 %631, label %632, label %635
 
-623:                                              ; preds = %620
-  %624 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %625 = load i8, ptr %624, align 1
-  %.not136.i.i41.i = icmp eq i8 %625, 0
-  %spec.select165.i.i42.i = select i1 %.not136.i.i41.i, ptr %.sroa.42.0185.i.ph.i.i, ptr %624
+632:                                              ; preds = %629
+  %633 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %634 = load i8, ptr %633, align 1
+  %.not136.i.i41.i = icmp eq i8 %634, 0
+  %spec.select165.i.i42.i = select i1 %.not136.i.i41.i, ptr %.sroa.42.0185.i.ph.i.i, ptr %633
   %spec.select166.i.i43.i = select i1 %.not136.i.i41.i, i32 %.0113187.i.ph.i.i, i32 1
   br label %.loopexit.i.i
 
-626:                                              ; preds = %620
-  %627 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(9) @.str.38) #13
-  %628 = icmp eq i32 %627, 0
-  br i1 %628, label %629, label %632
+635:                                              ; preds = %629
+  %636 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(9) @.str.38) #13
+  %637 = icmp eq i32 %636, 0
+  br i1 %637, label %638, label %641
 
-629:                                              ; preds = %626
-  %630 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  %631 = load i8, ptr %630, align 1
-  %.not135.i.i38.i = icmp eq i8 %631, 0
-  %spec.select167.i.i39.i = select i1 %.not135.i.i38.i, ptr %.sroa.39.0184.i.ph.i.i, ptr %630
+638:                                              ; preds = %635
+  %639 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %640 = load i8, ptr %639, align 1
+  %.not135.i.i38.i = icmp eq i8 %640, 0
+  %spec.select167.i.i39.i = select i1 %.not135.i.i38.i, ptr %.sroa.39.0184.i.ph.i.i, ptr %639
   %spec.select168.i.i40.i = select i1 %.not135.i.i38.i, i32 %.0113187.i.ph.i.i, i32 1
   br label %.loopexit.i.i
 
-632:                                              ; preds = %626
-  %633 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %545, ptr noundef nonnull dereferenceable(10) @.str.39) #13
-  %634 = icmp eq i32 %633, 0
-  %635 = call ptr @agxget(ptr noundef nonnull %.0230.i, ptr noundef nonnull %.0189.i.i.i) #14
-  br i1 %634, label %636, label %638
+641:                                              ; preds = %635
+  %642 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(10) @.str.39) #13
+  %643 = icmp eq i32 %642, 0
+  %644 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  br i1 %643, label %645, label %647
 
-636:                                              ; preds = %632
-  %637 = load i8, ptr %635, align 1
-  %.not134.i.i35.i = icmp eq i8 %637, 0
-  %spec.select169.i.i36.i = select i1 %.not134.i.i35.i, ptr %.sroa.36.0183.i.ph.i.i, ptr %635
+645:                                              ; preds = %641
+  %646 = load i8, ptr %644, align 1
+  %.not134.i.i35.i = icmp eq i8 %646, 0
+  %spec.select169.i.i36.i = select i1 %.not134.i.i35.i, ptr %.sroa.36.0183.i.ph.i.i, ptr %644
   %spec.select170.i.i37.i = select i1 %.not134.i.i35.i, i32 %.0113187.i.ph.i.i, i32 1
   br label %.loopexit.i.i
 
-638:                                              ; preds = %632
-  %639 = load ptr, ptr %552, align 8
+647:                                              ; preds = %641
+  %648 = load ptr, ptr %561, align 8
   br label %.lr.ph.i.i10
 
-.lr.ph.i.i10:                                     ; preds = %.lr.ph.i.i10, %638
-  %.02.i.i = phi i32 [ %640, %.lr.ph.i.i10 ], [ 2, %638 ]
-  %640 = add nsw i32 %.02.i.i, -1
-  %641 = load ptr, ptr @outFile, align 8
-  %642 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %641)
-  %.not.i.i11 = icmp eq i32 %640, 0
+.lr.ph.i.i10:                                     ; preds = %.lr.ph.i.i10, %647
+  %.02.i.i = phi i32 [ %649, %.lr.ph.i.i10 ], [ 2, %647 ]
+  %649 = add nsw i32 %.02.i.i, -1
+  %650 = load ptr, ptr @outFile, align 8
+  %651 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %650)
+  %.not.i.i11 = icmp eq i32 %649, 0
   br i1 %.not.i.i11, label %indent.exit.i, label %.lr.ph.i.i10
 
 indent.exit.i:                                    ; preds = %.lr.ph.i.i10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  store ptr %635, ptr %16, align 8
-  %643 = call double @strtod(ptr noundef %635, ptr noundef nonnull %16) #14
-  %644 = load ptr, ptr %16, align 8
-  %.not.i5.i = icmp eq ptr %644, %635
+  store ptr %644, ptr %16, align 8
+  %652 = call double @strtod(ptr noundef %644, ptr noundef nonnull %16) #14
+  %653 = load ptr, ptr %16, align 8
+  %.not.i5.i = icmp eq ptr %653, %644
   br i1 %.not.i5.i, label %.loopexit.i12, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %indent.exit.i, %647
-  %645 = phi ptr [ %648, %647 ], [ %644, %indent.exit.i ]
-  %646 = load i8, ptr %645, align 1
-  switch i8 %646, label %.loopexit.i12 [
-    i8 9, label %647
-    i8 10, label %647
-    i8 11, label %647
-    i8 12, label %647
-    i8 13, label %647
-    i8 32, label %647
-    i8 0, label %649
+.preheader.i.i:                                   ; preds = %indent.exit.i, %656
+  %654 = phi ptr [ %657, %656 ], [ %653, %indent.exit.i ]
+  %655 = load i8, ptr %654, align 1
+  switch i8 %655, label %.loopexit.i12 [
+    i8 9, label %656
+    i8 10, label %656
+    i8 11, label %656
+    i8 12, label %656
+    i8 13, label %656
+    i8 32, label %656
+    i8 0, label %658
   ]
 
-647:                                              ; preds = %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i
-  %648 = getelementptr inbounds i8, ptr %645, i64 1
+656:                                              ; preds = %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i
+  %657 = getelementptr inbounds i8, ptr %654, i64 1
   br label %.preheader.i.i
 
-649:                                              ; preds = %.preheader.i.i
+658:                                              ; preds = %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  %650 = load ptr, ptr @outFile, align 8
-  %651 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %650, ptr noundef nonnull @.str.15, ptr noundef %639, ptr noundef %635) #14
+  %659 = load ptr, ptr @outFile, align 8
+  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %659, ptr noundef nonnull @.str.15, ptr noundef %648, ptr noundef %644) #14
   br label %.loopexit.i.i
 
 .loopexit.i12:                                    ; preds = %.preheader.i.i, %indent.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  %652 = load ptr, ptr @outFile, align 8
-  %653 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %652, ptr noundef nonnull @.str.16, ptr noundef %639) #14
-  %654 = load ptr, ptr @outFile, align 8
-  %655 = call i32 @xml_escape(ptr noundef %635, i32 6, ptr noundef nonnull @put, ptr noundef %654) #14
-  %656 = load ptr, ptr @outFile, align 8
-  %657 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %656)
+  %661 = load ptr, ptr @outFile, align 8
+  %662 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %661, ptr noundef nonnull @.str.16, ptr noundef %648) #14
+  %663 = load ptr, ptr @outFile, align 8
+  %664 = call i32 @xml_escape(ptr noundef %644, i32 6, ptr noundef nonnull @put, ptr noundef %663) #14
+  %665 = load ptr, ptr @outFile, align 8
+  %666 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %665)
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %548, %.loopexit.i12, %649, %636, %629, %623, %617, %611, %605, %599, %593, %587, %581, %.loopexit.i146.i, %569, %555
-  %.sroa.1316.2.i.i.i = phi ptr [ %.sroa.1316.0177.i.i.i, %555 ], [ %spec.select151.i.i.i, %581 ], [ %.sroa.1316.0177.i.i.i, %587 ], [ %.sroa.1316.0177.i.i.i, %593 ], [ %.sroa.1316.0177.i.i.i, %599 ], [ %.sroa.1316.0177.i.i.i, %605 ], [ %.sroa.1316.0177.i.i.i, %611 ], [ %.sroa.1316.0177.i.i.i, %617 ], [ %.sroa.1316.0177.i.i.i, %623 ], [ %.sroa.1316.0177.i.i.i, %629 ], [ %.sroa.1316.0177.i.i.i, %636 ], [ %.sroa.1316.0177.i.i.i, %569 ], [ %.sroa.1316.0177.i.i.i, %.loopexit.i146.i ], [ %.sroa.1316.0177.i.i.i, %649 ], [ %.sroa.1316.0177.i.i.i, %.loopexit.i12 ], [ %.sroa.1316.0177.i.i.i, %548 ]
-  %.sroa.17.1.i.i.i = phi ptr [ %.sroa.17.0178.i.ph.i.i, %555 ], [ %.sroa.17.0178.i.ph.i.i, %581 ], [ %.sroa.17.0178.i.ph.i.i, %587 ], [ %.sroa.17.0178.i.ph.i.i, %593 ], [ %spec.select157.i.i.i, %599 ], [ %spec.select159.i.i.i, %605 ], [ %.sroa.17.0178.i.ph.i.i, %611 ], [ %.sroa.17.0178.i.ph.i.i, %617 ], [ %.sroa.17.0178.i.ph.i.i, %623 ], [ %.sroa.17.0178.i.ph.i.i, %629 ], [ %.sroa.17.0178.i.ph.i.i, %636 ], [ %.sroa.17.0178.i.ph.i.i, %569 ], [ %.sroa.17.0178.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.17.0178.i.ph.i.i, %649 ], [ %.sroa.17.0178.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.17.0178.i.ph.i.i, %548 ]
-  %.sroa.21.1.i.i.i = phi ptr [ %.sroa.21.0179.i.ph.i.i, %555 ], [ %.sroa.21.0179.i.ph.i.i, %581 ], [ %.sroa.21.0179.i.ph.i.i, %587 ], [ %spec.select155.i.i.i, %593 ], [ %.sroa.21.0179.i.ph.i.i, %599 ], [ %.sroa.21.0179.i.ph.i.i, %605 ], [ %.sroa.21.0179.i.ph.i.i, %611 ], [ %.sroa.21.0179.i.ph.i.i, %617 ], [ %.sroa.21.0179.i.ph.i.i, %623 ], [ %.sroa.21.0179.i.ph.i.i, %629 ], [ %.sroa.21.0179.i.ph.i.i, %636 ], [ %.sroa.21.0179.i.ph.i.i, %569 ], [ %.sroa.21.0179.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.21.0179.i.ph.i.i, %649 ], [ %.sroa.21.0179.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.21.0179.i.ph.i.i, %548 ]
-  %.sroa.27.1.i.i.i = phi ptr [ %.sroa.27.0180.i.ph.i.i, %555 ], [ %.sroa.27.0180.i.ph.i.i, %581 ], [ %.sroa.27.0180.i.ph.i.i, %587 ], [ %.sroa.27.0180.i.ph.i.i, %593 ], [ %.sroa.27.0180.i.ph.i.i, %599 ], [ %.sroa.27.0180.i.ph.i.i, %605 ], [ %spec.select161.i.i.i, %611 ], [ %.sroa.27.0180.i.ph.i.i, %617 ], [ %.sroa.27.0180.i.ph.i.i, %623 ], [ %.sroa.27.0180.i.ph.i.i, %629 ], [ %.sroa.27.0180.i.ph.i.i, %636 ], [ %.sroa.27.0180.i.ph.i.i, %569 ], [ %.sroa.27.0180.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.27.0180.i.ph.i.i, %649 ], [ %.sroa.27.0180.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.27.0180.i.ph.i.i, %548 ]
-  %.sroa.30.1.i.i.i = phi ptr [ %.sroa.30.0181.i.ph.i.i, %555 ], [ %.sroa.30.0181.i.ph.i.i, %581 ], [ %.sroa.30.0181.i.ph.i.i, %587 ], [ %.sroa.30.0181.i.ph.i.i, %593 ], [ %.sroa.30.0181.i.ph.i.i, %599 ], [ %.sroa.30.0181.i.ph.i.i, %605 ], [ %.sroa.30.0181.i.ph.i.i, %611 ], [ %spec.select163.i.i.i, %617 ], [ %.sroa.30.0181.i.ph.i.i, %623 ], [ %.sroa.30.0181.i.ph.i.i, %629 ], [ %.sroa.30.0181.i.ph.i.i, %636 ], [ %.sroa.30.0181.i.ph.i.i, %569 ], [ %.sroa.30.0181.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.30.0181.i.ph.i.i, %649 ], [ %.sroa.30.0181.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.30.0181.i.ph.i.i, %548 ]
-  %.sroa.33.1.i.i24.i = phi ptr [ %.sroa.33.0182.i.ph.i.i, %555 ], [ %.sroa.33.0182.i.ph.i.i, %581 ], [ %spec.select153.i.i.i, %587 ], [ %.sroa.33.0182.i.ph.i.i, %593 ], [ %.sroa.33.0182.i.ph.i.i, %599 ], [ %.sroa.33.0182.i.ph.i.i, %605 ], [ %.sroa.33.0182.i.ph.i.i, %611 ], [ %.sroa.33.0182.i.ph.i.i, %617 ], [ %.sroa.33.0182.i.ph.i.i, %623 ], [ %.sroa.33.0182.i.ph.i.i, %629 ], [ %.sroa.33.0182.i.ph.i.i, %636 ], [ %.sroa.33.0182.i.ph.i.i, %569 ], [ %.sroa.33.0182.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.33.0182.i.ph.i.i, %649 ], [ %.sroa.33.0182.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.33.0182.i.ph.i.i, %548 ]
-  %.sroa.36.1.i.i.i = phi ptr [ %.sroa.36.0183.i.ph.i.i, %555 ], [ %.sroa.36.0183.i.ph.i.i, %581 ], [ %.sroa.36.0183.i.ph.i.i, %587 ], [ %.sroa.36.0183.i.ph.i.i, %593 ], [ %.sroa.36.0183.i.ph.i.i, %599 ], [ %.sroa.36.0183.i.ph.i.i, %605 ], [ %.sroa.36.0183.i.ph.i.i, %611 ], [ %.sroa.36.0183.i.ph.i.i, %617 ], [ %.sroa.36.0183.i.ph.i.i, %623 ], [ %.sroa.36.0183.i.ph.i.i, %629 ], [ %spec.select169.i.i36.i, %636 ], [ %.sroa.36.0183.i.ph.i.i, %569 ], [ %.sroa.36.0183.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.36.0183.i.ph.i.i, %649 ], [ %.sroa.36.0183.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.36.0183.i.ph.i.i, %548 ]
-  %.sroa.39.1.i.i.i = phi ptr [ %.sroa.39.0184.i.ph.i.i, %555 ], [ %.sroa.39.0184.i.ph.i.i, %581 ], [ %.sroa.39.0184.i.ph.i.i, %587 ], [ %.sroa.39.0184.i.ph.i.i, %593 ], [ %.sroa.39.0184.i.ph.i.i, %599 ], [ %.sroa.39.0184.i.ph.i.i, %605 ], [ %.sroa.39.0184.i.ph.i.i, %611 ], [ %.sroa.39.0184.i.ph.i.i, %617 ], [ %.sroa.39.0184.i.ph.i.i, %623 ], [ %spec.select167.i.i39.i, %629 ], [ %.sroa.39.0184.i.ph.i.i, %636 ], [ %.sroa.39.0184.i.ph.i.i, %569 ], [ %.sroa.39.0184.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.39.0184.i.ph.i.i, %649 ], [ %.sroa.39.0184.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.39.0184.i.ph.i.i, %548 ]
-  %.sroa.42.1.i.i.i = phi ptr [ %.sroa.42.0185.i.ph.i.i, %555 ], [ %.sroa.42.0185.i.ph.i.i, %581 ], [ %.sroa.42.0185.i.ph.i.i, %587 ], [ %.sroa.42.0185.i.ph.i.i, %593 ], [ %.sroa.42.0185.i.ph.i.i, %599 ], [ %.sroa.42.0185.i.ph.i.i, %605 ], [ %.sroa.42.0185.i.ph.i.i, %611 ], [ %.sroa.42.0185.i.ph.i.i, %617 ], [ %spec.select165.i.i42.i, %623 ], [ %.sroa.42.0185.i.ph.i.i, %629 ], [ %.sroa.42.0185.i.ph.i.i, %636 ], [ %.sroa.42.0185.i.ph.i.i, %569 ], [ %.sroa.42.0185.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.42.0185.i.ph.i.i, %649 ], [ %.sroa.42.0185.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.42.0185.i.ph.i.i, %548 ]
-  %.1116.i.i.i = phi i32 [ %.0115186.i.i.i, %555 ], [ %spec.select152.i.i.i, %581 ], [ %spec.select154.i.i.i, %587 ], [ %spec.select156.i.i.i, %593 ], [ %spec.select158.i.i.i, %599 ], [ %spec.select160.i.i.i, %605 ], [ %spec.select162.i.i.i, %611 ], [ %spec.select164.i.i45.i, %617 ], [ %.0115186.i.i.i, %623 ], [ %.0115186.i.i.i, %629 ], [ %.0115186.i.i.i, %636 ], [ %.0115186.i.i.i, %569 ], [ %.0115186.i.i.i, %.loopexit.i146.i ], [ %.0115186.i.i.i, %649 ], [ %.0115186.i.i.i, %.loopexit.i12 ], [ %.0115186.i.i.i, %548 ]
-  %.1114.i.i.i = phi i32 [ %.0113187.i.ph.i.i, %555 ], [ %.0113187.i.ph.i.i, %581 ], [ %.0113187.i.ph.i.i, %587 ], [ %.0113187.i.ph.i.i, %593 ], [ %.0113187.i.ph.i.i, %599 ], [ %.0113187.i.ph.i.i, %605 ], [ %.0113187.i.ph.i.i, %611 ], [ %.0113187.i.ph.i.i, %617 ], [ %spec.select166.i.i43.i, %623 ], [ %spec.select168.i.i40.i, %629 ], [ %spec.select170.i.i37.i, %636 ], [ 1, %569 ], [ 1, %.loopexit.i146.i ], [ %.0113187.i.ph.i.i, %649 ], [ %.0113187.i.ph.i.i, %.loopexit.i12 ], [ %.0113187.i.ph.i.i, %548 ]
-  %.1.i.i25.i = phi ptr [ %.0112188.i.ph.i.i, %555 ], [ %.0112188.i.ph.i.i, %581 ], [ %.0112188.i.ph.i.i, %587 ], [ %.0112188.i.ph.i.i, %593 ], [ %.0112188.i.ph.i.i, %599 ], [ %.0112188.i.ph.i.i, %605 ], [ %.0112188.i.ph.i.i, %611 ], [ %.0112188.i.ph.i.i, %617 ], [ %.0112188.i.ph.i.i, %623 ], [ %.0112188.i.ph.i.i, %629 ], [ %.0112188.i.ph.i.i, %636 ], [ %556, %569 ], [ %556, %.loopexit.i146.i ], [ %.0112188.i.ph.i.i, %649 ], [ %.0112188.i.ph.i.i, %.loopexit.i12 ], [ %.0112188.i.ph.i.i, %548 ]
-  %658 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef nonnull %.0189.i.i.i) #14
-  %.not.i.i26.i = icmp eq ptr %658, null
+.loopexit.i.i:                                    ; preds = %557, %.loopexit.i12, %658, %645, %638, %632, %626, %620, %614, %608, %602, %596, %590, %.loopexit.i146.i, %578, %564
+  %.sroa.1316.2.i.i.i = phi ptr [ %.sroa.1316.0177.i.i.i, %564 ], [ %spec.select151.i.i.i, %590 ], [ %.sroa.1316.0177.i.i.i, %596 ], [ %.sroa.1316.0177.i.i.i, %602 ], [ %.sroa.1316.0177.i.i.i, %608 ], [ %.sroa.1316.0177.i.i.i, %614 ], [ %.sroa.1316.0177.i.i.i, %620 ], [ %.sroa.1316.0177.i.i.i, %626 ], [ %.sroa.1316.0177.i.i.i, %632 ], [ %.sroa.1316.0177.i.i.i, %638 ], [ %.sroa.1316.0177.i.i.i, %645 ], [ %.sroa.1316.0177.i.i.i, %578 ], [ %.sroa.1316.0177.i.i.i, %.loopexit.i146.i ], [ %.sroa.1316.0177.i.i.i, %658 ], [ %.sroa.1316.0177.i.i.i, %.loopexit.i12 ], [ %.sroa.1316.0177.i.i.i, %557 ]
+  %.sroa.17.1.i.i.i = phi ptr [ %.sroa.17.0178.i.ph.i.i, %564 ], [ %.sroa.17.0178.i.ph.i.i, %590 ], [ %.sroa.17.0178.i.ph.i.i, %596 ], [ %.sroa.17.0178.i.ph.i.i, %602 ], [ %spec.select157.i.i.i, %608 ], [ %spec.select159.i.i.i, %614 ], [ %.sroa.17.0178.i.ph.i.i, %620 ], [ %.sroa.17.0178.i.ph.i.i, %626 ], [ %.sroa.17.0178.i.ph.i.i, %632 ], [ %.sroa.17.0178.i.ph.i.i, %638 ], [ %.sroa.17.0178.i.ph.i.i, %645 ], [ %.sroa.17.0178.i.ph.i.i, %578 ], [ %.sroa.17.0178.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.17.0178.i.ph.i.i, %658 ], [ %.sroa.17.0178.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.17.0178.i.ph.i.i, %557 ]
+  %.sroa.21.1.i.i.i = phi ptr [ %.sroa.21.0179.i.ph.i.i, %564 ], [ %.sroa.21.0179.i.ph.i.i, %590 ], [ %.sroa.21.0179.i.ph.i.i, %596 ], [ %spec.select155.i.i.i, %602 ], [ %.sroa.21.0179.i.ph.i.i, %608 ], [ %.sroa.21.0179.i.ph.i.i, %614 ], [ %.sroa.21.0179.i.ph.i.i, %620 ], [ %.sroa.21.0179.i.ph.i.i, %626 ], [ %.sroa.21.0179.i.ph.i.i, %632 ], [ %.sroa.21.0179.i.ph.i.i, %638 ], [ %.sroa.21.0179.i.ph.i.i, %645 ], [ %.sroa.21.0179.i.ph.i.i, %578 ], [ %.sroa.21.0179.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.21.0179.i.ph.i.i, %658 ], [ %.sroa.21.0179.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.21.0179.i.ph.i.i, %557 ]
+  %.sroa.27.1.i.i.i = phi ptr [ %.sroa.27.0180.i.ph.i.i, %564 ], [ %.sroa.27.0180.i.ph.i.i, %590 ], [ %.sroa.27.0180.i.ph.i.i, %596 ], [ %.sroa.27.0180.i.ph.i.i, %602 ], [ %.sroa.27.0180.i.ph.i.i, %608 ], [ %.sroa.27.0180.i.ph.i.i, %614 ], [ %spec.select161.i.i.i, %620 ], [ %.sroa.27.0180.i.ph.i.i, %626 ], [ %.sroa.27.0180.i.ph.i.i, %632 ], [ %.sroa.27.0180.i.ph.i.i, %638 ], [ %.sroa.27.0180.i.ph.i.i, %645 ], [ %.sroa.27.0180.i.ph.i.i, %578 ], [ %.sroa.27.0180.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.27.0180.i.ph.i.i, %658 ], [ %.sroa.27.0180.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.27.0180.i.ph.i.i, %557 ]
+  %.sroa.30.1.i.i.i = phi ptr [ %.sroa.30.0181.i.ph.i.i, %564 ], [ %.sroa.30.0181.i.ph.i.i, %590 ], [ %.sroa.30.0181.i.ph.i.i, %596 ], [ %.sroa.30.0181.i.ph.i.i, %602 ], [ %.sroa.30.0181.i.ph.i.i, %608 ], [ %.sroa.30.0181.i.ph.i.i, %614 ], [ %.sroa.30.0181.i.ph.i.i, %620 ], [ %spec.select163.i.i.i, %626 ], [ %.sroa.30.0181.i.ph.i.i, %632 ], [ %.sroa.30.0181.i.ph.i.i, %638 ], [ %.sroa.30.0181.i.ph.i.i, %645 ], [ %.sroa.30.0181.i.ph.i.i, %578 ], [ %.sroa.30.0181.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.30.0181.i.ph.i.i, %658 ], [ %.sroa.30.0181.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.30.0181.i.ph.i.i, %557 ]
+  %.sroa.33.1.i.i24.i = phi ptr [ %.sroa.33.0182.i.ph.i.i, %564 ], [ %.sroa.33.0182.i.ph.i.i, %590 ], [ %spec.select153.i.i.i, %596 ], [ %.sroa.33.0182.i.ph.i.i, %602 ], [ %.sroa.33.0182.i.ph.i.i, %608 ], [ %.sroa.33.0182.i.ph.i.i, %614 ], [ %.sroa.33.0182.i.ph.i.i, %620 ], [ %.sroa.33.0182.i.ph.i.i, %626 ], [ %.sroa.33.0182.i.ph.i.i, %632 ], [ %.sroa.33.0182.i.ph.i.i, %638 ], [ %.sroa.33.0182.i.ph.i.i, %645 ], [ %.sroa.33.0182.i.ph.i.i, %578 ], [ %.sroa.33.0182.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.33.0182.i.ph.i.i, %658 ], [ %.sroa.33.0182.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.33.0182.i.ph.i.i, %557 ]
+  %.sroa.36.1.i.i.i = phi ptr [ %.sroa.36.0183.i.ph.i.i, %564 ], [ %.sroa.36.0183.i.ph.i.i, %590 ], [ %.sroa.36.0183.i.ph.i.i, %596 ], [ %.sroa.36.0183.i.ph.i.i, %602 ], [ %.sroa.36.0183.i.ph.i.i, %608 ], [ %.sroa.36.0183.i.ph.i.i, %614 ], [ %.sroa.36.0183.i.ph.i.i, %620 ], [ %.sroa.36.0183.i.ph.i.i, %626 ], [ %.sroa.36.0183.i.ph.i.i, %632 ], [ %.sroa.36.0183.i.ph.i.i, %638 ], [ %spec.select169.i.i36.i, %645 ], [ %.sroa.36.0183.i.ph.i.i, %578 ], [ %.sroa.36.0183.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.36.0183.i.ph.i.i, %658 ], [ %.sroa.36.0183.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.36.0183.i.ph.i.i, %557 ]
+  %.sroa.39.1.i.i.i = phi ptr [ %.sroa.39.0184.i.ph.i.i, %564 ], [ %.sroa.39.0184.i.ph.i.i, %590 ], [ %.sroa.39.0184.i.ph.i.i, %596 ], [ %.sroa.39.0184.i.ph.i.i, %602 ], [ %.sroa.39.0184.i.ph.i.i, %608 ], [ %.sroa.39.0184.i.ph.i.i, %614 ], [ %.sroa.39.0184.i.ph.i.i, %620 ], [ %.sroa.39.0184.i.ph.i.i, %626 ], [ %.sroa.39.0184.i.ph.i.i, %632 ], [ %spec.select167.i.i39.i, %638 ], [ %.sroa.39.0184.i.ph.i.i, %645 ], [ %.sroa.39.0184.i.ph.i.i, %578 ], [ %.sroa.39.0184.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.39.0184.i.ph.i.i, %658 ], [ %.sroa.39.0184.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.39.0184.i.ph.i.i, %557 ]
+  %.sroa.42.1.i.i.i = phi ptr [ %.sroa.42.0185.i.ph.i.i, %564 ], [ %.sroa.42.0185.i.ph.i.i, %590 ], [ %.sroa.42.0185.i.ph.i.i, %596 ], [ %.sroa.42.0185.i.ph.i.i, %602 ], [ %.sroa.42.0185.i.ph.i.i, %608 ], [ %.sroa.42.0185.i.ph.i.i, %614 ], [ %.sroa.42.0185.i.ph.i.i, %620 ], [ %.sroa.42.0185.i.ph.i.i, %626 ], [ %spec.select165.i.i42.i, %632 ], [ %.sroa.42.0185.i.ph.i.i, %638 ], [ %.sroa.42.0185.i.ph.i.i, %645 ], [ %.sroa.42.0185.i.ph.i.i, %578 ], [ %.sroa.42.0185.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.42.0185.i.ph.i.i, %658 ], [ %.sroa.42.0185.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.42.0185.i.ph.i.i, %557 ]
+  %.1116.i.i.i = phi i32 [ %.0115186.i.i.i, %564 ], [ %spec.select152.i.i.i, %590 ], [ %spec.select154.i.i.i, %596 ], [ %spec.select156.i.i.i, %602 ], [ %spec.select158.i.i.i, %608 ], [ %spec.select160.i.i.i, %614 ], [ %spec.select162.i.i.i, %620 ], [ %spec.select164.i.i45.i, %626 ], [ %.0115186.i.i.i, %632 ], [ %.0115186.i.i.i, %638 ], [ %.0115186.i.i.i, %645 ], [ %.0115186.i.i.i, %578 ], [ %.0115186.i.i.i, %.loopexit.i146.i ], [ %.0115186.i.i.i, %658 ], [ %.0115186.i.i.i, %.loopexit.i12 ], [ %.0115186.i.i.i, %557 ]
+  %.1114.i.i.i = phi i32 [ %.0113187.i.ph.i.i, %564 ], [ %.0113187.i.ph.i.i, %590 ], [ %.0113187.i.ph.i.i, %596 ], [ %.0113187.i.ph.i.i, %602 ], [ %.0113187.i.ph.i.i, %608 ], [ %.0113187.i.ph.i.i, %614 ], [ %.0113187.i.ph.i.i, %620 ], [ %.0113187.i.ph.i.i, %626 ], [ %spec.select166.i.i43.i, %632 ], [ %spec.select168.i.i40.i, %638 ], [ %spec.select170.i.i37.i, %645 ], [ 1, %578 ], [ 1, %.loopexit.i146.i ], [ %.0113187.i.ph.i.i, %658 ], [ %.0113187.i.ph.i.i, %.loopexit.i12 ], [ %.0113187.i.ph.i.i, %557 ]
+  %.1.i.i25.i = phi ptr [ %.0112188.i.ph.i.i, %564 ], [ %.0112188.i.ph.i.i, %590 ], [ %.0112188.i.ph.i.i, %596 ], [ %.0112188.i.ph.i.i, %602 ], [ %.0112188.i.ph.i.i, %608 ], [ %.0112188.i.ph.i.i, %614 ], [ %.0112188.i.ph.i.i, %620 ], [ %.0112188.i.ph.i.i, %626 ], [ %.0112188.i.ph.i.i, %632 ], [ %.0112188.i.ph.i.i, %638 ], [ %.0112188.i.ph.i.i, %645 ], [ %565, %578 ], [ %565, %.loopexit.i146.i ], [ %.0112188.i.ph.i.i, %658 ], [ %.0112188.i.ph.i.i, %.loopexit.i12 ], [ %.0112188.i.ph.i.i, %557 ]
+  %667 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef nonnull %.0189.i.i.i) #14
+  %.not.i.i26.i = icmp eq ptr %667, null
   br i1 %.not.i.i26.i, label %._crit_edge.i.i27.i, label %.lr.ph.i.outer.i.i
 
-.thread.i.i:                                      ; preds = %548
-  %659 = call fastcc i32 @parseStyle(ptr noundef nonnull %549)
-  %.sroa.0.4.i.i.i = or i32 %659, %.sroa.0.0176.i.i.i
-  %660 = and i32 %659, 256
-  %.not150.i.i53.i = icmp eq i32 %660, 0
+.thread.i.i:                                      ; preds = %557
+  %668 = call fastcc i32 @parseStyle(ptr noundef nonnull %558)
+  %.sroa.0.4.i.i.i = or i32 %668, %.sroa.0.0176.i.i.i
+  %669 = and i32 %668, 256
+  %.not150.i.i53.i = icmp eq i32 %669, 0
   %.sroa.1316.1.i.i.i = select i1 %.not150.i.i53.i, ptr %.sroa.1316.0177.i.i.i, ptr @.str.67
-  %661 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef nonnull %.0189.i.i.i) #14
-  %.not.i23.i.i = icmp eq ptr %661, null
+  %670 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef nonnull %.0189.i.i.i) #14
+  %.not.i23.i.i = icmp eq ptr %670, null
   br i1 %.not.i23.i.i, label %._crit_edge.i.thread.i.i, label %.lr.ph.i.i23.i
 
 ._crit_edge.i.i27.i:                              ; preds = %.loopexit.i.i
   %.not117.i.i.i = icmp eq i32 %.1116.i.i.i, 0
-  br i1 %.not117.i.i.i, label %879, label %._crit_edge.i.thread.i.i
+  br i1 %.not117.i.i.i, label %900, label %._crit_edge.i.thread.i.i
 
 ._crit_edge.i.thread.i.i:                         ; preds = %.thread.i.i, %._crit_edge.i.i27.i
   %.sroa.0.5.i2467.i.i = phi i32 [ %.sroa.0.0176.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.0.4.i.i.i, %.thread.i.i ]
@@ -1751,92 +1769,54 @@ indent.exit.i:                                    ; preds = %.lr.ph.i.i10
   %.sroa.42.1.i3355.i.i = phi ptr [ %.sroa.42.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.42.0185.i.ph.i.i, %.thread.i.i ]
   %.1114.i3553.i.i = phi i32 [ %.1114.i.i.i, %._crit_edge.i.i27.i ], [ %.0113187.i.ph.i.i, %.thread.i.i ]
   %.1.i3651.i.i = phi ptr [ %.1.i.i25.i, %._crit_edge.i.i27.i ], [ %.0112188.i.ph.i.i, %.thread.i.i ]
-  %662 = load ptr, ptr @outFile, align 8
-  %663 = call i64 @fwrite(ptr nonnull @.str.40, i64 15, i64 1, ptr %662)
+  %671 = load ptr, ptr @outFile, align 8
+  %672 = call i64 @fwrite(ptr nonnull @.str.40, i64 15, i64 1, ptr %671)
   %.not118.i.i.i = icmp eq ptr %.sroa.33.1.i3061.i.i, null
-  br i1 %.not118.i.i.i, label %744, label %.preheader.i
+  br i1 %.not118.i.i.i, label %765, label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i.thread.i.i, %665
-  %.0.i.i131.i = phi ptr [ %666, %665 ], [ %.sroa.33.1.i3061.i.i, %._crit_edge.i.thread.i.i ]
-  %664 = load i8, ptr %.0.i.i131.i, align 1
-  switch i8 %664, label %skipWS.exit.i132.i [
-    i8 9, label %665
-    i8 10, label %665
-    i8 11, label %665
-    i8 12, label %665
-    i8 13, label %665
-    i8 32, label %665
+.preheader.i:                                     ; preds = %._crit_edge.i.thread.i.i, %674
+  %.0.i.i131.i = phi ptr [ %675, %674 ], [ %.sroa.33.1.i3061.i.i, %._crit_edge.i.thread.i.i ]
+  %673 = load i8, ptr %.0.i.i131.i, align 1
+  switch i8 %673, label %sub_0.i [
+    i8 9, label %674
+    i8 10, label %674
+    i8 11, label %674
+    i8 12, label %674
+    i8 13, label %674
+    i8 32, label %674
   ]
 
-665:                                              ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
-  %666 = getelementptr inbounds i8, ptr %.0.i.i131.i, i64 1
+674:                                              ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
+  %675 = getelementptr inbounds i8, ptr %.0.i.i131.i, i64 1
   br label %.preheader.i
 
-skipWS.exit.i132.i:                               ; preds = %.preheader.i
-  %667 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.i.i131.i, ptr noundef nonnull dereferenceable(3) @.str.80, i64 noundef 2) #13
-  %.not.i133.not.i = icmp eq i32 %667, 0
-  br i1 %.not.i133.not.i, label %668, label %arrowEnd.exit139.i
+sub_0.i:                                          ; preds = %.preheader.i
+  %676 = zext i8 %673 to i32
+  %677 = add nsw i32 %676, -101
+  %.not251.i = icmp eq i32 %677, 0
+  br i1 %.not251.i, label %sub_1.i, label %skipWS.exit.i132.tail.i
 
-668:                                              ; preds = %skipWS.exit.i132.i
-  %669 = getelementptr inbounds i8, ptr %.0.i.i131.i, i64 2
+sub_1.i:                                          ; preds = %sub_0.i
+  %678 = getelementptr inbounds i8, ptr %.0.i.i131.i, i64 1
+  %679 = load i8, ptr %678, align 1
+  %680 = zext i8 %679 to i32
+  %681 = add nsw i32 %680, -44
+  br label %skipWS.exit.i132.tail.i
+
+skipWS.exit.i132.tail.i:                          ; preds = %sub_1.i, %sub_0.i
+  %682 = phi i32 [ %677, %sub_0.i ], [ %681, %sub_1.i ]
+  %.not.i133.not.i = icmp eq i32 %682, 0
+  br i1 %.not.i133.not.i, label %683, label %arrowEnd.exit139.i
+
+683:                                              ; preds = %skipWS.exit.i132.tail.i
+  %684 = getelementptr inbounds i8, ptr %.0.i.i131.i, i64 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  br label %670
-
-670:                                              ; preds = %672, %668
-  %.0.i.i.i135.i = phi ptr [ %669, %668 ], [ %673, %672 ]
-  %671 = load i8, ptr %.0.i.i.i135.i, align 1
-  switch i8 %671, label %skipWS.exit.i.i136.i [
-    i8 9, label %672
-    i8 10, label %672
-    i8 11, label %672
-    i8 12, label %672
-    i8 13, label %672
-    i8 32, label %672
-  ]
-
-672:                                              ; preds = %670, %670, %670, %670, %670, %670
-  %673 = getelementptr inbounds i8, ptr %.0.i.i.i135.i, i64 1
-  br label %670
-
-skipWS.exit.i.i136.i:                             ; preds = %670
-  %674 = call double @strtod(ptr noundef nonnull %.0.i.i.i135.i, ptr noundef nonnull %18) #14
-  %675 = load ptr, ptr %18, align 8
-  %676 = icmp eq ptr %.0.i.i.i135.i, %675
-  br i1 %676, label %readPoint.exit.thread.i138.i, label %677
-
-677:                                              ; preds = %skipWS.exit.i.i136.i
-  %678 = getelementptr inbounds i8, ptr %675, i64 1
-  store ptr %678, ptr %18, align 8
-  %679 = call double @strtod(ptr noundef nonnull %678, ptr noundef nonnull %18) #14
-  %680 = load ptr, ptr %18, align 8
-  %681 = icmp eq ptr %678, %680
-  br i1 %681, label %readPoint.exit.thread.i138.i, label %readPoint.exit.i137.i
-
-readPoint.exit.thread.i138.i:                     ; preds = %677, %skipWS.exit.i.i136.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  br label %.loopexit.i
-
-readPoint.exit.i137.i:                            ; preds = %677
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  %682 = icmp eq ptr %680, null
-  br i1 %682, label %.loopexit.i, label %arrowEnd.exit139.i
-
-.loopexit.i:                                      ; preds = %readPoint.exit.i137.i, %readPoint.exit.thread.i138.i
-  %683 = load ptr, ptr @stderr, align 8
-  %684 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %683, ptr noundef nonnull @.str.83, ptr noundef nonnull %.sroa.33.1.i3061.i.i) #15
-  call fastcc void @graphviz_exit(i32 noundef 1) #17
-  unreachable
-
-arrowEnd.exit139.i:                               ; preds = %readPoint.exit.i137.i, %skipWS.exit.i132.i
-  %.2158.i = phi double [ %.1157228.i, %skipWS.exit.i132.i ], [ %674, %readPoint.exit.i137.i ]
-  %.2.i = phi double [ %.1155229.i, %skipWS.exit.i132.i ], [ %679, %readPoint.exit.i137.i ]
-  %.0.i134.i = phi ptr [ %.0.i.i131.i, %skipWS.exit.i132.i ], [ %680, %readPoint.exit.i137.i ]
   br label %685
 
-685:                                              ; preds = %687, %arrowEnd.exit139.i
-  %.0.i.i.i = phi ptr [ %.0.i134.i, %arrowEnd.exit139.i ], [ %688, %687 ]
-  %686 = load i8, ptr %.0.i.i.i, align 1
-  switch i8 %686, label %skipWS.exit.i.i [
+685:                                              ; preds = %687, %683
+  %.0.i.i.i135.i = phi ptr [ %684, %683 ], [ %688, %687 ]
+  %686 = load i8, ptr %.0.i.i.i135.i, align 1
+  switch i8 %686, label %skipWS.exit.i.i136.i [
     i8 9, label %687
     i8 10, label %687
     i8 11, label %687
@@ -1846,836 +1826,900 @@ arrowEnd.exit139.i:                               ; preds = %readPoint.exit.i137
   ]
 
 687:                                              ; preds = %685, %685, %685, %685, %685, %685
-  %688 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %688 = getelementptr inbounds i8, ptr %.0.i.i.i135.i, i64 1
   br label %685
 
-skipWS.exit.i.i:                                  ; preds = %685
-  %689 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.81, i64 noundef 2) #13
-  %.not.i129.not.i = icmp eq i32 %689, 0
-  br i1 %.not.i129.not.i, label %690, label %arrowEnd.exit.i
+skipWS.exit.i.i136.i:                             ; preds = %685
+  %689 = call double @strtod(ptr noundef nonnull %.0.i.i.i135.i, ptr noundef nonnull %18) #14
+  %690 = load ptr, ptr %18, align 8
+  %691 = icmp eq ptr %.0.i.i.i135.i, %690
+  br i1 %691, label %readPoint.exit.thread.i138.i, label %692
 
-690:                                              ; preds = %skipWS.exit.i.i
-  %691 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  br label %692
+692:                                              ; preds = %skipWS.exit.i.i136.i
+  %693 = getelementptr inbounds i8, ptr %690, i64 1
+  store ptr %693, ptr %18, align 8
+  %694 = call double @strtod(ptr noundef nonnull %693, ptr noundef nonnull %18) #14
+  %695 = load ptr, ptr %18, align 8
+  %696 = icmp eq ptr %693, %695
+  br i1 %696, label %readPoint.exit.thread.i138.i, label %readPoint.exit.i137.i
 
-692:                                              ; preds = %694, %690
-  %.0.i.i.i130.i = phi ptr [ %691, %690 ], [ %695, %694 ]
-  %693 = load i8, ptr %.0.i.i.i130.i, align 1
-  switch i8 %693, label %skipWS.exit.i.i.i [
-    i8 9, label %694
-    i8 10, label %694
-    i8 11, label %694
-    i8 12, label %694
-    i8 13, label %694
-    i8 32, label %694
-  ]
+readPoint.exit.thread.i138.i:                     ; preds = %692, %skipWS.exit.i.i136.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  br label %.loopexit.i
 
-694:                                              ; preds = %692, %692, %692, %692, %692, %692
-  %695 = getelementptr inbounds i8, ptr %.0.i.i.i130.i, i64 1
-  br label %692
+readPoint.exit.i137.i:                            ; preds = %692
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  %697 = icmp eq ptr %695, null
+  br i1 %697, label %.loopexit.i, label %arrowEnd.exit139.i
 
-skipWS.exit.i.i.i:                                ; preds = %692
-  %696 = call double @strtod(ptr noundef nonnull %.0.i.i.i130.i, ptr noundef nonnull %19) #14
-  %697 = load ptr, ptr %19, align 8
-  %698 = icmp eq ptr %.0.i.i.i130.i, %697
-  br i1 %698, label %readPoint.exit.thread.i.i, label %699
-
-699:                                              ; preds = %skipWS.exit.i.i.i
-  %700 = getelementptr inbounds i8, ptr %697, i64 1
-  store ptr %700, ptr %19, align 8
-  %701 = call double @strtod(ptr noundef nonnull %700, ptr noundef nonnull %19) #14
-  %702 = load ptr, ptr %19, align 8
-  %703 = icmp eq ptr %700, %702
-  br i1 %703, label %readPoint.exit.thread.i.i, label %readPoint.exit.i.i
-
-readPoint.exit.thread.i.i:                        ; preds = %699, %skipWS.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  br label %.loopexit174.i
-
-readPoint.exit.i.i:                               ; preds = %699
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  %704 = icmp eq ptr %702, null
-  br i1 %704, label %.loopexit174.i, label %arrowEnd.exit.i
-
-.loopexit174.i:                                   ; preds = %readPoint.exit.i.i, %readPoint.exit.thread.i.i
-  %705 = load ptr, ptr @stderr, align 8
-  %706 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %705, ptr noundef nonnull @.str.83, ptr noundef nonnull %.0.i134.i) #15
+.loopexit.i:                                      ; preds = %readPoint.exit.i137.i, %readPoint.exit.thread.i138.i
+  %698 = load ptr, ptr @stderr, align 8
+  %699 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %698, ptr noundef nonnull @.str.83, ptr noundef nonnull %.sroa.33.1.i3061.i.i) #15
   call fastcc void @graphviz_exit(i32 noundef 1) #17
   unreachable
 
-arrowEnd.exit.i:                                  ; preds = %readPoint.exit.i.i, %skipWS.exit.i.i
-  %.2170.i = phi double [ %.1169226.i, %skipWS.exit.i.i ], [ %696, %readPoint.exit.i.i ]
-  %.2164.i = phi double [ %.1163227.i, %skipWS.exit.i.i ], [ %701, %readPoint.exit.i.i ]
-  %.0.i.i9 = phi ptr [ %.0.i.i.i, %skipWS.exit.i.i ], [ %702, %readPoint.exit.i.i ]
+arrowEnd.exit139.i:                               ; preds = %readPoint.exit.i137.i, %skipWS.exit.i132.tail.i
+  %.2158.i = phi double [ %.1157231.i, %skipWS.exit.i132.tail.i ], [ %689, %readPoint.exit.i137.i ]
+  %.2.i = phi double [ %.1155232.i, %skipWS.exit.i132.tail.i ], [ %694, %readPoint.exit.i137.i ]
+  %.0.i134.i = phi ptr [ %.0.i.i131.i, %skipWS.exit.i132.tail.i ], [ %695, %readPoint.exit.i137.i ]
+  br label %700
+
+700:                                              ; preds = %702, %arrowEnd.exit139.i
+  %.0.i.i.i = phi ptr [ %.0.i134.i, %arrowEnd.exit139.i ], [ %703, %702 ]
+  %701 = load i8, ptr %.0.i.i.i, align 1
+  switch i8 %701, label %sub_0174.i [
+    i8 9, label %702
+    i8 10, label %702
+    i8 11, label %702
+    i8 12, label %702
+    i8 13, label %702
+    i8 32, label %702
+  ]
+
+702:                                              ; preds = %700, %700, %700, %700, %700, %700
+  %703 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  br label %700
+
+sub_0174.i:                                       ; preds = %700
+  %704 = zext i8 %701 to i32
+  %705 = add nsw i32 %704, -115
+  %.not252.i = icmp eq i32 %705, 0
+  br i1 %.not252.i, label %sub_1175.i, label %skipWS.exit.i.tail.i
+
+sub_1175.i:                                       ; preds = %sub_0174.i
+  %706 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %707 = load i8, ptr %706, align 1
+  %708 = zext i8 %707 to i32
+  %709 = add nsw i32 %708, -44
+  br label %skipWS.exit.i.tail.i
+
+skipWS.exit.i.tail.i:                             ; preds = %sub_1175.i, %sub_0174.i
+  %710 = phi i32 [ %705, %sub_0174.i ], [ %709, %sub_1175.i ]
+  %.not.i129.not.i = icmp eq i32 %710, 0
+  br i1 %.not.i129.not.i, label %711, label %arrowEnd.exit.i
+
+711:                                              ; preds = %skipWS.exit.i.tail.i
+  %712 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
+  br label %713
+
+713:                                              ; preds = %715, %711
+  %.0.i.i.i130.i = phi ptr [ %712, %711 ], [ %716, %715 ]
+  %714 = load i8, ptr %.0.i.i.i130.i, align 1
+  switch i8 %714, label %skipWS.exit.i.i.i [
+    i8 9, label %715
+    i8 10, label %715
+    i8 11, label %715
+    i8 12, label %715
+    i8 13, label %715
+    i8 32, label %715
+  ]
+
+715:                                              ; preds = %713, %713, %713, %713, %713, %713
+  %716 = getelementptr inbounds i8, ptr %.0.i.i.i130.i, i64 1
+  br label %713
+
+skipWS.exit.i.i.i:                                ; preds = %713
+  %717 = call double @strtod(ptr noundef nonnull %.0.i.i.i130.i, ptr noundef nonnull %19) #14
+  %718 = load ptr, ptr %19, align 8
+  %719 = icmp eq ptr %.0.i.i.i130.i, %718
+  br i1 %719, label %readPoint.exit.thread.i.i, label %720
+
+720:                                              ; preds = %skipWS.exit.i.i.i
+  %721 = getelementptr inbounds i8, ptr %718, i64 1
+  store ptr %721, ptr %19, align 8
+  %722 = call double @strtod(ptr noundef nonnull %721, ptr noundef nonnull %19) #14
+  %723 = load ptr, ptr %19, align 8
+  %724 = icmp eq ptr %721, %723
+  br i1 %724, label %readPoint.exit.thread.i.i, label %readPoint.exit.i.i
+
+readPoint.exit.thread.i.i:                        ; preds = %720, %skipWS.exit.i.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
+  br label %.loopexit177.i
+
+readPoint.exit.i.i:                               ; preds = %720
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
+  %725 = icmp eq ptr %723, null
+  br i1 %725, label %.loopexit177.i, label %arrowEnd.exit.i
+
+.loopexit177.i:                                   ; preds = %readPoint.exit.i.i, %readPoint.exit.thread.i.i
+  %726 = load ptr, ptr @stderr, align 8
+  %727 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %726, ptr noundef nonnull @.str.83, ptr noundef nonnull %.0.i134.i) #15
+  call fastcc void @graphviz_exit(i32 noundef 1) #17
+  unreachable
+
+arrowEnd.exit.i:                                  ; preds = %readPoint.exit.i.i, %skipWS.exit.i.tail.i
+  %.2170.i = phi double [ %.1169229.i, %skipWS.exit.i.tail.i ], [ %717, %readPoint.exit.i.i ]
+  %.2164.i = phi double [ %.1163230.i, %skipWS.exit.i.tail.i ], [ %722, %readPoint.exit.i.i ]
+  %.0.i.i9 = phi ptr [ %.0.i.i.i, %skipWS.exit.i.tail.i ], [ %723, %readPoint.exit.i.i ]
   br label %.lr.ph.i.i.i.i28.i
 
 .lr.ph.i.i.i.i28.i:                               ; preds = %.lr.ph.i.i.i.i28.i, %arrowEnd.exit.i
-  %.02.i.i.i.i29.i = phi i32 [ %707, %.lr.ph.i.i.i.i28.i ], [ 3, %arrowEnd.exit.i ]
-  %707 = add nsw i32 %.02.i.i.i.i29.i, -1
-  %708 = load ptr, ptr @outFile, align 8
-  %709 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %708)
-  %.not.i.i.i.i30.i = icmp eq i32 %707, 0
+  %.02.i.i.i.i29.i = phi i32 [ %728, %.lr.ph.i.i.i.i28.i ], [ 3, %arrowEnd.exit.i ]
+  %728 = add nsw i32 %.02.i.i.i.i29.i, -1
+  %729 = load ptr, ptr @outFile, align 8
+  %730 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %729)
+  %.not.i.i.i.i30.i = icmp eq i32 %728, 0
   br i1 %.not.i.i.i.i30.i, label %indent.exit.i.i.i.i, label %.lr.ph.i.i.i.i28.i
 
 indent.exit.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i28.i
-  %710 = load ptr, ptr @outFile, align 8
-  %711 = call i64 @fwrite(ptr nonnull @.str.82, i64 7, i64 1, ptr %710)
+  %731 = load ptr, ptr @outFile, align 8
+  %732 = call i64 @fwrite(ptr nonnull @.str.82, i64 7, i64 1, ptr %731)
   br i1 %.not.i129.not.i, label %.lr.ph.i.i.i.i.i.i, label %indent.exit._crit_edge.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %indent.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.02.i.i.i.i.i.i = phi i32 [ %712, %.lr.ph.i.i.i.i.i.i ], [ 4, %indent.exit.i.i.i.i ]
-  %712 = add nsw i32 %.02.i.i.i.i.i.i, -1
-  %713 = load ptr, ptr @outFile, align 8
-  %714 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %713)
-  %.not.i.i.i.i.i.i = icmp eq i32 %712, 0
+  %.02.i.i.i.i.i.i = phi i32 [ %733, %.lr.ph.i.i.i.i.i.i ], [ 4, %indent.exit.i.i.i.i ]
+  %733 = add nsw i32 %.02.i.i.i.i.i.i, -1
+  %734 = load ptr, ptr @outFile, align 8
+  %735 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %734)
+  %.not.i.i.i.i.i.i = icmp eq i32 %733, 0
   br i1 %.not.i.i.i.i.i.i, label %emitPoint.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 emitPoint.exit.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i
-  %715 = load ptr, ptr @outFile, align 8
-  %716 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %715, ptr noundef nonnull @.str.84, double noundef %.2170.i, double noundef %.2164.i) #14
+  %736 = load ptr, ptr @outFile, align 8
+  %737 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %736, ptr noundef nonnull @.str.84, double noundef %.2170.i, double noundef %.2164.i) #14
   br label %indent.exit._crit_edge.i.i.i.i.preheader
 
 indent.exit._crit_edge.i.i.i.i.preheader:         ; preds = %emitPoint.exit.i.i.i.i, %indent.exit.i.i.i.i
   br label %indent.exit._crit_edge.i.i.i.i
 
 indent.exit._crit_edge.i.i.i.i:                   ; preds = %indent.exit._crit_edge.i.i.i.i.preheader, %emitPoint.exit13.i.i.i.i
-  %.0.i.i.i.i = phi ptr [ %727, %emitPoint.exit13.i.i.i.i ], [ %.0.i.i9, %indent.exit._crit_edge.i.i.i.i.preheader ]
+  %.0.i.i.i.i = phi ptr [ %748, %emitPoint.exit13.i.i.i.i ], [ %.0.i.i9, %indent.exit._crit_edge.i.i.i.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
-  br label %717
+  br label %738
 
-717:                                              ; preds = %719, %indent.exit._crit_edge.i.i.i.i
-  %.0.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i, %indent.exit._crit_edge.i.i.i.i ], [ %720, %719 ]
-  %718 = load i8, ptr %.0.i.i.i.i.i.i, align 1
-  switch i8 %718, label %skipWS.exit.i.i.i.i.i [
-    i8 9, label %719
-    i8 10, label %719
-    i8 11, label %719
-    i8 12, label %719
-    i8 13, label %719
-    i8 32, label %719
+738:                                              ; preds = %740, %indent.exit._crit_edge.i.i.i.i
+  %.0.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i, %indent.exit._crit_edge.i.i.i.i ], [ %741, %740 ]
+  %739 = load i8, ptr %.0.i.i.i.i.i.i, align 1
+  switch i8 %739, label %skipWS.exit.i.i.i.i.i [
+    i8 9, label %740
+    i8 10, label %740
+    i8 11, label %740
+    i8 12, label %740
+    i8 13, label %740
+    i8 32, label %740
   ]
 
-719:                                              ; preds = %717, %717, %717, %717, %717, %717
-  %720 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
-  br label %717
+740:                                              ; preds = %738, %738, %738, %738, %738, %738
+  %741 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  br label %738
 
-skipWS.exit.i.i.i.i.i:                            ; preds = %717
-  %721 = call double @strtod(ptr noundef nonnull %.0.i.i.i.i.i.i, ptr noundef nonnull %30) #14
-  %722 = load ptr, ptr %30, align 8
-  %723 = icmp eq ptr %.0.i.i.i.i.i.i, %722
-  br i1 %723, label %readPoint.exit.thread.i.i.i.i, label %724
+skipWS.exit.i.i.i.i.i:                            ; preds = %738
+  %742 = call double @strtod(ptr noundef nonnull %.0.i.i.i.i.i.i, ptr noundef nonnull %30) #14
+  %743 = load ptr, ptr %30, align 8
+  %744 = icmp eq ptr %.0.i.i.i.i.i.i, %743
+  br i1 %744, label %readPoint.exit.thread.i.i.i.i, label %745
 
-724:                                              ; preds = %skipWS.exit.i.i.i.i.i
-  %725 = getelementptr inbounds i8, ptr %722, i64 1
-  store ptr %725, ptr %30, align 8
-  %726 = call double @strtod(ptr noundef nonnull %725, ptr noundef nonnull %30) #14
-  %727 = load ptr, ptr %30, align 8
-  %728 = icmp eq ptr %725, %727
-  br i1 %728, label %readPoint.exit.thread.i.i.i.i, label %readPoint.exit.i.i.i.i
+745:                                              ; preds = %skipWS.exit.i.i.i.i.i
+  %746 = getelementptr inbounds i8, ptr %743, i64 1
+  store ptr %746, ptr %30, align 8
+  %747 = call double @strtod(ptr noundef nonnull %746, ptr noundef nonnull %30) #14
+  %748 = load ptr, ptr %30, align 8
+  %749 = icmp eq ptr %746, %748
+  br i1 %749, label %readPoint.exit.thread.i.i.i.i, label %readPoint.exit.i.i.i.i
 
-readPoint.exit.thread.i.i.i.i:                    ; preds = %724, %skipWS.exit.i.i.i.i.i
+readPoint.exit.thread.i.i.i.i:                    ; preds = %745, %skipWS.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   br label %.loopexit.i.i.i.i
 
-readPoint.exit.i.i.i.i:                           ; preds = %724
+readPoint.exit.i.i.i.i:                           ; preds = %745
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
-  %.not8.i.i.i.i = icmp eq ptr %727, null
+  %.not8.i.i.i.i = icmp eq ptr %748, null
   br i1 %.not8.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i10.i.i.i.i
 
 .lr.ph.i.i10.i.i.i.i:                             ; preds = %readPoint.exit.i.i.i.i, %.lr.ph.i.i10.i.i.i.i
-  %.02.i.i11.i.i.i.i = phi i32 [ %729, %.lr.ph.i.i10.i.i.i.i ], [ 4, %readPoint.exit.i.i.i.i ]
-  %729 = add nsw i32 %.02.i.i11.i.i.i.i, -1
-  %730 = load ptr, ptr @outFile, align 8
-  %731 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %730)
-  %.not.i.i12.i.i.i.i = icmp eq i32 %729, 0
+  %.02.i.i11.i.i.i.i = phi i32 [ %750, %.lr.ph.i.i10.i.i.i.i ], [ 4, %readPoint.exit.i.i.i.i ]
+  %750 = add nsw i32 %.02.i.i11.i.i.i.i, -1
+  %751 = load ptr, ptr @outFile, align 8
+  %752 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %751)
+  %.not.i.i12.i.i.i.i = icmp eq i32 %750, 0
   br i1 %.not.i.i12.i.i.i.i, label %emitPoint.exit13.i.i.i.i, label %.lr.ph.i.i10.i.i.i.i
 
 emitPoint.exit13.i.i.i.i:                         ; preds = %.lr.ph.i.i10.i.i.i.i
-  %732 = load ptr, ptr @outFile, align 8
-  %733 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %732, ptr noundef nonnull @.str.84, double noundef %721, double noundef %726) #14
+  %753 = load ptr, ptr @outFile, align 8
+  %754 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %753, ptr noundef nonnull @.str.84, double noundef %742, double noundef %747) #14
   br label %indent.exit._crit_edge.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %readPoint.exit.i.i.i.i, %readPoint.exit.thread.i.i.i.i
   br i1 %.not.i133.not.i, label %.lr.ph.i.i14.i.i.i.i, label %.lr.ph.i18.i.i.i.i.preheader
 
 .lr.ph.i.i14.i.i.i.i:                             ; preds = %.loopexit.i.i.i.i, %.lr.ph.i.i14.i.i.i.i
-  %.02.i.i15.i.i.i.i = phi i32 [ %734, %.lr.ph.i.i14.i.i.i.i ], [ 4, %.loopexit.i.i.i.i ]
-  %734 = add nsw i32 %.02.i.i15.i.i.i.i, -1
-  %735 = load ptr, ptr @outFile, align 8
-  %736 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %735)
-  %.not.i.i16.i.i.i.i = icmp eq i32 %734, 0
+  %.02.i.i15.i.i.i.i = phi i32 [ %755, %.lr.ph.i.i14.i.i.i.i ], [ 4, %.loopexit.i.i.i.i ]
+  %755 = add nsw i32 %.02.i.i15.i.i.i.i, -1
+  %756 = load ptr, ptr @outFile, align 8
+  %757 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %756)
+  %.not.i.i16.i.i.i.i = icmp eq i32 %755, 0
   br i1 %.not.i.i16.i.i.i.i, label %emitPoint.exit17.i.i.i.i, label %.lr.ph.i.i14.i.i.i.i
 
 emitPoint.exit17.i.i.i.i:                         ; preds = %.lr.ph.i.i14.i.i.i.i
-  %737 = load ptr, ptr @outFile, align 8
-  %738 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %737, ptr noundef nonnull @.str.84, double noundef %.2158.i, double noundef %.2.i) #14
+  %758 = load ptr, ptr @outFile, align 8
+  %759 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %758, ptr noundef nonnull @.str.84, double noundef %.2158.i, double noundef %.2.i) #14
   br label %.lr.ph.i18.i.i.i.i.preheader
 
 .lr.ph.i18.i.i.i.i.preheader:                     ; preds = %emitPoint.exit17.i.i.i.i, %.loopexit.i.i.i.i
   br label %.lr.ph.i18.i.i.i.i
 
 .lr.ph.i18.i.i.i.i:                               ; preds = %.lr.ph.i18.i.i.i.i.preheader, %.lr.ph.i18.i.i.i.i
-  %.02.i19.i.i.i.i = phi i32 [ %739, %.lr.ph.i18.i.i.i.i ], [ 3, %.lr.ph.i18.i.i.i.i.preheader ]
-  %739 = add nsw i32 %.02.i19.i.i.i.i, -1
-  %740 = load ptr, ptr @outFile, align 8
-  %741 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %740)
-  %.not.i20.i.i.i.i = icmp eq i32 %739, 0
+  %.02.i19.i.i.i.i = phi i32 [ %760, %.lr.ph.i18.i.i.i.i ], [ 3, %.lr.ph.i18.i.i.i.i.preheader ]
+  %760 = add nsw i32 %.02.i19.i.i.i.i, -1
+  %761 = load ptr, ptr @outFile, align 8
+  %762 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %761)
+  %.not.i20.i.i.i.i = icmp eq i32 %760, 0
   br i1 %.not.i20.i.i.i.i, label %emitSpline.exit.i.i.i, label %.lr.ph.i18.i.i.i.i
 
 emitSpline.exit.i.i.i:                            ; preds = %.lr.ph.i18.i.i.i.i
-  %742 = load ptr, ptr @outFile, align 8
-  %743 = call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %742)
-  br label %744
+  %763 = load ptr, ptr @outFile, align 8
+  %764 = call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %763)
+  br label %765
 
-744:                                              ; preds = %emitSpline.exit.i.i.i, %._crit_edge.i.thread.i.i
-  %.3171.i = phi double [ %.1169226.i, %._crit_edge.i.thread.i.i ], [ %.2170.i, %emitSpline.exit.i.i.i ]
-  %.3165.i = phi double [ %.1163227.i, %._crit_edge.i.thread.i.i ], [ %.2164.i, %emitSpline.exit.i.i.i ]
-  %.3159.i = phi double [ %.1157228.i, %._crit_edge.i.thread.i.i ], [ %.2158.i, %emitSpline.exit.i.i.i ]
-  %.3.i = phi double [ %.1155229.i, %._crit_edge.i.thread.i.i ], [ %.2.i, %emitSpline.exit.i.i.i ]
-  %745 = and i32 %.sroa.0.5.i2467.i.i, 8
-  %.not119.i.i.i = icmp eq i32 %745, 0
-  br i1 %.not119.i.i.i, label %751, label %.lr.ph.i.i171.i.i.i
+765:                                              ; preds = %emitSpline.exit.i.i.i, %._crit_edge.i.thread.i.i
+  %.3171.i = phi double [ %.1169229.i, %._crit_edge.i.thread.i.i ], [ %.2170.i, %emitSpline.exit.i.i.i ]
+  %.3165.i = phi double [ %.1163230.i, %._crit_edge.i.thread.i.i ], [ %.2164.i, %emitSpline.exit.i.i.i ]
+  %.3159.i = phi double [ %.1157231.i, %._crit_edge.i.thread.i.i ], [ %.2158.i, %emitSpline.exit.i.i.i ]
+  %.3.i = phi double [ %.1155232.i, %._crit_edge.i.thread.i.i ], [ %.2.i, %emitSpline.exit.i.i.i ]
+  %766 = and i32 %.sroa.0.5.i2467.i.i, 8
+  %.not119.i.i.i = icmp eq i32 %766, 0
+  br i1 %.not119.i.i.i, label %772, label %.lr.ph.i.i171.i.i.i
 
-.lr.ph.i.i171.i.i.i:                              ; preds = %744, %.lr.ph.i.i171.i.i.i
-  %.02.i.i172.i.i.i = phi i32 [ %746, %.lr.ph.i.i171.i.i.i ], [ 3, %744 ]
-  %746 = add nsw i32 %.02.i.i172.i.i.i, -1
-  %747 = load ptr, ptr @outFile, align 8
-  %748 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %747)
-  %.not.i.i173.i.i.i = icmp eq i32 %746, 0
+.lr.ph.i.i171.i.i.i:                              ; preds = %765, %.lr.ph.i.i171.i.i.i
+  %.02.i.i172.i.i.i = phi i32 [ %767, %.lr.ph.i.i171.i.i.i ], [ 3, %765 ]
+  %767 = add nsw i32 %.02.i.i172.i.i.i, -1
+  %768 = load ptr, ptr @outFile, align 8
+  %769 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %768)
+  %.not.i.i173.i.i.i = icmp eq i32 %767, 0
   br i1 %.not.i.i173.i.i.i, label %emitInt.exit.i.i31.i, label %.lr.ph.i.i171.i.i.i
 
 emitInt.exit.i.i31.i:                             ; preds = %.lr.ph.i.i171.i.i.i
-  %749 = load ptr, ptr @outFile, align 8
-  %750 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %749, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.44, i32 noundef 0) #14
-  br label %751
+  %770 = load ptr, ptr @outFile, align 8
+  %771 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %770, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.44, i32 noundef 0) #14
+  br label %772
 
-751:                                              ; preds = %emitInt.exit.i.i31.i, %744
+772:                                              ; preds = %emitInt.exit.i.i31.i, %765
   %.not120.i.i.i = icmp eq ptr %.sroa.17.1.i2665.i.i, null
   br i1 %.not120.i.i.i, label %emitAttr.exit128.i, label %.lr.ph.i.i121.i
 
-.lr.ph.i.i121.i:                                  ; preds = %751, %.lr.ph.i.i121.i
-  %.02.i.i122.i = phi i32 [ %752, %.lr.ph.i.i121.i ], [ 3, %751 ]
-  %752 = add nsw i32 %.02.i.i122.i, -1
-  %753 = load ptr, ptr @outFile, align 8
-  %754 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %753)
-  %.not.i.i123.i = icmp eq i32 %752, 0
+.lr.ph.i.i121.i:                                  ; preds = %772, %.lr.ph.i.i121.i
+  %.02.i.i122.i = phi i32 [ %773, %.lr.ph.i.i121.i ], [ 3, %772 ]
+  %773 = add nsw i32 %.02.i.i122.i, -1
+  %774 = load ptr, ptr @outFile, align 8
+  %775 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %774)
+  %.not.i.i123.i = icmp eq i32 %773, 0
   br i1 %.not.i.i123.i, label %indent.exit.i124.i, label %.lr.ph.i.i121.i
 
 indent.exit.i124.i:                               ; preds = %.lr.ph.i.i121.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   store ptr %.sroa.17.1.i2665.i.i, ptr %20, align 8
-  %755 = call double @strtod(ptr noundef nonnull %.sroa.17.1.i2665.i.i, ptr noundef nonnull %20) #14
-  %756 = load ptr, ptr %20, align 8
-  %.not.i5.i125.i = icmp eq ptr %756, %.sroa.17.1.i2665.i.i
+  %776 = call double @strtod(ptr noundef nonnull %.sroa.17.1.i2665.i.i, ptr noundef nonnull %20) #14
+  %777 = load ptr, ptr %20, align 8
+  %.not.i5.i125.i = icmp eq ptr %777, %.sroa.17.1.i2665.i.i
   br i1 %.not.i5.i125.i, label %.loopexit.i127.i, label %.preheader.i.i126.i
 
-.preheader.i.i126.i:                              ; preds = %indent.exit.i124.i, %759
-  %757 = phi ptr [ %760, %759 ], [ %756, %indent.exit.i124.i ]
-  %758 = load i8, ptr %757, align 1
-  switch i8 %758, label %.loopexit.i127.i [
-    i8 9, label %759
-    i8 10, label %759
-    i8 11, label %759
-    i8 12, label %759
-    i8 13, label %759
-    i8 32, label %759
-    i8 0, label %761
+.preheader.i.i126.i:                              ; preds = %indent.exit.i124.i, %780
+  %778 = phi ptr [ %781, %780 ], [ %777, %indent.exit.i124.i ]
+  %779 = load i8, ptr %778, align 1
+  switch i8 %779, label %.loopexit.i127.i [
+    i8 9, label %780
+    i8 10, label %780
+    i8 11, label %780
+    i8 12, label %780
+    i8 13, label %780
+    i8 32, label %780
+    i8 0, label %782
   ]
 
-759:                                              ; preds = %.preheader.i.i126.i, %.preheader.i.i126.i, %.preheader.i.i126.i, %.preheader.i.i126.i, %.preheader.i.i126.i, %.preheader.i.i126.i
-  %760 = getelementptr inbounds i8, ptr %757, i64 1
+780:                                              ; preds = %.preheader.i.i126.i, %.preheader.i.i126.i, %.preheader.i.i126.i, %.preheader.i.i126.i, %.preheader.i.i126.i, %.preheader.i.i126.i
+  %781 = getelementptr inbounds i8, ptr %778, i64 1
   br label %.preheader.i.i126.i
 
-761:                                              ; preds = %.preheader.i.i126.i
+782:                                              ; preds = %.preheader.i.i126.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  %762 = load ptr, ptr @outFile, align 8
-  %763 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %762, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.48, ptr noundef nonnull %.sroa.17.1.i2665.i.i) #14
+  %783 = load ptr, ptr @outFile, align 8
+  %784 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %783, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.48, ptr noundef nonnull %.sroa.17.1.i2665.i.i) #14
   br label %emitAttr.exit128.i
 
 .loopexit.i127.i:                                 ; preds = %.preheader.i.i126.i, %indent.exit.i124.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  %764 = load ptr, ptr @outFile, align 8
-  %765 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %764, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.48) #14
-  %766 = load ptr, ptr @outFile, align 8
-  %767 = call i32 @xml_escape(ptr noundef nonnull %.sroa.17.1.i2665.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %766) #14
-  %768 = load ptr, ptr @outFile, align 8
-  %769 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %768)
+  %785 = load ptr, ptr @outFile, align 8
+  %786 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %785, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.48) #14
+  %787 = load ptr, ptr @outFile, align 8
+  %788 = call i32 @xml_escape(ptr noundef nonnull %.sroa.17.1.i2665.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %787) #14
+  %789 = load ptr, ptr @outFile, align 8
+  %790 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %789)
   br label %emitAttr.exit128.i
 
-emitAttr.exit128.i:                               ; preds = %.loopexit.i127.i, %761, %751
+emitAttr.exit128.i:                               ; preds = %.loopexit.i127.i, %782, %772
   %.not121.i.i.i = icmp eq ptr %.sroa.1316.2.i2566.i.i, null
   br i1 %.not121.i.i.i, label %emitAttr.exit120.i, label %.lr.ph.i.i113.i
 
 .lr.ph.i.i113.i:                                  ; preds = %emitAttr.exit128.i, %.lr.ph.i.i113.i
-  %.02.i.i114.i = phi i32 [ %770, %.lr.ph.i.i113.i ], [ 3, %emitAttr.exit128.i ]
-  %770 = add nsw i32 %.02.i.i114.i, -1
-  %771 = load ptr, ptr @outFile, align 8
-  %772 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %771)
-  %.not.i.i115.i = icmp eq i32 %770, 0
+  %.02.i.i114.i = phi i32 [ %791, %.lr.ph.i.i113.i ], [ 3, %emitAttr.exit128.i ]
+  %791 = add nsw i32 %.02.i.i114.i, -1
+  %792 = load ptr, ptr @outFile, align 8
+  %793 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %792)
+  %.not.i.i115.i = icmp eq i32 %791, 0
   br i1 %.not.i.i115.i, label %indent.exit.i116.i, label %.lr.ph.i.i113.i
 
 indent.exit.i116.i:                               ; preds = %.lr.ph.i.i113.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   store ptr %.sroa.1316.2.i2566.i.i, ptr %21, align 8
-  %773 = call double @strtod(ptr noundef nonnull %.sroa.1316.2.i2566.i.i, ptr noundef nonnull %21) #14
-  %774 = load ptr, ptr %21, align 8
-  %.not.i5.i117.i = icmp eq ptr %774, %.sroa.1316.2.i2566.i.i
+  %794 = call double @strtod(ptr noundef nonnull %.sroa.1316.2.i2566.i.i, ptr noundef nonnull %21) #14
+  %795 = load ptr, ptr %21, align 8
+  %.not.i5.i117.i = icmp eq ptr %795, %.sroa.1316.2.i2566.i.i
   br i1 %.not.i5.i117.i, label %.loopexit.i119.i, label %.preheader.i.i118.i
 
-.preheader.i.i118.i:                              ; preds = %indent.exit.i116.i, %777
-  %775 = phi ptr [ %778, %777 ], [ %774, %indent.exit.i116.i ]
-  %776 = load i8, ptr %775, align 1
-  switch i8 %776, label %.loopexit.i119.i [
-    i8 9, label %777
-    i8 10, label %777
-    i8 11, label %777
-    i8 12, label %777
-    i8 13, label %777
-    i8 32, label %777
-    i8 0, label %779
+.preheader.i.i118.i:                              ; preds = %indent.exit.i116.i, %798
+  %796 = phi ptr [ %799, %798 ], [ %795, %indent.exit.i116.i ]
+  %797 = load i8, ptr %796, align 1
+  switch i8 %797, label %.loopexit.i119.i [
+    i8 9, label %798
+    i8 10, label %798
+    i8 11, label %798
+    i8 12, label %798
+    i8 13, label %798
+    i8 32, label %798
+    i8 0, label %800
   ]
 
-777:                                              ; preds = %.preheader.i.i118.i, %.preheader.i.i118.i, %.preheader.i.i118.i, %.preheader.i.i118.i, %.preheader.i.i118.i, %.preheader.i.i118.i
-  %778 = getelementptr inbounds i8, ptr %775, i64 1
+798:                                              ; preds = %.preheader.i.i118.i, %.preheader.i.i118.i, %.preheader.i.i118.i, %.preheader.i.i118.i, %.preheader.i.i118.i, %.preheader.i.i118.i
+  %799 = getelementptr inbounds i8, ptr %796, i64 1
   br label %.preheader.i.i118.i
 
-779:                                              ; preds = %.preheader.i.i118.i
+800:                                              ; preds = %.preheader.i.i118.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  %780 = load ptr, ptr @outFile, align 8
-  %781 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %780, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.29, ptr noundef nonnull %.sroa.1316.2.i2566.i.i) #14
+  %801 = load ptr, ptr @outFile, align 8
+  %802 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %801, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.29, ptr noundef nonnull %.sroa.1316.2.i2566.i.i) #14
   br label %emitAttr.exit120.i
 
 .loopexit.i119.i:                                 ; preds = %.preheader.i.i118.i, %indent.exit.i116.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  %782 = load ptr, ptr @outFile, align 8
-  %783 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %782, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.29) #14
-  %784 = load ptr, ptr @outFile, align 8
-  %785 = call i32 @xml_escape(ptr noundef nonnull %.sroa.1316.2.i2566.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %784) #14
-  %786 = load ptr, ptr @outFile, align 8
-  %787 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %786)
+  %803 = load ptr, ptr @outFile, align 8
+  %804 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %803, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.29) #14
+  %805 = load ptr, ptr @outFile, align 8
+  %806 = call i32 @xml_escape(ptr noundef nonnull %.sroa.1316.2.i2566.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %805) #14
+  %807 = load ptr, ptr @outFile, align 8
+  %808 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %807)
   br label %emitAttr.exit120.i
 
-emitAttr.exit120.i:                               ; preds = %.loopexit.i119.i, %779, %emitAttr.exit128.i
+emitAttr.exit120.i:                               ; preds = %.loopexit.i119.i, %800, %emitAttr.exit128.i
   %.not122.i.i.i = icmp eq ptr %.sroa.27.1.i2863.i.i, null
   br i1 %.not122.i.i.i, label %emitAttr.exit112.i, label %.lr.ph.i.i105.i
 
 .lr.ph.i.i105.i:                                  ; preds = %emitAttr.exit120.i, %.lr.ph.i.i105.i
-  %.02.i.i106.i = phi i32 [ %788, %.lr.ph.i.i105.i ], [ 3, %emitAttr.exit120.i ]
-  %788 = add nsw i32 %.02.i.i106.i, -1
-  %789 = load ptr, ptr @outFile, align 8
-  %790 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %789)
-  %.not.i.i107.i = icmp eq i32 %788, 0
+  %.02.i.i106.i = phi i32 [ %809, %.lr.ph.i.i105.i ], [ 3, %emitAttr.exit120.i ]
+  %809 = add nsw i32 %.02.i.i106.i, -1
+  %810 = load ptr, ptr @outFile, align 8
+  %811 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %810)
+  %.not.i.i107.i = icmp eq i32 %809, 0
   br i1 %.not.i.i107.i, label %indent.exit.i108.i, label %.lr.ph.i.i105.i
 
 indent.exit.i108.i:                               ; preds = %.lr.ph.i.i105.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store ptr %.sroa.27.1.i2863.i.i, ptr %22, align 8
-  %791 = call double @strtod(ptr noundef nonnull %.sroa.27.1.i2863.i.i, ptr noundef nonnull %22) #14
-  %792 = load ptr, ptr %22, align 8
-  %.not.i5.i109.i = icmp eq ptr %792, %.sroa.27.1.i2863.i.i
+  %812 = call double @strtod(ptr noundef nonnull %.sroa.27.1.i2863.i.i, ptr noundef nonnull %22) #14
+  %813 = load ptr, ptr %22, align 8
+  %.not.i5.i109.i = icmp eq ptr %813, %.sroa.27.1.i2863.i.i
   br i1 %.not.i5.i109.i, label %.loopexit.i111.i, label %.preheader.i.i110.i
 
-.preheader.i.i110.i:                              ; preds = %indent.exit.i108.i, %795
-  %793 = phi ptr [ %796, %795 ], [ %792, %indent.exit.i108.i ]
-  %794 = load i8, ptr %793, align 1
-  switch i8 %794, label %.loopexit.i111.i [
-    i8 9, label %795
-    i8 10, label %795
-    i8 11, label %795
-    i8 12, label %795
-    i8 13, label %795
-    i8 32, label %795
-    i8 0, label %797
+.preheader.i.i110.i:                              ; preds = %indent.exit.i108.i, %816
+  %814 = phi ptr [ %817, %816 ], [ %813, %indent.exit.i108.i ]
+  %815 = load i8, ptr %814, align 1
+  switch i8 %815, label %.loopexit.i111.i [
+    i8 9, label %816
+    i8 10, label %816
+    i8 11, label %816
+    i8 12, label %816
+    i8 13, label %816
+    i8 32, label %816
+    i8 0, label %818
   ]
 
-795:                                              ; preds = %.preheader.i.i110.i, %.preheader.i.i110.i, %.preheader.i.i110.i, %.preheader.i.i110.i, %.preheader.i.i110.i, %.preheader.i.i110.i
-  %796 = getelementptr inbounds i8, ptr %793, i64 1
+816:                                              ; preds = %.preheader.i.i110.i, %.preheader.i.i110.i, %.preheader.i.i110.i, %.preheader.i.i110.i, %.preheader.i.i110.i, %.preheader.i.i110.i
+  %817 = getelementptr inbounds i8, ptr %814, i64 1
   br label %.preheader.i.i110.i
 
-797:                                              ; preds = %.preheader.i.i110.i
+818:                                              ; preds = %.preheader.i.i110.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  %798 = load ptr, ptr @outFile, align 8
-  %799 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %798, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.71, ptr noundef nonnull %.sroa.27.1.i2863.i.i) #14
+  %819 = load ptr, ptr @outFile, align 8
+  %820 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %819, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.71, ptr noundef nonnull %.sroa.27.1.i2863.i.i) #14
   br label %emitAttr.exit112.i
 
 .loopexit.i111.i:                                 ; preds = %.preheader.i.i110.i, %indent.exit.i108.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  %800 = load ptr, ptr @outFile, align 8
-  %801 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %800, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.71) #14
-  %802 = load ptr, ptr @outFile, align 8
-  %803 = call i32 @xml_escape(ptr noundef nonnull %.sroa.27.1.i2863.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %802) #14
-  %804 = load ptr, ptr @outFile, align 8
-  %805 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %804)
+  %821 = load ptr, ptr @outFile, align 8
+  %822 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %821, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.71) #14
+  %823 = load ptr, ptr @outFile, align 8
+  %824 = call i32 @xml_escape(ptr noundef nonnull %.sroa.27.1.i2863.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %823) #14
+  %825 = load ptr, ptr @outFile, align 8
+  %826 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %825)
   br label %emitAttr.exit112.i
 
-emitAttr.exit112.i:                               ; preds = %.loopexit.i111.i, %797, %emitAttr.exit120.i
+emitAttr.exit112.i:                               ; preds = %.loopexit.i111.i, %818, %emitAttr.exit120.i
   %.not123.i.i.i = icmp eq ptr %.sroa.30.1.i2962.i.i, null
   br i1 %.not123.i.i.i, label %emitAttr.exit104.i, label %.lr.ph.i.i97.i
 
 .lr.ph.i.i97.i:                                   ; preds = %emitAttr.exit112.i, %.lr.ph.i.i97.i
-  %.02.i.i98.i = phi i32 [ %806, %.lr.ph.i.i97.i ], [ 3, %emitAttr.exit112.i ]
-  %806 = add nsw i32 %.02.i.i98.i, -1
-  %807 = load ptr, ptr @outFile, align 8
-  %808 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %807)
-  %.not.i.i99.i = icmp eq i32 %806, 0
+  %.02.i.i98.i = phi i32 [ %827, %.lr.ph.i.i97.i ], [ 3, %emitAttr.exit112.i ]
+  %827 = add nsw i32 %.02.i.i98.i, -1
+  %828 = load ptr, ptr @outFile, align 8
+  %829 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %828)
+  %.not.i.i99.i = icmp eq i32 %827, 0
   br i1 %.not.i.i99.i, label %indent.exit.i100.i, label %.lr.ph.i.i97.i
 
 indent.exit.i100.i:                               ; preds = %.lr.ph.i.i97.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store ptr %.sroa.30.1.i2962.i.i, ptr %23, align 8
-  %809 = call double @strtod(ptr noundef nonnull %.sroa.30.1.i2962.i.i, ptr noundef nonnull %23) #14
-  %810 = load ptr, ptr %23, align 8
-  %.not.i5.i101.i = icmp eq ptr %810, %.sroa.30.1.i2962.i.i
+  %830 = call double @strtod(ptr noundef nonnull %.sroa.30.1.i2962.i.i, ptr noundef nonnull %23) #14
+  %831 = load ptr, ptr %23, align 8
+  %.not.i5.i101.i = icmp eq ptr %831, %.sroa.30.1.i2962.i.i
   br i1 %.not.i5.i101.i, label %.loopexit.i103.i, label %.preheader.i.i102.i
 
-.preheader.i.i102.i:                              ; preds = %indent.exit.i100.i, %813
-  %811 = phi ptr [ %814, %813 ], [ %810, %indent.exit.i100.i ]
-  %812 = load i8, ptr %811, align 1
-  switch i8 %812, label %.loopexit.i103.i [
-    i8 9, label %813
-    i8 10, label %813
-    i8 11, label %813
-    i8 12, label %813
-    i8 13, label %813
-    i8 32, label %813
-    i8 0, label %815
+.preheader.i.i102.i:                              ; preds = %indent.exit.i100.i, %834
+  %832 = phi ptr [ %835, %834 ], [ %831, %indent.exit.i100.i ]
+  %833 = load i8, ptr %832, align 1
+  switch i8 %833, label %.loopexit.i103.i [
+    i8 9, label %834
+    i8 10, label %834
+    i8 11, label %834
+    i8 12, label %834
+    i8 13, label %834
+    i8 32, label %834
+    i8 0, label %836
   ]
 
-813:                                              ; preds = %.preheader.i.i102.i, %.preheader.i.i102.i, %.preheader.i.i102.i, %.preheader.i.i102.i, %.preheader.i.i102.i, %.preheader.i.i102.i
-  %814 = getelementptr inbounds i8, ptr %811, i64 1
+834:                                              ; preds = %.preheader.i.i102.i, %.preheader.i.i102.i, %.preheader.i.i102.i, %.preheader.i.i102.i, %.preheader.i.i102.i, %.preheader.i.i102.i
+  %835 = getelementptr inbounds i8, ptr %832, i64 1
   br label %.preheader.i.i102.i
 
-815:                                              ; preds = %.preheader.i.i102.i
+836:                                              ; preds = %.preheader.i.i102.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  %816 = load ptr, ptr @outFile, align 8
-  %817 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %816, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.72, ptr noundef nonnull %.sroa.30.1.i2962.i.i) #14
+  %837 = load ptr, ptr @outFile, align 8
+  %838 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %837, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.72, ptr noundef nonnull %.sroa.30.1.i2962.i.i) #14
   br label %emitAttr.exit104.i
 
 .loopexit.i103.i:                                 ; preds = %.preheader.i.i102.i, %indent.exit.i100.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  %818 = load ptr, ptr @outFile, align 8
-  %819 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %818, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.72) #14
-  %820 = load ptr, ptr @outFile, align 8
-  %821 = call i32 @xml_escape(ptr noundef nonnull %.sroa.30.1.i2962.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %820) #14
-  %822 = load ptr, ptr @outFile, align 8
-  %823 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %822)
+  %839 = load ptr, ptr @outFile, align 8
+  %840 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %839, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.72) #14
+  %841 = load ptr, ptr @outFile, align 8
+  %842 = call i32 @xml_escape(ptr noundef nonnull %.sroa.30.1.i2962.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %841) #14
+  %843 = load ptr, ptr @outFile, align 8
+  %844 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %843)
   br label %emitAttr.exit104.i
 
-emitAttr.exit104.i:                               ; preds = %.loopexit.i103.i, %815, %emitAttr.exit112.i
-  %824 = and i32 %.sroa.0.5.i2467.i.i, 64
-  %.not124.i.i.i = icmp eq i32 %824, 0
-  br i1 %.not124.i.i.i, label %825, label %.sink.split.i.i.i
+emitAttr.exit104.i:                               ; preds = %.loopexit.i103.i, %836, %emitAttr.exit112.i
+  %845 = and i32 %.sroa.0.5.i2467.i.i, 64
+  %.not124.i.i.i = icmp eq i32 %845, 0
+  br i1 %.not124.i.i.i, label %846, label %.sink.split.i.i.i
 
-825:                                              ; preds = %emitAttr.exit104.i
-  %826 = and i32 %.sroa.0.5.i2467.i.i, 128
-  %.not125.i.i.i = icmp eq i32 %826, 0
-  br i1 %.not125.i.i.i, label %827, label %.sink.split.i.i.i
+846:                                              ; preds = %emitAttr.exit104.i
+  %847 = and i32 %.sroa.0.5.i2467.i.i, 128
+  %.not125.i.i.i = icmp eq i32 %847, 0
+  br i1 %.not125.i.i.i, label %848, label %.sink.split.i.i.i
 
-827:                                              ; preds = %825
-  %828 = and i32 %.sroa.0.5.i2467.i.i, 32
-  %.not126.i.i.i = icmp eq i32 %828, 0
+848:                                              ; preds = %846
+  %849 = and i32 %.sroa.0.5.i2467.i.i, 32
+  %.not126.i.i.i = icmp eq i32 %849, 0
   br i1 %.not126.i.i.i, label %emitAttr.exit96.i, label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %827, %825, %emitAttr.exit104.i
-  %.str.25.sink.i.i.i = phi ptr [ @.str.24, %emitAttr.exit104.i ], [ @.str.25, %825 ], [ @.str.23, %827 ]
+.sink.split.i.i.i:                                ; preds = %848, %846, %emitAttr.exit104.i
+  %.str.25.sink.i.i.i = phi ptr [ @.str.24, %emitAttr.exit104.i ], [ @.str.25, %846 ], [ @.str.23, %848 ]
   br label %.lr.ph.i.i89.i
 
 .lr.ph.i.i89.i:                                   ; preds = %.lr.ph.i.i89.i, %.sink.split.i.i.i
-  %.02.i.i90.i = phi i32 [ %829, %.lr.ph.i.i89.i ], [ 3, %.sink.split.i.i.i ]
-  %829 = add nsw i32 %.02.i.i90.i, -1
-  %830 = load ptr, ptr @outFile, align 8
-  %831 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %830)
-  %.not.i.i91.i = icmp eq i32 %829, 0
+  %.02.i.i90.i = phi i32 [ %850, %.lr.ph.i.i89.i ], [ 3, %.sink.split.i.i.i ]
+  %850 = add nsw i32 %.02.i.i90.i, -1
+  %851 = load ptr, ptr @outFile, align 8
+  %852 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %851)
+  %.not.i.i91.i = icmp eq i32 %850, 0
   br i1 %.not.i.i91.i, label %indent.exit.i92.i, label %.lr.ph.i.i89.i
 
 indent.exit.i92.i:                                ; preds = %.lr.ph.i.i89.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   store ptr %.str.25.sink.i.i.i, ptr %24, align 8
-  %832 = call double @strtod(ptr noundef nonnull %.str.25.sink.i.i.i, ptr noundef nonnull %24) #14
-  %833 = load ptr, ptr %24, align 8
-  %.not.i5.i93.i = icmp eq ptr %833, %.str.25.sink.i.i.i
+  %853 = call double @strtod(ptr noundef nonnull %.str.25.sink.i.i.i, ptr noundef nonnull %24) #14
+  %854 = load ptr, ptr %24, align 8
+  %.not.i5.i93.i = icmp eq ptr %854, %.str.25.sink.i.i.i
   br i1 %.not.i5.i93.i, label %.loopexit.i95.i, label %.preheader.i.i94.i
 
-.preheader.i.i94.i:                               ; preds = %indent.exit.i92.i, %836
-  %834 = phi ptr [ %837, %836 ], [ %833, %indent.exit.i92.i ]
-  %835 = load i8, ptr %834, align 1
-  switch i8 %835, label %.loopexit.i95.i [
-    i8 9, label %836
-    i8 10, label %836
-    i8 11, label %836
-    i8 12, label %836
-    i8 13, label %836
-    i8 32, label %836
-    i8 0, label %838
+.preheader.i.i94.i:                               ; preds = %indent.exit.i92.i, %857
+  %855 = phi ptr [ %858, %857 ], [ %854, %indent.exit.i92.i ]
+  %856 = load i8, ptr %855, align 1
+  switch i8 %856, label %.loopexit.i95.i [
+    i8 9, label %857
+    i8 10, label %857
+    i8 11, label %857
+    i8 12, label %857
+    i8 13, label %857
+    i8 32, label %857
+    i8 0, label %859
   ]
 
-836:                                              ; preds = %.preheader.i.i94.i, %.preheader.i.i94.i, %.preheader.i.i94.i, %.preheader.i.i94.i, %.preheader.i.i94.i, %.preheader.i.i94.i
-  %837 = getelementptr inbounds i8, ptr %834, i64 1
+857:                                              ; preds = %.preheader.i.i94.i, %.preheader.i.i94.i, %.preheader.i.i94.i, %.preheader.i.i94.i, %.preheader.i.i94.i, %.preheader.i.i94.i
+  %858 = getelementptr inbounds i8, ptr %855, i64 1
   br label %.preheader.i.i94.i
 
-838:                                              ; preds = %.preheader.i.i94.i
+859:                                              ; preds = %.preheader.i.i94.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  %839 = load ptr, ptr @outFile, align 8
-  %840 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %839, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22, ptr noundef nonnull %.str.25.sink.i.i.i) #14
+  %860 = load ptr, ptr @outFile, align 8
+  %861 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %860, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22, ptr noundef nonnull %.str.25.sink.i.i.i) #14
   br label %emitAttr.exit96.i
 
 .loopexit.i95.i:                                  ; preds = %.preheader.i.i94.i, %indent.exit.i92.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  %841 = load ptr, ptr @outFile, align 8
-  %842 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %841, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.22) #14
-  %843 = load ptr, ptr @outFile, align 8
-  %844 = call i32 @xml_escape(ptr noundef nonnull %.str.25.sink.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %843) #14
-  %845 = load ptr, ptr @outFile, align 8
-  %846 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %845)
+  %862 = load ptr, ptr @outFile, align 8
+  %863 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %862, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.22) #14
+  %864 = load ptr, ptr @outFile, align 8
+  %865 = call i32 @xml_escape(ptr noundef nonnull %.str.25.sink.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %864) #14
+  %866 = load ptr, ptr @outFile, align 8
+  %867 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %866)
   br label %emitAttr.exit96.i
 
-emitAttr.exit96.i:                                ; preds = %.loopexit.i95.i, %838, %827
+emitAttr.exit96.i:                                ; preds = %.loopexit.i95.i, %859, %848
   %.not127.i.i.i = icmp eq ptr %.sroa.21.1.i2764.i.i, null
-  br i1 %.not127.i.i.i, label %emitAttr.exit88.i, label %847
+  br i1 %.not127.i.i.i, label %emitAttr.exit88.i, label %868
 
-847:                                              ; preds = %emitAttr.exit96.i
-  %848 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(8) @.str.73) #13
-  %849 = icmp eq i32 %848, 0
-  br i1 %849, label %.sink.split227.i.i.i, label %850
+868:                                              ; preds = %emitAttr.exit96.i
+  %869 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(8) @.str.73) #13
+  %870 = icmp eq i32 %869, 0
+  br i1 %870, label %.sink.split227.i.i.i, label %871
 
-850:                                              ; preds = %847
-  %851 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(5) @.str.76) #13
-  %852 = icmp eq i32 %851, 0
-  br i1 %852, label %.sink.split227.i.i.i, label %853
+871:                                              ; preds = %868
+  %872 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(5) @.str.76) #13
+  %873 = icmp eq i32 %872, 0
+  br i1 %873, label %.sink.split227.i.i.i, label %874
 
-853:                                              ; preds = %850
-  %854 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(5) @.str.78) #13
-  %855 = icmp eq i32 %854, 0
-  br i1 %855, label %.sink.split227.i.i.i, label %856
+874:                                              ; preds = %871
+  %875 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(5) @.str.78) #13
+  %876 = icmp eq i32 %875, 0
+  br i1 %876, label %.sink.split227.i.i.i, label %877
 
-856:                                              ; preds = %853
-  %857 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(5) @.str.79) #13
-  %858 = icmp eq i32 %857, 0
-  br i1 %858, label %.sink.split227.i.i.i, label %emitAttr.exit88.i
+877:                                              ; preds = %874
+  %878 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(5) @.str.79) #13
+  %879 = icmp eq i32 %878, 0
+  br i1 %879, label %.sink.split227.i.i.i, label %emitAttr.exit88.i
 
-.sink.split227.i.i.i:                             ; preds = %856, %853, %850, %847
-  %.str.75.sink.i.i.i = phi ptr [ @.str.75, %847 ], [ @.str.77, %850 ], [ @.str.78, %853 ], [ @.str.79, %856 ]
+.sink.split227.i.i.i:                             ; preds = %877, %874, %871, %868
+  %.str.75.sink.i.i.i = phi ptr [ @.str.75, %868 ], [ @.str.77, %871 ], [ @.str.78, %874 ], [ @.str.79, %877 ]
   br label %.lr.ph.i.i81.i
 
 .lr.ph.i.i81.i:                                   ; preds = %.lr.ph.i.i81.i, %.sink.split227.i.i.i
-  %.02.i.i82.i = phi i32 [ %859, %.lr.ph.i.i81.i ], [ 3, %.sink.split227.i.i.i ]
-  %859 = add nsw i32 %.02.i.i82.i, -1
-  %860 = load ptr, ptr @outFile, align 8
-  %861 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %860)
-  %.not.i.i83.i = icmp eq i32 %859, 0
+  %.02.i.i82.i = phi i32 [ %880, %.lr.ph.i.i81.i ], [ 3, %.sink.split227.i.i.i ]
+  %880 = add nsw i32 %.02.i.i82.i, -1
+  %881 = load ptr, ptr @outFile, align 8
+  %882 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %881)
+  %.not.i.i83.i = icmp eq i32 %880, 0
   br i1 %.not.i.i83.i, label %indent.exit.i84.i, label %.lr.ph.i.i81.i
 
 indent.exit.i84.i:                                ; preds = %.lr.ph.i.i81.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   store ptr %.str.75.sink.i.i.i, ptr %25, align 8
-  %862 = call double @strtod(ptr noundef nonnull %.str.75.sink.i.i.i, ptr noundef nonnull %25) #14
-  %863 = load ptr, ptr %25, align 8
-  %.not.i5.i85.i = icmp eq ptr %863, %.str.75.sink.i.i.i
+  %883 = call double @strtod(ptr noundef nonnull %.str.75.sink.i.i.i, ptr noundef nonnull %25) #14
+  %884 = load ptr, ptr %25, align 8
+  %.not.i5.i85.i = icmp eq ptr %884, %.str.75.sink.i.i.i
   br i1 %.not.i5.i85.i, label %.loopexit.i87.i, label %.preheader.i.i86.i
 
-.preheader.i.i86.i:                               ; preds = %indent.exit.i84.i, %866
-  %864 = phi ptr [ %867, %866 ], [ %863, %indent.exit.i84.i ]
-  %865 = load i8, ptr %864, align 1
-  switch i8 %865, label %.loopexit.i87.i [
-    i8 9, label %866
-    i8 10, label %866
-    i8 11, label %866
-    i8 12, label %866
-    i8 13, label %866
-    i8 32, label %866
-    i8 0, label %868
+.preheader.i.i86.i:                               ; preds = %indent.exit.i84.i, %887
+  %885 = phi ptr [ %888, %887 ], [ %884, %indent.exit.i84.i ]
+  %886 = load i8, ptr %885, align 1
+  switch i8 %886, label %.loopexit.i87.i [
+    i8 9, label %887
+    i8 10, label %887
+    i8 11, label %887
+    i8 12, label %887
+    i8 13, label %887
+    i8 32, label %887
+    i8 0, label %889
   ]
 
-866:                                              ; preds = %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i
-  %867 = getelementptr inbounds i8, ptr %864, i64 1
+887:                                              ; preds = %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i
+  %888 = getelementptr inbounds i8, ptr %885, i64 1
   br label %.preheader.i.i86.i
 
-868:                                              ; preds = %.preheader.i.i86.i
+889:                                              ; preds = %.preheader.i.i86.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  %869 = load ptr, ptr @outFile, align 8
-  %870 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %869, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.74, ptr noundef nonnull %.str.75.sink.i.i.i) #14
+  %890 = load ptr, ptr @outFile, align 8
+  %891 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %890, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.74, ptr noundef nonnull %.str.75.sink.i.i.i) #14
   br label %emitAttr.exit88.i
 
 .loopexit.i87.i:                                  ; preds = %.preheader.i.i86.i, %indent.exit.i84.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  %871 = load ptr, ptr @outFile, align 8
-  %872 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %871, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.74) #14
-  %873 = load ptr, ptr @outFile, align 8
-  %874 = call i32 @xml_escape(ptr noundef nonnull %.str.75.sink.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %873) #14
-  %875 = load ptr, ptr @outFile, align 8
-  %876 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %875)
+  %892 = load ptr, ptr @outFile, align 8
+  %893 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %892, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.74) #14
+  %894 = load ptr, ptr @outFile, align 8
+  %895 = call i32 @xml_escape(ptr noundef nonnull %.str.75.sink.i.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %894) #14
+  %896 = load ptr, ptr @outFile, align 8
+  %897 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %896)
   br label %emitAttr.exit88.i
 
-emitAttr.exit88.i:                                ; preds = %.loopexit.i87.i, %868, %856, %emitAttr.exit96.i
-  %877 = load ptr, ptr @outFile, align 8
-  %878 = call i64 @fwrite(ptr nonnull @.str.51, i64 6, i64 1, ptr %877)
-  br label %879
+emitAttr.exit88.i:                                ; preds = %.loopexit.i87.i, %889, %877, %emitAttr.exit96.i
+  %898 = load ptr, ptr @outFile, align 8
+  %899 = call i64 @fwrite(ptr nonnull @.str.51, i64 6, i64 1, ptr %898)
+  br label %900
 
-879:                                              ; preds = %emitAttr.exit88.i, %._crit_edge.i.i27.i
-  %.4172.i = phi double [ %.1169226.i, %._crit_edge.i.i27.i ], [ %.3171.i, %emitAttr.exit88.i ]
-  %.4166.i = phi double [ %.1163227.i, %._crit_edge.i.i27.i ], [ %.3165.i, %emitAttr.exit88.i ]
-  %.4160.i = phi double [ %.1157228.i, %._crit_edge.i.i27.i ], [ %.3159.i, %emitAttr.exit88.i ]
-  %.4.i = phi double [ %.1155229.i, %._crit_edge.i.i27.i ], [ %.3.i, %emitAttr.exit88.i ]
+900:                                              ; preds = %emitAttr.exit88.i, %._crit_edge.i.i27.i
+  %.4172.i = phi double [ %.1169229.i, %._crit_edge.i.i27.i ], [ %.3171.i, %emitAttr.exit88.i ]
+  %.4166.i = phi double [ %.1163230.i, %._crit_edge.i.i27.i ], [ %.3165.i, %emitAttr.exit88.i ]
+  %.4160.i = phi double [ %.1157231.i, %._crit_edge.i.i27.i ], [ %.3159.i, %emitAttr.exit88.i ]
+  %.4.i = phi double [ %.1155232.i, %._crit_edge.i.i27.i ], [ %.3.i, %emitAttr.exit88.i ]
   %.sroa.36.1.i3160.i.i = phi ptr [ %.sroa.36.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.36.1.i3159.i.i, %emitAttr.exit88.i ]
   %.sroa.39.1.i3258.i.i = phi ptr [ %.sroa.39.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.39.1.i3257.i.i, %emitAttr.exit88.i ]
   %.sroa.42.1.i3356.i.i = phi ptr [ %.sroa.42.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.42.1.i3355.i.i, %emitAttr.exit88.i ]
   %.1114.i3554.i.i = phi i32 [ %.1114.i.i.i, %._crit_edge.i.i27.i ], [ %.1114.i3553.i.i, %emitAttr.exit88.i ]
   %.1.i3652.i.i = phi ptr [ %.1.i.i25.i, %._crit_edge.i.i27.i ], [ %.1.i3651.i.i, %emitAttr.exit88.i ]
   %.not128.i.i.i = icmp eq i32 %.1114.i3554.i.i, 0
-  br i1 %.not128.i.i.i, label %emitEdge.exit.i, label %880
+  br i1 %.not128.i.i.i, label %emitEdge.exit.i, label %901
 
-880:                                              ; preds = %879
-  %881 = load ptr, ptr @outFile, align 8
-  %882 = call i64 @fwrite(ptr nonnull @.str.52, i64 20, i64 1, ptr %881)
+901:                                              ; preds = %900
+  %902 = load ptr, ptr @outFile, align 8
+  %903 = call i64 @fwrite(ptr nonnull @.str.52, i64 20, i64 1, ptr %902)
   %.not129.i.i.i = icmp eq ptr %.1.i3652.i.i, null
   br i1 %.not129.i.i.i, label %emitAttr.exit80.i, label %.lr.ph.i.i73.i
 
-.lr.ph.i.i73.i:                                   ; preds = %880, %.lr.ph.i.i73.i
-  %.02.i.i74.i = phi i32 [ %883, %.lr.ph.i.i73.i ], [ 3, %880 ]
-  %883 = add nsw i32 %.02.i.i74.i, -1
-  %884 = load ptr, ptr @outFile, align 8
-  %885 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %884)
-  %.not.i.i75.i = icmp eq i32 %883, 0
+.lr.ph.i.i73.i:                                   ; preds = %901, %.lr.ph.i.i73.i
+  %.02.i.i74.i = phi i32 [ %904, %.lr.ph.i.i73.i ], [ 3, %901 ]
+  %904 = add nsw i32 %.02.i.i74.i, -1
+  %905 = load ptr, ptr @outFile, align 8
+  %906 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %905)
+  %.not.i.i75.i = icmp eq i32 %904, 0
   br i1 %.not.i.i75.i, label %indent.exit.i76.i, label %.lr.ph.i.i73.i
 
 indent.exit.i76.i:                                ; preds = %.lr.ph.i.i73.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store ptr %.1.i3652.i.i, ptr %26, align 8
-  %886 = call double @strtod(ptr noundef nonnull %.1.i3652.i.i, ptr noundef nonnull %26) #14
-  %887 = load ptr, ptr %26, align 8
-  %.not.i5.i77.i = icmp eq ptr %887, %.1.i3652.i.i
+  %907 = call double @strtod(ptr noundef nonnull %.1.i3652.i.i, ptr noundef nonnull %26) #14
+  %908 = load ptr, ptr %26, align 8
+  %.not.i5.i77.i = icmp eq ptr %908, %.1.i3652.i.i
   br i1 %.not.i5.i77.i, label %.loopexit.i79.i, label %.preheader.i.i78.i
 
-.preheader.i.i78.i:                               ; preds = %indent.exit.i76.i, %890
-  %888 = phi ptr [ %891, %890 ], [ %887, %indent.exit.i76.i ]
-  %889 = load i8, ptr %888, align 1
-  switch i8 %889, label %.loopexit.i79.i [
-    i8 9, label %890
-    i8 10, label %890
-    i8 11, label %890
-    i8 12, label %890
-    i8 13, label %890
-    i8 32, label %890
-    i8 0, label %892
+.preheader.i.i78.i:                               ; preds = %indent.exit.i76.i, %911
+  %909 = phi ptr [ %912, %911 ], [ %908, %indent.exit.i76.i ]
+  %910 = load i8, ptr %909, align 1
+  switch i8 %910, label %.loopexit.i79.i [
+    i8 9, label %911
+    i8 10, label %911
+    i8 11, label %911
+    i8 12, label %911
+    i8 13, label %911
+    i8 32, label %911
+    i8 0, label %913
   ]
 
-890:                                              ; preds = %.preheader.i.i78.i, %.preheader.i.i78.i, %.preheader.i.i78.i, %.preheader.i.i78.i, %.preheader.i.i78.i, %.preheader.i.i78.i
-  %891 = getelementptr inbounds i8, ptr %888, i64 1
+911:                                              ; preds = %.preheader.i.i78.i, %.preheader.i.i78.i, %.preheader.i.i78.i, %.preheader.i.i78.i, %.preheader.i.i78.i, %.preheader.i.i78.i
+  %912 = getelementptr inbounds i8, ptr %909, i64 1
   br label %.preheader.i.i78.i
 
-892:                                              ; preds = %.preheader.i.i78.i
+913:                                              ; preds = %.preheader.i.i78.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  %893 = load ptr, ptr @outFile, align 8
-  %894 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %893, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.53, ptr noundef nonnull %.1.i3652.i.i) #14
+  %914 = load ptr, ptr @outFile, align 8
+  %915 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %914, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.53, ptr noundef nonnull %.1.i3652.i.i) #14
   br label %emitAttr.exit80.i
 
 .loopexit.i79.i:                                  ; preds = %.preheader.i.i78.i, %indent.exit.i76.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  %895 = load ptr, ptr @outFile, align 8
-  %896 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %895, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.53) #14
-  %897 = load ptr, ptr @outFile, align 8
-  %898 = call i32 @xml_escape(ptr noundef nonnull %.1.i3652.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %897) #14
-  %899 = load ptr, ptr @outFile, align 8
-  %900 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %899)
+  %916 = load ptr, ptr @outFile, align 8
+  %917 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %916, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.53) #14
+  %918 = load ptr, ptr @outFile, align 8
+  %919 = call i32 @xml_escape(ptr noundef nonnull %.1.i3652.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %918) #14
+  %920 = load ptr, ptr @outFile, align 8
+  %921 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %920)
   br label %emitAttr.exit80.i
 
-emitAttr.exit80.i:                                ; preds = %.loopexit.i79.i, %892, %880
+emitAttr.exit80.i:                                ; preds = %.loopexit.i79.i, %913, %901
   %.not130.i.i32.i = icmp eq ptr %.sroa.36.1.i3160.i.i, null
-  br i1 %.not130.i.i32.i, label %emitAttr.exit72.i, label %901
+  br i1 %.not130.i.i32.i, label %emitAttr.exit72.i, label %922
 
-901:                                              ; preds = %emitAttr.exit80.i
+922:                                              ; preds = %emitAttr.exit80.i
   %.b131.i.i.i = load i1, ptr @yworks, align 1
   br label %.lr.ph.i.i65.i
 
-.lr.ph.i.i65.i:                                   ; preds = %.lr.ph.i.i65.i, %901
-  %.02.i.i66.i = phi i32 [ %902, %.lr.ph.i.i65.i ], [ 3, %901 ]
-  %902 = add nsw i32 %.02.i.i66.i, -1
-  %903 = load ptr, ptr @outFile, align 8
-  %904 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %903)
-  %.not.i.i67.i = icmp eq i32 %902, 0
+.lr.ph.i.i65.i:                                   ; preds = %.lr.ph.i.i65.i, %922
+  %.02.i.i66.i = phi i32 [ %923, %.lr.ph.i.i65.i ], [ 3, %922 ]
+  %923 = add nsw i32 %.02.i.i66.i, -1
+  %924 = load ptr, ptr @outFile, align 8
+  %925 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %924)
+  %.not.i.i67.i = icmp eq i32 %923, 0
   br i1 %.not.i.i67.i, label %indent.exit.i68.i, label %.lr.ph.i.i65.i
 
 indent.exit.i68.i:                                ; preds = %.lr.ph.i.i65.i
-  %905 = select i1 %.b131.i.i.i, ptr @.str.34, ptr @.str.54
+  %926 = select i1 %.b131.i.i.i, ptr @.str.34, ptr @.str.54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   store ptr %.sroa.36.1.i3160.i.i, ptr %27, align 8
-  %906 = call double @strtod(ptr noundef nonnull %.sroa.36.1.i3160.i.i, ptr noundef nonnull %27) #14
-  %907 = load ptr, ptr %27, align 8
-  %.not.i5.i69.i = icmp eq ptr %907, %.sroa.36.1.i3160.i.i
+  %927 = call double @strtod(ptr noundef nonnull %.sroa.36.1.i3160.i.i, ptr noundef nonnull %27) #14
+  %928 = load ptr, ptr %27, align 8
+  %.not.i5.i69.i = icmp eq ptr %928, %.sroa.36.1.i3160.i.i
   br i1 %.not.i5.i69.i, label %.loopexit.i71.i, label %.preheader.i.i70.i
 
-.preheader.i.i70.i:                               ; preds = %indent.exit.i68.i, %910
-  %908 = phi ptr [ %911, %910 ], [ %907, %indent.exit.i68.i ]
-  %909 = load i8, ptr %908, align 1
-  switch i8 %909, label %.loopexit.i71.i [
-    i8 9, label %910
-    i8 10, label %910
-    i8 11, label %910
-    i8 12, label %910
-    i8 13, label %910
-    i8 32, label %910
-    i8 0, label %912
+.preheader.i.i70.i:                               ; preds = %indent.exit.i68.i, %931
+  %929 = phi ptr [ %932, %931 ], [ %928, %indent.exit.i68.i ]
+  %930 = load i8, ptr %929, align 1
+  switch i8 %930, label %.loopexit.i71.i [
+    i8 9, label %931
+    i8 10, label %931
+    i8 11, label %931
+    i8 12, label %931
+    i8 13, label %931
+    i8 32, label %931
+    i8 0, label %933
   ]
 
-910:                                              ; preds = %.preheader.i.i70.i, %.preheader.i.i70.i, %.preheader.i.i70.i, %.preheader.i.i70.i, %.preheader.i.i70.i, %.preheader.i.i70.i
-  %911 = getelementptr inbounds i8, ptr %908, i64 1
+931:                                              ; preds = %.preheader.i.i70.i, %.preheader.i.i70.i, %.preheader.i.i70.i, %.preheader.i.i70.i, %.preheader.i.i70.i, %.preheader.i.i70.i
+  %932 = getelementptr inbounds i8, ptr %929, i64 1
   br label %.preheader.i.i70.i
 
-912:                                              ; preds = %.preheader.i.i70.i
+933:                                              ; preds = %.preheader.i.i70.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  %913 = load ptr, ptr @outFile, align 8
-  %914 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %913, ptr noundef nonnull @.str.15, ptr noundef nonnull %905, ptr noundef nonnull %.sroa.36.1.i3160.i.i) #14
+  %934 = load ptr, ptr @outFile, align 8
+  %935 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %934, ptr noundef nonnull @.str.15, ptr noundef nonnull %926, ptr noundef nonnull %.sroa.36.1.i3160.i.i) #14
   br label %emitAttr.exit72.i
 
 .loopexit.i71.i:                                  ; preds = %.preheader.i.i70.i, %indent.exit.i68.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  %915 = load ptr, ptr @outFile, align 8
-  %916 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %915, ptr noundef nonnull @.str.16, ptr noundef nonnull %905) #14
-  %917 = load ptr, ptr @outFile, align 8
-  %918 = call i32 @xml_escape(ptr noundef nonnull %.sroa.36.1.i3160.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %917) #14
-  %919 = load ptr, ptr @outFile, align 8
-  %920 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %919)
+  %936 = load ptr, ptr @outFile, align 8
+  %937 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %936, ptr noundef nonnull @.str.16, ptr noundef nonnull %926) #14
+  %938 = load ptr, ptr @outFile, align 8
+  %939 = call i32 @xml_escape(ptr noundef nonnull %.sroa.36.1.i3160.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %938) #14
+  %940 = load ptr, ptr @outFile, align 8
+  %941 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %940)
   br label %emitAttr.exit72.i
 
-emitAttr.exit72.i:                                ; preds = %.loopexit.i71.i, %912, %emitAttr.exit80.i
+emitAttr.exit72.i:                                ; preds = %.loopexit.i71.i, %933, %emitAttr.exit80.i
   %.not132.i.i33.i = icmp eq ptr %.sroa.39.1.i3258.i.i, null
   br i1 %.not132.i.i33.i, label %emitAttr.exit64.i, label %.lr.ph.i.i57.i
 
 .lr.ph.i.i57.i:                                   ; preds = %emitAttr.exit72.i, %.lr.ph.i.i57.i
-  %.02.i.i58.i = phi i32 [ %921, %.lr.ph.i.i57.i ], [ 3, %emitAttr.exit72.i ]
-  %921 = add nsw i32 %.02.i.i58.i, -1
-  %922 = load ptr, ptr @outFile, align 8
-  %923 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %922)
-  %.not.i.i59.i = icmp eq i32 %921, 0
+  %.02.i.i58.i = phi i32 [ %942, %.lr.ph.i.i57.i ], [ 3, %emitAttr.exit72.i ]
+  %942 = add nsw i32 %.02.i.i58.i, -1
+  %943 = load ptr, ptr @outFile, align 8
+  %944 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %943)
+  %.not.i.i59.i = icmp eq i32 %942, 0
   br i1 %.not.i.i59.i, label %indent.exit.i60.i, label %.lr.ph.i.i57.i
 
 indent.exit.i60.i:                                ; preds = %.lr.ph.i.i57.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %.sroa.39.1.i3258.i.i, ptr %28, align 8
-  %924 = call double @strtod(ptr noundef nonnull %.sroa.39.1.i3258.i.i, ptr noundef nonnull %28) #14
-  %925 = load ptr, ptr %28, align 8
-  %.not.i5.i61.i = icmp eq ptr %925, %.sroa.39.1.i3258.i.i
+  %945 = call double @strtod(ptr noundef nonnull %.sroa.39.1.i3258.i.i, ptr noundef nonnull %28) #14
+  %946 = load ptr, ptr %28, align 8
+  %.not.i5.i61.i = icmp eq ptr %946, %.sroa.39.1.i3258.i.i
   br i1 %.not.i5.i61.i, label %.loopexit.i63.i, label %.preheader.i.i62.i
 
-.preheader.i.i62.i:                               ; preds = %indent.exit.i60.i, %928
-  %926 = phi ptr [ %929, %928 ], [ %925, %indent.exit.i60.i ]
-  %927 = load i8, ptr %926, align 1
-  switch i8 %927, label %.loopexit.i63.i [
-    i8 9, label %928
-    i8 10, label %928
-    i8 11, label %928
-    i8 12, label %928
-    i8 13, label %928
-    i8 32, label %928
-    i8 0, label %930
+.preheader.i.i62.i:                               ; preds = %indent.exit.i60.i, %949
+  %947 = phi ptr [ %950, %949 ], [ %946, %indent.exit.i60.i ]
+  %948 = load i8, ptr %947, align 1
+  switch i8 %948, label %.loopexit.i63.i [
+    i8 9, label %949
+    i8 10, label %949
+    i8 11, label %949
+    i8 12, label %949
+    i8 13, label %949
+    i8 32, label %949
+    i8 0, label %951
   ]
 
-928:                                              ; preds = %.preheader.i.i62.i, %.preheader.i.i62.i, %.preheader.i.i62.i, %.preheader.i.i62.i, %.preheader.i.i62.i, %.preheader.i.i62.i
-  %929 = getelementptr inbounds i8, ptr %926, i64 1
+949:                                              ; preds = %.preheader.i.i62.i, %.preheader.i.i62.i, %.preheader.i.i62.i, %.preheader.i.i62.i, %.preheader.i.i62.i, %.preheader.i.i62.i
+  %950 = getelementptr inbounds i8, ptr %947, i64 1
   br label %.preheader.i.i62.i
 
-930:                                              ; preds = %.preheader.i.i62.i
+951:                                              ; preds = %.preheader.i.i62.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  %931 = load ptr, ptr @outFile, align 8
-  %932 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %931, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.55, ptr noundef nonnull %.sroa.39.1.i3258.i.i) #14
+  %952 = load ptr, ptr @outFile, align 8
+  %953 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %952, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.55, ptr noundef nonnull %.sroa.39.1.i3258.i.i) #14
   br label %emitAttr.exit64.i
 
 .loopexit.i63.i:                                  ; preds = %.preheader.i.i62.i, %indent.exit.i60.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  %933 = load ptr, ptr @outFile, align 8
-  %934 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %933, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.55) #14
-  %935 = load ptr, ptr @outFile, align 8
-  %936 = call i32 @xml_escape(ptr noundef nonnull %.sroa.39.1.i3258.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %935) #14
-  %937 = load ptr, ptr @outFile, align 8
-  %938 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %937)
+  %954 = load ptr, ptr @outFile, align 8
+  %955 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %954, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.55) #14
+  %956 = load ptr, ptr @outFile, align 8
+  %957 = call i32 @xml_escape(ptr noundef nonnull %.sroa.39.1.i3258.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %956) #14
+  %958 = load ptr, ptr @outFile, align 8
+  %959 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %958)
   br label %emitAttr.exit64.i
 
-emitAttr.exit64.i:                                ; preds = %.loopexit.i63.i, %930, %emitAttr.exit72.i
+emitAttr.exit64.i:                                ; preds = %.loopexit.i63.i, %951, %emitAttr.exit72.i
   %.not133.i.i34.i = icmp eq ptr %.sroa.42.1.i3356.i.i, null
   br i1 %.not133.i.i34.i, label %emitAttr.exit.i, label %.lr.ph.i.i54.i
 
 .lr.ph.i.i54.i:                                   ; preds = %emitAttr.exit64.i, %.lr.ph.i.i54.i
-  %.02.i.i.i = phi i32 [ %939, %.lr.ph.i.i54.i ], [ 3, %emitAttr.exit64.i ]
-  %939 = add nsw i32 %.02.i.i.i, -1
-  %940 = load ptr, ptr @outFile, align 8
-  %941 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %940)
-  %.not.i.i55.i = icmp eq i32 %939, 0
+  %.02.i.i.i = phi i32 [ %960, %.lr.ph.i.i54.i ], [ 3, %emitAttr.exit64.i ]
+  %960 = add nsw i32 %.02.i.i.i, -1
+  %961 = load ptr, ptr @outFile, align 8
+  %962 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %961)
+  %.not.i.i55.i = icmp eq i32 %960, 0
   br i1 %.not.i.i55.i, label %indent.exit.i.i, label %.lr.ph.i.i54.i
 
 indent.exit.i.i:                                  ; preds = %.lr.ph.i.i54.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   store ptr %.sroa.42.1.i3356.i.i, ptr %29, align 8
-  %942 = call double @strtod(ptr noundef nonnull %.sroa.42.1.i3356.i.i, ptr noundef nonnull %29) #14
-  %943 = load ptr, ptr %29, align 8
-  %.not.i5.i.i = icmp eq ptr %943, %.sroa.42.1.i3356.i.i
+  %963 = call double @strtod(ptr noundef nonnull %.sroa.42.1.i3356.i.i, ptr noundef nonnull %29) #14
+  %964 = load ptr, ptr %29, align 8
+  %.not.i5.i.i = icmp eq ptr %964, %.sroa.42.1.i3356.i.i
   br i1 %.not.i5.i.i, label %.loopexit.i56.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %indent.exit.i.i, %946
-  %944 = phi ptr [ %947, %946 ], [ %943, %indent.exit.i.i ]
-  %945 = load i8, ptr %944, align 1
-  switch i8 %945, label %.loopexit.i56.i [
-    i8 9, label %946
-    i8 10, label %946
-    i8 11, label %946
-    i8 12, label %946
-    i8 13, label %946
-    i8 32, label %946
-    i8 0, label %948
+.preheader.i.i.i:                                 ; preds = %indent.exit.i.i, %967
+  %965 = phi ptr [ %968, %967 ], [ %964, %indent.exit.i.i ]
+  %966 = load i8, ptr %965, align 1
+  switch i8 %966, label %.loopexit.i56.i [
+    i8 9, label %967
+    i8 10, label %967
+    i8 11, label %967
+    i8 12, label %967
+    i8 13, label %967
+    i8 32, label %967
+    i8 0, label %969
   ]
 
-946:                                              ; preds = %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i
-  %947 = getelementptr inbounds i8, ptr %944, i64 1
+967:                                              ; preds = %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i
+  %968 = getelementptr inbounds i8, ptr %965, i64 1
   br label %.preheader.i.i.i
 
-948:                                              ; preds = %.preheader.i.i.i
+969:                                              ; preds = %.preheader.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  %949 = load ptr, ptr @outFile, align 8
-  %950 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %949, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.56, ptr noundef nonnull %.sroa.42.1.i3356.i.i) #14
+  %970 = load ptr, ptr @outFile, align 8
+  %971 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %970, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.56, ptr noundef nonnull %.sroa.42.1.i3356.i.i) #14
   br label %emitAttr.exit.i
 
 .loopexit.i56.i:                                  ; preds = %.preheader.i.i.i, %indent.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  %951 = load ptr, ptr @outFile, align 8
-  %952 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %951, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.56) #14
-  %953 = load ptr, ptr @outFile, align 8
-  %954 = call i32 @xml_escape(ptr noundef nonnull %.sroa.42.1.i3356.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %953) #14
-  %955 = load ptr, ptr @outFile, align 8
-  %956 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %955)
+  %972 = load ptr, ptr @outFile, align 8
+  %973 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %972, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.56) #14
+  %974 = load ptr, ptr @outFile, align 8
+  %975 = call i32 @xml_escape(ptr noundef nonnull %.sroa.42.1.i3356.i.i, i32 6, ptr noundef nonnull @put, ptr noundef %974) #14
+  %976 = load ptr, ptr @outFile, align 8
+  %977 = call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %976)
   br label %emitAttr.exit.i
 
-emitAttr.exit.i:                                  ; preds = %.loopexit.i56.i, %948, %emitAttr.exit64.i
-  %957 = load ptr, ptr @outFile, align 8
-  %958 = call i64 @fwrite(ptr nonnull @.str.51, i64 6, i64 1, ptr %957)
+emitAttr.exit.i:                                  ; preds = %.loopexit.i56.i, %969, %emitAttr.exit64.i
+  %978 = load ptr, ptr @outFile, align 8
+  %979 = call i64 @fwrite(ptr nonnull @.str.51, i64 6, i64 1, ptr %978)
   br label %emitEdge.exit.i
 
-emitEdge.exit.i:                                  ; preds = %emitAttr.exit.i, %879, %.lr.ph234.i
-  %.5173.i = phi double [ %.1169226.i, %.lr.ph234.i ], [ %.4172.i, %879 ], [ %.4172.i, %emitAttr.exit.i ]
-  %.5167.i = phi double [ %.1163227.i, %.lr.ph234.i ], [ %.4166.i, %879 ], [ %.4166.i, %emitAttr.exit.i ]
-  %.5161.i = phi double [ %.1157228.i, %.lr.ph234.i ], [ %.4160.i, %879 ], [ %.4160.i, %emitAttr.exit.i ]
-  %.5.i = phi double [ %.1155229.i, %.lr.ph234.i ], [ %.4.i, %879 ], [ %.4.i, %emitAttr.exit.i ]
-  %959 = load ptr, ptr @outFile, align 8
-  %960 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %959)
-  %961 = call ptr @agnxtout(ptr noundef nonnull %86, ptr noundef nonnull %.0230.i) #14
-  %.not22.i = icmp eq ptr %961, null
-  br i1 %.not22.i, label %._crit_edge235.i, label %.lr.ph234.i
+emitEdge.exit.i:                                  ; preds = %emitAttr.exit.i, %900, %.lr.ph237.i
+  %.5173.i = phi double [ %.1169229.i, %.lr.ph237.i ], [ %.4172.i, %900 ], [ %.4172.i, %emitAttr.exit.i ]
+  %.5167.i = phi double [ %.1163230.i, %.lr.ph237.i ], [ %.4166.i, %900 ], [ %.4166.i, %emitAttr.exit.i ]
+  %.5161.i = phi double [ %.1157231.i, %.lr.ph237.i ], [ %.4160.i, %900 ], [ %.4160.i, %emitAttr.exit.i ]
+  %.5.i = phi double [ %.1155232.i, %.lr.ph237.i ], [ %.4.i, %900 ], [ %.4.i, %emitAttr.exit.i ]
+  %980 = load ptr, ptr @outFile, align 8
+  %981 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %980)
+  %982 = call ptr @agnxtout(ptr noundef nonnull %86, ptr noundef nonnull %.0233.i) #14
+  %.not22.i = icmp eq ptr %982, null
+  br i1 %.not22.i, label %._crit_edge238.i, label %.lr.ph237.i
 
-._crit_edge235.i:                                 ; preds = %emitEdge.exit.i, %.lr.ph246.i
-  %.1169.lcssa.i = phi double [ %.0168240.i, %.lr.ph246.i ], [ %.5173.i, %emitEdge.exit.i ]
-  %.1163.lcssa.i = phi double [ %.0162241.i, %.lr.ph246.i ], [ %.5167.i, %emitEdge.exit.i ]
-  %.1157.lcssa.i = phi double [ %.0156242.i, %.lr.ph246.i ], [ %.5161.i, %emitEdge.exit.i ]
-  %.1155.lcssa.i = phi double [ %.0154243.i, %.lr.ph246.i ], [ %.5.i, %emitEdge.exit.i ]
-  %962 = call ptr @agnxtnode(ptr noundef nonnull %86, ptr noundef nonnull %.1244.i) #14
-  %.not21.i = icmp eq ptr %962, null
-  br i1 %.not21.i, label %gv_to_gml.exit, label %.lr.ph246.i
+._crit_edge238.i:                                 ; preds = %emitEdge.exit.i, %.lr.ph249.i
+  %.1169.lcssa.i = phi double [ %.0168243.i, %.lr.ph249.i ], [ %.5173.i, %emitEdge.exit.i ]
+  %.1163.lcssa.i = phi double [ %.0162244.i, %.lr.ph249.i ], [ %.5167.i, %emitEdge.exit.i ]
+  %.1157.lcssa.i = phi double [ %.0156245.i, %.lr.ph249.i ], [ %.5161.i, %emitEdge.exit.i ]
+  %.1155.lcssa.i = phi double [ %.0154246.i, %.lr.ph249.i ], [ %.5.i, %emitEdge.exit.i ]
+  %983 = call ptr @agnxtnode(ptr noundef nonnull %86, ptr noundef nonnull %.1247.i) #14
+  %.not21.i = icmp eq ptr %983, null
+  br i1 %.not21.i, label %gv_to_gml.exit, label %.lr.ph249.i
 
-gv_to_gml.exit:                                   ; preds = %._crit_edge235.i, %._crit_edge.i
-  %963 = load ptr, ptr @outFile, align 8
-  %964 = call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %963)
-  %965 = load ptr, ptr @outFile, align 8
-  %966 = call i32 @fflush(ptr noundef %965)
-  %967 = call ptr @nextGraph(ptr noundef nonnull %33) #14
-  %.not = icmp eq ptr %967, null
+gv_to_gml.exit:                                   ; preds = %._crit_edge238.i, %._crit_edge.i
+  %984 = load ptr, ptr @outFile, align 8
+  %985 = call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %984)
+  %986 = load ptr, ptr @outFile, align 8
+  %987 = call i32 @fflush(ptr noundef %986)
+  %988 = call ptr @nextGraph(ptr noundef nonnull %33) #14
+  %.not = icmp eq ptr %988, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %gv_to_gml.exit, %initargs.exit

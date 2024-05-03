@@ -16,13 +16,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [8 x i8] c"LC_TIME\00", align 1
 @.str.9 = private unnamed_addr constant [7 x i8] c"LC_ALL\00", align 1
 @.str.10 = private unnamed_addr constant [7 x i8] c"--help\00", align 1
-@.str.11 = private unnamed_addr constant [3 x i8] c"-?\00", align 1
 @.str.12 = private unnamed_addr constant [10 x i8] c"--version\00", align 1
-@.str.13 = private unnamed_addr constant [3 x i8] c"-V\00", align 1
 @.str.14 = private unnamed_addr constant [31 x i8] c"postgres (PostgreSQL) 17devel\0A\00", align 1
 @stdout = external local_unnamed_addr global ptr, align 8
 @.str.15 = private unnamed_addr constant [18 x i8] c"--describe-config\00", align 1
-@.str.16 = private unnamed_addr constant [3 x i8] c"-C\00", align 1
 @.str.17 = private unnamed_addr constant [8 x i8] c"--check\00", align 1
 @.str.18 = private unnamed_addr constant [7 x i8] c"--boot\00", align 1
 @.str.19 = private unnamed_addr constant [9 x i8] c"--single\00", align 1
@@ -198,72 +195,109 @@ init_locale.exit39:                               ; preds = %init_locale.exit38,
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(7) @.str.10) #16
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %65, label %62
+  br i1 %61, label %68, label %sub_0
 
-62:                                               ; preds = %57
-  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(3) @.str.11) #16
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %67
+sub_0:                                            ; preds = %57
+  %62 = load i8, ptr %59, align 1
+  %.not51 = icmp ne i8 %62, 45
+  br i1 %.not51, label %.tail.thread.thread, label %sub_1
 
-65:                                               ; preds = %62, %57
-  %66 = load ptr, ptr @progname, align 8
-  tail call fastcc void @help(ptr noundef %66)
+sub_1:                                            ; preds = %sub_0
+  %63 = getelementptr inbounds i8, ptr %59, i64 1
+  %64 = load i8, ptr %63, align 1
+  %.not52 = icmp eq i8 %64, 63
+  br i1 %.not52, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %65 = getelementptr inbounds i8, ptr %59, i64 2
+  %66 = load i8, ptr %65, align 1
+  %67 = icmp eq i8 %66, 0
+  br i1 %67, label %68, label %.thread
+
+68:                                               ; preds = %.tail, %57
+  %69 = load ptr, ptr @progname, align 8
+  tail call fastcc void @help(ptr noundef %69)
   tail call void @exit(i32 noundef 0) #17
   unreachable
 
-67:                                               ; preds = %62
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(10) @.str.12) #16
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %73, label %70
+.tail.thread:                                     ; preds = %sub_1
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(10) @.str.12) #16
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %81, label %sub_143
 
-70:                                               ; preds = %67
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(3) @.str.13) #16
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %76
+.tail.thread.thread:                              ; preds = %sub_0
+  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(10) @.str.12) #16
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %81, label %.tail41.thread
 
-73:                                               ; preds = %70, %67
-  %74 = load ptr, ptr @stdout, align 8
-  %75 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 30, i64 1, ptr %74)
+.thread:                                          ; preds = %.tail
+  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(10) @.str.12) #16
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %81, label %sub_143
+
+sub_143:                                          ; preds = %.tail.thread, %.thread
+  %76 = getelementptr inbounds i8, ptr %59, i64 1
+  %77 = load i8, ptr %76, align 1
+  %.not54 = icmp eq i8 %77, 86
+  br i1 %.not54, label %.tail41, label %.tail41.thread
+
+.tail41:                                          ; preds = %sub_143
+  %78 = getelementptr inbounds i8, ptr %59, i64 2
+  %79 = load i8, ptr %78, align 1
+  %80 = icmp eq i8 %79, 0
+  br i1 %80, label %81, label %.tail41.thread
+
+81:                                               ; preds = %.tail.thread.thread, %.thread, %.tail41, %.tail.thread
+  %82 = load ptr, ptr @stdout, align 8
+  %83 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 30, i64 1, ptr %82)
   tail call void @exit(i32 noundef 0) #17
   unreachable
 
-76:                                               ; preds = %70
-  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(18) @.str.15) #16
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.critedge30.thread, label %79
+.tail41.thread:                                   ; preds = %.tail.thread.thread, %sub_143, %.tail41
+  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(18) @.str.15) #16
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %.critedge30.thread, label %86
 
-79:                                               ; preds = %76
+86:                                               ; preds = %.tail41.thread
   %.not = icmp eq i32 %0, 2
-  br i1 %.not, label %.critedge, label %80
+  %brmerge = or i1 %.not, %.not51
+  br i1 %brmerge, label %.critedge, label %sub_148
 
-80:                                               ; preds = %79
-  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(3) @.str.16) #16
-  %.not40 = icmp eq i32 %81, 0
-  br i1 %.not40, label %.critedge30.thread, label %.critedge
+sub_148:                                          ; preds = %86
+  %87 = getelementptr inbounds i8, ptr %59, i64 1
+  %88 = load i8, ptr %87, align 1
+  %.not56 = icmp eq i8 %88, 67
+  br i1 %.not56, label %.tail46, label %.critedge
 
-.critedge:                                        ; preds = %79, %init_locale.exit39, %80
-  %82 = load ptr, ptr @progname, align 8
-  %83 = tail call i32 @geteuid() #14
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %86
+.tail46:                                          ; preds = %sub_148
+  %89 = getelementptr inbounds i8, ptr %59, i64 2
+  %90 = load i8, ptr %89, align 1
+  %91 = icmp eq i8 %90, 0
+  br i1 %91, label %.critedge30.thread, label %.critedge
 
-85:                                               ; preds = %.critedge
+.critedge:                                        ; preds = %86, %sub_148, %init_locale.exit39, %.tail46
+  %92 = load ptr, ptr @progname, align 8
+  %93 = tail call i32 @geteuid() #14
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %96
+
+95:                                               ; preds = %.critedge
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.67) #14
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
-86:                                               ; preds = %.critedge
-  %87 = tail call i32 @getuid() #14
-  %88 = tail call i32 @geteuid() #14
-  %.not.i = icmp eq i32 %87, %88
-  br i1 %.not.i, label %.critedge30, label %89
+96:                                               ; preds = %.critedge
+  %97 = tail call i32 @getuid() #14
+  %98 = tail call i32 @geteuid() #14
+  %.not.i = icmp eq i32 %97, %98
+  br i1 %.not.i, label %.critedge30, label %99
 
-89:                                               ; preds = %86
-  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.68, ptr noundef %82) #14
+99:                                               ; preds = %96
+  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.68, ptr noundef %92) #14
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
-.critedge30:                                      ; preds = %86
+.critedge30:                                      ; preds = %96
   br i1 %56, label %.critedge30..critedge30.thread_crit_edge, label %.critedge34
 
 .critedge30..critedge30.thread_crit_edge:         ; preds = %.critedge30
@@ -271,44 +305,44 @@ init_locale.exit39:                               ; preds = %init_locale.exit38,
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.critedge30.thread
 
-.critedge30.thread:                               ; preds = %.critedge30..critedge30.thread_crit_edge, %80, %76
-  %90 = phi ptr [ %.pre, %.critedge30..critedge30.thread_crit_edge ], [ %59, %80 ], [ %59, %76 ]
-  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(8) @.str.17) #16
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %94
+.critedge30.thread:                               ; preds = %.critedge30..critedge30.thread_crit_edge, %.tail46, %.tail41.thread
+  %100 = phi ptr [ %.pre, %.critedge30..critedge30.thread_crit_edge ], [ %59, %.tail46 ], [ %59, %.tail41.thread ]
+  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(8) @.str.17) #16
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %104
 
-93:                                               ; preds = %.critedge30.thread
+103:                                              ; preds = %.critedge30.thread
   tail call void @BootstrapModeMain(i32 noundef %0, ptr noundef nonnull %5, i1 noundef zeroext true) #17
   unreachable
 
-94:                                               ; preds = %.critedge30.thread
-  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(7) @.str.18) #16
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %.critedge32
+104:                                              ; preds = %.critedge30.thread
+  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(7) @.str.18) #16
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %.critedge32
 
-97:                                               ; preds = %94
+107:                                              ; preds = %104
   tail call void @BootstrapModeMain(i32 noundef %0, ptr noundef nonnull %5, i1 noundef zeroext false) #17
   unreachable
 
-.critedge32:                                      ; preds = %94
-  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(18) @.str.15) #16
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %.critedge33
+.critedge32:                                      ; preds = %104
+  %108 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(18) @.str.15) #16
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %.critedge33
 
-100:                                              ; preds = %.critedge32
+110:                                              ; preds = %.critedge32
   tail call void @GucInfoMain() #17
   unreachable
 
 .critedge33:                                      ; preds = %.critedge32
-  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(9) @.str.19) #16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %.critedge34
+  %111 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(9) @.str.19) #16
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %.critedge34
 
-103:                                              ; preds = %.critedge33
-  %104 = load ptr, ptr @progname, align 8
-  %105 = tail call ptr @get_user_name_or_exit(ptr noundef %104) #14
-  %106 = tail call noalias ptr @strdup(ptr noundef %105) #14
-  tail call void @PostgresSingleUserMain(i32 noundef %0, ptr noundef nonnull %5, ptr noundef %106) #17
+113:                                              ; preds = %.critedge33
+  %114 = load ptr, ptr @progname, align 8
+  %115 = tail call ptr @get_user_name_or_exit(ptr noundef %114) #14
+  %116 = tail call noalias ptr @strdup(ptr noundef %115) #14
+  tail call void @PostgresSingleUserMain(i32 noundef %0, ptr noundef nonnull %5, ptr noundef %116) #17
   unreachable
 
 .critedge34:                                      ; preds = %.critedge30, %.critedge33

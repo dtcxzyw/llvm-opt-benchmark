@@ -42,8 +42,6 @@ $_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi = comdat any
 
 $_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
 
-@.str = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.1 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.3 = private unnamed_addr constant [11 x i8] c"%s:%d: %s\0A\00", align 1
@@ -517,9 +515,9 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp4.not, label %if.else55, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.then3
-  %call654 = tail call ptr @readdir(ptr noundef nonnull %call)
-  %cmp7.not55 = icmp eq ptr %call654, null
-  br i1 %cmp7.not55, label %while.end, label %while.body.lr.ph
+  %call657 = tail call ptr @readdir(ptr noundef nonnull %call)
+  %cmp7.not58 = icmp eq ptr %call657, null
+  br i1 %cmp7.not58, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %len.i = getelementptr inbounds i8, ptr %newpath, i64 56
@@ -528,33 +526,55 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end53
-  %call656 = phi ptr [ %call654, %while.body.lr.ph ], [ %call6, %if.end53 ]
-  %d_name = getelementptr inbounds i8, ptr %call656, i64 19
-  %call8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(2) @.str) #15
-  %cmp9.not = icmp eq i32 %call8, 0
-  br i1 %cmp9.not, label %if.end53, label %land.lhs.true
+  %call659 = phi ptr [ %call657, %while.body.lr.ph ], [ %call6, %if.end53 ]
+  %d_name = getelementptr inbounds i8, ptr %call659, i64 19
+  %0 = load i8, ptr %d_name, align 1
+  %1 = zext i8 %0 to i32
+  %2 = add nsw i32 %1, -46
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %while.body.tail, label %land.lhs.true.tail
 
-land.lhs.true:                                    ; preds = %while.body
-  %call12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(3) @.str.1) #15
-  %cmp13.not = icmp eq i32 %call12, 0
+while.body.tail:                                  ; preds = %while.body
+  %3 = getelementptr inbounds i8, ptr %call659, i64 20
+  %4 = load i8, ptr %3, align 1
+  %cmp9.not = icmp eq i8 %4, 0
+  br i1 %cmp9.not, label %if.end53, label %sub_148
+
+sub_148:                                          ; preds = %while.body.tail
+  %5 = getelementptr inbounds i8, ptr %call659, i64 20
+  %6 = load i8, ptr %5, align 1
+  %7 = zext i8 %6 to i32
+  %8 = add nsw i32 %7, -46
+  %.not61 = icmp eq i32 %8, 0
+  br i1 %.not61, label %sub_2, label %land.lhs.true.tail
+
+sub_2:                                            ; preds = %sub_148
+  %9 = getelementptr inbounds i8, ptr %call659, i64 21
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i32
+  br label %land.lhs.true.tail
+
+land.lhs.true.tail:                               ; preds = %while.body, %sub_148, %sub_2
+  %12 = phi i32 [ %8, %sub_148 ], [ %11, %sub_2 ], [ %2, %while.body ]
+  %cmp13.not = icmp eq i32 %12, 0
   br i1 %cmp13.not, label %if.end53, label %if.then14
 
-if.then14:                                        ; preds = %land.lhs.true
+if.then14:                                        ; preds = %land.lhs.true.tail
   store i32 0, ptr %status, align 4
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath)
   store i32 0, ptr %len.i, align 8
-  %0 = load ptr, ptr %newpath, align 8
-  store i8 0, ptr %0, align 1
+  %13 = load ptr, ptr %newpath, align 8
+  store i8 0, ptr %13, align 1
   %call3.i = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %newpath, ptr noundef %checkAgainst, i32 noundef -1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %lpad.loopexit47, %lpad.loopexit ], [ %lpad.loopexit.split-lp48, %lpad.loopexit.split-lp ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %lpad.i ], [ %lpad.loopexit50, %lpad.loopexit ], [ %lpad.loopexit.split-lp51, %lpad.loopexit.split-lp ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #12
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then14
-  %1 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -567,35 +587,35 @@ invoke.cont:                                      ; preds = %_ZN6icu_7510CharStr
           to label %invoke.cont18 unwind label %lpad.loopexit
 
 invoke.cont18:                                    ; preds = %invoke.cont
-  %2 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %2, 1
+  %15 = load i32, ptr %status, align 4
+  %cmp.i = icmp slt i32 %15, 1
   br i1 %cmp.i, label %if.end27, label %if.then22
 
 if.then22:                                        ; preds = %invoke.cont18
-  %3 = load ptr, ptr @stderr, align 8
-  %call24 = invoke ptr @u_errorName_75(i32 noundef %2)
+  %16 = load ptr, ptr @stderr, align 8
+  %call24 = invoke ptr @u_errorName_75(i32 noundef %15)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit, %invoke.cont, %if.then33
-  %lpad.loopexit47 = landingpad { ptr, i32 }
+  %lpad.loopexit50 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 lpad.loopexit.split-lp:                           ; preds = %if.then22
-  %lpad.loopexit.split-lp48 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp51 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end27:                                         ; preds = %invoke.cont18
-  %4 = load ptr, ptr %newpath, align 8
-  %call31 = call ptr @opendir(ptr noundef %4)
+  %17 = load ptr, ptr %newpath, align 8
+  %call31 = call ptr @opendir(ptr noundef %17)
   %cmp32.not = icmp eq ptr %call31, null
   br i1 %cmp32.not, label %if.else, label %if.then33
 
 if.then33:                                        ; preds = %if.end27
   %call35 = call i32 @closedir(ptr noundef nonnull %call31)
-  %5 = load ptr, ptr %newpath, align 8
-  %call39 = invoke signext i8 @isFileModTimeLater(ptr noundef %filePath, ptr noundef %5, i8 noundef signext 1)
+  %18 = load ptr, ptr %newpath, align 8
+  %call39 = invoke signext i8 @isFileModTimeLater(ptr noundef %filePath, ptr noundef %18, i8 noundef signext 1)
           to label %invoke.cont38 unwind label %lpad.loopexit
 
 invoke.cont38:                                    ; preds = %if.then33
@@ -603,7 +623,7 @@ invoke.cont38:                                    ; preds = %if.then33
   br i1 %tobool40.not, label %cleanup.thread, label %cleanup.thread44
 
 if.else:                                          ; preds = %if.end27
-  %6 = load ptr, ptr %newpath, align 8
+  %19 = load ptr, ptr %newpath, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stbuf1.i)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stbuf2.i)
   %call.i = call i32 @stat(ptr noundef %filePath, ptr noundef nonnull %stbuf1.i) #12
@@ -611,14 +631,14 @@ if.else:                                          ; preds = %if.end27
   br i1 %cmp.i18, label %land.lhs.true.i, label %if.else11.i
 
 land.lhs.true.i:                                  ; preds = %if.else
-  %call1.i = call i32 @stat(ptr noundef %6, ptr noundef nonnull %stbuf2.i) #12
+  %call1.i = call i32 @stat(ptr noundef %19, ptr noundef nonnull %stbuf2.i) #12
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %if.then.i, label %if.else11.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %7 = load i64, ptr %st_mtim.i, align 8
-  %8 = load i64, ptr %st_mtim3.i, align 8
-  %call5.i = call double @difftime(i64 noundef %7, i64 noundef %8) #16
+  %20 = load i64, ptr %st_mtim.i, align 8
+  %21 = load i64, ptr %st_mtim3.i, align 8
+  %call5.i = call double @difftime(i64 noundef %20, i64 noundef %21) #15
   %cmp6.i = fcmp olt double %call5.i, 0.000000e+00
   br i1 %cmp6.i, label %invoke.cont45.thread, label %if.else.i
 
@@ -628,8 +648,8 @@ if.else.i:                                        ; preds = %if.then.i
   br label %cleanup.thread44
 
 if.else11.i:                                      ; preds = %land.lhs.true.i, %if.else
-  %9 = load ptr, ptr @stderr, align 8
-  %call12.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.6, ptr noundef %filePath, ptr noundef %6) #17
+  %22 = load ptr, ptr @stderr, align 8
+  %call12.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.6, ptr noundef %filePath, ptr noundef %19) #16
   br label %invoke.cont45.thread
 
 invoke.cont45.thread:                             ; preds = %if.then.i, %if.else11.i
@@ -646,11 +666,11 @@ cleanup.thread:                                   ; preds = %invoke.cont38, %inv
   br label %while.end
 
 cleanup:                                          ; preds = %if.then22
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 66, ptr noundef %call24) #17
+  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 66, ptr noundef %call24) #16
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #12
   br label %return
 
-if.end53:                                         ; preds = %cleanup.thread44, %land.lhs.true, %while.body
+if.end53:                                         ; preds = %cleanup.thread44, %land.lhs.true.tail, %while.body.tail
   %call6 = call ptr @readdir(ptr noundef nonnull %call)
   %cmp7.not = icmp eq ptr %call6, null
   br i1 %cmp7.not, label %while.end, label %while.body, !llvm.loop !4
@@ -661,8 +681,8 @@ while.end:                                        ; preds = %if.end53, %while.co
   br label %return
 
 if.else55:                                        ; preds = %if.then3
-  %10 = load ptr, ptr @stderr, align 8
-  %call56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.5, ptr noundef nonnull %checkAgainst) #17
+  %23 = load ptr, ptr @stderr, align 8
+  %call56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.5, ptr noundef nonnull %checkAgainst) #16
   br label %return
 
 if.else58:                                        ; preds = %if.end
@@ -684,10 +704,10 @@ land.lhs.true.i26:                                ; preds = %if.then61
 
 if.then.i29:                                      ; preds = %land.lhs.true.i26
   %st_mtim.i30 = getelementptr inbounds i8, ptr %stbuf1.i19, i64 88
-  %11 = load i64, ptr %st_mtim.i30, align 8
+  %24 = load i64, ptr %st_mtim.i30, align 8
   %st_mtim3.i31 = getelementptr inbounds i8, ptr %stbuf2.i20, i64 88
-  %12 = load i64, ptr %st_mtim3.i31, align 8
-  %call5.i32 = tail call double @difftime(i64 noundef %11, i64 noundef %12) #16
+  %25 = load i64, ptr %st_mtim3.i31, align 8
+  %call5.i32 = tail call double @difftime(i64 noundef %24, i64 noundef %25) #15
   %cmp6.i33 = fcmp olt double %call5.i32, 0.000000e+00
   br i1 %cmp6.i33, label %_ZL23whichFileModTimeIsLaterPKcS0_.exit37, label %if.else.i34
 
@@ -695,8 +715,8 @@ if.else.i34:                                      ; preds = %if.then.i29
   br label %_ZL23whichFileModTimeIsLaterPKcS0_.exit37
 
 if.else11.i23:                                    ; preds = %land.lhs.true.i26, %if.then61
-  %13 = load ptr, ptr @stderr, align 8
-  %call12.i24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.6, ptr noundef nonnull %filePath, ptr noundef nonnull %checkAgainst) #17
+  %26 = load ptr, ptr @stderr, align 8
+  %call12.i24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.6, ptr noundef nonnull %filePath, ptr noundef nonnull %checkAgainst) #16
   br label %_ZL23whichFileModTimeIsLaterPKcS0_.exit37
 
 _ZL23whichFileModTimeIsLaterPKcS0_.exit37:        ; preds = %if.else.i34, %if.then.i29, %if.else11.i23
@@ -715,9 +735,6 @@ declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnam
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
-
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
@@ -731,9 +748,9 @@ declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #6
 declare signext i8 @T_FileStream_file_exists(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define void @swapFileSepChar(ptr nocapture noundef %filePath, i8 noundef signext %oldFileSepChar, i8 noundef signext %newFileSepChar) local_unnamed_addr #8 {
+define void @swapFileSepChar(ptr nocapture noundef %filePath, i8 noundef signext %oldFileSepChar, i8 noundef signext %newFileSepChar) local_unnamed_addr #7 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filePath) #15
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filePath) #17
   %conv = trunc i64 %call to i32
   %cmp8 = icmp sgt i32 %conv, 0
   br i1 %cmp8, label %for.body.preheader, label %for.end
@@ -758,7 +775,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
@@ -782,17 +799,17 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 attributes #13 = { allocsize(0) }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { cold }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { cold }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

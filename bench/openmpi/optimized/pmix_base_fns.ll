@@ -56,12 +56,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [9 x i8] c"OMPIHOME\00", align 1
 @.str.17 = private unnamed_addr constant [4 x i8] c"etc\00", align 1
 @.str.18 = private unnamed_addr constant [24 x i8] c"openmpi-mca-params.conf\00", align 1
-@.str.19 = private unnamed_addr constant [4 x i8] c"dl_\00", align 1
 @.str.20 = private unnamed_addr constant [16 x i8] c"PMIX_MCA_pdl_%s\00", align 1
 @.str.21 = private unnamed_addr constant [5 x i8] c"oob_\00", align 1
 @.str.22 = private unnamed_addr constant [16 x i8] c"PMIX_MCA_ptl_%s\00", align 1
 @.str.23 = private unnamed_addr constant [7 x i8] c"hwloc_\00", align 1
-@.str.24 = private unnamed_addr constant [4 x i8] c"if_\00", align 1
 @.str.25 = private unnamed_addr constant [16 x i8] c"PMIX_MCA_pif_%s\00", align 1
 @.str.26 = private unnamed_addr constant [5 x i8] c"pmix\00", align 1
 @pmix_framework_names = external local_unnamed_addr global [0 x ptr], align 8
@@ -796,7 +794,7 @@ opal_obj_run_destructors.exit9:                   ; preds = %.lr.ph.i6, %opal_li
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_pmix_convert_jobid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_pmix_convert_jobid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @PMIx_Load_nspace(ptr noundef %0, ptr noundef null) #12
   %.09 = load volatile ptr, ptr getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1, i32 1), align 8
   %.not10 = icmp eq ptr %.09, getelementptr inbounds (%struct.opal_list_t, ptr @localnspaces, i64 0, i32 1)
@@ -1105,7 +1103,7 @@ define noundef i32 @opal_pmix_convert_rc(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @opal_pmix_convert_state(i32 noundef %0) local_unnamed_addr #2 {
+define zeroext range(i8 0, 64) i8 @opal_pmix_convert_state(i32 noundef %0) local_unnamed_addr #2 {
   switch i32 %0, label %18 [
     i32 63, label %17
     i32 1, label %2
@@ -1179,7 +1177,7 @@ define noundef zeroext i8 @opal_pmix_convert_state(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @opal_pmix_convert_pstate(i8 noundef zeroext %0) local_unnamed_addr #2 {
+define range(i32 0, 64) i32 @opal_pmix_convert_pstate(i8 noundef zeroext %0) local_unnamed_addr #2 {
   switch i8 %0, label %20 [
     i8 63, label %19
     i8 1, label %2
@@ -1515,54 +1513,78 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @check_pmix_overlap(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = alloca ptr, align 8
-  %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.19, i64 noundef 3) #13
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %9
+sub_0:
+  %2 = alloca ptr, align 8
+  %3 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %3, 100
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 3
-  %8 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, ptr noundef nonnull %7) #12
-  br label %.sink.split
+sub_1:                                            ; preds = %sub_0
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = load i8, ptr %4, align 1
+  %.not18 = icmp eq i8 %5, 108
+  br i1 %.not18, label %.tail, label %.tail.thread
 
-9:                                                ; preds = %2
-  %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.21, i64 noundef 4) #13
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %15
+.tail:                                            ; preds = %sub_1
+  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 95
+  br i1 %8, label %9, label %.tail.thread
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
-  %14 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.22, ptr noundef nonnull %13) #12
-  br label %.sink.split
+9:                                                ; preds = %.tail
+  %10 = getelementptr inbounds i8, ptr %0, i64 3
+  %11 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.20, ptr noundef nonnull %10) #12
+  br label %.tail13.thread.sink.split
 
-15:                                               ; preds = %9
-  %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.23, i64 noundef 6) #13
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %20
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.21, i64 noundef 4) #13
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %17
 
-18:                                               ; preds = %15
-  %19 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, ptr noundef %0) #12
-  br label %.sink.split
+14:                                               ; preds = %.tail.thread
+  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.22, ptr noundef nonnull %15) #12
+  br label %.tail13.thread.sink.split
 
-20:                                               ; preds = %15
-  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.24, i64 noundef 3) #13
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %27
+17:                                               ; preds = %.tail.thread
+  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.23, i64 noundef 6) #13
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %sub_014
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 3
-  %25 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.25, ptr noundef nonnull %24) #12
-  br label %.sink.split
+20:                                               ; preds = %17
+  %21 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.13, ptr noundef nonnull %0) #12
+  br label %.tail13.thread.sink.split
 
-.sink.split:                                      ; preds = %6, %12, %18, %23
-  %.sink13 = load ptr, ptr %3, align 8
-  %26 = call i32 @setenv(ptr noundef %.sink13, ptr noundef %1, i32 noundef 0) #12
-  %.sink = load ptr, ptr %3, align 8
+sub_014:                                          ; preds = %17
+  %.not19 = icmp eq i8 %3, 105
+  br i1 %.not19, label %sub_115, label %.tail13.thread
+
+sub_115:                                          ; preds = %sub_014
+  %22 = getelementptr inbounds i8, ptr %0, i64 1
+  %23 = load i8, ptr %22, align 1
+  %.not20 = icmp eq i8 %23, 102
+  br i1 %.not20, label %.tail13, label %.tail13.thread
+
+.tail13:                                          ; preds = %sub_115
+  %24 = getelementptr inbounds i8, ptr %0, i64 2
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 95
+  br i1 %26, label %27, label %.tail13.thread
+
+27:                                               ; preds = %.tail13
+  %28 = getelementptr inbounds i8, ptr %0, i64 3
+  %29 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.25, ptr noundef nonnull %28) #12
+  br label %.tail13.thread.sink.split
+
+.tail13.thread.sink.split:                        ; preds = %9, %14, %20, %27
+  %.sink21 = load ptr, ptr %2, align 8
+  %30 = call i32 @setenv(ptr noundef %.sink21, ptr noundef %1, i32 noundef 0) #12
+  %.sink = load ptr, ptr %2, align 8
   call void @free(ptr noundef %.sink) #12
-  br label %27
+  br label %.tail13.thread
 
-27:                                               ; preds = %.sink.split, %20
-  %.0 = phi i1 [ false, %20 ], [ true, %.sink.split ]
+.tail13.thread:                                   ; preds = %.tail13.thread.sink.split, %sub_115, %sub_014, %.tail13
+  %.0 = phi i1 [ false, %.tail13 ], [ false, %sub_014 ], [ false, %sub_115 ], [ true, %.tail13.thread.sink.split ]
   ret i1 %.0
 }
 

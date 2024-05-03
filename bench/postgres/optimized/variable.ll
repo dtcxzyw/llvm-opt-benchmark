@@ -892,11 +892,11 @@ switch.early.test:                                ; preds = %33
   store ptr %57, ptr %2, align 8
   %58 = tail call ptr @mm_strdup(ptr noundef nonnull @.str.2) #8
   store ptr %58, ptr %1, align 8
-  %.pre66 = load ptr, ptr %2, align 8
+  %.pre67 = load ptr, ptr %2, align 8
   br label %59
 
 59:                                               ; preds = %56, %55
-  %60 = phi ptr [ %.pre66, %56 ], [ %45, %55 ]
+  %60 = phi ptr [ %.pre67, %56 ], [ %45, %55 ]
   %61 = tail call i32 @atoi(ptr nocapture noundef %60) #9
   %62 = icmp sgt i32 %61, -1
   br i1 %62, label %63, label %102
@@ -912,11 +912,11 @@ switch.early.test:                                ; preds = %33
 65:                                               ; preds = %64
   %66 = tail call ptr @mm_strdup(ptr noundef nonnull @.str.2) #8
   store ptr %66, ptr %1, align 8
-  %.pre65 = load ptr, ptr %2, align 8
+  %.pre66 = load ptr, ptr %2, align 8
   br label %67
 
 67:                                               ; preds = %65, %64
-  %68 = phi ptr [ %.pre65, %65 ], [ %45, %64 ]
+  %68 = phi ptr [ %.pre66, %65 ], [ %45, %64 ]
   %69 = tail call i32 @atoi(ptr nocapture noundef %68) #9
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %102
@@ -956,20 +956,26 @@ switch.early.test:                                ; preds = %33
   %85 = tail call i32 @atoi(ptr nocapture noundef %84) #9
   %86 = icmp sgt i32 %85, -1
   %brmerge = or i1 %86, %6
-  br i1 %brmerge, label %87, label %.sink.split
+  br i1 %brmerge, label %sub_0, label %.tail.thread.sink.split
 
-87:                                               ; preds = %83
-  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(2) @.str.2) #9
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %.sink.split, label %91
+sub_0:                                            ; preds = %83
+  %87 = load i8, ptr %84, align 1
+  %.not65 = icmp eq i8 %87, 48
+  br i1 %.not65, label %.tail, label %.tail.thread
 
-.sink.split:                                      ; preds = %87, %83
-  %.str.10.sink = phi ptr [ @.str.11, %83 ], [ @.str.10, %87 ]
-  %90 = tail call ptr @mm_strdup(ptr noundef nonnull %.str.10.sink) #8
-  br label %91
+.tail:                                            ; preds = %sub_0
+  %88 = getelementptr inbounds i8, ptr %84, i64 1
+  %89 = load i8, ptr %88, align 1
+  %90 = icmp eq i8 %89, 0
+  br i1 %90, label %.tail.thread.sink.split, label %.tail.thread
 
-91:                                               ; preds = %.sink.split, %87
-  %.sink = phi ptr [ %84, %87 ], [ %90, %.sink.split ]
+.tail.thread.sink.split:                          ; preds = %.tail, %83
+  %.str.10.sink = phi ptr [ @.str.11, %83 ], [ @.str.10, %.tail ]
+  %91 = tail call ptr @mm_strdup(ptr noundef nonnull %.str.10.sink) #8
+  br label %.tail.thread
+
+.tail.thread:                                     ; preds = %.tail.thread.sink.split, %.tail, %sub_0
+  %.sink = phi ptr [ %84, %sub_0 ], [ %84, %.tail ], [ %91, %.tail.thread.sink.split ]
   store ptr %.sink, ptr %2, align 8
   %92 = tail call ptr @mm_strdup(ptr noundef nonnull @.str.10) #8
   store ptr %92, ptr %1, align 8
@@ -984,11 +990,11 @@ switch.early.test:                                ; preds = %33
   store ptr %95, ptr %2, align 8
   %96 = tail call ptr @mm_strdup(ptr noundef nonnull @.str.2) #8
   store ptr %96, ptr %1, align 8
-  %.pre67 = load ptr, ptr %2, align 8
+  %.pre68 = load ptr, ptr %2, align 8
   br label %97
 
 97:                                               ; preds = %94, %93
-  %98 = phi ptr [ %.pre67, %94 ], [ %45, %93 ]
+  %98 = phi ptr [ %.pre68, %94 ], [ %45, %93 ]
   %99 = tail call i32 @atoi(ptr nocapture noundef %98) #9
   %100 = icmp sgt i32 %99, -1
   br i1 %100, label %101, label %102
@@ -997,7 +1003,7 @@ switch.early.test:                                ; preds = %33
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 3, ptr noundef nonnull @.str.12) #10
   unreachable
 
-102:                                              ; preds = %97, %79, %91, %67, %71, %59, %75
+102:                                              ; preds = %97, %79, %.tail.thread, %67, %71, %59, %75
   ret void
 }
 

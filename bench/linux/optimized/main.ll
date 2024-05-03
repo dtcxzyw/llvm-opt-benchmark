@@ -327,7 +327,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_loops_per_ji
 @__cpu_online_mask = external dso_local global %struct.cpumask, align 8
 @trace_initcall_finish.__UNIQUE_ID___addressable___SCK__tp_func_initcall_finish674 = internal global ptr @__SCK__tp_func_initcall_finish, section ".discard.addressable", align 8
 @trace_initcall_finish.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace675 = internal global ptr @__SCK__preempt_schedule_notrace, section ".discard.addressable", align 8
-@.str.54 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.55 = private unnamed_addr constant [4 x i8] c"off\00", align 1
 @.str.56 = private unnamed_addr constant [42 x i8] c"\014Invalid option string for rodata: '%s'\0A\00", align 1
 @__init_begin = external dso_local global [0 x i8], align 1
@@ -789,7 +788,7 @@ define internal noundef i32 @quiet_kernel(ptr nocapture readnone %0) #4 section 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @loglevel(ptr noundef %0) #5 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @loglevel(ptr noundef %0) #5 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
@@ -2121,31 +2120,43 @@ declare dso_local i64 @strlcat(ptr noundef, ptr noundef, i64 noundef) local_unna
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @set_debug_rodata(ptr noundef %0) #5 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %11, label %3
+  br i1 %2, label %13, label %sub_0
 
-3:                                                ; preds = %1
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.54) #25
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %7
+sub_0:                                            ; preds = %1
+  %3 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %3, 111
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-6:                                                ; preds = %3
+sub_1:                                            ; preds = %sub_0
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = load i8, ptr %4, align 1
+  %.not1 = icmp eq i8 %5, 110
+  br i1 %.not1, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %9, label %.tail.thread
+
+9:                                                ; preds = %.tail
   store i8 1, ptr @rodata_enabled, align 1
-  br label %13
+  br label %15
 
-7:                                                ; preds = %3
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.55) #25
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %11
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.55) #25
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %13
 
-10:                                               ; preds = %7
+12:                                               ; preds = %.tail.thread
   store i8 0, ptr @rodata_enabled, align 1
-  br label %13
+  br label %15
 
-11:                                               ; preds = %7, %1
-  %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.56, ptr noundef %0) #27
-  br label %13
+13:                                               ; preds = %.tail.thread, %1
+  %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.56, ptr noundef %0) #27
+  br label %15
 
-13:                                               ; preds = %11, %10, %6
+15:                                               ; preds = %13, %12, %9
   ret i32 0
 }
 

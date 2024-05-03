@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @myoptind = dso_local local_unnamed_addr global i32 0, align 4
 @myoptarg = dso_local local_unnamed_addr global ptr null, align 8
 @stdout = external local_unnamed_addr global ptr, align 8
-@.str.1 = private unnamed_addr constant [3 x i8] c"-?\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"--help\00", align 1
 @.str.3 = private unnamed_addr constant [7 x i8] c"--list\00", align 1
 @.str.4 = private unnamed_addr constant [6 x i8] c"--api\00", align 1
@@ -85,19 +84,33 @@ while.body:                                       ; preds = %ChangeToWolfRoot.ex
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load i8, ptr %1, align 1
   %cmp4.not = icmp eq i8 %2, 45
-  br i1 %cmp4.not, label %if.end, label %while.end
+  br i1 %cmp4.not, label %sub_1, label %while.end
 
-if.end:                                           ; preds = %while.body
-  %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.1) #10
-  %cmp8 = icmp eq i32 %call7, 0
+sub_1:                                            ; preds = %while.body
+  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = zext i8 %4 to i32
+  %6 = add nsw i32 %5, -63
+  %.not45 = icmp eq i32 %6, 0
+  br i1 %.not45, label %sub_2, label %if.end.tail
+
+sub_2:                                            ; preds = %sub_1
+  %7 = getelementptr inbounds i8, ptr %1, i64 2
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  br label %if.end.tail
+
+if.end.tail:                                      ; preds = %sub_1, %sub_2
+  %10 = phi i32 [ %6, %sub_1 ], [ %9, %sub_2 ]
+  %cmp8 = icmp eq i32 %10, 0
   br i1 %cmp8, label %if.then14, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %if.end
+lor.lhs.false:                                    ; preds = %if.end.tail
   %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.2) #10
   %cmp12 = icmp eq i32 %call11, 0
   br i1 %cmp12, label %if.then14, label %if.else
 
-if.then14:                                        ; preds = %lor.lhs.false, %if.end
+if.then14:                                        ; preds = %lor.lhs.false, %if.end.tail
   %puts.i22 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %puts1.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %puts2.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
@@ -130,9 +143,9 @@ if.else26:                                        ; preds = %if.else20
 
 if.else32:                                        ; preds = %if.else26
   %arrayidx34 = getelementptr inbounds i8, ptr %1, i64 1
-  %3 = load i8, ptr %arrayidx34, align 1
-  %4 = add i8 %3, -48
-  %or.cond21 = icmp ult i8 %4, 10
+  %11 = load i8, ptr %arrayidx34, align 1
+  %12 = add i8 %11, -48
+  %or.cond21 = icmp ult i8 %12, 10
   br i1 %or.cond21, label %if.then43, label %if.else51
 
 if.then43:                                        ; preds = %if.else32
@@ -156,15 +169,15 @@ if.end63:                                         ; preds = %if.else51, %if.then
 while.end:                                        ; preds = %if.end63, %while.body, %ChangeToWolfRoot.exit
   %argc.addr.0.lcssa = phi i32 [ %argc, %ChangeToWolfRoot.exit ], [ %argc.addr.040, %while.body ], [ 1, %if.end63 ]
   %argv.addr.0.lcssa = phi ptr [ %argv, %ChangeToWolfRoot.exit ], [ %argv.addr.041, %while.body ], [ %arrayidx, %if.end63 ]
-  %5 = load i32, ptr @apiTesting, align 4
-  %tobool.not = icmp eq i32 %5, 0
+  %13 = load i32, ptr @apiTesting, align 4
+  %tobool.not = icmp eq i32 %13, 0
   br i1 %tobool.not, label %if.end70, label %if.then64
 
 if.then64:                                        ; preds = %while.end
   %call65 = tail call i32 @ApiTest() #8
   %cmp66 = icmp eq i32 %call65, 0
-  %6 = load i32, ptr @allTesting, align 4
-  %tobool71 = icmp ne i32 %6, 0
+  %14 = load i32, ptr @allTesting, align 4
+  %tobool71 = icmp ne i32 %14, 0
   %or.cond = select i1 %cmp66, i1 %tobool71, i1 false
   br i1 %or.cond, label %if.end73, label %exit
 
@@ -179,8 +192,8 @@ if.end73:                                         ; preds = %if.then64, %if.end7
   br i1 %cmp75.not, label %if.end79, label %if.then77
 
 if.then77:                                        ; preds = %if.end73
-  %7 = load ptr, ptr @stderr, align 8
-  %call78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.6, i32 noundef %call74) #11
+  %15 = load ptr, ptr @stderr, align 8
+  %call78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.6, i32 noundef %call74) #11
   br label %if.end97
 
 if.end79:                                         ; preds = %if.end73
@@ -189,8 +202,8 @@ if.end79:                                         ; preds = %if.end73
   br i1 %cmp81.not, label %if.end85, label %if.then83
 
 if.then83:                                        ; preds = %if.end79
-  %8 = load ptr, ptr @stderr, align 8
-  %call84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.7, i32 noundef %call80) #11
+  %16 = load ptr, ptr @stderr, align 8
+  %call84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.7, i32 noundef %call80) #11
   br label %if.end97
 
 if.end85:                                         ; preds = %if.end79
@@ -200,8 +213,8 @@ if.end85:                                         ; preds = %if.end79
   br i1 %cmp87.not, label %if.then94, label %if.then89
 
 if.then89:                                        ; preds = %if.end85
-  %9 = load ptr, ptr @stderr, align 8
-  %call90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.8, i32 noundef %call86) #11
+  %17 = load ptr, ptr @stderr, align 8
+  %call90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.8, i32 noundef %call86) #11
   br label %if.end97
 
 exit:                                             ; preds = %if.then64
@@ -209,8 +222,8 @@ exit:                                             ; preds = %if.then64
 
 if.then94:                                        ; preds = %if.then19, %if.then14, %if.end70, %if.end85, %exit
   %call95 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.9)
-  %10 = load ptr, ptr @stdout, align 8
-  %call96 = tail call i32 @fflush(ptr noundef %10)
+  %18 = load ptr, ptr @stdout, align 8
+  %call96 = tail call i32 @fflush(ptr noundef %18)
   br label %if.end97
 
 if.end97:                                         ; preds = %if.else51, %if.then43, %if.then89, %if.then83, %if.then77, %if.then94, %exit

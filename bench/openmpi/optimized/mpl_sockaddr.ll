@@ -15,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 @_max_conn = internal unnamed_addr global i32 4096, align 4
 @.str = private unnamed_addr constant [12 x i8] c"%d.%d.%d.%d\00", align 1
 @.str.1 = private unnamed_addr constant [72 x i8] c"%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x\00", align 1
-@.str.2 = private unnamed_addr constant [5 x i8] c"\7F\00\00\01\00", align 1
-@.str.4 = private unnamed_addr constant [17 x i8] c"\FE\80\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @MPL_sockaddr_set_aftype(i32 noundef %0) local_unnamed_addr #0 {
@@ -134,178 +132,236 @@ define i32 @MPL_get_sockaddr_iface(ptr noundef readonly %0, ptr nocapture nounde
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %4 = call i32 @getifaddrs(ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %.preheader, label %56
+  br i1 %.not, label %.preheader, label %65
 
 .preheader:                                       ; preds = %2
   %.not27 = icmp eq ptr %0, null
   %5 = load i32, ptr @af_type, align 4
+  %.fr = freeze i32 %5
   br i1 %.not27, label %.preheader.split.us, label %.outer.outer
 
 .preheader.split.us:                              ; preds = %.preheader
-  %.019.us.us46 = load ptr, ptr %3, align 8
-  %.not26.us.us47 = icmp eq ptr %.019.us.us46, null
-  br i1 %.not26.us.us47, label %is_localhost.exit.thread, label %.split.us.us
+  %.019.us.us42 = load ptr, ptr %3, align 8
+  %.not26.us.us43 = icmp eq ptr %.019.us.us42, null
+  br i1 %.not26.us.us43, label %is_localhost.exit.thread, label %.split.us.us.lr.ph
 
-6:                                                ; preds = %.split.us.us
-  %7 = load i16, ptr %26, align 2
-  %8 = zext i16 %7 to i32
-  %9 = icmp eq i32 %5, %8
-  br i1 %9, label %10, label %is_localhost.exit.thread36.us
-
-10:                                               ; preds = %6
-  %11 = add nsw i32 %.0.ph.us48, 1
-  switch i32 %5, label %14 [
-    i32 2, label %13
-    i32 10, label %12
+.split.us.us.lr.ph:                               ; preds = %.preheader.split.us
+  switch i32 %.fr, label %.split.us.us [
+    i32 2, label %.split.us.us.us
+    i32 10, label %.split.us.us.us49
   ]
 
-12:                                               ; preds = %10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 2 dereferenceable(28) %26, i64 28, i1 false)
-  br label %14
+.split.us.us.us:                                  ; preds = %.split.us.us.lr.ph, %.outer.us.us
+  %.019.us.us45.us = phi ptr [ %.019.us.us.us, %.outer.us.us ], [ %.019.us.us42, %.split.us.us.lr.ph ]
+  %.0.ph.us44.us = phi i32 [ %.1.us.us, %.outer.us.us ], [ 0, %.split.us.us.lr.ph ]
+  %6 = getelementptr inbounds i8, ptr %.019.us.us45.us, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %.not30.us.us = icmp eq ptr %7, null
+  br i1 %.not30.us.us, label %.outer.us.us, label %8
 
-13:                                               ; preds = %10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 2 dereferenceable(16) %26, i64 16, i1 false)
-  br label %14
+8:                                                ; preds = %.split.us.us.us
+  %9 = load i16, ptr %7, align 2
+  %10 = icmp eq i16 %9, 2
+  br i1 %10, label %11, label %.outer.us.us
 
-14:                                               ; preds = %13, %12, %10
-  %15 = load ptr, ptr %25, align 8
-  %16 = load i16, ptr %15, align 2
-  switch i16 %16, label %is_localhost.exit.thread [
-    i16 2, label %22
-    i16 10, label %17
+11:                                               ; preds = %8
+  %12 = add nsw i32 %.0.ph.us44.us, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 2 dereferenceable(16) %7, i64 16, i1 false)
+  %13 = load ptr, ptr %6, align 8
+  %14 = load i16, ptr %13, align 2
+  switch i16 %14, label %is_localhost.exit.thread [
+    i16 2, label %sub_0.i.us.us
+    i16 10, label %is_localhost.exit.us.us
   ]
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
-  %strcmpload.i.us = load i8, ptr %18, align 1
-  %19 = icmp eq i8 %strcmpload.i.us, 0
-  br i1 %19, label %is_localhost.exit.thread36.us, label %20
+sub_0.i.us.us:                                    ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %13, i64 4
+  %16 = load i8, ptr %15, align 1
+  %.not.i.us.us = icmp eq i8 %16, 127
+  br i1 %.not.i.us.us, label %is_localhost.exit.us.us, label %is_localhost.exit.thread
 
-20:                                               ; preds = %17
-  %21 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(3) @.str.4, i64 noundef 16) #14
-  br label %is_localhost.exit.us
+is_localhost.exit.us.us:                          ; preds = %sub_0.i.us.us, %11
+  %.sink = phi i64 [ 8, %11 ], [ 5, %sub_0.i.us.us ]
+  %17 = getelementptr inbounds i8, ptr %13, i64 %.sink
+  %.0.shrunk.shrunk.i.in.us.us = load i8, ptr %17, align 1
+  %.0.shrunk.shrunk.i.not.us.us = icmp eq i8 %.0.shrunk.shrunk.i.in.us.us, 0
+  br i1 %.0.shrunk.shrunk.i.not.us.us, label %.outer.us.us, label %is_localhost.exit.thread
 
-22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %15, i64 4
-  %24 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(2) @.str.2, i64 noundef 4) #14
-  br label %is_localhost.exit.us
+.outer.us.us:                                     ; preds = %is_localhost.exit.us.us, %8, %.split.us.us.us
+  %.1.us.us = phi i32 [ %12, %is_localhost.exit.us.us ], [ %.0.ph.us44.us, %8 ], [ %.0.ph.us44.us, %.split.us.us.us ]
+  %.019.us.us.us = load ptr, ptr %.019.us.us45.us, align 8
+  %.not26.us.us.us = icmp eq ptr %.019.us.us.us, null
+  br i1 %.not26.us.us.us, label %is_localhost.exit.thread, label %.split.us.us.us, !llvm.loop !4
 
-is_localhost.exit.us:                             ; preds = %22, %20
-  %.0.shrunk.i.in.us = phi i32 [ %24, %22 ], [ %21, %20 ]
-  %.0.shrunk.i.not.us = icmp eq i32 %.0.shrunk.i.in.us, 0
-  br i1 %.0.shrunk.i.not.us, label %is_localhost.exit.thread36.us, label %is_localhost.exit.thread
+.split.us.us.us49:                                ; preds = %.split.us.us.lr.ph, %.outer.us.us60
+  %.019.us.us45.us50 = phi ptr [ %.019.us.us.us62, %.outer.us.us60 ], [ %.019.us.us42, %.split.us.us.lr.ph ]
+  %.0.ph.us44.us51 = phi i32 [ %.1.us.us61, %.outer.us.us60 ], [ 0, %.split.us.us.lr.ph ]
+  %18 = getelementptr inbounds i8, ptr %.019.us.us45.us50, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %.not30.us.us52 = icmp eq ptr %19, null
+  br i1 %.not30.us.us52, label %.outer.us.us60, label %20
 
-is_localhost.exit.thread36.us:                    ; preds = %.split.us.us, %is_localhost.exit.us, %17, %6
-  %.1.us = phi i32 [ %11, %is_localhost.exit.us ], [ %.0.ph.us48, %6 ], [ %.0.ph.us48, %.split.us.us ], [ %11, %17 ]
-  %.019.us.us = load ptr, ptr %.019.us.us49, align 8
+20:                                               ; preds = %.split.us.us.us49
+  %21 = load i16, ptr %19, align 2
+  %22 = icmp eq i16 %21, 10
+  br i1 %22, label %23, label %.outer.us.us60
+
+23:                                               ; preds = %20
+  %24 = add nsw i32 %.0.ph.us44.us51, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 2 dereferenceable(28) %19, i64 28, i1 false)
+  %25 = load ptr, ptr %18, align 8
+  %26 = load i16, ptr %25, align 2
+  switch i16 %26, label %is_localhost.exit.thread [
+    i16 2, label %sub_0.i.us.us53
+    i16 10, label %is_localhost.exit.us.us56
+  ]
+
+sub_0.i.us.us53:                                  ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %25, i64 4
+  %28 = load i8, ptr %27, align 1
+  %.not.i.us.us54 = icmp eq i8 %28, 127
+  br i1 %.not.i.us.us54, label %is_localhost.exit.us.us56, label %is_localhost.exit.thread
+
+is_localhost.exit.us.us56:                        ; preds = %sub_0.i.us.us53, %23
+  %.sink84 = phi i64 [ 8, %23 ], [ 5, %sub_0.i.us.us53 ]
+  %29 = getelementptr inbounds i8, ptr %25, i64 %.sink84
+  %.0.shrunk.shrunk.i.in.us.us58 = load i8, ptr %29, align 1
+  %.0.shrunk.shrunk.i.not.us.us59 = icmp eq i8 %.0.shrunk.shrunk.i.in.us.us58, 0
+  br i1 %.0.shrunk.shrunk.i.not.us.us59, label %.outer.us.us60, label %is_localhost.exit.thread
+
+.outer.us.us60:                                   ; preds = %is_localhost.exit.us.us56, %20, %.split.us.us.us49
+  %.1.us.us61 = phi i32 [ %24, %is_localhost.exit.us.us56 ], [ %.0.ph.us44.us51, %20 ], [ %.0.ph.us44.us51, %.split.us.us.us49 ]
+  %.019.us.us.us62 = load ptr, ptr %.019.us.us45.us50, align 8
+  %.not26.us.us.us63 = icmp eq ptr %.019.us.us.us62, null
+  br i1 %.not26.us.us.us63, label %is_localhost.exit.thread, label %.split.us.us.us49, !llvm.loop !4
+
+30:                                               ; preds = %.split.us.us
+  %31 = load i16, ptr %40, align 2
+  %32 = zext i16 %31 to i32
+  %33 = icmp eq i32 %.fr, %32
+  br i1 %33, label %34, label %.outer.us
+
+34:                                               ; preds = %30
+  %35 = add nsw i32 %.0.ph.us44, 1
+  switch i16 %31, label %is_localhost.exit.thread [
+    i16 2, label %sub_0.i.us
+    i16 10, label %is_localhost.exit.us
+  ]
+
+sub_0.i.us:                                       ; preds = %34
+  %36 = getelementptr inbounds i8, ptr %40, i64 4
+  %37 = load i8, ptr %36, align 1
+  %.not.i.us = icmp eq i8 %37, 127
+  br i1 %.not.i.us, label %is_localhost.exit.us, label %is_localhost.exit.thread
+
+is_localhost.exit.us:                             ; preds = %sub_0.i.us, %34
+  %.sink85 = phi i64 [ 8, %34 ], [ 5, %sub_0.i.us ]
+  %38 = getelementptr inbounds i8, ptr %40, i64 %.sink85
+  %.0.shrunk.shrunk.i.in.us = load i8, ptr %38, align 1
+  %.0.shrunk.shrunk.i.not.us = icmp eq i8 %.0.shrunk.shrunk.i.in.us, 0
+  br i1 %.0.shrunk.shrunk.i.not.us, label %.outer.us, label %is_localhost.exit.thread
+
+.outer.us:                                        ; preds = %.split.us.us, %is_localhost.exit.us, %30
+  %.1.us = phi i32 [ %35, %is_localhost.exit.us ], [ %.0.ph.us44, %30 ], [ %.0.ph.us44, %.split.us.us ]
+  %.019.us.us = load ptr, ptr %.019.us.us45, align 8
   %.not26.us.us = icmp eq ptr %.019.us.us, null
   br i1 %.not26.us.us, label %is_localhost.exit.thread, label %.split.us.us, !llvm.loop !4
 
-.split.us.us:                                     ; preds = %.preheader.split.us, %is_localhost.exit.thread36.us
-  %.019.us.us49 = phi ptr [ %.019.us.us, %is_localhost.exit.thread36.us ], [ %.019.us.us46, %.preheader.split.us ]
-  %.0.ph.us48 = phi i32 [ %.1.us, %is_localhost.exit.thread36.us ], [ 0, %.preheader.split.us ]
-  %25 = getelementptr inbounds i8, ptr %.019.us.us49, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %.not30.us = icmp eq ptr %26, null
-  br i1 %.not30.us, label %is_localhost.exit.thread36.us, label %6
+.split.us.us:                                     ; preds = %.split.us.us.lr.ph, %.outer.us
+  %.019.us.us45 = phi ptr [ %.019.us.us, %.outer.us ], [ %.019.us.us42, %.split.us.us.lr.ph ]
+  %.0.ph.us44 = phi i32 [ %.1.us, %.outer.us ], [ 0, %.split.us.us.lr.ph ]
+  %39 = getelementptr inbounds i8, ptr %.019.us.us45, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %.not30.us = icmp eq ptr %40, null
+  br i1 %.not30.us, label %.outer.us, label %30
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
   %.019.in.ph = phi ptr [ %.019.in.ph.ph, %.outer.outer ], [ %.019, %.outer.backedge ]
-  br label %27
+  br label %41
 
-27:                                               ; preds = %.outer, %31
-  %.019.in = phi ptr [ %.019, %31 ], [ %.019.in.ph, %.outer ]
+41:                                               ; preds = %.outer, %45
+  %.019.in = phi ptr [ %.019, %45 ], [ %.019.in.ph, %.outer ]
   %.019 = load ptr, ptr %.019.in, align 8
   %.not26 = icmp eq ptr %.019, null
-  br i1 %.not26, label %is_localhost.exit.thread, label %28
+  br i1 %.not26, label %is_localhost.exit.thread, label %42
 
-28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %.019, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %.not28 = icmp eq ptr %30, null
-  br i1 %.not28, label %.split, label %31
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds i8, ptr %.019, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %.not28 = icmp eq ptr %44, null
+  br i1 %.not28, label %.split, label %45
 
-31:                                               ; preds = %28
-  %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %30) #14
-  %.not29 = icmp eq i32 %32, 0
-  br i1 %.not29, label %.split, label %27, !llvm.loop !4
+45:                                               ; preds = %42
+  %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %44) #14
+  %.not29 = icmp eq i32 %46, 0
+  br i1 %.not29, label %.split, label %41, !llvm.loop !4
 
-.split:                                           ; preds = %31, %28
-  %33 = getelementptr inbounds i8, ptr %.019, i64 24
-  %34 = load ptr, ptr %33, align 8
-  %.not30 = icmp eq ptr %34, null
-  br i1 %.not30, label %.outer.backedge, label %35
+.split:                                           ; preds = %45, %42
+  %47 = getelementptr inbounds i8, ptr %.019, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %.not30 = icmp eq ptr %48, null
+  br i1 %.not30, label %.outer.backedge, label %49
 
-35:                                               ; preds = %.split
-  %36 = load i16, ptr %34, align 2
-  %37 = zext i16 %36 to i32
-  %38 = icmp eq i32 %5, %37
-  br i1 %38, label %39, label %.outer.backedge
+49:                                               ; preds = %.split
+  %50 = load i16, ptr %48, align 2
+  %51 = zext i16 %50 to i32
+  %52 = icmp eq i32 %.fr, %51
+  br i1 %52, label %53, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %35, %.split
+.outer.backedge:                                  ; preds = %49, %.split
   br label %.outer, !llvm.loop !4
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.019, i64 24
-  %41 = add nuw nsw i32 %.0.ph.ph, 1
-  switch i32 %5, label %44 [
-    i32 2, label %42
-    i32 10, label %43
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds i8, ptr %.019, i64 24
+  %55 = add nuw nsw i32 %.0.ph.ph, 1
+  switch i32 %.fr, label %58 [
+    i32 2, label %56
+    i32 10, label %57
   ]
 
-42:                                               ; preds = %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 2 dereferenceable(16) %34, i64 16, i1 false)
-  br label %44
+56:                                               ; preds = %53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 2 dereferenceable(16) %48, i64 16, i1 false)
+  br label %58
 
-43:                                               ; preds = %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 2 dereferenceable(28) %34, i64 28, i1 false)
-  br label %44
+57:                                               ; preds = %53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 2 dereferenceable(28) %48, i64 28, i1 false)
+  br label %58
 
-44:                                               ; preds = %39, %43, %42
-  %45 = load ptr, ptr %40, align 8
-  %46 = load i16, ptr %45, align 2
-  switch i16 %46, label %is_localhost.exit.thread [
-    i16 2, label %47
-    i16 10, label %50
+58:                                               ; preds = %53, %57, %56
+  %59 = load ptr, ptr %54, align 8
+  %60 = load i16, ptr %59, align 2
+  switch i16 %60, label %is_localhost.exit.thread [
+    i16 2, label %sub_0.i
+    i16 10, label %is_localhost.exit
   ]
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %45, i64 4
-  %49 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(2) @.str.2, i64 noundef 4) #14
-  br label %is_localhost.exit
+sub_0.i:                                          ; preds = %58
+  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %62 = load i8, ptr %61, align 1
+  %.not.i = icmp eq i8 %62, 127
+  br i1 %.not.i, label %is_localhost.exit, label %is_localhost.exit.thread
 
-50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %45, i64 8
-  %strcmpload.i = load i8, ptr %51, align 1
-  %52 = icmp eq i8 %strcmpload.i, 0
-  br i1 %52, label %.outer.outer.backedge, label %53
+is_localhost.exit:                                ; preds = %58, %sub_0.i
+  %.sink86 = phi i64 [ 5, %sub_0.i ], [ 8, %58 ]
+  %63 = getelementptr inbounds i8, ptr %59, i64 %.sink86
+  %.0.shrunk.shrunk.i.in = load i8, ptr %63, align 1
+  %.0.shrunk.shrunk.i.not = icmp eq i8 %.0.shrunk.shrunk.i.in, 0
+  br i1 %.0.shrunk.shrunk.i.not, label %.outer.outer, label %is_localhost.exit.thread, !llvm.loop !4
 
-.outer.outer.backedge:                            ; preds = %50, %is_localhost.exit
-  br label %.outer.outer, !llvm.loop !4
-
-.outer.outer:                                     ; preds = %.preheader, %.outer.outer.backedge
-  %.019.in.ph.ph = phi ptr [ %.019, %.outer.outer.backedge ], [ %3, %.preheader ]
-  %.0.ph.ph = phi i32 [ %41, %.outer.outer.backedge ], [ 0, %.preheader ]
+.outer.outer:                                     ; preds = %.preheader, %is_localhost.exit
+  %.019.in.ph.ph = phi ptr [ %.019, %is_localhost.exit ], [ %3, %.preheader ]
+  %.0.ph.ph = phi i32 [ %55, %is_localhost.exit ], [ 0, %.preheader ]
   br label %.outer
 
-53:                                               ; preds = %50
-  %54 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(3) @.str.4, i64 noundef 16) #14
-  br label %is_localhost.exit
-
-is_localhost.exit:                                ; preds = %47, %53
-  %.0.shrunk.i.in = phi i32 [ %49, %47 ], [ %54, %53 ]
-  %.0.shrunk.i.not = icmp eq i32 %.0.shrunk.i.in, 0
-  br i1 %.0.shrunk.i.not, label %.outer.outer.backedge, label %is_localhost.exit.thread
-
-is_localhost.exit.thread:                         ; preds = %is_localhost.exit, %44, %27, %is_localhost.exit.us, %14, %is_localhost.exit.thread36.us, %.preheader.split.us
-  %.2 = phi i32 [ 0, %.preheader.split.us ], [ %.1.us, %is_localhost.exit.thread36.us ], [ %11, %is_localhost.exit.us ], [ %11, %14 ], [ %.0.ph.ph, %27 ], [ 1, %44 ], [ 1, %is_localhost.exit ]
-  %55 = load ptr, ptr %3, align 8
-  call void @freeifaddrs(ptr noundef %55) #12
+is_localhost.exit.thread:                         ; preds = %is_localhost.exit, %58, %sub_0.i, %41, %is_localhost.exit.us.us56, %sub_0.i.us.us53, %23, %.outer.us.us60, %11, %sub_0.i.us.us, %is_localhost.exit.us.us, %.outer.us.us, %is_localhost.exit.us, %sub_0.i.us, %34, %.outer.us, %.preheader.split.us
+  %.2 = phi i32 [ 0, %.preheader.split.us ], [ %.1.us, %.outer.us ], [ %35, %is_localhost.exit.us ], [ %35, %34 ], [ %35, %sub_0.i.us ], [ %.1.us.us, %.outer.us.us ], [ %12, %is_localhost.exit.us.us ], [ %12, %11 ], [ %12, %sub_0.i.us.us ], [ %.1.us.us61, %.outer.us.us60 ], [ %24, %is_localhost.exit.us.us56 ], [ %24, %23 ], [ %24, %sub_0.i.us.us53 ], [ %.0.ph.ph, %41 ], [ 1, %sub_0.i ], [ 1, %58 ], [ 1, %is_localhost.exit ]
+  %64 = load ptr, ptr %3, align 8
+  call void @freeifaddrs(ptr noundef %64) #12
   %.not32 = icmp eq i32 %.2, 0
   %. = sext i1 %.not32 to i32
-  br label %56
+  br label %65
 
-56:                                               ; preds = %is_localhost.exit.thread, %2
+65:                                               ; preds = %is_localhost.exit.thread, %2
   %.020 = phi i32 [ %4, %2 ], [ %., %is_localhost.exit.thread ]
   ret i32 %.020
 }
@@ -641,7 +697,7 @@ define noundef i32 @MPL_sockaddr_to_str(ptr nocapture noundef readonly %0, ptr n
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @MPL_sockaddr_port(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define range(i32 0, 65536) i32 @MPL_sockaddr_port(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = load i16, ptr %0, align 8
   switch i16 %2, label %7 [
     i16 2, label %.sink.split
@@ -659,9 +715,6 @@ define i32 @MPL_sockaddr_port(ptr nocapture noundef readonly %0) local_unnamed_a
   %.0.shrunk = phi i32 [ 0, %1 ], [ %6, %.sink.split ]
   ret i32 %.0.shrunk
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

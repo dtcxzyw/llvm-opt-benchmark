@@ -15,8 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [20 x i8] c"-rtc base=localtime\00", align 1
 @.str.4 = private unnamed_addr constant [6 x i8] c"clock\00", align 1
 @.str.5 = private unnamed_addr constant [5 x i8] c"host\00", align 1
-@.str.6 = private unnamed_addr constant [3 x i8] c"rt\00", align 1
-@.str.7 = private unnamed_addr constant [3 x i8] c"vm\00", align 1
 @.str.8 = private unnamed_addr constant [26 x i8] c"invalid option value '%s'\00", align 1
 @.str.9 = private unnamed_addr constant [9 x i8] c"driftfix\00", align 1
 @.str.10 = private unnamed_addr constant [5 x i8] c"slew\00", align 1
@@ -232,25 +230,46 @@ if.end12:                                         ; preds = %if.then6, %configur
 if.then15:                                        ; preds = %if.end12
   %call16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call13, ptr noundef nonnull dereferenceable(5) @.str.5) #11
   %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %if.end31.sink.split, label %if.else19
+  br i1 %tobool17.not, label %if.end31.sink.split, label %sub_0
 
-if.else19:                                        ; preds = %if.then15
-  %call20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call13, ptr noundef nonnull dereferenceable(3) @.str.6) #11
-  %tobool21.not = icmp eq i32 %call20, 0
-  br i1 %tobool21.not, label %if.end31.sink.split, label %if.else23
+sub_0:                                            ; preds = %if.then15
+  %3 = load i8, ptr %call13, align 1
+  switch i8 %3, label %if.else27 [
+    i8 114, label %sub_1
+    i8 118, label %sub_119
+  ]
 
-if.else23:                                        ; preds = %if.else19
-  %call24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call13, ptr noundef nonnull dereferenceable(3) @.str.7) #11
-  %tobool25.not = icmp eq i32 %call24, 0
-  br i1 %tobool25.not, label %if.end31.sink.split, label %if.else27
+sub_1:                                            ; preds = %sub_0
+  %4 = getelementptr inbounds i8, ptr %call13, i64 1
+  %5 = load i8, ptr %4, align 1
+  %.not22 = icmp eq i8 %5, 116
+  br i1 %.not22, label %if.else19.tail, label %if.else27
 
-if.else27:                                        ; preds = %if.else23
+if.else19.tail:                                   ; preds = %sub_1
+  %6 = getelementptr inbounds i8, ptr %call13, i64 2
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %if.end31.sink.split, label %if.else27
+
+sub_119:                                          ; preds = %sub_0
+  %9 = getelementptr inbounds i8, ptr %call13, i64 1
+  %10 = load i8, ptr %9, align 1
+  %.not24 = icmp eq i8 %10, 109
+  br i1 %.not24, label %if.else23.tail, label %if.else27
+
+if.else23.tail:                                   ; preds = %sub_119
+  %11 = getelementptr inbounds i8, ptr %call13, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %if.end31.sink.split, label %if.else27
+
+if.else27:                                        ; preds = %sub_0, %if.else19.tail, %sub_1, %sub_119, %if.else23.tail
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, ptr noundef nonnull %call13) #9
   call void @exit(i32 noundef 1) #10
   unreachable
 
-if.end31.sink.split:                              ; preds = %if.else23, %if.else19, %if.then15
-  %.sink = phi i32 [ 2, %if.then15 ], [ 0, %if.else19 ], [ 1, %if.else23 ]
+if.end31.sink.split:                              ; preds = %if.else23.tail, %if.else19.tail, %if.then15
+  %.sink = phi i32 [ 2, %if.then15 ], [ 0, %if.else19.tail ], [ 1, %if.else23.tail ]
   store i32 %.sink, ptr @rtc_clock, align 4
   br label %if.end31
 

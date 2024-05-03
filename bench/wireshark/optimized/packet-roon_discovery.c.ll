@@ -89,7 +89,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.52 = private unnamed_addr constant [6 x i8] c"Query\00", align 1
 @roon_disco_string_fields = internal constant [22 x %struct.roon_map] [%struct.roon_map { ptr @.str.54, ptr @.str.55, ptr @hf_roon_disco_tid }, %struct.roon_map { ptr @.str.56, ptr @.str, ptr @hf_roon_disco_config_version }, %struct.roon_map { ptr @.str.57, ptr @.str.6, ptr @hf_roon_disco_device_class }, %struct.roon_map { ptr @.str.58, ptr @.str.4, ptr @hf_roon_disco_device_type }, %struct.roon_map { ptr @.str.59, ptr @.str.2, ptr @hf_roon_disco_display_version }, %struct.roon_map { ptr @.str.60, ptr @.str.8, ptr @hf_roon_disco_http_port }, %struct.roon_map { ptr @.str.61, ptr @.str.10, ptr @hf_roon_disco_https_port }, %struct.roon_map { ptr @.str.62, ptr @.str.14, ptr @hf_roon_disco_machine_id }, %struct.roon_map { ptr @.str.63, ptr @.str.16, ptr @hf_roon_disco_machine_name }, %struct.roon_map { ptr @.str.64, ptr @.str.65, ptr @hf_roon_disco_marker }, %struct.roon_map { ptr @.str.66, ptr @.str.67, ptr @hf_roon_disco_name }, %struct.roon_map { ptr @.str.68, ptr @.str.22, ptr @hf_roon_disco_os_version }, %struct.roon_map { ptr @.str.69, ptr @.str.24, ptr @hf_roon_disco_protocol_hash }, %struct.roon_map { ptr @.str.70, ptr @.str.26, ptr @hf_roon_disco_protocol_version }, %struct.roon_map { ptr @.str.71, ptr @.str.28, ptr @hf_roon_disco_query_service_id }, %struct.roon_map { ptr @.str.72, ptr @.str.30, ptr @hf_roon_disco_raat_version }, %struct.roon_map { ptr @.str.73, ptr @.str.74, ptr @hf_roon_disco_service_id }, %struct.roon_map { ptr @.str.75, ptr @.str.76, ptr @hf_roon_disco_tcp_port }, %struct.roon_map { ptr @.str.77, ptr @.str.38, ptr @hf_roon_disco_type }, %struct.roon_map { ptr @.str.78, ptr @.str.42, ptr @hf_roon_disco_unique_id }, %struct.roon_map { ptr @.str.79, ptr @.str.40, ptr @hf_roon_disco_user_id }, %struct.roon_map zeroinitializer], align 16
 @roon_disco_bool_fields = internal constant [2 x %struct.roon_map] [%struct.roon_map { ptr @.str.80, ptr @.str.81, ptr @hf_roon_disco_is_dev }, %struct.roon_map zeroinitializer], align 16
-@.str.53 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.54 = private unnamed_addr constant [5 x i8] c"_tid\00", align 1
 @.str.55 = private unnamed_addr constant [14 x i8] c"TransactionID\00", align 1
 @.str.56 = private unnamed_addr constant [15 x i8] c"config_version\00", align 1
@@ -147,12 +146,12 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr nocapture noundef
   %8 = alloca [1 x %struct.roon_map], align 16
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
   %10 = icmp ult i32 %9, 98
-  br i1 %10, label %79, label %11
+  br i1 %10, label %85, label %11
 
 11:                                               ; preds = %4
   %12 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %13 = icmp ult i32 %12, 6
-  br i1 %13, label %79, label %14
+  br i1 %13, label %85, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %1, i64 408
@@ -160,11 +159,11 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr nocapture noundef
   %17 = tail call ptr @tvb_get_string_enc(ptr noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #7
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.48, ptr noundef nonnull dereferenceable(1) %17) #8
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %79
+  br i1 %.not, label %19, label %85
 
 19:                                               ; preds = %14
   %20 = tail call signext i16 @tvb_get_gint16(ptr noundef %0, i32 noundef 4, i32 noundef 0) #7
-  switch i16 %20, label %79 [
+  switch i16 %20, label %85 [
     i16 594, label %21
     i16 593, label %22
   ]
@@ -202,8 +201,8 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr nocapture noundef
   %40 = getelementptr inbounds i8, ptr %5, i64 8
   br label %roon_map_length.exit.i
 
-roon_map_length.exit.i:                           ; preds = %.lr.ph, %74
-  %.06382 = phi i32 [ 6, %.lr.ph ], [ %75, %74 ]
+roon_map_length.exit.i:                           ; preds = %.lr.ph, %80
+  %.06382 = phi i32 [ 6, %.lr.ph ], [ %81, %80 ]
   %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06382) #7
   %42 = add nuw i32 %.06382, 1
   %43 = load ptr, ptr %15, align 8
@@ -248,7 +247,7 @@ roon_map_length.exit.i68:                         ; preds = %roon_map_name.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %61 = load i32, ptr %60, align 4
   %62 = call ptr @proto_tree_add_string(ptr noundef %29, i32 noundef %61, ptr noundef %0, i32 noundef %.06382, i32 noundef %54, ptr noundef %52) #7
-  br label %74
+  br label %80
 
 roon_map_length.exit.i72:                         ; preds = %roon_map_name.exit.thread, %roon_map_name.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -260,14 +259,14 @@ roon_map_length.exit.i72:                         ; preds = %roon_map_name.exit.
 
 roon_map_name.exit74.thread:                      ; preds = %roon_map_length.exit.i72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %74
+  br label %80
 
 roon_map_name.exit74:                             ; preds = %roon_map_length.exit.i72
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.not65 = icmp eq ptr %65, null
-  br i1 %.not65, label %74, label %roon_map_length.exit.i77
+  br i1 %.not65, label %80, label %roon_map_length.exit.i77
 
 roon_map_length.exit.i77:                         ; preds = %roon_map_name.exit74
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -279,25 +278,38 @@ roon_map_length.exit.i77:                         ; preds = %roon_map_name.exit7
   %67 = getelementptr inbounds i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(2) @.str.53) #8
-  %70 = icmp ne i32 %69, 0
-  %71 = load i32, ptr %68, align 4
-  %72 = zext i1 %70 to i64
-  %73 = call ptr @proto_tree_add_boolean(ptr noundef %29, i32 noundef %71, ptr noundef %0, i32 noundef %.06382, i32 noundef %54, i64 noundef %72) #7
-  br label %74
+  %69 = load i8, ptr %52, align 1
+  %70 = zext i8 %69 to i32
+  %71 = add nsw i32 %70, -48
+  %.not84 = icmp eq i32 %71, 0
+  br i1 %.not84, label %sub_1, label %roon_map_length.exit.i77.tail
 
-74:                                               ; preds = %roon_map_name.exit74.thread, %roon_map_name.exit74, %roon_map_length.exit.i77, %roon_map_length.exit.i68
-  %75 = add i32 %54, %.06382
-  %76 = call i32 @tvb_reported_length(ptr noundef %0) #7
-  %77 = icmp ult i32 %75, %76
-  br i1 %77, label %roon_map_length.exit.i, label %._crit_edge, !llvm.loop !4
+sub_1:                                            ; preds = %roon_map_length.exit.i77
+  %72 = getelementptr inbounds i8, ptr %52, i64 1
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  br label %roon_map_length.exit.i77.tail
 
-._crit_edge:                                      ; preds = %74, %22
-  %78 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  br label %79
+roon_map_length.exit.i77.tail:                    ; preds = %roon_map_length.exit.i77, %sub_1
+  %75 = phi i32 [ %71, %roon_map_length.exit.i77 ], [ %74, %sub_1 ]
+  %76 = icmp ne i32 %75, 0
+  %77 = load i32, ptr %68, align 4
+  %78 = zext i1 %76 to i64
+  %79 = call ptr @proto_tree_add_boolean(ptr noundef %29, i32 noundef %77, ptr noundef %0, i32 noundef %.06382, i32 noundef %54, i64 noundef %78) #7
+  br label %80
 
-79:                                               ; preds = %19, %14, %4, %11, %._crit_edge
-  %.0 = phi i32 [ %78, %._crit_edge ], [ 0, %11 ], [ 0, %4 ], [ 0, %14 ], [ 0, %19 ]
+80:                                               ; preds = %roon_map_name.exit74.thread, %roon_map_name.exit74, %roon_map_length.exit.i77.tail, %roon_map_length.exit.i68
+  %81 = add i32 %54, %.06382
+  %82 = call i32 @tvb_reported_length(ptr noundef %0) #7
+  %83 = icmp ult i32 %81, %82
+  br i1 %83, label %roon_map_length.exit.i, label %._crit_edge, !llvm.loop !4
+
+._crit_edge:                                      ; preds = %80, %22
+  %84 = call i32 @tvb_captured_length(ptr noundef %0) #7
+  br label %85
+
+85:                                               ; preds = %19, %14, %4, %11, %._crit_edge
+  %.0 = phi i32 [ %84, %._crit_edge ], [ 0, %11 ], [ 0, %4 ], [ 0, %14 ], [ 0, %19 ]
   ret i32 %.0
 }
 

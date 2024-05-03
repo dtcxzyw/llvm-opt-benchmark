@@ -27,8 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [30 x i8] c"could not fsync file \22%s\22: %m\00", align 1
 @.str.9 = private unnamed_addr constant [30 x i8] c"could not close file \22%s\22: %m\00", align 1
 @.str.10 = private unnamed_addr constant [20 x i8] c"pg_logical/mappings\00", align 1
-@.str.11 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.12 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.13 = private unnamed_addr constant [23 x i8] c"pg_logical/mappings/%s\00", align 1
 @.str.14 = private unnamed_addr constant [5 x i8] c"map-\00", align 1
 @.str.15 = private unnamed_addr constant [22 x i8] c"map-%x-%x-%X_%X-%x-%x\00", align 1
@@ -425,7 +423,7 @@ define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr nound
   %74 = getelementptr inbounds i8, ptr %0, i64 32
   %75 = load i32, ptr %74, align 8
   %76 = lshr i32 %75, 16
-  %77 = trunc i32 %76 to i16
+  %77 = trunc nuw i32 %76 to i16
   store i16 %77, ptr %73, align 2
   %78 = trunc i32 %75 to i16
   %79 = getelementptr inbounds i8, ptr %1, i64 6
@@ -895,7 +893,7 @@ define dso_local void @heap_xlog_logical_rewrite(ptr nocapture noundef readonly 
   %11 = getelementptr inbounds i8, ptr %6, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 32
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw i64 %13 to i32
   %15 = trunc i64 %12 to i32
   %16 = load i32, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 44
@@ -1054,131 +1052,153 @@ define dso_local void @CheckPointLogicalRewriteHeap() local_unnamed_addr #0 {
   %10 = add i64 %spec.select, -1
   %11 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.10) #13
   %12 = tail call ptr @ReadDir(ptr noundef %11, ptr noundef nonnull @.str.10) #13
-  %.not2736 = icmp eq ptr %12, null
-  br i1 %.not2736, label %._crit_edge, label %.lr.ph
+  %.not2740 = icmp eq ptr %12, null
+  br i1 %.not2740, label %._crit_edge, label %sub_0
 
-.lr.ph:                                           ; preds = %0, %.backedge
-  %13 = phi ptr [ %20, %.backedge ], [ %12, %0 ]
+sub_0:                                            ; preds = %0, %.backedge
+  %13 = phi ptr [ %30, %.backedge ], [ %12, %0 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 19
-  %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(2) @.str.11) #16
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.backedge, label %17
+  %15 = load i8, ptr %14, align 1
+  %16 = zext i8 %15 to i32
+  %17 = add nsw i32 %16, -46
+  %.not41 = icmp eq i32 %17, 0
+  br i1 %.not41, label %.tail, label %.tail33
 
-17:                                               ; preds = %.lr.ph
-  %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(3) @.str.12) #16
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.backedge, label %21
+.tail:                                            ; preds = %sub_0
+  %18 = getelementptr inbounds i8, ptr %13, i64 20
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %.backedge, label %sub_135
 
-.backedge:                                        ; preds = %43, %66, %.lr.ph, %17, %21, %25
-  %20 = call ptr @ReadDir(ptr noundef %11, ptr noundef nonnull @.str.10) #13
-  %.not27 = icmp eq ptr %20, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+sub_135:                                          ; preds = %.tail
+  %21 = getelementptr inbounds i8, ptr %13, i64 20
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i32
+  %24 = add nsw i32 %23, -46
+  %.not43 = icmp eq i32 %24, 0
+  br i1 %.not43, label %sub_2, label %.tail33
 
-21:                                               ; preds = %17
-  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1044, ptr noundef nonnull @.str.13, ptr noundef nonnull %14) #13
-  %23 = call i32 @get_dirent_type(ptr noundef nonnull %1, ptr noundef nonnull %13, i1 noundef zeroext false, i32 noundef 14) #13
-  %24 = and i32 %23, -3
-  %or.cond.not = icmp eq i32 %24, 0
-  br i1 %or.cond.not, label %25, label %.backedge
+sub_2:                                            ; preds = %sub_135
+  %25 = getelementptr inbounds i8, ptr %13, i64 21
+  %26 = load i8, ptr %25, align 1
+  %27 = zext i8 %26 to i32
+  br label %.tail33
 
-25:                                               ; preds = %21
-  %26 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.14, i64 noundef 4) #16
-  %.not28 = icmp eq i32 %26, 0
-  br i1 %.not28, label %27, label %.backedge
+.tail33:                                          ; preds = %sub_0, %sub_135, %sub_2
+  %28 = phi i32 [ %24, %sub_135 ], [ %27, %sub_2 ], [ %17, %sub_0 ]
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.backedge, label %31
 
-27:                                               ; preds = %25
-  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
-  %.not29 = icmp eq i32 %28, 6
-  br i1 %.not29, label %32, label %29
+.backedge:                                        ; preds = %53, %76, %.tail, %.tail33, %31, %35
+  %30 = call ptr @ReadDir(ptr noundef %11, ptr noundef nonnull @.str.10) #13
+  %.not27 = icmp eq ptr %30, null
+  br i1 %.not27, label %._crit_edge, label %sub_0, !llvm.loop !8
 
-29:                                               ; preds = %27
-  %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %30)
-  %31 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %14) #13
+31:                                               ; preds = %.tail33
+  %32 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1044, ptr noundef nonnull @.str.13, ptr noundef nonnull %14) #13
+  %33 = call i32 @get_dirent_type(ptr noundef nonnull %1, ptr noundef nonnull %13, i1 noundef zeroext false, i32 noundef 14) #13
+  %34 = and i32 %33, -3
+  %or.cond.not = icmp eq i32 %34, 0
+  br i1 %or.cond.not, label %35, label %.backedge
+
+35:                                               ; preds = %31
+  %36 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.14, i64 noundef 4) #16
+  %.not28 = icmp eq i32 %36, 0
+  br i1 %.not28, label %37, label %.backedge
+
+37:                                               ; preds = %35
+  %38 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %.not29 = icmp eq i32 %38, 6
+  br i1 %.not29, label %42, label %39
+
+39:                                               ; preds = %37
+  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %40)
+  %41 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %14) #13
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
   unreachable
 
-32:                                               ; preds = %27
-  %33 = load i32, ptr %6, align 4
-  %34 = zext i32 %33 to i64
-  %35 = shl nuw i64 %34, 32
-  %36 = load i32, ptr %7, align 4
-  %37 = zext i32 %36 to i64
-  %38 = or disjoint i64 %35, %37
-  %or.cond3.not32 = icmp ult i64 %10, %38
+42:                                               ; preds = %37
+  %43 = load i32, ptr %6, align 4
+  %44 = zext i32 %43 to i64
+  %45 = shl nuw i64 %44, 32
+  %46 = load i32, ptr %7, align 4
+  %47 = zext i32 %46 to i64
+  %48 = or disjoint i64 %45, %47
+  %or.cond3.not32 = icmp ult i64 %10, %48
   %or.cond3.not = select i1 %.not, i1 %or.cond3.not32, i1 false
-  br i1 %or.cond3.not, label %50, label %39
+  br i1 %or.cond3.not, label %60, label %49
 
-39:                                               ; preds = %32
-  %40 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
-  br i1 %40, label %41, label %43
+49:                                               ; preds = %42
+  %50 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
+  br i1 %50, label %51, label %53
 
-41:                                               ; preds = %39
-  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #13
+51:                                               ; preds = %49
+  %52 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #13
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1212, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
-  br label %43
+  br label %53
 
-43:                                               ; preds = %39, %41
-  %44 = call i32 @unlink(ptr noundef nonnull %1) #13
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %.backedge
+53:                                               ; preds = %49, %51
+  %54 = call i32 @unlink(ptr noundef nonnull %1) #13
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %56, label %.backedge
 
-46:                                               ; preds = %43
-  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %47)
-  %48 = call i32 @errcode_for_file_access() #13
-  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #13
+56:                                               ; preds = %53
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %57)
+  %58 = call i32 @errcode_for_file_access() #13
+  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #13
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
   unreachable
 
-50:                                               ; preds = %32
-  %51 = call i32 @OpenTransientFile(ptr noundef nonnull %1, i32 noundef 2) #13
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %57
+60:                                               ; preds = %42
+  %61 = call i32 @OpenTransientFile(ptr noundef nonnull %1, i32 noundef 2) #13
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %67
 
-53:                                               ; preds = %50
-  %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %54)
-  %55 = call i32 @errcode_for_file_access() #13
-  %56 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #13
+63:                                               ; preds = %60
+  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %64)
+  %65 = call i32 @errcode_for_file_access() #13
+  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #13
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1231, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
   unreachable
 
-57:                                               ; preds = %50
-  %58 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772190, ptr %58, align 4
-  %59 = call i32 @pg_fsync(i32 noundef %51) #13
-  %.not30 = icmp eq i32 %59, 0
-  br i1 %.not30, label %66, label %60
+67:                                               ; preds = %60
+  %68 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772190, ptr %68, align 4
+  %69 = call i32 @pg_fsync(i32 noundef %61) #13
+  %.not30 = icmp eq i32 %69, 0
+  br i1 %.not30, label %76, label %70
 
-60:                                               ; preds = %57
-  %61 = call i32 @data_sync_elevel(i32 noundef 21) #13
-  %62 = call zeroext i1 @errstart(i32 noundef %61, ptr noundef null) #13
-  br i1 %62, label %63, label %66
+70:                                               ; preds = %67
+  %71 = call i32 @data_sync_elevel(i32 noundef 21) #13
+  %72 = call zeroext i1 @errstart(i32 noundef %71, ptr noundef null) #13
+  br i1 %72, label %73, label %76
 
-63:                                               ; preds = %60
-  %64 = call i32 @errcode_for_file_access() #13
-  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %1) #13
+73:                                               ; preds = %70
+  %74 = call i32 @errcode_for_file_access() #13
+  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %1) #13
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1242, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
-  br label %66
+  br label %76
 
-66:                                               ; preds = %63, %60, %57
-  %67 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %67, align 4
-  %68 = call i32 @CloseTransientFile(i32 noundef %51) #13
-  %.not31 = icmp eq i32 %68, 0
-  br i1 %.not31, label %.backedge, label %69
+76:                                               ; preds = %73, %70, %67
+  %77 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %77, align 4
+  %78 = call i32 @CloseTransientFile(i32 noundef %61) #13
+  %.not31 = icmp eq i32 %78, 0
+  br i1 %.not31, label %.backedge, label %79
 
-69:                                               ; preds = %66
-  %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %70)
-  %71 = call i32 @errcode_for_file_access() #13
-  %72 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #13
+79:                                               ; preds = %76
+  %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %80)
+  %81 = call i32 @errcode_for_file_access() #13
+  %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #13
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1248, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
   unreachable
 
 ._crit_edge:                                      ; preds = %.backedge, %0
-  %73 = call i32 @FreeDir(ptr noundef %11) #13
+  %83 = call i32 @FreeDir(ptr noundef %11) #13
   call void @fsync_fname(ptr noundef nonnull @.str.10, i1 noundef zeroext true) #13
   ret void
 }
@@ -1190,9 +1210,6 @@ declare i64 @ReplicationSlotsComputeLogicalRestartLSN() local_unnamed_addr #1
 declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #1
 
 declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 declare i32 @get_dirent_type(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
@@ -1416,7 +1433,7 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %
   %23 = getelementptr inbounds i8, ptr %0, i64 64
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, 32
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = trunc i64 %24 to i32
   %28 = load i32, ptr %4, align 4
   %29 = call i32 @GetCurrentTransactionId() #13

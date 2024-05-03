@@ -1442,7 +1442,7 @@ define dso_local void @x86_virt_spec_ctrl(i64 noundef %0, i1 noundef zeroext %1)
 declare dso_local void @speculation_ctrl_update(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef i32 @mds_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @mds_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %3 = and i64 %2, 2251799813685248
   %4 = icmp eq i64 %3, 0
@@ -1486,7 +1486,7 @@ define internal noundef i32 @mds_cmdline(ptr noundef readonly %0) #6 section ".i
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef i32 @tsx_async_abort_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @tsx_async_abort_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %3 = and i64 %2, 18014398509481984
   %4 = icmp eq i64 %3, 0
@@ -1530,7 +1530,7 @@ define internal noundef i32 @tsx_async_abort_parse_cmdline(ptr noundef readonly 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef i32 @mmio_stale_data_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @mmio_stale_data_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %3 = and i64 %2, 144115188075855872
   %4 = icmp eq i64 %3, 0
@@ -1642,7 +1642,7 @@ define dso_local void @update_srbds_msr() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef i32 @srbds_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @srbds_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -1664,17 +1664,30 @@ define internal noundef i32 @srbds_parse_cmdline(ptr noundef readonly %0) #6 sec
   ret i32 %12
 }
 
-; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
+; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
 define internal noundef i32 @l1d_flush_parse_cmdline(ptr nocapture noundef readonly %0) #7 section ".init.text" align 16 {
-  %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(3) @.str.25) #15
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %5
+sub_0:
+  %1 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %1, 111
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-4:                                                ; preds = %1
+sub_1:                                            ; preds = %sub_0
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not1 = icmp eq i8 %3, 110
+  br i1 %.not1, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %7, label %.tail.thread
+
+7:                                                ; preds = %.tail
   store i1 true, ptr @l1d_flush_mitigation, align 4
-  br label %5
+  br label %.tail.thread
 
-5:                                                ; preds = %4, %1
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %7, %.tail
   ret i32 0
 }
 
@@ -1776,7 +1789,7 @@ default.unreachable:                              ; preds = %0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef i32 @gds_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @gds_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -1813,7 +1826,7 @@ define internal noundef i32 @nospectre_v1_cmdline(ptr nocapture readnone %0) #9 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @retbleed_parse_cmdline(ptr noundef %0) #4 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @retbleed_parse_cmdline(ptr noundef %0) #4 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -2077,7 +2090,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #0
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @arch_prctl_spec_ctrl_set(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 16 {
   switch i64 %1, label %ssb_prctl_set.exit [
     i64 0, label %4
     i64 1, label %43
@@ -2340,7 +2353,7 @@ define dso_local void @arch_seccomp_spec_mitigate(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @arch_prctl_spec_ctrl_get(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -19, 18) i32 @arch_prctl_spec_ctrl_get(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   switch i64 %1, label %62 [
     i64 0, label %3
     i64 1, label %24
@@ -2572,7 +2585,7 @@ define internal fastcc void @x86_amd_ssb_disable() unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef i32 @l1tf_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @l1tf_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %3 = and i64 %2, 1125899906842624
   %4 = icmp eq i64 %3, 0
@@ -2623,7 +2636,7 @@ define internal noundef i32 @l1tf_cmdline(ptr noundef readonly %0) #6 section ".
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @srso_parse_cmdline(ptr noundef %0) #4 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @srso_parse_cmdline(ptr noundef %0) #4 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 
@@ -2682,7 +2695,7 @@ define internal noundef i32 @srso_parse_cmdline(ptr noundef %0) #4 section ".ini
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_meltdown(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_meltdown(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %5 = and i64 %4, 70368744177664
   %6 = icmp eq i64 %5, 0
@@ -2708,7 +2721,7 @@ define dso_local i64 @cpu_show_meltdown(ptr nocapture noundef readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @cpu_show_common(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @cpu_show_common(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = zext nneg i32 %1 to i64
   %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), i64 %3) #15, !srcloc !27
   %5 = icmp ult i8 %4, 2
@@ -3059,7 +3072,7 @@ define internal fastcc i64 @cpu_show_common(ptr noundef %0, i32 noundef %1) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_spectre_v1(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_spectre_v1(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %5 = and i64 %4, 140737488355328
   %6 = icmp eq i64 %5, 0
@@ -3085,13 +3098,13 @@ define dso_local i64 @cpu_show_spectre_v1(ptr nocapture noundef readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_spectre_v2(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
-  %4 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef 688), !range !28
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_spectre_v2(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+  %4 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef 688)
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_spec_store_bypass(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_spec_store_bypass(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %5 = and i64 %4, 562949953421312
   %6 = icmp eq i64 %5, 0
@@ -3116,7 +3129,7 @@ define dso_local i64 @cpu_show_spec_store_bypass(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_l1tf(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_l1tf(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %5 = and i64 %4, 1125899906842624
   %6 = icmp eq i64 %5, 0
@@ -3147,19 +3160,19 @@ define dso_local i64 @cpu_show_l1tf(ptr nocapture noundef readnone %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_mds(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
-  %4 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef 691), !range !28
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_mds(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+  %4 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef 691)
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_tsx_async_abort(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
-  %4 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef 694), !range !28
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_tsx_async_abort(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+  %4 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef 694)
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_itlb_multihit(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_itlb_multihit(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %5 = and i64 %4, 36028797018963968
   %6 = icmp eq i64 %5, 0
@@ -3170,7 +3183,7 @@ define dso_local i64 @cpu_show_itlb_multihit(ptr nocapture noundef readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_srbds(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_srbds(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %5 = and i64 %4, 72057594037927936
   %6 = icmp eq i64 %5, 0
@@ -3195,23 +3208,23 @@ define dso_local i64 @cpu_show_srbds(ptr nocapture noundef readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_mmio_stale_data(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_mmio_stale_data(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %5 = and i64 %4, 288230376151711744
   %6 = icmp eq i64 %5, 0
   %7 = select i1 %6, i32 697, i32 698
-  %8 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef %7), !range !28
+  %8 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef %7)
   ret i64 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_retbleed(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
-  %4 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef 699), !range !28
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_retbleed(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+  %4 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef 699)
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_spec_rstack_overflow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_spec_rstack_overflow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 80), align 8
   %5 = and i64 %4, 1
   %6 = icmp eq i64 %5, 0
@@ -3246,7 +3259,7 @@ define dso_local i64 @cpu_show_spec_rstack_overflow(ptr nocapture noundef readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @cpu_show_gds(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_gds(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %5 = and i64 %4, 4611686018427387904
   %6 = icmp eq i64 %5, 0
@@ -3666,7 +3679,7 @@ define internal fastcc i32 @spectre_v2_parse_user_cmdline() unnamed_addr #4 sect
   br label %35
 
 4:                                                ; preds = %0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %1, i8 0, i64 20, i1 false), !annotation !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %1, i8 0, i64 20, i1 false), !annotation !28
   %5 = call i32 @cmdline_find_option(ptr noundef nonnull @boot_command_line, ptr noundef nonnull @.str.56, ptr noundef nonnull %1, i32 noundef 20) #15
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %35, label %.preheader
@@ -3688,7 +3701,7 @@ define internal fastcc i32 @spectre_v2_parse_user_cmdline() unnamed_addr #4 sect
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %8, i64 12
-  %19 = load i8, ptr %18, align 4, !range !14, !noundef !30
+  %19 = load i8, ptr %18, align 4, !range !14, !noundef !29
   %20 = icmp ne i8 %19, 0
   %21 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %22 = and i64 %21, 281474976710656
@@ -3708,7 +3721,7 @@ define internal fastcc i32 @spectre_v2_parse_user_cmdline() unnamed_addr #4 sect
 30:                                               ; preds = %13, %.preheader
   %31 = add nuw nsw i64 %7, 1
   %32 = icmp eq i64 %31, 7
-  br i1 %32, label %33, label %.preheader, !llvm.loop !31
+  br i1 %32, label %33, label %.preheader, !llvm.loop !30
 
 33:                                               ; preds = %30
   %34 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef nonnull %1) #17
@@ -3748,7 +3761,7 @@ define internal fastcc i32 @spectre_v2_parse_cmdline() unnamed_addr #4 section "
   br i1 %5, label %67, label %6
 
 6:                                                ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %1, i8 0, i64 20, i1 false), !annotation !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %1, i8 0, i64 20, i1 false), !annotation !28
   %7 = call i32 @cmdline_find_option(ptr noundef nonnull @boot_command_line, ptr noundef nonnull @.str.75, ptr noundef nonnull %1, i32 noundef 20) #15
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %67, label %.preheader
@@ -3771,7 +3784,7 @@ define internal fastcc i32 @spectre_v2_parse_cmdline() unnamed_addr #4 section "
 19:                                               ; preds = %15, %.preheader
   %20 = add nuw nsw i64 %9, 1
   %21 = icmp eq i64 %20, 11
-  br i1 %21, label %.thread, label %.preheader, !llvm.loop !32
+  br i1 %21, label %.thread, label %.preheader, !llvm.loop !31
 
 22:                                               ; preds = %15
   %23 = trunc i64 %9 to i32
@@ -3841,7 +3854,7 @@ define internal fastcc i32 @spectre_v2_parse_cmdline() unnamed_addr #4 section "
 
 .thread1:                                         ; preds = %38, %52, %51
   %58 = getelementptr inbounds i8, ptr %10, i64 12
-  %59 = load i8, ptr %58, align 4, !range !14, !noundef !30
+  %59 = load i8, ptr %58, align 4, !range !14, !noundef !29
   %60 = icmp ne i8 %59, 0
   %61 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 72), align 8
   %62 = and i64 %61, 281474976710656
@@ -3958,7 +3971,7 @@ declare dso_local void @on_each_cpu_cond_mask(ptr noundef, ptr noundef, ptr noun
 declare dso_local void @static_key_disable(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @__ssb_select_mitigation() unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 4) i32 @__ssb_select_mitigation() unnamed_addr #4 section ".init.text" align 16 {
   %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16), align 8
   %2 = and i64 %1, 562949953421312
   %3 = icmp eq i64 %2, 0
@@ -4026,7 +4039,7 @@ define internal fastcc i32 @ssb_parse_cmdline() unnamed_addr #4 section ".init.t
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %1, i8 0, i64 20, i1 false), !annotation !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %1, i8 0, i64 20, i1 false), !annotation !28
   %7 = call i32 @cmdline_find_option(ptr noundef nonnull @boot_command_line, ptr noundef nonnull @.str.103, ptr noundef nonnull %1, i32 noundef 20) #15
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %28, label %.preheader
@@ -4049,7 +4062,7 @@ define internal fastcc i32 @ssb_parse_cmdline() unnamed_addr #4 section ".init.t
 19:                                               ; preds = %15, %.preheader
   %20 = add nuw nsw i64 %9, 1
   %21 = icmp eq i64 %20, 5
-  br i1 %21, label %.thread, label %.preheader, !llvm.loop !33
+  br i1 %21, label %.thread, label %.preheader, !llvm.loop !32
 
 22:                                               ; preds = %15
   %23 = trunc i64 %9 to i32
@@ -4096,7 +4109,7 @@ attributes #3 = { fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid "
 attributes #4 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #5 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #6 = { cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #9 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #10 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -4139,9 +4152,8 @@ attributes #18 = { nounwind memory(none) }
 !25 = !{i64 2148361946, i64 2148361974, i64 2148361980, i64 2148361996, i64 2148362012, i64 2148362039, i64 2148362353, i64 2148361710, i64 2148362359, i64 2148362407, i64 2148362471, i64 2148362535, i64 2148362592, i64 2148361791, i64 2148361816, i64 2148362802, i64 2148362923, i64 2148362863, i64 2148362937, i64 2148361908}
 !26 = !{i64 2156103566}
 !27 = !{i64 2148478605, i64 2148478679}
-!28 = !{i64 -2147483648, i64 2147483648}
-!29 = !{!"auto-init"}
-!30 = !{}
+!28 = !{!"auto-init"}
+!29 = !{}
+!30 = distinct !{!30, !21, !22}
 !31 = distinct !{!31, !21, !22}
 !32 = distinct !{!32, !21, !22}
-!33 = distinct !{!33, !21, !22}

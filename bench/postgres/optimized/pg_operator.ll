@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [3 x i8] c"/*\00", align 1
 @.str.20 = private unnamed_addr constant [3 x i8] c"--\00", align 1
 @.str.21 = private unnamed_addr constant [11 x i8] c"~!@#^&|`?%\00", align 1
-@.str.22 = private unnamed_addr constant [3 x i8] c"!=\00", align 1
 @__func__.OperatorShellMake = private unnamed_addr constant [18 x i8] c"OperatorShellMake\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -99,9 +98,9 @@ OperatorGet.exit:                                 ; preds = %21
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds i8, ptr %37, i64 100
   %40 = load i32, ptr %39, align 4
-  %.not127 = icmp eq i32 %40, 0
+  %.not125 = icmp eq i32 %40, 0
   tail call void @ReleaseSysCache(ptr noundef nonnull %31) #9
-  br i1 %.not127, label %45, label %41
+  br i1 %.not125, label %45, label %41
 
 41:                                               ; preds = %OperatorGet.exit
   %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -112,8 +111,8 @@ OperatorGet.exit:                                 ; preds = %21
   unreachable
 
 45:                                               ; preds = %OperatorGet.exit
-  %.not110.not = icmp eq i32 %38, 0
-  br i1 %.not110.not, label %.thread, label %46
+  %.not.not = icmp eq i32 %38, 0
+  br i1 %.not.not, label %.thread, label %46
 
 46:                                               ; preds = %45
   %47 = tail call i32 @GetUserId() #9
@@ -125,14 +124,14 @@ OperatorGet.exit:                                 ; preds = %21
   br label %.thread
 
 .thread:                                          ; preds = %21, %49, %46, %45
-  %.not110126 = phi i1 [ true, %49 ], [ true, %46 ], [ false, %45 ], [ false, %21 ]
-  %.0.i122125 = phi i32 [ %38, %49 ], [ %38, %46 ], [ 0, %45 ], [ 0, %21 ]
+  %.not124 = phi i1 [ true, %49 ], [ true, %46 ], [ false, %45 ], [ false, %21 ]
+  %.0.i120123 = phi i32 [ %38, %49 ], [ %38, %46 ], [ 0, %45 ], [ 0, %21 ]
   br i1 %23, label %50, label %57
 
 50:                                               ; preds = %.thread
   %51 = tail call fastcc i32 @get_other_operator(ptr noundef nonnull %5, i32 noundef %3, i32 noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
-  %.not111 = icmp eq i32 %51, 0
-  br i1 %.not111, label %57, label %52
+  %.not110 = icmp eq i32 %51, 0
+  br i1 %.not110, label %57, label %52
 
 52:                                               ; preds = %50
   %53 = tail call i32 @GetUserId() #9
@@ -151,8 +150,8 @@ OperatorGet.exit:                                 ; preds = %21
 
 58:                                               ; preds = %57
   %59 = tail call fastcc i32 @get_other_operator(ptr noundef nonnull %6, i32 noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
-  %.not112 = icmp eq i32 %59, 0
-  br i1 %.not112, label %.critedge, label %60
+  %.not111 = icmp eq i32 %59, 0
+  br i1 %.not111, label %.critedge, label %60
 
 60:                                               ; preds = %58
   %61 = tail call i32 @GetUserId() #9
@@ -165,7 +164,7 @@ OperatorGet.exit:                                 ; preds = %21
   br label %65
 
 65:                                               ; preds = %63, %60
-  %66 = icmp eq i32 %59, %.0.i122125
+  %66 = icmp eq i32 %59, %.0.i120123
   br i1 %66, label %.critedge, label %70
 
 .critedge:                                        ; preds = %58, %65
@@ -191,8 +190,8 @@ OperatorGet.exit:                                 ; preds = %21
   %75 = zext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %75, ptr %76, align 8
-  %.not113 = icmp eq i32 %2, 0
-  %77 = select i1 %.not113, i64 108, i64 98
+  %.not112 = icmp eq i32 %2, 0
+  %77 = select i1 %.not112, i64 108, i64 98
   %78 = getelementptr inbounds i8, ptr %14, i64 32
   store i64 %77, ptr %78, align 16
   %79 = zext i1 %9 to i64
@@ -224,18 +223,18 @@ OperatorGet.exit:                                 ; preds = %21
   %96 = getelementptr inbounds i8, ptr %14, i64 112
   store i64 %95, ptr %96, align 16
   %97 = call ptr @table_open(i32 noundef 2617, i32 noundef 3) #9
-  br i1 %.not110126, label %98, label %109
+  br i1 %.not124, label %98, label %109
 
 98:                                               ; preds = %70
-  %99 = zext i32 %.0.i122125 to i64
+  %99 = zext i32 %.0.i120123 to i64
   %100 = call ptr @SearchSysCacheCopy(i32 noundef 38, i64 noundef %99, i64 noundef 0, i64 noundef 0, i64 noundef 0) #9
-  %.not114 = icmp eq ptr %100, null
-  br i1 %.not114, label %101, label %104
+  %.not113 = icmp eq ptr %100, null
+  br i1 %.not113, label %101, label %104
 
 101:                                              ; preds = %98
   %102 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %102)
-  %103 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.0.i122125) #9
+  %103 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.0.i120123) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 490, ptr noundef nonnull @__func__.OperatorCreate) #9
   unreachable
 
@@ -259,22 +258,22 @@ OperatorGet.exit:                                 ; preds = %21
   br label %115
 
 115:                                              ; preds = %109, %104
-  %.096 = phi i32 [ %.0.i122125, %104 ], [ %110, %109 ]
+  %.096 = phi i32 [ %.0.i120123, %104 ], [ %110, %109 ]
   %.0 = phi ptr [ %107, %104 ], [ %114, %109 ]
-  %116 = call { i64, i32 } @makeOperatorDependencies(ptr noundef %.0, i1 noundef zeroext true, i1 noundef zeroext %.not110126)
-  %spec.select117 = select i1 %.099, i32 %.096, i32 %.097
-  %117 = or i32 %spec.select117, %.098
+  %116 = call { i64, i32 } @makeOperatorDependencies(ptr noundef %.0, i1 noundef zeroext true, i1 noundef zeroext %.not124)
+  %spec.select116 = select i1 %.099, i32 %.096, i32 %.097
+  %117 = or i32 %spec.select116, %.098
   %or.cond.not = icmp eq i32 %117, 0
   br i1 %or.cond.not, label %119, label %118
 
 118:                                              ; preds = %115
-  call void @OperatorUpd(i32 noundef %.096, i32 noundef %spec.select117, i32 noundef %.098, i1 noundef zeroext false)
+  call void @OperatorUpd(i32 noundef %.096, i32 noundef %spec.select116, i32 noundef %.098, i1 noundef zeroext false)
   br label %119
 
 119:                                              ; preds = %118, %115
   %120 = load ptr, ptr @object_access_hook, align 8
-  %.not115 = icmp eq ptr %120, null
-  br i1 %.not115, label %122, label %121
+  %.not114 = icmp eq ptr %120, null
+  br i1 %.not114, label %122, label %121
 
 121:                                              ; preds = %119
   call void @RunObjectPostCreateHook(i32 noundef 2617, i32 noundef %.096, i32 noundef 0, i1 noundef zeroext false) #9
@@ -309,13 +308,13 @@ define internal fastcc zeroext i1 @validOperatorName(ptr noundef readonly %0) un
 
 10:                                               ; preds = %8
   %11 = icmp ugt i64 %2, 1
-  br i1 %11, label %12, label %.loopexit
+  br i1 %11, label %12, label %sub_0
 
 12:                                               ; preds = %10
   %13 = getelementptr i8, ptr %0, i64 %2
   %14 = getelementptr i8, ptr %13, i64 -1
   %15 = load i8, ptr %14, align 1
-  switch i8 %15, label %.loopexit [
+  switch i8 %15, label %sub_0 [
     i8 43, label %.lr.ph.preheader
     i8 45, label %.lr.ph.preheader
   ]
@@ -337,15 +336,27 @@ define internal fastcc zeroext i1 @validOperatorName(ptr noundef readonly %0) un
   %22 = sext i8 %21 to i32
   %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.21, i32 %22, i64 11)
   %.not25 = icmp eq ptr %memchr, null
-  br i1 %.not25, label %18, label %.loopexit
+  br i1 %.not25, label %18, label %sub_0
 
-.loopexit:                                        ; preds = %.lr.ph, %12, %10
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.22) #11
-  %24 = icmp ne i32 %23, 0
+sub_0:                                            ; preds = %.lr.ph, %10, %12
+  %23 = load i8, ptr %0, align 1
+  %.not27 = icmp eq i8 %23, 33
+  br i1 %.not27, label %sub_1, label %.thread
+
+sub_1:                                            ; preds = %sub_0
+  %24 = getelementptr inbounds i8, ptr %0, i64 1
+  %25 = load i8, ptr %24, align 1
+  %.not28 = icmp eq i8 %25, 61
+  br i1 %.not28, label %sub_2, label %.thread
+
+sub_2:                                            ; preds = %sub_1
+  %26 = getelementptr inbounds i8, ptr %0, i64 2
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp ne i8 %27, 0
   br label %.thread
 
-.thread:                                          ; preds = %18, %.loopexit, %6, %8, %4, %1
-  %.020 = phi i1 [ false, %1 ], [ false, %4 ], [ false, %8 ], [ false, %6 ], [ %24, %.loopexit ], [ false, %18 ]
+.thread:                                          ; preds = %18, %sub_2, %sub_1, %sub_0, %6, %8, %4, %1
+  %.020 = phi i1 [ false, %1 ], [ false, %4 ], [ false, %8 ], [ false, %6 ], [ true, %sub_0 ], [ true, %sub_1 ], [ %28, %sub_2 ], [ false, %18 ]
   ret i1 %.020
 }
 

@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_base_var_groups_timestamp = internal unnamed_addr global i32 0, align 4
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 @mca_base_var_initialized = external local_unnamed_addr global i8, align 1
-@.str.1 = private unnamed_addr constant [2 x i8] c"*\00", align 1
 @opal_value_array_t_class = external global %struct.opal_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
@@ -516,7 +515,7 @@ opal_obj_run_destructors.exit21:                  ; preds = %.lr.ph.i18, %opal_o
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_var_group_get_internal(i32 noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_base_var_group_get_internal(i32 noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %0, 0
   br i1 %4, label %27, label %5
 
@@ -1027,7 +1026,7 @@ opal_obj_run_destructors.exit106:                 ; preds = %.lr.ph.i103, %196
   br i1 %214, label %215, label %mca_base_var_group_get_internal.exit
 
 215:                                              ; preds = %204
-  %216 = call i32 @mca_base_var_group_get_internal(i32 noundef %.0, ptr noundef nonnull %6, i1 noundef zeroext false), !range !8
+  %216 = call i32 @mca_base_var_group_get_internal(i32 noundef %.0, ptr noundef nonnull %6, i1 noundef zeroext false)
   %217 = load ptr, ptr %6, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 88
   %219 = getelementptr inbounds i8, ptr %217, i64 120
@@ -1062,7 +1061,7 @@ define i32 @mca_base_var_group_component_register(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_var_group_deregister(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_base_var_group_deregister(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = icmp sgt i32 %0, -1
@@ -1142,7 +1141,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %21
 41:                                               ; preds = %.lr.ph, %33, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %41, %mca_base_var_group_get_internal.exit
   %42 = getelementptr i8, ptr %16, i64 216
@@ -1181,7 +1180,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %21
 58:                                               ; preds = %.lr.ph65, %50, %55
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !10
+  br i1 %exitcond80.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !9
 
 ._crit_edge66:                                    ; preds = %58, %._crit_edge
   %59 = getelementptr i8, ptr %16, i64 264
@@ -1256,7 +1255,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %88 = phi i8 [ %.pre, %opal_obj_run_destructors.exit ], [ %64, %opal_thread_add_fetch_32.exit ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !11
+  br i1 %exitcond85.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !10
 
 ._crit_edge70:                                    ; preds = %87, %._crit_edge66
   %89 = getelementptr i8, ptr %16, i64 120
@@ -1275,10 +1274,10 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %indvars.iv86 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next87, %.lr.ph73 ]
   %94 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv86
   %95 = load i32, ptr %94, align 4
-  %96 = call i32 @mca_base_var_group_deregister(i32 noundef %95), !range !8
+  %96 = call i32 @mca_base_var_group_deregister(i32 noundef %95)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !12
+  br i1 %exitcond90.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !11
 
 ._crit_edge74:                                    ; preds = %.lr.ph73, %._crit_edge70
   %97 = load i32, ptr @mca_base_var_groups_timestamp, align 4
@@ -1341,142 +1340,160 @@ define internal fastcc i32 @group_find(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %20, label %21, label %83
 
 21:                                               ; preds = %18, %14, %10
-  %22 = load i32, ptr @mca_base_var_group_count, align 4
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph.i, label %group_find_linear.exit
+  %22 = getelementptr inbounds i8, ptr %2, i64 1
+  %23 = load i32, ptr @mca_base_var_group_count, align 4
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.lr.ph.i, label %group_find_linear.exit
 
 .lr.ph.i:                                         ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %0, i64 1
   %.not.i12.i = icmp eq ptr %1, null
-  %.not.i16.i = icmp eq ptr %2, null
-  br label %24
+  %26 = getelementptr inbounds i8, ptr %1, i64 1
+  %.not.i20.i = icmp eq ptr %2, null
+  br label %27
 
-24:                                               ; preds = %mca_base_var_group_get_internal.exit.i, %.lr.ph.i
+27:                                               ; preds = %mca_base_var_group_get_internal.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %mca_base_var_group_get_internal.exit.i ]
-  %25 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 4), align 8
-  %26 = sext i32 %25 to i64
-  %.not.i.i = icmp slt i64 %indvars.iv.i, %26
-  br i1 %.not.i.i, label %27, label %mca_base_var_group_get_internal.exit.i
-
-27:                                               ; preds = %24
-  %28 = load i8, ptr @opal_uses_threads, align 1
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %32
+  %28 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 4), align 8
+  %29 = sext i32 %28 to i64
+  %.not.i.i = icmp slt i64 %indvars.iv.i, %29
+  br i1 %.not.i.i, label %30, label %mca_base_var_group_get_internal.exit.i
 
 30:                                               ; preds = %27
-  %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 1, i32 1)) #13
+  %31 = load i8, ptr @opal_uses_threads, align 1
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %30
+  %34 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 1, i32 1)) #13
   %.pre.i.i.i = load i8, ptr @opal_uses_threads, align 1
-  br label %32
+  br label %35
 
-32:                                               ; preds = %30, %27
-  %33 = phi i8 [ %28, %27 ], [ %.pre.i.i.i, %30 ]
-  %34 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 8), align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.i
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i8 %33 to i1
-  br i1 %37, label %38, label %opal_pointer_array_get_item.exit.i.i
+35:                                               ; preds = %33, %30
+  %36 = phi i8 [ %31, %30 ], [ %.pre.i.i.i, %33 ]
+  %37 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 8), align 8
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.i
+  %39 = load ptr, ptr %38, align 8
+  %40 = trunc i8 %36 to i1
+  br i1 %40, label %41, label %opal_pointer_array_get_item.exit.i.i
 
-38:                                               ; preds = %32
-  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 1, i32 1)) #13
+41:                                               ; preds = %35
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 1, i32 1)) #13
   br label %opal_pointer_array_get_item.exit.i.i
 
-opal_pointer_array_get_item.exit.i.i:             ; preds = %38, %32
-  %40 = icmp eq ptr %36, null
-  br i1 %40, label %mca_base_var_group_get_internal.exit.i, label %41
+opal_pointer_array_get_item.exit.i.i:             ; preds = %41, %35
+  %43 = icmp eq ptr %39, null
+  br i1 %43, label %mca_base_var_group_get_internal.exit.i, label %44
 
-41:                                               ; preds = %opal_pointer_array_get_item.exit.i.i
-  br i1 %3, label %46, label %42
+44:                                               ; preds = %opal_pointer_array_get_item.exit.i.i
+  br i1 %3, label %49, label %45
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %36, i64 44
-  %44 = load i8, ptr %43, align 4
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %mca_base_var_group_get_internal.exit.i
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds i8, ptr %39, i64 44
+  %47 = load i8, ptr %46, align 4
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %mca_base_var_group_get_internal.exit.i
 
-46:                                               ; preds = %42, %41
-  %47 = getelementptr inbounds i8, ptr %36, i64 56
-  %48 = load ptr, ptr %47, align 8
-  br i1 %.not, label %compare_strings.exit.i, label %49
+49:                                               ; preds = %45, %44
+  %50 = getelementptr inbounds i8, ptr %39, i64 56
+  %51 = load ptr, ptr %50, align 8
+  br i1 %.not, label %compare_strings.exit.i, label %sub_0.i.i
 
-49:                                               ; preds = %46
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.1) #15
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %compare_strings.exit.thread.i, label %52
+sub_0.i.i:                                        ; preds = %49
+  %52 = load i8, ptr %0, align 1
+  %.not17.i.i = icmp eq i8 %52, 42
+  br i1 %.not17.i.i, label %.tail.i.i, label %.tail.thread.i.i
 
-52:                                               ; preds = %49
-  %.not17.i.i = icmp eq ptr %48, null
-  br i1 %.not17.i.i, label %mca_base_var_group_get_internal.exit.i, label %53
+.tail.i.i:                                        ; preds = %sub_0.i.i
+  %53 = load i8, ptr %25, align 1
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %compare_strings.exit.thread.i, label %.tail.thread.i.i
 
-53:                                               ; preds = %52
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %48) #15
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %compare_strings.exit.thread.i, label %mca_base_var_group_get_internal.exit.i
+.tail.thread.i.i:                                 ; preds = %.tail.i.i, %sub_0.i.i
+  %.not18.i.i = icmp eq ptr %51, null
+  br i1 %.not18.i.i, label %mca_base_var_group_get_internal.exit.i, label %55
 
-compare_strings.exit.i:                           ; preds = %46
-  %56 = icmp eq ptr %48, null
-  br i1 %56, label %compare_strings.exit.thread.i, label %mca_base_var_group_get_internal.exit.i
+55:                                               ; preds = %.tail.thread.i.i
+  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %51) #15
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %compare_strings.exit.thread.i, label %mca_base_var_group_get_internal.exit.i
 
-compare_strings.exit.thread.i:                    ; preds = %compare_strings.exit.i, %53, %49
-  %57 = getelementptr inbounds i8, ptr %36, i64 64
-  %58 = load ptr, ptr %57, align 8
-  br i1 %.not.i12.i, label %compare_strings.exit15.i, label %59
+compare_strings.exit.i:                           ; preds = %49
+  %58 = icmp eq ptr %51, null
+  br i1 %58, label %compare_strings.exit.thread.i, label %mca_base_var_group_get_internal.exit.i
 
-59:                                               ; preds = %compare_strings.exit.thread.i
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.1) #15
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %compare_strings.exit15.thread.i, label %62
+compare_strings.exit.thread.i:                    ; preds = %compare_strings.exit.i, %55, %.tail.i.i
+  %59 = getelementptr inbounds i8, ptr %39, i64 64
+  %60 = load ptr, ptr %59, align 8
+  br i1 %.not.i12.i, label %compare_strings.exit19.i, label %sub_0.i13.i
 
-62:                                               ; preds = %59
-  %.not17.i13.i = icmp eq ptr %58, null
-  br i1 %.not17.i13.i, label %mca_base_var_group_get_internal.exit.i, label %63
+sub_0.i13.i:                                      ; preds = %compare_strings.exit.thread.i
+  %61 = load i8, ptr %1, align 1
+  %.not17.i14.i = icmp eq i8 %61, 42
+  br i1 %.not17.i14.i, label %.tail.i18.i, label %.tail.thread.i15.i
 
-63:                                               ; preds = %62
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %58) #15
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %compare_strings.exit15.thread.i, label %mca_base_var_group_get_internal.exit.i
+.tail.i18.i:                                      ; preds = %sub_0.i13.i
+  %62 = load i8, ptr %26, align 1
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %compare_strings.exit19.thread.i, label %.tail.thread.i15.i
 
-compare_strings.exit15.i:                         ; preds = %compare_strings.exit.thread.i
-  %66 = icmp eq ptr %58, null
-  br i1 %66, label %compare_strings.exit15.thread.i, label %mca_base_var_group_get_internal.exit.i
+.tail.thread.i15.i:                               ; preds = %.tail.i18.i, %sub_0.i13.i
+  %.not18.i16.i = icmp eq ptr %60, null
+  br i1 %.not18.i16.i, label %mca_base_var_group_get_internal.exit.i, label %64
 
-compare_strings.exit15.thread.i:                  ; preds = %compare_strings.exit15.i, %63, %59
-  %67 = getelementptr inbounds i8, ptr %36, i64 72
-  %68 = load ptr, ptr %67, align 8
-  br i1 %.not.i16.i, label %compare_strings.exit19.i, label %69
+64:                                               ; preds = %.tail.thread.i15.i
+  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %60) #15
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %compare_strings.exit19.thread.i, label %mca_base_var_group_get_internal.exit.i
 
-69:                                               ; preds = %compare_strings.exit15.thread.i
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(2) @.str.1) #15
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %compare_strings.exit19.thread.loopexit.split.loop.exit.i, label %72
+compare_strings.exit19.i:                         ; preds = %compare_strings.exit.thread.i
+  %67 = icmp eq ptr %60, null
+  br i1 %67, label %compare_strings.exit19.thread.i, label %mca_base_var_group_get_internal.exit.i
 
-72:                                               ; preds = %69
-  %.not17.i17.i = icmp eq ptr %68, null
-  br i1 %.not17.i17.i, label %mca_base_var_group_get_internal.exit.i, label %73
+compare_strings.exit19.thread.i:                  ; preds = %compare_strings.exit19.i, %64, %.tail.i18.i
+  %68 = getelementptr inbounds i8, ptr %39, i64 72
+  %69 = load ptr, ptr %68, align 8
+  br i1 %.not.i20.i, label %compare_strings.exit27.i, label %sub_0.i21.i
 
-73:                                               ; preds = %72
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %68) #15
+sub_0.i21.i:                                      ; preds = %compare_strings.exit19.thread.i
+  %70 = load i8, ptr %2, align 1
+  %.not17.i22.i = icmp eq i8 %70, 42
+  br i1 %.not17.i22.i, label %.tail.i26.i, label %.tail.thread.i23.i
+
+.tail.i26.i:                                      ; preds = %sub_0.i21.i
+  %71 = load i8, ptr %22, align 1
+  %72 = icmp eq i8 %71, 0
+  br i1 %72, label %compare_strings.exit27.thread.loopexit.split.loop.exit.i, label %.tail.thread.i23.i
+
+.tail.thread.i23.i:                               ; preds = %.tail.i26.i, %sub_0.i21.i
+  %.not18.i24.i = icmp eq ptr %69, null
+  br i1 %.not18.i24.i, label %mca_base_var_group_get_internal.exit.i, label %73
+
+73:                                               ; preds = %.tail.thread.i23.i
+  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %69) #15
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %compare_strings.exit19.thread.loopexit.split.loop.exit43.i, label %mca_base_var_group_get_internal.exit.i
+  br i1 %75, label %compare_strings.exit27.thread.loopexit.split.loop.exit50.i, label %mca_base_var_group_get_internal.exit.i
 
-compare_strings.exit19.i:                         ; preds = %compare_strings.exit15.thread.i
-  %76 = icmp eq ptr %68, null
-  br i1 %76, label %compare_strings.exit19.thread.loopexit.split.loop.exit47.i, label %mca_base_var_group_get_internal.exit.i
+compare_strings.exit27.i:                         ; preds = %compare_strings.exit19.thread.i
+  %76 = icmp eq ptr %69, null
+  br i1 %76, label %compare_strings.exit27.thread.loopexit.split.loop.exit54.i, label %mca_base_var_group_get_internal.exit.i
 
-mca_base_var_group_get_internal.exit.i:           ; preds = %compare_strings.exit19.i, %73, %72, %compare_strings.exit15.i, %63, %62, %compare_strings.exit.i, %53, %52, %42, %opal_pointer_array_get_item.exit.i.i, %24
+mca_base_var_group_get_internal.exit.i:           ; preds = %compare_strings.exit27.i, %73, %.tail.thread.i23.i, %compare_strings.exit19.i, %64, %.tail.thread.i15.i, %compare_strings.exit.i, %55, %.tail.thread.i.i, %45, %opal_pointer_array_get_item.exit.i.i, %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %77 = load i32, ptr @mca_base_var_group_count, align 4
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next.i, %78
-  br i1 %79, label %24, label %group_find_linear.exit, !llvm.loop !13
+  br i1 %79, label %27, label %group_find_linear.exit, !llvm.loop !12
 
-compare_strings.exit19.thread.loopexit.split.loop.exit.i: ; preds = %69
+compare_strings.exit27.thread.loopexit.split.loop.exit.i: ; preds = %.tail.i26.i
   %80 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %group_find_linear.exit
 
-compare_strings.exit19.thread.loopexit.split.loop.exit43.i: ; preds = %73
+compare_strings.exit27.thread.loopexit.split.loop.exit50.i: ; preds = %73
   %81 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %group_find_linear.exit
 
-compare_strings.exit19.thread.loopexit.split.loop.exit47.i: ; preds = %compare_strings.exit19.i
+compare_strings.exit27.thread.loopexit.split.loop.exit54.i: ; preds = %compare_strings.exit27.i
   %82 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %group_find_linear.exit
 
@@ -1562,8 +1579,8 @@ group_find_by_name.exit:                          ; preds = %85
   %spec.select = call i32 @llvm.smin.i32(i32 %.fr, i32 0)
   br label %group_find_linear.exit
 
-group_find_linear.exit:                           ; preds = %mca_base_var_group_get_internal.exit.i, %group_find_by_name.exit, %group_find_by_name.exit.thread33, %group_find_by_name.exit.thread, %compare_strings.exit19.thread.loopexit.split.loop.exit47.i, %compare_strings.exit19.thread.loopexit.split.loop.exit43.i, %compare_strings.exit19.thread.loopexit.split.loop.exit.i, %21, %83, %4
-  %.0 = phi i32 [ -13, %4 ], [ -1, %83 ], [ -13, %21 ], [ %80, %compare_strings.exit19.thread.loopexit.split.loop.exit.i ], [ %81, %compare_strings.exit19.thread.loopexit.split.loop.exit43.i ], [ %82, %compare_strings.exit19.thread.loopexit.split.loop.exit47.i ], [ %117, %group_find_by_name.exit.thread33 ], [ -13, %group_find_by_name.exit.thread ], [ %spec.select, %group_find_by_name.exit ], [ -13, %mca_base_var_group_get_internal.exit.i ]
+group_find_linear.exit:                           ; preds = %mca_base_var_group_get_internal.exit.i, %group_find_by_name.exit, %group_find_by_name.exit.thread33, %group_find_by_name.exit.thread, %compare_strings.exit27.thread.loopexit.split.loop.exit54.i, %compare_strings.exit27.thread.loopexit.split.loop.exit50.i, %compare_strings.exit27.thread.loopexit.split.loop.exit.i, %21, %83, %4
+  %.0 = phi i32 [ -13, %4 ], [ -1, %83 ], [ -13, %21 ], [ %80, %compare_strings.exit27.thread.loopexit.split.loop.exit.i ], [ %81, %compare_strings.exit27.thread.loopexit.split.loop.exit50.i ], [ %82, %compare_strings.exit27.thread.loopexit.split.loop.exit54.i ], [ %117, %group_find_by_name.exit.thread33 ], [ -13, %group_find_by_name.exit.thread ], [ %spec.select, %group_find_by_name.exit ], [ -13, %mca_base_var_group_get_internal.exit.i ]
   ret i32 %.0
 }
 
@@ -1699,7 +1716,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %21
 34:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %34, %mca_base_var_group_get_internal.exit
   %35 = add i64 %.val14, 1
@@ -1798,7 +1815,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %21
 34:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %34, %mca_base_var_group_get_internal.exit
   %35 = add i64 %.val14, 1
@@ -1895,7 +1912,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %20
 33:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %33, %mca_base_var_group_get_internal.exit
   %34 = add i64 %.val16, 1
@@ -1925,7 +1942,7 @@ opal_value_array_append_item.exit:                ; preds = %opal_value_array_ap
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_var_group_get(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_base_var_group_get(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %mca_base_var_group_get_internal.exit, label %4
 
@@ -1978,7 +1995,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %2, %21, %opal_point
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_var_group_set_var_flag(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_base_var_group_set_var_flag(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %0, -1
   %5 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 4), align 8
   %.not.i = icmp sgt i32 %5, %0
@@ -2045,7 +2062,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %21
 35:                                               ; preds = %.lr.ph, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %mca_base_var_group_get_internal.exit.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %mca_base_var_group_get_internal.exit.thread, label %.lr.ph, !llvm.loop !16
 
 mca_base_var_group_get_internal.exit.thread:      ; preds = %35, %mca_base_var_group_get_internal.exit, %opal_pointer_array_get_item.exit.i, %21, %3
   %.0 = phi i32 [ -13, %3 ], [ -13, %21 ], [ -13, %opal_pointer_array_get_item.exit.i ], [ 0, %mca_base_var_group_get_internal.exit ], [ 0, %35 ]
@@ -2140,7 +2157,7 @@ attributes #16 = { nounwind allocsize(0) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -13, i32 1}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -2149,4 +2166,3 @@ attributes #16 = { nounwind allocsize(0) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

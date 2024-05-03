@@ -34,7 +34,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [6 x i8] c",ttyS\00", align 1
 @.str.3 = private unnamed_addr constant [5 x i8] c"ttyS\00", align 1
 @.str.4 = private unnamed_addr constant [10 x i8] c"pciserial\00", align 1
-@.str.5 = private unnamed_addr constant [4 x i8] c"vga\00", align 1
 @boot_params = external dso_local local_unnamed_addr global %struct.boot_params, align 1
 @max_xpos = internal unnamed_addr global i32 80, align 4
 @max_ypos = internal unnamed_addr global i32 25, align 4
@@ -42,7 +41,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @early_vga_console = internal global %struct.console { [16 x i8] c"earlyvga\00\00\00\00\00\00\00\00", ptr @early_vga_write, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i16 1, i16 -1, i32 0, i32 0, i32 0, i64 0, i64 0, ptr null, %struct.hlist_node zeroinitializer, ptr null, %struct.atomic_t zeroinitializer, %struct.atomic64_t zeroinitializer, ptr null }, align 8
 @.str.6 = private unnamed_addr constant [5 x i8] c"dbgp\00", align 1
 @early_dbgp_console = external dso_local global %struct.console, align 8
-@.str.7 = private unnamed_addr constant [3 x i8] c"0x\00", align 1
 @early_serial_base = internal unnamed_addr global i64 1016, align 8
 @early_serial_init.bases = internal unnamed_addr constant [2 x i32] [i32 1016, i32 760], section ".init.rodata", align 4
 @.str.8 = private unnamed_addr constant [2 x i8] c",\00", align 1
@@ -71,8 +69,8 @@ define internal noundef i32 @setup_early_printk(ptr noundef %0) #0 section ".ini
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %6, %54
-  %12 = phi ptr [ %55, %54 ], [ %0, %6 ]
+.preheader:                                       ; preds = %6, %64
+  %12 = phi ptr [ %65, %64 ], [ %0, %6 ]
   %13 = tail call i32 @strncmp(ptr noundef %12, ptr noundef nonnull dereferenceable(7) @.str.1, i64 noundef 6) #6
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %21
@@ -102,58 +100,80 @@ define internal noundef i32 @setup_early_printk(ptr noundef %0) #0 section ".ini
 27:                                               ; preds = %25, %21
   %28 = tail call i32 @strncmp(ptr noundef %22, ptr noundef nonnull dereferenceable(10) @.str.4, i64 noundef 9) #6
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %32
+  br i1 %29, label %30, label %sub_0
 
 30:                                               ; preds = %27
   %31 = getelementptr i8, ptr %22, i64 9
   tail call fastcc void @early_pci_serial_init(ptr noundef %31) #7
   tail call fastcc void @early_console_register(ptr noundef nonnull @early_serial_console, i32 noundef %9)
-  br label %32
+  br label %sub_0
 
-32:                                               ; preds = %30, %27
-  %33 = phi ptr [ %22, %27 ], [ %31, %30 ]
-  %34 = tail call i32 @strncmp(ptr noundef %33, ptr noundef nonnull dereferenceable(4) @.str.5, i64 noundef 3) #6
-  %35 = icmp eq i32 %34, 0
-  %36 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 11), align 1
-  %37 = icmp eq i8 %36, 1
-  %38 = select i1 %35, i1 %37, i1 false
-  br i1 %38, label %39, label %46
+sub_0:                                            ; preds = %27, %30
+  %32 = phi ptr [ %22, %27 ], [ %31, %30 ]
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  %35 = add nsw i32 %34, -118
+  %.not = icmp eq i32 %35, 0
+  br i1 %.not, label %sub_1, label %.tail
 
-39:                                               ; preds = %32
-  %40 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 5), align 1
-  %41 = zext i8 %40 to i32
-  store i32 %41, ptr @max_xpos, align 4
-  %42 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 10), align 1
-  %43 = zext i8 %42 to i32
-  store i32 %43, ptr @max_ypos, align 4
-  %44 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 1), align 1
-  %45 = zext i8 %44 to i32
-  store i32 %45, ptr @current_ypos, align 4
+sub_1:                                            ; preds = %sub_0
+  %36 = getelementptr inbounds i8, ptr %32, i64 1
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i32
+  %39 = add nsw i32 %38, -103
+  %.not1 = icmp eq i32 %39, 0
+  br i1 %.not1, label %sub_2, label %.tail
+
+sub_2:                                            ; preds = %sub_1
+  %40 = getelementptr inbounds i8, ptr %32, i64 2
+  %41 = load i8, ptr %40, align 1
+  %42 = zext i8 %41 to i32
+  %43 = add nsw i32 %42, -97
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
+  %44 = phi i32 [ %35, %sub_0 ], [ %39, %sub_1 ], [ %43, %sub_2 ]
+  %45 = icmp eq i32 %44, 0
+  %46 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 11), align 1
+  %47 = icmp eq i8 %46, 1
+  %48 = select i1 %45, i1 %47, i1 false
+  br i1 %48, label %49, label %56
+
+49:                                               ; preds = %.tail
+  %50 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 5), align 1
+  %51 = zext i8 %50 to i32
+  store i32 %51, ptr @max_xpos, align 4
+  %52 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 10), align 1
+  %53 = zext i8 %52 to i32
+  store i32 %53, ptr @max_ypos, align 4
+  %54 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 1), align 1
+  %55 = zext i8 %54 to i32
+  store i32 %55, ptr @current_ypos, align 4
   tail call fastcc void @early_console_register(ptr noundef nonnull @early_vga_console, i32 noundef %9)
-  br label %46
+  br label %56
 
-46:                                               ; preds = %39, %32
-  %47 = tail call i32 @strncmp(ptr noundef %33, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #6
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %54
+56:                                               ; preds = %49, %.tail
+  %57 = tail call i32 @strncmp(ptr noundef %32, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #6
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %64
 
-49:                                               ; preds = %46
-  %50 = getelementptr i8, ptr %33, i64 4
-  %51 = tail call i32 @early_dbgp_init(ptr noundef %50) #6
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %54
+59:                                               ; preds = %56
+  %60 = getelementptr i8, ptr %32, i64 4
+  %61 = tail call i32 @early_dbgp_init(ptr noundef %60) #6
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %64
 
-53:                                               ; preds = %49
+63:                                               ; preds = %59
   tail call fastcc void @early_console_register(ptr noundef nonnull @early_dbgp_console, i32 noundef %9)
-  br label %54
+  br label %64
 
-54:                                               ; preds = %53, %49, %46
-  %55 = getelementptr i8, ptr %33, i64 1
-  %56 = load i8, ptr %55, align 1
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %.loopexit, label %.preheader, !llvm.loop !5
+64:                                               ; preds = %63, %59, %56
+  %65 = getelementptr i8, ptr %32, i64 1
+  %66 = load i8, ptr %65, align 1
+  %67 = icmp eq i8 %66, 0
+  br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !5
 
-.loopexit:                                        ; preds = %54, %6, %1
+.loopexit:                                        ; preds = %64, %6, %1
   ret i32 0
 }
 
@@ -176,66 +196,69 @@ define internal fastcc void @early_serial_init(ptr noundef %0) unnamed_addr #0 s
   %5 = zext i1 %4 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
-  %8 = icmp eq i8 %7, 0
-  br i1 %8, label %.thread, label %9
+  switch i8 %7, label %.tail.thread [
+    i8 0, label %.thread
+    i8 48, label %.tail
+  ]
 
-9:                                                ; preds = %1
-  %10 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(3) @.str.7, i64 noundef 2) #6
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %14
+.tail:                                            ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 120
+  br i1 %10, label %11, label %.tail.thread
 
-12:                                               ; preds = %9
-  %13 = call i64 @simple_strtoul(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 16) #6
-  br label %30
+11:                                               ; preds = %.tail
+  %12 = call i64 @simple_strtoul(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 16) #6
+  br label %28
 
-14:                                               ; preds = %9
-  %15 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #6
-  %16 = icmp eq i32 %15, 0
-  %17 = select i1 %16, i64 4, i64 0
-  %18 = getelementptr i8, ptr %6, i64 %17
-  %19 = call i64 @simple_strtoul(ptr noundef %18, ptr noundef nonnull %2, i32 noundef 10) #6
-  %20 = and i64 %19, 4294967294
-  %21 = icmp ne i64 %20, 0
-  %22 = load ptr, ptr %2, align 8
-  %23 = icmp eq ptr %18, %22
-  %24 = select i1 %21, i1 true, i1 %23
-  %25 = and i64 %19, 1
-  %26 = select i1 %24, i64 0, i64 %25
-  %27 = getelementptr [2 x i32], ptr @early_serial_init.bases, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4
-  %29 = sext i32 %28 to i64
-  br label %30
+.tail.thread:                                     ; preds = %1, %.tail
+  %13 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #6
+  %14 = icmp eq i32 %13, 0
+  %15 = select i1 %14, i64 4, i64 0
+  %16 = getelementptr i8, ptr %6, i64 %15
+  %17 = call i64 @simple_strtoul(ptr noundef %16, ptr noundef nonnull %2, i32 noundef 10) #6
+  %18 = and i64 %17, 4294967294
+  %19 = icmp ne i64 %18, 0
+  %20 = load ptr, ptr %2, align 8
+  %21 = icmp eq ptr %16, %20
+  %22 = select i1 %19, i1 true, i1 %21
+  %23 = and i64 %17, 1
+  %24 = select i1 %22, i64 0, i64 %23
+  %25 = getelementptr [2 x i32], ptr @early_serial_init.bases, i64 0, i64 %24
+  %26 = load i32, ptr %25, align 4
+  %27 = sext i32 %26 to i64
+  br label %28
 
-30:                                               ; preds = %12, %14
-  %31 = phi i64 [ %13, %12 ], [ %29, %14 ]
-  %32 = phi ptr [ %6, %12 ], [ %18, %14 ]
-  store i64 %31, ptr @early_serial_base, align 8
-  %33 = call i64 @strcspn(ptr noundef %32, ptr noundef nonnull @.str.8)
-  %34 = getelementptr i8, ptr %32, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = icmp eq i8 %35, 44
-  %37 = zext i1 %36 to i64
-  %38 = getelementptr i8, ptr %34, i64 %37
-  %.pr = load i8, ptr %38, align 1
-  %39 = icmp eq i8 %.pr, 0
-  br i1 %39, label %.thread, label %40
+28:                                               ; preds = %11, %.tail.thread
+  %29 = phi i64 [ %12, %11 ], [ %27, %.tail.thread ]
+  %30 = phi ptr [ %6, %11 ], [ %16, %.tail.thread ]
+  store i64 %29, ptr @early_serial_base, align 8
+  %31 = call i64 @strcspn(ptr noundef %30, ptr noundef nonnull @.str.8)
+  %32 = getelementptr i8, ptr %30, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %34 = icmp eq i8 %33, 44
+  %35 = zext i1 %34 to i64
+  %36 = getelementptr i8, ptr %32, i64 %35
+  %.pr = load i8, ptr %36, align 1
+  %37 = icmp eq i8 %.pr, 0
+  br i1 %37, label %.thread, label %38
 
-40:                                               ; preds = %30
-  %41 = call i64 @simple_strtoull(ptr noundef %38, ptr noundef nonnull %2, i32 noundef 0) #6
-  %42 = icmp eq i64 %41, 0
-  %43 = load ptr, ptr %2, align 8
-  %44 = icmp eq ptr %38, %43
-  %45 = select i1 %42, i1 true, i1 %44
-  %46 = select i1 %45, i64 9600, i64 %41
+38:                                               ; preds = %28
+  %39 = call i64 @simple_strtoull(ptr noundef %36, ptr noundef nonnull %2, i32 noundef 0) #6
+  %40 = icmp eq i64 %39, 0
+  %41 = load ptr, ptr %2, align 8
+  %42 = icmp eq ptr %36, %41
+  %43 = select i1 %40, i1 true, i1 %42
+  %44 = select i1 %43, i64 9600, i64 %39
   br label %.thread
 
-.thread:                                          ; preds = %1, %40, %30
-  %47 = phi i64 [ 9600, %30 ], [ %46, %40 ], [ 9600, %1 ]
-  %48 = udiv i64 115200, %47
-  %49 = trunc i64 %48 to i32
+.thread:                                          ; preds = %1, %38, %28
+  %45 = phi i64 [ 9600, %28 ], [ %44, %38 ], [ 9600, %1 ]
+  %46 = udiv i64 115200, %45
+  %47 = trunc nuw nsw i64 %46 to i32
   store ptr @io_serial_in, ptr @serial_in, align 8
   store ptr @io_serial_out, ptr @serial_out, align 8
-  call fastcc void @early_serial_hw_init(i32 noundef %49) #7
+  call fastcc void @early_serial_hw_init(i32 noundef %47) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret void
 }
@@ -317,7 +340,7 @@ define internal fastcc void @early_pci_serial_init(ptr noundef %0) unnamed_addr 
   %37 = call i32 @read_pci_config(i8 noundef zeroext %16, i8 noundef zeroext %23, i8 noundef zeroext %30, i8 noundef zeroext 8) #6
   %38 = call i32 @read_pci_config(i8 noundef zeroext %16, i8 noundef zeroext %23, i8 noundef zeroext %30, i8 noundef zeroext 16) #6
   %39 = lshr i32 %37, 16
-  %40 = trunc i32 %39 to i16
+  %40 = trunc nuw i32 %39 to i16
   switch i16 %40, label %45 [
     i16 1795, label %41
     i16 1792, label %41
@@ -385,7 +408,7 @@ define internal fastcc void @early_pci_serial_init(ptr noundef %0) unnamed_addr 
 75:                                               ; preds = %74, %68, %57
   %76 = phi i64 [ 9600, %74 ], [ %71, %68 ], [ 9600, %57 ]
   %77 = udiv i64 115200, %76
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw nsw i64 %77 to i32
   call fastcc void @early_serial_hw_init(i32 noundef %78) #7
   br label %79
 
@@ -411,7 +434,7 @@ declare dso_local i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) loc
 declare dso_local i64 @simple_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @io_serial_in(i64 noundef %0, i32 noundef %1) #3 align 16 {
+define internal range(i32 0, 256) i32 @io_serial_in(i64 noundef %0, i32 noundef %1) #3 align 16 {
   %3 = zext i32 %1 to i64
   %4 = add i64 %3, %0
   %5 = trunc i64 %4 to i16

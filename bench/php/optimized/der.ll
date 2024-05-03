@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.der_cmp = private unnamed_addr constant [8 x i8] c"der_cmp\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"%s: len %zu %u\0A\00", align 1
 @.str.2 = private unnamed_addr constant [16 x i8] c"%s: data %s %s\0A\00", align 1
-@.str.3 = private unnamed_addr constant [2 x i8] c"x\00", align 1
 @der__tag = internal unnamed_addr constant [37 x ptr] [ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41], align 16
 @.str.4 = private unnamed_addr constant [4 x i8] c"%#x\00", align 1
 @.str.5 = private unnamed_addr constant [4 x i8] c"eoc\00", align 1
@@ -199,7 +198,7 @@ gettag.exit.thread:                               ; preds = %15, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @der_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @der_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -420,7 +419,7 @@ der_tag.exit:                                     ; preds = %55, %60
 
 .lr.ph.i53:                                       ; preds = %120, %132
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %132 ], [ 0, %120 ]
-  %121 = trunc i64 %indvars.iv.i to i32
+  %121 = trunc nuw i64 %indvars.iv.i to i32
   %122 = shl i32 %121, 1
   %123 = icmp ult i32 %122, 126
   br i1 %123, label %124, label %132
@@ -496,20 +495,34 @@ der_data.exit:                                    ; preds = %132, %120, %79, %83
 163:                                              ; preds = %160, %der_data.exit
   %164 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %77) #8
   %.not42 = icmp eq i32 %164, 0
-  br i1 %.not42, label %167, label %165
+  br i1 %.not42, label %173, label %sub_0
 
-165:                                              ; preds = %163
-  %166 = call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @.str.3, ptr noundef nonnull dereferenceable(1) %77) #8
-  %.not43 = icmp eq i32 %166, 0
-  br i1 %.not43, label %167, label %gettag.exit.thread
+sub_0:                                            ; preds = %163
+  %165 = load i8, ptr %77, align 1
+  %166 = zext i8 %165 to i32
+  %167 = sub nsw i32 120, %166
+  %.not81 = icmp eq i8 %165, 120
+  br i1 %.not81, label %sub_1, label %.tail
 
-167:                                              ; preds = %165, %163
-  %168 = getelementptr inbounds i8, ptr %0, i64 136
-  %169 = call i64 @php_strlcpy(ptr noundef nonnull %168, ptr noundef nonnull %3, i64 noundef 128) #6
+sub_1:                                            ; preds = %sub_0
+  %168 = getelementptr inbounds i8, ptr %.037, i64 2
+  %169 = load i8, ptr %168, align 1
+  %170 = zext i8 %169 to i32
+  %171 = sub nsw i32 0, %170
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %172 = phi i32 [ %167, %sub_0 ], [ %171, %sub_1 ]
+  %.not43 = icmp eq i32 %172, 0
+  br i1 %.not43, label %173, label %gettag.exit.thread
+
+173:                                              ; preds = %.tail, %163
+  %174 = getelementptr inbounds i8, ptr %0, i64 136
+  %175 = call i64 @php_strlcpy(ptr noundef nonnull %174, ptr noundef nonnull %3, i64 noundef 128) #6
   br label %gettag.exit.thread
 
-gettag.exit.thread:                               ; preds = %17, %159, %135, %74, %._crit_edge.i, %25, %24, %13, %2, %165, %68, %gettag.exit, %167
-  %.036 = phi i32 [ 1, %167 ], [ -1, %gettag.exit ], [ 0, %68 ], [ 0, %165 ], [ -1, %2 ], [ -1, %13 ], [ -1, %24 ], [ -1, %25 ], [ -1, %._crit_edge.i ], [ 0, %159 ], [ 0, %135 ], [ 1, %74 ], [ -1, %17 ]
+gettag.exit.thread:                               ; preds = %17, %159, %135, %74, %._crit_edge.i, %25, %24, %13, %2, %.tail, %68, %gettag.exit, %173
+  %.036 = phi i32 [ 1, %173 ], [ -1, %gettag.exit ], [ 0, %68 ], [ 0, %.tail ], [ -1, %2 ], [ -1, %13 ], [ -1, %24 ], [ -1, %25 ], [ -1, %._crit_edge.i ], [ 0, %159 ], [ 0, %135 ], [ 1, %74 ], [ -1, %17 ]
   ret i32 %.036
 }
 

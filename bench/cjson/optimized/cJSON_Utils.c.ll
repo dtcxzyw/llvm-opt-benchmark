@@ -423,7 +423,7 @@ define ptr @cJSONUtils_GetPointerCaseSensitive(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @cJSONUtils_ApplyPatches(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 14) i32 @cJSONUtils_ApplyPatches(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @cJSON_IsArray(ptr noundef %1) #12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %4
@@ -440,7 +440,7 @@ define i32 @cJSONUtils_ApplyPatches(ptr noundef %0, ptr noundef %1) local_unname
 
 .lr.ph:                                           ; preds = %5, %9
   %.116 = phi ptr [ %10, %9 ], [ %7, %5 ]
-  %8 = tail call fastcc i32 @apply_patch(ptr noundef %0, ptr noundef nonnull %.116, i32 noundef 0), !range !4
+  %8 = tail call fastcc i32 @apply_patch(ptr noundef %0, ptr noundef nonnull %.116, i32 noundef 0)
   %.not14 = icmp eq i32 %8, 0
   br i1 %.not14, label %9, label %.loopexit
 
@@ -455,7 +455,7 @@ define i32 @cJSONUtils_ApplyPatches(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @apply_patch(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 14) i32 @apply_patch(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %get_object_item.exit, label %get_object_item.exit.thread
@@ -507,12 +507,12 @@ get_object_item.exit.i:                           ; preds = %10, %.thread
 24:                                               ; preds = %21
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.10) #13
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.thread201, label %27
+  br i1 %26, label %.thread202, label %27
 
 27:                                               ; preds = %24
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.11) #13
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.thread201, label %30
+  br i1 %29, label %.thread202, label %30
 
 30:                                               ; preds = %27
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.12) #13
@@ -535,11 +535,11 @@ decode_patch_operation.exit:                      ; preds = %30
 
 get_object_item.exit131:                          ; preds = %36, %38
   %.0.i130 = phi ptr [ %37, %36 ], [ %39, %38 ]
-  %40 = tail call fastcc i32 @compare_json(ptr noundef %35, ptr noundef %.0.i130, i32 noundef %2), !range !5
+  %40 = tail call fastcc i32 @compare_json(ptr noundef %35, ptr noundef %.0.i130, i32 noundef %2)
   %41 = xor i32 %40, 1
   br label %.thread187.thread
 
-.thread201:                                       ; preds = %27, %24
+.thread202:                                       ; preds = %27, %24
   %.0.i128.ph.ph = phi i32 [ 4, %24 ], [ 5, %27 ]
   %42 = getelementptr inbounds i8, ptr %.0.i142144, i64 32
   %43 = load ptr, ptr %42, align 8
@@ -621,11 +621,11 @@ get_object_item.exit131:                          ; preds = %36, %38
   store ptr null, ptr %75, align 8
   br label %.thread187.thread
 
-78:                                               ; preds = %.thread201, %44
-  %79 = phi ptr [ %43, %.thread201 ], [ %46, %44 ]
-  %80 = phi ptr [ %42, %.thread201 ], [ %45, %44 ]
-  %.0.i128.ph205 = phi i32 [ %.0.i128.ph.ph, %.thread201 ], [ %.0.i128.ph, %44 ]
-  %81 = and i32 %.0.i128.ph205, 6
+78:                                               ; preds = %.thread202, %44
+  %79 = phi ptr [ %43, %.thread202 ], [ %46, %44 ]
+  %80 = phi ptr [ %42, %.thread202 ], [ %45, %44 ]
+  %.0.i128.ph206 = phi i32 [ %.0.i128.ph.ph, %.thread202 ], [ %.0.i128.ph, %44 ]
+  %81 = and i32 %.0.i128.ph206, 6
   switch i32 %81, label %.thread162 [
     i32 2, label %.thread157
     i32 4, label %88
@@ -660,7 +660,7 @@ get_object_item.exit135:                          ; preds = %89, %91
   br i1 %93, label %.thread187.thread, label %94
 
 94:                                               ; preds = %get_object_item.exit135
-  switch i32 %.0.i128.ph205, label %.thread187.thread [
+  switch i32 %.0.i128.ph206, label %.thread187.thread [
     i32 4, label %95
     i32 5, label %.thread169
   ]
@@ -775,26 +775,32 @@ decode_pointer_inplace.exit:                      ; preds = %128, %137
 139:                                              ; preds = %decode_pointer_inplace.exit
   %140 = tail call i32 @cJSON_IsArray(ptr noundef nonnull %126) #12
   %.not118 = icmp eq i32 %140, 0
-  br i1 %.not118, label %151, label %141
+  br i1 %.not118, label %151, label %sub_0
 
-141:                                              ; preds = %139
-  %142 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %125, ptr noundef nonnull dereferenceable(2) @.str.5) #13
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %146
+sub_0:                                            ; preds = %139
+  %141 = load i8, ptr %125, align 1
+  %.not200 = icmp eq i8 %141, 45
+  br i1 %.not200, label %.tail, label %.tail.thread
 
-144:                                              ; preds = %141
-  %145 = tail call i32 @cJSON_AddItemToArray(ptr noundef nonnull %126, ptr noundef nonnull %.3) #12
+.tail:                                            ; preds = %sub_0
+  %142 = getelementptr inbounds i8, ptr %122, i64 2
+  %143 = load i8, ptr %142, align 1
+  %144 = icmp eq i8 %143, 0
+  br i1 %144, label %145, label %.tail.thread
+
+145:                                              ; preds = %.tail
+  %146 = tail call i32 @cJSON_AddItemToArray(ptr noundef nonnull %126, ptr noundef nonnull %.3) #12
   br label %.thread187
 
-146:                                              ; preds = %141
+.tail.thread:                                     ; preds = %sub_0, %.tail
   store i64 0, ptr %4, align 8
-  %147 = call fastcc i32 @decode_array_index_from_pointer(ptr noundef nonnull %125, ptr noundef nonnull %4), !range !5
+  %147 = call fastcc i32 @decode_array_index_from_pointer(ptr noundef nonnull %125, ptr noundef nonnull %4)
   %.not121 = icmp eq i32 %147, 0
   br i1 %.not121, label %select.unfold185, label %148
 
-148:                                              ; preds = %146
+148:                                              ; preds = %.tail.thread
   %149 = load i64, ptr %4, align 8
-  %150 = tail call fastcc i32 @insert_item_in_array(ptr noundef nonnull %126, i64 noundef %149, ptr noundef nonnull %.3), !range !5
+  %150 = tail call fastcc i32 @insert_item_in_array(ptr noundef nonnull %126, i64 noundef %149, ptr noundef nonnull %.3)
   %.not122 = icmp eq i32 %150, 0
   br i1 %.not122, label %select.unfold185, label %.thread187
 
@@ -818,13 +824,13 @@ decode_pointer_inplace.exit:                      ; preds = %128, %137
   %157 = tail call i32 @cJSON_AddItemToObject(ptr noundef nonnull %126, ptr noundef nonnull %125, ptr noundef nonnull %.3) #12
   br label %.thread187
 
-select.unfold185:                                 ; preds = %148, %decode_pointer_inplace.exit, %146, %151, %decode_pointer_inplace.exit.thread
-  %.098 = phi i32 [ 9, %decode_pointer_inplace.exit ], [ 11, %146 ], [ 9, %151 ], [ 9, %decode_pointer_inplace.exit.thread ], [ 10, %148 ]
+select.unfold185:                                 ; preds = %148, %decode_pointer_inplace.exit, %.tail.thread, %151, %decode_pointer_inplace.exit.thread
+  %.098 = phi i32 [ 9, %decode_pointer_inplace.exit ], [ 11, %.tail.thread ], [ 9, %151 ], [ 9, %decode_pointer_inplace.exit.thread ], [ 10, %148 ]
   tail call void @cJSON_Delete(ptr noundef nonnull %.3) #12
   br label %.thread187
 
-.thread187:                                       ; preds = %148, %156, %144, %select.unfold185
-  %.098193 = phi i32 [ %.098, %select.unfold185 ], [ 0, %148 ], [ 0, %156 ], [ 0, %144 ]
+.thread187:                                       ; preds = %148, %156, %145, %select.unfold185
+  %.098193 = phi i32 [ %.098, %select.unfold185 ], [ 0, %148 ], [ 0, %156 ], [ 0, %145 ]
   br i1 %120, label %.thread187.thread, label %158
 
 158:                                              ; preds = %.thread187
@@ -837,7 +843,7 @@ select.unfold185:                                 ; preds = %148, %decode_pointe
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define i32 @cJSONUtils_ApplyPatchesCaseSensitive(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 14) i32 @cJSONUtils_ApplyPatchesCaseSensitive(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @cJSON_IsArray(ptr noundef %1) #12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %4
@@ -854,7 +860,7 @@ define i32 @cJSONUtils_ApplyPatchesCaseSensitive(ptr noundef %0, ptr noundef %1)
 
 .lr.ph:                                           ; preds = %5, %9
   %.116 = phi ptr [ %10, %9 ], [ %7, %5 ]
-  %8 = tail call fastcc i32 @apply_patch(ptr noundef %0, ptr noundef nonnull %.116, i32 noundef 1), !range !4
+  %8 = tail call fastcc i32 @apply_patch(ptr noundef %0, ptr noundef nonnull %.116, i32 noundef 1)
   %.not14 = icmp eq i32 %8, 0
   br i1 %.not14, label %9, label %.loopexit
 
@@ -1584,7 +1590,7 @@ sort_object.exit48:                               ; preds = %13, %15
   br label %63
 
 53:                                               ; preds = %46
-  %54 = tail call fastcc i32 @compare_json(ptr noundef %.03949, ptr noundef %.03850, i32 noundef %2), !range !5
+  %54 = tail call fastcc i32 @compare_json(ptr noundef %.03949, ptr noundef %.03850, i32 noundef %2)
   %.not45 = icmp eq i32 %54, 0
   br i1 %.not45, label %55, label %60
 
@@ -1633,7 +1639,7 @@ define ptr @cJSONUtils_GenerateMergePatchCaseSensitive(ptr noundef %0, ptr nound
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @decode_array_index_from_pointer(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @decode_array_index_from_pointer(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 {
   %3 = load i8, ptr %0, align 1
   %.fr29 = freeze i8 %3
   %4 = icmp eq i8 %.fr29, 48
@@ -1711,7 +1717,7 @@ define internal fastcc ptr @get_object_item(ptr noundef %0, ptr noundef %1, i32 
 declare i32 @cJSON_IsString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc i32 @compare_json(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -1785,7 +1791,7 @@ define internal fastcc i32 @compare_json(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %42
-  %47 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.047, ptr noundef nonnull %.048, i32 noundef %2), !range !5
+  %47 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.047, ptr noundef nonnull %.048, i32 noundef %2)
   %.not55 = icmp eq i32 %47, 0
   br i1 %.not55, label %compare_strings.exit.thread64, label %42
 
@@ -1866,7 +1872,7 @@ sort_object.exit61.split.us:                      ; preds = %sort_object.exit61,
   br i1 %.not53.us, label %compare_strings.exit.thread.us, label %compare_strings.exit.thread64
 
 compare_strings.exit.thread.us:                   ; preds = %.lr.ph.i.us, %._crit_edge.i.us, %65
-  %86 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.1.us, ptr noundef nonnull %.149.us, i32 noundef 0), !range !5
+  %86 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.1.us, ptr noundef nonnull %.149.us, i32 noundef 0)
   %.not54.us = icmp eq i32 %86, 0
   br i1 %.not54.us, label %compare_strings.exit.thread64, label %sort_object.exit61.split.us
 
@@ -1900,7 +1906,7 @@ compare_strings.exit:                             ; preds = %97
   br i1 %.not53, label %compare_strings.exit.thread, label %compare_strings.exit.thread64
 
 compare_strings.exit.thread:                      ; preds = %97, %compare_strings.exit
-  %100 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.1, ptr noundef nonnull %.149, i32 noundef %2), !range !5
+  %100 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.1, ptr noundef nonnull %.149, i32 noundef %2)
   %.not54 = icmp eq i32 %100, 0
   br i1 %.not54, label %compare_strings.exit.thread64, label %sort_object.exit61.split
 
@@ -1982,7 +1988,7 @@ define internal fastcc ptr @detach_path(ptr noundef %0, ptr nocapture noundef re
   %13 = tail call fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %2)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %21, %11
+.preheader.i:                                     ; preds = %11, %21
   %.012.i = phi ptr [ %23, %21 ], [ %12, %11 ]
   %.0.i = phi ptr [ %22, %21 ], [ %12, %11 ]
   %14 = load i8, ptr %.012.i, align 1
@@ -2163,7 +2169,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @cJSON_AddItemToArray(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @insert_item_in_array(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @insert_item_in_array(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   br label %5
 
@@ -2534,5 +2540,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 14}
-!5 = !{i32 0, i32 2}

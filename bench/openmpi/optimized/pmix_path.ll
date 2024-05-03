@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__fsid_t = type { [2 x i32] }
 
 @.str.1 = private unnamed_addr constant [5 x i8] c"PATH\00", align 1
-@.str.2 = private unnamed_addr constant [2 x i8] c".\00", align 1
 @.str.3 = private unnamed_addr constant [7 x i8] c"lustre\00", align 1
 @.str.4 = private unnamed_addr constant [4 x i8] c"nfs\00", align 1
 @.str.5 = private unnamed_addr constant [7 x i8] c"autofs\00", align 1
@@ -341,68 +340,81 @@ path_env_load.exit:                               ; preds = %30, %21, %list_env_
 .preheader:                                       ; preds = %path_env_load.exit
   %34 = load i32, ptr %6, align 4
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph.preheader, label %._crit_edge.thread
+  br i1 %35, label %sub_0.preheader, label %._crit_edge.thread
 
-.lr.ph.preheader:                                 ; preds = %.preheader
+sub_0.preheader:                                  ; preds = %.preheader
   %.pre = load ptr, ptr %5, align 8
-  br label %.lr.ph
+  br label %sub_0
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %50
-  %36 = phi i32 [ %34, %.lr.ph.preheader ], [ %51, %50 ]
-  %37 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %52, %50 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %.036 = phi i1 [ false, %.lr.ph.preheader ], [ %.1, %50 ]
+sub_0:                                            ; preds = %sub_0.preheader, %56
+  %36 = phi i32 [ %34, %sub_0.preheader ], [ %57, %56 ]
+  %37 = phi ptr [ %.pre, %sub_0.preheader ], [ %58, %56 ]
+  %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %56 ]
+  %.036 = phi i1 [ false, %sub_0.preheader ], [ %.1, %56 ]
   %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
-  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(2) @.str.2) #14
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %50
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  %42 = add nsw i32 %41, -46
+  %.not = icmp eq i32 %42, 0
+  br i1 %.not, label %sub_1, label %.tail
 
-42:                                               ; preds = %.lr.ph
-  call void @free(ptr noundef %39) #13
-  %43 = call noalias ptr @strdup(ptr noundef nonnull %3) #13
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
-  store ptr %43, ptr %45, align 8
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit, label %._crit_edge39
+sub_1:                                            ; preds = %sub_0
+  %43 = getelementptr inbounds i8, ptr %39, i64 1
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  br label %.tail
 
-._crit_edge39:                                    ; preds = %42
+.tail:                                            ; preds = %sub_0, %sub_1
+  %46 = phi i32 [ %42, %sub_0 ], [ %45, %sub_1 ]
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %56
+
+48:                                               ; preds = %.tail
+  call void @free(ptr noundef nonnull %39) #13
+  %49 = call noalias ptr @strdup(ptr noundef nonnull %3) #13
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %.loopexit, label %._crit_edge39
+
+._crit_edge39:                                    ; preds = %48
   %.pre40 = load i32, ptr %6, align 4
-  br label %50
+  br label %56
 
-50:                                               ; preds = %._crit_edge39, %.lr.ph
-  %51 = phi i32 [ %.pre40, %._crit_edge39 ], [ %36, %.lr.ph ]
-  %52 = phi ptr [ %46, %._crit_edge39 ], [ %37, %.lr.ph ]
-  %.1 = phi i1 [ true, %._crit_edge39 ], [ %.036, %.lr.ph ]
+56:                                               ; preds = %._crit_edge39, %.tail
+  %57 = phi i32 [ %.pre40, %._crit_edge39 ], [ %36, %.tail ]
+  %58 = phi ptr [ %52, %._crit_edge39 ], [ %37, %.tail ]
+  %.1 = phi i1 [ true, %._crit_edge39 ], [ %.036, %.tail ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = sext i32 %51 to i64
-  %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %59 = sext i32 %57 to i64
+  %60 = icmp slt i64 %indvars.iv.next, %59
+  br i1 %60, label %sub_0, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %50
+._crit_edge:                                      ; preds = %56
   br i1 %.1, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %55 = call i32 @pmix_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3) #13
+  %61 = call i32 @pmix_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3) #13
   br label %.thread
 
 .thread:                                          ; preds = %path_env_load.exit, %._crit_edge.thread, %._crit_edge
-  %56 = load ptr, ptr %5, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit, label %58
+  %62 = load ptr, ptr %5, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %.loopexit, label %64
 
-58:                                               ; preds = %.thread
-  %59 = call noalias ptr @pmix_path_find(ptr noundef %0, ptr noundef nonnull %56, i32 noundef %1, ptr noundef %2)
-  %60 = load ptr, ptr %5, align 8
-  call void @PMIx_Argv_free(ptr noundef %60) #13
+64:                                               ; preds = %.thread
+  %65 = call noalias ptr @pmix_path_find(ptr noundef %0, ptr noundef nonnull %62, i32 noundef %1, ptr noundef %2)
+  %66 = load ptr, ptr %5, align 8
+  call void @PMIx_Argv_free(ptr noundef %66) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %.thread, %58
-  %.019 = phi ptr [ %59, %58 ], [ null, %.thread ], [ null, %42 ]
+.loopexit:                                        ; preds = %48, %.thread, %64
+  %.019 = phi ptr [ %65, %64 ], [ null, %.thread ], [ null, %48 ]
   ret ptr %.019
 }
 
@@ -601,7 +613,7 @@ declare ptr @getmntent_r(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loc
 declare i32 @endmntent(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.statfs, align 8
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null

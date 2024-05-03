@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [9 x i8] c"autoexec\00", align 1
 @.str.8 = private unnamed_addr constant [47 x i8] c"** cmd warning: ignoring unbalanced quote ...\0A\00", align 1
 @.str.9 = private unnamed_addr constant [28 x i8] c"** cmd warning: alias loop\0A\00", align 1
-@.str.10 = private unnamed_addr constant [2 x i8] c"-\00", align 1
-@.str.11 = private unnamed_addr constant [2 x i8] c"w\00", align 1
 @.str.12 = private unnamed_addr constant [7 x i8] c"stdout\00", align 1
 @stdout = external local_unnamed_addr global ptr, align 8
 @.str.13 = private unnamed_addr constant [6 x i8] c"stdin\00", align 1
@@ -36,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.30 = private unnamed_addr constant [7 x i8] c"kissat\00", align 1
 @.str.31 = private unnamed_addr constant [10 x i8] c"kissatwin\00", align 1
 @.str.32 = private unnamed_addr constant [11 x i8] c"kissatunix\00", align 1
-@.str.34 = private unnamed_addr constant [3 x i8] c"-h\00", align 1
 @.str.35 = private unnamed_addr constant [7 x i8] c"--help\00", align 1
 @.str.38 = private unnamed_addr constant [7 x i8] c" --sat\00", align 1
 @.str.39 = private unnamed_addr constant [9 x i8] c" --unsat\00", align 1
@@ -59,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cmdCheckShellEscape(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cmdCheckShellEscape(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 33
@@ -132,7 +129,7 @@ define i32 @CmdCommandDispatch(ptr noundef %0, ptr nocapture noundef %1, ptr noc
   br i1 %8, label %71, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i32 @cmdCheckShellEscape(ptr poison, i32 noundef %6, ptr noundef %7), !range !6
+  %10 = tail call i32 @cmdCheckShellEscape(ptr poison, i32 noundef %6, ptr noundef %7)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %71
 
@@ -282,7 +279,7 @@ define noalias noundef ptr @CmdAddToArgv(i32 noundef %0, ptr nocapture noundef r
   %12 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
   store ptr %11, ptr %12, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret ptr %6
@@ -312,7 +309,7 @@ define void @CmdFreeArgv(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 7:                                                ; preds = %6, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %2
   %.not = icmp eq ptr %1, null
@@ -368,7 +365,7 @@ define ptr @CmdSplitLine(ptr nocapture noundef readonly %0, ptr noundef %1, ptr 
   %18 = and i16 %17, 8192
   %.not = icmp eq i16 %18, 0
   %19 = getelementptr inbounds i8, ptr %.161, i64 1
-  br i1 %.not, label %.preheader75, label %13, !llvm.loop !9
+  br i1 %.not, label %.preheader75, label %13, !llvm.loop !8
 
 .preheader75:                                     ; preds = %13, %29
   %20 = phi i8 [ %.pre, %29 ], [ %14, %13 ]
@@ -408,7 +405,7 @@ define ptr @CmdSplitLine(ptr nocapture noundef readonly %0, ptr noundef %1, ptr 
   %34 = getelementptr inbounds i8, ptr %.2, i64 1
   %indvars.iv.next82 = add i64 %indvars.iv81, 1
   %.pre = load i8, ptr %34, align 1
-  br label %.preheader75, !llvm.loop !10
+  br label %.preheader75, !llvm.loop !9
 
 35:                                               ; preds = %.preheader75, %26
   %.058.lcssa = phi i32 [ %.058, %.preheader75 ], [ 0, %26 ]
@@ -464,7 +461,7 @@ define ptr @CmdSplitLine(ptr nocapture noundef readonly %0, ptr noundef %1, ptr 
   %.163 = phi i32 [ %58, %52 ], [ %.06278, %.lr.ph ], [ %.06278, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv81
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %61, %43
   %.062.lcssa = phi i32 [ 0, %43 ], [ %.163, %61 ]
@@ -555,7 +552,7 @@ Vec_PtrFree.exit:                                 ; preds = %41
   %96 = getelementptr inbounds i8, ptr %.379, i64 1
   %.pr = load i8, ptr %96, align 1
   %.not72 = icmp eq i8 %.pr, 0
-  br i1 %.not72, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %.not72, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %Vec_PtrFree.exit, %94
   %.4 = phi ptr [ %95, %94 ], [ %.2, %Vec_PtrFree.exit ], [ %96, %.preheader ]
@@ -566,7 +563,7 @@ Vec_PtrFree.exit:                                 ; preds = %41
 declare ptr @__ctype_b_loc() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -655,7 +652,7 @@ define noundef i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef %1, ptr 
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv.next
   store ptr %44, ptr %gep, align 8
   %45 = icmp ugt i64 %indvars.iv, 2
-  br i1 %45, label %.lr.ph, label %.preheader140, !llvm.loop !13
+  br i1 %45, label %.lr.ph, label %.preheader140, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph149.preheader, %.preheader140, %28
   %.1113 = phi i32 [ %.0112166, %28 ], [ %34, %.preheader140 ], [ %34, %.lr.ph149.preheader ]
@@ -692,7 +689,7 @@ define noundef i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef %1, ptr 
   br i1 %59, label %.critedge, label %60
 
 60:                                               ; preds = %.preheader
-  %61 = call i32 @CmdApplyAlias(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %3), !range !6
+  %61 = call i32 @CmdApplyAlias(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %3)
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %65
 
@@ -726,7 +723,7 @@ define noundef i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef %1, ptr 
 72:                                               ; preds = %71, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %65
   %.not.i = icmp eq ptr %67, null
@@ -738,7 +735,7 @@ define noundef i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef %1, ptr 
 
 CmdFreeArgv.exit:                                 ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %73 = icmp eq i32 %.1105, 0
-  br i1 %73, label %.preheader, label %74, !llvm.loop !14
+  br i1 %73, label %.preheader, label %74, !llvm.loop !13
 
 74:                                               ; preds = %CmdFreeArgv.exit
   store i32 %.2114159, ptr %1, align 4
@@ -787,7 +784,7 @@ CmdFreeArgv.exit:                                 ; preds = %._crit_edge.i, %._c
   store ptr %92, ptr %94, align 8
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, -1
   %95 = icmp sgt i64 %indvars.iv.next181, %90
-  br i1 %95, label %.lr.ph152, label %.loopexit196, !llvm.loop !15
+  br i1 %95, label %.lr.ph152, label %.loopexit196, !llvm.loop !14
 
 .loopexit196:                                     ; preds = %.lr.ph152, %85
   %96 = add nsw i32 %76, %.2114159
@@ -811,7 +808,7 @@ CmdFreeArgv.exit:                                 ; preds = %._crit_edge.i, %._c
   store ptr %100, ptr %102, align 8
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge157, label %.lr.ph156, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge157, label %.lr.ph156, !llvm.loop !15
 
 ._crit_edge157:                                   ; preds = %.lr.ph156, %.loopexit196
   %.3195 = phi ptr [ %86, %.loopexit196 ], [ %.3194, %.lr.ph156 ]
@@ -833,7 +830,7 @@ CmdFreeArgv.exit:                                 ; preds = %._crit_edge.i, %._c
   %109 = load i32, ptr %108, align 8
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next187, %110
-  br i1 %111, label %.lr.ph163, label %._crit_edge164, !llvm.loop !17
+  br i1 %111, label %.lr.ph163, label %._crit_edge164, !llvm.loop !16
 
 ._crit_edge164:                                   ; preds = %105, %.loopexit
   %.2114.lcssa = phi i32 [ %.1113, %.loopexit ], [ %.3115192, %105 ]
@@ -844,7 +841,7 @@ CmdFreeArgv.exit:                                 ; preds = %._crit_edge.i, %._c
   %113 = add nsw i32 %112, 1
   store i32 %113, ptr %3, align 4
   %114 = icmp slt i32 %112, 199
-  br i1 %114, label %12, label %._crit_edge171, !llvm.loop !18
+  br i1 %114, label %12, label %._crit_edge171, !llvm.loop !17
 
 ._crit_edge171:                                   ; preds = %._crit_edge164, %4
   %115 = getelementptr inbounds i8, ptr %0, i64 136
@@ -871,128 +868,147 @@ define noundef ptr @CmdHistorySubstitution(ptr nocapture noundef readnone %0, pt
 
 ; Function Attrs: nounwind uwtable
 define ptr @CmdFileOpen(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.10) #25
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %17
+sub_0:
+  %5 = load i8, ptr %1, align 1
+  %.not62 = icmp eq i8 %5, 45
+  br i1 %.not62, label %.tail, label %sub_059
 
-8:                                                ; preds = %5
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(2) @.str.11) #25
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %14
+.tail:                                            ; preds = %sub_0
+  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %sub_055, label %sub_059
 
-11:                                               ; preds = %8
-  %12 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @.str.12) #22
-  %13 = load ptr, ptr @stdout, align 8
-  br label %58
+sub_055:                                          ; preds = %.tail
+  %9 = load i8, ptr %2, align 1
+  %.not64 = icmp eq i8 %9, 119
+  br i1 %.not64, label %.tail54, label %.tail54.thread
 
-14:                                               ; preds = %8
-  %15 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @.str.13) #22
-  %16 = load ptr, ptr @stdin, align 8
-  br label %58
+.tail54:                                          ; preds = %sub_055
+  %10 = getelementptr inbounds i8, ptr %2, i64 1
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %13, label %.tail54.thread
 
-17:                                               ; preds = %5
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(2) @.str.14) #25
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %.thread52
+13:                                               ; preds = %.tail54
+  %14 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @.str.12) #22
+  %15 = load ptr, ptr @stdout, align 8
+  br label %60
 
-20:                                               ; preds = %17
-  %21 = tail call ptr @Cmd_FlagReadByName(ptr noundef %0, ptr noundef nonnull @.str.15) #22
-  %22 = tail call ptr @Cmd_FlagReadByName(ptr noundef %0, ptr noundef nonnull @.str.16) #22
-  %23 = icmp eq ptr %21, null
-  %24 = icmp eq ptr %22, null
-  %or.cond = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond, label %.thread52, label %25
+.tail54.thread:                                   ; preds = %sub_055, %.tail54
+  %16 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @.str.13) #22
+  %17 = load ptr, ptr @stdin, align 8
+  br label %60
 
-25:                                               ; preds = %20
-  br i1 %23, label %26, label %28
+sub_059:                                          ; preds = %sub_0, %.tail
+  %18 = load i8, ptr %2, align 1
+  %.not63 = icmp eq i8 %18, 114
+  br i1 %.not63, label %.tail58, label %.thread52
 
-26:                                               ; preds = %25
-  %27 = tail call ptr @Extra_UtilStrsav(ptr noundef %22) #22
-  br label %38
+.tail58:                                          ; preds = %sub_059
+  %19 = getelementptr inbounds i8, ptr %2, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %.thread52
 
-28:                                               ; preds = %25
-  br i1 %24, label %29, label %31
+22:                                               ; preds = %.tail58
+  %23 = tail call ptr @Cmd_FlagReadByName(ptr noundef %0, ptr noundef nonnull @.str.15) #22
+  %24 = tail call ptr @Cmd_FlagReadByName(ptr noundef %0, ptr noundef nonnull @.str.16) #22
+  %25 = icmp eq ptr %23, null
+  %26 = icmp eq ptr %24, null
+  %or.cond = select i1 %25, i1 %26, i1 false
+  br i1 %or.cond, label %.thread52, label %27
 
-29:                                               ; preds = %28
-  %30 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull %21) #22
-  br label %38
+27:                                               ; preds = %22
+  br i1 %25, label %28, label %30
 
-31:                                               ; preds = %28
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #25
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #25
-  %34 = add i64 %32, 5
-  %35 = add i64 %34, %33
-  %36 = tail call noalias ptr @malloc(i64 noundef %35) #21
-  %37 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull %21, ptr noundef nonnull %22) #22
-  br label %38
+28:                                               ; preds = %27
+  %29 = tail call ptr @Extra_UtilStrsav(ptr noundef %24) #22
+  br label %40
 
-38:                                               ; preds = %26, %31, %29
-  %.038 = phi ptr [ %27, %26 ], [ %30, %29 ], [ %36, %31 ]
+30:                                               ; preds = %27
+  br i1 %26, label %31, label %33
+
+31:                                               ; preds = %30
+  %32 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull %23) #22
+  br label %40
+
+33:                                               ; preds = %30
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #25
+  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #25
+  %36 = add i64 %34, 5
+  %37 = add i64 %36, %35
+  %38 = tail call noalias ptr @malloc(i64 noundef %37) #21
+  %39 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull %23, ptr noundef nonnull %24) #22
+  br label %40
+
+40:                                               ; preds = %28, %33, %31
+  %.038 = phi ptr [ %29, %28 ], [ %32, %31 ], [ %38, %33 ]
   %.not = icmp eq ptr %.038, null
-  br i1 %.not, label %.thread52, label %39
+  br i1 %.not, label %.thread52, label %41
 
-39:                                               ; preds = %38
-  %40 = tail call ptr @Extra_UtilFileSearch(ptr noundef %1, ptr noundef nonnull %.038, ptr noundef nonnull @.str.14) #22
+41:                                               ; preds = %40
+  %42 = tail call ptr @Extra_UtilFileSearch(ptr noundef nonnull %1, ptr noundef nonnull %.038, ptr noundef nonnull @.str.14) #22
   tail call void @free(ptr noundef nonnull %.038) #22
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread52, label %43
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %.thread52, label %45
 
-.thread52:                                        ; preds = %20, %17, %38, %39
-  %42 = tail call ptr @Extra_UtilTildeExpand(ptr noundef %1) #22
-  br label %43
+.thread52:                                        ; preds = %sub_059, %22, %.tail58, %40, %41
+  %44 = tail call ptr @Extra_UtilTildeExpand(ptr noundef nonnull %1) #22
+  br label %45
 
-43:                                               ; preds = %.thread52, %39
-  %.1 = phi ptr [ %42, %.thread52 ], [ %40, %39 ]
-  %44 = tail call noalias ptr @fopen(ptr noundef %.1, ptr noundef %2)
-  %45 = icmp eq ptr %44, null
+45:                                               ; preds = %.thread52, %41
+  %.1 = phi ptr [ %44, %.thread52 ], [ %42, %41 ]
+  %46 = tail call noalias ptr @fopen(ptr noundef %.1, ptr noundef nonnull %2)
+  %47 = icmp eq ptr %46, null
   %.not47 = icmp eq i32 %4, 0
-  br i1 %45, label %46, label %48
+  br i1 %47, label %48, label %50
 
-46:                                               ; preds = %43
-  br i1 %.not47, label %47, label %58
-
-47:                                               ; preds = %46
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, ptr noundef %.1)
-  br label %58
-
-48:                                               ; preds = %43
-  br i1 %.not47, label %49, label %58
+48:                                               ; preds = %45
+  br i1 %.not47, label %49, label %60
 
 49:                                               ; preds = %48
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #25
-  %51 = icmp ugt i64 %50, 5
-  br i1 %51, label %52, label %58
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, ptr noundef %.1)
+  br label %60
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %.1, i64 %50
-  %54 = getelementptr inbounds i8, ptr %53, i64 -6
-  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(7) @.str.19) #25
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %58
+50:                                               ; preds = %45
+  br i1 %.not47, label %51, label %60
 
-57:                                               ; preds = %52
+51:                                               ; preds = %50
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #25
+  %53 = icmp ugt i64 %52, 5
+  br i1 %53, label %54, label %60
+
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %.1, i64 %52
+  %56 = getelementptr inbounds i8, ptr %55, i64 -6
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(7) @.str.19) #25
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %54
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.20, ptr noundef %.1)
-  br label %58
+  br label %60
 
-58:                                               ; preds = %47, %46, %57, %52, %49, %48, %11, %14
-  %.2 = phi ptr [ %12, %11 ], [ %15, %14 ], [ %.1, %46 ], [ %.1, %47 ], [ %.1, %48 ], [ %.1, %57 ], [ %.1, %52 ], [ %.1, %49 ]
-  %.0 = phi ptr [ %13, %11 ], [ %16, %14 ], [ null, %46 ], [ null, %47 ], [ %44, %48 ], [ %44, %57 ], [ %44, %52 ], [ %44, %49 ]
+60:                                               ; preds = %49, %48, %59, %54, %51, %50, %13, %.tail54.thread
+  %.2 = phi ptr [ %14, %13 ], [ %16, %.tail54.thread ], [ %.1, %48 ], [ %.1, %49 ], [ %.1, %50 ], [ %.1, %59 ], [ %.1, %54 ], [ %.1, %51 ]
+  %.0 = phi ptr [ %15, %13 ], [ %17, %.tail54.thread ], [ null, %48 ], [ null, %49 ], [ %46, %50 ], [ %46, %59 ], [ %46, %54 ], [ %46, %51 ]
   %.not48 = icmp eq ptr %3, null
-  br i1 %.not48, label %60, label %59
-
-59:                                               ; preds = %58
-  store ptr %.2, ptr %3, align 8
-  br label %62
-
-60:                                               ; preds = %58
-  %.not49 = icmp eq ptr %.2, null
-  br i1 %.not49, label %62, label %61
+  br i1 %.not48, label %62, label %61
 
 61:                                               ; preds = %60
-  tail call void @free(ptr noundef nonnull %.2) #22
-  br label %62
+  store ptr %.2, ptr %3, align 8
+  br label %64
 
-62:                                               ; preds = %61, %60, %59
+62:                                               ; preds = %60
+  %.not49 = icmp eq ptr %.2, null
+  br i1 %.not49, label %64, label %63
+
+63:                                               ; preds = %62
+  tail call void @free(ptr noundef nonnull %.2) #22
+  br label %64
+
+64:                                               ; preds = %63, %62, %61
   ret ptr %.0
 }
 
@@ -1080,7 +1096,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.lr.ph, %9
   store ptr %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %Abc_UtilStrsav.exit, %2
   ret ptr %5
@@ -1153,7 +1169,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %.1101.us = phi i32 [ %21, %20 ], [ %.0100129.us, %.critedge.us ]
   %25 = call i32 @st__gen(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #22
   %.not.us = icmp eq i32 %25, 0
-  br i1 %.not.us, label %._crit_edge, label %.critedge.us, !llvm.loop !20
+  br i1 %.not.us, label %._crit_edge, label %.critedge.us, !llvm.loop !19
 
 ._crit_edge.loopexit151:                          ; preds = %.critedge
   %26 = trunc nuw i64 %indvars.iv.next to i32
@@ -1179,7 +1195,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   store ptr %29, ptr %30, align 8
   %31 = call i32 @st__gen(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #22
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %._crit_edge.loopexit151, label %.critedge, !llvm.loop !20
+  br i1 %.not, label %._crit_edge.loopexit151, label %.critedge, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv154 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next155, %.lr.ph ]
@@ -1192,7 +1208,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %spec.select = call i32 @llvm.smax.i32(i32 %.094131, i32 %36)
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge133, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge133, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge133:                                   ; preds = %.lr.ph, %._crit_edge
   %.094.lcssa = phi i32 [ 0, %._crit_edge ], [ %spec.select, %.lr.ph ]
@@ -1287,7 +1303,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, 1
   %77 = and i64 %indvars.iv.next158, 4294967295
   %exitcond160.not = icmp eq i64 %77, %indvars.iv161
-  br i1 %exitcond160.not, label %._crit_edge138, label %.lr.ph137, !llvm.loop !22
+  br i1 %exitcond160.not, label %._crit_edge138, label %.lr.ph137, !llvm.loop !21
 
 ._crit_edge138:                                   ; preds = %76, %63
   %78 = load ptr, ptr %39, align 8
@@ -1325,7 +1341,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %.1 = phi i32 [ %52, %56 ], [ 1, %82 ]
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
-  br i1 %exitcond165.not, label %._crit_edge145, label %43, !llvm.loop !23
+  br i1 %exitcond165.not, label %._crit_edge145, label %43, !llvm.loop !22
 
 ._crit_edge145:                                   ; preds = %98
   %.not109 = icmp eq i32 %2, 0
@@ -1366,7 +1382,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %indvars.iv.next167 = add nsw i64 %indvars.iv166, 1
   %lftr.wideiv169 = trunc i64 %indvars.iv.next167 to i32
   %exitcond170.not = icmp eq i32 %.0100.lcssa, %lftr.wideiv169
-  br i1 %exitcond170.not, label %.loopexit, label %.lr.ph150, !llvm.loop !24
+  br i1 %exitcond170.not, label %.loopexit, label %.lr.ph150, !llvm.loop !23
 
 .loopexit:                                        ; preds = %113, %._crit_edge133, %99, %._crit_edge145
   store ptr %7, ptr %6, align 8
@@ -1393,7 +1409,7 @@ declare void @st__free_gen(ptr noundef) local_unnamed_addr #5
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @CmdCommandPrintCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 -1, 2) i32 @CmdCommandPrintCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1487,7 +1503,7 @@ define void @CmdPrintTable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.28, ptr noundef %18, ptr noundef %19) #22
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %13
-  br i1 %exitcond37.not, label %._crit_edge26.thread, label %.lr.ph.split.us, !llvm.loop !25
+  br i1 %exitcond37.not, label %._crit_edge26.thread, label %.lr.ph.split.us, !llvm.loop !24
 
 .critedge:                                        ; preds = %2, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %2 ]
@@ -1497,7 +1513,7 @@ define void @CmdPrintTable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   store ptr %21, ptr %22, align 8
   %23 = call i32 @st__gen(ptr noundef %10, ptr noundef nonnull %3, ptr noundef nonnull %4) #22
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.critedge, !llvm.loop !26
+  br i1 %.not, label %._crit_edge.loopexit, label %.critedge, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -1509,7 +1525,7 @@ define void @CmdPrintTable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   call void @CmdCommandAliasPrint(ptr noundef %27, ptr noundef %28) #22
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next31, %13
-  br i1 %exitcond.not, label %._crit_edge26.thread, label %.lr.ph.split, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge26.thread, label %.lr.ph.split, !llvm.loop !24
 
 ._crit_edge26:                                    ; preds = %._crit_edge
   %.not20 = icmp eq ptr %9, null
@@ -1552,108 +1568,120 @@ define void @Gia_ManKissatCall(ptr noundef %0, ptr nocapture noundef readonly %1
   %.0 = phi ptr [ %18, %17 ], [ @.str.30, %15 ]
   %strcpy = call ptr @strcpy(ptr nonnull dereferenceable(1) %10, ptr nonnull dereferenceable(1) %.0)
   %.not24 = icmp eq ptr %2, null
-  br i1 %.not24, label %.critedge, label %20
+  br i1 %.not24, label %.critedge, label %sub_0
 
-20:                                               ; preds = %19
+sub_0:                                            ; preds = %19
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
   %endptr = getelementptr inbounds i8, ptr %10, i64 %strlen
   store i16 32, ptr %endptr, align 1
-  %21 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %2) #22
-  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(3) @.str.34) #25
-  %.not25 = icmp eq i32 %22, 0
-  br i1 %.not25, label %42, label %23
+  %20 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %2) #22
+  %21 = load i8, ptr %2, align 1
+  %.not44 = icmp eq i8 %21, 45
+  br i1 %.not44, label %sub_1, label %.tail.thread
 
-23:                                               ; preds = %20
-  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.35) #25
-  %.not26 = icmp eq i32 %24, 0
-  br i1 %.not26, label %42, label %.critedge
+sub_1:                                            ; preds = %sub_0
+  %22 = getelementptr inbounds i8, ptr %2, i64 1
+  %23 = load i8, ptr %22, align 1
+  %.not45 = icmp eq i8 %23, 104
+  br i1 %.not45, label %.tail, label %.tail.thread
 
-.critedge:                                        ; preds = %19, %23
+.tail:                                            ; preds = %sub_1
+  %24 = getelementptr inbounds i8, ptr %2, i64 2
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 0
+  br i1 %26, label %45, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.35) #25
+  %.not26 = icmp eq i32 %27, 0
+  br i1 %.not26, label %45, label %.critedge
+
+.critedge:                                        ; preds = %19, %.tail.thread
   %.not27 = icmp eq i32 %8, 0
-  br i1 %.not27, label %25, label %26
+  br i1 %.not27, label %28, label %29
 
-25:                                               ; preds = %.critedge
+28:                                               ; preds = %.critedge
   %strlen28 = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
   %endptr29 = getelementptr inbounds i8, ptr %10, i64 %strlen28
   store i32 7417120, ptr %endptr29, align 1
-  br label %26
+  br label %29
 
-26:                                               ; preds = %25, %.critedge
+29:                                               ; preds = %28, %.critedge
   %.not30 = icmp eq i32 %7, 0
-  br i1 %.not30, label %27, label %28
+  br i1 %.not30, label %30, label %31
 
-27:                                               ; preds = %26
+30:                                               ; preds = %29
   %strlen31 = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
   %endptr32 = getelementptr inbounds i8, ptr %10, i64 %strlen31
   store i32 7220512, ptr %endptr32, align 1
-  br label %28
+  br label %31
 
-28:                                               ; preds = %27, %26
+31:                                               ; preds = %30, %29
   %.not33 = icmp eq i32 %5, 0
-  br i1 %.not33, label %30, label %29
+  br i1 %.not33, label %33, label %32
 
-29:                                               ; preds = %28
+32:                                               ; preds = %31
   %strlen34 = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
   %endptr35 = getelementptr inbounds i8, ptr %10, i64 %strlen34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr35, ptr noundef nonnull align 1 dereferenceable(7) @.str.38, i64 7, i1 false)
-  br label %30
+  br label %33
 
-30:                                               ; preds = %29, %28
+33:                                               ; preds = %32, %31
   %.not36 = icmp eq i32 %6, 0
-  br i1 %.not36, label %32, label %31
+  br i1 %.not36, label %35, label %34
 
-31:                                               ; preds = %30
+34:                                               ; preds = %33
   %strlen37 = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
   %endptr38 = getelementptr inbounds i8, ptr %10, i64 %strlen37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %endptr38, ptr noundef nonnull align 1 dereferenceable(9) @.str.39, i64 9, i1 false)
-  br label %32
+  br label %35
 
-32:                                               ; preds = %31, %30
+35:                                               ; preds = %34, %33
   %.not39 = icmp eq i32 %3, 0
-  br i1 %.not39, label %36, label %33
+  br i1 %.not39, label %39, label %36
 
-33:                                               ; preds = %32
-  %34 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %3) #22
-  %35 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %11) #22
-  br label %36
+36:                                               ; preds = %35
+  %37 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %3) #22
+  %38 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %11) #22
+  br label %39
 
-36:                                               ; preds = %33, %32
+39:                                               ; preds = %36, %35
   %.not40 = icmp eq i32 %4, 0
-  br i1 %.not40, label %40, label %37
+  br i1 %.not40, label %43, label %40
 
-37:                                               ; preds = %36
-  %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %4) #22
-  %39 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %11) #22
-  br label %40
+40:                                               ; preds = %39
+  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %4) #22
+  %42 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %11) #22
+  br label %43
 
-40:                                               ; preds = %37, %36
+43:                                               ; preds = %40, %39
   %strlen41 = call i64 @strlen(ptr nonnull dereferenceable(1) %10)
   %endptr42 = getelementptr inbounds i8, ptr %10, i64 %strlen41
   store i16 32, ptr %endptr42, align 1
-  %41 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #22
-  br label %42
-
-42:                                               ; preds = %40, %23, %20
-  %.not43 = icmp eq i32 %8, 0
-  br i1 %.not43, label %45, label %43
-
-43:                                               ; preds = %42
-  %44 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %10)
+  %44 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #22
   br label %45
 
-45:                                               ; preds = %43, %42
-  %46 = call i32 @Util_SignalSystem(ptr noundef nonnull %10) #22
-  %47 = icmp eq i32 %46, -1
-  br i1 %47, label %48, label %53
+45:                                               ; preds = %43, %.tail.thread, %.tail
+  %.not43 = icmp eq i32 %8, 0
+  br i1 %.not43, label %48, label %46
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr @stdout, align 8
-  %50 = call i64 @fwrite(ptr nonnull @.str.43, i64 58, i64 1, ptr %49)
-  %51 = load ptr, ptr @stdout, align 8
-  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.44, ptr noundef nonnull %10) #22
-  br label %53
+46:                                               ; preds = %45
+  %47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %10)
+  br label %48
 
-53:                                               ; preds = %48, %45
+48:                                               ; preds = %46, %45
+  %49 = call i32 @Util_SignalSystem(ptr noundef nonnull %10) #22
+  %50 = icmp eq i32 %49, -1
+  br i1 %50, label %51, label %56
+
+51:                                               ; preds = %48
+  %52 = load ptr, ptr @stdout, align 8
+  %53 = call i64 @fwrite(ptr nonnull @.str.43, i64 58, i64 1, ptr %52)
+  %54 = load ptr, ptr @stdout, align 8
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.44, ptr noundef nonnull %10) #22
+  br label %56
+
+56:                                               ; preds = %51, %48
   ret void
 }
 
@@ -1684,7 +1712,7 @@ define noundef nonnull ptr @Cmd_GenScript(ptr nocapture noundef readonly %0, i32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr5, ptr noundef nonnull align 1 dereferenceable(3) @.str.45, i64 3, i1 false)
   %11 = add nuw nsw i32 %.06, 1
   %exitcond.not = icmp eq i32 %11, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) @Cmd_GenScript.pScript)
@@ -1731,7 +1759,7 @@ define void @Cmd_CommandSGen(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr5.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.45, i64 3, i1 false)
   %20 = add nuw nsw i32 %.06.i, 1
   %exitcond.not.i = icmp eq i32 %20, %1
-  br i1 %exitcond.not.i, label %Cmd_GenScript.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %Cmd_GenScript.exit, label %.lr.ph.i, !llvm.loop !26
 
 Cmd_GenScript.exit:                               ; preds = %.lr.ph.i, %13
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @Cmd_GenScript.pScript)
@@ -1809,7 +1837,7 @@ Cmd_GenScript.exit:                               ; preds = %.lr.ph.i, %13
   %.val35 = load i32, ptr %50, align 4
   %51 = sext i32 %.val35 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !28
+  br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %48, %.preheader
   tail call void @Abc_NtkDelete(ptr noundef nonnull %.03042) #22
@@ -1820,7 +1848,7 @@ Cmd_GenScript.exit:                               ; preds = %.lr.ph.i, %13
   %.1 = phi ptr [ %53, %.critedge ], [ %.03042, %30 ]
   %55 = add nuw nsw i32 %.03141, 1
   %exitcond.not = icmp eq i32 %55, %2
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %54, %4
   %.030.lcssa = phi ptr [ %8, %4 ], [ %.1, %54 ]
@@ -1917,7 +1945,7 @@ attributes #25 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -1940,4 +1968,3 @@ attributes #25 = { nounwind willreturn memory(read) }
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

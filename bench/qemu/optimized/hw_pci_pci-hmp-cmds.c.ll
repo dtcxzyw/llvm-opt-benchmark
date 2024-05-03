@@ -48,7 +48,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.37 = private unnamed_addr constant [39 x i8] c"      memory range [0x%08lx, 0x%08lx]\0A\00", align 1
 @.str.38 = private unnamed_addr constant [52 x i8] c"      prefetchable memory range [0x%08lx, 0x%08lx]\0A\00", align 1
 @.str.39 = private unnamed_addr constant [15 x i8] c"      BAR%ld: \00", align 1
-@.str.40 = private unnamed_addr constant [3 x i8] c"io\00", align 1
 @.str.41 = private unnamed_addr constant [27 x i8] c"I/O at 0x%04lx [0x%04lx].\0A\00", align 1
 @.str.42 = private unnamed_addr constant [39 x i8] c"%d bit%s memory at 0x%08lx [0x%08lx].\0A\00", align 1
 @.str.43 = private unnamed_addr constant [14 x i8] c" prefetchable\00", align 1
@@ -63,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hmp_info_pci(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qmp_query_pci(ptr noundef nonnull @error_abort) #4
+  %call = tail call ptr @qmp_query_pci(ptr noundef nonnull @error_abort) #3
   %tobool.not9 = icmp eq ptr %call, null
   br i1 %tobool.not9, label %for.end7, label %for.body
 
@@ -91,7 +90,7 @@ for.inc5:                                         ; preds = %for.body3, %for.bod
   br i1 %tobool.not, label %for.end7, label %for.body, !llvm.loop !7
 
 for.end7:                                         ; preds = %for.inc5, %entry
-  tail call void @qapi_free_PciInfoList(ptr noundef %call) #4
+  tail call void @qapi_free_PciInfoList(ptr noundef %call) #3
   ret void
 }
 
@@ -101,13 +100,13 @@ declare ptr @qmp_query_pci(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @hmp_info_pci_device(ptr noundef %mon, ptr nocapture noundef readonly %dev) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %dev, align 8
-  %call = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.26, i64 noundef %0) #4
+  %call = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.26, i64 noundef %0) #3
   %slot = getelementptr inbounds i8, ptr %dev, i64 8
   %1 = load i64, ptr %slot, align 8
   %function = getelementptr inbounds i8, ptr %dev, i64 16
   %2 = load i64, ptr %function, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.27, i64 noundef %1, i64 noundef %2) #4
-  %call2 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.28) #4
+  %call1 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.27, i64 noundef %1, i64 noundef %2) #3
+  %call2 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.28) #3
   %class_info = getelementptr inbounds i8, ptr %dev, i64 24
   %3 = load ptr, ptr %class_info, align 8
   %4 = load ptr, ptr %3, align 8
@@ -115,13 +114,13 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call5 = tail call i32 @monitor_puts(ptr noundef %mon, ptr noundef nonnull %4) #4
+  %call5 = tail call i32 @monitor_puts(ptr noundef %mon, ptr noundef nonnull %4) #3
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %q_class = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %q_class, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.29, i64 noundef %5) #4
+  %call7 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.29, i64 noundef %5) #3
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -130,7 +129,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %vendor = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %vendor, align 8
   %8 = load i64, ptr %6, align 8
-  %call9 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.30, i64 noundef %7, i64 noundef %8) #4
+  %call9 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.30, i64 noundef %7, i64 noundef %8) #3
   %9 = load ptr, ptr %id, align 8
   %has_subsystem_vendor = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load i8, ptr %has_subsystem_vendor, align 8
@@ -148,7 +147,7 @@ if.then14:                                        ; preds = %land.lhs.true
   %12 = load i64, ptr %subsystem_vendor, align 8
   %subsystem = getelementptr inbounds i8, ptr %9, i64 24
   %13 = load i64, ptr %subsystem, align 8
-  %call17 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.31, i64 noundef %12, i64 noundef %13) #4
+  %call17 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.31, i64 noundef %12, i64 noundef %13) #3
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %land.lhs.true, %if.end
@@ -166,7 +165,7 @@ if.then20:                                        ; preds = %if.end18
   %conv = shl i32 %17, 24
   %sext = add i32 %conv, 1073741824
   %conv21 = ashr exact i32 %sext, 24
-  %call22 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.32, i64 noundef %15, i32 noundef %conv21) #4
+  %call22 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.32, i64 noundef %15, i32 noundef %conv21) #3
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then20, %if.end18
@@ -178,17 +177,17 @@ if.end23:                                         ; preds = %if.then20, %if.end1
 if.then25:                                        ; preds = %if.end23
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %19, align 8
-  %call28 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.33, i64 noundef %20) #4
+  %call28 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.33, i64 noundef %20) #3
   %21 = load ptr, ptr %pci_bridge, align 8
   %22 = load ptr, ptr %21, align 8
   %secondary = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %secondary, align 8
-  %call31 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, i64 noundef %23) #4
+  %call31 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, i64 noundef %23) #3
   %24 = load ptr, ptr %pci_bridge, align 8
   %25 = load ptr, ptr %24, align 8
   %subordinate = getelementptr inbounds i8, ptr %25, i64 16
   %26 = load i64, ptr %subordinate, align 8
-  %call34 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.35, i64 noundef %26) #4
+  %call34 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.35, i64 noundef %26) #3
   %27 = load ptr, ptr %pci_bridge, align 8
   %28 = load ptr, ptr %27, align 8
   %io_range = getelementptr inbounds i8, ptr %28, i64 24
@@ -196,7 +195,7 @@ if.then25:                                        ; preds = %if.end23
   %30 = load i64, ptr %29, align 8
   %limit = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i64, ptr %limit, align 8
-  %call40 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.36, i64 noundef %30, i64 noundef %31) #4
+  %call40 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.36, i64 noundef %30, i64 noundef %31) #3
   %32 = load ptr, ptr %pci_bridge, align 8
   %33 = load ptr, ptr %32, align 8
   %memory_range = getelementptr inbounds i8, ptr %33, i64 32
@@ -204,7 +203,7 @@ if.then25:                                        ; preds = %if.end23
   %35 = load i64, ptr %34, align 8
   %limit47 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i64, ptr %limit47, align 8
-  %call48 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.37, i64 noundef %35, i64 noundef %36) #4
+  %call48 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.37, i64 noundef %35, i64 noundef %36) #3
   %37 = load ptr, ptr %pci_bridge, align 8
   %38 = load ptr, ptr %37, align 8
   %prefetchable_range = getelementptr inbounds i8, ptr %38, i64 40
@@ -212,7 +211,7 @@ if.then25:                                        ; preds = %if.end23
   %40 = load i64, ptr %39, align 8
   %limit55 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load i64, ptr %limit55, align 8
-  %call56 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, i64 noundef %40, i64 noundef %41) #4
+  %call56 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, i64 noundef %40, i64 noundef %41) #3
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then25, %if.end23
@@ -230,32 +229,53 @@ for.body:                                         ; preds = %if.end57, %for.inc
   %size60 = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load i64, ptr %size60, align 8
   %45 = load i64, ptr %42, align 8
-  %call62 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.39, i64 noundef %45) #4
+  %call62 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.39, i64 noundef %45) #3
   %46 = load ptr, ptr %value, align 8
   %type = getelementptr inbounds i8, ptr %46, i64 8
   %47 = load ptr, ptr %type, align 8
-  %call64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(3) @.str.40) #5
-  %tobool65.not = icmp eq i32 %call64, 0
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = add nsw i32 %49, -105
+  %.not = icmp eq i32 %50, 0
+  br i1 %.not, label %sub_1, label %for.body.tail
+
+sub_1:                                            ; preds = %for.body
+  %51 = getelementptr inbounds i8, ptr %47, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  %54 = add nsw i32 %53, -111
+  %.not69 = icmp eq i32 %54, 0
+  br i1 %.not69, label %sub_2, label %for.body.tail
+
+sub_2:                                            ; preds = %sub_1
+  %55 = getelementptr inbounds i8, ptr %47, i64 2
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i32
+  br label %for.body.tail
+
+for.body.tail:                                    ; preds = %for.body, %sub_1, %sub_2
+  %58 = phi i32 [ %50, %for.body ], [ %54, %sub_1 ], [ %57, %sub_2 ]
+  %tobool65.not = icmp eq i32 %58, 0
   br i1 %tobool65.not, label %if.then66, label %if.else70
 
-if.then66:                                        ; preds = %for.body
+if.then66:                                        ; preds = %for.body.tail
   %add67 = add i64 %43, -1
   %sub68 = add i64 %add67, %44
-  %call69 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.41, i64 noundef %43, i64 noundef %sub68) #4
+  %call69 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.41, i64 noundef %43, i64 noundef %sub68) #3
   br label %for.inc
 
-if.else70:                                        ; preds = %for.body
+if.else70:                                        ; preds = %for.body.tail
   %mem_type_64 = getelementptr inbounds i8, ptr %46, i64 35
-  %48 = load i8, ptr %mem_type_64, align 1
-  %tobool72 = trunc i8 %48 to i1
+  %59 = load i8, ptr %mem_type_64, align 1
+  %tobool72 = trunc i8 %59 to i1
   %cond = select i1 %tobool72, i32 64, i32 32
   %prefetch = getelementptr inbounds i8, ptr %46, i64 33
-  %49 = load i8, ptr %prefetch, align 1
-  %tobool75 = trunc i8 %49 to i1
+  %60 = load i8, ptr %prefetch, align 1
+  %tobool75 = trunc i8 %60 to i1
   %cond77 = select i1 %tobool75, ptr @.str.43, ptr @.str.3
   %add78 = add i64 %43, -1
   %sub79 = add i64 %add78, %44
-  %call80 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.42, i32 noundef %cond, ptr noundef nonnull %cond77, i64 noundef %43, i64 noundef %sub79) #4
+  %call80 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.42, i32 noundef %cond, ptr noundef nonnull %cond77, i64 noundef %43, i64 noundef %sub79) #3
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then66, %if.else70
@@ -265,20 +285,20 @@ for.inc:                                          ; preds = %if.then66, %if.else
 
 for.end:                                          ; preds = %for.inc, %if.end57
   %qdev_id = getelementptr inbounds i8, ptr %dev, i64 64
-  %50 = load ptr, ptr %qdev_id, align 8
-  %call82 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef %50) #4
-  %51 = load ptr, ptr %pci_bridge, align 8
-  %tobool84.not = icmp eq ptr %51, null
+  %61 = load ptr, ptr %qdev_id, align 8
+  %call82 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef %61) #3
+  %62 = load ptr, ptr %pci_bridge, align 8
+  %tobool84.not = icmp eq ptr %62, null
   br i1 %tobool84.not, label %if.end98, label %if.then85
 
 if.then85:                                        ; preds = %for.end
-  %has_devices = getelementptr inbounds i8, ptr %51, i64 8
-  %52 = load i8, ptr %has_devices, align 8
-  %tobool87 = trunc i8 %52 to i1
+  %has_devices = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = load i8, ptr %has_devices, align 8
+  %tobool87 = trunc i8 %63 to i1
   br i1 %tobool87, label %if.then88, label %if.end98
 
 if.then88:                                        ; preds = %if.then85
-  %devices = getelementptr inbounds i8, ptr %51, i64 16
+  %devices = getelementptr inbounds i8, ptr %62, i64 16
   %cdev.066 = load ptr, ptr %devices, align 8
   %tobool91.not67 = icmp eq ptr %cdev.066, null
   br i1 %tobool91.not67, label %if.end98, label %for.body92
@@ -286,8 +306,8 @@ if.then88:                                        ; preds = %if.then85
 for.body92:                                       ; preds = %if.then88, %for.body92
   %cdev.068 = phi ptr [ %cdev.0, %for.body92 ], [ %cdev.066, %if.then88 ]
   %value93 = getelementptr inbounds i8, ptr %cdev.068, i64 8
-  %53 = load ptr, ptr %value93, align 8
-  tail call fastcc void @hmp_info_pci_device(ptr noundef %mon, ptr noundef %53)
+  %64 = load ptr, ptr %value93, align 8
+  tail call fastcc void @hmp_info_pci_device(ptr noundef %mon, ptr noundef %64)
   %cdev.0 = load ptr, ptr %cdev.068, align 8
   %tobool91.not = icmp eq ptr %cdev.0, null
   br i1 %tobool91.not, label %if.end98, label %for.body92, !llvm.loop !9
@@ -307,25 +327,25 @@ entry:
   %add.ptr = getelementptr i8, ptr %0, i64 10
   %add.ptr.val = load i16, ptr %add.ptr, align 1
   %conv = zext i16 %add.ptr.val to i32
-  %call1 = tail call ptr @get_class_desc(i32 noundef %conv) #4
+  %call1 = tail call ptr @get_class_desc(i32 noundef %conv) #3
   %desc2 = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %desc2, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %ctxt, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %1) #4
+  %call4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %ctxt, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %1) #3
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %ctxt, i64 noundef 64, ptr noundef nonnull @.str.1, i32 noundef %conv) #4
+  %call6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %ctxt, i64 noundef 64, ptr noundef nonnull @.str.1, i32 noundef %conv) #3
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
-  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #4
-  %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #4
-  %call1.i = tail call i32 @pci_bus_num(ptr noundef %call.i1.i.i) #4
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
+  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #3
+  %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #3
+  %call1.i = tail call i32 @pci_bus_num(ptr noundef %call.i1.i.i) #3
   %devfn = getelementptr inbounds i8, ptr %dev, i64 208
   %2 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %2, 3
@@ -343,7 +363,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %add.ptr24 = getelementptr i8, ptr %3, i64 46
   %add.ptr24.val = load i16, ptr %add.ptr24, align 1
   %conv26 = zext i16 %add.ptr24.val to i32
-  %call27 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.2, i32 noundef %indent, ptr noundef nonnull @.str.3, ptr noundef nonnull %ctxt, i32 noundef %call1.i, i32 noundef %and, i32 noundef %and10, i32 noundef %conv14, i32 noundef %conv18, i32 noundef %conv22, i32 noundef %conv26) #4
+  %call27 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.2, i32 noundef %indent, ptr noundef nonnull @.str.3, ptr noundef nonnull %ctxt, i32 noundef %call1.i, i32 noundef %and, i32 noundef %and10, i32 noundef %conv14, i32 noundef %conv18, i32 noundef %conv22, i32 noundef %conv26) #3
   %io_regions = getelementptr inbounds i8, ptr %dev, i64 296
   br label %for.body
 
@@ -364,8 +384,8 @@ if.end31:                                         ; preds = %for.body
   %7 = load i64, ptr %arrayidx, align 8
   %add = add i64 %4, -1
   %sub = add i64 %add, %7
-  %8 = trunc i64 %indvars.iv to i32
-  %call37 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.4, i32 noundef %indent, ptr noundef nonnull @.str.3, i32 noundef %8, ptr noundef nonnull %cond, i64 noundef %7, i64 noundef %sub) #4
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
+  %call37 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.4, i32 noundef %indent, ptr noundef nonnull @.str.3, i32 noundef %8, ptr noundef nonnull %cond, i64 noundef %7, i64 noundef %sub) #3
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end31
@@ -394,13 +414,13 @@ entry:
   %dev = alloca ptr, align 8
   %aer_err = alloca %struct.PCIEAERErr, align 4
   store ptr null, ptr %err, align 8
-  %call = tail call ptr @qdict_get_str(ptr noundef %qdict, ptr noundef nonnull @.str.7) #4
-  %call1 = call i32 @pci_qdev_find_device(ptr noundef %call, ptr noundef nonnull %dev) #4
+  %call = tail call ptr @qdict_get_str(ptr noundef %qdict, ptr noundef nonnull @.str.7) #3
+  %call1 = call i32 @pci_qdev_find_device(ptr noundef %call, ptr noundef nonnull %dev) #3
   %cmp = icmp eq i32 %call1, -19
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.8, i32 noundef 177, ptr noundef nonnull @__func__.hmp_pcie_aer_inject_error, ptr noundef nonnull @.str.9, ptr noundef %call) #4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.8, i32 noundef 177, ptr noundef nonnull @__func__.hmp_pcie_aer_inject_error, ptr noundef nonnull @.str.9, ptr noundef %call) #3
   br label %out
 
 if.end:                                           ; preds = %entry
@@ -416,46 +436,46 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.end
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.8, i32 noundef 181, ptr noundef nonnull @__func__.hmp_pcie_aer_inject_error, ptr noundef nonnull @.str.10, ptr noundef %call) #4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.8, i32 noundef 181, ptr noundef nonnull @__func__.hmp_pcie_aer_inject_error, ptr noundef nonnull @.str.10, ptr noundef %call) #3
   br label %out
 
 if.end5:                                          ; preds = %lor.lhs.false
-  %call6 = call ptr @qdict_get_str(ptr noundef %qdict, ptr noundef nonnull @.str.11) #4
-  %call7 = call i32 @pcie_aer_parse_error_string(ptr noundef %call6, ptr noundef nonnull %error_status, ptr noundef nonnull %correctable) #4
+  %call6 = call ptr @qdict_get_str(ptr noundef %qdict, ptr noundef nonnull @.str.11) #3
+  %call7 = call i32 @pcie_aer_parse_error_string(ptr noundef %call6, ptr noundef nonnull %error_status, ptr noundef nonnull %correctable) #3
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end5
-  %call10 = call i32 @qemu_strtoui(ptr noundef %call6, ptr noundef null, i32 noundef 0, ptr noundef nonnull %num) #4
+  %call10 = call i32 @qemu_strtoui(ptr noundef %call6, ptr noundef null, i32 noundef 0, ptr noundef nonnull %num) #3
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.then9
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.8, i32 noundef 188, ptr noundef nonnull @__func__.hmp_pcie_aer_inject_error, ptr noundef nonnull @.str.12, ptr noundef %call6) #4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.8, i32 noundef 188, ptr noundef nonnull @__func__.hmp_pcie_aer_inject_error, ptr noundef nonnull @.str.12, ptr noundef %call6) #3
   br label %out
 
 if.end13:                                         ; preds = %if.then9
   %2 = load i32, ptr %num, align 4
   store i32 %2, ptr %error_status, align 4
-  %call14 = call zeroext i1 @qdict_get_try_bool(ptr noundef %qdict, ptr noundef nonnull @.str.13, i1 noundef zeroext false) #4
+  %call14 = call zeroext i1 @qdict_get_try_bool(ptr noundef %qdict, ptr noundef nonnull @.str.13, i1 noundef zeroext false) #3
   %frombool = zext i1 %call14 to i8
   store i8 %frombool, ptr %correctable, align 1
   br label %if.end19
 
 if.else:                                          ; preds = %if.end5
-  %call15 = call i32 @qdict_haskey(ptr noundef %qdict, ptr noundef nonnull @.str.13) #4
+  %call15 = call i32 @qdict_haskey(ptr noundef %qdict, ptr noundef nonnull @.str.13) #3
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %if.else
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.8, i32 noundef 195, ptr noundef nonnull @__func__.hmp_pcie_aer_inject_error, ptr noundef nonnull @.str.14) #4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.8, i32 noundef 195, ptr noundef nonnull @__func__.hmp_pcie_aer_inject_error, ptr noundef nonnull @.str.14) #3
   br label %out
 
 if.end19:                                         ; preds = %if.else, %if.end13
   %3 = load i32, ptr %error_status, align 4
   store i32 %3, ptr %aer_err, align 4
   %4 = load ptr, ptr %dev, align 8
-  %call20 = call zeroext i16 @pci_requester_id(ptr noundef %4) #4
+  %call20 = call zeroext i16 @pci_requester_id(ptr noundef %4) #3
   %source_id = getelementptr inbounds i8, ptr %aer_err, i64 4
   store i16 %call20, ptr %source_id, align 4
   %flags = getelementptr inbounds i8, ptr %aer_err, i64 6
@@ -463,7 +483,7 @@ if.end19:                                         ; preds = %if.else, %if.end13
   %6 = and i8 %5, 1
   %spec.store.select = zext nneg i8 %6 to i16
   store i16 %spec.store.select, ptr %flags, align 2
-  %call26 = call zeroext i1 @qdict_get_try_bool(ptr noundef %qdict, ptr noundef nonnull @.str.15, i1 noundef zeroext false) #4
+  %call26 = call zeroext i1 @qdict_get_try_bool(ptr noundef %qdict, ptr noundef nonnull @.str.15, i1 noundef zeroext false) #3
   br i1 %call26, label %if.then27, label %if.end32
 
 if.then27:                                        ; preds = %if.end19
@@ -473,7 +493,7 @@ if.then27:                                        ; preds = %if.end19
 
 if.end32:                                         ; preds = %if.then27, %if.end19
   %8 = phi i16 [ %7, %if.then27 ], [ %spec.store.select, %if.end19 ]
-  %call33 = call i32 @qdict_haskey(ptr noundef %qdict, ptr noundef nonnull @.str.16) #4
+  %call33 = call i32 @qdict_haskey(ptr noundef %qdict, ptr noundef nonnull @.str.16) #3
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end40, label %if.then35
 
@@ -484,7 +504,7 @@ if.then35:                                        ; preds = %if.end32
 
 if.end40:                                         ; preds = %if.then35, %if.end32
   %10 = phi i16 [ %9, %if.then35 ], [ %8, %if.end32 ]
-  %call41 = call i32 @qdict_haskey(ptr noundef %qdict, ptr noundef nonnull @.str.17) #4
+  %call41 = call i32 @qdict_haskey(ptr noundef %qdict, ptr noundef nonnull @.str.17) #3
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.end48, label %if.then43
 
@@ -494,68 +514,68 @@ if.then43:                                        ; preds = %if.end40
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then43, %if.end40
-  %call49 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.16, i64 noundef 0) #4
+  %call49 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.16, i64 noundef 0) #3
   %conv50 = trunc i64 %call49 to i32
   %header = getelementptr inbounds i8, ptr %aer_err, i64 8
   store i32 %conv50, ptr %header, align 4
-  %call51 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.18, i64 noundef 0) #4
+  %call51 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.18, i64 noundef 0) #3
   %conv52 = trunc i64 %call51 to i32
   %arrayidx54 = getelementptr inbounds i8, ptr %aer_err, i64 12
   store i32 %conv52, ptr %arrayidx54, align 4
-  %call55 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.19, i64 noundef 0) #4
+  %call55 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.19, i64 noundef 0) #3
   %conv56 = trunc i64 %call55 to i32
   %arrayidx58 = getelementptr inbounds i8, ptr %aer_err, i64 16
   store i32 %conv56, ptr %arrayidx58, align 4
-  %call59 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.20, i64 noundef 0) #4
+  %call59 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.20, i64 noundef 0) #3
   %conv60 = trunc i64 %call59 to i32
   %arrayidx62 = getelementptr inbounds i8, ptr %aer_err, i64 20
   store i32 %conv60, ptr %arrayidx62, align 4
-  %call63 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.17, i64 noundef 0) #4
+  %call63 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.17, i64 noundef 0) #3
   %conv64 = trunc i64 %call63 to i32
   %prefix = getelementptr inbounds i8, ptr %aer_err, i64 24
   store i32 %conv64, ptr %prefix, align 4
-  %call66 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.21, i64 noundef 0) #4
+  %call66 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.21, i64 noundef 0) #3
   %conv67 = trunc i64 %call66 to i32
   %arrayidx69 = getelementptr inbounds i8, ptr %aer_err, i64 28
   store i32 %conv67, ptr %arrayidx69, align 4
-  %call70 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.22, i64 noundef 0) #4
+  %call70 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.22, i64 noundef 0) #3
   %conv71 = trunc i64 %call70 to i32
   %arrayidx73 = getelementptr inbounds i8, ptr %aer_err, i64 32
   store i32 %conv71, ptr %arrayidx73, align 4
-  %call74 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.23, i64 noundef 0) #4
+  %call74 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.23, i64 noundef 0) #3
   %conv75 = trunc i64 %call74 to i32
   %arrayidx77 = getelementptr inbounds i8, ptr %aer_err, i64 36
   store i32 %conv75, ptr %arrayidx77, align 4
   %12 = load ptr, ptr %dev, align 8
-  %call78 = call i32 @pcie_aer_inject_error(ptr noundef %12, ptr noundef nonnull %aer_err) #4
+  %call78 = call i32 @pcie_aer_inject_error(ptr noundef %12, ptr noundef nonnull %aer_err) #3
   %cmp79 = icmp slt i32 %call78, 0
   br i1 %cmp79, label %if.then81, label %if.end82
 
 if.then81:                                        ; preds = %if.end48
   %sub = sub i32 0, %call78
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.8, i32 noundef 228, ptr noundef nonnull @__func__.hmp_pcie_aer_inject_error, i32 noundef %sub, ptr noundef nonnull @.str.24) #4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.8, i32 noundef 228, ptr noundef nonnull @__func__.hmp_pcie_aer_inject_error, i32 noundef %sub, ptr noundef nonnull @.str.24) #3
   br label %out
 
 if.end82:                                         ; preds = %if.end48
   %13 = load ptr, ptr %dev, align 8
-  %call83 = call ptr @pci_root_bus_path(ptr noundef %13) #4
+  %call83 = call ptr @pci_root_bus_path(ptr noundef %13) #3
   %14 = load ptr, ptr %dev, align 8
-  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
-  %call1.i.i = call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #4
-  %call.i1.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #4
-  %call1.i = call i32 @pci_bus_num(ptr noundef %call.i1.i.i) #4
+  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %14, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
+  %call1.i.i = call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #3
+  %call.i1.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #3
+  %call1.i = call i32 @pci_bus_num(ptr noundef %call.i1.i.i) #3
   %15 = load ptr, ptr %dev, align 8
   %devfn = getelementptr inbounds i8, ptr %15, i64 208
   %16 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %16, 3
   %and = and i32 %shr, 31
   %and86 = and i32 %16, 7
-  %call87 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.25, ptr noundef %call, ptr noundef %call83, i32 noundef %call1.i, i32 noundef %and, i32 noundef %and86) #4
+  %call87 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.25, ptr noundef %call, ptr noundef %call83, i32 noundef %call1.i, i32 noundef %and, i32 noundef %and86) #3
   br label %out
 
 out:                                              ; preds = %if.end82, %if.then81, %if.then17, %if.then12, %if.then4, %if.then
   %17 = load ptr, ptr %err, align 8
-  %call88 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %17) #4
+  %call88 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %17) #3
   ret void
 }
 
@@ -587,9 +607,6 @@ declare zeroext i1 @hmp_handle_error(ptr noundef, ptr noundef) local_unnamed_add
 
 declare i32 @monitor_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
-
 declare i32 @pci_bus_num(ptr noundef) local_unnamed_addr #1
 
 declare ptr @qdev_get_parent_bus(ptr noundef) local_unnamed_addr #1
@@ -599,9 +616,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

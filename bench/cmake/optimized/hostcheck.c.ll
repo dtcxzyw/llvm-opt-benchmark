@@ -3,8 +3,6 @@ source_filename = "bench/cmake/original/hostcheck.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str = private unnamed_addr constant [3 x i8] c"*.\00", align 1
-
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @Curl_cert_hostcheck(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
@@ -35,86 +33,88 @@ define dso_local zeroext i1 @Curl_cert_hostcheck(ptr noundef %0, i64 noundef %1,
   %20 = icmp eq i8 %19, 46
   %21 = sext i1 %20 to i64
   %.036.i = add i64 %21, %1
-  %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str, i64 noundef 2) #3
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %27, label %23
+  %.not49.i = icmp eq i8 %6, 42
+  br i1 %.not49.i, label %.tail.i, label %.tail.thread.i
 
-23:                                               ; preds = %11
+.tail.i:                                          ; preds = %11
+  %22 = getelementptr inbounds i8, ptr %0, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 46
+  br i1 %24, label %28, label %.tail.thread.i
+
+.tail.thread.i:                                   ; preds = %.tail.i, %11
   %.not.i.i = icmp eq i64 %spec.select.i, %.036.i
-  br i1 %.not.i.i, label %24, label %hostmatch.exit
+  br i1 %.not.i.i, label %25, label %hostmatch.exit
 
-24:                                               ; preds = %23
-  %25 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %0, i64 noundef %spec.select.i) #4
-  %26 = icmp ne i32 %25, 0
+25:                                               ; preds = %.tail.thread.i
+  %26 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %0, i64 noundef %spec.select.i) #3
+  %27 = icmp ne i32 %26, 0
   br label %hostmatch.exit
 
-27:                                               ; preds = %11
-  %28 = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef nonnull %2) #4
-  br i1 %28, label %hostmatch.exit, label %29
+28:                                               ; preds = %.tail.i
+  %29 = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef nonnull %2) #3
+  br i1 %29, label %hostmatch.exit, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 46, i64 noundef %.036.i) #3
-  %.not39.i = icmp eq ptr %30, null
-  br i1 %.not39.i, label %34, label %31
+30:                                               ; preds = %28
+  %31 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 46, i64 noundef %.036.i) #4
+  %.not39.i = icmp eq ptr %31, null
+  br i1 %.not39.i, label %35, label %32
 
-31:                                               ; preds = %29
-  %32 = tail call ptr @Curl_memrchr(ptr noundef nonnull %0, i32 noundef 46, i64 noundef %.036.i) #4
-  %33 = icmp eq ptr %32, %30
-  br i1 %33, label %34, label %38
+32:                                               ; preds = %30
+  %33 = tail call ptr @Curl_memrchr(ptr noundef nonnull %0, i32 noundef 46, i64 noundef %.036.i) #3
+  %34 = icmp eq ptr %33, %31
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %31, %29
+35:                                               ; preds = %32, %30
   %.not.i42.i = icmp eq i64 %spec.select.i, %.036.i
-  br i1 %.not.i42.i, label %35, label %hostmatch.exit
+  br i1 %.not.i42.i, label %36, label %hostmatch.exit
 
-35:                                               ; preds = %34
-  %36 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %0, i64 noundef %spec.select.i) #4
-  %37 = icmp ne i32 %36, 0
+36:                                               ; preds = %35
+  %37 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %0, i64 noundef %spec.select.i) #3
+  %38 = icmp ne i32 %37, 0
   br label %hostmatch.exit
 
-38:                                               ; preds = %31
-  %39 = tail call ptr @memchr(ptr noundef nonnull %2, i32 noundef 46, i64 noundef %spec.select.i) #3
-  %.not40.i = icmp eq ptr %39, null
-  br i1 %.not40.i, label %hostmatch.exit, label %40
+39:                                               ; preds = %32
+  %40 = tail call ptr @memchr(ptr noundef nonnull %2, i32 noundef 46, i64 noundef %spec.select.i) #4
+  %.not40.i = icmp eq ptr %40, null
+  br i1 %.not40.i, label %hostmatch.exit, label %41
 
-40:                                               ; preds = %38
-  %41 = ptrtoint ptr %39 to i64
-  %42 = ptrtoint ptr %2 to i64
-  %.neg.i = sub i64 %42, %41
-  %43 = ptrtoint ptr %30 to i64
-  %44 = ptrtoint ptr %0 to i64
-  %45 = add i64 %.neg.i, %spec.select.i
-  %.neg41.i = add i64 %.036.i, %44
-  %46 = sub i64 %.neg41.i, %43
-  %.not.i45.i = icmp eq i64 %45, %46
-  br i1 %.not.i45.i, label %47, label %hostmatch.exit
+41:                                               ; preds = %39
+  %42 = ptrtoint ptr %40 to i64
+  %43 = ptrtoint ptr %2 to i64
+  %.neg.i = sub i64 %43, %42
+  %44 = ptrtoint ptr %31 to i64
+  %45 = ptrtoint ptr %0 to i64
+  %46 = add i64 %.neg.i, %spec.select.i
+  %.neg41.i = add i64 %.036.i, %45
+  %47 = sub i64 %.neg41.i, %44
+  %.not.i45.i = icmp eq i64 %46, %47
+  br i1 %.not.i45.i, label %48, label %hostmatch.exit
 
-47:                                               ; preds = %40
-  %48 = tail call i32 @curl_strnequal(ptr noundef nonnull %39, ptr noundef nonnull %30, i64 noundef %45) #4
-  %49 = icmp ne i32 %48, 0
+48:                                               ; preds = %41
+  %49 = tail call i32 @curl_strnequal(ptr noundef nonnull %40, ptr noundef nonnull %31, i64 noundef %46) #3
+  %50 = icmp ne i32 %49, 0
   br label %hostmatch.exit
 
-hostmatch.exit:                                   ; preds = %47, %40, %38, %35, %34, %27, %24, %23, %4, %5, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %5 ], [ false, %4 ], [ false, %27 ], [ false, %38 ], [ %26, %24 ], [ false, %23 ], [ %37, %35 ], [ false, %34 ], [ %49, %47 ], [ false, %40 ]
+hostmatch.exit:                                   ; preds = %48, %41, %39, %36, %35, %28, %25, %.tail.thread.i, %4, %5, %9
+  %.0 = phi i1 [ false, %9 ], [ false, %5 ], [ false, %4 ], [ false, %28 ], [ false, %39 ], [ %27, %25 ], [ false, %.tail.thread.i ], [ %38, %36 ], [ false, %35 ], [ %50, %48 ], [ false, %41 ]
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
-
-declare zeroext i1 @Curl_host_is_ipnum(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Curl_host_is_ipnum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @Curl_memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @Curl_memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
-attributes #4 = { nounwind }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+attributes #4 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

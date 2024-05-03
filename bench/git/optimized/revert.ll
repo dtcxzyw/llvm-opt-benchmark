@@ -74,7 +74,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.56 = private unnamed_addr constant [20 x i8] c"--rerere-autoupdate\00", align 1
 @.str.57 = private unnamed_addr constant [23 x i8] c"--no-rerere-autoupdate\00", align 1
 @.str.58 = private unnamed_addr constant [7 x i8] c"--edit\00", align 1
-@.str.59 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.60 = private unnamed_addr constant [6 x i8] c"@{-1}\00", align 1
 @.str.61 = private unnamed_addr constant [25 x i8] c"GIT_TEST_MERGE_ALGORITHM\00", align 1
 @revert_usage = internal constant [3 x ptr] [ptr @.str.62, ptr @.str.63, ptr null], align 16
@@ -90,23 +89,23 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_revert(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @cmd_revert(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %opts = alloca %struct.replay_opts, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %opts, ptr noundef nonnull align 8 dereferenceable(224) @__const.cmd_cherry_pick.opts, i64 224, i1 false)
   store i32 0, ptr %opts, align 8
-  call void @sequencer_init_config(ptr noundef nonnull %opts) #12
+  call void @sequencer_init_config(ptr noundef nonnull %opts) #11
   %call = call fastcc i32 @run_sequencer(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %opts)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call1 = call fastcc ptr @_(ptr noundef nonnull @.str)
-  call void (ptr, ...) @die(ptr noundef %call1) #13
+  call void (ptr, ...) @die(ptr noundef %call1) #12
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @replay_opts_release(ptr noundef nonnull %opts) #12
+  call void @replay_opts_release(ptr noundef nonnull %opts) #11
   ret i32 %call
 }
 
@@ -527,14 +526,14 @@ if.then265:                                       ; preds = %entry
 
 if.end295.sink.split:                             ; preds = %if.then, %if.then265
   %cp_extra266.sink = phi ptr [ %cp_extra266, %if.then265 ], [ %cp_extra, %if.then ]
-  %call294 = call ptr @parse_options_concat(ptr noundef nonnull %base_options, ptr noundef nonnull %cp_extra266.sink) #12
+  %call294 = call ptr @parse_options_concat(ptr noundef nonnull %base_options, ptr noundef nonnull %cp_extra266.sink) #11
   br label %if.end295
 
 if.end295:                                        ; preds = %if.end295.sink.split, %entry
   %options.0 = phi ptr [ %base_options, %entry ], [ %call294, %if.end295.sink.split ]
-  %call296 = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef %options.0, ptr noundef nonnull %cond.i, i32 noundef 12) #12
+  %call296 = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef %options.0, ptr noundef nonnull %cond.i, i32 noundef 12) #11
   %1 = load ptr, ptr @the_repository, align 8
-  call void @prepare_repo_settings(ptr noundef %1) #12
+  call void @prepare_repo_settings(ptr noundef %1) #11
   %2 = load ptr, ptr @the_repository, align 8
   %command_requires_full_index = getelementptr inbounds i8, ptr %2, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
@@ -554,7 +553,7 @@ if.end300:                                        ; preds = %if.then298, %if.end
   br i1 %tobool301.not, label %if.end304, label %if.then302
 
 if.then302:                                       ; preds = %if.end300
-  %call303 = call i32 @get_cleanup_mode(ptr noundef nonnull %4, i32 noundef 1) #12
+  %call303 = call i32 @get_cleanup_mode(ptr noundef nonnull %4, i32 noundef 1) #11
   %default_msg_cleanup = getelementptr inbounds i8, ptr %opts, i64 80
   store i32 %call303, ptr %default_msg_cleanup, align 8
   %explicit_cleanup = getelementptr inbounds i8, ptr %opts, i64 84
@@ -648,11 +647,11 @@ if.then353:                                       ; preds = %if.end351
   br label %if.end377
 
 if.else354:                                       ; preds = %if.end351
-  %call355 = call ptr @xmalloc(i64 noundef 3024) #12
+  %call355 = call ptr @xmalloc(i64 noundef 3024) #11
   %revs356 = getelementptr inbounds i8, ptr %opts, i64 208
   store ptr %call355, ptr %revs356, align 8
   %22 = load ptr, ptr @the_repository, align 8
-  call void @repo_init_revisions(ptr noundef %22, ptr noundef %call355, ptr noundef null) #12
+  call void @repo_init_revisions(ptr noundef %22, ptr noundef %call355, ptr noundef null) #11
   %23 = load ptr, ptr %revs356, align 8
   %no_walk = getelementptr inbounds i8, ptr %23, i64 280
   %bf.load = load i64, ptr %no_walk, align 8
@@ -667,26 +666,32 @@ if.else354:                                       ; preds = %if.end351
   br i1 %cmp363, label %if.then365, label %if.end366
 
 if.then365:                                       ; preds = %if.else354
-  call void @usage_with_options(ptr noundef nonnull %cond.i, ptr noundef %options.0) #13
+  call void @usage_with_options(ptr noundef nonnull %cond.i, ptr noundef %options.0) #12
   unreachable
 
 if.end366:                                        ; preds = %if.else354
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %25 = load ptr, ptr %arrayidx, align 8
-  %call367 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(2) @.str.59) #14
-  %tobool368.not = icmp eq i32 %call367, 0
-  br i1 %tobool368.not, label %if.then369, label %if.end371
+  %26 = load i8, ptr %25, align 1
+  %.not = icmp eq i8 %26, 45
+  br i1 %.not, label %if.end366.tail, label %if.end371
 
-if.then369:                                       ; preds = %if.end366
+if.end366.tail:                                   ; preds = %if.end366
+  %27 = getelementptr inbounds i8, ptr %25, i64 1
+  %28 = load i8, ptr %27, align 1
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %if.then369, label %if.end371
+
+if.then369:                                       ; preds = %if.end366.tail
   store ptr @.str.60, ptr %arrayidx, align 8
   br label %if.end371
 
-if.end371:                                        ; preds = %if.then369, %if.end366
+if.end371:                                        ; preds = %if.end366, %if.then369, %if.end366.tail
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s_r_opt, i8 0, i64 24, i1 false)
   %assume_dashdash = getelementptr inbounds i8, ptr %s_r_opt, i64 16
   store i8 1, ptr %assume_dashdash, align 8
-  %26 = load ptr, ptr %revs356, align 8
-  %call376 = call i32 @setup_revisions(i32 noundef %call296, ptr noundef nonnull %argv, ptr noundef %26, ptr noundef nonnull %s_r_opt) #12
+  %30 = load ptr, ptr %revs356, align 8
+  %call376 = call i32 @setup_revisions(i32 noundef %call296, ptr noundef nonnull %argv, ptr noundef %30, ptr noundef nonnull %s_r_opt) #11
   br label %if.end377
 
 if.end377:                                        ; preds = %if.end371, %if.then353
@@ -695,47 +700,47 @@ if.end377:                                        ; preds = %if.end371, %if.then
   br i1 %cmp378, label %if.then380, label %if.end381
 
 if.then380:                                       ; preds = %if.end377
-  call void @usage_with_options(ptr noundef nonnull %cond.i, ptr noundef %options.0) #13
+  call void @usage_with_options(ptr noundef nonnull %cond.i, ptr noundef %options.0) #12
   unreachable
 
 if.end381:                                        ; preds = %if.end377
-  %27 = load ptr, ptr %gpg_sign, align 8
-  %tobool.not.i = icmp eq ptr %27, null
+  %31 = load ptr, ptr %gpg_sign, align 8
+  %tobool.not.i = icmp eq ptr %31, null
   br i1 %tobool.not.i, label %xstrdup_or_null.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end381
-  %call.i = call ptr @xstrdup(ptr noundef nonnull %27) #12
+  %call.i = call ptr @xstrdup(ptr noundef nonnull %31) #11
   br label %xstrdup_or_null.exit
 
 xstrdup_or_null.exit:                             ; preds = %if.end381, %cond.true.i
   %cond.i80 = phi ptr [ %call.i, %cond.true.i ], [ null, %if.end381 ]
   store ptr %cond.i80, ptr %gpg_sign, align 8
-  %28 = load ptr, ptr %strategy, align 8
-  %tobool.not.i81 = icmp eq ptr %28, null
+  %32 = load ptr, ptr %strategy, align 8
+  %tobool.not.i81 = icmp eq ptr %32, null
   br i1 %tobool.not.i81, label %land.lhs.true390, label %xstrdup_or_null.exit85
 
 xstrdup_or_null.exit85:                           ; preds = %xstrdup_or_null.exit
-  %call.i83 = call ptr @xstrdup(ptr noundef nonnull %28) #12
+  %call.i83 = call ptr @xstrdup(ptr noundef nonnull %32) #11
   store ptr %call.i83, ptr %strategy, align 8
   %tobool389.not = icmp eq ptr %call.i83, null
   br i1 %tobool389.not, label %land.lhs.true390, label %if.end397
 
 land.lhs.true390:                                 ; preds = %xstrdup_or_null.exit, %xstrdup_or_null.exit85
-  %call391 = call ptr @getenv(ptr noundef nonnull @.str.61) #12
+  %call391 = call ptr @getenv(ptr noundef nonnull @.str.61) #11
   %tobool392.not = icmp eq ptr %call391, null
   br i1 %tobool392.not, label %if.end397, label %if.then393
 
 if.then393:                                       ; preds = %land.lhs.true390
-  %call395 = call ptr @xstrdup(ptr noundef nonnull %call391) #12
+  %call395 = call ptr @xstrdup(ptr noundef nonnull %call391) #11
   store ptr %call395, ptr %strategy, align 8
   br label %if.end397
 
 if.end397:                                        ; preds = %if.then393, %land.lhs.true390, %xstrdup_or_null.exit85
-  call void @free(ptr noundef %options.0) #12
-  %29 = load i32, ptr %cmd, align 4
-  %30 = add i32 %29, -97
-  %31 = call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 31)
-  switch i32 %31, label %if.end420 [
+  call void @free(ptr noundef %options.0) #11
+  %33 = load i32, ptr %cmd, align 4
+  %34 = add i32 %33, -97
+  %35 = call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 31)
+  switch i32 %35, label %if.end420 [
     i32 8, label %if.then400
     i32 1, label %if.then408
     i32 0, label %if.then413
@@ -743,33 +748,33 @@ if.end397:                                        ; preds = %if.then393, %land.l
   ]
 
 if.then400:                                       ; preds = %if.end397
-  %call401 = call i32 @sequencer_remove_state(ptr noundef nonnull %opts) #12
+  %call401 = call i32 @sequencer_remove_state(ptr noundef nonnull %opts) #11
   %tobool402.not = icmp eq i32 %call401, 0
   br i1 %tobool402.not, label %if.then403, label %return
 
 if.then403:                                       ; preds = %if.then400
-  %32 = load ptr, ptr @the_repository, align 8
-  call void @remove_branch_state(ptr noundef %32, i32 noundef 0) #12
+  %36 = load ptr, ptr @the_repository, align 8
+  call void @remove_branch_state(ptr noundef %36, i32 noundef 0) #11
   br label %return
 
 if.then408:                                       ; preds = %if.end397
-  %33 = load ptr, ptr @the_repository, align 8
-  %call409 = call i32 @sequencer_continue(ptr noundef %33, ptr noundef nonnull %opts) #12
+  %37 = load ptr, ptr @the_repository, align 8
+  %call409 = call i32 @sequencer_continue(ptr noundef %37, ptr noundef nonnull %opts) #11
   br label %return
 
 if.then413:                                       ; preds = %if.end397
-  %34 = load ptr, ptr @the_repository, align 8
-  %call414 = call i32 @sequencer_rollback(ptr noundef %34, ptr noundef nonnull %opts) #12
+  %38 = load ptr, ptr @the_repository, align 8
+  %call414 = call i32 @sequencer_rollback(ptr noundef %38, ptr noundef nonnull %opts) #11
   br label %return
 
 if.then418:                                       ; preds = %if.end397
-  %35 = load ptr, ptr @the_repository, align 8
-  %call419 = call i32 @sequencer_skip(ptr noundef %35, ptr noundef nonnull %opts) #12
+  %39 = load ptr, ptr @the_repository, align 8
+  %call419 = call i32 @sequencer_skip(ptr noundef %39, ptr noundef nonnull %opts) #11
   br label %return
 
 if.end420:                                        ; preds = %if.end397
-  %36 = load ptr, ptr @the_repository, align 8
-  %call421 = call i32 @sequencer_pick_revisions(ptr noundef %36, ptr noundef nonnull %opts) #12
+  %40 = load ptr, ptr @the_repository, align 8
+  %call421 = call i32 @sequencer_pick_revisions(ptr noundef %40, ptr noundef nonnull %opts) #11
   br label %return
 
 return:                                           ; preds = %if.then400, %if.then403, %if.end420, %if.then418, %if.then413, %if.then408
@@ -793,7 +798,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call = tail call ptr @gettext(ptr noundef nonnull %msgid) #12
+  %call = tail call ptr @gettext(ptr noundef nonnull %msgid) #11
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end3
@@ -804,30 +809,30 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @replay_opts_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_cherry_pick(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @cmd_cherry_pick(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %opts = alloca %struct.replay_opts, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %opts, ptr noundef nonnull align 8 dereferenceable(224) @__const.cmd_cherry_pick.opts, i64 224, i1 false)
   store i32 1, ptr %opts, align 8
-  call void @sequencer_init_config(ptr noundef nonnull %opts) #12
+  call void @sequencer_init_config(ptr noundef nonnull %opts) #11
   %call = call fastcc i32 @run_sequencer(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %opts)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call1 = call fastcc ptr @_(ptr noundef nonnull @.str.1)
-  call void (ptr, ...) @die(ptr noundef %call1) #13
+  call void (ptr, ...) @die(ptr noundef %call1) #12
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @replay_opts_release(ptr noundef nonnull %opts) #12
+  call void @replay_opts_release(ptr noundef nonnull %opts) #11
   ret i32 %call
 }
 
 declare i32 @parse_opt_noop_cb(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @option_parse_m(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal range(i32 -1, 1) i32 @option_parse_m(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %end = alloca ptr, align 8
   %value = getelementptr inbounds i8, ptr %opt, i64 16
@@ -841,7 +846,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = call i64 @strtol(ptr noundef %arg, ptr noundef nonnull %end, i32 noundef 10) #12
+  %call = call i64 @strtol(ptr noundef %arg, ptr noundef nonnull %end, i32 noundef 10) #11
   %conv = trunc i64 %call to i32
   %mainline1 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %conv, ptr %mainline1, align 4
@@ -858,14 +863,14 @@ if.then6:                                         ; preds = %if.end
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then6
-  %call.i = tail call ptr @gettext(ptr noundef nonnull @.str.68) #12
+  %call.i = tail call ptr @gettext(ptr noundef nonnull @.str.68) #11
   br label %_.exit
 
 _.exit:                                           ; preds = %if.then6, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.68, %if.then6 ]
   %long_name = getelementptr inbounds i8, ptr %opt, i64 8
   %4 = load ptr, ptr %long_name, align 8
-  %call8 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %4) #12
+  %call8 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %4) #11
   br label %return
 
 return:                                           ; preds = %if.end, %_.exit, %if.then
@@ -892,7 +897,7 @@ declare i32 @get_cleanup_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
 define internal void @verify_opt_compatible(ptr noundef %me, ptr noundef %base_opt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %ap.promoted = load i32, ptr %ap, align 16
   %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
   %0 = getelementptr inbounds i8, ptr %ap, i64 16
@@ -951,13 +956,13 @@ vaarg.end12:                                      ; preds = %vaarg.in_mem8, %vaa
   br i1 %tobool14.not, label %while.cond, label %if.then17, !llvm.loop !5
 
 if.then17:                                        ; preds = %vaarg.end12
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %call = call fastcc ptr @_(ptr noundef nonnull @.str.69)
-  call void (ptr, ...) @die(ptr noundef %call, ptr noundef %me, ptr noundef nonnull %4, ptr noundef %base_opt) #13
+  call void (ptr, ...) @die(ptr noundef %call, ptr noundef %me, ptr noundef nonnull %4, ptr noundef %base_opt) #12
   unreachable
 
 if.end18:                                         ; preds = %vaarg.end
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
@@ -968,18 +973,15 @@ declare void @repo_init_revisions(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: noreturn
 declare void @usage_with_options(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
-
 declare i32 @setup_revisions(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 declare i32 @sequencer_remove_state(ptr noundef) local_unnamed_addr #2
 
@@ -994,37 +996,35 @@ declare i32 @sequencer_skip(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @sequencer_pick_revisions(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
-
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) local_unnamed_addr #10
+declare ptr @gettext(ptr noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #11
+declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

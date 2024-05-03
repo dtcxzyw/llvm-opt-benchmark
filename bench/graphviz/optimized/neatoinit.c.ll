@@ -59,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [13 x i8] c"Agedgeinfo_t\00", align 1
 @E_weight = external local_unnamed_addr global ptr, align 8
 @.str.36 = private unnamed_addr constant [5 x i8] c"mode\00", align 1
-@.str.37 = private unnamed_addr constant [3 x i8] c"KK\00", align 1
 @.str.38 = private unnamed_addr constant [6 x i8] c"major\00", align 1
 @.str.39 = private unnamed_addr constant [4 x i8] c"sgd\00", align 1
 @.str.40 = private unnamed_addr constant [5 x i8] c"hier\00", align 1
@@ -428,7 +427,7 @@ declare void @gv_cleanup_node(ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init_nop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @init_nop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -1469,7 +1468,7 @@ define void @neato_layout(ptr noundef %0) local_unnamed_addr #0 {
 
 addZ.exit:                                        ; preds = %.lr.ph.i, %11, %16
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4)
-  %29 = call i32 @init_nop(ptr noundef %0, i32 noundef 1), !range !4
+  %29 = call i32 @init_nop(ptr noundef %0, i32 noundef 1)
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %208
 
@@ -1489,20 +1488,29 @@ addZ.exit:                                        ; preds = %.lr.ph.i, %11, %16
 
 38:                                               ; preds = %33
   %strcmpload.i = load i8, ptr %37, align 1
-  %39 = icmp eq i8 %strcmpload.i, 0
-  br i1 %39, label %neatoMode.exit, label %40
+  switch i8 %strcmpload.i, label %.tail.thread.i [
+    i8 0, label %neatoMode.exit
+    i8 75, label %sub_1.i
+  ]
 
-40:                                               ; preds = %38
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.37) #23
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %neatoMode.exit, label %43
+sub_1.i:                                          ; preds = %38
+  %39 = getelementptr inbounds i8, ptr %37, i64 1
+  %40 = load i8, ptr %39, align 1
+  %.not12.i = icmp eq i8 %40, 75
+  br i1 %.not12.i, label %.tail.i, label %.tail.thread.i
 
-43:                                               ; preds = %40
+.tail.i:                                          ; preds = %sub_1.i
+  %41 = getelementptr inbounds i8, ptr %37, i64 2
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %neatoMode.exit, label %.tail.thread.i
+
+.tail.thread.i:                                   ; preds = %.tail.i, %sub_1.i, %38
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.38) #23
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %neatoMode.exit, label %46
 
-46:                                               ; preds = %43
+46:                                               ; preds = %.tail.thread.i
   %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.39) #23
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %neatoMode.exit, label %49
@@ -1522,9 +1530,9 @@ addZ.exit:                                        ; preds = %.lr.ph.i, %11, %16
   %57 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.42, ptr noundef nonnull %37, ptr noundef %56) #19
   br label %neatoMode.exit
 
-neatoMode.exit:                                   ; preds = %33, %38, %40, %43, %46, %49, %52, %55
-  %58 = phi i1 [ true, %38 ], [ true, %55 ], [ true, %33 ], [ false, %40 ], [ true, %43 ], [ true, %46 ], [ true, %49 ], [ true, %52 ]
-  %.0.i = phi i32 [ 1, %38 ], [ 1, %55 ], [ 1, %33 ], [ 0, %40 ], [ 1, %43 ], [ 4, %46 ], [ 2, %49 ], [ 3, %52 ]
+neatoMode.exit:                                   ; preds = %33, %38, %.tail.i, %.tail.thread.i, %46, %49, %52, %55
+  %58 = phi i1 [ true, %38 ], [ true, %55 ], [ true, %33 ], [ false, %.tail.i ], [ true, %.tail.thread.i ], [ true, %46 ], [ true, %49 ], [ true, %52 ]
+  %.0.i = phi i32 [ 1, %38 ], [ 1, %55 ], [ 1, %33 ], [ 0, %.tail.i ], [ 1, %.tail.thread.i ], [ 4, %46 ], [ 2, %49 ], [ 3, %52 ]
   call void @graphAdjustMode(ptr noundef %0, ptr noundef nonnull %6, ptr noundef null) #19
   %59 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.43) #19
   %.not.i71 = icmp eq ptr %59, null
@@ -1557,8 +1565,8 @@ neatoMode.exit:                                   ; preds = %33, %38, %40, %43, 
 
 74:                                               ; preds = %71
   %75 = call ptr @agattr(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.48, ptr noundef null) #19
-  %.not12.i = icmp eq ptr %75, null
-  br i1 %.not12.i, label %76, label %neatoModel.exit
+  %.not12.i74 = icmp eq ptr %75, null
+  br i1 %.not12.i74, label %76, label %neatoModel.exit
 
 76:                                               ; preds = %74
   %77 = call ptr @agnameof(ptr noundef %0) #19
@@ -1582,9 +1590,9 @@ neatoModel.exit:                                  ; preds = %neatoMode.exit, %60
 
 87:                                               ; preds = %neatoModel.exit
   %or.cond = and i1 %58, %86
-  br i1 %or.cond, label %.thread89, label %91
+  br i1 %or.cond, label %.thread90, label %91
 
-.thread89:                                        ; preds = %87
+.thread90:                                        ; preds = %87
   store i32 8, ptr @Pack, align 4
   %88 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 2, ptr %88, align 8
@@ -1603,15 +1611,15 @@ neatoModel.exit:                                  ; preds = %neatoMode.exit, %60
   %93 = icmp sgt i32 %84, -1
   br i1 %93, label %.thread, label %185
 
-.thread:                                          ; preds = %90, %89, %.thread89, %91
+.thread:                                          ; preds = %90, %89, %.thread90, %91
   %94 = call ptr @pccomps(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.52, ptr noundef nonnull %8) #19
   %95 = load i64, ptr %7, align 8
   %96 = icmp ugt i64 %95, 1
   br i1 %96, label %.preheader, label %124
 
 .preheader:                                       ; preds = %.thread, %103
-  %.06792 = phi i64 [ %104, %103 ], [ 0, %.thread ]
-  %97 = getelementptr inbounds ptr, ptr %94, i64 %.06792
+  %.06793 = phi i64 [ %104, %103 ], [ 0, %.thread ]
+  %97 = getelementptr inbounds ptr, ptr %94, i64 %.06793
   %98 = load ptr, ptr %97, align 8
   %99 = call i64 @graphviz_node_induce(ptr noundef %98, ptr noundef null) #19
   call fastcc void @neatoLayout(ptr noundef %0, ptr noundef %98, i32 noundef %.0.i, i32 noundef %.0.i73, ptr noundef nonnull %6)
@@ -1629,7 +1637,7 @@ neatoModel.exit:                                  ; preds = %neatoMode.exit, %60
   br label %103
 
 103:                                              ; preds = %101, %102
-  %104 = add nuw i64 %.06792, 1
+  %104 = add nuw i64 %.06793, 1
   %.pr = load i64, ptr %7, align 8
   %105 = icmp ult i64 %104, %.pr
   br i1 %105, label %.preheader, label %106
@@ -1640,8 +1648,8 @@ neatoModel.exit:                                  ; preds = %neatoMode.exit, %60
   br i1 %108, label %109, label %118
 
 109:                                              ; preds = %106
-  %.not.i74 = icmp eq i64 %.pr, 0
-  br i1 %.not.i74, label %.thread.i, label %111
+  %.not.i75 = icmp eq i64 %.pr, 0
+  br i1 %.not.i75, label %.thread.i, label %111
 
 .thread.i:                                        ; preds = %109
   %110 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 1) #20
@@ -1697,17 +1705,17 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %111
   %130 = icmp sgt i32 %129, 2
   %131 = load ptr, ptr @N_z, align 8
   %132 = icmp ne ptr %131, null
-  %or.cond.i75 = select i1 %130, i1 %132, i1 false
-  br i1 %or.cond.i75, label %133, label %addZ.exit80
+  %or.cond.i76 = select i1 %130, i1 %132, i1 false
+  br i1 %or.cond.i76, label %133, label %addZ.exit81
 
 133:                                              ; preds = %128
   %134 = call ptr @agfstnode(ptr noundef %0) #19
-  %.not7.i76 = icmp eq ptr %134, null
-  br i1 %.not7.i76, label %addZ.exit80, label %.lr.ph.i77
+  %.not7.i77 = icmp eq ptr %134, null
+  br i1 %.not7.i77, label %addZ.exit81, label %.lr.ph.i78
 
-.lr.ph.i77:                                       ; preds = %133, %.lr.ph.i77
-  %.08.i78 = phi ptr [ %145, %.lr.ph.i77 ], [ %134, %133 ]
-  %135 = getelementptr inbounds i8, ptr %.08.i78, i64 16
+.lr.ph.i78:                                       ; preds = %133, %.lr.ph.i78
+  %.08.i79 = phi ptr [ %145, %.lr.ph.i78 ], [ %134, %133 ]
+  %135 = getelementptr inbounds i8, ptr %.08.i79, i64 16
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 176
   %138 = load ptr, ptr %137, align 8
@@ -1716,42 +1724,42 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %111
   %141 = fmul double %140, 7.200000e+01
   %142 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 8192, ptr noundef nonnull @.str.3, double noundef %141) #19
   %143 = load ptr, ptr @N_z, align 8
-  %144 = call i32 @agxset(ptr noundef nonnull %.08.i78, ptr noundef %143, ptr noundef nonnull %3) #19
-  %145 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.08.i78) #19
-  %.not.i79 = icmp eq ptr %145, null
-  br i1 %.not.i79, label %addZ.exit80, label %.lr.ph.i77
+  %144 = call i32 @agxset(ptr noundef nonnull %.08.i79, ptr noundef %143, ptr noundef nonnull %3) #19
+  %145 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.08.i79) #19
+  %.not.i80 = icmp eq ptr %145, null
+  br i1 %.not.i80, label %addZ.exit81, label %.lr.ph.i78
 
-addZ.exit80:                                      ; preds = %.lr.ph.i77, %128, %133
+addZ.exit81:                                      ; preds = %.lr.ph.i78, %128, %133
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
   %146 = load i64, ptr %7, align 8
-  %.not94 = icmp eq i64 %146, 0
-  br i1 %.not94, label %._crit_edge, label %.lr.ph
+  %.not95 = icmp eq i64 %146, 0
+  br i1 %.not95, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %addZ.exit80, %.lr.ph
-  %.093 = phi i64 [ %151, %.lr.ph ], [ 0, %addZ.exit80 ]
-  %147 = getelementptr inbounds ptr, ptr %94, i64 %.093
+.lr.ph:                                           ; preds = %addZ.exit81, %.lr.ph
+  %.094 = phi i64 [ %151, %.lr.ph ], [ 0, %addZ.exit81 ]
+  %147 = getelementptr inbounds ptr, ptr %94, i64 %.094
   %148 = load ptr, ptr %147, align 8
   call void @free_scan_graph(ptr noundef %148) #19
   %149 = call i32 @agdelrec(ptr noundef %148, ptr noundef nonnull @.str.19) #19
   %150 = call i32 @agdelete(ptr noundef %0, ptr noundef %148) #19
-  %151 = add nuw i64 %.093, 1
+  %151 = add nuw i64 %.094, 1
   %152 = load i64, ptr %7, align 8
   %153 = icmp ult i64 %151, %152
   br i1 %153, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %addZ.exit80
+._crit_edge:                                      ; preds = %.lr.ph, %addZ.exit81
   call void @free(ptr noundef %94) #19
   %154 = call ptr @agroot(ptr noundef %0) #19
   %155 = call ptr @agfstsubg(ptr noundef %154) #19
   %.not8.i = icmp eq ptr %155, null
-  br i1 %.not8.i, label %addCluster.exit, label %.lr.ph.i81
+  br i1 %.not8.i, label %addCluster.exit, label %.lr.ph.i82
 
-.lr.ph.i81:                                       ; preds = %._crit_edge
+.lr.ph.i82:                                       ; preds = %._crit_edge
   %156 = getelementptr inbounds i8, ptr %0, i64 16
   br label %157
 
-157:                                              ; preds = %183, %.lr.ph.i81
-  %.09.i = phi ptr [ %155, %.lr.ph.i81 ], [ %184, %183 ]
+157:                                              ; preds = %183, %.lr.ph.i82
+  %.09.i = phi ptr [ %155, %.lr.ph.i82 ], [ %184, %183 ]
   %158 = call ptr @agnameof(ptr noundef nonnull %.09.i) #19
   %159 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(8) @.str.9, i64 noundef 7) #23
   %160 = icmp eq i32 %159, 0
@@ -1788,8 +1796,8 @@ addZ.exit80:                                      ; preds = %.lr.ph.i77, %128, %
 
 183:                                              ; preds = %161, %157
   %184 = call ptr @agnxtsubg(ptr noundef nonnull %.09.i) #19
-  %.not.i82 = icmp eq ptr %184, null
-  br i1 %.not.i82, label %addCluster.exit, label %157
+  %.not.i83 = icmp eq ptr %184, null
+  br i1 %.not.i83, label %addCluster.exit, label %157
 
 185:                                              ; preds = %91
   call fastcc void @neatoLayout(ptr noundef %0, ptr noundef %0, i32 noundef %.0.i, i32 noundef %.0.i73, ptr noundef nonnull %6)
@@ -1799,17 +1807,17 @@ addZ.exit80:                                      ; preds = %.lr.ph.i77, %128, %
   %188 = icmp sgt i32 %187, 2
   %189 = load ptr, ptr @N_z, align 8
   %190 = icmp ne ptr %189, null
-  %or.cond.i83 = select i1 %188, i1 %190, i1 false
-  br i1 %or.cond.i83, label %191, label %addZ.exit88
+  %or.cond.i84 = select i1 %188, i1 %190, i1 false
+  br i1 %or.cond.i84, label %191, label %addZ.exit89
 
 191:                                              ; preds = %185
   %192 = call ptr @agfstnode(ptr noundef %0) #19
-  %.not7.i84 = icmp eq ptr %192, null
-  br i1 %.not7.i84, label %addZ.exit88, label %.lr.ph.i85
+  %.not7.i85 = icmp eq ptr %192, null
+  br i1 %.not7.i85, label %addZ.exit89, label %.lr.ph.i86
 
-.lr.ph.i85:                                       ; preds = %191, %.lr.ph.i85
-  %.08.i86 = phi ptr [ %203, %.lr.ph.i85 ], [ %192, %191 ]
-  %193 = getelementptr inbounds i8, ptr %.08.i86, i64 16
+.lr.ph.i86:                                       ; preds = %191, %.lr.ph.i86
+  %.08.i87 = phi ptr [ %203, %.lr.ph.i86 ], [ %192, %191 ]
+  %193 = getelementptr inbounds i8, ptr %.08.i87, i64 16
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 176
   %196 = load ptr, ptr %195, align 8
@@ -1818,21 +1826,21 @@ addZ.exit80:                                      ; preds = %.lr.ph.i77, %128, %
   %199 = fmul double %198, 7.200000e+01
   %200 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 8192, ptr noundef nonnull @.str.3, double noundef %199) #19
   %201 = load ptr, ptr @N_z, align 8
-  %202 = call i32 @agxset(ptr noundef nonnull %.08.i86, ptr noundef %201, ptr noundef nonnull %2) #19
-  %203 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.08.i86) #19
-  %.not.i87 = icmp eq ptr %203, null
-  br i1 %.not.i87, label %addZ.exit88, label %.lr.ph.i85
+  %202 = call i32 @agxset(ptr noundef nonnull %.08.i87, ptr noundef %201, ptr noundef nonnull %2) #19
+  %203 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.08.i87) #19
+  %.not.i88 = icmp eq ptr %203, null
+  br i1 %.not.i88, label %addZ.exit89, label %.lr.ph.i86
 
-addZ.exit88:                                      ; preds = %.lr.ph.i85, %185, %191
+addZ.exit89:                                      ; preds = %.lr.ph.i86, %185, %191
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2)
   br i1 %35, label %204, label %205
 
-204:                                              ; preds = %addZ.exit88
+204:                                              ; preds = %addZ.exit89
   call void @compute_bb(ptr noundef %0) #19
   call void @spline_edges0(ptr noundef %0, i1 noundef zeroext true) #19
   br label %addCluster.exit
 
-205:                                              ; preds = %addZ.exit88
+205:                                              ; preds = %addZ.exit89
   call void @spline_edges(ptr noundef %0) #19
   br label %addCluster.exit
 
@@ -3250,7 +3258,7 @@ define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 no
   %.3.lcssa = phi ptr [ %spec.select289, %.lr.ph247 ], [ %.5, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.0245, %.lr.ph247 ], [ %.2, %._crit_edge.loopexit ]
   store i64 %.0176.lcssa, ptr %36, align 8
-  %156 = trunc i64 %indvars.iv to i32
+  %156 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %156, ptr %155, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %157 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0174243) #19
@@ -3296,7 +3304,7 @@ define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 no
   br i1 %.not.i, label %173, label %175
 
 173:                                              ; preds = %.lr.ph18.i
-  %174 = trunc i64 %indvars.iv20.i to i32
+  %174 = trunc nuw nsw i64 %indvars.iv20.i to i32
   tail call fastcc void @dfsCycle(ptr noundef %18, i32 noundef %174, i32 noundef %3, ptr noundef nonnull %19)
   br label %175
 
@@ -3615,4 +3623,3 @@ attributes #26 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}

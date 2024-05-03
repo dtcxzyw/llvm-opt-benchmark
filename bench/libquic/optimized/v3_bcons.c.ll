@@ -60,16 +60,37 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call2 = tail call ptr @sk_value(ptr noundef %values, i64 noundef %i.018) #3
   %name = getelementptr inbounds i8, ptr %call2, i64 8
   %0 = load ptr, ptr %name, align 8
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.3) #4
-  %tobool4.not = icmp eq i32 %call3, 0
+  %1 = load i8, ptr %0, align 1
+  %2 = zext i8 %1 to i32
+  %3 = add nsw i32 %2, -67
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %sub_1, label %for.body.tail
+
+sub_1:                                            ; preds = %for.body
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = load i8, ptr %4, align 1
+  %6 = zext i8 %5 to i32
+  %7 = add nsw i32 %6, -65
+  %.not19 = icmp eq i32 %7, 0
+  br i1 %.not19, label %sub_2, label %for.body.tail
+
+sub_2:                                            ; preds = %sub_1
+  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = load i8, ptr %8, align 1
+  %10 = zext i8 %9 to i32
+  br label %for.body.tail
+
+for.body.tail:                                    ; preds = %for.body, %sub_1, %sub_2
+  %11 = phi i32 [ %3, %for.body ], [ %7, %sub_1 ], [ %10, %sub_2 ]
+  %tobool4.not = icmp eq i32 %11, 0
   br i1 %tobool4.not, label %if.then5, label %if.else
 
-if.then5:                                         ; preds = %for.body
+if.then5:                                         ; preds = %for.body.tail
   %call6 = tail call i32 @X509V3_get_value_bool(ptr noundef nonnull %call2, ptr noundef nonnull %call.i) #3
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %err, label %for.inc
 
-if.else:                                          ; preds = %for.body
+if.else:                                          ; preds = %for.body.tail
   %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.2) #4
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.then13, label %if.else18
@@ -82,11 +103,11 @@ if.then13:                                        ; preds = %if.else
 if.else18:                                        ; preds = %if.else
   %name.le = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str.4, i32 noundef 124) #3
-  %1 = load ptr, ptr %call2, align 8
-  %2 = load ptr, ptr %name.le, align 8
+  %12 = load ptr, ptr %call2, align 8
+  %13 = load ptr, ptr %name.le, align 8
   %value = getelementptr inbounds i8, ptr %call2, i64 16
-  %3 = load ptr, ptr %value, align 8
-  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.5, ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef %3) #3
+  %14 = load ptr, ptr %value, align 8
+  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.5, ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef %13, ptr noundef nonnull @.str.7, ptr noundef %14) #3
   br label %err
 
 for.inc:                                          ; preds = %if.then5, %if.then13

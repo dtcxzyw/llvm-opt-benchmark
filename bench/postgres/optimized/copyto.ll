@@ -62,7 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [63 x i8] c"unexpected table_scan_getnextslot call during logical decoding\00", align 1
 @.str.32 = private unnamed_addr constant [38 x i8] c"../../../src/include/access/tableam.h\00", align 1
 @__func__.table_scan_getnextslot = private unnamed_addr constant [23 x i8] c"table_scan_getnextslot\00", align 1
-@.str.33 = private unnamed_addr constant [3 x i8] c"\\.\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @BeginCopyTo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
@@ -1231,25 +1230,38 @@ list_length.exit:                                 ; preds = %3, %15
   br i1 %.067.shrunk, label %.critedge, label %36
 
 36:                                               ; preds = %35
-  br i1 %19, label %37, label %40
+  %.pre = load i8, ptr %.069, align 1
+  br i1 %19, label %sub_0, label %.critedge100
 
-37:                                               ; preds = %36
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.069, ptr noundef nonnull dereferenceable(3) @.str.33) #22
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.critedge, label %40
+sub_0:                                            ; preds = %36
+  switch i8 %.pre, label %.lr.ph [
+    i8 92, label %sub_1
+    i8 0, label %._crit_edge
+  ]
 
-40:                                               ; preds = %37, %36
-  %41 = load i8, ptr %.069, align 1
-  %.not87 = icmp eq i8 %41, 0
+sub_1:                                            ; preds = %sub_0
+  %37 = getelementptr inbounds i8, ptr %.069, i64 1
+  %38 = load i8, ptr %37, align 1
+  %.not96 = icmp eq i8 %38, 46
+  br i1 %.not96, label %sub_2, label %.critedge100
+
+sub_2:                                            ; preds = %sub_1
+  %39 = getelementptr inbounds i8, ptr %.069, i64 2
+  %40 = load i8, ptr %39, align 1
+  %41 = icmp eq i8 %40, 0
+  br i1 %41, label %.critedge, label %.critedge100
+
+.critedge100:                                     ; preds = %sub_1, %sub_2, %36
+  %.not87 = icmp eq i8 %.pre, 0
   br i1 %.not87, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %40
+.lr.ph:                                           ; preds = %sub_0, %.critedge100
   %42 = getelementptr inbounds i8, ptr %0, i64 29
   %43 = getelementptr inbounds i8, ptr %0, i64 24
   br label %44
 
 44:                                               ; preds = %.lr.ph, %58
-  %45 = phi i8 [ %41, %.lr.ph ], [ %60, %58 ]
+  %45 = phi i8 [ %.pre, %.lr.ph ], [ %60, %58 ]
   %.088 = phi ptr [ %.069, %.lr.ph ], [ %59, %58 ]
   %46 = icmp eq i8 %45, %6
   br i1 %46, label %.critedge, label %47
@@ -1287,7 +1299,7 @@ switch.early.test:                                ; preds = %47
   %.not = icmp eq i8 %60, 0
   br i1 %.not, label %._crit_edge, label %44, !llvm.loop !18
 
-.critedge:                                        ; preds = %switch.early.test, %switch.early.test, %47, %44, %35, %37
+.critedge:                                        ; preds = %switch.early.test, %switch.early.test, %47, %44, %35, %sub_2
   %61 = getelementptr inbounds i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
@@ -1397,8 +1409,8 @@ CopySendChar.exit84:                              ; preds = %102, %101, %83
   br label %120
 
 120:                                              ; preds = %CopySendChar.exit84, %113, %116
-  %.sink97 = phi i64 [ %119, %116 ], [ 1, %113 ], [ 1, %CopySendChar.exit84 ]
-  %121 = getelementptr i8, ptr %.17091, i64 %.sink97
+  %.sink99 = phi i64 [ %119, %116 ], [ 1, %113 ], [ 1, %CopySendChar.exit84 ]
+  %121 = getelementptr i8, ptr %.17091, i64 %.sink99
   %122 = load i8, ptr %121, align 1
   %.not76 = icmp eq i8 %122, 0
   br i1 %.not76, label %._crit_edge93, label %83, !llvm.loop !19
@@ -1446,7 +1458,7 @@ CopySendChar.exit84:                              ; preds = %102, %101, %83
   store i8 0, ptr %146, align 1
   br label %CopySendChar.exit86
 
-._crit_edge:                                      ; preds = %58, %40
+._crit_edge:                                      ; preds = %58, %sub_0, %.critedge100
   %147 = getelementptr i8, ptr %0, i64 16
   %.val81 = load ptr, ptr %147, align 8
   %148 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.069) #22

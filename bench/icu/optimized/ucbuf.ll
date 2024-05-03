@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [23 x i8] c"Bad escape: [%c%s]...\0A\00", align 1
-@.str.2 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.3 = private unnamed_addr constant [61 x i8] c"###WARNING: No converter defined. Using codepage of system.\0A\00", align 1
 @.str.4 = private unnamed_addr constant [34 x i8] c"Could not open codepage [%s]: %s\0A\00", align 1
 @.str.5 = private unnamed_addr constant [94 x i8] c"\0A###WARNING: Encountered abnormal bytes while converting input stream to target encoding: %s\0A\00", align 1
@@ -25,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [6 x i8] c"UTF-7\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucbuf_autodetect_fs(ptr noundef %in, ptr nocapture noundef %cp, ptr nocapture noundef writeonly %conv, ptr noundef %signatureLength, ptr noundef %error) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucbuf_autodetect_fs(ptr noundef %in, ptr nocapture noundef %cp, ptr nocapture noundef writeonly %conv, ptr noundef %signatureLength, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %start = alloca [8 x i8], align 1
   %target = alloca [1 x i16], align 2
@@ -144,7 +143,7 @@ if.then10:                                        ; preds = %if.end7
   br label %return
 
 if.end11:                                         ; preds = %if.end7
-  %call12 = tail call signext i8 @ucbuf_autodetect_fs(ptr noundef nonnull %call8, ptr noundef nonnull %cp, ptr noundef nonnull %conv, ptr noundef %signatureLength, ptr noundef nonnull %error), !range !4
+  %call12 = tail call signext i8 @ucbuf_autodetect_fs(ptr noundef nonnull %call8, ptr noundef nonnull %cp, ptr noundef nonnull %conv, ptr noundef %signatureLength, ptr noundef nonnull %error)
   %tobool13.not = icmp eq i8 %call12, 0
   br i1 %tobool13.not, label %if.else, label %return
 
@@ -167,7 +166,7 @@ declare void @ucnv_close_75(ptr noundef) local_unnamed_addr #2
 declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucbuf_getc(ptr noundef %buf, ptr noundef %error) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @ucbuf_getc(ptr noundef %buf, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %error, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -450,7 +449,7 @@ return:                                           ; preds = %if.end128, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucbuf_getc32(ptr noundef %buf, ptr noundef %error) local_unnamed_addr #0 {
+define range(i32 -56613888, 10559488) i32 @ucbuf_getc32(ptr noundef %buf, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %error, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -664,22 +663,28 @@ if.end:                                           ; preds = %lor.lhs.false
   %cmp1 = icmp eq ptr %cp, null
   %cmp3 = icmp eq ptr %fileName, null
   %or.cond = or i1 %cmp3, %cmp1
-  br i1 %or.cond, label %if.then4, label %if.end5
+  br i1 %or.cond, label %if.then4, label %sub_0
 
 if.then4:                                         ; preds = %if.end
   store i32 1, ptr %error, align 4
   br label %return
 
-if.end5:                                          ; preds = %if.end
-  %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %fileName, ptr noundef nonnull dereferenceable(2) @.str.2) #16
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %if.then8, label %if.else
+sub_0:                                            ; preds = %if.end
+  %1 = load i8, ptr %fileName, align 1
+  %.not = icmp eq i8 %1, 45
+  br i1 %.not, label %if.end5.tail, label %if.else
 
-if.then8:                                         ; preds = %if.end5
+if.end5.tail:                                     ; preds = %sub_0
+  %2 = getelementptr inbounds i8, ptr %fileName, i64 1
+  %3 = load i8, ptr %2, align 1
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %if.then8, label %if.else
+
+if.then8:                                         ; preds = %if.end5.tail
   %call9 = tail call ptr @T_FileStream_stdin()
   br label %if.end11
 
-if.else:                                          ; preds = %if.end5
+if.else:                                          ; preds = %sub_0, %if.end5.tail
   %call10 = tail call ptr @T_FileStream_open(ptr noundef nonnull %fileName, ptr noundef nonnull @.str)
   br label %if.end11
 
@@ -710,49 +715,49 @@ if.end18:                                         ; preds = %if.then13
   store i8 %buffered, ptr %isBuffered, align 1
   %signatureLength = getelementptr inbounds i8, ptr %call14, i64 32
   store i32 0, ptr %signatureLength, align 8
-  %1 = load ptr, ptr %cp, align 8
-  %cmp21 = icmp eq ptr %1, null
+  %5 = load ptr, ptr %cp, align 8
+  %cmp21 = icmp eq ptr %5, null
   br i1 %cmp21, label %if.then25, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %if.end18
-  %2 = load i8, ptr %1, align 1
-  %cmp24 = icmp eq i8 %2, 0
+  %6 = load i8, ptr %5, align 1
+  %cmp24 = icmp eq i8 %6, 0
   br i1 %cmp24, label %if.then25, label %if.else29
 
 if.then25:                                        ; preds = %lor.lhs.false22, %if.end18
-  %call28 = tail call signext i8 @ucbuf_autodetect_fs(ptr noundef nonnull %in.0, ptr noundef nonnull %cp, ptr noundef nonnull %conv, ptr noundef nonnull %signatureLength, ptr noundef nonnull %error), !range !4
+  %call28 = tail call signext i8 @ucbuf_autodetect_fs(ptr noundef nonnull %in.0, ptr noundef nonnull %cp, ptr noundef nonnull %conv, ptr noundef nonnull %signatureLength, ptr noundef nonnull %error)
   br label %if.end37
 
 if.else29:                                        ; preds = %lor.lhs.false22
-  %call30 = tail call fastcc noundef signext i8 @_ZL15ucbuf_isCPKnownPKc(ptr noundef nonnull %1), !range !4
+  %call30 = tail call fastcc noundef signext i8 @_ZL15ucbuf_isCPKnownPKc(ptr noundef nonnull %5)
   %tobool31.not = icmp eq i8 %call30, 0
   br i1 %tobool31.not, label %if.end37, label %if.then32
 
 if.then32:                                        ; preds = %if.else29
-  %call35 = call signext i8 @ucbuf_autodetect_fs(ptr noundef nonnull %in.0, ptr noundef nonnull %knownCp, ptr noundef nonnull %conv, ptr noundef nonnull %signatureLength, ptr noundef nonnull %error), !range !4
+  %call35 = call signext i8 @ucbuf_autodetect_fs(ptr noundef nonnull %in.0, ptr noundef nonnull %knownCp, ptr noundef nonnull %conv, ptr noundef nonnull %signatureLength, ptr noundef nonnull %error)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else29, %if.then32, %if.then25
-  %3 = load i32, ptr %error, align 4
-  %cmp.i63 = icmp sgt i32 %3, 0
+  %7 = load i32, ptr %error, align 4
+  %cmp.i63 = icmp sgt i32 %7, 0
   br i1 %cmp.i63, label %if.then48, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end37
-  %4 = load ptr, ptr %conv, align 8
-  %cmp41 = icmp eq ptr %4, null
+  %8 = load ptr, ptr %conv, align 8
+  %cmp41 = icmp eq ptr %8, null
   br i1 %cmp41, label %if.end45, label %if.end59
 
 if.end45:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %cp, align 8
-  %call43 = tail call ptr @ucnv_open_75(ptr noundef %5, ptr noundef nonnull %error)
+  %9 = load ptr, ptr %cp, align 8
+  %call43 = tail call ptr @ucnv_open_75(ptr noundef %9, ptr noundef nonnull %error)
   store ptr %call43, ptr %conv, align 8
   %.pre = load i32, ptr %error, align 4
-  %6 = icmp slt i32 %.pre, 1
-  br i1 %6, label %if.end50, label %if.then48
+  %10 = icmp slt i32 %.pre, 1
+  br i1 %10, label %if.end50, label %if.then48
 
 if.then48:                                        ; preds = %if.end37, %if.end45
-  %7 = load ptr, ptr %conv, align 8
-  tail call void @ucnv_close_75(ptr noundef %7)
+  %11 = load ptr, ptr %conv, align 8
+  tail call void @ucnv_close_75(ptr noundef %11)
   tail call void @uprv_free_75(ptr noundef nonnull %call14)
   tail call void @T_FileStream_close(ptr noundef nonnull %in.0)
   br label %return
@@ -762,26 +767,26 @@ if.end50:                                         ; preds = %if.end45
   br i1 %cmp52, label %land.lhs.true53, label %if.end59
 
 land.lhs.true53:                                  ; preds = %if.end50
-  %8 = load i8, ptr %showWarning20, align 8
-  %cmp56 = icmp eq i8 %8, 1
+  %12 = load i8, ptr %showWarning20, align 8
+  %cmp56 = icmp eq i8 %12, 1
   br i1 %cmp56, label %if.then57, label %if.end59
 
 if.then57:                                        ; preds = %land.lhs.true53
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 60, i64 1, ptr %9) #15
+  %13 = load ptr, ptr @stderr, align 8
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 60, i64 1, ptr %13) #15
   br label %if.end59
 
 if.end59:                                         ; preds = %land.lhs.true, %if.then57, %land.lhs.true53, %if.end50
-  %11 = load i32, ptr %signatureLength, align 8
-  %sub = sub nsw i32 %call15, %11
+  %15 = load i32, ptr %signatureLength, align 8
+  %sub = sub nsw i32 %call15, %15
   %remaining = getelementptr inbounds i8, ptr %call14, i64 28
   store i32 %sub, ptr %remaining, align 4
-  %12 = load i8, ptr %isBuffered, align 1
-  %tobool62.not = icmp eq i8 %12, 0
+  %16 = load i8, ptr %isBuffered, align 1
+  %tobool62.not = icmp eq i8 %16, 0
   %add67 = add nsw i32 %call15, 1
   %spec.select = select i1 %tobool62.not, i32 %add67, i32 1500
-  %13 = getelementptr inbounds i8, ptr %call14, i64 24
-  store i32 %spec.select, ptr %13, align 8
+  %17 = getelementptr inbounds i8, ptr %call14, i64 24
+  store i32 %spec.select, ptr %17, align 8
   %mul = shl nsw i32 %spec.select, 1
   %conv71 = sext i32 %mul to i64
   %call72 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv71) #14
@@ -799,22 +804,22 @@ if.end76:                                         ; preds = %if.end59
   store ptr %call72, ptr %currentPos, align 8
   %bufLimit = getelementptr inbounds i8, ptr %call14, i64 16
   store ptr %call72, ptr %bufLimit, align 8
-  %14 = load i32, ptr %error, align 4
-  %cmp.i67 = icmp slt i32 %14, 1
+  %18 = load i32, ptr %error, align 4
+  %cmp.i67 = icmp slt i32 %18, 1
   br i1 %cmp.i67, label %if.end84, label %if.then81
 
 if.then81:                                        ; preds = %if.end76
-  %15 = load ptr, ptr @stderr, align 8
-  %16 = load ptr, ptr %cp, align 8
-  %call82 = tail call ptr @u_errorName_75(i32 noundef %14)
-  %call83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.4, ptr noundef %16, ptr noundef %call82) #15
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = load ptr, ptr %cp, align 8
+  %call82 = tail call ptr @u_errorName_75(i32 noundef %18)
+  %call83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.4, ptr noundef %20, ptr noundef %call82) #15
   tail call void @ucbuf_close(ptr noundef nonnull %call14)
   br label %return
 
 if.end84:                                         ; preds = %if.end76
   %call85 = tail call fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(ptr noundef nonnull %call14, ptr noundef nonnull %error)
-  %17 = load i32, ptr %error, align 4
-  %cmp.i69 = icmp slt i32 %17, 1
+  %21 = load i32, ptr %error, align 4
+  %cmp.i69 = icmp slt i32 %21, 1
   br i1 %cmp.i69, label %return, label %if.then88
 
 if.then88:                                        ; preds = %if.end84
@@ -830,18 +835,15 @@ return:                                           ; preds = %if.end84, %entry, %
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
-
 declare ptr @T_FileStream_stdin() local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 
 declare i32 @T_FileStream_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZL15ucbuf_isCPKnownPKc(ptr noundef %cp) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL15ucbuf_isCPKnownPKc(ptr noundef %cp) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ucnv_compareNames_75(ptr noundef nonnull @.str.9, ptr noundef %cp)
   %cmp = icmp eq i32 %call, 0
@@ -933,7 +935,7 @@ if.end3:                                          ; preds = %if.end, %entry
 declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ucbuf_ungetc(i32 noundef %c, ptr nocapture noundef %buf) local_unnamed_addr #7 {
+define void @ucbuf_ungetc(i32 noundef %c, ptr nocapture noundef %buf) local_unnamed_addr #6 {
 entry:
   %currentPos = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load ptr, ptr %currentPos, align 8
@@ -1085,7 +1087,7 @@ return:                                           ; preds = %entry, %if.else, %i
 declare signext i8 @ucnv_getMinCharSize_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @ucbuf_getBuffer(ptr noundef readonly %buf, ptr noundef writeonly %len, ptr noundef %error) local_unnamed_addr #8 {
+define ptr @ucbuf_getBuffer(ptr noundef readonly %buf, ptr noundef writeonly %len, ptr noundef %error) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %error, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1124,7 +1126,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @ucbuf_resolveFileName(ptr noundef readonly %inputDir, ptr noundef readonly %fileName, ptr noundef %target, ptr noundef %len, ptr noundef %status) local_unnamed_addr #9 {
+define noundef ptr @ucbuf_resolveFileName(ptr noundef readonly %inputDir, ptr noundef readonly %fileName, ptr noundef %target, ptr noundef %len, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1232,7 +1234,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
@@ -1327,7 +1329,7 @@ lor.lhs.false:                                    ; preds = %if.end24
     i16 133, label %if.then29
     i16 8232, label %if.then29
     i16 8233, label %if.then29
-  ], !llvm.loop !5
+  ], !llvm.loop !4
 
 if.then29:                                        ; preds = %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %if.end24
   %12 = load ptr, ptr %currentPos, align 8
@@ -1379,7 +1381,7 @@ lor.lhs.false68:                                  ; preds = %if.end65
     i16 133, label %if.then71
     i16 8232, label %if.then71
     i16 8233, label %if.then71
-  ], !llvm.loop !7
+  ], !llvm.loop !6
 
 if.then71:                                        ; preds = %lor.lhs.false68, %lor.lhs.false68, %lor.lhs.false68, %lor.lhs.false68, %lor.lhs.false68, %lor.lhs.false68, %if.end65
   %sub.ptr.lhs.cast73 = ptrtoint ptr %incdec.ptr41 to i64
@@ -1428,11 +1430,11 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nofree nounwind }
@@ -1448,7 +1450,6 @@ attributes #17 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i8 0, i8 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

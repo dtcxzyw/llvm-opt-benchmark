@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 @dump_v6 = internal unnamed_addr global i1 false, align 4
 @.str.1 = private unnamed_addr constant [2 x i8] c",\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"ipv4\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"ip\00", align 1
 @.str.4 = private unnamed_addr constant [5 x i8] c"ipv6\00", align 1
 @.str.5 = private unnamed_addr constant [43 x i8] c"invalid \22-z hosts[,ip|ipv4|ipv6]\22 argument\00", align 1
 @.str.6 = private unnamed_addr constant [6 x i8] c"frame\00", align 1
@@ -56,7 +55,7 @@ define internal void @hosts_init(ptr noundef %0, ptr nocapture readnone %1) #0 {
 5:                                                ; preds = %2
   store i1 true, ptr @dump_v4, align 4
   store i1 true, ptr @dump_v6, align 4
-  br label %26
+  br label %36
 
 6:                                                ; preds = %2
   %7 = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 0) #7
@@ -64,62 +63,84 @@ define internal void @hosts_init(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %.not18 = icmp eq ptr %8, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %21
-  %9 = phi ptr [ %25, %21 ], [ %8, %6 ]
-  %.019 = phi i32 [ %22, %21 ], [ 0, %6 ]
+.lr.ph:                                           ; preds = %6, %31
+  %9 = phi ptr [ %35, %31 ], [ %8, %6 ]
+  %.019 = phi i32 [ %32, %31 ], [ 0, %6 ]
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %9) #8
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.sink.split, label %12
+  br i1 %11, label %.sink.split, label %sub_0
 
-12:                                               ; preds = %.lr.ph
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(3) @.str.3, ptr noundef nonnull dereferenceable(1) %9) #8
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.sink.split, label %15
+sub_0:                                            ; preds = %.lr.ph
+  %12 = load i8, ptr %9, align 1
+  %13 = zext i8 %12 to i32
+  %14 = sub nsw i32 105, %13
+  %.not21 = icmp eq i8 %12, 105
+  br i1 %.not21, label %sub_1, label %.tail
 
-15:                                               ; preds = %12
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.4, ptr noundef nonnull dereferenceable(1) %9) #8
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.sink.split, label %18
+sub_1:                                            ; preds = %sub_0
+  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i32
+  %18 = sub nsw i32 112, %17
+  %.not22 = icmp eq i8 %16, 112
+  br i1 %.not22, label %sub_2, label %.tail
 
-18:                                               ; preds = %15
-  %19 = icmp sgt i32 %.019, 0
-  br i1 %19, label %20, label %21
+sub_2:                                            ; preds = %sub_1
+  %19 = getelementptr inbounds i8, ptr %9, i64 2
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  %22 = sub nsw i32 0, %21
+  br label %.tail
 
-20:                                               ; preds = %18
+.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
+  %23 = phi i32 [ %14, %sub_0 ], [ %18, %sub_1 ], [ %22, %sub_2 ]
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %.sink.split, label %25
+
+25:                                               ; preds = %.tail
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.4, ptr noundef nonnull dereferenceable(1) %9) #8
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %.sink.split, label %28
+
+28:                                               ; preds = %25
+  %29 = icmp sgt i32 %.019, 0
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %28
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.5) #7
   tail call void @exit(i32 noundef 1) #9
   unreachable
 
-.sink.split:                                      ; preds = %15, %.lr.ph, %12
-  %dump_v6.sink = phi ptr [ @dump_v4, %12 ], [ @dump_v4, %.lr.ph ], [ @dump_v6, %15 ]
+.sink.split:                                      ; preds = %25, %.lr.ph, %.tail
+  %dump_v6.sink = phi ptr [ @dump_v4, %.tail ], [ @dump_v4, %.lr.ph ], [ @dump_v6, %25 ]
   store i1 true, ptr %dump_v6.sink, align 4
-  br label %21
+  br label %31
 
-21:                                               ; preds = %.sink.split, %18
-  %22 = add i32 %.019, 1
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr ptr, ptr %7, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  %.not = icmp eq ptr %25, null
+31:                                               ; preds = %.sink.split, %28
+  %32 = add i32 %.019, 1
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr ptr, ptr %7, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %.not = icmp eq ptr %35, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %21, %6
+._crit_edge:                                      ; preds = %31, %6
   tail call void @g_strfreev(ptr noundef nonnull %7) #7
-  br label %26
+  br label %36
 
-26:                                               ; preds = %._crit_edge, %5
-  %27 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull @hosts_draw, ptr noundef null) #7
-  %.not17 = icmp eq ptr %27, null
-  br i1 %.not17, label %31, label %28
+36:                                               ; preds = %._crit_edge, %5
+  %37 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull @hosts_draw, ptr noundef null) #7
+  %.not17 = icmp eq ptr %37, null
+  br i1 %.not17, label %41, label %38
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %27, align 8
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.7, ptr noundef %29) #7
-  %30 = tail call ptr @g_string_free(ptr noundef nonnull %27, i32 noundef 1) #7
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %37, align 8
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.7, ptr noundef %39) #7
+  %40 = tail call ptr @g_string_free(ptr noundef nonnull %37, i32 noundef 1) #7
   tail call void @exit(i32 noundef 1) #9
   unreachable
 
-31:                                               ; preds = %26
+41:                                               ; preds = %36
   ret void
 }
 

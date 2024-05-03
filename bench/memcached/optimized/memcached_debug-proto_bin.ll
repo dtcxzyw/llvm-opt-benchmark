@@ -62,7 +62,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.53 = private unnamed_addr constant [6 x i8] c" dump\00", align 1
 @.str.54 = private unnamed_addr constant [44 x i8] c"SERVER_ERROR Out of memory generating stats\00", align 1
 @.str.55 = private unnamed_addr constant [9 x i8] c"detailed\00", align 1
-@.str.56 = private unnamed_addr constant [4 x i8] c" on\00", align 1
 @.str.57 = private unnamed_addr constant [5 x i8] c" off\00", align 1
 @.str.58 = private unnamed_addr constant [51 x i8] c"SERVER_ERROR Out of memory preparing to send stats\00", align 1
 @.str.59 = private unnamed_addr constant [33 x i8] c"Failed to list SASL mechanisms.\0A\00", align 1
@@ -586,7 +585,7 @@ declare void @do_item_remove(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @try_read_command_binary(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @try_read_command_binary(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %extbuf = alloca [48 x i8], align 16
   %rbytes = getelementptr inbounds i8, ptr %c, i64 188
@@ -719,7 +718,7 @@ if.end57:                                         ; preds = %if.end54
   %conv76 = zext i16 %17 to i64
   %add77 = add nuw nsw i64 %add75, %conv76
   %24 = load i32, ptr %rbytes, align 4
-  %25 = trunc i64 %add77 to i32
+  %25 = trunc nuw nsw i64 %add77 to i32
   %conv80 = sub i32 %24, %25
   store i32 %conv80, ptr %rbytes, align 4
   %add.ptr86 = getelementptr inbounds i8, ptr %23, i64 %add77
@@ -2814,7 +2813,7 @@ if.then26:                                        ; preds = %if.else22
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr.i, i64 6
   %call27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(6) @.str.53, i64 noundef 5) #15
   %cmp28 = icmp eq i32 %call27, 0
-  br i1 %cmp28, label %if.then30, label %if.else43
+  br i1 %cmp28, label %if.then30, label %sub_0
 
 if.then30:                                        ; preds = %if.then26
   %call31 = call ptr @stats_prefix_dump(ptr noundef nonnull %len) #12
@@ -2837,16 +2836,28 @@ if.else41:                                        ; preds = %if.then30
   call void @free(ptr noundef nonnull %call31) #12
   br label %if.end77
 
-if.else43:                                        ; preds = %if.then26
-  %call44 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(4) @.str.56, i64 noundef 3) #15
-  %cmp45 = icmp eq i32 %call44, 0
-  br i1 %cmp45, label %if.then47, label %if.else48
+sub_0:                                            ; preds = %if.then26
+  %9 = load i8, ptr %add.ptr, align 1
+  %.not = icmp eq i8 %9, 32
+  br i1 %.not, label %sub_1, label %if.else48
 
-if.then47:                                        ; preds = %if.else43
+sub_1:                                            ; preds = %sub_0
+  %10 = getelementptr inbounds i8, ptr %add.ptr.i, i64 7
+  %11 = load i8, ptr %10, align 1
+  %.not56 = icmp eq i8 %11, 111
+  br i1 %.not56, label %if.else43.tail, label %if.else48
+
+if.else43.tail:                                   ; preds = %sub_1
+  %12 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 110
+  br i1 %14, label %if.then47, label %if.else48
+
+if.then47:                                        ; preds = %if.else43.tail
   store i32 1, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 17), align 8
   br label %if.end77
 
-if.else48:                                        ; preds = %if.else43
+if.else48:                                        ; preds = %sub_1, %sub_0, %if.else43.tail
   %call49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(5) @.str.57, i64 noundef 4) #15
   %cmp50 = icmp eq i32 %call49, 0
   br i1 %cmp50, label %if.then52, label %if.else53
@@ -2856,22 +2867,22 @@ if.then52:                                        ; preds = %if.else48
   br label %if.end77
 
 if.else53:                                        ; preds = %if.else48
-  %9 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 5), align 8
-  %cmp.i = icmp sgt i32 %9, 1
+  %15 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 5), align 8
+  %cmp.i = icmp sgt i32 %15, 1
   br i1 %cmp.i, label %if.then9.i, label %if.end12.i
 
 if.then9.i:                                       ; preds = %if.else53
-  %10 = load ptr, ptr @stderr, align 8
+  %16 = load ptr, ptr @stderr, align 8
   %sfd10.i = getelementptr inbounds i8, ptr %c, i64 8
-  %11 = load i32, ptr %sfd10.i, align 8
-  %call11.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.17, i32 noundef %11, ptr noundef nonnull @.str.8) #13
+  %17 = load i32, ptr %sfd10.i, align 8
+  %call11.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %17, ptr noundef nonnull @.str.8) #13
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i, %if.else53
   tail call fastcc void @add_bin_header(ptr noundef %c, i16 noundef zeroext 1, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 9)
   %resp.i = getelementptr inbounds i8, ptr %c, i64 192
-  %12 = load ptr, ptr %resp.i, align 8
-  tail call void @resp_add_iov(ptr noundef %12, ptr noundef nonnull @.str.8, i32 noundef 9) #12
+  %18 = load ptr, ptr %resp.i, align 8
+  tail call void @resp_add_iov(ptr noundef %18, ptr noundef nonnull @.str.8, i32 noundef 9) #12
   tail call void @conn_set_state(ptr noundef %c, i32 noundef 9) #12
   br label %if.end91
 
@@ -2882,8 +2893,8 @@ if.else57:                                        ; preds = %if.else22
 
 if.then60:                                        ; preds = %if.else57
   %stats = getelementptr inbounds i8, ptr %c, i64 368
-  %13 = load ptr, ptr %stats, align 8
-  %cmp61 = icmp eq ptr %13, null
+  %19 = load ptr, ptr %stats, align 8
+  %cmp61 = icmp eq ptr %19, null
   br i1 %cmp61, label %if.then63, label %if.else64
 
 if.then63:                                        ; preds = %if.then60
@@ -2892,37 +2903,37 @@ if.then63:                                        ; preds = %if.then60
 
 if.else64:                                        ; preds = %if.then60
   %offset = getelementptr inbounds i8, ptr %c, i64 384
-  %14 = load i64, ptr %offset, align 8
-  %conv68 = trunc i64 %14 to i32
-  tail call void @write_and_free(ptr noundef nonnull %c, ptr noundef nonnull %13, i32 noundef %conv68) #12
+  %20 = load i64, ptr %offset, align 8
+  %conv68 = trunc i64 %20 to i32
+  tail call void @write_and_free(ptr noundef nonnull %c, ptr noundef nonnull %19, i32 noundef %conv68) #12
   store ptr null, ptr %stats, align 8
   br label %if.end91
 
 if.else72:                                        ; preds = %if.else57
-  %15 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 5), align 8
-  %cmp.i43 = icmp sgt i32 %15, 1
+  %21 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 5), align 8
+  %cmp.i43 = icmp sgt i32 %21, 1
   br i1 %cmp.i43, label %if.then9.i50, label %if.end12.i44
 
 if.then9.i50:                                     ; preds = %if.else72
-  %16 = load ptr, ptr @stderr, align 8
+  %22 = load ptr, ptr @stderr, align 8
   %sfd10.i51 = getelementptr inbounds i8, ptr %c, i64 8
-  %17 = load i32, ptr %sfd10.i51, align 8
-  %call11.i52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %17, ptr noundef nonnull @.str.8) #13
+  %23 = load i32, ptr %sfd10.i51, align 8
+  %call11.i52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.17, i32 noundef %23, ptr noundef nonnull @.str.8) #13
   br label %if.end12.i44
 
 if.end12.i44:                                     ; preds = %if.then9.i50, %if.else72
   tail call fastcc void @add_bin_header(ptr noundef %c, i16 noundef zeroext 1, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 9)
   %resp.i49 = getelementptr inbounds i8, ptr %c, i64 192
-  %18 = load ptr, ptr %resp.i49, align 8
-  tail call void @resp_add_iov(ptr noundef %18, ptr noundef nonnull @.str.8, i32 noundef 9) #12
+  %24 = load ptr, ptr %resp.i49, align 8
+  tail call void @resp_add_iov(ptr noundef %24, ptr noundef nonnull @.str.8, i32 noundef 9) #12
   tail call void @conn_set_state(ptr noundef %c, i32 noundef 9) #12
   br label %if.end91
 
 if.end77:                                         ; preds = %if.then16, %if.then47, %if.then52, %if.else41, %if.then21, %if.then11
   call void @append_stats(ptr noundef null, i16 noundef zeroext 0, ptr noundef null, i32 noundef 0, ptr noundef %c) #12
   %stats78 = getelementptr inbounds i8, ptr %c, i64 368
-  %19 = load ptr, ptr %stats78, align 8
-  %cmp80 = icmp eq ptr %19, null
+  %25 = load ptr, ptr %stats78, align 8
+  %cmp80 = icmp eq ptr %25, null
   br i1 %cmp80, label %if.then82, label %if.else83
 
 if.then82:                                        ; preds = %if.end77
@@ -2931,9 +2942,9 @@ if.then82:                                        ; preds = %if.end77
 
 if.else83:                                        ; preds = %if.end77
   %offset87 = getelementptr inbounds i8, ptr %c, i64 384
-  %20 = load i64, ptr %offset87, align 8
-  %conv88 = trunc i64 %20 to i32
-  call void @write_and_free(ptr noundef nonnull %c, ptr noundef nonnull %19, i32 noundef %conv88) #12
+  %26 = load i64, ptr %offset87, align 8
+  %conv88 = trunc i64 %26 to i32
+  call void @write_and_free(ptr noundef nonnull %c, ptr noundef nonnull %25, i32 noundef %conv88) #12
   store ptr null, ptr %stats78, align 8
   br label %if.end91
 
@@ -3243,8 +3254,8 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %nkey to i16
-  %conv1 = trunc i64 %nkey to i32
+  %conv = trunc nuw i64 %nkey to i16
+  %conv1 = trunc nuw nsw i64 %nkey to i32
   tail call fastcc void @add_bin_header(ptr noundef %c, i16 noundef zeroext 1, i8 noundef zeroext 0, i16 noundef zeroext %conv, i32 noundef %conv1)
   %resp = getelementptr inbounds i8, ptr %c, i64 192
   %0 = load ptr, ptr %resp, align 8

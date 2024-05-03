@@ -22,7 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [21 x i8] c"could not close '%s'\00", align 1
 @.str.12 = private unnamed_addr constant [20 x i8] c"could not edit '%s'\00", align 1
 @.str.13 = private unnamed_addr constant [35 x i8] c"Terminal is dumb, but EDITOR unset\00", align 1
-@.str.14 = private unnamed_addr constant [2 x i8] c":\00", align 1
 @strbuf_slopbuf = external global [0 x i8], align 1
 @__const.launch_specified_editor.realpath = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 @empty_strvec = external global [0 x ptr], align 8
@@ -36,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local i32 @is_terminal_dumb() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @is_terminal_dumb() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @getenv(ptr noundef nonnull @.str) #10
   %tobool.not = icmp eq ptr %call, null
@@ -169,7 +168,7 @@ if.end5:                                          ; preds = %entry, %git_editor.
 declare i32 @git_config_get_string_tmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @launch_editor(ptr noundef %path, ptr noundef %buffer, ptr noundef %env) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @launch_editor(ptr noundef %path, ptr noundef %buffer, ptr noundef %env) local_unnamed_addr #3 {
 entry:
   %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.2) #10
   %call.i.i = tail call ptr @getenv(ptr noundef nonnull @.str) #10
@@ -210,28 +209,34 @@ git_editor.exit:                                  ; preds = %if.end8.i, %if.then
   %tobool13.i = icmp eq ptr %editor.2.i, null
   %spec.store.select.i = select i1 %lor.ext.i.i, ptr null, ptr @.str.5
   %retval.0.i = select i1 %tobool13.i, ptr %spec.store.select.i, ptr %editor.2.i
-  %call1 = tail call fastcc i32 @launch_specified_editor(ptr noundef %retval.0.i, ptr noundef %path, ptr noundef %buffer, ptr noundef %env), !range !5
+  %call1 = tail call fastcc i32 @launch_specified_editor(ptr noundef %retval.0.i, ptr noundef %path, ptr noundef %buffer, ptr noundef %env)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @launch_specified_editor(ptr noundef %editor, ptr noundef %path, ptr noundef %buffer, ptr noundef %env) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @launch_specified_editor(ptr noundef %editor, ptr noundef %path, ptr noundef %buffer, ptr noundef %env) unnamed_addr #3 {
 entry:
   %realpath = alloca %struct.strbuf, align 8
   %p = alloca %struct.child_process, align 8
   %tobool.not = icmp eq ptr %editor, null
-  br i1 %tobool.not, label %if.then, label %if.end
+  br i1 %tobool.not, label %if.then, label %sub_0
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #10
   br label %return
 
-if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %editor, ptr noundef nonnull dereferenceable(2) @.str.14) #11
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %if.end51, label %if.then4
+sub_0:                                            ; preds = %entry
+  %0 = load i8, ptr %editor, align 1
+  %.not = icmp eq i8 %0, 58
+  br i1 %.not, label %if.end.tail, label %if.then4
 
-if.then4:                                         ; preds = %if.end
+if.end.tail:                                      ; preds = %sub_0
+  %1 = getelementptr inbounds i8, ptr %editor, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.end51, label %if.then4
+
+if.then4:                                         ; preds = %sub_0, %if.end.tail
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %realpath, ptr noundef nonnull align 8 dereferenceable(24) @__const.launch_specified_editor.realpath, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %p, ptr noundef nonnull align 8 dereferenceable(120) @__const.launch_specified_editor.p, i64 120, i1 false)
   %call5 = tail call i32 @advice_enabled(i32 noundef 36) #10
@@ -251,14 +256,14 @@ if.then10:                                        ; preds = %land.end
 lor.rhs.i:                                        ; preds = %if.then10
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(5) @.str.1) #11
   %tobool2.not.i.not = icmp eq i32 %call1.i, 0
-  %0 = select i1 %tobool2.not.i.not, i32 10, i32 32
+  %4 = select i1 %tobool2.not.i.not, i32 10, i32 32
   br label %is_terminal_dumb.exit
 
 is_terminal_dumb.exit:                            ; preds = %if.then10, %lor.rhs.i
-  %lor.ext.i = phi i32 [ 10, %if.then10 ], [ %0, %lor.rhs.i ]
-  %1 = load ptr, ptr @stderr, align 8
-  %2 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i = icmp eq i32 %2, 0
+  %lor.ext.i = phi i32 [ 10, %if.then10 ], [ %4, %lor.rhs.i ]
+  %5 = load ptr, ptr @stderr, align 8
+  %6 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i = icmp eq i32 %6, 0
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %is_terminal_dumb.exit
@@ -267,17 +272,17 @@ if.end3.i:                                        ; preds = %is_terminal_dumb.ex
 
 _.exit:                                           ; preds = %is_terminal_dumb.exit, %if.end3.i
   %retval.0.i = phi ptr [ %call.i13, %if.end3.i ], [ @.str.15, %is_terminal_dumb.exit ]
-  %call15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef %retval.0.i, i32 noundef %lor.ext.i) #12
-  %3 = load ptr, ptr @stderr, align 8
-  %call16 = tail call i32 @fflush(ptr noundef %3)
+  %call15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef %retval.0.i, i32 noundef %lor.ext.i) #12
+  %7 = load ptr, ptr @stderr, align 8
+  %call16 = tail call i32 @fflush(ptr noundef %7)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then4, %_.exit, %land.end
-  %4 = phi i1 [ true, %_.exit ], [ false, %land.end ], [ false, %if.then4 ]
+  %8 = phi i1 [ true, %_.exit ], [ false, %land.end ], [ false, %if.then4 ]
   %call18 = call ptr @strbuf_realpath(ptr noundef nonnull %realpath, ptr noundef %path, i32 noundef 1) #10
   %buf = getelementptr inbounds i8, ptr %realpath, i64 16
-  %5 = load ptr, ptr %buf, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %p, ptr noundef nonnull %editor, ptr noundef %5, ptr noundef null) #10
+  %9 = load ptr, ptr %buf, align 8
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %p, ptr noundef nonnull %editor, ptr noundef %9, ptr noundef null) #10
   %tobool19.not = icmp eq ptr %env, null
   br i1 %tobool19.not, label %if.end22, label %if.then20
 
@@ -309,8 +314,8 @@ if.end28:                                         ; preds = %if.end22
   call void @strbuf_release(ptr noundef nonnull %realpath) #10
   %call32 = call i32 @sigchain_pop(i32 noundef 2) #10
   %call33 = call i32 @sigchain_pop(i32 noundef 3) #10
-  %6 = and i32 %call31, -2
-  %or.cond = icmp eq i32 %6, 130
+  %10 = and i32 %call31, -2
+  %or.cond = icmp eq i32 %10, 130
   br i1 %or.cond, label %if.end40.thread, label %if.end40
 
 if.end40.thread:                                  ; preds = %if.end28
@@ -327,7 +332,7 @@ if.then42:                                        ; preds = %if.end40.thread, %i
   br label %return
 
 if.end45:                                         ; preds = %if.end40
-  br i1 %4, label %land.lhs.true, label %if.end51
+  br i1 %8, label %land.lhs.true, label %if.end51
 
 land.lhs.true:                                    ; preds = %if.end45
   %call.i14 = call ptr @getenv(ptr noundef nonnull @.str) #10
@@ -343,7 +348,7 @@ if.then49:                                        ; preds = %is_terminal_dumb.ex
   call void @term_clear_line() #10
   br label %if.end51
 
-if.end51:                                         ; preds = %land.lhs.true, %if.end45, %is_terminal_dumb.exit20, %if.then49, %if.end
+if.end51:                                         ; preds = %land.lhs.true, %if.end45, %is_terminal_dumb.exit20, %if.then49, %if.end.tail
   %tobool52.not = icmp eq ptr %buffer, null
   br i1 %tobool52.not, label %return, label %if.end54
 
@@ -362,15 +367,15 @@ return:                                           ; preds = %if.end54, %if.end51
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @launch_sequence_editor(ptr noundef %path, ptr noundef %buffer, ptr noundef %env) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @launch_sequence_editor(ptr noundef %path, ptr noundef %buffer, ptr noundef %env) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @git_sequence_editor()
-  %call1 = tail call fastcc i32 @launch_specified_editor(ptr noundef %call, ptr noundef %path, ptr noundef %buffer, ptr noundef %env), !range !5
+  %call1 = tail call fastcc i32 @launch_specified_editor(ptr noundef %call, ptr noundef %path, ptr noundef %buffer, ptr noundef %env)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @strbuf_edit_interactively(ptr noundef %buffer, ptr noundef %path, ptr noundef %env) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @strbuf_edit_interactively(ptr noundef %buffer, ptr noundef %path, ptr noundef %env) local_unnamed_addr #3 {
 entry:
   %path.val = load i8, ptr %path, align 1
   %cmp.i.i.not = icmp eq i8 %path.val, 47
@@ -456,7 +461,7 @@ if.then4.i:                                       ; preds = %if.else22
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.else22, %if.then4.i
-  %call23 = tail call i32 @launch_editor(ptr noundef %path.addr.0, ptr noundef nonnull %buffer, ptr noundef %env), !range !5
+  %call23 = tail call i32 @launch_editor(ptr noundef %path.addr.0, ptr noundef nonnull %buffer, ptr noundef %env)
   %cmp24 = icmp slt i32 %call23, 0
   br i1 %cmp24, label %if.then25, label %if.end29
 
@@ -567,4 +572,3 @@ attributes #12 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

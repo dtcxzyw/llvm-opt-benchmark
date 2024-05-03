@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.string_list_item = type { ptr, ptr }
 
 @var_usage = internal constant [26 x i8] c"git var (-l | <variable>)\00", align 16
-@.str = private unnamed_addr constant [3 x i8] c"-l\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"%s=%s\0A\00", align 1
 @git_vars = internal unnamed_addr constant [12 x %struct.git_var] [%struct.git_var { ptr @.str.3, ptr @committer, i32 0 }, %struct.git_var { ptr @.str.4, ptr @author, i32 0 }, %struct.git_var { ptr @.str.5, ptr @editor, i32 0 }, %struct.git_var { ptr @.str.6, ptr @sequence_editor, i32 0 }, %struct.git_var { ptr @.str.7, ptr @pager, i32 0 }, %struct.git_var { ptr @.str.8, ptr @default_branch, i32 0 }, %struct.git_var { ptr @.str.9, ptr @shell_path, i32 0 }, %struct.git_var { ptr @.str.10, ptr @git_attr_val_system, i32 0 }, %struct.git_var { ptr @.str.11, ptr @git_attr_val_global, i32 0 }, %struct.git_var { ptr @.str.12, ptr @git_config_val_system, i32 0 }, %struct.git_var { ptr @.str.13, ptr @git_config_val_global, i32 1 }, %struct.git_var { ptr @.str.14, ptr null, i32 0 }], align 16
@@ -31,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.git_config_val_global.buf = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cmd_var(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr nocapture noundef readnone %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_var(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr nocapture noundef readnone %prefix) local_unnamed_addr #0 {
 entry:
   %list.i = alloca %struct.string_list, align 8
   %cmp.not = icmp eq i32 %argc, 2
@@ -44,99 +43,111 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str) #11
-  %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %if.then2, label %if.end3
+  %1 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %1, 45
+  br i1 %.not, label %sub_1, label %if.end3
 
-if.then2:                                         ; preds = %if.end
-  tail call void @git_config(ptr noundef nonnull @show_config, ptr noundef null) #12
+sub_1:                                            ; preds = %if.end
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not14 = icmp eq i8 %3, 108
+  br i1 %.not14, label %if.end.tail, label %if.end3
+
+if.end.tail:                                      ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.then2, label %if.end3
+
+if.then2:                                         ; preds = %if.end.tail
+  tail call void @git_config(ptr noundef nonnull @show_config, ptr noundef null) #11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %list.i)
-  %1 = getelementptr inbounds i8, ptr %list.i, i64 24
+  %7 = getelementptr inbounds i8, ptr %list.i, i64 24
   %nr.i = getelementptr inbounds i8, ptr %list.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc15.i, %if.then2
-  %2 = phi ptr [ @committer, %if.then2 ], [ %11, %for.inc15.i ]
+  %8 = phi ptr [ @committer, %if.then2 ], [ %17, %for.inc15.i ]
   %ptr.015.i = phi ptr [ @git_vars, %if.then2 ], [ %incdec.ptr.i, %for.inc15.i ]
-  %call.i = call ptr %2(i32 noundef 0) #12
+  %call.i = call ptr %8(i32 noundef 0) #11
   %tobool2.not.i = icmp eq ptr %call.i, null
   br i1 %tobool2.not.i, label %for.inc15.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
   %multivalued.i = getelementptr inbounds i8, ptr %ptr.015.i, i64 16
-  %3 = load i32, ptr %multivalued.i, align 8
-  %tobool3.not.i = icmp eq i32 %3, 0
+  %9 = load i32, ptr %multivalued.i, align 8
+  %tobool3.not.i = icmp eq i32 %9, 0
   br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %4 = load i8, ptr %call.i, align 1
-  %tobool4.not.i = icmp eq i8 %4, 0
+  %10 = load i8, ptr %call.i, align 1
+  %tobool4.not.i = icmp eq i8 %10, 0
   br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %list.i, i8 0, i64 40, i1 false)
-  store i8 1, ptr %1, align 8
-  %call6.i = call i32 @string_list_split(ptr noundef nonnull %list.i, ptr noundef nonnull %call.i, i32 noundef 10, i32 noundef -1) #12
-  %5 = load i64, ptr %nr.i, align 8
-  %cmp11.not.i = icmp eq i64 %5, 0
+  store i8 1, ptr %7, align 8
+  %call6.i = call i32 @string_list_split(ptr noundef nonnull %list.i, ptr noundef nonnull %call.i, i32 noundef 10, i32 noundef -1) #11
+  %11 = load i64, ptr %nr.i, align 8
+  %cmp11.not.i = icmp eq i64 %11, 0
   br i1 %cmp11.not.i, label %for.end.i, label %for.body10.i.preheader
 
 for.body10.i.preheader:                           ; preds = %if.then5.i
-  %6 = load ptr, ptr %ptr.015.i, align 8
+  %12 = load ptr, ptr %ptr.015.i, align 8
   br label %for.body10.i
 
 for.body10.i:                                     ; preds = %for.body10.i.preheader, %for.body10.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body10.i ], [ 0, %for.body10.i.preheader ]
-  %7 = load ptr, ptr %list.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %7, i64 %indvars.iv.i
-  %8 = load ptr, ptr %arrayidx.i, align 8
-  %call11.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %6, ptr noundef %8)
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %9 = load i64, ptr %nr.i, align 8
-  %cmp.i = icmp ugt i64 %9, %indvars.iv.next.i
+  %13 = load ptr, ptr %list.i, align 8
+  %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %indvars.iv.i
+  %14 = load ptr, ptr %arrayidx.i, align 8
+  %call11.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %12, ptr noundef %14)
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %15 = load i64, ptr %nr.i, align 8
+  %cmp.i = icmp ugt i64 %15, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body10.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body10.i, %if.then5.i
-  call void @string_list_clear(ptr noundef nonnull %list.i, i32 noundef 0) #12
+  call void @string_list_clear(ptr noundef nonnull %list.i, i32 noundef 0) #11
   br label %if.end.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.then.i
-  %10 = load ptr, ptr %ptr.015.i, align 8
-  %call13.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %10, ptr noundef nonnull %call.i)
+  %16 = load ptr, ptr %ptr.015.i, align 8
+  %call13.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %16, ptr noundef nonnull %call.i)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %for.end.i
-  call void @free(ptr noundef %call.i) #12
+  call void @free(ptr noundef %call.i) #11
   br label %for.inc15.i
 
 for.inc15.i:                                      ; preds = %if.end.i, %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr.015.i, i64 24
   %read.i = getelementptr inbounds i8, ptr %ptr.015.i, i64 32
-  %11 = load ptr, ptr %read.i, align 8
-  %tobool.not.i = icmp eq ptr %11, null
+  %17 = load ptr, ptr %read.i, align 8
+  %tobool.not.i = icmp eq ptr %17, null
   br i1 %tobool.not.i, label %list_vars.exit, label %for.body.i, !llvm.loop !7
 
 list_vars.exit:                                   ; preds = %for.inc15.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %list.i)
   br label %return
 
-if.end3:                                          ; preds = %if.end
-  tail call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #12
-  %12 = load ptr, ptr %arrayidx, align 8
+if.end3:                                          ; preds = %sub_1, %if.end, %if.end.tail
+  tail call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #11
+  %18 = load ptr, ptr %arrayidx, align 8
   br label %for.body.i5
 
 for.body.i5:                                      ; preds = %if.end3, %for.inc.i
   %ptr.05.i = phi ptr [ %incdec.ptr.i8, %for.inc.i ], [ @git_vars, %if.end3 ]
-  %13 = load ptr, ptr %ptr.05.i, align 8
-  %call.i6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %13) #11
+  %19 = load ptr, ptr %ptr.05.i, align 8
+  %call.i6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19) #12
   %cmp.i7 = icmp eq i32 %call.i6, 0
   br i1 %cmp.i7, label %if.end7, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i5
   %incdec.ptr.i8 = getelementptr inbounds i8, ptr %ptr.05.i, i64 24
   %read.i9 = getelementptr inbounds i8, ptr %ptr.05.i, i64 32
-  %14 = load ptr, ptr %read.i9, align 8
-  %tobool.not.i10 = icmp eq ptr %14, null
+  %20 = load ptr, ptr %read.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %20, null
   br i1 %tobool.not.i10, label %if.then6, label %for.body.i5, !llvm.loop !8
 
 if.then6:                                         ; preds = %for.inc.i
@@ -145,14 +156,14 @@ if.then6:                                         ; preds = %for.inc.i
 
 if.end7:                                          ; preds = %for.body.i5
   %read = getelementptr inbounds i8, ptr %ptr.05.i, i64 8
-  %15 = load ptr, ptr %read, align 8
-  %call8 = tail call ptr %15(i32 noundef 1) #12
+  %21 = load ptr, ptr %read, align 8
+  %call8 = tail call ptr %21(i32 noundef 1) #11
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %call8)
-  tail call void @free(ptr noundef nonnull %call8) #12
+  tail call void @free(ptr noundef nonnull %call8) #11
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end11, %list_vars.exit
@@ -183,7 +194,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %call2 = tail call i32 @git_default_config(ptr noundef %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %cb) #12
+  %call2 = tail call i32 @git_default_config(ptr noundef %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %cb) #11
   ret i32 %call2
 }
 
@@ -205,12 +216,12 @@ declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal ptr @committer(i32 noundef %ident_flag) #0 {
 entry:
-  %call = tail call ptr @git_committer_info(i32 noundef %ident_flag) #12
+  %call = tail call ptr @git_committer_info(i32 noundef %ident_flag) #11
   %tobool.not.i = icmp eq ptr %call, null
   br i1 %tobool.not.i, label %xstrdup_or_null.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #12
+  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #11
   br label %xstrdup_or_null.exit
 
 xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
@@ -221,12 +232,12 @@ xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @author(i32 noundef %ident_flag) #0 {
 entry:
-  %call = tail call ptr @git_author_info(i32 noundef %ident_flag) #12
+  %call = tail call ptr @git_author_info(i32 noundef %ident_flag) #11
   %tobool.not.i = icmp eq ptr %call, null
   br i1 %tobool.not.i, label %xstrdup_or_null.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #12
+  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #11
   br label %xstrdup_or_null.exit
 
 xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
@@ -237,12 +248,12 @@ xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @editor(i32 %ident_flag) #0 {
 entry:
-  %call = tail call ptr @git_editor() #12
+  %call = tail call ptr @git_editor() #11
   %tobool.not.i = icmp eq ptr %call, null
   br i1 %tobool.not.i, label %xstrdup_or_null.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #12
+  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #11
   br label %xstrdup_or_null.exit
 
 xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
@@ -253,12 +264,12 @@ xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @sequence_editor(i32 %ident_flag) #0 {
 entry:
-  %call = tail call ptr @git_sequence_editor() #12
+  %call = tail call ptr @git_sequence_editor() #11
   %tobool.not.i = icmp eq ptr %call, null
   br i1 %tobool.not.i, label %xstrdup_or_null.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #12
+  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #11
   br label %xstrdup_or_null.exit
 
 xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
@@ -269,22 +280,22 @@ xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @pager(i32 %ident_flag) #0 {
 entry:
-  %call = tail call ptr @git_pager(i32 noundef 1) #12
+  %call = tail call ptr @git_pager(i32 noundef 1) #11
   %tobool.not = icmp eq ptr %call, null
   %spec.store.select = select i1 %tobool.not, ptr @.str.15, ptr %call
-  %call1 = tail call ptr @xstrdup(ptr noundef nonnull %spec.store.select) #12
+  %call1 = tail call ptr @xstrdup(ptr noundef nonnull %spec.store.select) #11
   ret ptr %call1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @default_branch(i32 %ident_flag) #0 {
 entry:
-  %call = tail call ptr @git_default_branch_name(i32 noundef 1) #12
+  %call = tail call ptr @git_default_branch_name(i32 noundef 1) #11
   %tobool.not.i = icmp eq ptr %call, null
   br i1 %tobool.not.i, label %xstrdup_or_null.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #12
+  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #11
   br label %xstrdup_or_null.exit
 
 xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
@@ -295,21 +306,21 @@ xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @shell_path(i32 %ident_flag) #0 {
 entry:
-  %call = tail call ptr @xstrdup(ptr noundef nonnull @.str.16) #12
+  %call = tail call ptr @xstrdup(ptr noundef nonnull @.str.16) #11
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @git_attr_val_system(i32 %ident_flag) #0 {
 entry:
-  %call = tail call i32 @git_attr_system_is_enabled() #12
+  %call = tail call i32 @git_attr_system_is_enabled() #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @git_attr_system_file() #12
-  %call2 = tail call ptr @xstrdup(ptr noundef %call1) #12
-  %call3 = tail call i32 @normalize_path_copy(ptr noundef %call2, ptr noundef %call2) #12
+  %call1 = tail call ptr @git_attr_system_file() #11
+  %call2 = tail call ptr @xstrdup(ptr noundef %call1) #11
+  %call3 = tail call i32 @normalize_path_copy(ptr noundef %call2, ptr noundef %call2) #11
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -320,17 +331,17 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @git_attr_val_global(i32 %ident_flag) #0 {
 entry:
-  %call = tail call ptr @git_attr_global_file() #12
+  %call = tail call ptr @git_attr_global_file() #11
   %tobool.not.i = icmp eq ptr %call, null
   br i1 %tobool.not.i, label %return, label %xstrdup_or_null.exit
 
 xstrdup_or_null.exit:                             ; preds = %entry
-  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #12
+  %call.i = tail call ptr @xstrdup(ptr noundef nonnull %call) #11
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %xstrdup_or_null.exit
-  %call2 = tail call i32 @normalize_path_copy(ptr noundef nonnull %call.i, ptr noundef nonnull %call.i) #12
+  %call2 = tail call i32 @normalize_path_copy(ptr noundef nonnull %call.i, ptr noundef nonnull %call.i) #11
   br label %return
 
 return:                                           ; preds = %entry, %xstrdup_or_null.exit, %if.then
@@ -341,13 +352,13 @@ return:                                           ; preds = %entry, %xstrdup_or_
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @git_config_val_system(i32 %ident_flag) #0 {
 entry:
-  %call = tail call i32 @git_config_system() #12
+  %call = tail call i32 @git_config_system() #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @git_system_config() #12
-  %call2 = tail call i32 @normalize_path_copy(ptr noundef %call1, ptr noundef %call1) #12
+  %call1 = tail call ptr @git_system_config() #11
+  %call2 = tail call i32 @normalize_path_copy(ptr noundef %call1, ptr noundef %call1) #11
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -363,7 +374,7 @@ entry:
   %xdg = alloca ptr, align 8
   %unused = alloca i64, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.git_config_val_global.buf, i64 24, i1 false)
-  call void @git_global_config(ptr noundef nonnull %user, ptr noundef nonnull %xdg) #12
+  call void @git_global_config(ptr noundef nonnull %user, ptr noundef nonnull %xdg) #11
   %0 = load ptr, ptr %xdg, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -374,9 +385,9 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = call i32 @normalize_path_copy(ptr noundef nonnull %0, ptr noundef nonnull %0) #12
+  %call = call i32 @normalize_path_copy(ptr noundef nonnull %0, ptr noundef nonnull %0) #11
   %2 = load ptr, ptr %xdg, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.1, ptr noundef %2) #12
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.1, ptr noundef %2) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -390,28 +401,28 @@ land.lhs.true3:                                   ; preds = %if.end
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true3
-  %call7 = call i32 @normalize_path_copy(ptr noundef nonnull %3, ptr noundef nonnull %3) #12
+  %call7 = call i32 @normalize_path_copy(ptr noundef nonnull %3, ptr noundef nonnull %3) #11
   %5 = load ptr, ptr %user, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.1, ptr noundef %5) #12
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.1, ptr noundef %5) #11
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %land.lhs.true3, %if.end
   %6 = load ptr, ptr %xdg, align 8
-  call void @free(ptr noundef %6) #12
+  call void @free(ptr noundef %6) #11
   %7 = load ptr, ptr %user, align 8
-  call void @free(ptr noundef %7) #12
-  call void @strbuf_trim_trailing_newline(ptr noundef nonnull %buf) #12
+  call void @free(ptr noundef %7) #11
+  call void @strbuf_trim_trailing_newline(ptr noundef nonnull %buf) #11
   %len = getelementptr inbounds i8, ptr %buf, i64 8
   %8 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %8, 0
   br i1 %cmp, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end8
-  call void @strbuf_release(ptr noundef nonnull %buf) #12
+  call void @strbuf_release(ptr noundef nonnull %buf) #11
   br label %return
 
 if.end11:                                         ; preds = %if.end8
-  %call12 = call ptr @strbuf_detach(ptr noundef nonnull %buf, ptr noundef nonnull %unused) #12
+  %call12 = call ptr @strbuf_detach(ptr noundef nonnull %buf, ptr noundef nonnull %unused) #11
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then10
@@ -478,8 +489,8 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { nofree nounwind }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

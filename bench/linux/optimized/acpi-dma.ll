@@ -32,8 +32,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_dma_sim
 @__UNIQUE_ID___addressable_devm_acpi_dma_controller_free363 = internal global ptr @devm_acpi_dma_controller_free, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_acpi_dma_request_slave_chan_by_index364 = internal global ptr @acpi_dma_request_slave_chan_by_index, section ".discard.addressable", align 8
 @.str.2 = private unnamed_addr constant [10 x i8] c"dma-names\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"tx\00", align 1
-@.str.4 = private unnamed_addr constant [3 x i8] c"rx\00", align 1
 @__UNIQUE_ID___addressable_acpi_dma_request_slave_chan_by_name365 = internal global ptr @acpi_dma_request_slave_chan_by_name, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_acpi_dma_simple_xlate366 = internal global ptr @acpi_dma_simple_xlate, section ".discard.addressable", align 8
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
@@ -43,7 +41,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_dma_sim
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_dma_controller_free359, ptr @__UNIQUE_ID___addressable_acpi_dma_controller_register358, ptr @__UNIQUE_ID___addressable_acpi_dma_request_slave_chan_by_index364, ptr @__UNIQUE_ID___addressable_acpi_dma_request_slave_chan_by_name365, ptr @__UNIQUE_ID___addressable_acpi_dma_simple_xlate366, ptr @__UNIQUE_ID___addressable_devm_acpi_dma_controller_free363, ptr @__UNIQUE_ID___addressable_devm_acpi_dma_controller_register360], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_dma_controller_register(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = alloca ptr, align 8
   %6 = icmp ne ptr %0, null
@@ -54,7 +52,7 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 632
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %11) #8
+  %12 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %11) #7
   %13 = getelementptr i8, ptr %11, i64 -16
   %14 = icmp ne ptr %13, null
   %15 = and i1 %12, %14
@@ -62,7 +60,7 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %18 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 48) #9
+  %18 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 48) #8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %135, label %20
 
@@ -73,9 +71,9 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
   store ptr %1, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %18, i64 32
   store ptr %2, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store ptr null, ptr %5, align 8, !annotation !5
-  %24 = call i32 @acpi_get_table(ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef nonnull %5) #8
+  %24 = call i32 @acpi_get_table(ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef nonnull %5) #7
   switch i32 %24, label %25 [
     i32 0, label %27
     i32 5, label %132
@@ -83,7 +81,7 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
 
 25:                                               ; preds = %20
   %26 = getelementptr i8, ptr %11, i64 600
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %26, ptr noundef nonnull @.str.7) #10
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %26, ptr noundef nonnull @.str.7) #9
   br label %132
 
 27:                                               ; preds = %20
@@ -107,7 +105,7 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
 
 42:                                               ; preds = %125, %35
   %43 = phi ptr [ %29, %35 ], [ %128, %125 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   %44 = getelementptr inbounds i8, ptr %43, i64 20
   %45 = load i32, ptr %44, align 1
   %46 = icmp eq i32 %45, 28
@@ -116,7 +114,7 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
 47:                                               ; preds = %42
   store volatile ptr %4, ptr %4, align 8
   store volatile ptr %4, ptr %36, align 8
-  %48 = call i32 @acpi_dev_get_resources(ptr noundef nonnull %13, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #8
+  %48 = call i32 @acpi_dev_get_resources(ptr noundef nonnull %13, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #7
   %49 = icmp slt i32 %48, 1
   br i1 %49, label %125, label %50
 
@@ -157,7 +155,7 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
 .loopexit:                                        ; preds = %65, %50
   %70 = phi i64 [ 0, %50 ], [ %66, %65 ]
   %71 = phi i64 [ 0, %50 ], [ %67, %65 ]
-  call void @acpi_dev_free_resource_list(ptr noundef nonnull %4) #8
+  call void @acpi_dev_free_resource_list(ptr noundef nonnull %4) #7
   %72 = icmp eq i64 %71, 0
   %73 = icmp eq i64 %70, 0
   %74 = select i1 %72, i1 %73, i1 false
@@ -174,7 +172,7 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
   %81 = getelementptr i8, ptr %43, i64 32
   %82 = load i32, ptr %81, align 1
   %83 = lshr i64 %71, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   %85 = icmp eq i32 %82, %84
   br i1 %85, label %86, label %125
 
@@ -187,7 +185,7 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
   %92 = getelementptr i8, ptr %43, i64 40
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
-  %95 = call i32 @acpi_register_gsi(ptr noundef null, i32 noundef %88, i32 noundef %91, i32 noundef %94) #8
+  %95 = call i32 @acpi_register_gsi(ptr noundef null, i32 noundef %88, i32 noundef %91, i32 noundef %94) #7
   %96 = icmp sgt i32 %95, -1
   %97 = zext nneg i32 %95 to i64
   %98 = icmp eq i64 %70, %97
@@ -215,12 +213,12 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
   %114 = xor i64 %113, -1
   %115 = select i1 %111, i64 -1, i64 %114
   store ptr %38, ptr %39, align 8
-  %116 = call i32 @dma_set_mask(ptr noundef %37, i64 noundef %115) #8
+  %116 = call i32 @dma_set_mask(ptr noundef %37, i64 noundef %115) #7
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %125
 
 118:                                              ; preds = %108
-  %119 = call i32 @dma_set_coherent_mask(ptr noundef %37, i64 noundef %115) #8
+  %119 = call i32 @dma_set_coherent_mask(ptr noundef %37, i64 noundef %115) #7
   %120 = load i16, ptr %101, align 1
   store i16 %120, ptr %40, align 8
   %121 = getelementptr i8, ptr %43, i64 46
@@ -231,7 +229,7 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
   br label %125
 
 125:                                              ; preds = %118, %108, %104, %86, %80, %75, %.loopexit, %47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   %126 = load i32, ptr %43, align 1
   %127 = zext i32 %126 to i64
   %128 = getelementptr i8, ptr %43, i64 %127
@@ -239,25 +237,25 @@ define dso_local noundef i32 @acpi_dma_controller_register(ptr noundef %0, ptr n
   br i1 %129, label %42, label %.loopexit9, !llvm.loop !9
 
 130:                                              ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %37, ptr noundef nonnull @.str.8) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %37, ptr noundef nonnull @.str.8) #9
   br label %.loopexit9
 
 .loopexit9:                                       ; preds = %125, %130, %27
   %131 = load ptr, ptr %5, align 8
-  call void @acpi_put_table(ptr noundef %131) #8
+  call void @acpi_put_table(ptr noundef %131) #7
   br label %132
 
 132:                                              ; preds = %.loopexit9, %25, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @mutex_lock(ptr noundef nonnull @acpi_dma_lock) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @mutex_lock(ptr noundef nonnull @acpi_dma_lock) #7
   %133 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @acpi_dma_list, i64 0, i32 1), align 8
   store ptr %18, ptr getelementptr inbounds (%struct.list_head, ptr @acpi_dma_list, i64 0, i32 1), align 8
   store ptr @acpi_dma_list, ptr %18, align 8
   %134 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %133, ptr %134, align 8
   store volatile ptr %18, ptr %133, align 8
-  call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #8
+  call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #7
   br label %135
 
 135:                                              ; preds = %132, %16, %9, %3
@@ -281,12 +279,12 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_dma_controller_free(ptr noundef readnone %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_dma_controller_free(ptr noundef readnone %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 
 3:                                                ; preds = %1
-  tail call void @mutex_lock(ptr noundef nonnull @acpi_dma_lock) #8
+  tail call void @mutex_lock(ptr noundef nonnull @acpi_dma_lock) #7
   br label %4
 
 4:                                                ; preds = %8, %3
@@ -310,12 +308,12 @@ define dso_local noundef i32 @acpi_dma_controller_free(ptr noundef readnone %0) 
   store volatile ptr %15, ptr %14, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %13, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #8
-  tail call void @kfree(ptr noundef %6) #8
+  tail call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #7
+  tail call void @kfree(ptr noundef %6) #7
   br label %18
 
 17:                                               ; preds = %4
-  tail call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #8
+  tail call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #7
   br label %18
 
 18:                                               ; preds = %17, %12, %1
@@ -327,8 +325,8 @@ define dso_local noundef i32 @acpi_dma_controller_free(ptr noundef readnone %0) 
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @devm_acpi_dma_controller_register(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_acpi_dma_release, i64 noundef 0, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str) #8
+define dso_local noundef range(i32 -22, 1) i32 @devm_acpi_dma_controller_register(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+  %4 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_acpi_dma_release, i64 noundef 0, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
 
@@ -338,11 +336,11 @@ define dso_local noundef i32 @devm_acpi_dma_controller_register(ptr noundef %0, 
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @devres_free(ptr noundef nonnull %4) #8
+  tail call void @devres_free(ptr noundef nonnull %4) #7
   br label %11
 
 10:                                               ; preds = %6
-  tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %4) #8
+  tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %4) #7
   br label %11
 
 11:                                               ; preds = %10, %9, %3
@@ -359,7 +357,7 @@ define internal void @devm_acpi_dma_release(ptr noundef readnone %0, ptr nocaptu
   br i1 %3, label %19, label %4
 
 4:                                                ; preds = %2
-  tail call void @mutex_lock(ptr noundef nonnull @acpi_dma_lock) #8
+  tail call void @mutex_lock(ptr noundef nonnull @acpi_dma_lock) #7
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -383,12 +381,12 @@ define internal void @devm_acpi_dma_release(ptr noundef readnone %0, ptr nocaptu
   store volatile ptr %16, ptr %15, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %7, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %14, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #8
-  tail call void @kfree(ptr noundef %7) #8
+  tail call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #7
+  tail call void @kfree(ptr noundef %7) #7
   br label %19
 
 18:                                               ; preds = %5
-  tail call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #8
+  tail call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #7
   br label %19
 
 19:                                               ; preds = %18, %13, %2
@@ -403,14 +401,14 @@ declare dso_local void @devres_add(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @devm_acpi_dma_controller_free(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @devres_release(ptr noundef %0, ptr noundef nonnull @devm_acpi_dma_release, ptr noundef null, ptr noundef null) #8
+  %2 = tail call i32 @devres_release(ptr noundef %0, ptr noundef nonnull @devm_acpi_dma_release, ptr noundef null, ptr noundef null) #7
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %5, label %4, !prof !12
 
 4:                                                ; preds = %1
-  tail call void asm sideeffect "361: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 361b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 361) #8, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 290, i32 2305, i64 12) #8, !srcloc !14
-  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_end\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #8, !srcloc !15
+  tail call void asm sideeffect "361: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 361b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 361) #7, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 290, i32 2305, i64 12) #7, !srcloc !14
+  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_end\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #7, !srcloc !15
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -424,13 +422,13 @@ declare dso_local i32 @devres_release(ptr noundef, ptr noundef, ptr noundef, ptr
 define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
   %3 = alloca %struct.acpi_dma_parser_data, align 8
   %4 = alloca %struct.list_head, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 632
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %6) #8
+  %7 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %6) #7
   %8 = getelementptr i8, ptr %6, i64 -16
   %9 = select i1 %7, ptr %8, ptr null
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %3, i64 16
@@ -441,8 +439,8 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr nocapture noundef
   store volatile ptr %4, ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   store volatile ptr %4, ptr %13, align 8
-  %14 = call i32 @acpi_dev_get_resources(ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull @acpi_dma_parse_fixed_dma, ptr noundef nonnull %3) #8
-  call void @acpi_dev_free_resource_list(ptr noundef nonnull %4) #8
+  %14 = call i32 @acpi_dev_get_resources(ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull @acpi_dma_parse_fixed_dma, ptr noundef nonnull %3) #7
+  call void @acpi_dev_free_resource_list(ptr noundef nonnull %4) #7
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %19
 
@@ -460,7 +458,7 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr nocapture noundef
   br i1 %24, label %64, label %25
 
 25:                                               ; preds = %19
-  call void @mutex_lock(ptr noundef nonnull @acpi_dma_lock) #8
+  call void @mutex_lock(ptr noundef nonnull @acpi_dma_lock) #7
   %26 = load ptr, ptr @acpi_dma_list, align 8
   %27 = icmp eq ptr %26, @acpi_dma_list
   br i1 %27, label %.loopexit, label %28
@@ -507,7 +505,7 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr nocapture noundef
   %53 = phi i1 [ true, %50 ], [ false, %37 ]
   %54 = getelementptr inbounds i8, ptr %31, i64 24
   %55 = load ptr, ptr %54, align 8
-  %56 = call ptr %55(ptr noundef nonnull %3, ptr noundef %31) #8
+  %56 = call ptr %55(ptr noundef nonnull %3, ptr noundef %31) #7
   %57 = icmp ne ptr %56, null
   %58 = select i1 %53, i1 true, i1 %57
   br i1 %58, label %.loopexit, label %.thread
@@ -519,15 +517,15 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr nocapture noundef
 
 .loopexit:                                        ; preds = %.thread, %52, %25
   %61 = phi ptr [ null, %25 ], [ %56, %52 ], [ null, %.thread ]
-  call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #8
+  call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #7
   %62 = icmp eq ptr %61, null
   %63 = select i1 %62, ptr inttoptr (i64 -517 to ptr), ptr %61
   br label %64
 
 64:                                               ; preds = %.loopexit, %19, %16
   %65 = phi ptr [ %18, %16 ], [ inttoptr (i64 -19 to ptr), %19 ], [ %63, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
   ret ptr %65
 }
 
@@ -574,36 +572,54 @@ declare dso_local void @acpi_dev_free_resource_list(ptr noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @acpi_dma_request_slave_chan_by_name(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = tail call i32 @device_property_match_string(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1) #8
+  %3 = tail call i32 @device_property_match_string(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1) #7
   %4 = icmp slt i32 %3, 0
-  br i1 %4, label %5, label %11
+  br i1 %4, label %sub_0, label %16
 
-5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(3) @.str.3) #8
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %11, label %8
+sub_0:                                            ; preds = %2
+  %5 = load i8, ptr %1, align 1
+  switch i8 %5, label %.tail1.thread [
+    i8 116, label %sub_1
+    i8 114, label %sub_13
+  ]
 
-8:                                                ; preds = %5
-  %9 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(3) @.str.4) #8
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %15
+sub_1:                                            ; preds = %sub_0
+  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = load i8, ptr %6, align 1
+  %.not6 = icmp eq i8 %7, 120
+  br i1 %.not6, label %.tail, label %.tail1.thread
 
-11:                                               ; preds = %8, %5, %2
-  %12 = phi i32 [ %3, %2 ], [ 0, %5 ], [ 1, %8 ]
-  %13 = zext nneg i32 %12 to i64
-  %14 = tail call ptr @acpi_dma_request_slave_chan_by_index(ptr noundef %0, i64 noundef %13)
-  br label %15
+.tail:                                            ; preds = %sub_1
+  %8 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %16, label %.tail1.thread
 
-15:                                               ; preds = %11, %8
-  %16 = phi ptr [ %14, %11 ], [ inttoptr (i64 -19 to ptr), %8 ]
-  ret ptr %16
+sub_13:                                           ; preds = %sub_0
+  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = load i8, ptr %11, align 1
+  %.not8 = icmp eq i8 %12, 120
+  br i1 %.not8, label %.tail1, label %.tail1.thread
+
+.tail1:                                           ; preds = %sub_13
+  %13 = getelementptr inbounds i8, ptr %1, i64 2
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %16, label %.tail1.thread
+
+16:                                               ; preds = %.tail1, %.tail, %2
+  %17 = phi i32 [ %3, %2 ], [ 0, %.tail ], [ 1, %.tail1 ]
+  %18 = zext nneg i32 %17 to i64
+  %19 = tail call ptr @acpi_dma_request_slave_chan_by_index(ptr noundef %0, i64 noundef %18)
+  br label %.tail1.thread
+
+.tail1.thread:                                    ; preds = %sub_0, %.tail, %sub_1, %sub_13, %16, %.tail1
+  %20 = phi ptr [ %19, %16 ], [ inttoptr (i64 -19 to ptr), %.tail1 ], [ inttoptr (i64 -19 to ptr), %sub_13 ], [ inttoptr (i64 -19 to ptr), %sub_1 ], [ inttoptr (i64 -19 to ptr), %.tail ], [ inttoptr (i64 -19 to ptr), %sub_0 ]
+  ret ptr %20
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @device_property_match_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @acpi_dma_simple_xlate(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
@@ -619,7 +635,7 @@ define dso_local ptr @acpi_dma_simple_xlate(ptr noundef %0, ptr nocapture nounde
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @__dma_request_channel(ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef %0, ptr noundef null) #8
+  %11 = tail call ptr @__dma_request_channel(ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef %0, ptr noundef null) #7
   br label %12
 
 12:                                               ; preds = %10, %6, %2
@@ -631,13 +647,13 @@ define dso_local ptr @acpi_dma_simple_xlate(ptr noundef %0, ptr nocapture nounde
 declare dso_local ptr @__dma_request_channel(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_get_table(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
+declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_put_table(ptr noundef) local_unnamed_addr #2
@@ -656,12 +672,11 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind allocsize(2) }
-attributes #10 = { cold nounwind }
+attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind allocsize(2) }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

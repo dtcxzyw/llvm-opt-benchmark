@@ -79,7 +79,6 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_ = comdat any
 @.str.45 = private unnamed_addr constant [9 x i8] c"mmu-type\00", align 1
 @.str.46 = private unnamed_addr constant [24 x i8] c"basic_string::_M_create\00", align 1
 @.str.47 = private unnamed_addr constant [12 x i8] c"device_type\00", align 1
-@.str.48 = private unnamed_addr constant [4 x i8] c"cpu\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_dts.cc, ptr null }]
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -816,7 +815,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr nou
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z22fdt_get_node_addr_sizePKviPmS1_PKc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #3 {
+define noundef range(i32 -2147483648, 1) i32 @_Z22fdt_get_node_addr_sizePKviPmS1_PKc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = alloca i32, align 4
   %7 = tail call i32 @fdt_parent_offset(ptr noundef %0, i32 noundef %1)
   %8 = icmp slt i32 %7, 0
@@ -928,7 +927,7 @@ define noundef i32 @_Z20fdt_get_next_subnodePKvi(ptr noundef %0, i32 noundef %1)
 declare i32 @fdt_next_subnode(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z15fdt_parse_clintPKvPmPKc(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define noundef range(i32 -2147483648, 1) i32 @_Z15fdt_parse_clintPKvPmPKc(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @fdt_node_offset_by_compatible(ptr noundef %0, i32 noundef -1, ptr noundef %2)
   %6 = icmp slt i32 %5, 0
@@ -993,7 +992,7 @@ _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %18, %._crit_edge.i,
 declare i32 @fdt_node_offset_by_compatible(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14fdt_parse_plicPKvPmPjPKc(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #3 {
+define noundef range(i32 -2147483648, 1) i32 @_Z14fdt_parse_plicPKvPmPjPKc(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call i32 @fdt_node_offset_by_compatible(ptr noundef %0, i32 noundef -1, ptr noundef %3)
@@ -1062,7 +1061,7 @@ _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z17fdt_parse_ns16550PKvPmPjS2_S2_PKc(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef %5) local_unnamed_addr #3 {
+define noundef range(i32 -2147483648, 1) i32 @_Z17fdt_parse_ns16550PKvPmPjS2_S2_PKc(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call i32 @fdt_node_offset_by_compatible(ptr noundef %0, i32 noundef -1, ptr noundef %5)
@@ -1175,7 +1174,7 @@ _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z17fdt_parse_pmp_numPKviPm(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define noundef range(i32 -22, 1) i32 @_Z17fdt_parse_pmp_numPKviPm(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -1190,76 +1189,88 @@ define noundef i32 @_Z17fdt_parse_pmp_numPKviPm(ptr noundef %0, i32 noundef %1, 
   %11 = load i32, ptr %5, align 4
   %12 = icmp ne i32 %11, 0
   %or.cond3.i = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond3.i, label %13, label %_ZL14check_cpu_nodePKvi.exit.thread
+  br i1 %or.cond3.i, label %sub_0.i, label %_ZL14check_cpu_nodePKvi.exit.thread
 
-13:                                               ; preds = %8
-  %14 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(4) @.str.48, i64 noundef 3) #18
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %15, label %_ZL14check_cpu_nodePKvi.exit.thread
+sub_0.i:                                          ; preds = %8
+  %13 = load i8, ptr %9, align 1
+  %.not12.i = icmp eq i8 %13, 99
+  br i1 %.not12.i, label %sub_1.i, label %_ZL14check_cpu_nodePKvi.exit.thread
 
-_ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %13
+sub_1.i:                                          ; preds = %sub_0.i
+  %14 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = load i8, ptr %14, align 1
+  %.not13.i = icmp eq i8 %15, 112
+  br i1 %.not13.i, label %sub_2.i, label %_ZL14check_cpu_nodePKvi.exit.thread
+
+sub_2.i:                                          ; preds = %sub_1.i
+  %16 = getelementptr inbounds i8, ptr %9, i64 2
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 117
+  br i1 %18, label %19, label %_ZL14check_cpu_nodePKvi.exit.thread
+
+_ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %sub_1.i, %sub_2.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %34
+  br label %38
 
-15:                                               ; preds = %13
+19:                                               ; preds = %sub_2.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %16 = call i32 @fdt_parent_offset(ptr noundef nonnull %0, i32 noundef %1)
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %18
+  %20 = call i32 @fdt_parent_offset(ptr noundef nonnull %0, i32 noundef %1)
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %22
 
-18:                                               ; preds = %15
-  %19 = call i32 @fdt_address_cells(ptr noundef nonnull %0, i32 noundef %16)
-  %20 = icmp slt i32 %19, 1
-  br i1 %20, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %21
+22:                                               ; preds = %19
+  %23 = call i32 @fdt_address_cells(ptr noundef nonnull %0, i32 noundef %20)
+  %24 = icmp slt i32 %23, 1
+  br i1 %24, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %25
 
-21:                                               ; preds = %18
-  %22 = call i32 @fdt_size_cells(ptr noundef nonnull %0, i32 noundef %16)
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %24
+25:                                               ; preds = %22
+  %26 = call i32 @fdt_size_cells(ptr noundef nonnull %0, i32 noundef %20)
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %28
 
-24:                                               ; preds = %21
-  %25 = call ptr @fdt_getprop(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull %4)
-  %.not46.i = icmp eq ptr %25, null
-  br i1 %.not46.i, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %26
+28:                                               ; preds = %25
+  %29 = call ptr @fdt_getprop(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull %4)
+  %.not46.i = icmp eq ptr %29, null
+  br i1 %.not46.i, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %30
 
-26:                                               ; preds = %24
+30:                                               ; preds = %28
   %.not47.i = icmp eq ptr %2, null
   br i1 %.not47.i, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %26, %.lr.ph.i
-  %.053.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %26 ]
-  %.03452.i = phi ptr [ %28, %.lr.ph.i ], [ %25, %26 ]
-  %.03651.i = phi i32 [ %32, %.lr.ph.i ], [ 0, %26 ]
-  %27 = shl i64 %.053.i, 32
-  %28 = getelementptr inbounds i8, ptr %.03452.i, i64 4
-  %29 = load i32, ptr %.03452.i, align 4
-  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %29)
-  %30 = zext i32 %rev.i.i to i64
-  %31 = or disjoint i64 %27, %30
-  %32 = add nuw nsw i32 %.03651.i, 1
-  %exitcond.not.i = icmp eq i32 %32, %19
+.lr.ph.i:                                         ; preds = %30, %.lr.ph.i
+  %.053.i = phi i64 [ %35, %.lr.ph.i ], [ 0, %30 ]
+  %.03452.i = phi ptr [ %32, %.lr.ph.i ], [ %29, %30 ]
+  %.03651.i = phi i32 [ %36, %.lr.ph.i ], [ 0, %30 ]
+  %31 = shl i64 %.053.i, 32
+  %32 = getelementptr inbounds i8, ptr %.03452.i, i64 4
+  %33 = load i32, ptr %.03452.i, align 4
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %33)
+  %34 = zext i32 %rev.i.i to i64
+  %35 = or disjoint i64 %31, %34
+  %36 = add nuw nsw i32 %.03651.i, 1
+  %exitcond.not.i = icmp eq i32 %36, %23
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store i64 %31, ptr %2, align 8
+  store i64 %35, ptr %2, align 8
   br label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
 
-_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %26, %._crit_edge.i, %15, %18, %21, %24
-  %.035.i = phi i1 [ false, %15 ], [ false, %18 ], [ false, %21 ], [ false, %24 ], [ true, %._crit_edge.i ], [ true, %26 ]
+_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %30, %._crit_edge.i, %19, %22, %25, %28
+  %.035.i = phi i1 [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %28 ], [ true, %._crit_edge.i ], [ true, %30 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %33 = icmp ne ptr %2, null
-  %or.cond = and i1 %33, %.035.i
+  %37 = icmp ne ptr %2, null
+  %or.cond = and i1 %37, %.035.i
   %. = select i1 %or.cond, i32 0, i32 -19
-  br label %34
+  br label %38
 
-34:                                               ; preds = %_ZL14check_cpu_nodePKvi.exit.thread, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
+38:                                               ; preds = %_ZL14check_cpu_nodePKvi.exit.thread, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
   %.0 = phi i32 [ %., %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit ], [ -22, %_ZL14check_cpu_nodePKvi.exit.thread ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z23fdt_parse_pmp_alignmentPKviPm(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define noundef range(i32 -22, 1) i32 @_Z23fdt_parse_pmp_alignmentPKviPm(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -1274,76 +1285,88 @@ define noundef i32 @_Z23fdt_parse_pmp_alignmentPKviPm(ptr noundef %0, i32 nounde
   %11 = load i32, ptr %5, align 4
   %12 = icmp ne i32 %11, 0
   %or.cond3.i = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond3.i, label %13, label %_ZL14check_cpu_nodePKvi.exit.thread
+  br i1 %or.cond3.i, label %sub_0.i, label %_ZL14check_cpu_nodePKvi.exit.thread
 
-13:                                               ; preds = %8
-  %14 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(4) @.str.48, i64 noundef 3) #18
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %15, label %_ZL14check_cpu_nodePKvi.exit.thread
+sub_0.i:                                          ; preds = %8
+  %13 = load i8, ptr %9, align 1
+  %.not12.i = icmp eq i8 %13, 99
+  br i1 %.not12.i, label %sub_1.i, label %_ZL14check_cpu_nodePKvi.exit.thread
 
-_ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %13
+sub_1.i:                                          ; preds = %sub_0.i
+  %14 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = load i8, ptr %14, align 1
+  %.not13.i = icmp eq i8 %15, 112
+  br i1 %.not13.i, label %sub_2.i, label %_ZL14check_cpu_nodePKvi.exit.thread
+
+sub_2.i:                                          ; preds = %sub_1.i
+  %16 = getelementptr inbounds i8, ptr %9, i64 2
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 117
+  br i1 %18, label %19, label %_ZL14check_cpu_nodePKvi.exit.thread
+
+_ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %sub_1.i, %sub_2.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %34
+  br label %38
 
-15:                                               ; preds = %13
+19:                                               ; preds = %sub_2.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %16 = call i32 @fdt_parent_offset(ptr noundef nonnull %0, i32 noundef %1)
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %18
+  %20 = call i32 @fdt_parent_offset(ptr noundef nonnull %0, i32 noundef %1)
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %22
 
-18:                                               ; preds = %15
-  %19 = call i32 @fdt_address_cells(ptr noundef nonnull %0, i32 noundef %16)
-  %20 = icmp slt i32 %19, 1
-  br i1 %20, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %21
+22:                                               ; preds = %19
+  %23 = call i32 @fdt_address_cells(ptr noundef nonnull %0, i32 noundef %20)
+  %24 = icmp slt i32 %23, 1
+  br i1 %24, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %25
 
-21:                                               ; preds = %18
-  %22 = call i32 @fdt_size_cells(ptr noundef nonnull %0, i32 noundef %16)
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %24
+25:                                               ; preds = %22
+  %26 = call i32 @fdt_size_cells(ptr noundef nonnull %0, i32 noundef %20)
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %28
 
-24:                                               ; preds = %21
-  %25 = call ptr @fdt_getprop(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull @.str.44, ptr noundef nonnull %4)
-  %.not46.i = icmp eq ptr %25, null
-  br i1 %.not46.i, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %26
+28:                                               ; preds = %25
+  %29 = call ptr @fdt_getprop(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull @.str.44, ptr noundef nonnull %4)
+  %.not46.i = icmp eq ptr %29, null
+  br i1 %.not46.i, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %30
 
-26:                                               ; preds = %24
+30:                                               ; preds = %28
   %.not47.i = icmp eq ptr %2, null
   br i1 %.not47.i, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %26, %.lr.ph.i
-  %.053.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %26 ]
-  %.03452.i = phi ptr [ %28, %.lr.ph.i ], [ %25, %26 ]
-  %.03651.i = phi i32 [ %32, %.lr.ph.i ], [ 0, %26 ]
-  %27 = shl i64 %.053.i, 32
-  %28 = getelementptr inbounds i8, ptr %.03452.i, i64 4
-  %29 = load i32, ptr %.03452.i, align 4
-  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %29)
-  %30 = zext i32 %rev.i.i to i64
-  %31 = or disjoint i64 %27, %30
-  %32 = add nuw nsw i32 %.03651.i, 1
-  %exitcond.not.i = icmp eq i32 %32, %19
+.lr.ph.i:                                         ; preds = %30, %.lr.ph.i
+  %.053.i = phi i64 [ %35, %.lr.ph.i ], [ 0, %30 ]
+  %.03452.i = phi ptr [ %32, %.lr.ph.i ], [ %29, %30 ]
+  %.03651.i = phi i32 [ %36, %.lr.ph.i ], [ 0, %30 ]
+  %31 = shl i64 %.053.i, 32
+  %32 = getelementptr inbounds i8, ptr %.03452.i, i64 4
+  %33 = load i32, ptr %.03452.i, align 4
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %33)
+  %34 = zext i32 %rev.i.i to i64
+  %35 = or disjoint i64 %31, %34
+  %36 = add nuw nsw i32 %.03651.i, 1
+  %exitcond.not.i = icmp eq i32 %36, %23
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store i64 %31, ptr %2, align 8
+  store i64 %35, ptr %2, align 8
   br label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
 
-_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %26, %._crit_edge.i, %15, %18, %21, %24
-  %.035.i = phi i1 [ false, %15 ], [ false, %18 ], [ false, %21 ], [ false, %24 ], [ true, %._crit_edge.i ], [ true, %26 ]
+_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %30, %._crit_edge.i, %19, %22, %25, %28
+  %.035.i = phi i1 [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %28 ], [ true, %._crit_edge.i ], [ true, %30 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %33 = icmp ne ptr %2, null
-  %or.cond = and i1 %33, %.035.i
+  %37 = icmp ne ptr %2, null
+  %or.cond = and i1 %37, %.035.i
   %. = select i1 %or.cond, i32 0, i32 -19
-  br label %34
+  br label %38
 
-34:                                               ; preds = %_ZL14check_cpu_nodePKvi.exit.thread, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
+38:                                               ; preds = %_ZL14check_cpu_nodePKvi.exit.thread, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
   %.0 = phi i32 [ %., %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit ], [ -22, %_ZL14check_cpu_nodePKvi.exit.thread ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z18fdt_parse_mmu_typePKviPPKc(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define noundef range(i32 -22, 1) i32 @_Z18fdt_parse_mmu_typePKviPPKc(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -1358,32 +1381,44 @@ define noundef i32 @_Z18fdt_parse_mmu_typePKviPPKc(ptr noundef %0, i32 noundef %
   %11 = load i32, ptr %4, align 4
   %12 = icmp ne i32 %11, 0
   %or.cond3.i = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond3.i, label %13, label %_ZL14check_cpu_nodePKvi.exit.thread
+  br i1 %or.cond3.i, label %sub_0.i, label %_ZL14check_cpu_nodePKvi.exit.thread
 
-13:                                               ; preds = %8
-  %14 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(4) @.str.48, i64 noundef 3) #18
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %15, label %_ZL14check_cpu_nodePKvi.exit.thread
+sub_0.i:                                          ; preds = %8
+  %13 = load i8, ptr %9, align 1
+  %.not12.i = icmp eq i8 %13, 99
+  br i1 %.not12.i, label %sub_1.i, label %_ZL14check_cpu_nodePKvi.exit.thread
 
-_ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %13
+sub_1.i:                                          ; preds = %sub_0.i
+  %14 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = load i8, ptr %14, align 1
+  %.not13.i = icmp eq i8 %15, 112
+  br i1 %.not13.i, label %sub_2.i, label %_ZL14check_cpu_nodePKvi.exit.thread
+
+sub_2.i:                                          ; preds = %sub_1.i
+  %16 = getelementptr inbounds i8, ptr %9, i64 2
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 117
+  br i1 %18, label %19, label %_ZL14check_cpu_nodePKvi.exit.thread
+
+_ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %sub_1.i, %sub_2.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %21
+  br label %25
 
-15:                                               ; preds = %13
+19:                                               ; preds = %sub_2.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %16 = call ptr @fdt_getprop(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull @.str.45, ptr noundef nonnull %5)
-  %17 = icmp ne ptr %16, null
-  %18 = load i32, ptr %5, align 4
-  %19 = icmp ne i32 %18, 0
-  %or.cond = select i1 %17, i1 %19, i1 false
-  br i1 %or.cond, label %20, label %21
+  %20 = call ptr @fdt_getprop(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull @.str.45, ptr noundef nonnull %5)
+  %21 = icmp ne ptr %20, null
+  %22 = load i32, ptr %5, align 4
+  %23 = icmp ne i32 %22, 0
+  %or.cond = select i1 %21, i1 %23, i1 false
+  br i1 %or.cond, label %24, label %25
 
-20:                                               ; preds = %15
-  store ptr %16, ptr %2, align 8
-  br label %21
+24:                                               ; preds = %19
+  store ptr %20, ptr %2, align 8
+  br label %25
 
-21:                                               ; preds = %_ZL14check_cpu_nodePKvi.exit.thread, %15, %20
-  %.0 = phi i32 [ 0, %20 ], [ -22, %15 ], [ -22, %_ZL14check_cpu_nodePKvi.exit.thread ]
+25:                                               ; preds = %_ZL14check_cpu_nodePKvi.exit.thread, %19, %24
+  %.0 = phi i32 [ 0, %24 ], [ -22, %19 ], [ -22, %_ZL14check_cpu_nodePKvi.exit.thread ]
   ret i32 %.0
 }
 
@@ -1494,9 +1529,6 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_dts.cc() #14 section ".text.startup" {

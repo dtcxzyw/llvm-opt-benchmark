@@ -143,7 +143,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.90 = private unnamed_addr constant [14 x i8] c": %d trackers\00", align 1
 @.str.91 = private unnamed_addr constant [14 x i8] c"Extension: %s\00", align 1
 @.str.92 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.93 = private unnamed_addr constant [3 x i8] c"ip\00", align 1
 @.str.94 = private unnamed_addr constant [5 x i8] c"ipv6\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -182,7 +181,7 @@ define hidden void @proto_reg_handoff_bt_tracker() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bt_tracker_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_bt_tracker_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #4
   %6 = icmp slt i32 %5, 16
   br i1 %6, label %17, label %7
@@ -294,9 +293,9 @@ proto_item_set_generated.exit.i:                  ; preds = %43, %40, %get_messa
     i32 1, label %54
     i32 2, label %61
     i32 3, label %123
-    i32 4, label %189
-    i32 5, label %203
-    i32 6, label %221
+    i32 4, label %199
+    i32 5, label %213
+    i32 6, label %231
   ]
 
 47:                                               ; preds = %proto_item_set_generated.exit.i
@@ -433,157 +432,178 @@ dissect_bt_tracker_extension.exit.i:              ; preds = %120, %100, %117, %6
   %138 = tail call ptr @wmem_list_tail(ptr noundef %.val.i) #4
   %139 = tail call ptr @wmem_list_frame_prev(ptr noundef %138) #4
   %.not1.i.i = icmp eq ptr %139, null
-  br i1 %.not1.i.i, label %is_ipv4_format.exit.i, label %.lr.ph.i212.i
+  br i1 %.not1.i.i, label %is_ipv4_format.exit.i, label %sub_0.i.i
 
-.lr.ph.i212.i:                                    ; preds = %136, %147
-  %.072.i.i = phi ptr [ %148, %147 ], [ %139, %136 ]
+sub_0.i.i:                                        ; preds = %136, %157
+  %.072.i.i = phi ptr [ %158, %157 ], [ %139, %136 ]
   %140 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.072.i.i) #4
   %141 = ptrtoint ptr %140 to i64
   %142 = trunc i64 %141 to i32
   %143 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %142) #4
-  %144 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull dereferenceable(3) @.str.93) #5
-  %.not8.i.i = icmp eq i32 %144, 0
-  br i1 %.not8.i.i, label %is_ipv4_format.exit.i, label %145
+  %144 = load i8, ptr %143, align 1
+  %145 = zext i8 %144 to i32
+  %146 = add nsw i32 %145, -105
+  %.not6.i.i = icmp eq i32 %146, 0
+  br i1 %.not6.i.i, label %sub_1.i.i, label %.tail.i.i
 
-145:                                              ; preds = %.lr.ph.i212.i
-  %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull dereferenceable(5) @.str.94) #5
-  %.not9.i.i = icmp eq i32 %146, 0
-  br i1 %.not9.i.i, label %is_ipv4_format.exit.i, label %147
+sub_1.i.i:                                        ; preds = %sub_0.i.i
+  %147 = getelementptr inbounds i8, ptr %143, i64 1
+  %148 = load i8, ptr %147, align 1
+  %149 = zext i8 %148 to i32
+  %150 = add nsw i32 %149, -112
+  %.not7.i.i = icmp eq i32 %150, 0
+  br i1 %.not7.i.i, label %sub_2.i.i, label %.tail.i.i
 
-147:                                              ; preds = %145
-  %148 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.072.i.i) #4
-  %.not.i213.i = icmp eq ptr %148, null
-  br i1 %.not.i213.i, label %is_ipv4_format.exit.i, label %.lr.ph.i212.i, !llvm.loop !6
+sub_2.i.i:                                        ; preds = %sub_1.i.i
+  %151 = getelementptr inbounds i8, ptr %143, i64 2
+  %152 = load i8, ptr %151, align 1
+  %153 = zext i8 %152 to i32
+  br label %.tail.i.i
 
-is_ipv4_format.exit.i:                            ; preds = %147, %145, %.lr.ph.i212.i, %136
-  %.not240.i = phi i1 [ false, %136 ], [ true, %145 ], [ false, %147 ], [ false, %.lr.ph.i212.i ]
-  %149 = phi i32 [ 6, %136 ], [ 18, %145 ], [ 6, %147 ], [ 6, %.lr.ph.i212.i ]
-  %150 = load i32, ptr @hf_bt_tracker_trackers, align 4
-  %151 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %150, ptr noundef %0, i32 noundef 20, i32 noundef -1, i32 noundef 0) #4
-  %152 = load i32, ptr @ett_bt_tracker_trackers, align 4
-  %153 = tail call ptr @proto_item_add_subtree(ptr noundef %151, i32 noundef %152) #4
-  %154 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 20) #4
-  %.not211222.i = icmp slt i32 %154, %149
-  br i1 %.not211222.i, label %._crit_edge.i, label %.lr.ph225.i
+.tail.i.i:                                        ; preds = %sub_2.i.i, %sub_1.i.i, %sub_0.i.i
+  %154 = phi i32 [ %146, %sub_0.i.i ], [ %150, %sub_1.i.i ], [ %153, %sub_2.i.i ]
+  %.not8.i.i = icmp eq i32 %154, 0
+  br i1 %.not8.i.i, label %is_ipv4_format.exit.i, label %155
 
-.lr.ph225.i:                                      ; preds = %is_ipv4_format.exit.i
-  %155 = getelementptr inbounds i8, ptr %1, i64 408
-  br i1 %.not240.i, label %.lr.ph225.split.us.i, label %.lr.ph225.split.i
+155:                                              ; preds = %.tail.i.i
+  %156 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull dereferenceable(5) @.str.94) #5
+  %.not9.i.i = icmp eq i32 %156, 0
+  br i1 %.not9.i.i, label %is_ipv4_format.exit.i, label %157
 
-.lr.ph225.split.us.i:                             ; preds = %.lr.ph225.i, %.lr.ph225.split.us.i
-  %.0224.us.i = phi i32 [ %170, %.lr.ph225.split.us.i ], [ 20, %.lr.ph225.i ]
-  %.0209223.us.i = phi i32 [ %156, %.lr.ph225.split.us.i ], [ 0, %.lr.ph225.i ]
-  %156 = add i32 %.0209223.us.i, 1
-  %157 = load i32, ptr @hf_bt_tracker_tracker, align 4
-  %158 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %157, ptr noundef %0, i32 noundef %.0224.us.i, i32 noundef %149, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.85, i32 noundef %156) #4
-  %159 = load i32, ptr @ett_bt_tracker_trackers, align 4
-  %160 = tail call ptr @proto_item_add_subtree(ptr noundef %158, i32 noundef %159) #4
-  %161 = load i32, ptr @hf_bt_tracker_tr_ip6, align 4
-  %162 = tail call ptr @proto_tree_add_item(ptr noundef %160, i32 noundef %161, ptr noundef %0, i32 noundef %.0224.us.i, i32 noundef 16, i32 noundef 0) #4
-  %163 = load ptr, ptr %155, align 8
-  %164 = tail call ptr @tvb_address_to_str(ptr noundef %163, ptr noundef %0, i32 noundef 3, i32 noundef %.0224.us.i) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.86, ptr noundef %164) #4
-  %165 = load i32, ptr @hf_bt_tracker_tr_port, align 4
-  %166 = add i32 %.0224.us.i, 16
-  %167 = tail call ptr @proto_tree_add_item(ptr noundef %160, i32 noundef %165, ptr noundef %0, i32 noundef %166, i32 noundef 2, i32 noundef 0) #4
-  %168 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %166) #4
-  %169 = zext i16 %168 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.87, i32 noundef %169) #4
-  %170 = add i32 %.0224.us.i, %149
-  %171 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %170) #4
-  %.not211.us.i = icmp slt i32 %171, %149
-  br i1 %.not211.us.i, label %._crit_edge.i, label %.lr.ph225.split.us.i, !llvm.loop !7
+157:                                              ; preds = %155
+  %158 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.072.i.i) #4
+  %.not.i212.i = icmp eq ptr %158, null
+  br i1 %.not.i212.i, label %is_ipv4_format.exit.i, label %sub_0.i.i, !llvm.loop !6
 
-.lr.ph225.split.i:                                ; preds = %.lr.ph225.i, %.lr.ph225.split.i
-  %.0224.i = phi i32 [ %186, %.lr.ph225.split.i ], [ 20, %.lr.ph225.i ]
-  %.0209223.i = phi i32 [ %172, %.lr.ph225.split.i ], [ 0, %.lr.ph225.i ]
-  %172 = add i32 %.0209223.i, 1
-  %173 = load i32, ptr @hf_bt_tracker_tracker, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %173, ptr noundef %0, i32 noundef %.0224.i, i32 noundef %149, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull @.str.85, i32 noundef %172) #4
-  %175 = load i32, ptr @ett_bt_tracker_trackers, align 4
-  %176 = tail call ptr @proto_item_add_subtree(ptr noundef %174, i32 noundef %175) #4
-  %177 = load i32, ptr @hf_bt_tracker_tr_ip, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %176, i32 noundef %177, ptr noundef %0, i32 noundef %.0224.i, i32 noundef 4, i32 noundef 0) #4
-  %179 = load ptr, ptr %155, align 8
-  %180 = tail call ptr @tvb_address_to_str(ptr noundef %179, ptr noundef %0, i32 noundef 2, i32 noundef %.0224.i) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull @.str.88, ptr noundef %180) #4
-  %181 = load i32, ptr @hf_bt_tracker_tr_port, align 4
-  %182 = add i32 %.0224.i, 4
-  %183 = tail call ptr @proto_tree_add_item(ptr noundef %176, i32 noundef %181, ptr noundef %0, i32 noundef %182, i32 noundef 2, i32 noundef 0) #4
-  %184 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %182) #4
-  %185 = zext i16 %184 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull @.str.87, i32 noundef %185) #4
-  %186 = add i32 %.0224.i, %149
-  %187 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %186) #4
-  %.not211.i = icmp slt i32 %187, %149
-  br i1 %.not211.i, label %._crit_edge.i, label %.lr.ph225.split.i, !llvm.loop !7
+is_ipv4_format.exit.i:                            ; preds = %157, %155, %.tail.i.i, %136
+  %.not239.i = phi i1 [ false, %136 ], [ true, %155 ], [ false, %157 ], [ false, %.tail.i.i ]
+  %159 = phi i32 [ 6, %136 ], [ 18, %155 ], [ 6, %157 ], [ 6, %.tail.i.i ]
+  %160 = load i32, ptr @hf_bt_tracker_trackers, align 4
+  %161 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %160, ptr noundef %0, i32 noundef 20, i32 noundef -1, i32 noundef 0) #4
+  %162 = load i32, ptr @ett_bt_tracker_trackers, align 4
+  %163 = tail call ptr @proto_item_add_subtree(ptr noundef %161, i32 noundef %162) #4
+  %164 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 20) #4
+  %.not211221.i = icmp slt i32 %164, %159
+  br i1 %.not211221.i, label %._crit_edge.i, label %.lr.ph224.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph225.split.i, %.lr.ph225.split.us.i, %is_ipv4_format.exit.i
-  %.0209.lcssa.i = phi i32 [ 0, %is_ipv4_format.exit.i ], [ %156, %.lr.ph225.split.us.i ], [ %172, %.lr.ph225.split.i ]
-  %.0.lcssa.i = phi i32 [ 20, %is_ipv4_format.exit.i ], [ %170, %.lr.ph225.split.us.i ], [ %186, %.lr.ph225.split.i ]
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %151, ptr noundef nonnull @.str.89, i32 noundef %.0209.lcssa.i) #4
-  %188 = load ptr, ptr %6, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %188, i32 noundef 25, ptr noundef nonnull @.str.90, i32 noundef %.0209.lcssa.i) #4
+.lr.ph224.i:                                      ; preds = %is_ipv4_format.exit.i
+  %165 = getelementptr inbounds i8, ptr %1, i64 408
+  br i1 %.not239.i, label %.lr.ph224.split.us.i, label %.lr.ph224.split.i
+
+.lr.ph224.split.us.i:                             ; preds = %.lr.ph224.i, %.lr.ph224.split.us.i
+  %.0223.us.i = phi i32 [ %180, %.lr.ph224.split.us.i ], [ 20, %.lr.ph224.i ]
+  %.0209222.us.i = phi i32 [ %166, %.lr.ph224.split.us.i ], [ 0, %.lr.ph224.i ]
+  %166 = add i32 %.0209222.us.i, 1
+  %167 = load i32, ptr @hf_bt_tracker_tracker, align 4
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %167, ptr noundef %0, i32 noundef %.0223.us.i, i32 noundef %159, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %168, ptr noundef nonnull @.str.85, i32 noundef %166) #4
+  %169 = load i32, ptr @ett_bt_tracker_trackers, align 4
+  %170 = tail call ptr @proto_item_add_subtree(ptr noundef %168, i32 noundef %169) #4
+  %171 = load i32, ptr @hf_bt_tracker_tr_ip6, align 4
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %171, ptr noundef %0, i32 noundef %.0223.us.i, i32 noundef 16, i32 noundef 0) #4
+  %173 = load ptr, ptr %165, align 8
+  %174 = tail call ptr @tvb_address_to_str(ptr noundef %173, ptr noundef %0, i32 noundef 3, i32 noundef %.0223.us.i) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %168, ptr noundef nonnull @.str.86, ptr noundef %174) #4
+  %175 = load i32, ptr @hf_bt_tracker_tr_port, align 4
+  %176 = add i32 %.0223.us.i, 16
+  %177 = tail call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %175, ptr noundef %0, i32 noundef %176, i32 noundef 2, i32 noundef 0) #4
+  %178 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %176) #4
+  %179 = zext i16 %178 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %168, ptr noundef nonnull @.str.87, i32 noundef %179) #4
+  %180 = add i32 %.0223.us.i, %159
+  %181 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %180) #4
+  %.not211.us.i = icmp slt i32 %181, %159
+  br i1 %.not211.us.i, label %._crit_edge.i, label %.lr.ph224.split.us.i, !llvm.loop !7
+
+.lr.ph224.split.i:                                ; preds = %.lr.ph224.i, %.lr.ph224.split.i
+  %.0223.i = phi i32 [ %196, %.lr.ph224.split.i ], [ 20, %.lr.ph224.i ]
+  %.0209222.i = phi i32 [ %182, %.lr.ph224.split.i ], [ 0, %.lr.ph224.i ]
+  %182 = add i32 %.0209222.i, 1
+  %183 = load i32, ptr @hf_bt_tracker_tracker, align 4
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %183, ptr noundef %0, i32 noundef %.0223.i, i32 noundef %159, i32 noundef 0) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef nonnull @.str.85, i32 noundef %182) #4
+  %185 = load i32, ptr @ett_bt_tracker_trackers, align 4
+  %186 = tail call ptr @proto_item_add_subtree(ptr noundef %184, i32 noundef %185) #4
+  %187 = load i32, ptr @hf_bt_tracker_tr_ip, align 4
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %187, ptr noundef %0, i32 noundef %.0223.i, i32 noundef 4, i32 noundef 0) #4
+  %189 = load ptr, ptr %165, align 8
+  %190 = tail call ptr @tvb_address_to_str(ptr noundef %189, ptr noundef %0, i32 noundef 2, i32 noundef %.0223.i) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef nonnull @.str.88, ptr noundef %190) #4
+  %191 = load i32, ptr @hf_bt_tracker_tr_port, align 4
+  %192 = add i32 %.0223.i, 4
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %191, ptr noundef %0, i32 noundef %192, i32 noundef 2, i32 noundef 0) #4
+  %194 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %192) #4
+  %195 = zext i16 %194 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef nonnull @.str.87, i32 noundef %195) #4
+  %196 = add i32 %.0223.i, %159
+  %197 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %196) #4
+  %.not211.i = icmp slt i32 %197, %159
+  br i1 %.not211.i, label %._crit_edge.i, label %.lr.ph224.split.i, !llvm.loop !7
+
+._crit_edge.i:                                    ; preds = %.lr.ph224.split.i, %.lr.ph224.split.us.i, %is_ipv4_format.exit.i
+  %.0209.lcssa.i = phi i32 [ 0, %is_ipv4_format.exit.i ], [ %166, %.lr.ph224.split.us.i ], [ %182, %.lr.ph224.split.i ]
+  %.0.lcssa.i = phi i32 [ 20, %is_ipv4_format.exit.i ], [ %180, %.lr.ph224.split.us.i ], [ %196, %.lr.ph224.split.i ]
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %161, ptr noundef nonnull @.str.89, i32 noundef %.0209.lcssa.i) #4
+  %198 = load ptr, ptr %6, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %198, i32 noundef 25, ptr noundef nonnull @.str.90, i32 noundef %.0209.lcssa.i) #4
   br label %dissect_bt_tracker_msg.exit
 
-189:                                              ; preds = %proto_item_set_generated.exit.i
-  %190 = load i32, ptr @hf_bt_tracker_connection_id, align 4
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %190, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #4
-  %192 = load i32, ptr @hf_bt_tracker_action, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %192, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #4
-  %194 = load i32, ptr @hf_bt_tracker_transaction_id, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %194, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #4
-  %196 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 16) #4
-  %197 = icmp sgt i32 %196, 19
-  br i1 %197, label %.lr.ph220.i, label %dissect_bt_tracker_msg.exit
+199:                                              ; preds = %proto_item_set_generated.exit.i
+  %200 = load i32, ptr @hf_bt_tracker_connection_id, align 4
+  %201 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %200, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #4
+  %202 = load i32, ptr @hf_bt_tracker_action, align 4
+  %203 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %202, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #4
+  %204 = load i32, ptr @hf_bt_tracker_transaction_id, align 4
+  %205 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %204, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #4
+  %206 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 16) #4
+  %207 = icmp sgt i32 %206, 19
+  br i1 %207, label %.lr.ph219.i, label %dissect_bt_tracker_msg.exit
 
-.lr.ph220.i:                                      ; preds = %189, %.lr.ph220.i
-  %.1219.i = phi i32 [ %200, %.lr.ph220.i ], [ 16, %189 ]
-  %198 = load i32, ptr @hf_bt_tracker_info_hash, align 4
-  %199 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %198, ptr noundef %0, i32 noundef %.1219.i, i32 noundef 20, i32 noundef 0) #4
-  %200 = add i32 %.1219.i, 20
-  %201 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %200) #4
-  %202 = icmp sgt i32 %201, 19
-  br i1 %202, label %.lr.ph220.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !8
+.lr.ph219.i:                                      ; preds = %199, %.lr.ph219.i
+  %.1218.i = phi i32 [ %210, %.lr.ph219.i ], [ 16, %199 ]
+  %208 = load i32, ptr @hf_bt_tracker_info_hash, align 4
+  %209 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %208, ptr noundef %0, i32 noundef %.1218.i, i32 noundef 20, i32 noundef 0) #4
+  %210 = add i32 %.1218.i, 20
+  %211 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %210) #4
+  %212 = icmp sgt i32 %211, 19
+  br i1 %212, label %.lr.ph219.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !8
 
-203:                                              ; preds = %proto_item_set_generated.exit.i
-  %204 = load i32, ptr @hf_bt_tracker_action, align 4
-  %205 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %204, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
-  %206 = load i32, ptr @hf_bt_tracker_transaction_id, align 4
-  %207 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %206, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
-  %208 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 8) #4
-  %209 = icmp sgt i32 %208, 11
-  br i1 %209, label %.lr.ph.i, label %dissect_bt_tracker_msg.exit
+213:                                              ; preds = %proto_item_set_generated.exit.i
+  %214 = load i32, ptr @hf_bt_tracker_action, align 4
+  %215 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %214, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %216 = load i32, ptr @hf_bt_tracker_transaction_id, align 4
+  %217 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %216, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %218 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 8) #4
+  %219 = icmp sgt i32 %218, 11
+  br i1 %219, label %.lr.ph.i, label %dissect_bt_tracker_msg.exit
 
-.lr.ph.i:                                         ; preds = %203, %.lr.ph.i
-  %.2218.i = phi i32 [ %218, %.lr.ph.i ], [ 8, %203 ]
-  %210 = load i32, ptr @hf_bt_tracker_seeders, align 4
-  %211 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %210, ptr noundef %0, i32 noundef %.2218.i, i32 noundef 4, i32 noundef 0) #4
-  %212 = add i32 %.2218.i, 4
-  %213 = load i32, ptr @hf_bt_tracker_completed, align 4
-  %214 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %213, ptr noundef %0, i32 noundef %212, i32 noundef 4, i32 noundef 0) #4
-  %215 = add i32 %.2218.i, 8
-  %216 = load i32, ptr @hf_bt_tracker_leechers, align 4
-  %217 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %216, ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef 0) #4
-  %218 = add i32 %.2218.i, 12
-  %219 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %218) #4
-  %220 = icmp sgt i32 %219, 11
-  br i1 %220, label %.lr.ph.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !9
+.lr.ph.i:                                         ; preds = %213, %.lr.ph.i
+  %.2217.i = phi i32 [ %228, %.lr.ph.i ], [ 8, %213 ]
+  %220 = load i32, ptr @hf_bt_tracker_seeders, align 4
+  %221 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %220, ptr noundef %0, i32 noundef %.2217.i, i32 noundef 4, i32 noundef 0) #4
+  %222 = add i32 %.2217.i, 4
+  %223 = load i32, ptr @hf_bt_tracker_completed, align 4
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %223, ptr noundef %0, i32 noundef %222, i32 noundef 4, i32 noundef 0) #4
+  %225 = add i32 %.2217.i, 8
+  %226 = load i32, ptr @hf_bt_tracker_leechers, align 4
+  %227 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %226, ptr noundef %0, i32 noundef %225, i32 noundef 4, i32 noundef 0) #4
+  %228 = add i32 %.2217.i, 12
+  %229 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %228) #4
+  %230 = icmp sgt i32 %229, 11
+  br i1 %230, label %.lr.ph.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !9
 
-221:                                              ; preds = %proto_item_set_generated.exit.i
-  %222 = load i32, ptr @hf_bt_tracker_action, align 4
-  %223 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %222, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
-  %224 = load i32, ptr @hf_bt_tracker_transaction_id, align 4
-  %225 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %224, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
-  %226 = load i32, ptr @hf_bt_tracker_error_msg, align 4
-  %227 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %226, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0) #4
-  %228 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+231:                                              ; preds = %proto_item_set_generated.exit.i
+  %232 = load i32, ptr @hf_bt_tracker_action, align 4
+  %233 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %232, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %234 = load i32, ptr @hf_bt_tracker_transaction_id, align 4
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %234, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %236 = load i32, ptr @hf_bt_tracker_error_msg, align 4
+  %237 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %236, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0) #4
+  %238 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %dissect_bt_tracker_msg.exit
 
-dissect_bt_tracker_msg.exit:                      ; preds = %.lr.ph.i, %.lr.ph220.i, %proto_item_set_generated.exit.i, %47, %54, %dissect_bt_tracker_extension.exit.i, %123, %._crit_edge.i, %189, %203, %221
-  %.3.i = phi i32 [ 0, %proto_item_set_generated.exit.i ], [ %228, %221 ], [ %.0.lcssa.i, %._crit_edge.i ], [ 20, %123 ], [ %.034.i.i, %dissect_bt_tracker_extension.exit.i ], [ 16, %54 ], [ 16, %47 ], [ 16, %189 ], [ 8, %203 ], [ %200, %.lr.ph220.i ], [ %218, %.lr.ph.i ]
+dissect_bt_tracker_msg.exit:                      ; preds = %.lr.ph.i, %.lr.ph219.i, %proto_item_set_generated.exit.i, %47, %54, %dissect_bt_tracker_extension.exit.i, %123, %._crit_edge.i, %199, %213, %231
+  %.3.i = phi i32 [ 0, %proto_item_set_generated.exit.i ], [ %238, %231 ], [ %.0.lcssa.i, %._crit_edge.i ], [ 20, %123 ], [ %.034.i.i, %dissect_bt_tracker_extension.exit.i ], [ 16, %54 ], [ 16, %47 ], [ 16, %199 ], [ 8, %213 ], [ %210, %.lr.ph219.i ], [ %228, %.lr.ph.i ]
   ret i32 %.3.i
 }
 

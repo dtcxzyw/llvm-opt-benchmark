@@ -1073,7 +1073,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyExc_EncodingWarning = external local_unnamed_addr global ptr, align 8
 @.str.118 = private unnamed_addr constant [34 x i8] c"'encoding' argument not specified\00", align 1
 @.str.119 = private unnamed_addr constant [65 x i8] c"TextIOWrapper() argument 'errors' must be str or None, not %.50s\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @_PyIO_Module = external global %struct.PyModuleDef, align 8
 
 ; Function Attrs: nounwind uwtable
@@ -1982,7 +1982,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallMethodObjArgs(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_decoded(ptr noundef %decoded) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_decoded(ptr noundef %decoded) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %decoded, null
   br i1 %cmp, label %return, label %if.end
@@ -3418,7 +3418,7 @@ return:                                           ; preds = %if.else, %if.end18,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_io_TextIOWrapper___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @_io_TextIOWrapper___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %self.addr.i.i = alloca ptr, align 8
   %raw.i = alloca ptr, align 8
@@ -4074,7 +4074,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i148.i, %i
   %conv153.i = trunc i32 %write_through.080 to i8
   %write_through154.i = getelementptr inbounds i8, ptr %self, i64 89
   store i8 %conv153.i, ptr %write_through154.i, align 1
-  %call155.i = call fastcc i32 @set_newline(ptr noundef nonnull %self, ptr noundef %newline.276), !range !13
+  %call155.i = call fastcc i32 @set_newline(ptr noundef nonnull %self, ptr noundef %newline.276)
   %cmp156.i = icmp slt i32 %call155.i, 0
   br i1 %cmp156.i, label %if.then.i163.i, label %if.end159.i
 
@@ -4097,12 +4097,12 @@ _Py_NewRef.exit152.i:                             ; preds = %if.end.i.i151.i, %i
   %call.val.i.i = load ptr, ptr %79, align 8
   %state164.i = getelementptr inbounds i8, ptr %self, i64 192
   store ptr %call.val.i.i, ptr %state164.i, align 8
-  %call165.i = call fastcc i32 @_textiowrapper_set_decoder(ptr noundef nonnull %self, ptr noundef nonnull %call138.i, ptr noundef nonnull %call23.i), !range !13
+  %call165.i = call fastcc i32 @_textiowrapper_set_decoder(ptr noundef nonnull %self, ptr noundef nonnull %call138.i, ptr noundef nonnull %call23.i)
   %cmp166.not.i = icmp eq i32 %call165.i, 0
   br i1 %cmp166.not.i, label %if.end169.i, label %if.then.i163.i
 
 if.end169.i:                                      ; preds = %_Py_NewRef.exit152.i
-  %call170.i = call fastcc i32 @_textiowrapper_set_encoder(ptr noundef nonnull %self, ptr noundef nonnull %call138.i, ptr noundef nonnull %call23.i), !range !13
+  %call170.i = call fastcc i32 @_textiowrapper_set_encoder(ptr noundef nonnull %self, ptr noundef nonnull %call138.i, ptr noundef nonnull %call23.i)
   %cmp171.not.i = icmp eq i32 %call170.i, 0
   br i1 %cmp171.not.i, label %if.then180.i, label %if.then.i163.i
 
@@ -4225,7 +4225,7 @@ if.end223.i:                                      ; preds = %if.end217.i
   store i8 %conv224.i, ptr %has_read1.i, align 2
   %encoding_start_of_stream.i = getelementptr inbounds i8, ptr %self, i64 112
   store i8 0, ptr %encoding_start_of_stream.i, align 8
-  %call225.i = call fastcc i32 @_textiowrapper_fix_encoder_state(ptr noundef nonnull %self), !range !13
+  %call225.i = call fastcc i32 @_textiowrapper_fix_encoder_state(ptr noundef nonnull %self)
   %cmp226.i = icmp slt i32 %call225.i, 0
   br i1 %cmp226.i, label %_io_TextIOWrapper___init___impl.exit, label %if.end229.i
 
@@ -4656,7 +4656,7 @@ do.end7:                                          ; preds = %do.body1, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_io_IncrementalNewlineDecoder___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @_io_IncrementalNewlineDecoder___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %0 = getelementptr i8, ptr %args, i64 16
@@ -5281,7 +5281,7 @@ if.else15:                                        ; preds = %entry
   br i1 %cmp17, label %return, label %do.end
 
 do.end:                                           ; preds = %if.end11, %if.else15
-  %call21 = tail call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self), !range !13
+  %call21 = tail call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self)
   %cmp22 = icmp slt i32 %call21, 0
   br i1 %cmp22, label %return, label %while.body.preheader
 
@@ -5313,7 +5313,7 @@ lor.rhs:                                          ; preds = %while.cond25
   br i1 %tobool29.not, label %while.body30, label %if.end49
 
 while.body30:                                     ; preds = %while.cond25, %lor.rhs
-  %call31 = tail call fastcc i32 @textiowrapper_read_chunk(ptr noundef nonnull %self, i64 noundef 0), !range !14
+  %call31 = tail call fastcc i32 @textiowrapper_read_chunk(ptr noundef nonnull %self, i64 noundef 0)
   %cmp32 = icmp slt i32 %call31, 0
   br i1 %cmp32, label %if.then33, label %if.end38
 
@@ -5323,7 +5323,7 @@ if.then33:                                        ; preds = %while.body30
   br i1 %tobool35.not, label %error, label %while.cond25.backedge
 
 while.cond25.backedge:                            ; preds = %if.then33, %if.end38
-  br label %while.cond25, !llvm.loop !15
+  br label %while.cond25, !llvm.loop !13
 
 if.end38:                                         ; preds = %while.body30
   %cmp39 = icmp eq i32 %call31, 0
@@ -5802,7 +5802,7 @@ declare i32 @_PyFileIO_closed(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyIOBase_check_closed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_textiowrapper_writeflush(ptr nocapture noundef %self) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_writeflush(ptr nocapture noundef %self) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %src = alloca ptr, align 8
@@ -5953,7 +5953,7 @@ if.end34:                                         ; preds = %if.else29.if.end34_
   %inc = add nuw nsw i64 %i.060, 1
   %.val38 = load i64, ptr %12, align 8
   %cmp22 = icmp slt i64 %inc, %.val38
-  br i1 %cmp22, label %for.body, label %if.end36, !llvm.loop !16
+  br i1 %cmp22, label %for.body, label %if.end36, !llvm.loop !14
 
 if.end36:                                         ; preds = %if.end34, %if.end19, %if.end.i.i, %if.then3, %PyUnicode_DATA.exit
   %b.0 = phi ptr [ %call11, %PyUnicode_DATA.exit ], [ %0, %if.then3 ], [ %0, %if.end.i.i ], [ %call16, %if.end19 ], [ %call16, %if.end34 ]
@@ -5991,7 +5991,7 @@ do.body:                                          ; preds = %land.rhs, %Py_DECRE
 land.rhs:                                         ; preds = %do.body
   %call41 = call i32 @_PyIO_trap_eintr() #10
   %tobool42.not = icmp eq i32 %call41, 0
-  br i1 %tobool42.not, label %do.end, label %do.body, !llvm.loop !17
+  br i1 %tobool42.not, label %do.end, label %do.body, !llvm.loop !15
 
 do.end:                                           ; preds = %do.body, %land.rhs
   %30 = load i64, ptr %b.0, align 8
@@ -6036,7 +6036,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @textiowrapper_read_chunk(ptr nocapture noundef %self, i64 noundef %size_hint) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @textiowrapper_read_chunk(ptr nocapture noundef %self, i64 noundef %size_hint) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %self.addr.i = alloca ptr, align 8
@@ -6863,7 +6863,7 @@ if.end65.i:                                       ; preds = %if.end60.i
   br i1 %cmp14.i89, label %land.lhs.true68.i, label %if.end73.i
 
 land.lhs.true68.i:                                ; preds = %if.end65.i
-  %call69.i = call fastcc i32 @set_newline(ptr noundef nonnull %self, ptr noundef %newline.0.i), !range !13
+  %call69.i = call fastcc i32 @set_newline(ptr noundef nonnull %self, ptr noundef %newline.0.i)
   %cmp70.i = icmp slt i32 %call69.i, 0
   br i1 %cmp70.i, label %exit, label %if.end.i.i
 
@@ -7044,12 +7044,12 @@ if.then1.i98.i.i:                                 ; preds = %if.end.i95.i.i
   br label %exit
 
 if.end33.i.i:                                     ; preds = %if.end29.i.i
-  %call34.i.i = call fastcc i32 @_textiowrapper_set_decoder(ptr noundef nonnull %self, ptr noundef nonnull %call30.i.i, ptr noundef nonnull %call26.i.i), !range !13
+  %call34.i.i = call fastcc i32 @_textiowrapper_set_decoder(ptr noundef nonnull %self, ptr noundef nonnull %call30.i.i, ptr noundef nonnull %call26.i.i)
   %cmp35.not.i.i = icmp eq i32 %call34.i.i, 0
   br i1 %cmp35.not.i.i, label %lor.lhs.false.i.i, label %if.then38.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end33.i.i
-  %call36.i.i = call fastcc i32 @_textiowrapper_set_encoder(ptr noundef nonnull %self, ptr noundef nonnull %call30.i.i, ptr noundef nonnull %call26.i.i), !range !13
+  %call36.i.i = call fastcc i32 @_textiowrapper_set_encoder(ptr noundef nonnull %self, ptr noundef nonnull %call30.i.i, ptr noundef nonnull %call26.i.i)
   %cmp37.not.i.i = icmp eq i32 %call36.i.i, 0
   br i1 %cmp37.not.i.i, label %if.end39.i.i, label %if.then38.i.i
 
@@ -7156,7 +7156,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %textiowrapper_change_encoding.exit.i
 
 textiowrapper_change_encoding.exit.i:             ; preds = %if.then1.i.i.i, %if.end.i.i.i, %do.body41.i.i
-  %call46.i.i = call fastcc i32 @_textiowrapper_fix_encoder_state(ptr noundef nonnull %self), !range !13
+  %call46.i.i = call fastcc i32 @_textiowrapper_fix_encoder_state(ptr noundef nonnull %self)
   %cmp77.i = icmp slt i32 %call46.i.i, 0
   br i1 %cmp77.i, label %exit, label %if.end80.i
 
@@ -7520,7 +7520,7 @@ if.else126.i:                                     ; preds = %if.end121.i
   br i1 %cmp129.i, label %if.then131.i, label %if.else138.i
 
 if.then131.i:                                     ; preds = %if.else126.i
-  %call132.i = call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self), !range !13
+  %call132.i = call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self)
   %cmp133.i = icmp slt i32 %call132.i, 0
   br i1 %cmp133.i, label %if.then135.i, label %if.end136.i
 
@@ -7628,7 +7628,7 @@ if.end159.i:                                      ; preds = %if.then1.i216.i, %i
   br i1 %or.cond1.i, label %if.then170.i, label %if.end176.i
 
 if.then170.i:                                     ; preds = %if.end159.i
-  %call171.i = call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self), !range !13
+  %call171.i = call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self)
   %cmp172.i = icmp slt i32 %call171.i, 0
   br i1 %cmp172.i, label %exit, label %if.end176.i
 
@@ -7835,7 +7835,7 @@ if.then28.i:                                      ; preds = %do.end.i
   br label %_io_TextIOWrapper_read_impl.exit
 
 if.end31.i:                                       ; preds = %do.end.i
-  %call32.i = call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self), !range !13
+  %call32.i = call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self)
   %cmp33.i = icmp slt i32 %call32.i, 0
   br i1 %cmp33.i, label %_io_TextIOWrapper_read_impl.exit, label %if.end35.i
 
@@ -7889,7 +7889,7 @@ if.then1.i162.i:                                  ; preds = %if.end.i159.i
   br label %Py_DECREF.exit164.i
 
 Py_DECREF.exit164.i:                              ; preds = %if.then1.i162.i, %if.end.i159.i, %if.end53.i
-  %call54.i = call fastcc i32 @check_decoded(ptr noundef %decoded.0.i), !range !13
+  %call54.i = call fastcc i32 @check_decoded(ptr noundef %decoded.0.i)
   %cmp55.i = icmp slt i32 %call54.i, 0
   br i1 %cmp55.i, label %_io_TextIOWrapper_read_impl.exit, label %if.end57.i
 
@@ -8016,14 +8016,14 @@ while.cond.outer.split.i:                         ; preds = %if.end104.i, %while
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.then79.i, %while.cond.outer.split.i
-  %call77.i = call fastcc i32 @textiowrapper_read_chunk(ptr noundef %self, i64 noundef %remaining.0.ph149.i), !range !14
+  %call77.i = call fastcc i32 @textiowrapper_read_chunk(ptr noundef %self, i64 noundef %remaining.0.ph149.i)
   %cmp78.i = icmp slt i32 %call77.i, 0
   br i1 %cmp78.i, label %if.then79.i, label %if.end84.i
 
 if.then79.i:                                      ; preds = %while.cond.i
   %call80.i = call i32 @_PyIO_trap_eintr() #10
   %tobool81.not.i = icmp eq i32 %call80.i, 0
-  br i1 %tobool81.not.i, label %fail.i, label %while.cond.i, !llvm.loop !18
+  br i1 %tobool81.not.i, label %fail.i, label %while.cond.i, !llvm.loop !16
 
 if.end84.i:                                       ; preds = %while.cond.i
   %cmp85.i = icmp eq i32 %call77.i, 0
@@ -8122,7 +8122,7 @@ if.end104.i:                                      ; preds = %textiowrapper_get_d
   %call101.val.i = load i64, ptr %48, align 8
   %sub106.i = sub i64 %remaining.0.ph149.i, %call101.val.i
   %cmp76.i = icmp sgt i64 %sub106.i, 0
-  br i1 %cmp76.i, label %while.cond.outer.split.i, label %land.lhs.true110.i, !llvm.loop !18
+  br i1 %cmp76.i, label %while.cond.outer.split.i, label %land.lhs.true110.i, !llvm.loop !16
 
 while.end.i:                                      ; preds = %if.end84.i
   br i1 %cmp107.not.i, label %if.end128.i, label %if.then108.i
@@ -8394,7 +8394,7 @@ do.end.i:                                         ; preds = %if.else21.i, %if.en
   %12 = load i8, ptr %seekable.i, align 1
   %telling.i = getelementptr inbounds i8, ptr %self, i64 95
   store i8 %12, ptr %telling.i, align 1
-  %call27.i = tail call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self), !range !13
+  %call27.i = tail call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self)
   %cmp28.i = icmp slt i32 %call27.i, 0
   br i1 %cmp28.i, label %_io_TextIOWrapper_flush_impl.exit, label %if.end30.i
 
@@ -9047,7 +9047,7 @@ if.then87.i:                                      ; preds = %if.end85.i
   br i1 %cmp89.i, label %if.then92.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then87.i
-  %call90.i = call fastcc i32 @_textiowrapper_encoder_reset(ptr noundef nonnull %self, i32 noundef %call88.i), !range !13
+  %call90.i = call fastcc i32 @_textiowrapper_encoder_reset(ptr noundef nonnull %self, i32 noundef %call88.i)
   %tobool91.not.i = icmp eq i32 %call90.i, 0
   br i1 %tobool91.not.i, label %_io_TextIOWrapper_seek_impl.exit, label %if.then92.i
 
@@ -9093,7 +9093,7 @@ if.end104.i:                                      ; preds = %if.end100.i
   br i1 %cmp106.i, label %if.then.i127.i, label %if.end108.i
 
 if.end108.i:                                      ; preds = %if.end104.i
-  %call109.i = call fastcc i32 @textiowrapper_parse_cookie(ptr noundef nonnull %cookie.i, ptr noundef nonnull %cookieObj.addr.1.i), !range !13
+  %call109.i = call fastcc i32 @textiowrapper_parse_cookie(ptr noundef nonnull %cookie.i, ptr noundef nonnull %cookieObj.addr.1.i)
   %cmp110.i = icmp slt i32 %call109.i, 0
   br i1 %cmp110.i, label %if.then.i127.i, label %if.end112.i
 
@@ -9244,7 +9244,7 @@ do.body156.i:                                     ; preds = %if.end151.i
   %tobool160.not.i = icmp eq i8 %63, 0
   %cond.i = select i1 %tobool160.not.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   %call161.i = call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef %62, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 305), ptr noundef nonnull %call141.i, ptr noundef nonnull %cond.i, ptr noundef null) #10
-  %call162.i = call fastcc i32 @check_decoded(ptr noundef %call161.i), !range !13
+  %call162.i = call fastcc i32 @check_decoded(ptr noundef %call161.i)
   %cmp163.i = icmp slt i32 %call162.i, 0
   br i1 %cmp163.i, label %if.then.i127.i, label %if.end166.i
 
@@ -9448,7 +9448,7 @@ if.then33.i:                                      ; preds = %if.end31.i
   br label %_io_TextIOWrapper_tell_impl.exit
 
 if.end34.i:                                       ; preds = %if.end31.i
-  %call35.i = tail call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self), !range !13
+  %call35.i = tail call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %self)
   %cmp36.i = icmp slt i32 %call35.i, 0
   br i1 %cmp36.i, label %_io_TextIOWrapper_tell_impl.exit, label %if.end38.i
 
@@ -9557,7 +9557,7 @@ while.body.i:                                     ; preds = %if.end73.i, %if.end
 do.body83.i:                                      ; preds = %while.body.i
   %30 = load ptr, ptr %decoder.i, align 8
   %call85.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %30, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 305), ptr noundef nonnull @.str.101, ptr noundef nonnull %ob_sval.i.i, i64 noundef %skip_bytes.0193.i) #10
-  %call86.i = call fastcc i32 @check_decoded(ptr noundef %call85.i), !range !13
+  %call86.i = call fastcc i32 @check_decoded(ptr noundef %call85.i)
   %cmp87.i = icmp slt i32 %call86.i, 0
   br i1 %cmp87.i, label %if.then241.i, label %if.end90.i
 
@@ -9701,7 +9701,7 @@ if.end131.i:                                      ; preds = %if.else128.i, %do.e
   %call119.pn.i = phi i64 [ %skip_back.0192.i, %if.else128.i ], [ %.val132.i, %do.end120.i ]
   %skip_bytes.1.i = sub i64 %skip_bytes.0193.i, %call119.pn.i
   %cmp76.i = icmp sgt i64 %skip_bytes.1.i, 0
-  br i1 %cmp76.i, label %while.body.i, label %if.then134.i, !llvm.loop !19
+  br i1 %cmp76.i, label %while.body.i, label %if.then134.i, !llvm.loop !17
 
 while.end.i:                                      ; preds = %do.end120.i
   %54 = load i32, ptr %dec_flags.i, align 4
@@ -9748,7 +9748,7 @@ do.body155.i:                                     ; preds = %if.end212.i, %do.bo
   %input.0195.i = phi ptr [ %add.ptr150.i, %do.body155.lr.ph.i ], [ %incdec.ptr.i, %if.end212.i ]
   %58 = load ptr, ptr %decoder.i, align 8
   %call158.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %58, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 305), ptr noundef nonnull @.str.101, ptr noundef %input.0195.i, i64 noundef 1) #10
-  %call159.i = call fastcc i32 @check_decoded(ptr noundef %call158.i), !range !13
+  %call159.i = call fastcc i32 @check_decoded(ptr noundef %call158.i)
   %cmp160.i = icmp slt i32 %call159.i, 0
   br i1 %cmp160.i, label %if.then241.i, label %if.end163.i
 
@@ -9906,7 +9906,7 @@ if.end208.i:                                      ; preds = %if.then200.i, %do.e
 if.end212.i:                                      ; preds = %if.end208.i
   %incdec.ptr.i = getelementptr i8, ptr %input.0195.i, i64 1
   %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %exitcond.not.i, label %if.then216.i, label %do.body155.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %if.then216.i, label %do.body155.i, !llvm.loop !18
 
 while.end213.i:                                   ; preds = %if.end208.i, %if.end147.i
   %input.0.lcssa.i = phi ptr [ %add.ptr150.i, %if.end147.i ], [ %input.0195.i, %if.end208.i ]
@@ -9920,7 +9920,7 @@ if.then216.i:                                     ; preds = %if.end212.i, %while
   %chars_decoded.2225.i = phi i64 [ %chars_decoded.2.i, %while.end213.i ], [ %chars_decoded.1.i, %if.end212.i ]
   %86 = load ptr, ptr %decoder.i, align 8
   %call218.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %86, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 305), ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.9, ptr noundef nonnull @_Py_TrueStruct) #10
-  %call219.i = call fastcc i32 @check_decoded(ptr noundef %call218.i), !range !13
+  %call219.i = call fastcc i32 @check_decoded(ptr noundef %call218.i)
   %cmp220.i = icmp slt i32 %call219.i, 0
   br i1 %cmp220.i, label %if.then241.i, label %if.end223.i
 
@@ -10130,7 +10130,7 @@ declare i32 @_PyFile_Flush(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_newline(ptr nocapture noundef %self, ptr noundef %newline) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_newline(ptr nocapture noundef %self, ptr noundef %newline) unnamed_addr #0 {
 entry:
   %readnl = getelementptr inbounds i8, ptr %self, i64 64
   %0 = load ptr, ptr %readnl, align 8
@@ -10195,10 +10195,20 @@ PyUnicode_DATA.exit:                              ; preds = %if.then.i, %if.end.
   %retval.0.i = phi ptr [ %retval.0.i.i, %if.then.i ], [ %op.val3.i, %if.end.i ]
   %writenl = getelementptr inbounds i8, ptr %self, i64 80
   store ptr %retval.0.i, ptr %writenl, align 8
-  %call33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i, ptr noundef nonnull dereferenceable(2) @.str.30) #11
-  %cmp34 = icmp eq i32 %call33, 0
-  %spec.store.select = select i1 %cmp34, ptr null, ptr %retval.0.i
-  store ptr %spec.store.select, ptr %writenl, align 8
+  %9 = load i8, ptr %retval.0.i, align 1
+  %.not = icmp eq i8 %9, 10
+  br i1 %.not, label %sub_1, label %PyUnicode_DATA.exit.tail
+
+sub_1:                                            ; preds = %PyUnicode_DATA.exit
+  %10 = getelementptr inbounds i8, ptr %retval.0.i, i64 1
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 0
+  %13 = select i1 %12, ptr null, ptr %retval.0.i
+  br label %PyUnicode_DATA.exit.tail
+
+PyUnicode_DATA.exit.tail:                         ; preds = %PyUnicode_DATA.exit, %sub_1
+  %cmp34 = phi ptr [ %retval.0.i, %PyUnicode_DATA.exit ], [ %13, %sub_1 ]
+  store ptr %cmp34, ptr %writenl, align 8
   br label %if.end41
 
 if.else39:                                        ; preds = %lor.end22.thread, %lor.end22
@@ -10206,18 +10216,18 @@ if.else39:                                        ; preds = %lor.end22.thread, %
   store ptr null, ptr %writenl40, align 8
   br label %if.end41
 
-if.end41:                                         ; preds = %PyUnicode_DATA.exit, %if.else39
+if.end41:                                         ; preds = %PyUnicode_DATA.exit.tail, %if.else39
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %return, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end41
-  %9 = load i64, ptr %0, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %10, 0
+  %14 = load i64, ptr %0, align 8
+  %15 = and i64 %14, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %15, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.then.i22
-  %dec.i.i = add i64 %9, -1
+  %dec.i.i = add i64 %14, -1
   store i64 %dec.i.i, ptr %0, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %return
@@ -10243,7 +10253,7 @@ declare ptr @_Py_GetLocaleEncodingObject() local_unnamed_addr #1
 declare ptr @_PyCodec_LookupTextEncoding(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_textiowrapper_set_decoder(ptr nocapture noundef %self, ptr noundef %codec_info, ptr noundef %errors) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_set_decoder(ptr nocapture noundef %self, ptr noundef %codec_info, ptr noundef %errors) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %buffer = getelementptr inbounds i8, ptr %self, i64 32
@@ -10357,7 +10367,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_textiowrapper_set_encoder(ptr nocapture noundef %self, ptr noundef %codec_info, ptr noundef %errors) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_set_encoder(ptr nocapture noundef %self, ptr noundef %codec_info, ptr noundef %errors) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %res = alloca ptr, align 8
@@ -10465,7 +10475,7 @@ if.end32:                                         ; preds = %while.body
   %incdec.ptr = getelementptr i8, ptr %e.023, i64 16
   %13 = load ptr, ptr %incdec.ptr, align 8
   %cmp25.not = icmp eq ptr %13, null
-  br i1 %cmp25.not, label %if.end33, label %while.body, !llvm.loop !21
+  br i1 %cmp25.not, label %if.end33, label %while.body, !llvm.loop !19
 
 if.end33:                                         ; preds = %if.end32, %if.then29, %land.lhs.true
   %.pr = load ptr, ptr %res, align 8
@@ -10494,7 +10504,7 @@ return:                                           ; preds = %if.end20, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_textiowrapper_fix_encoder_state(ptr nocapture noundef %self) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_fix_encoder_state(ptr nocapture noundef %self) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %self.addr.i = alloca ptr, align 8
@@ -10766,7 +10776,7 @@ declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 declare void @_PyErr_ChainExceptions1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_textiowrapper_encoder_reset(ptr nocapture noundef %self, i32 noundef %start_of_stream) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_reset(ptr nocapture noundef %self, i32 noundef %start_of_stream) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %self.addr.i = alloca ptr, align 8
@@ -10821,7 +10831,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @textiowrapper_parse_cookie(ptr nocapture noundef writeonly %cookie, ptr noundef %cookieObj) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @textiowrapper_parse_cookie(ptr nocapture noundef writeonly %cookie, ptr noundef %cookieObj) unnamed_addr #0 {
 entry:
   %buffer = alloca [21 x i8], align 16
   %call = tail call ptr @PyNumber_Long(ptr noundef %cookieObj) #10
@@ -10885,7 +10895,7 @@ return:                                           ; preds = %if.end.i17, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_textiowrapper_decoder_setstate(ptr nocapture noundef readonly %self, i64 %cookie.0.val, i32 %cookie.8.val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_decoder_setstate(ptr nocapture noundef readonly %self, i64 %cookie.0.val, i32 %cookie.8.val) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %cmp = icmp eq i64 %cookie.0.val, 0
@@ -10935,7 +10945,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare i64 @PyUnicode_GetLength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_textiowrapper_encoder_setstate(ptr nocapture noundef %self, i64 %cookie.0.val, i32 %cookie.8.val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_setstate(ptr nocapture noundef %self, i64 %cookie.0.val, i32 %cookie.8.val) unnamed_addr #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %self.addr.i.i = alloca ptr, align 8
@@ -11211,7 +11221,7 @@ _io_TextIOWrapper__CHUNK_SIZE_get_impl.exit:      ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_io_TextIOWrapper__CHUNK_SIZE_set(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %_unused_context) #0 {
+define internal range(i32 -1, 1) i32 @_io_TextIOWrapper__CHUNK_SIZE_set(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %_unused_context) #0 {
 entry:
   %ok.i = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %ok.i, align 8
@@ -11330,12 +11340,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -1, i32 1}
-!14 = !{i32 -1, i32 2}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}

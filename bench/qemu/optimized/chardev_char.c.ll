@@ -141,7 +141,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.108 = private unnamed_addr constant [7 x i8] c"driver\00", align 1
 @.str.109 = private unnamed_addr constant [24 x i8] c"an abstract device type\00", align 1
 @__func__.CHARDEV_CLASS = private unnamed_addr constant [14 x i8] c"CHARDEV_CLASS\00", align 1
-@.str.110 = private unnamed_addr constant [2 x i8] c"?\00", align 1
 @.str.111 = private unnamed_addr constant [5 x i8] c"help\00", align 1
 @.str.112 = private unnamed_addr constant [9 x i8] c"chardev-\00", align 1
 @.str.113 = private unnamed_addr constant [59 x i8] c"g_str_has_prefix(object_class_get_name(klass), \22chardev-\22)\00", align 1
@@ -1154,16 +1153,22 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(2) @.str.110) #16
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then, label %is_help_option.exit
+  %0 = load i8, ptr %call, align 1
+  %.not.i = icmp eq i8 %0, 63
+  br i1 %.not.i, label %entry.tail.i, label %is_help_option.exit
 
-is_help_option.exit:                              ; preds = %land.lhs.true
+entry.tail.i:                                     ; preds = %land.lhs.true
+  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.then, label %is_help_option.exit
+
+is_help_option.exit:                              ; preds = %land.lhs.true, %entry.tail.i
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.111) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true, %is_help_option.exit
+if.then:                                          ; preds = %entry.tail.i, %is_help_option.exit
   %call3 = tail call ptr @g_string_new(ptr noundef nonnull @.str.62) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fe.i)
   store ptr @help_string_append, ptr %fe.i, align 8
@@ -1171,8 +1176,8 @@ if.then:                                          ; preds = %land.lhs.true, %is_
   store ptr %call3, ptr %opaque2.i, align 8
   call void @object_class_foreach(ptr noundef nonnull @chardev_class_foreach, ptr noundef nonnull @.str.4, i1 noundef zeroext false, ptr noundef nonnull %fe.i) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fe.i)
-  %0 = load ptr, ptr %call3, align 8
-  %call5 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.63, ptr noundef %0) #13
+  %4 = load ptr, ptr %call3, align 8
+  %call5 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.63, ptr noundef %4) #13
   %call6 = call ptr @g_string_free(ptr noundef nonnull %call3, i32 noundef 1) #13
   br label %return
 
@@ -1207,9 +1212,9 @@ if.end.i:                                         ; preds = %if.end16, %if.then1
   %tobool21 = icmp ne ptr %bid.0, null
   %cond = select i1 %tobool21, ptr %bid.0, ptr %call1
   %call22 = tail call ptr @object_class_get_name(ptr noundef nonnull %call13) #13
-  %call1.i32 = tail call fastcc ptr @chardev_new(ptr noundef nonnull %cond, ptr noundef %call22, ptr noundef nonnull %call9, ptr noundef %context, i1 noundef zeroext false, ptr noundef %errp)
-  %tobool2.not.i33 = icmp eq ptr %call1.i32, null
-  br i1 %tobool2.not.i33, label %qemu_chardev_new.exit.thread, label %qemu_chardev_new.exit
+  %call1.i31 = tail call fastcc ptr @chardev_new(ptr noundef nonnull %cond, ptr noundef %call22, ptr noundef nonnull %call9, ptr noundef %context, i1 noundef zeroext false, ptr noundef %errp)
+  %tobool2.not.i32 = icmp eq ptr %call1.i31, null
+  br i1 %tobool2.not.i32, label %qemu_chardev_new.exit.thread, label %qemu_chardev_new.exit
 
 qemu_chardev_new.exit.thread:                     ; preds = %if.end.i
   tail call void @g_free(ptr noundef null) #13
@@ -1218,16 +1223,16 @@ qemu_chardev_new.exit.thread:                     ; preds = %if.end.i
 qemu_chardev_new.exit:                            ; preds = %if.end.i
   %call.i.i = tail call ptr @object_get_root() #13
   %call1.i.i = tail call ptr @container_get(ptr noundef %call.i.i, ptr noundef nonnull @.str) #13
-  %call6.i = tail call ptr @object_property_try_add_child(ptr noundef %call1.i.i, ptr noundef nonnull %cond, ptr noundef nonnull %call1.i32, ptr noundef %errp) #13
+  %call6.i = tail call ptr @object_property_try_add_child(ptr noundef %call1.i.i, ptr noundef nonnull %cond, ptr noundef nonnull %call1.i31, ptr noundef %errp) #13
   %tobool7.not.i = icmp eq ptr %call6.i, null
-  tail call void @object_unref(ptr noundef nonnull %call1.i32) #13
-  %.call1.i = select i1 %tobool7.not.i, ptr null, ptr %call1.i32
+  tail call void @object_unref(ptr noundef nonnull %call1.i31) #13
+  %.call1.i = select i1 %tobool7.not.i, ptr null, ptr %call1.i31
   tail call void @g_free(ptr noundef null) #13
   %cmp24 = icmp ne ptr %.call1.i, null
   %or.cond = select i1 %cmp24, i1 %tobool21, i1 false
-  br i1 %or.cond, label %if.end.i36, label %out
+  br i1 %or.cond, label %if.end.i34, label %out
 
-if.end.i36:                                       ; preds = %qemu_chardev_new.exit
+if.end.i34:                                       ; preds = %qemu_chardev_new.exit
   tail call void @qapi_free_ChardevBackend(ptr noundef nonnull %call9) #13
   %call29 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   store i32 8, ptr %call29, align 8
@@ -1235,34 +1240,34 @@ if.end.i36:                                       ; preds = %qemu_chardev_new.ex
   %u = getelementptr inbounds i8, ptr %call29, i64 8
   store ptr %call30, ptr %u, align 8
   %call31 = tail call noalias ptr @g_strdup(ptr noundef nonnull %bid.0) #13
-  %1 = load ptr, ptr %u, align 8
-  %chardev = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %u, align 8
+  %chardev = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %call31, ptr %chardev, align 8
-  %call1.i39 = tail call fastcc ptr @chardev_new(ptr noundef nonnull %call1, ptr noundef nonnull @.str.66, ptr noundef nonnull %call29, ptr noundef %context, i1 noundef zeroext false, ptr noundef %errp)
-  %tobool2.not.i40 = icmp eq ptr %call1.i39, null
-  br i1 %tobool2.not.i40, label %if.then36, label %if.end4.i41
+  %call1.i37 = tail call fastcc ptr @chardev_new(ptr noundef nonnull %call1, ptr noundef nonnull @.str.66, ptr noundef nonnull %call29, ptr noundef %context, i1 noundef zeroext false, ptr noundef %errp)
+  %tobool2.not.i38 = icmp eq ptr %call1.i37, null
+  br i1 %tobool2.not.i38, label %if.then36, label %if.end4.i39
 
-if.end4.i41:                                      ; preds = %if.end.i36
-  %call.i.i42 = tail call ptr @object_get_root() #13
-  %call1.i.i43 = tail call ptr @container_get(ptr noundef %call.i.i42, ptr noundef nonnull @.str) #13
-  %call6.i44 = tail call ptr @object_property_try_add_child(ptr noundef %call1.i.i43, ptr noundef nonnull %call1, ptr noundef nonnull %call1.i39, ptr noundef %errp) #13
-  %tobool7.not.i45 = icmp eq ptr %call6.i44, null
-  tail call void @object_unref(ptr noundef nonnull %call1.i39) #13
-  br i1 %tobool7.not.i45, label %if.then36, label %qemu_chardev_new.exit50
+if.end4.i39:                                      ; preds = %if.end.i34
+  %call.i.i40 = tail call ptr @object_get_root() #13
+  %call1.i.i41 = tail call ptr @container_get(ptr noundef %call.i.i40, ptr noundef nonnull @.str) #13
+  %call6.i42 = tail call ptr @object_property_try_add_child(ptr noundef %call1.i.i41, ptr noundef nonnull %call1, ptr noundef nonnull %call1.i37, ptr noundef %errp) #13
+  %tobool7.not.i43 = icmp eq ptr %call6.i42, null
+  tail call void @object_unref(ptr noundef nonnull %call1.i37) #13
+  br i1 %tobool7.not.i43, label %if.then36, label %qemu_chardev_new.exit48
 
-qemu_chardev_new.exit50:                          ; preds = %if.end4.i41
+qemu_chardev_new.exit48:                          ; preds = %if.end4.i39
   tail call void @g_free(ptr noundef null) #13
   br label %out
 
-if.then36:                                        ; preds = %if.end4.i41, %if.end.i36
+if.then36:                                        ; preds = %if.end4.i39, %if.end.i34
   tail call void @g_free(ptr noundef null) #13
   tail call void @object_unparent(ptr noundef nonnull %.call1.i) #13
   br label %out
 
-out:                                              ; preds = %qemu_chardev_new.exit50, %qemu_chardev_new.exit.thread, %qemu_chardev_new.exit, %if.end12, %if.then36
-  %backend.0 = phi ptr [ %call9, %if.end12 ], [ %call29, %if.then36 ], [ %call9, %qemu_chardev_new.exit ], [ %call29, %qemu_chardev_new.exit50 ], [ %call9, %qemu_chardev_new.exit.thread ]
-  %bid.1 = phi ptr [ null, %if.end12 ], [ %bid.0, %if.then36 ], [ %bid.0, %qemu_chardev_new.exit ], [ %bid.0, %qemu_chardev_new.exit50 ], [ %bid.0, %qemu_chardev_new.exit.thread ]
-  %chr.0 = phi ptr [ null, %if.end12 ], [ null, %if.then36 ], [ %.call1.i, %qemu_chardev_new.exit ], [ %call1.i39, %qemu_chardev_new.exit50 ], [ null, %qemu_chardev_new.exit.thread ]
+out:                                              ; preds = %qemu_chardev_new.exit48, %qemu_chardev_new.exit.thread, %qemu_chardev_new.exit, %if.end12, %if.then36
+  %backend.0 = phi ptr [ %call9, %if.end12 ], [ %call29, %if.then36 ], [ %call9, %qemu_chardev_new.exit ], [ %call29, %qemu_chardev_new.exit48 ], [ %call9, %qemu_chardev_new.exit.thread ]
+  %bid.1 = phi ptr [ null, %if.end12 ], [ %bid.0, %if.then36 ], [ %bid.0, %qemu_chardev_new.exit ], [ %bid.0, %qemu_chardev_new.exit48 ], [ %bid.0, %qemu_chardev_new.exit.thread ]
+  %chr.0 = phi ptr [ null, %if.end12 ], [ null, %if.then36 ], [ %.call1.i, %qemu_chardev_new.exit ], [ %call1.i37, %qemu_chardev_new.exit48 ], [ null, %qemu_chardev_new.exit.thread ]
   tail call void @qapi_free_ChardevBackend(ptr noundef nonnull %backend.0) #13
   tail call void @g_free(ptr noundef %bid.1) #13
   br label %return

@@ -24,7 +24,6 @@ $_ZN13UPerfFunction4timeEiP10UErrorCode = comdat any
 @_ZL9execCount = internal unnamed_addr global i32 0, align 4
 @stdout = external local_unnamed_addr global ptr, align 8
 @.str.4 = private unnamed_addr constant [36 x i8] c"\0A---ERROR: Test doesn't exist: %s!\0A\00", align 1
-@.str.5 = private unnamed_addr constant [2 x i8] c"*\00", align 1
 @.str.6 = private unnamed_addr constant [5 x i8] c"LIST\00", align 1
 @.str.7 = private unnamed_addr constant [47 x i8] c"*** runIndexedTest needs to be overridden! ***\00", align 1
 @.str.8 = private unnamed_addr constant [29 x i8] c"%s function returned nullptr\00", align 1
@@ -611,7 +610,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %2 = phi i32 [ %0, %for.body.lr.ph ], [ %12, %for.inc ]
+  %2 = phi i32 [ %0, %for.body.lr.ph ], [ %15, %for.inc ]
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %res.016 = phi i8 [ 0, %for.body.lr.ph ], [ %res.1, %for.inc ]
   %3 = load ptr, ptr %_argv, align 8
@@ -650,36 +649,39 @@ if.end5.i:                                        ; preds = %if.end.i
 
 lor.lhs.false.i:                                  ; preds = %if.end5.i, %if.end5.thread.i
   %6 = load i8, ptr %4, align 1
-  %cmp.i = icmp eq i8 %6, 0
-  br i1 %cmp.i, label %if.then10.i, label %lor.lhs.false7.i
+  switch i8 %6, label %if.else12.i [
+    i8 0, label %if.then10.i
+    i8 42, label %lor.lhs.false7.tail.i
+  ]
 
-lor.lhs.false7.i:                                 ; preds = %lor.lhs.false.i
-  %call8.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(2) @.str.5) #21
-  %cmp9.i = icmp eq i32 %call8.i, 0
-  br i1 %cmp9.i, label %if.then10.i, label %if.else12.i
+lor.lhs.false7.tail.i:                            ; preds = %lor.lhs.false.i
+  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %if.then10.i, label %if.else12.i
 
-if.then10.i:                                      ; preds = %lor.lhs.false7.i, %lor.lhs.false.i
+if.then10.i:                                      ; preds = %lor.lhs.false7.tail.i, %lor.lhs.false.i
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
-  %7 = load ptr, ptr %vfn.i, align 8
-  %call11.i = tail call noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef null, ptr noundef null)
+  %10 = load ptr, ptr %vfn.i, align 8
+  %call11.i = tail call noundef signext i8 %10(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef null, ptr noundef null)
   br i1 %tobool2.not.i, label %_ZN9UPerfTest7runTestEPcS0_.exit, label %if.then25.i
 
-if.else12.i:                                      ; preds = %lor.lhs.false7.i
+if.else12.i:                                      ; preds = %lor.lhs.false7.tail.i, %lor.lhs.false.i
   %call13.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.6) #21
   %cmp14.i = icmp eq i32 %call13.i, 0
   %vtable16.i = load ptr, ptr %this, align 8
   br i1 %cmp14.i, label %if.then15.i, label %if.end23.i
 
 if.then15.i:                                      ; preds = %if.else12.i
-  %8 = load ptr, ptr %vtable16.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(160) %this)
+  %11 = load ptr, ptr %vtable16.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(160) %this)
   br i1 %tobool2.not.i, label %_ZN9UPerfTest7runTestEPcS0_.exit, label %if.then25.i
 
 if.end23.i:                                       ; preds = %if.else12.i
   %vfn20.i = getelementptr inbounds i8, ptr %vtable16.i, i64 32
-  %9 = load ptr, ptr %vfn20.i, align 8
-  %call21.i = tail call noundef signext i8 %9(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull %4, ptr noundef %parameter.0)
+  %12 = load ptr, ptr %vfn20.i, align 8
+  %call21.i = tail call noundef signext i8 %12(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull %4, ptr noundef %parameter.0)
   br i1 %tobool2.not.i, label %_ZN9UPerfTest7runTestEPcS0_.exit, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end23.i, %if.then15.i, %if.then10.i
@@ -690,8 +692,8 @@ if.then25.i:                                      ; preds = %if.end23.i, %if.the
 _ZN9UPerfTest7runTestEPcS0_.exit:                 ; preds = %if.then10.i, %if.then15.i, %if.end23.i, %if.then25.i
   %rval.031.i = phi i8 [ %call11.i, %if.then10.i ], [ %rval.030.i, %if.then25.i ], [ %call21.i, %if.end23.i ], [ 1, %if.then15.i ]
   %tobool18 = icmp eq i8 %rval.031.i, 0
-  %10 = load i32, ptr @_ZL9execCount, align 4
-  %cmp19 = icmp slt i32 %10, 1
+  %13 = load i32, ptr @_ZL9execCount, align 4
+  %cmp19 = icmp slt i32 %13, 1
   %or.cond = select i1 %tobool18, i1 true, i1 %cmp19
   br i1 %or.cond, label %if.then20, label %_ZN9UPerfTest7runTestEPcS0_.exit.for.inc_crit_edge
 
@@ -700,16 +702,16 @@ _ZN9UPerfTest7runTestEPcS0_.exit.for.inc_crit_edge: ; preds = %_ZN9UPerfTest7run
   br label %for.inc
 
 if.then20:                                        ; preds = %_ZN9UPerfTest7runTestEPcS0_.exit
-  %11 = load ptr, ptr @stdout, align 8
-  %call21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.4, ptr noundef nonnull %4)
+  %14 = load ptr, ptr @stdout, align 8
+  %call21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef nonnull %4)
   br label %return
 
 for.inc:                                          ; preds = %_ZN9UPerfTest7runTestEPcS0_.exit.for.inc_crit_edge, %for.body
-  %12 = phi i32 [ %.pre, %_ZN9UPerfTest7runTestEPcS0_.exit.for.inc_crit_edge ], [ %2, %for.body ]
+  %15 = phi i32 [ %.pre, %_ZN9UPerfTest7runTestEPcS0_.exit.for.inc_crit_edge ], [ %2, %for.body ]
   %res.1 = phi i8 [ %rval.031.i, %_ZN9UPerfTest7runTestEPcS0_.exit.for.inc_crit_edge ], [ %res.016, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = sext i32 %12 to i64
-  %cmp3 = icmp slt i64 %indvars.iv.next, %13
+  %16 = sext i32 %15 to i64
+  %cmp3 = icmp slt i64 %indvars.iv.next, %16
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !6
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.then20, %if.then
@@ -751,36 +753,39 @@ if.end5:                                          ; preds = %if.end
 
 lor.lhs.false:                                    ; preds = %if.end5, %if.end5.thread
   %1 = load i8, ptr %name, align 1
-  %cmp = icmp eq i8 %1, 0
-  br i1 %cmp, label %if.then10, label %lor.lhs.false7
+  switch i8 %1, label %if.else12 [
+    i8 0, label %if.then10
+    i8 42, label %lor.lhs.false7.tail
+  ]
 
-lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %call8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(2) @.str.5) #21
-  %cmp9 = icmp eq i32 %call8, 0
-  br i1 %cmp9, label %if.then10, label %if.else12
+lor.lhs.false7.tail:                              ; preds = %lor.lhs.false
+  %2 = getelementptr inbounds i8, ptr %name, i64 1
+  %3 = load i8, ptr %2, align 1
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %if.then10, label %if.else12
 
-if.then10:                                        ; preds = %lor.lhs.false7, %lor.lhs.false
+if.then10:                                        ; preds = %lor.lhs.false, %lor.lhs.false7.tail
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %2 = load ptr, ptr %vfn, align 8
-  %call11 = tail call noundef signext i8 %2(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef null, ptr noundef null)
+  %5 = load ptr, ptr %vfn, align 8
+  %call11 = tail call noundef signext i8 %5(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef null, ptr noundef null)
   br i1 %tobool2.not, label %if.end26, label %if.then25
 
-if.else12:                                        ; preds = %lor.lhs.false7
+if.else12:                                        ; preds = %lor.lhs.false, %lor.lhs.false7.tail
   %call13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(5) @.str.6) #21
   %cmp14 = icmp eq i32 %call13, 0
   %vtable16 = load ptr, ptr %this, align 8
   br i1 %cmp14, label %if.then15, label %if.end23
 
 if.then15:                                        ; preds = %if.else12
-  %3 = load ptr, ptr %vtable16, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(160) %this)
+  %6 = load ptr, ptr %vtable16, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(160) %this)
   br i1 %tobool2.not, label %if.end26, label %if.then25
 
 if.end23:                                         ; preds = %if.else12
   %vfn20 = getelementptr inbounds i8, ptr %vtable16, i64 32
-  %4 = load ptr, ptr %vfn20, align 8
-  %call21 = tail call noundef signext i8 %4(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull %name, ptr noundef %par)
+  %7 = load ptr, ptr %vfn20, align 8
+  %call21 = tail call noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull %name, ptr noundef %par)
   br i1 %tobool2.not, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %if.then15, %if.then10, %if.end23
@@ -816,7 +821,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef readonly %testname, ptr noundef %par) unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef readonly %testname, ptr noundef %par) unnamed_addr #3 align 2 {
 entry:
   %name = alloca ptr, align 8
   %status = alloca i32, align 4

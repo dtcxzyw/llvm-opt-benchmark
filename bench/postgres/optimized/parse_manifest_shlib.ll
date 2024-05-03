@@ -45,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.36 = private unnamed_addr constant [8 x i8] c"End-LSN\00", align 1
 @.str.37 = private unnamed_addr constant [27 x i8] c"unexpected WAL range field\00", align 1
 @.str.38 = private unnamed_addr constant [24 x i8] c"unexpected object field\00", align 1
-@.str.39 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @.str.40 = private unnamed_addr constant [28 x i8] c"unexpected manifest version\00", align 1
 @.str.41 = private unnamed_addr constant [18 x i8] c"unexpected scalar\00", align 1
 @.str.42 = private unnamed_addr constant [26 x i8] c"expected at least 2 lines\00", align 1
@@ -1139,106 +1138,112 @@ define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noun
 define internal noundef i32 @json_manifest_scalar(ptr nocapture noundef %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %39 [
-    i32 3, label %6
-    i32 7, label %13
-    i32 11, label %28
-    i32 12, label %37
+  switch i32 %5, label %40 [
+    i32 3, label %sub_0
+    i32 7, label %14
+    i32 11, label %29
+    i32 12, label %38
   ]
 
-6:                                                ; preds = %3
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.39) #10
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %12, label %8
+sub_0:                                            ; preds = %3
+  %6 = load i8, ptr %1, align 1
+  %.not31 = icmp eq i8 %6, 49
+  br i1 %.not31, label %.tail, label %.tail.thread
 
-8:                                                ; preds = %6
-  %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
-  %11 = load ptr, ptr %10, align 8
-  tail call void (ptr, ptr, ...) %11(ptr noundef %9, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.40) #9
+.tail:                                            ; preds = %sub_0
+  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %13, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_0, %.tail
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = load ptr, ptr %11, align 8
+  tail call void (ptr, ptr, ...) %12(ptr noundef %10, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.40) #9
   unreachable
 
-12:                                               ; preds = %6
+13:                                               ; preds = %.tail
   store i32 2, ptr %4, align 8
-  br label %43
+  br label %44
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4
-  switch i32 %15, label %27 [
-    i32 0, label %16
-    i32 1, label %18
-    i32 2, label %20
-    i32 3, label %22
-    i32 4, label %23
-    i32 5, label %25
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = load i32, ptr %15, align 4
+  switch i32 %16, label %28 [
+    i32 0, label %17
+    i32 1, label %19
+    i32 2, label %21
+    i32 3, label %23
+    i32 4, label %24
+    i32 5, label %26
   ]
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %1, ptr %17, align 8
-  br label %27
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %1, ptr %18, align 8
+  br label %28
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %1, ptr %19, align 8
-  br label %27
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %1, ptr %20, align 8
+  br label %28
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %1, ptr %21, align 8
-  br label %27
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %1, ptr %22, align 8
+  br label %28
 
-22:                                               ; preds = %13
+23:                                               ; preds = %14
   tail call void @pfree(ptr noundef %1) #8
-  br label %27
+  br label %28
 
-23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %1, ptr %24, align 8
-  br label %27
+24:                                               ; preds = %14
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %1, ptr %25, align 8
+  br label %28
 
-25:                                               ; preds = %13
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %1, ptr %26, align 8
-  br label %27
+26:                                               ; preds = %14
+  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %1, ptr %27, align 8
+  br label %28
 
-27:                                               ; preds = %25, %23, %22, %20, %18, %16, %13
+28:                                               ; preds = %26, %24, %23, %21, %19, %17, %14
   store i32 6, ptr %4, align 8
-  br label %43
+  br label %44
 
-28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp ult i32 %30, 3
-  br i1 %31, label %switch.lookup, label %36
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp ult i32 %31, 3
+  br i1 %32, label %switch.lookup, label %37
 
-switch.lookup:                                    ; preds = %28
-  %32 = shl nuw nsw i32 %30, 3
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr i8, ptr %0, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 72
-  store ptr %1, ptr %35, align 8
-  br label %36
+switch.lookup:                                    ; preds = %29
+  %33 = shl nuw nsw i32 %31, 3
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %0, i64 %34
+  %36 = getelementptr inbounds i8, ptr %35, i64 72
+  store ptr %1, ptr %36, align 8
+  br label %37
 
-36:                                               ; preds = %28, %switch.lookup
+37:                                               ; preds = %29, %switch.lookup
   store i32 10, ptr %4, align 8
-  br label %43
+  br label %44
 
-37:                                               ; preds = %3
+38:                                               ; preds = %3
   store i32 1, ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr %1, ptr %38, align 8
-  br label %43
+  %39 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr %1, ptr %39, align 8
+  br label %44
 
-39:                                               ; preds = %3
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8
-  tail call void (ptr, ptr, ...) %42(ptr noundef %40, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.41) #9
+40:                                               ; preds = %3
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  tail call void (ptr, ptr, ...) %43(ptr noundef %41, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.41) #9
   unreachable
 
-43:                                               ; preds = %37, %36, %27, %12
+44:                                               ; preds = %38, %37, %28, %13
   ret i32 0
 }
 

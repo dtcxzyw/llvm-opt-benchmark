@@ -134,7 +134,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.121 = private unnamed_addr constant [9 x i8] c"Identity\00", align 1
 @.str.122 = private unnamed_addr constant [5 x i8] c"/CFM\00", align 1
 @.str.123 = private unnamed_addr constant [30 x i8] c"parse_enc_method: %s CFM: %s\0A\00", align 1
-@.str.124 = private unnamed_addr constant [3 x i8] c"V2\00", align 1
 @.str.125 = private unnamed_addr constant [6 x i8] c"AESV2\00", align 1
 @.str.126 = private unnamed_addr constant [6 x i8] c"AESV3\00", align 1
 @.str.127 = private unnamed_addr constant [5 x i8] c"None\00", align 1
@@ -394,7 +393,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.pdfobj_flag = private unnamed_addr constant [21 x ptr] [ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.29, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.38, ptr @.str.40, ptr @.str.27, ptr @.str.28, ptr @.str.39, ptr @.str.37, ptr @.str.46, ptr @.str.41, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.47, ptr @.str.42], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pdf_findobj_in_objstm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 28) i32 @pdf_findobj_in_objstm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
   %5 = icmp eq ptr %0, null
@@ -809,7 +808,7 @@ declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pdf_findobj(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 28) i32 @pdf_findobj(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -4863,53 +4862,59 @@ define i32 @parse_enc_method(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   %5 = alloca i32, align 4
   store i32 %1, ptr %5, align 4
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %22, label %6
+  br i1 %.not, label %23, label %6
 
 6:                                                ; preds = %4
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(9) @.str.121) #26
   %.not21 = icmp eq i32 %7, 0
-  br i1 %.not21, label %22, label %8
+  br i1 %.not21, label %23, label %8
 
 8:                                                ; preds = %6
   %9 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %2)
   %.not22 = icmp eq ptr %9, null
-  br i1 %.not22, label %22, label %10
+  br i1 %.not22, label %23, label %10
 
 10:                                               ; preds = %8
   %11 = load i32, ptr %5, align 4
   %12 = tail call fastcc ptr @pdf_readval(ptr noundef nonnull %9, i32 noundef %11, ptr noundef nonnull @.str.122)
   %.not23 = icmp eq ptr %12, null
-  br i1 %.not23, label %22, label %13
+  br i1 %.not23, label %23, label %sub_0
 
-13:                                               ; preds = %10
+sub_0:                                            ; preds = %10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.123, ptr noundef nonnull %2, ptr noundef nonnull %12) #22
-  %14 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(3) @.str.124, i64 noundef 2) #26
-  %.not24 = icmp eq i32 %14, 0
-  br i1 %.not24, label %21, label %15
+  %13 = load i8, ptr %12, align 1
+  %.not28 = icmp eq i8 %13, 86
+  br i1 %.not28, label %.tail, label %.tail.thread
 
-15:                                               ; preds = %13
-  %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(6) @.str.125, i64 noundef 5) #26
-  %.not25 = icmp eq i32 %16, 0
-  br i1 %.not25, label %21, label %17
+.tail:                                            ; preds = %sub_0
+  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 50
+  br i1 %16, label %22, label %.tail.thread
 
-17:                                               ; preds = %15
-  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(6) @.str.126, i64 noundef 5) #26
-  %.not26 = icmp eq i32 %18, 0
-  br i1 %.not26, label %21, label %19
+.tail.thread:                                     ; preds = %sub_0, %.tail
+  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(6) @.str.125, i64 noundef 5) #26
+  %.not25 = icmp eq i32 %17, 0
+  br i1 %.not25, label %22, label %18
 
-19:                                               ; preds = %17
-  %20 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(5) @.str.127, i64 noundef 4) #26
-  %.not27 = icmp eq i32 %20, 0
+18:                                               ; preds = %.tail.thread
+  %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(6) @.str.126, i64 noundef 5) #26
+  %.not26 = icmp eq i32 %19, 0
+  br i1 %.not26, label %22, label %20
+
+20:                                               ; preds = %18
+  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(5) @.str.127, i64 noundef 4) #26
+  %.not27 = icmp eq i32 %21, 0
   %spec.select = zext i1 %.not27 to i32
-  br label %21
-
-21:                                               ; preds = %19, %17, %15, %13
-  %.0 = phi i32 [ 3, %13 ], [ 4, %15 ], [ 5, %17 ], [ %spec.select, %19 ]
-  tail call void @free(ptr noundef nonnull %12) #22
   br label %22
 
-22:                                               ; preds = %10, %21, %8, %6, %4
-  %.017 = phi i32 [ %3, %4 ], [ 2, %6 ], [ %3, %8 ], [ %.0, %21 ], [ 0, %10 ]
+22:                                               ; preds = %20, %18, %.tail.thread, %.tail
+  %.0 = phi i32 [ 3, %.tail ], [ 4, %.tail.thread ], [ 5, %18 ], [ %spec.select, %20 ]
+  tail call void @free(ptr noundef nonnull %12) #22
+  br label %23
+
+23:                                               ; preds = %10, %22, %8, %6, %4
+  %.017 = phi i32 [ %3, %4 ], [ 2, %6 ], [ %3, %8 ], [ %.0, %22 ], [ 0, %10 ]
   ret i32 %.017
 }
 
@@ -5569,7 +5574,7 @@ pdf_readint.exit207:                              ; preds = %102, %105, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pdf_readbool(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pdf_readbool(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = call fastcc ptr @pdf_getdict(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.138)
@@ -6097,7 +6102,7 @@ default.unreachable:                              ; preds = %dbg_printhex.exit12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pdf_find_and_parse_objs_in_objstm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @pdf_find_and_parse_objs_in_objstm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5
@@ -6155,7 +6160,7 @@ define noundef i32 @pdf_find_and_parse_objs_in_objstm(ptr noundef %0, ptr nounde
   br label %.loopexit
 
 29:                                               ; preds = %25
-  %30 = call i32 @pdf_findobj_in_objstm(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3), !range !4
+  %30 = call i32 @pdf_findobj_in_objstm(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3)
   switch i32 %30, label %46 [
     i32 0, label %31
     i32 22, label %.loopexit
@@ -6472,7 +6477,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 
 129:                                              ; preds = %123
   %130 = getelementptr inbounds i8, ptr %128, i64 %spec.store.select4
-  %131 = call fastcc i32 @xrefCheck(ptr noundef nonnull %128, ptr noundef nonnull %130), !range !5
+  %131 = call fastcc i32 @xrefCheck(ptr noundef nonnull %128, ptr noundef nonnull %130)
   %132 = icmp eq i32 %131, -1
   br i1 %132, label %133, label %137
 
@@ -6519,7 +6524,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   br label %154
 
 154:                                              ; preds = %154, %150
-  %155 = call i32 @pdf_findobj(ptr noundef nonnull %4), !range !4
+  %155 = call i32 @pdf_findobj(ptr noundef nonnull %4)
   switch i32 %155, label %154 [
     i32 22, label %.preheader60.i
     i32 20, label %157
@@ -8136,7 +8141,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 declare i32 @cli_jsonstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @xrefCheck(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @xrefCheck(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph.preheader, label %.critedge
 
@@ -9619,5 +9624,3 @@ attributes #26 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 28}
-!5 = !{i32 -1, i32 1}

@@ -51,7 +51,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @bio_err = external local_unnamed_addr global ptr, align 8
 @.str.41 = private unnamed_addr constant [28 x i8] c"%s: Use -help for summary.\0A\00", align 1
 @.str.42 = private unnamed_addr constant [24 x i8] c"Error getting password\0A\00", align 1
-@.str.43 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.44 = private unnamed_addr constant [12 x i8] c"private key\00", align 1
 @.str.45 = private unnamed_addr constant [26 x i8] c"Error setting public key\0A\00", align 1
 @.str.46 = private unnamed_addr constant [21 x i8] c"Error signing SPKAC\0A\00", align 1
@@ -63,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.52 = private unnamed_addr constant [19 x i8] c"Signature Failure\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @spkac_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @spkac_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %passin = alloca ptr, align 8
   %md = alloca ptr, align 8
@@ -213,19 +212,29 @@ if.end43:                                         ; preds = %if.end38
 if.then45:                                        ; preds = %if.end43
   %call46 = call i32 @opt_md(ptr noundef %digest.0, ptr noundef nonnull %md) #3
   %tobool47.not = icmp eq i32 %call46, 0
-  br i1 %tobool47.not, label %end, label %if.end49
+  br i1 %tobool47.not, label %end, label %sub_0
 
-if.end49:                                         ; preds = %if.then45
-  %call50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyfile.0, ptr noundef nonnull dereferenceable(2) @.str.43) #4
-  %tobool51.not = icmp eq i32 %call50, 0
-  %cond = select i1 %tobool51.not, ptr null, ptr %keyfile.0
-  %2 = load i32, ptr %keyformat, align 4
-  %3 = load ptr, ptr %passin, align 8
-  %call52 = call ptr @load_key(ptr noundef %cond, i32 noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef %e.0, ptr noundef nonnull @.str.44) #3
+sub_0:                                            ; preds = %if.then45
+  %2 = load i8, ptr %keyfile.0, align 1
+  %.not = icmp eq i8 %2, 45
+  br i1 %.not, label %sub_1, label %if.end49.tail
+
+sub_1:                                            ; preds = %sub_0
+  %3 = getelementptr inbounds i8, ptr %keyfile.0, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  %6 = select i1 %5, ptr null, ptr %keyfile.0
+  br label %if.end49.tail
+
+if.end49.tail:                                    ; preds = %sub_0, %sub_1
+  %tobool51.not = phi ptr [ %keyfile.0, %sub_0 ], [ %6, %sub_1 ]
+  %7 = load i32, ptr %keyformat, align 4
+  %8 = load ptr, ptr %passin, align 8
+  %call52 = call ptr @load_key(ptr noundef %tobool51.not, i32 noundef %7, i32 noundef 1, ptr noundef %8, ptr noundef %e.0, ptr noundef nonnull @.str.44) #3
   %cmp53 = icmp eq ptr %call52, null
   br i1 %cmp53, label %end, label %if.end55
 
-if.end55:                                         ; preds = %if.end49
+if.end55:                                         ; preds = %if.end49.tail
   %call56 = call ptr @NETSCAPE_SPKI_new() #3
   %cmp57 = icmp eq ptr %call56, null
   br i1 %cmp57, label %end, label %if.end59
@@ -235,12 +244,12 @@ if.end59:                                         ; preds = %if.end55
   br i1 %cmp60.not, label %if.end67, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end59
-  %4 = load ptr, ptr %call56, align 8
-  %challenge62 = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %challenge62, align 8
+  %9 = load ptr, ptr %call56, align 8
+  %challenge62 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %challenge62, align 8
   %call63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %challenge.0) #4
   %conv = trunc i64 %call63 to i32
-  %call64 = call i32 @ASN1_STRING_set(ptr noundef %5, ptr noundef nonnull %challenge.0, i32 noundef %conv) #3
+  %call64 = call i32 @ASN1_STRING_set(ptr noundef %10, ptr noundef nonnull %challenge.0, i32 noundef %conv) #3
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %end, label %if.end67
 
@@ -250,19 +259,19 @@ if.end67:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool69.not, label %if.then70, label %if.end72
 
 if.then70:                                        ; preds = %if.end67
-  %6 = load ptr, ptr @bio_err, align 8
-  %call71 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.45) #3
+  %11 = load ptr, ptr @bio_err, align 8
+  %call71 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %11, ptr noundef nonnull @.str.45) #3
   br label %end
 
 if.end72:                                         ; preds = %if.end67
-  %7 = load ptr, ptr %md, align 8
-  %call73 = call i32 @NETSCAPE_SPKI_sign(ptr noundef nonnull %call56, ptr noundef nonnull %call52, ptr noundef %7) #3
+  %12 = load ptr, ptr %md, align 8
+  %call73 = call i32 @NETSCAPE_SPKI_sign(ptr noundef nonnull %call56, ptr noundef nonnull %call52, ptr noundef %12) #3
   %cmp74 = icmp slt i32 %call73, 1
   br i1 %cmp74, label %if.then76, label %if.end78
 
 if.then76:                                        ; preds = %if.end72
-  %8 = load ptr, ptr @bio_err, align 8
-  %call77 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.46) #3
+  %13 = load ptr, ptr @bio_err, align 8
+  %call77 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef nonnull @.str.46) #3
   br label %end
 
 if.end78:                                         ; preds = %if.end72
@@ -295,10 +304,10 @@ if.end95:                                         ; preds = %if.end90
   br i1 %cmp97, label %if.then99, label %if.end101
 
 if.then99:                                        ; preds = %if.end95
-  %9 = load ptr, ptr @bio_err, align 8
-  %call100 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.49, ptr noundef %spkac.0) #3
-  %10 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %10) #3
+  %14 = load ptr, ptr @bio_err, align 8
+  %call100 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.49, ptr noundef %spkac.0) #3
+  %15 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %15) #3
   br label %end
 
 if.end101:                                        ; preds = %if.end95
@@ -307,10 +316,10 @@ if.end101:                                        ; preds = %if.end95
   br i1 %cmp103, label %if.then105, label %if.end107
 
 if.then105:                                       ; preds = %if.end101
-  %11 = load ptr, ptr @bio_err, align 8
-  %call106 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %11, ptr noundef nonnull @.str.50) #3
-  %12 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %12) #3
+  %16 = load ptr, ptr @bio_err, align 8
+  %call106 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.50) #3
+  %17 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %17) #3
   br label %end
 
 if.end107:                                        ; preds = %if.end101
@@ -334,17 +343,17 @@ if.end116:                                        ; preds = %if.then114, %if.end
 if.then119:                                       ; preds = %if.end116
   %call120 = call i32 @NETSCAPE_SPKI_verify(ptr noundef nonnull %call102, ptr noundef %call117) #3
   %cmp121 = icmp sgt i32 %call120, 0
-  %13 = load ptr, ptr @bio_err, align 8
+  %18 = load ptr, ptr @bio_err, align 8
   br i1 %cmp121, label %if.then123, label %if.else
 
 if.then123:                                       ; preds = %if.then119
-  %call124 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef nonnull @.str.51) #3
+  %call124 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef nonnull @.str.51) #3
   br label %if.end127
 
 if.else:                                          ; preds = %if.then119
-  %call125 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef nonnull @.str.52) #3
-  %14 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %14) #3
+  %call125 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef nonnull @.str.52) #3
+  %19 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %19) #3
   br label %end
 
 if.end127:                                        ; preds = %if.then123, %if.end116
@@ -355,21 +364,21 @@ if.then129:                                       ; preds = %if.end127
   %call130 = call i32 @PEM_write_bio_PUBKEY(ptr noundef nonnull %call108, ptr noundef %call117) #3
   br label %end
 
-end:                                              ; preds = %sw.bb30, %if.end127, %if.then129, %if.end107, %if.end90, %if.end78, %land.lhs.true, %if.end55, %if.end49, %if.then45, %if.else, %if.then105, %if.then99, %if.end88, %if.then87, %if.then76, %if.then70, %if.then41, %sw.bb3, %opthelp
-  %pkey.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end49 ], [ %call52, %if.end55 ], [ %call52, %if.then76 ], [ %call52, %if.end78 ], [ %call52, %if.then87 ], [ %call52, %if.end88 ], [ %call52, %if.then70 ], [ %call52, %land.lhs.true ], [ null, %if.then45 ], [ null, %if.end90 ], [ null, %if.then99 ], [ null, %if.then105 ], [ null, %if.end107 ], [ %call117, %if.else ], [ null, %if.then41 ], [ %call117, %if.then129 ], [ %call117, %if.end127 ], [ null, %sw.bb30 ]
-  %spki.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end49 ], [ null, %if.end55 ], [ %call56, %if.then76 ], [ %call56, %if.end78 ], [ %call56, %if.then87 ], [ %call56, %if.end88 ], [ %call56, %if.then70 ], [ %call56, %land.lhs.true ], [ null, %if.then45 ], [ null, %if.end90 ], [ null, %if.then99 ], [ null, %if.then105 ], [ %call102, %if.end107 ], [ %call102, %if.else ], [ null, %if.then41 ], [ %call102, %if.then129 ], [ %call102, %if.end127 ], [ null, %sw.bb30 ]
-  %conf.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end49 ], [ null, %if.end55 ], [ null, %if.then76 ], [ null, %if.end78 ], [ null, %if.then87 ], [ null, %if.end88 ], [ null, %if.then70 ], [ null, %land.lhs.true ], [ null, %if.then45 ], [ null, %if.end90 ], [ %call91, %if.then99 ], [ %call91, %if.then105 ], [ %call91, %if.end107 ], [ %call91, %if.else ], [ null, %if.then41 ], [ %call91, %if.then129 ], [ %call91, %if.end127 ], [ null, %sw.bb30 ]
-  %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb3 ], [ 1, %if.end49 ], [ 1, %if.end55 ], [ 1, %if.then76 ], [ 1, %if.end78 ], [ 1, %if.then87 ], [ 0, %if.end88 ], [ 1, %if.then70 ], [ 1, %land.lhs.true ], [ 1, %if.then45 ], [ 1, %if.end90 ], [ 1, %if.then99 ], [ 1, %if.then105 ], [ 1, %if.end107 ], [ 1, %if.else ], [ 1, %if.then41 ], [ 0, %if.then129 ], [ 0, %if.end127 ], [ 1, %sw.bb30 ]
-  %out.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end49 ], [ null, %if.end55 ], [ null, %if.then76 ], [ null, %if.end78 ], [ null, %if.then87 ], [ %call84, %if.end88 ], [ null, %if.then70 ], [ null, %land.lhs.true ], [ null, %if.then45 ], [ null, %if.end90 ], [ null, %if.then99 ], [ null, %if.then105 ], [ null, %if.end107 ], [ %call108, %if.else ], [ null, %if.then41 ], [ %call108, %if.then129 ], [ %call108, %if.end127 ], [ null, %sw.bb30 ]
-  %15 = load ptr, ptr %md, align 8
-  call void @EVP_MD_free(ptr noundef %15) #3
+end:                                              ; preds = %sw.bb30, %if.end127, %if.then129, %if.end107, %if.end90, %if.end78, %land.lhs.true, %if.end55, %if.end49.tail, %if.then45, %if.else, %if.then105, %if.then99, %if.end88, %if.then87, %if.then76, %if.then70, %if.then41, %sw.bb3, %opthelp
+  %pkey.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end49.tail ], [ %call52, %if.end55 ], [ %call52, %if.then76 ], [ %call52, %if.end78 ], [ %call52, %if.then87 ], [ %call52, %if.end88 ], [ %call52, %if.then70 ], [ %call52, %land.lhs.true ], [ null, %if.then45 ], [ null, %if.end90 ], [ null, %if.then99 ], [ null, %if.then105 ], [ null, %if.end107 ], [ %call117, %if.else ], [ null, %if.then41 ], [ %call117, %if.then129 ], [ %call117, %if.end127 ], [ null, %sw.bb30 ]
+  %spki.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end49.tail ], [ null, %if.end55 ], [ %call56, %if.then76 ], [ %call56, %if.end78 ], [ %call56, %if.then87 ], [ %call56, %if.end88 ], [ %call56, %if.then70 ], [ %call56, %land.lhs.true ], [ null, %if.then45 ], [ null, %if.end90 ], [ null, %if.then99 ], [ null, %if.then105 ], [ %call102, %if.end107 ], [ %call102, %if.else ], [ null, %if.then41 ], [ %call102, %if.then129 ], [ %call102, %if.end127 ], [ null, %sw.bb30 ]
+  %conf.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end49.tail ], [ null, %if.end55 ], [ null, %if.then76 ], [ null, %if.end78 ], [ null, %if.then87 ], [ null, %if.end88 ], [ null, %if.then70 ], [ null, %land.lhs.true ], [ null, %if.then45 ], [ null, %if.end90 ], [ %call91, %if.then99 ], [ %call91, %if.then105 ], [ %call91, %if.end107 ], [ %call91, %if.else ], [ null, %if.then41 ], [ %call91, %if.then129 ], [ %call91, %if.end127 ], [ null, %sw.bb30 ]
+  %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb3 ], [ 1, %if.end49.tail ], [ 1, %if.end55 ], [ 1, %if.then76 ], [ 1, %if.end78 ], [ 1, %if.then87 ], [ 0, %if.end88 ], [ 1, %if.then70 ], [ 1, %land.lhs.true ], [ 1, %if.then45 ], [ 1, %if.end90 ], [ 1, %if.then99 ], [ 1, %if.then105 ], [ 1, %if.end107 ], [ 1, %if.else ], [ 1, %if.then41 ], [ 0, %if.then129 ], [ 0, %if.end127 ], [ 1, %sw.bb30 ]
+  %out.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end49.tail ], [ null, %if.end55 ], [ null, %if.then76 ], [ null, %if.end78 ], [ null, %if.then87 ], [ %call84, %if.end88 ], [ null, %if.then70 ], [ null, %land.lhs.true ], [ null, %if.then45 ], [ null, %if.end90 ], [ null, %if.then99 ], [ null, %if.then105 ], [ null, %if.end107 ], [ %call108, %if.else ], [ null, %if.then41 ], [ %call108, %if.then129 ], [ %call108, %if.end127 ], [ null, %sw.bb30 ]
+  %20 = load ptr, ptr %md, align 8
+  call void @EVP_MD_free(ptr noundef %20) #3
   call void @NCONF_free(ptr noundef %conf.0) #3
   call void @NETSCAPE_SPKI_free(ptr noundef %spki.0) #3
   call void @BIO_free_all(ptr noundef %out.0) #3
   call void @EVP_PKEY_free(ptr noundef %pkey.0) #3
   call void @release_engine(ptr noundef %e.0) #3
-  %16 = load ptr, ptr %passin, align 8
-  call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str.47, i32 noundef 231) #3
+  %21 = load ptr, ptr %passin, align 8
+  call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str.47, i32 noundef 231) #3
   ret i32 %ret.0
 }
 
@@ -396,9 +405,6 @@ declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @opt_md(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 declare ptr @NETSCAPE_SPKI_new() local_unnamed_addr #1
 

@@ -37,7 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3zmq13protocol_nameL3ipcE = internal constant [4 x i8] c"ipc\00", align 1
 @_ZN3zmq13protocol_nameL4tipcE = internal constant [5 x i8] c"tipc\00", align 1
 @.str.7 = private unnamed_addr constant [6 x i8] c"draft\00", align 1
-@.str.8 = private unnamed_addr constant [3 x i8] c"WS\00", align 1
 @.str.9 = private unnamed_addr constant [4 x i8] c"WSS\00", align 1
 @.str.10 = private unnamed_addr constant [112 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libzmq/libzmq/src/polling_util.hpp\00", align 1
 
@@ -440,7 +439,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef ptr @_ZN3zmq5ctx_t13create_socketEi(ptr noundef nonnull align 8 dereferenceable(648), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_close(ptr noundef %s_) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @zmq_close(ptr noundef %s_) local_unnamed_addr #1 {
 entry:
   %tobool.not.i = icmp eq ptr %s_, null
   br i1 %tobool.not.i, label %_ZL16as_socket_base_tPv.exit.thread, label %lor.lhs.false.i
@@ -769,7 +768,7 @@ return:                                           ; preds = %_ZL16as_socket_base
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_sendmsg(ptr noundef %s_, ptr noundef %msg_, i32 noundef %flags_) local_unnamed_addr #1 {
+define i32 @zmq_sendmsg(ptr noundef %s_, ptr noundef %msg_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %tobool.not.i.i = icmp eq ptr %s_, null
   br i1 %tobool.not.i.i, label %_ZL16as_socket_base_tPv.exit.thread.i, label %lor.lhs.false.i.i
@@ -787,7 +786,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i.i
   %call.i.i.i = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %call1.i2.i = tail call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %s_, ptr noundef nonnull %msg_, i32 noundef %flags_)
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %call.i.i.i, i64 2147483647)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
   %cmp.inv.i.i = icmp sgt i32 %call1.i2.i, -1
   %retval.0.i3.i = select i1 %cmp.inv.i.i, i32 %conv.i.i, i32 -1
   br label %zmq_msg_send.exit
@@ -798,7 +797,7 @@ zmq_msg_send.exit:                                ; preds = %_ZL16as_socket_base
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_msg_send(ptr noundef %msg_, ptr noundef %s_, i32 noundef %flags_) local_unnamed_addr #1 {
+define i32 @zmq_msg_send(ptr noundef %msg_, ptr noundef %s_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %tobool.not.i = icmp eq ptr %s_, null
   br i1 %tobool.not.i, label %_ZL16as_socket_base_tPv.exit.thread, label %lor.lhs.false.i
@@ -816,7 +815,7 @@ if.end:                                           ; preds = %lor.lhs.false.i
   %call.i.i = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %call1.i2 = tail call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %s_, ptr noundef nonnull %msg_, i32 noundef %flags_)
   %cond.i = tail call i64 @llvm.umin.i64(i64 %call.i.i, i64 2147483647)
-  %conv.i = trunc i64 %cond.i to i32
+  %conv.i = trunc nuw nsw i64 %cond.i to i32
   %cmp.inv.i = icmp sgt i32 %call1.i2, -1
   %retval.0.i3 = select i1 %cmp.inv.i, i32 %conv.i, i32 -1
   br label %return
@@ -827,7 +826,7 @@ return:                                           ; preds = %_ZL16as_socket_base
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_send(ptr noundef %s_, ptr noundef %buf_, i64 noundef %len_, i32 noundef %flags_) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @zmq_send(ptr noundef %s_, ptr noundef %buf_, i64 noundef %len_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %msg = alloca %struct.zmq_msg_t, align 8
   %tobool.not.i = icmp eq ptr %s_, null
@@ -851,7 +850,7 @@ if.end3:                                          ; preds = %if.end
   %call.i.i = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg)
   %call1.i6 = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %s_, ptr noundef nonnull %msg, i32 noundef %flags_)
   %cond.i = call i64 @llvm.umin.i64(i64 %call.i.i, i64 2147483647)
-  %conv.i = trunc i64 %cond.i to i32
+  %conv.i = trunc nuw nsw i64 %cond.i to i32
   %cmp5 = icmp slt i32 %call1.i6, 0
   br i1 %cmp5, label %if.then6, label %return
 
@@ -907,7 +906,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_send_const(ptr noundef %s_, ptr noundef %buf_, i64 noundef %len_, i32 noundef %flags_) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @zmq_send_const(ptr noundef %s_, ptr noundef %buf_, i64 noundef %len_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %msg = alloca %struct.zmq_msg_t, align 8
   %tobool.not.i = icmp eq ptr %s_, null
@@ -931,7 +930,7 @@ if.end3:                                          ; preds = %if.end
   %call.i.i = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg)
   %call1.i6 = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %s_, ptr noundef nonnull %msg, i32 noundef %flags_)
   %cond.i = call i64 @llvm.umin.i64(i64 %call.i.i, i64 2147483647)
-  %conv.i = trunc i64 %cond.i to i32
+  %conv.i = trunc nuw nsw i64 %cond.i to i32
   %cmp5 = icmp slt i32 %call1.i6, 0
   br i1 %cmp5, label %if.then6, label %return
 
@@ -969,7 +968,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_sendiov(ptr noundef %s_, ptr noundef readonly %a_, i64 noundef %count_, i32 noundef %flags_) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @zmq_sendiov(ptr noundef %s_, ptr noundef readonly %a_, i64 noundef %count_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %msg = alloca %struct.zmq_msg_t, align 8
   %tobool.not.i = icmp eq ptr %s_, null
@@ -1050,7 +1049,7 @@ for.inc:                                          ; preds = %if.end9
 
 return.loopexit.split.loop.exit25:                ; preds = %for.inc
   %cond.i.le = call i64 @llvm.umin.i64(i64 %call.i.i, i64 2147483647)
-  %conv.i.le = trunc i64 %cond.i.le to i32
+  %conv.i.le = trunc nuw nsw i64 %cond.i.le to i32
   br label %return
 
 return:                                           ; preds = %for.body, %return.loopexit.split.loop.exit25, %_ZL16as_socket_base_tPv.exit.thread, %do.end, %if.then2
@@ -1076,7 +1075,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_recvmsg(ptr noundef %s_, ptr noundef %msg_, i32 noundef %flags_) local_unnamed_addr #1 {
+define i32 @zmq_recvmsg(ptr noundef %s_, ptr noundef %msg_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %tobool.not.i.i = icmp eq ptr %s_, null
   br i1 %tobool.not.i.i, label %_ZL16as_socket_base_tPv.exit.thread.i, label %lor.lhs.false.i.i
@@ -1098,7 +1097,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i.i
 if.end.i.i:                                       ; preds = %if.end.i
   %call.i.i.i = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %call.i.i.i, i64 2147483647)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
   br label %zmq_msg_recv.exit
 
 zmq_msg_recv.exit:                                ; preds = %_ZL16as_socket_base_tPv.exit.thread.i, %if.end.i, %if.end.i.i
@@ -1107,7 +1106,7 @@ zmq_msg_recv.exit:                                ; preds = %_ZL16as_socket_base
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_msg_recv(ptr noundef %msg_, ptr noundef %s_, i32 noundef %flags_) local_unnamed_addr #1 {
+define i32 @zmq_msg_recv(ptr noundef %msg_, ptr noundef %s_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %tobool.not.i = icmp eq ptr %s_, null
   br i1 %tobool.not.i, label %_ZL16as_socket_base_tPv.exit.thread, label %lor.lhs.false.i
@@ -1129,7 +1128,7 @@ if.end:                                           ; preds = %lor.lhs.false.i
 if.end.i:                                         ; preds = %if.end
   %call.i.i = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cond.i = tail call i64 @llvm.umin.i64(i64 %call.i.i, i64 2147483647)
-  %conv.i = trunc i64 %cond.i to i32
+  %conv.i = trunc nuw nsw i64 %cond.i to i32
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end, %_ZL16as_socket_base_tPv.exit.thread
@@ -1138,7 +1137,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_recv(ptr noundef %s_, ptr nocapture noundef writeonly %buf_, i64 noundef %len_, i32 noundef %flags_) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @zmq_recv(ptr noundef %s_, ptr nocapture noundef writeonly %buf_, i64 noundef %len_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %msg = alloca %struct.zmq_msg_t, align 8
   %tobool.not.i = icmp eq ptr %s_, null
@@ -1177,7 +1176,7 @@ do.end:                                           ; preds = %if.end, %if.then2
 _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit: ; preds = %do.end
   %call.i.i = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg)
   %cond.i = call i64 @llvm.umin.i64(i64 %call.i.i, i64 2147483647)
-  %conv.i = trunc i64 %cond.i to i32
+  %conv.i = trunc nuw nsw i64 %cond.i to i32
   %cond = call i64 @llvm.umin.i64(i64 %cond.i, i64 %len_)
   %tobool28.not = icmp eq i64 %cond, 0
   br i1 %tobool28.not, label %if.end31, label %if.then29
@@ -1591,8 +1590,8 @@ entry:
   %zmq_fd_size = alloca i64, align 8
   %zmq_events_size = alloca i64, align 8
   %zmq_events = alloca i32, align 4
-  %cmp.not201 = icmp eq i32 %nitems_, 0
-  br i1 %cmp.not201, label %if.then16, label %for.body.preheader
+  %cmp.not202 = icmp eq i32 %nitems_, 0
+  br i1 %cmp.not202, label %if.then16, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %0 = zext i32 %nitems_ to i64
@@ -1637,12 +1636,12 @@ if.then.i82:                                      ; preds = %if.then7
           to label %do.end.i unwind label %lpad.loopexit.split-lp.i
 
 lpad.loopexit.i:                                  ; preds = %if.end.i125.i, %if.else79.i, %if.end.i110.i, %if.then73.i, %if.end.i95.i, %lor.lhs.false.i.i90.i, %if.else.i, %if.end.i.i, %lor.lhs.false.i.i.i, %if.then30.i
-  %lpad.loopexit150.i = landingpad { ptr, i32 }
+  %lpad.loopexit151.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
 lpad.loopexit.split-lp.i:                         ; preds = %if.end7.i.i, %for.end95.i, %if.then.i82
-  %lpad.loopexit.split-lp151.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp152.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i
 
@@ -1651,42 +1650,42 @@ common.resume:                                    ; preds = %delete.notnull.i96,
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit150.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp151.i, %lpad.loopexit.split-lp.i ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit151.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp152.i, %lpad.loopexit.split-lp.i ]
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller.i) #20
   br label %common.resume
 
 do.end.i:                                         ; preds = %if.then.i82, %if.then7
-  %cmp179.i = icmp sgt i32 %nitems_, 0
-  br i1 %cmp179.i, label %for.body.i, label %for.end95.i
+  %cmp180.i = icmp sgt i32 %nitems_, 0
+  br i1 %cmp180.i, label %for.body.i, label %for.end95.i
 
 for.body.i:                                       ; preds = %do.end.i, %for.inc93.i
-  %indvars.iv263.i = phi i64 [ %indvars.iv.next264.i, %for.inc93.i ], [ 0, %do.end.i ]
-  %repeat_items.0180.i = phi i8 [ %repeat_items.5.i, %for.inc93.i ], [ 0, %do.end.i ]
-  %arrayidx.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv263.i
+  %indvars.iv264.i = phi i64 [ %indvars.iv.next265.i, %for.inc93.i ], [ 0, %do.end.i ]
+  %repeat_items.0181.i = phi i8 [ %repeat_items.5.i, %for.inc93.i ], [ 0, %do.end.i ]
+  %arrayidx.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv264.i
   %revents.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 14
   store i16 0, ptr %revents.i, align 2
   %events7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %7 = load i16, ptr %events7.i, align 4
   %8 = load ptr, ptr %arrayidx.i, align 8
   %tobool10.not.i = icmp eq ptr %8, null
-  %cmp48171.not.i = icmp eq i64 %indvars.iv263.i, 0
+  %cmp48172.not.i = icmp eq i64 %indvars.iv264.i, 0
   br i1 %tobool10.not.i, label %for.cond47.preheader.i, label %for.cond12.preheader.i
 
 for.cond12.preheader.i:                           ; preds = %for.body.i
-  br i1 %cmp48171.not.i, label %if.else.i, label %for.body14.i.outer
+  br i1 %cmp48172.not.i, label %if.else.i, label %for.body14.i.outer
 
 for.cond47.preheader.i:                           ; preds = %for.body.i
-  br i1 %cmp48171.not.i, label %if.else79.i, label %for.body49.lr.ph.i
+  br i1 %cmp48172.not.i, label %if.else79.i, label %for.body49.lr.ph.i
 
 for.body49.lr.ph.i:                               ; preds = %for.cond47.preheader.i
   %fd58.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   br label %for.body49.i.outer
 
 for.body49.i.outer:                               ; preds = %for.inc69.i.thread, %for.body49.lr.ph.i
-  %indvars.iv259.i.ph = phi i64 [ %indvars.iv.next260.i149, %for.inc69.i.thread ], [ 0, %for.body49.lr.ph.i ]
-  %e.2174.i.ph = phi i16 [ %or6679.i, %for.inc69.i.thread ], [ %7, %for.body49.lr.ph.i ]
-  %modify.2173.i.ph = phi i1 [ true, %for.inc69.i.thread ], [ false, %for.body49.lr.ph.i ]
-  %repeat_items.3172.i.ph = phi i8 [ 1, %for.inc69.i.thread ], [ %repeat_items.0180.i, %for.body49.lr.ph.i ]
+  %indvars.iv260.i.ph = phi i64 [ %indvars.iv.next261.i150, %for.inc69.i.thread ], [ 0, %for.body49.lr.ph.i ]
+  %e.2175.i.ph = phi i16 [ %or6679.i, %for.inc69.i.thread ], [ %7, %for.body49.lr.ph.i ]
+  %modify.2174.i.ph = phi i1 [ true, %for.inc69.i.thread ], [ false, %for.body49.lr.ph.i ]
+  %repeat_items.3173.i.ph = phi i8 [ 1, %for.inc69.i.thread ], [ %repeat_items.0181.i, %for.body49.lr.ph.i ]
   br label %for.body49.i
 
 for.body14.i:                                     ; preds = %for.body14.i.outer, %for.inc.i
@@ -1698,30 +1697,30 @@ for.body14.i:                                     ; preds = %for.body14.i.outer,
 
 for.inc.i:                                        ; preds = %for.body14.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv263.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv264.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body14.i, !llvm.loop !7
 
 for.inc.i.thread:                                 ; preds = %for.body14.i
   %events25.i = getelementptr inbounds i8, ptr %arrayidx16.i, i64 12
   %10 = load i16, ptr %events25.i, align 4
-  %or80.i = or i16 %10, %e.0167.i.ph
-  %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %indvars.iv263.i
-  br i1 %exitcond.not.i137, label %if.then30.i, label %for.body14.i.outer, !llvm.loop !7
+  %or80.i = or i16 %10, %e.0168.i.ph
+  %indvars.iv.next.i137 = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i138 = icmp eq i64 %indvars.iv.next.i137, %indvars.iv264.i
+  br i1 %exitcond.not.i138, label %if.then30.i, label %for.body14.i.outer, !llvm.loop !7
 
 for.body14.i.outer:                               ; preds = %for.cond12.preheader.i, %for.inc.i.thread
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i136, %for.inc.i.thread ], [ 0, %for.cond12.preheader.i ]
-  %e.0167.i.ph = phi i16 [ %or80.i, %for.inc.i.thread ], [ %7, %for.cond12.preheader.i ]
-  %modify.0166.i.ph = phi i1 [ true, %for.inc.i.thread ], [ false, %for.cond12.preheader.i ]
-  %repeat_items.1165.i.ph = phi i8 [ 1, %for.inc.i.thread ], [ %repeat_items.0180.i, %for.cond12.preheader.i ]
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i137, %for.inc.i.thread ], [ 0, %for.cond12.preheader.i ]
+  %e.0168.i.ph = phi i16 [ %or80.i, %for.inc.i.thread ], [ %7, %for.cond12.preheader.i ]
+  %modify.0167.i.ph = phi i1 [ true, %for.inc.i.thread ], [ false, %for.cond12.preheader.i ]
+  %repeat_items.1166.i.ph = phi i8 [ 1, %for.inc.i.thread ], [ %repeat_items.0181.i, %for.cond12.preheader.i ]
   br label %for.body14.i
 
 for.end.i:                                        ; preds = %for.inc.i
-  br i1 %modify.0166.i.ph, label %if.then30.i, label %if.else.i
+  br i1 %modify.0167.i.ph, label %if.then30.i, label %if.else.i
 
 if.then30.i:                                      ; preds = %for.inc.i.thread, %for.end.i
-  %repeat_items.2.i138145 = phi i8 [ %repeat_items.1165.i.ph, %for.end.i ], [ 1, %for.inc.i.thread ]
-  %e.1.i140144 = phi i16 [ %e.0167.i.ph, %for.end.i ], [ %or80.i, %for.inc.i.thread ]
+  %repeat_items.2.i139146 = phi i8 [ %repeat_items.1166.i.ph, %for.end.i ], [ 1, %for.inc.i.thread ]
+  %e.1.i141145 = phi i16 [ %e.0168.i.ph, %for.end.i ], [ %or80.i, %for.inc.i.thread ]
   %call.i.i.i81.i = invoke noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(56) %poller.i)
           to label %call.i.i.i.noexc.i unwind label %lpad.loopexit.i
 
@@ -1736,16 +1735,16 @@ call1.i.i.noexc.i:                                ; preds = %lor.lhs.false.i.i.i
   br i1 %call1.i.i82.i, label %lor.lhs.false.i.i, label %if.then43.sink.split.i
 
 lor.lhs.false.i.i:                                ; preds = %call1.i.i.noexc.i
-  %tobool.not.i4.i.i = icmp ult i16 %e.1.i140144, 16
+  %tobool.not.i4.i.i = icmp ult i16 %e.1.i141145, 16
   br i1 %tobool.not.i4.i.i, label %if.end.i.i, label %if.then43.sink.split.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %call3.i83.i = invoke noundef i32 @_ZN3zmq15socket_poller_t6modifyEPKNS_13socket_base_tEs(ptr noundef nonnull align 8 dereferenceable(56) %poller.i, ptr noundef nonnull %8, i16 noundef signext %e.1.i140144)
+  %call3.i83.i = invoke noundef i32 @_ZN3zmq15socket_poller_t6modifyEPKNS_13socket_base_tEs(ptr noundef nonnull align 8 dereferenceable(56) %poller.i, ptr noundef nonnull %8, i16 noundef signext %e.1.i141145)
           to label %if.end41.i unwind label %lpad.loopexit.i
 
 if.else.i:                                        ; preds = %for.end.i, %for.cond12.preheader.i
-  %e.0.lcssa301.i = phi i16 [ %e.0167.i.ph, %for.end.i ], [ %7, %for.cond12.preheader.i ]
-  %repeat_items.1.lcssa300.i = phi i8 [ %repeat_items.1165.i.ph, %for.end.i ], [ %repeat_items.0180.i, %for.cond12.preheader.i ]
+  %e.0.lcssa302.i = phi i16 [ %e.0168.i.ph, %for.end.i ], [ %7, %for.cond12.preheader.i ]
+  %repeat_items.1.lcssa301.i = phi i8 [ %repeat_items.1166.i.ph, %for.end.i ], [ %repeat_items.0181.i, %for.cond12.preheader.i ]
   %call.i.i.i97.i = invoke noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(56) %poller.i)
           to label %call.i.i.i.noexc96.i unwind label %lpad.loopexit.i
 
@@ -1760,15 +1759,15 @@ call1.i.i.noexc98.i:                              ; preds = %lor.lhs.false.i.i90
   br i1 %call1.i.i99.i, label %lor.lhs.false.i91.i, label %if.then43.sink.split.i
 
 lor.lhs.false.i91.i:                              ; preds = %call1.i.i.noexc98.i
-  %tobool.not.i4.i92.i = icmp ult i16 %e.0.lcssa301.i, 16
+  %tobool.not.i4.i92.i = icmp ult i16 %e.0.lcssa302.i, 16
   br i1 %tobool.not.i4.i92.i, label %if.end.i95.i, label %if.then43.sink.split.i
 
 if.end.i95.i:                                     ; preds = %lor.lhs.false.i91.i
-  %call3.i101.i = invoke noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %poller.i, ptr noundef nonnull %8, ptr noundef null, i16 noundef signext %e.0.lcssa301.i)
+  %call3.i101.i = invoke noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %poller.i, ptr noundef nonnull %8, ptr noundef null, i16 noundef signext %e.0.lcssa302.i)
           to label %if.end41.i unwind label %lpad.loopexit.i
 
 if.end41.i:                                       ; preds = %if.end.i95.i, %if.end.i.i
-  %repeat_items.1.lcssa299.i = phi i8 [ %repeat_items.2.i138145, %if.end.i.i ], [ %repeat_items.1.lcssa300.i, %if.end.i95.i ]
+  %repeat_items.1.lcssa300.i = phi i8 [ %repeat_items.2.i139146, %if.end.i.i ], [ %repeat_items.1.lcssa301.i, %if.end.i95.i ]
   %rc.0.i = phi i32 [ %call3.i83.i, %if.end.i.i ], [ %call3.i101.i, %if.end.i95.i ]
   %cmp42.i = icmp slt i32 %rc.0.i, 0
   br i1 %cmp42.i, label %if.then43.i, label %for.inc93.i
@@ -1780,7 +1779,7 @@ if.then43.sink.split.i:                           ; preds = %lor.lhs.false.i91.i
   br label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end41.i, %if.then43.sink.split.i
-  %rc.0138.i = phi i32 [ -1, %if.then43.sink.split.i ], [ %rc.0.i, %if.end41.i ]
+  %rc.0139.i = phi i32 [ -1, %if.then43.sink.split.i ], [ %rc.0.i, %if.end41.i ]
   br i1 %new.isnull.i, label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then43.i
@@ -1788,8 +1787,8 @@ delete.notnull.i:                                 ; preds = %if.then43.i
   br label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
 
 for.body49.i:                                     ; preds = %for.body49.i.outer, %for.inc69.i
-  %indvars.iv259.i = phi i64 [ %indvars.iv.next260.i, %for.inc69.i ], [ %indvars.iv259.i.ph, %for.body49.i.outer ]
-  %arrayidx51.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv259.i
+  %indvars.iv260.i = phi i64 [ %indvars.iv.next261.i, %for.inc69.i ], [ %indvars.iv260.i.ph, %for.body49.i.outer ]
+  %arrayidx51.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv260.i
   %11 = load ptr, ptr %arrayidx51.i, align 8
   %tobool53.not.i = icmp eq ptr %11, null
   br i1 %tobool53.not.i, label %land.lhs.true.i, label %for.inc69.i
@@ -1802,20 +1801,20 @@ land.lhs.true.i:                                  ; preds = %for.body49.i
   br i1 %cmp59.i, label %for.inc69.i.thread, label %for.inc69.i
 
 for.inc69.i:                                      ; preds = %land.lhs.true.i, %for.body49.i
-  %indvars.iv.next260.i = add nuw nsw i64 %indvars.iv259.i, 1
-  %exitcond262.not.i = icmp eq i64 %indvars.iv.next260.i, %indvars.iv263.i
-  br i1 %exitcond262.not.i, label %for.end71.i, label %for.body49.i, !llvm.loop !8
+  %indvars.iv.next261.i = add nuw nsw i64 %indvars.iv260.i, 1
+  %exitcond263.not.i = icmp eq i64 %indvars.iv.next261.i, %indvars.iv264.i
+  br i1 %exitcond263.not.i, label %for.end71.i, label %for.body49.i, !llvm.loop !8
 
 for.inc69.i.thread:                               ; preds = %land.lhs.true.i
   %events63.i = getelementptr inbounds i8, ptr %arrayidx51.i, i64 12
   %14 = load i16, ptr %events63.i, align 4
-  %or6679.i = or i16 %14, %e.2174.i.ph
-  %indvars.iv.next260.i149 = add nuw nsw i64 %indvars.iv259.i, 1
-  %exitcond262.not.i150 = icmp eq i64 %indvars.iv.next260.i149, %indvars.iv263.i
-  br i1 %exitcond262.not.i150, label %if.then73.i, label %for.body49.i.outer, !llvm.loop !8
+  %or6679.i = or i16 %14, %e.2175.i.ph
+  %indvars.iv.next261.i150 = add nuw nsw i64 %indvars.iv260.i, 1
+  %exitcond263.not.i151 = icmp eq i64 %indvars.iv.next261.i150, %indvars.iv264.i
+  br i1 %exitcond263.not.i151, label %if.then73.i, label %for.body49.i.outer, !llvm.loop !8
 
 for.end71.i:                                      ; preds = %for.inc69.i
-  br i1 %modify.2173.i.ph, label %for.end71.i.if.then73.i_crit_edge, label %if.else79.i
+  br i1 %modify.2174.i.ph, label %for.end71.i.if.then73.i_crit_edge, label %if.else79.i
 
 for.end71.i.if.then73.i_crit_edge:                ; preds = %for.end71.i
   %.pre = load i32, ptr %fd58.i, align 8
@@ -1823,8 +1822,8 @@ for.end71.i.if.then73.i_crit_edge:                ; preds = %for.end71.i
 
 if.then73.i:                                      ; preds = %for.inc69.i.thread, %for.end71.i.if.then73.i_crit_edge
   %15 = phi i32 [ %.pre, %for.end71.i.if.then73.i_crit_edge ], [ %12, %for.inc69.i.thread ]
-  %repeat_items.4.i151158 = phi i8 [ %repeat_items.3172.i.ph, %for.end71.i.if.then73.i_crit_edge ], [ 1, %for.inc69.i.thread ]
-  %e.3.i153157 = phi i16 [ %e.2174.i.ph, %for.end71.i.if.then73.i_crit_edge ], [ %or6679.i, %for.inc69.i.thread ]
+  %repeat_items.4.i152159 = phi i8 [ %repeat_items.3173.i.ph, %for.end71.i.if.then73.i_crit_edge ], [ 1, %for.inc69.i.thread ]
+  %e.3.i154158 = phi i16 [ %e.2175.i.ph, %for.end71.i.if.then73.i_crit_edge ], [ %or6679.i, %for.inc69.i.thread ]
   %call.i.i.i112.i = invoke noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(56) %poller.i)
           to label %call.i.i.i.noexc111.i unwind label %lpad.loopexit.i
 
@@ -1836,16 +1835,16 @@ if.end.i.i105.i:                                  ; preds = %call.i.i.i.noexc111
   br i1 %cmp1.i.i.i, label %if.then87.sink.split.i, label %lor.lhs.false.i106.i
 
 lor.lhs.false.i106.i:                             ; preds = %if.end.i.i105.i
-  %tobool.not.i.i107.i = icmp ult i16 %e.3.i153157, 16
+  %tobool.not.i.i107.i = icmp ult i16 %e.3.i154158, 16
   br i1 %tobool.not.i.i107.i, label %if.end.i110.i, label %if.then87.sink.split.i
 
 if.end.i110.i:                                    ; preds = %lor.lhs.false.i106.i
-  %call3.i114.i = invoke noundef i32 @_ZN3zmq15socket_poller_t9modify_fdEis(ptr noundef nonnull align 8 dereferenceable(56) %poller.i, i32 noundef %15, i16 noundef signext %e.3.i153157)
+  %call3.i114.i = invoke noundef i32 @_ZN3zmq15socket_poller_t9modify_fdEis(ptr noundef nonnull align 8 dereferenceable(56) %poller.i, i32 noundef %15, i16 noundef signext %e.3.i154158)
           to label %if.end85.i unwind label %lpad.loopexit.i
 
 if.else79.i:                                      ; preds = %for.end71.i, %for.cond47.preheader.i
-  %e.2.lcssa307.i = phi i16 [ %e.2174.i.ph, %for.end71.i ], [ %7, %for.cond47.preheader.i ]
-  %repeat_items.3.lcssa306.i = phi i8 [ %repeat_items.3172.i.ph, %for.end71.i ], [ %repeat_items.0180.i, %for.cond47.preheader.i ]
+  %e.2.lcssa308.i = phi i16 [ %e.2175.i.ph, %for.end71.i ], [ %7, %for.cond47.preheader.i ]
+  %repeat_items.3.lcssa307.i = phi i8 [ %repeat_items.3173.i.ph, %for.end71.i ], [ %repeat_items.0181.i, %for.cond47.preheader.i ]
   %fd82.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %16 = load i32, ptr %fd82.i, align 8
   %call.i.i.i127.i = invoke noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(56) %poller.i)
@@ -1859,27 +1858,27 @@ if.end.i.i119.i:                                  ; preds = %call.i.i.i.noexc126
   br i1 %cmp1.i.i120.i, label %if.then87.sink.split.i, label %lor.lhs.false.i121.i
 
 lor.lhs.false.i121.i:                             ; preds = %if.end.i.i119.i
-  %tobool.not.i.i122.i = icmp ult i16 %e.2.lcssa307.i, 16
+  %tobool.not.i.i122.i = icmp ult i16 %e.2.lcssa308.i, 16
   br i1 %tobool.not.i.i122.i, label %if.end.i125.i, label %if.then87.sink.split.i
 
 if.end.i125.i:                                    ; preds = %lor.lhs.false.i121.i
-  %call3.i129.i = invoke noundef i32 @_ZN3zmq15socket_poller_t6add_fdEiPvs(ptr noundef nonnull align 8 dereferenceable(56) %poller.i, i32 noundef %16, ptr noundef null, i16 noundef signext %e.2.lcssa307.i)
+  %call3.i129.i = invoke noundef i32 @_ZN3zmq15socket_poller_t6add_fdEiPvs(ptr noundef nonnull align 8 dereferenceable(56) %poller.i, i32 noundef %16, ptr noundef null, i16 noundef signext %e.2.lcssa308.i)
           to label %if.end85.i unwind label %lpad.loopexit.i
 
 if.end85.i:                                       ; preds = %if.end.i125.i, %if.end.i110.i
-  %repeat_items.3.lcssa305.i = phi i8 [ %repeat_items.4.i151158, %if.end.i110.i ], [ %repeat_items.3.lcssa306.i, %if.end.i125.i ]
+  %repeat_items.3.lcssa306.i = phi i8 [ %repeat_items.4.i152159, %if.end.i110.i ], [ %repeat_items.3.lcssa307.i, %if.end.i125.i ]
   %rc.1.i = phi i32 [ %call3.i114.i, %if.end.i110.i ], [ %call3.i129.i, %if.end.i125.i ]
   %cmp86.i = icmp slt i32 %rc.1.i, 0
   br i1 %cmp86.i, label %if.then87.i, label %for.inc93.i
 
 if.then87.sink.split.i:                           ; preds = %lor.lhs.false.i121.i, %if.end.i.i119.i, %call.i.i.i.noexc126.i, %lor.lhs.false.i106.i, %if.end.i.i105.i, %call.i.i.i.noexc111.i
-  %.sink313.i = phi i32 [ 14, %call.i.i.i.noexc111.i ], [ 9, %if.end.i.i105.i ], [ 22, %lor.lhs.false.i106.i ], [ 14, %call.i.i.i.noexc126.i ], [ 9, %if.end.i.i119.i ], [ 22, %lor.lhs.false.i121.i ]
+  %.sink314.i = phi i32 [ 14, %call.i.i.i.noexc111.i ], [ 9, %if.end.i.i105.i ], [ 22, %lor.lhs.false.i106.i ], [ 14, %call.i.i.i.noexc126.i ], [ 9, %if.end.i.i119.i ], [ 22, %lor.lhs.false.i121.i ]
   %call.i.i124.i = tail call ptr @__errno_location() #18
-  store i32 %.sink313.i, ptr %call.i.i124.i, align 4
+  store i32 %.sink314.i, ptr %call.i.i124.i, align 4
   br label %if.then87.i
 
 if.then87.i:                                      ; preds = %if.end85.i, %if.then87.sink.split.i
-  %rc.1141.i = phi i32 [ -1, %if.then87.sink.split.i ], [ %rc.1.i, %if.end85.i ]
+  %rc.1142.i = phi i32 [ -1, %if.then87.sink.split.i ], [ %rc.1.i, %if.end85.i ]
   br i1 %new.isnull.i, label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit, label %delete.notnull89.i
 
 delete.notnull89.i:                               ; preds = %if.then87.i
@@ -1887,41 +1886,41 @@ delete.notnull89.i:                               ; preds = %if.then87.i
   br label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
 
 for.inc93.i:                                      ; preds = %if.end85.i, %if.end41.i
-  %repeat_items.5.i = phi i8 [ %repeat_items.1.lcssa299.i, %if.end41.i ], [ %repeat_items.3.lcssa305.i, %if.end85.i ]
-  %indvars.iv.next264.i = add nuw nsw i64 %indvars.iv263.i, 1
-  %exitcond266.not.i = icmp eq i64 %indvars.iv.next264.i, %0
-  br i1 %exitcond266.not.i, label %for.end95.i, label %for.body.i, !llvm.loop !9
+  %repeat_items.5.i = phi i8 [ %repeat_items.1.lcssa300.i, %if.end41.i ], [ %repeat_items.3.lcssa306.i, %if.end85.i ]
+  %indvars.iv.next265.i = add nuw nsw i64 %indvars.iv264.i, 1
+  %exitcond267.not.i = icmp eq i64 %indvars.iv.next265.i, %0
+  br i1 %exitcond267.not.i, label %for.end95.i, label %for.body.i, !llvm.loop !9
 
 for.end95.i:                                      ; preds = %for.inc93.i, %do.end.i
   %repeat_items.0.lcssa.i = phi i8 [ 0, %do.end.i ], [ %repeat_items.5.i, %for.inc93.i ]
-  %call.i.i131134.i = invoke noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(56) %poller.i)
-          to label %call.i.i131.noexc.i unwind label %lpad.loopexit.split-lp.i
+  %call.i.i132135.i = invoke noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(56) %poller.i)
+          to label %call.i.i132.noexc.i unwind label %lpad.loopexit.split-lp.i
 
-call.i.i131.noexc.i:                              ; preds = %for.end95.i
-  br i1 %call.i.i131134.i, label %if.end.i133.i, label %if.then99.i
+call.i.i132.noexc.i:                              ; preds = %for.end95.i
+  br i1 %call.i.i132135.i, label %if.end.i134.i, label %if.then99.i
 
-if.end.i133.i:                                    ; preds = %call.i.i131.noexc.i
-  br i1 %new.isnull.i, label %if.then99.thread148.i, label %if.end3.i.i
+if.end.i134.i:                                    ; preds = %call.i.i132.noexc.i
+  br i1 %new.isnull.i, label %if.then99.thread149.i, label %if.end3.i.i
 
-if.then99.thread148.i:                            ; preds = %if.end.i133.i
+if.then99.thread149.i:                            ; preds = %if.end.i134.i
   %call2.i.i = tail call ptr @__errno_location() #18
   store i32 14, ptr %call2.i.i, align 4
   br label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
 
-if.end3.i.i:                                      ; preds = %if.end.i133.i
-  br i1 %2, label %if.then99.thread149.i, label %if.end7.i.i
+if.end3.i.i:                                      ; preds = %if.end.i134.i
+  br i1 %2, label %if.then99.thread150.i, label %if.end7.i.i
 
-if.then99.thread149.i:                            ; preds = %if.end3.i.i
+if.then99.thread150.i:                            ; preds = %if.end3.i.i
   %call6.i.i = tail call ptr @__errno_location() #18
   store i32 22, ptr %call6.i.i, align 4
   br label %delete.notnull101.i
 
 if.end7.i.i:                                      ; preds = %if.end3.i.i
-  %call8.i135.i = invoke noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr noundef nonnull align 8 dereferenceable(56) %poller.i, ptr noundef nonnull %call.i80, i32 noundef %nitems_, i64 noundef %timeout_)
+  %call8.i136.i = invoke noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr noundef nonnull align 8 dereferenceable(56) %poller.i, ptr noundef nonnull %call.i80, i32 noundef %nitems_, i64 noundef %timeout_)
           to label %invoke.cont96.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont96.i:                                  ; preds = %if.end7.i.i
-  %cmp98.i = icmp slt i32 %call8.i135.i, 0
+  %cmp98.i = icmp slt i32 %call8.i136.i, 0
   br i1 %cmp98.i, label %delete.notnull101.i, label %for.cond113.preheader.lr.ph.i
 
 for.cond113.preheader.lr.ph.i:                    ; preds = %invoke.cont96.i
@@ -1932,31 +1931,31 @@ for.cond113.preheader.lr.ph.i:                    ; preds = %invoke.cont96.i
   br i1 %tobool163.i, label %for.cond113.preheader.us.preheader.i, label %for.cond113.preheader.i
 
 for.cond113.preheader.us.preheader.i:             ; preds = %for.cond113.preheader.lr.ph.i
-  %wide.trip.count284.i = zext nneg i32 %call8.i135.i to i64
+  %wide.trip.count285.i = zext nneg i32 %call8.i136.i to i64
   br label %for.cond113.preheader.us.i
 
 for.cond113.preheader.us.i:                       ; preds = %for.inc169.us.i, %for.cond113.preheader.us.preheader.i
-  %indvars.iv290.i = phi i64 [ 0, %for.cond113.preheader.us.preheader.i ], [ %indvars.iv.next291.i, %for.inc169.us.i ]
-  %j_start.0200.us.i = phi i32 [ 0, %for.cond113.preheader.us.preheader.i ], [ %j_start.1.us.i, %for.inc169.us.i ]
-  %cmp114184.us.i = icmp slt i32 %j_start.0200.us.i, %call8.i135.i
-  br i1 %cmp114184.us.i, label %for.body115.lr.ph.us.i, label %for.inc169.us.i
+  %indvars.iv291.i = phi i64 [ 0, %for.cond113.preheader.us.preheader.i ], [ %indvars.iv.next292.i, %for.inc169.us.i ]
+  %j_start.0201.us.i = phi i32 [ 0, %for.cond113.preheader.us.preheader.i ], [ %j_start.1.us.i, %for.inc169.us.i ]
+  %cmp114185.us.i = icmp slt i32 %j_start.0201.us.i, %call8.i136.i
+  br i1 %cmp114185.us.i, label %for.body115.lr.ph.us.i, label %for.inc169.us.i
 
-for.inc169.us.i:                                  ; preds = %if.end162.us191.us.i, %if.end162.us.us.us.i, %if.then145.us.i, %for.cond113.preheader.us.i
-  %j_start.1.us.i = phi i32 [ %spec.select.us.i, %if.then145.us.i ], [ %j_start.0200.us.i, %for.cond113.preheader.us.i ], [ %j_start.0200.us.i, %if.end162.us.us.us.i ], [ %j_start.0200.us.i, %if.end162.us191.us.i ]
-  %indvars.iv.next291.i = add nuw nsw i64 %indvars.iv290.i, 1
-  %exitcond294.not.i = icmp eq i64 %indvars.iv.next291.i, %0
-  br i1 %exitcond294.not.i, label %delete.notnull173.i, label %for.cond113.preheader.us.i, !llvm.loop !10
+for.inc169.us.i:                                  ; preds = %if.end162.us192.us.i, %if.end162.us.us.us.i, %if.then145.us.i, %for.cond113.preheader.us.i
+  %j_start.1.us.i = phi i32 [ %spec.select.us.i, %if.then145.us.i ], [ %j_start.0201.us.i, %for.cond113.preheader.us.i ], [ %j_start.0201.us.i, %if.end162.us.us.us.i ], [ %j_start.0201.us.i, %if.end162.us192.us.i ]
+  %indvars.iv.next292.i = add nuw nsw i64 %indvars.iv291.i, 1
+  %exitcond295.not.i = icmp eq i64 %indvars.iv.next292.i, %0
+  br i1 %exitcond295.not.i, label %delete.notnull173.i, label %for.cond113.preheader.us.i, !llvm.loop !10
 
 for.body115.lr.ph.us.i:                           ; preds = %for.cond113.preheader.us.i
-  %arrayidx117.us.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv290.i
+  %arrayidx117.us.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv291.i
   %19 = load ptr, ptr %arrayidx117.us.i, align 8
   %tobool119.not.us.i = icmp eq ptr %19, null
   %fd140.us.i = getelementptr inbounds i8, ptr %arrayidx117.us.i, i64 8
-  %20 = sext i32 %j_start.0200.us.i to i64
-  br i1 %tobool119.not.us.i, label %for.body115.us.us.us.i, label %for.body115.us189.us.i
+  %20 = sext i32 %j_start.0201.us.i to i64
+  br i1 %tobool119.not.us.i, label %for.body115.us.us.us.i, label %for.body115.us190.us.i
 
-if.then145.us.i:                                  ; preds = %for.body115.us189.us.i, %land.lhs.true137.us.us.us.i
-  %.us-phi.us.in.i = phi i64 [ %indvars.iv286.i, %land.lhs.true137.us.us.us.i ], [ %indvars.iv281.i, %for.body115.us189.us.i ]
+if.then145.us.i:                                  ; preds = %for.body115.us190.us.i, %land.lhs.true137.us.us.us.i
+  %.us-phi.us.in.i = phi i64 [ %indvars.iv287.i, %land.lhs.true137.us.us.us.i ], [ %indvars.iv282.i, %for.body115.us190.us.i ]
   %sext.i = shl i64 %.us-phi.us.in.i, 32
   %idxprom146.us.i = ashr exact i64 %sext.i, 32
   %events148.us.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %idxprom146.us.i, i32 3
@@ -1966,24 +1965,24 @@ if.then145.us.i:                                  ; preds = %for.body115.us189.u
   %and78.us.i = and i16 %22, %21
   %revents157.us.i = getelementptr inbounds i8, ptr %arrayidx117.us.i, i64 14
   store i16 %and78.us.i, ptr %revents157.us.i, align 2
-  %spec.select.us.i = add nsw i32 %j_start.0200.us.i, %inc160.i
+  %spec.select.us.i = add nsw i32 %j_start.0201.us.i, %inc160.i
   br label %for.inc169.us.i
 
-for.body115.us189.us.i:                           ; preds = %for.body115.lr.ph.us.i, %if.end162.us191.us.i
-  %indvars.iv281.i = phi i64 [ %indvars.iv.next282.i, %if.end162.us191.us.i ], [ %20, %for.body115.lr.ph.us.i ]
-  %arrayidx125.us.us.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %indvars.iv281.i
+for.body115.us190.us.i:                           ; preds = %for.body115.lr.ph.us.i, %if.end162.us192.us.i
+  %indvars.iv282.i = phi i64 [ %indvars.iv.next283.i, %if.end162.us192.us.i ], [ %20, %for.body115.lr.ph.us.i ]
+  %arrayidx125.us.us.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %indvars.iv282.i
   %23 = load ptr, ptr %arrayidx125.us.us.i, align 8
   %cmp127.us.us.i = icmp eq ptr %19, %23
-  br i1 %cmp127.us.us.i, label %if.then145.us.i, label %if.end162.us191.us.i
+  br i1 %cmp127.us.us.i, label %if.then145.us.i, label %if.end162.us192.us.i
 
-if.end162.us191.us.i:                             ; preds = %for.body115.us189.us.i
-  %indvars.iv.next282.i = add nsw i64 %indvars.iv281.i, 1
-  %exitcond285.not.i = icmp eq i64 %indvars.iv.next282.i, %wide.trip.count284.i
-  br i1 %exitcond285.not.i, label %for.inc169.us.i, label %for.body115.us189.us.i, !llvm.loop !11
+if.end162.us192.us.i:                             ; preds = %for.body115.us190.us.i
+  %indvars.iv.next283.i = add nsw i64 %indvars.iv282.i, 1
+  %exitcond286.not.i = icmp eq i64 %indvars.iv.next283.i, %wide.trip.count285.i
+  br i1 %exitcond286.not.i, label %for.inc169.us.i, label %for.body115.us190.us.i, !llvm.loop !11
 
 for.body115.us.us.us.i:                           ; preds = %for.body115.lr.ph.us.i, %if.end162.us.us.us.i
-  %indvars.iv286.i = phi i64 [ %indvars.iv.next287.i, %if.end162.us.us.us.i ], [ %20, %for.body115.lr.ph.us.i ]
-  %arrayidx134.us.us.us.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %indvars.iv286.i
+  %indvars.iv287.i = phi i64 [ %indvars.iv.next288.i, %if.end162.us.us.us.i ], [ %20, %for.body115.lr.ph.us.i ]
+  %arrayidx134.us.us.us.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %indvars.iv287.i
   %24 = load ptr, ptr %arrayidx134.us.us.us.i, align 8
   %tobool136.not.us.us.us.i = icmp eq ptr %24, null
   br i1 %tobool136.not.us.us.us.i, label %land.lhs.true137.us.us.us.i, label %if.end162.us.us.us.i
@@ -1996,37 +1995,37 @@ land.lhs.true137.us.us.us.i:                      ; preds = %for.body115.us.us.u
   br i1 %cmp144.us.us.us.i, label %if.then145.us.i, label %if.end162.us.us.us.i
 
 if.end162.us.us.us.i:                             ; preds = %land.lhs.true137.us.us.us.i, %for.body115.us.us.us.i
-  %indvars.iv.next287.i = add nsw i64 %indvars.iv286.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next287.i to i32
-  %exitcond289.not.i = icmp eq i32 %call8.i135.i, %lftr.wideiv.i
-  br i1 %exitcond289.not.i, label %for.inc169.us.i, label %for.body115.us.us.us.i, !llvm.loop !11
+  %indvars.iv.next288.i = add nsw i64 %indvars.iv287.i, 1
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next288.i to i32
+  %exitcond290.not.i = icmp eq i32 %call8.i136.i, %lftr.wideiv.i
+  br i1 %exitcond290.not.i, label %for.inc169.us.i, label %for.body115.us.us.us.i, !llvm.loop !11
 
-if.then99.i:                                      ; preds = %call.i.i131.noexc.i
+if.then99.i:                                      ; preds = %call.i.i132.noexc.i
   %call1.i.i.i = tail call ptr @__errno_location() #18
   store i32 14, ptr %call1.i.i.i, align 4
   br i1 %new.isnull.i, label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit, label %delete.notnull101.i
 
-delete.notnull101.i:                              ; preds = %if.then99.i, %invoke.cont96.i, %if.then99.thread149.i
-  %retval.0.i132144146.i = phi i32 [ -1, %if.then99.i ], [ -1, %if.then99.thread149.i ], [ %call8.i135.i, %invoke.cont96.i ]
+delete.notnull101.i:                              ; preds = %if.then99.i, %invoke.cont96.i, %if.then99.thread150.i
+  %retval.0.i133145147.i = phi i32 [ -1, %if.then99.i ], [ -1, %if.then99.thread150.i ], [ %call8.i136.i, %invoke.cont96.i ]
   call void @_ZdaPv(ptr noundef nonnull %call.i80) #21
   %.pre.i = tail call ptr @__errno_location() #18
-  %.pre236 = load i32, ptr %.pre.i, align 4
-  %27 = icmp eq i32 %.pre236, 11
-  %28 = select i1 %27, i32 0, i32 %retval.0.i132144146.i
+  %.pre237 = load i32, ptr %.pre.i, align 4
+  %27 = icmp eq i32 %.pre237, 11
+  %28 = select i1 %27, i32 0, i32 %retval.0.i133145147.i
   br label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
 
 for.cond113.preheader.i:                          ; preds = %for.cond113.preheader.lr.ph.i, %for.inc169.i
-  %indvars.iv267.i = phi i64 [ %indvars.iv.next268.i, %for.inc169.i ], [ 0, %for.cond113.preheader.lr.ph.i ]
-  %j_start.0200.i = phi i32 [ %j_start.1.i, %for.inc169.i ], [ 0, %for.cond113.preheader.lr.ph.i ]
-  %cmp114184.i = icmp slt i32 %j_start.0200.i, %call8.i135.i
-  br i1 %cmp114184.i, label %for.body115.lr.ph.i, label %for.inc169.i
+  %indvars.iv268.i = phi i64 [ %indvars.iv.next269.i, %for.inc169.i ], [ 0, %for.cond113.preheader.lr.ph.i ]
+  %j_start.0201.i = phi i32 [ %j_start.1.i, %for.inc169.i ], [ 0, %for.cond113.preheader.lr.ph.i ]
+  %cmp114185.i = icmp slt i32 %j_start.0201.i, %call8.i136.i
+  br i1 %cmp114185.i, label %for.body115.lr.ph.i, label %for.inc169.i
 
 for.body115.lr.ph.i:                              ; preds = %for.cond113.preheader.i
-  %arrayidx117.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv267.i
+  %arrayidx117.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv268.i
   %29 = load ptr, ptr %arrayidx117.i, align 8
   %tobool119.not.i = icmp eq ptr %29, null
   %fd140.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 8
-  %idxprom133.us.i = sext i32 %j_start.0200.i to i64
+  %idxprom133.us.i = sext i32 %j_start.0201.i to i64
   %arrayidx134.us.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %idxprom133.us.i
   %30 = load ptr, ptr %arrayidx134.us.i, align 8
   br i1 %tobool119.not.i, label %for.body115.lr.ph.split.us.i, label %for.body115.lr.ph.split.i
@@ -2054,21 +2053,21 @@ if.then145.i:                                     ; preds = %for.body115.lr.ph.s
   %and78.i = and i16 %34, %33
   %revents157.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 14
   store i16 %and78.i, ptr %revents157.i, align 2
-  %spec.select.i = add nsw i32 %j_start.0200.i, %inc160.i
+  %spec.select.i = add nsw i32 %j_start.0201.i, %inc160.i
   br label %for.inc169.i
 
 for.inc169.i:                                     ; preds = %if.then145.i, %for.body115.lr.ph.split.i, %land.lhs.true137.us.i, %for.body115.lr.ph.split.us.i, %for.cond113.preheader.i
-  %j_start.1.i = phi i32 [ %spec.select.i, %if.then145.i ], [ %j_start.0200.i, %land.lhs.true137.us.i ], [ %j_start.0200.i, %for.body115.lr.ph.split.us.i ], [ %j_start.0200.i, %for.body115.lr.ph.split.i ], [ %j_start.0200.i, %for.cond113.preheader.i ]
-  %indvars.iv.next268.i = add nuw nsw i64 %indvars.iv267.i, 1
-  %exitcond270.not.i = icmp eq i64 %indvars.iv.next268.i, %0
-  br i1 %exitcond270.not.i, label %delete.notnull173.i, label %for.cond113.preheader.i, !llvm.loop !10
+  %j_start.1.i = phi i32 [ %spec.select.i, %if.then145.i ], [ %j_start.0201.i, %land.lhs.true137.us.i ], [ %j_start.0201.i, %for.body115.lr.ph.split.us.i ], [ %j_start.0201.i, %for.body115.lr.ph.split.i ], [ %j_start.0201.i, %for.cond113.preheader.i ]
+  %indvars.iv.next269.i = add nuw nsw i64 %indvars.iv268.i, 1
+  %exitcond271.not.i = icmp eq i64 %indvars.iv.next269.i, %0
+  br i1 %exitcond271.not.i, label %delete.notnull173.i, label %for.cond113.preheader.i, !llvm.loop !10
 
 delete.notnull173.i:                              ; preds = %for.inc169.i, %for.inc169.us.i
   call void @_ZdaPv(ptr noundef nonnull %call.i80) #21
   br label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
 
-_ZL15zmq_poller_pollP14zmq_pollitem_til.exit:     ; preds = %if.then99.thread148.i, %if.then99.i, %delete.notnull101.i, %if.then43.i, %delete.notnull.i, %if.then87.i, %delete.notnull89.i, %delete.notnull173.i
-  %retval.0.i81 = phi i32 [ %rc.0138.i, %delete.notnull.i ], [ %rc.0138.i, %if.then43.i ], [ %rc.1141.i, %delete.notnull89.i ], [ %rc.1141.i, %if.then87.i ], [ %call8.i135.i, %delete.notnull173.i ], [ -1, %if.then99.thread148.i ], [ %28, %delete.notnull101.i ], [ -1, %if.then99.i ]
+_ZL15zmq_poller_pollP14zmq_pollitem_til.exit:     ; preds = %if.then99.thread149.i, %if.then99.i, %delete.notnull101.i, %if.then43.i, %delete.notnull.i, %if.then87.i, %delete.notnull89.i, %delete.notnull173.i
+  %retval.0.i81 = phi i32 [ %rc.0139.i, %delete.notnull.i ], [ %rc.0139.i, %if.then43.i ], [ %rc.1142.i, %delete.notnull89.i ], [ %rc.1142.i, %if.then87.i ], [ %call8.i136.i, %delete.notnull173.i ], [ -1, %if.then99.thread149.i ], [ %28, %delete.notnull101.i ], [ -1, %if.then99.i ]
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %poller.i) #20
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %poller.i)
   br label %return
@@ -2088,7 +2087,7 @@ if.then12:                                        ; preds = %for.end
   br label %return
 
 if.end14:                                         ; preds = %for.end
-  br i1 %cmp.not201, label %if.then16, label %if.end25
+  br i1 %cmp.not202, label %if.then16, label %if.end25
 
 if.then16:                                        ; preds = %entry, %if.end14
   %cmp17 = icmp eq i64 %timeout_, 0
@@ -2137,8 +2136,8 @@ while.cond.preheader:                             ; preds = %for.inc89
   br label %while.cond.outer
 
 for.body30:                                       ; preds = %_ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit, %for.inc89
-  %indvars.iv230 = phi i64 [ 0, %_ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit ], [ %indvars.iv.next231, %for.inc89 ]
-  %arrayidx32 = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv230
+  %indvars.iv231 = phi i64 [ 0, %_ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit ], [ %indvars.iv.next232, %for.inc89 ]
+  %arrayidx32 = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv231
   %39 = load ptr, ptr %arrayidx32, align 8
   %tobool34.not = icmp eq ptr %39, null
   br i1 %tobool34.not, label %if.else54, label %lor.lhs.false.i.i90
@@ -2146,7 +2145,7 @@ for.body30:                                       ; preds = %_ZN3zmq13fast_vecto
 lor.lhs.false.i.i90:                              ; preds = %for.body30
   store i64 4, ptr %zmq_fd_size, align 8
   %40 = load ptr, ptr %_buf.i88, align 8
-  %arrayidx.i89 = getelementptr inbounds %struct.pollfd, ptr %40, i64 %indvars.iv230
+  %arrayidx.i89 = getelementptr inbounds %struct.pollfd, ptr %40, i64 %indvars.iv231
   %call.i.i93 = invoke noundef zeroext i1 @_ZNK3zmq13socket_base_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(1825) %39)
           to label %call.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2161,28 +2160,28 @@ invoke.cont41:                                    ; preds = %if.end.i
   %cmp43 = icmp eq i32 %call1.i9294, -1
   br i1 %cmp43, label %cleanup, label %if.end45
 
-lpad.loopexit:                                    ; preds = %lor.lhs.false.i.i106, %if.end.i110
-  %lpad.loopexit164 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %lor.lhs.false.i.i107, %if.end.i111
+  %lpad.loopexit165 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.loopexit:         ; preds = %while.cond, %invoke.cont93, %if.then107, %if.end260
-  %lpad.loopexit170 = landingpad { ptr, i32 }
+  %lpad.loopexit171 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %if.then254
-  %lpad.loopexit.split-lp171 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp172 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end.i, %lor.lhs.false.i.i90
-  %lpad.loopexit.split-lp167 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp168 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit164, %lpad.loopexit ], [ %lpad.loopexit.split-lp167, %lpad.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit170, %lpad.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp171, %lpad.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit165, %lpad.loopexit ], [ %lpad.loopexit.split-lp168, %lpad.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit171, %lpad.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp172, %lpad.loopexit.split-lp.loopexit.loopexit.split-lp ]
   %41 = load ptr, ptr %_buf.i88, align 8
   %cmp.not.i = icmp eq ptr %41, %pollfds
   %isnull.i = icmp eq ptr %41, null
@@ -2204,7 +2203,7 @@ if.else54:                                        ; preds = %for.body30
   %fd57 = getelementptr inbounds i8, ptr %arrayidx32, i64 8
   %43 = load i32, ptr %fd57, align 8
   %44 = load ptr, ptr %_buf.i88, align 8
-  %arrayidx.i101 = getelementptr inbounds %struct.pollfd, ptr %44, i64 %indvars.iv230
+  %arrayidx.i101 = getelementptr inbounds %struct.pollfd, ptr %44, i64 %indvars.iv231
   store i32 %43, ptr %arrayidx.i101, align 4
   %events64 = getelementptr inbounds i8, ptr %arrayidx32, i64 12
   %45 = load i16, ptr %events64, align 4
@@ -2216,21 +2215,21 @@ if.else54:                                        ; preds = %for.body30
   %and79 = lshr i32 %conv65, 2
   %cond81 = and i32 %and79, 2
   %or82 = or disjoint i32 %or, %cond81
-  %conv83 = trunc i32 %or82 to i16
+  %conv83 = trunc nuw nsw i32 %or82 to i16
   br label %for.inc89
 
 for.inc89:                                        ; preds = %if.end45, %if.else54
   %conv49.sink = phi i16 [ %conv49, %if.end45 ], [ %conv83, %if.else54 ]
   %46 = load ptr, ptr %_buf.i88, align 8
-  %events53 = getelementptr inbounds %struct.pollfd, ptr %46, i64 %indvars.iv230, i32 1
+  %events53 = getelementptr inbounds %struct.pollfd, ptr %46, i64 %indvars.iv231, i32 1
   store i16 %conv49.sink, ptr %events53, align 4
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
-  %cmp29.not = icmp eq i64 %indvars.iv.next231, %conv26
+  %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
+  %cmp29.not = icmp eq i64 %indvars.iv.next232, %conv26
   br i1 %cmp29.not, label %while.cond.preheader, label %for.body30, !llvm.loop !13
 
-while.cond:                                       ; preds = %while.cond.outer173, %invoke.cont261
-  %now.0 = phi i64 [ %call262, %invoke.cont261 ], [ %now.0.ph, %while.cond.outer173 ]
-  %call94 = invoke noundef i32 @_ZN3zmq15compute_timeoutEblmm(i1 noundef zeroext %first_pass.0.ph174, i64 noundef %timeout_, i64 noundef %now.0, i64 noundef %end.0.ph)
+while.cond:                                       ; preds = %while.cond.outer174, %invoke.cont261
+  %now.0 = phi i64 [ %call262, %invoke.cont261 ], [ %now.0.ph, %while.cond.outer174 ]
+  %call94 = invoke noundef i32 @_ZN3zmq15compute_timeoutEblmm(i1 noundef zeroext %first_pass.0.ph175, i64 noundef %timeout_, i64 noundef %now.0, i64 noundef %end.0.ph)
           to label %invoke.cont93 unwind label %lpad.loopexit.split-lp.loopexit.loopexit
 
 invoke.cont93:                                    ; preds = %while.cond
@@ -2253,11 +2252,11 @@ do.body:                                          ; preds = %invoke.cont98
   br i1 %cmp105, label %do.body.if.then107_crit_edge, label %for.body119.preheader
 
 do.body.if.then107_crit_edge:                     ; preds = %do.body
-  %.pre241 = tail call ptr @__errno_location() #18
+  %.pre242 = tail call ptr @__errno_location() #18
   br label %if.then107
 
 if.then107:                                       ; preds = %do.body.if.then107_crit_edge, %land.lhs.true
-  %call108.pre-phi = phi ptr [ %.pre241, %do.body.if.then107_crit_edge ], [ %call101, %land.lhs.true ]
+  %call108.pre-phi = phi ptr [ %.pre242, %do.body.if.then107_crit_edge ], [ %call101, %land.lhs.true ]
   %49 = load i32, ptr %call108.pre-phi, align 4
   %call109 = call ptr @strerror(i32 noundef %49) #20
   %50 = load ptr, ptr @stderr, align 8
@@ -2271,29 +2270,29 @@ for.body119.preheader:                            ; preds = %if.then107, %do.bod
   br label %for.body119
 
 for.body119:                                      ; preds = %for.body119.preheader, %if.end230
-  %indvars.iv233 = phi i64 [ %indvars.iv.next234, %if.end230 ], [ 0, %for.body119.preheader ]
-  %nevents.1204 = phi i32 [ %spec.select, %if.end230 ], [ 0, %for.body119.preheader ]
-  %arrayidx121 = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv233
+  %indvars.iv234 = phi i64 [ %indvars.iv.next235, %if.end230 ], [ 0, %for.body119.preheader ]
+  %nevents.1205 = phi i32 [ %spec.select, %if.end230 ], [ 0, %for.body119.preheader ]
+  %arrayidx121 = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv234
   %revents = getelementptr inbounds i8, ptr %arrayidx121, i64 14
   store i16 0, ptr %revents, align 2
   %52 = load ptr, ptr %arrayidx121, align 8
   %tobool125.not = icmp eq ptr %52, null
-  br i1 %tobool125.not, label %if.else169, label %lor.lhs.false.i.i106
+  br i1 %tobool125.not, label %if.else169, label %lor.lhs.false.i.i107
 
-lor.lhs.false.i.i106:                             ; preds = %for.body119
+lor.lhs.false.i.i107:                             ; preds = %for.body119
   store i64 4, ptr %zmq_events_size, align 8
-  %call.i.i113 = invoke noundef zeroext i1 @_ZNK3zmq13socket_base_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(1825) %52)
-          to label %call.i.i.noexc112 unwind label %lpad.loopexit
+  %call.i.i114 = invoke noundef zeroext i1 @_ZNK3zmq13socket_base_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(1825) %52)
+          to label %call.i.i.noexc113 unwind label %lpad.loopexit
 
-call.i.i.noexc112:                                ; preds = %lor.lhs.false.i.i106
-  br i1 %call.i.i113, label %if.end.i110, label %cleanup.sink.split
+call.i.i.noexc113:                                ; preds = %lor.lhs.false.i.i107
+  br i1 %call.i.i114, label %if.end.i111, label %cleanup.sink.split
 
-if.end.i110:                                      ; preds = %call.i.i.noexc112
-  %call1.i111114 = invoke noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %52, i32 noundef 15, ptr noundef nonnull %zmq_events, ptr noundef nonnull %zmq_events_size)
+if.end.i111:                                      ; preds = %call.i.i.noexc113
+  %call1.i112115 = invoke noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %52, i32 noundef 15, ptr noundef nonnull %zmq_events, ptr noundef nonnull %zmq_events_size)
           to label %invoke.cont130 unwind label %lpad.loopexit
 
-invoke.cont130:                                   ; preds = %if.end.i110
-  %cmp132 = icmp eq i32 %call1.i111114, -1
+invoke.cont130:                                   ; preds = %if.end.i111
+  %cmp132 = icmp eq i32 %call1.i112115, -1
   br i1 %cmp132, label %cleanup, label %if.end134
 
 if.end134:                                        ; preds = %invoke.cont130
@@ -2321,24 +2320,24 @@ if.end151:                                        ; preds = %if.then144, %land.l
   br i1 %tobool157.not, label %if.end151.if.end230_crit_edge, label %land.lhs.true158
 
 if.end151.if.end230_crit_edge:                    ; preds = %if.end151
-  %.pre239 = load i16, ptr %revents, align 2
+  %.pre240 = load i16, ptr %revents, align 2
   br label %if.end230
 
 land.lhs.true158:                                 ; preds = %if.end151
   %59 = load i32, ptr %zmq_events, align 4
   %and159 = and i32 %59, 1
   %tobool160.not = icmp eq i32 %and159, 0
-  %.pre240 = load i16, ptr %revents, align 2
+  %.pre241 = load i16, ptr %revents, align 2
   br i1 %tobool160.not, label %if.end230, label %if.then161
 
 if.then161:                                       ; preds = %land.lhs.true158
-  %60 = or i16 %.pre240, 1
+  %60 = or i16 %.pre241, 1
   store i16 %60, ptr %revents, align 2
   br label %if.end230
 
 if.else169:                                       ; preds = %for.body119
   %61 = load ptr, ptr %_buf.i88, align 8
-  %revents173 = getelementptr inbounds %struct.pollfd, ptr %61, i64 %indvars.iv233, i32 2
+  %revents173 = getelementptr inbounds %struct.pollfd, ptr %61, i64 %indvars.iv234, i32 2
   %62 = load i16, ptr %revents173, align 2
   %63 = and i16 %62, 1
   %tobool176.not = icmp eq i16 %63, 0
@@ -2346,12 +2345,12 @@ if.else169:                                       ; preds = %for.body119
 
 if.then177:                                       ; preds = %if.else169
   store i16 1, ptr %revents, align 2
-  %.pre237 = load i16, ptr %revents173, align 2
+  %.pre238 = load i16, ptr %revents173, align 2
   br label %if.end184
 
 if.end184:                                        ; preds = %if.then177, %if.else169
   %64 = phi i16 [ 1, %if.then177 ], [ 0, %if.else169 ]
-  %65 = phi i16 [ %.pre237, %if.then177 ], [ %62, %if.else169 ]
+  %65 = phi i16 [ %.pre238, %if.then177 ], [ %62, %if.else169 ]
   %66 = and i16 %65, 4
   %tobool191.not = icmp eq i16 %66, 0
   br i1 %tobool191.not, label %if.end199, label %if.then192
@@ -2359,12 +2358,12 @@ if.end184:                                        ; preds = %if.then177, %if.els
 if.then192:                                       ; preds = %if.end184
   %67 = or disjoint i16 %64, 2
   store i16 %67, ptr %revents, align 2
-  %.pre238 = load i16, ptr %revents173, align 2
+  %.pre239 = load i16, ptr %revents173, align 2
   br label %if.end199
 
 if.end199:                                        ; preds = %if.then192, %if.end184
   %68 = phi i16 [ %67, %if.then192 ], [ %64, %if.end184 ]
-  %69 = phi i16 [ %.pre238, %if.then192 ], [ %65, %if.end184 ]
+  %69 = phi i16 [ %.pre239, %if.then192 ], [ %65, %if.end184 ]
   %70 = and i16 %69, 2
   %tobool206.not = icmp eq i16 %70, 0
   br i1 %tobool206.not, label %if.end214, label %if.then207
@@ -2387,12 +2386,12 @@ if.then222:                                       ; preds = %if.end214
   br label %if.end230
 
 if.end230:                                        ; preds = %if.end151.if.end230_crit_edge, %if.end214, %if.then222, %land.lhs.true158, %if.then161
-  %75 = phi i16 [ %.pre239, %if.end151.if.end230_crit_edge ], [ %72, %if.end214 ], [ 1, %if.then222 ], [ %.pre240, %land.lhs.true158 ], [ 1, %if.then161 ]
+  %75 = phi i16 [ %.pre240, %if.end151.if.end230_crit_edge ], [ %72, %if.end214 ], [ 1, %if.then222 ], [ %.pre241, %land.lhs.true158 ], [ 1, %if.then161 ]
   %tobool234.not = icmp ne i16 %75, 0
   %inc236 = zext i1 %tobool234.not to i32
-  %spec.select = add nuw nsw i32 %nevents.1204, %inc236
-  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %cmp118.not = icmp eq i64 %indvars.iv.next234, %conv26
+  %spec.select = add nuw nsw i32 %nevents.1205, %inc236
+  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
+  %cmp118.not = icmp eq i64 %indvars.iv.next235, %conv26
   br i1 %cmp118.not, label %for.end240, label %for.body119, !llvm.loop !14
 
 for.end240:                                       ; preds = %if.end230
@@ -2401,14 +2400,14 @@ for.end240:                                       ; preds = %if.end230
   br i1 %or.cond, label %cleanup, label %if.end246
 
 if.end246:                                        ; preds = %for.end240
-  br i1 %cmp247, label %while.cond.outer173, label %if.end252, !llvm.loop !15
+  br i1 %cmp247, label %while.cond.outer174, label %if.end252, !llvm.loop !15
 
-while.cond.outer173:                              ; preds = %if.end246, %while.cond.outer
-  %first_pass.0.ph174 = phi i1 [ %first_pass.0.ph, %while.cond.outer ], [ false, %if.end246 ]
+while.cond.outer174:                              ; preds = %if.end246, %while.cond.outer
+  %first_pass.0.ph175 = phi i1 [ %first_pass.0.ph, %while.cond.outer ], [ false, %if.end246 ]
   br label %while.cond
 
 if.end252:                                        ; preds = %if.end246
-  br i1 %first_pass.0.ph174, label %if.then254, label %if.end260
+  br i1 %first_pass.0.ph175, label %if.then254, label %if.end260
 
 if.then254:                                       ; preds = %if.end252
   %call256 = invoke noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16) %clock)
@@ -2422,7 +2421,7 @@ while.cond.outer:                                 ; preds = %while.cond.preheade
   %end.0.ph = phi i64 [ 0, %while.cond.preheader ], [ %add, %if.end259 ]
   %first_pass.0.ph = phi i1 [ true, %while.cond.preheader ], [ false, %if.end259 ]
   %now.0.ph = phi i64 [ 0, %while.cond.preheader ], [ %call256, %if.end259 ]
-  br label %while.cond.outer173
+  br label %while.cond.outer174
 
 if.end260:                                        ; preds = %if.end252
   %call262 = invoke noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16) %clock)
@@ -2432,25 +2431,25 @@ invoke.cont261:                                   ; preds = %if.end260
   %cmp263.not = icmp ult i64 %call262, %end.0.ph
   br i1 %cmp263.not, label %while.cond, label %cleanup, !llvm.loop !15
 
-cleanup.sink.split:                               ; preds = %call.i.i.noexc, %call.i.i.noexc112
-  %call1.i.i108 = tail call ptr @__errno_location() #18
-  store i32 88, ptr %call1.i.i108, align 4
+cleanup.sink.split:                               ; preds = %call.i.i.noexc, %call.i.i.noexc113
+  %call1.i.i109 = tail call ptr @__errno_location() #18
+  store i32 88, ptr %call1.i.i109, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont41, %for.end240, %invoke.cont261, %land.lhs.true, %invoke.cont130, %cleanup.sink.split
   %retval.0 = phi i32 [ -1, %cleanup.sink.split ], [ -1, %invoke.cont130 ], [ %spec.select, %for.end240 ], [ 0, %invoke.cont261 ], [ -1, %land.lhs.true ], [ -1, %invoke.cont41 ]
   %76 = load ptr, ptr %_buf.i88, align 8
-  %cmp.not.i125 = icmp eq ptr %76, %pollfds
-  %isnull.i126 = icmp eq ptr %76, null
-  %or.cond.i127 = or i1 %cmp.not.i125, %isnull.i126
-  br i1 %or.cond.i127, label %return, label %delete.notnull.i128
+  %cmp.not.i126 = icmp eq ptr %76, %pollfds
+  %isnull.i127 = icmp eq ptr %76, null
+  %or.cond.i128 = or i1 %cmp.not.i126, %isnull.i127
+  br i1 %or.cond.i128, label %return, label %delete.notnull.i129
 
-delete.notnull.i128:                              ; preds = %cleanup
+delete.notnull.i129:                              ; preds = %cleanup
   call void @_ZdaPv(ptr noundef nonnull %76) #21
   br label %return
 
-return:                                           ; preds = %delete.notnull.i128, %cleanup, %_ZL16as_socket_base_tPv.exit.thread, %if.then16, %if.end19, %if.then12, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
-  %retval.1 = phi i32 [ %retval.0.i81, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit ], [ -1, %if.then12 ], [ %call20, %if.end19 ], [ 0, %if.then16 ], [ -1, %_ZL16as_socket_base_tPv.exit.thread ], [ %retval.0, %cleanup ], [ %retval.0, %delete.notnull.i128 ]
+return:                                           ; preds = %delete.notnull.i129, %cleanup, %_ZL16as_socket_base_tPv.exit.thread, %if.then16, %if.end19, %if.then12, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
+  %retval.1 = phi i32 [ %retval.0.i81, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit ], [ -1, %if.then12 ], [ %call20, %if.end19 ], [ 0, %if.then16 ], [ -1, %_ZL16as_socket_base_tPv.exit.thread ], [ %retval.0, %cleanup ], [ %retval.0, %delete.notnull.i129 ]
   ret i32 %retval.1
 }
 
@@ -2718,7 +2717,7 @@ if.end6:                                          ; preds = %if.else, %if.else2,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z29zmq_poll_select_check_events_P14zmq_pollitem_tiR22zmq_poll_select_fds_t_Ri(ptr nocapture noundef %items_, i32 noundef %nitems_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(772) %fds, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nevents) local_unnamed_addr #1 {
+define noundef range(i32 -1, 1) i32 @_Z29zmq_poll_select_check_events_P14zmq_pollitem_tiR22zmq_poll_select_fds_t_Ri(ptr nocapture noundef %items_, i32 noundef %nitems_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(772) %fds, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nevents) local_unnamed_addr #1 {
 entry:
   %zmq_events_size = alloca i64, align 8
   %zmq_events = alloca i32, align 4
@@ -3009,7 +3008,7 @@ _Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us: ; preds = %if.then.i9.us
   br i1 %cmp30.us, label %do.body, label %while.end.us
 
 while.end.us:                                     ; preds = %_Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us
-  %call43.us = call noundef i32 @_Z29zmq_poll_select_check_events_P14zmq_pollitem_tiR22zmq_poll_select_fds_t_Ri(ptr noundef %items_, i32 noundef %nitems_, ptr noundef nonnull align 8 dereferenceable(772) %fds, ptr noundef nonnull align 4 dereferenceable(4) %nevents), !range !18
+  %call43.us = call noundef i32 @_Z29zmq_poll_select_check_events_P14zmq_pollitem_tiR22zmq_poll_select_fds_t_Ri(ptr noundef %items_, i32 noundef %nitems_, ptr noundef nonnull align 8 dereferenceable(772) %fds, ptr noundef nonnull align 4 dereferenceable(4) %nevents)
   %cmp44.us = icmp slt i32 %call43.us, 0
   br i1 %cmp44.us, label %return, label %if.end46.us
 
@@ -3024,7 +3023,7 @@ if.end2.i.us:                                     ; preds = %if.end46.us
 
 if.end14.i.us443:                                 ; preds = %if.end2.i.us
   %cmp16.not.i.not.us444 = icmp ult i64 %call.i14.us442, %end.0.ph.ph1013
-  br i1 %cmp16.not.i.not.us444, label %while.body.outer.us435, label %return, !llvm.loop !19
+  br i1 %cmp16.not.i.not.us444, label %while.body.outer.us435, label %return, !llvm.loop !18
 
 if.end13.i.split.split.us:                        ; preds = %if.end2.i.us
   %add.i = add i64 %call.i14.us442, %timeout_
@@ -3046,7 +3045,7 @@ _Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us.us294: ; preds = %if.end4
   br i1 %cmp30.us.us298, label %do.body, label %while.end.us.us299
 
 while.end.us.us299:                               ; preds = %_Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us.us294
-  %call43.us.us300 = call noundef i32 @_Z29zmq_poll_select_check_events_P14zmq_pollitem_tiR22zmq_poll_select_fds_t_Ri(ptr noundef %items_, i32 noundef %nitems_, ptr noundef nonnull align 8 dereferenceable(772) %fds, ptr noundef nonnull align 4 dereferenceable(4) %nevents), !range !18
+  %call43.us.us300 = call noundef i32 @_Z29zmq_poll_select_check_events_P14zmq_pollitem_tiR22zmq_poll_select_fds_t_Ri(ptr noundef %items_, i32 noundef %nitems_, ptr noundef nonnull align 8 dereferenceable(772) %fds, ptr noundef nonnull align 4 dereferenceable(4) %nevents)
   %cmp44.us.us301 = icmp slt i32 %call43.us.us300, 0
   br i1 %cmp44.us.us301, label %return, label %if.end46.us.us302
 
@@ -3067,7 +3066,7 @@ _Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us42: ; preds = %if.end3.spl
   br i1 %cmp30.us45, label %do.body, label %while.end.us46
 
 while.end.us46:                                   ; preds = %_Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us42
-  %call43.us47 = call noundef i32 @_Z29zmq_poll_select_check_events_P14zmq_pollitem_tiR22zmq_poll_select_fds_t_Ri(ptr noundef %items_, i32 noundef %nitems_, ptr noundef nonnull align 8 dereferenceable(772) %fds, ptr noundef nonnull align 4 dereferenceable(4) %nevents), !range !18
+  %call43.us47 = call noundef i32 @_Z29zmq_poll_select_check_events_P14zmq_pollitem_tiR22zmq_poll_select_fds_t_Ri(ptr noundef %items_, i32 noundef %nitems_, ptr noundef nonnull align 8 dereferenceable(772) %fds, ptr noundef nonnull align 4 dereferenceable(4) %nevents)
   %7 = load i32, ptr %nevents, align 4
   %cmp44.us48.inv = icmp sgt i32 %call43.us47, -1
   %spec.select = select i1 %cmp44.us48.inv, i32 %7, i32 -1
@@ -3126,7 +3125,7 @@ if.end:                                           ; preds = %new.notnull, %if.th
 declare void @_ZN3zmq15socket_poller_tC1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_poller_destroy(ptr noundef %poller_p_) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @zmq_poller_destroy(ptr noundef %poller_p_) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %poller_p_, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -3607,7 +3606,7 @@ do.end:                                           ; preds = %new.notnull, %if.th
 declare void @_ZN3zmq8timers_tC1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_timers_destroy(ptr nocapture noundef %timers_p_) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @zmq_timers_destroy(ptr nocapture noundef %timers_p_) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %timers_p_, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -3850,7 +3849,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @zmq_has(ptr nocapture noundef readonly %capability_) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @zmq_has(ptr nocapture noundef readonly %capability_) local_unnamed_addr #13 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %capability_, ptr noundef nonnull dereferenceable(4) @_ZN3zmq13protocol_nameL3ipcE) #24
   %cmp = icmp eq i32 %call, 0
@@ -3864,21 +3863,33 @@ if.end:                                           ; preds = %entry
 if.end4:                                          ; preds = %if.end
   %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %capability_, ptr noundef nonnull dereferenceable(6) @.str.7) #24
   %cmp6 = icmp eq i32 %call5, 0
-  br i1 %cmp6, label %return, label %if.end8
+  br i1 %cmp6, label %return, label %sub_0
 
-if.end8:                                          ; preds = %if.end4
-  %call9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %capability_, ptr noundef nonnull dereferenceable(3) @.str.8) #24
-  %cmp10 = icmp eq i32 %call9, 0
-  br i1 %cmp10, label %return, label %if.end12
+sub_0:                                            ; preds = %if.end4
+  %0 = load i8, ptr %capability_, align 1
+  %.not = icmp eq i8 %0, 87
+  br i1 %.not, label %sub_1, label %if.end12
 
-if.end12:                                         ; preds = %if.end8
+sub_1:                                            ; preds = %sub_0
+  %1 = getelementptr inbounds i8, ptr %capability_, i64 1
+  %2 = load i8, ptr %1, align 1
+  %.not5 = icmp eq i8 %2, 83
+  br i1 %.not5, label %if.end8.tail, label %if.end12
+
+if.end8.tail:                                     ; preds = %sub_1
+  %3 = getelementptr inbounds i8, ptr %capability_, i64 2
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %return, label %if.end12
+
+if.end12:                                         ; preds = %sub_1, %sub_0, %if.end8.tail
   %call13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %capability_, ptr noundef nonnull dereferenceable(4) @.str.9) #24
   %cmp14 = icmp eq i32 %call13, 0
   %. = zext i1 %cmp14 to i32
   br label %return
 
-return:                                           ; preds = %if.end12, %if.end8, %if.end4, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end ], [ 1, %if.end4 ], [ 1, %if.end8 ], [ %., %if.end12 ]
+return:                                           ; preds = %if.end12, %if.end8.tail, %if.end4, %if.end, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end ], [ 1, %if.end4 ], [ 1, %if.end8.tail ], [ %., %if.end12 ]
   ret i32 %retval.0
 }
 
@@ -3982,5 +3993,4 @@ attributes #24 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 -1, i32 1}
-!19 = distinct !{!19, !5}
+!18 = distinct !{!18, !5}

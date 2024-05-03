@@ -121,7 +121,6 @@ $_ZTIN5folly15ConversionErrorE = comdat any
 @_ZTVSt12out_of_range = external unnamed_addr constant { [5 x ptr] }, align 8
 @_ZZN5folly6detail15str_to_floatingIdEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEEE4conv = linkonce_odr global %"class.double_conversion::StringToDoubleConverter" zeroinitializer, comdat, align 8
 @_ZGVZN5folly6detail15str_to_floatingIdEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEEE4conv = linkonce_odr global i64 0, comdat, align 8
-@.str.1 = private unnamed_addr constant [4 x i8] c"255\00", align 1
 @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const = private unnamed_addr constant [256 x i16] [i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 0, i16 1000, i16 2000, i16 3000, i16 4000, i16 5000, i16 6000, i16 7000, i16 8000, i16 9000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000], align 16
 @_ZN5folly6detail12_GLOBAL__N_18shift100E.const = private unnamed_addr constant [256 x i16] [i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 0, i16 100, i16 200, i16 300, i16 400, i16 500, i16 600, i16 700, i16 800, i16 900, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000], align 16
 @_ZN5folly6detail12_GLOBAL__N_17shift10E.const = private unnamed_addr constant [256 x i16] [i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 0, i16 10, i16 20, i16 30, i16 40, i16 50, i16 60, i16 70, i16 80, i16 90, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000, i16 10000], align 16
@@ -1131,18 +1130,40 @@ land.lhs.true24:                                  ; preds = %if.end22, %land.lhs
   %size.0220 = phi i64 [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %land.lhs.true ], [ %sub.ptr.sub, %if.then5 ]
   %b.addr.1219 = phi ptr [ %storemerge, %if.end22 ], [ %b.addr.0.ph, %land.lhs.true ], [ %b.addr.0.ph, %if.then5 ]
   %cmp25.not = icmp eq i64 %size.0220, 3
-  br i1 %cmp25.not, label %lor.lhs.false, label %invoke.cont33
+  br i1 %cmp25.not, label %sub_0, label %invoke.cont33
 
-lor.lhs.false:                                    ; preds = %land.lhs.true24
-  %call26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %b.addr.1219, ptr noundef nonnull dereferenceable(4) @.str.1, i64 noundef 3) #18
-  %cmp27 = icmp sgt i32 %call26, 0
+sub_0:                                            ; preds = %land.lhs.true24
+  %4 = load i8, ptr %b.addr.1219, align 1
+  %5 = zext i8 %4 to i32
+  %6 = add nsw i32 %5, -50
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %sub_1, label %lor.lhs.false.tail
+
+sub_1:                                            ; preds = %sub_0
+  %7 = getelementptr inbounds i8, ptr %b.addr.1219, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  %10 = add nsw i32 %9, -53
+  %.not4 = icmp eq i32 %10, 0
+  br i1 %.not4, label %sub_2, label %lor.lhs.false.tail
+
+sub_2:                                            ; preds = %sub_1
+  %11 = getelementptr inbounds i8, ptr %b.addr.1219, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = add nsw i32 %13, -53
+  br label %lor.lhs.false.tail
+
+lor.lhs.false.tail:                               ; preds = %sub_0, %sub_1, %sub_2
+  %15 = phi i32 [ %6, %sub_0 ], [ %10, %sub_1 ], [ %14, %sub_2 ]
+  %cmp27 = icmp sgt i32 %15, 0
   br i1 %cmp27, label %invoke.cont33, label %if.end38
 
-invoke.cont33:                                    ; preds = %lor.lhs.false, %land.lhs.true24
+invoke.cont33:                                    ; preds = %lor.lhs.false.tail, %land.lhs.true24
   %cond.i = select i1 %sgn.sroa.0.1.ph, i8 7, i8 8
   br label %cleanup169
 
-if.end38:                                         ; preds = %lor.lhs.false
+if.end38:                                         ; preds = %lor.lhs.false.tail
   %.pre = ptrtoint ptr %b.addr.1219 to i64
   %.pre240 = sub i64 %sub.ptr.lhs.cast, %.pre
   %cmp43232 = icmp sgt i64 %.pre240, 3
@@ -1151,29 +1172,29 @@ if.end38:                                         ; preds = %lor.lhs.false
 for.body:                                         ; preds = %if.end38, %for.inc75
   %result.0234 = phi i8 [ %conv70, %for.inc75 ], [ 0, %if.end38 ]
   %b.addr.3233 = phi ptr [ %add.ptr, %for.inc75 ], [ %b.addr.1219, %if.end38 ]
-  %4 = load i8, ptr %b.addr.3233, align 1, !tbaa !21
-  %conv46 = sext i8 %4 to i64
+  %16 = load i8, ptr %b.addr.3233, align 1, !tbaa !21
+  %conv46 = sext i8 %16 to i64
   %arrayidx47 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %conv46
-  %5 = load i16, ptr %arrayidx47, align 2, !tbaa !30
-  %conv48 = zext i16 %5 to i32
+  %17 = load i16, ptr %arrayidx47, align 2, !tbaa !30
+  %conv48 = zext i16 %17 to i32
   %arrayidx49 = getelementptr inbounds i8, ptr %b.addr.3233, i64 1
-  %6 = load i8, ptr %arrayidx49, align 1, !tbaa !21
-  %conv50 = sext i8 %6 to i64
+  %18 = load i8, ptr %arrayidx49, align 1, !tbaa !21
+  %conv50 = sext i8 %18 to i64
   %arrayidx51 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %conv50
-  %7 = load i16, ptr %arrayidx51, align 2, !tbaa !30
-  %conv52 = zext i16 %7 to i32
+  %19 = load i16, ptr %arrayidx51, align 2, !tbaa !30
+  %conv52 = zext i16 %19 to i32
   %arrayidx53 = getelementptr inbounds i8, ptr %b.addr.3233, i64 2
-  %8 = load i8, ptr %arrayidx53, align 1, !tbaa !21
-  %conv54 = sext i8 %8 to i64
+  %20 = load i8, ptr %arrayidx53, align 1, !tbaa !21
+  %conv54 = sext i8 %20 to i64
   %arrayidx55 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %conv54
-  %9 = load i16, ptr %arrayidx55, align 2, !tbaa !30
-  %conv56 = zext i16 %9 to i32
+  %21 = load i16, ptr %arrayidx55, align 2, !tbaa !30
+  %conv56 = zext i16 %21 to i32
   %arrayidx57 = getelementptr inbounds i8, ptr %b.addr.3233, i64 3
-  %10 = load i8, ptr %arrayidx57, align 1, !tbaa !21
-  %conv58 = sext i8 %10 to i64
+  %22 = load i8, ptr %arrayidx57, align 1, !tbaa !21
+  %conv58 = sext i8 %22 to i64
   %arrayidx59 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv58
-  %11 = load i16, ptr %arrayidx59, align 2, !tbaa !30
-  %conv60 = zext i16 %11 to i32
+  %23 = load i16, ptr %arrayidx59, align 2, !tbaa !30
+  %conv60 = zext i16 %23 to i32
   %add = add nuw nsw i32 %conv52, %conv48
   %add61 = add nuw nsw i32 %add, %conv56
   %add62 = add nuw nsw i32 %add61, %conv60
@@ -1182,8 +1203,8 @@ for.body:                                         ; preds = %if.end38, %for.inc7
 
 for.inc75:                                        ; preds = %for.body
   %mul = shl i8 %result.0234, 4
-  %12 = trunc i32 %add62 to i8
-  %conv70 = add i8 %mul, %12
+  %24 = trunc i32 %add62 to i8
+  %conv70 = add i8 %mul, %24
   %add.ptr = getelementptr inbounds i8, ptr %b.addr.3233, i64 4
   %sub.ptr.rhs.cast41 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub42 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast41
@@ -1202,23 +1223,23 @@ for.end76:                                        ; preds = %for.inc75, %if.end3
   ]
 
 sw.bb:                                            ; preds = %for.end76
-  %13 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
-  %conv82 = sext i8 %13 to i64
+  %25 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
+  %conv82 = sext i8 %25 to i64
   %arrayidx83 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %conv82
-  %14 = load i16, ptr %arrayidx83, align 2, !tbaa !30
-  %conv84 = zext i16 %14 to i32
+  %26 = load i16, ptr %arrayidx83, align 2, !tbaa !30
+  %conv84 = zext i16 %26 to i32
   %arrayidx86 = getelementptr inbounds i8, ptr %b.addr.3.lcssa, i64 1
-  %15 = load i8, ptr %arrayidx86, align 1, !tbaa !21
-  %conv87 = sext i8 %15 to i64
+  %27 = load i8, ptr %arrayidx86, align 1, !tbaa !21
+  %conv87 = sext i8 %27 to i64
   %arrayidx88 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %conv87
-  %16 = load i16, ptr %arrayidx88, align 2, !tbaa !30
-  %conv89 = zext i16 %16 to i32
+  %28 = load i16, ptr %arrayidx88, align 2, !tbaa !30
+  %conv89 = zext i16 %28 to i32
   %arrayidx91 = getelementptr inbounds i8, ptr %b.addr.3.lcssa, i64 2
-  %17 = load i8, ptr %arrayidx91, align 1, !tbaa !21
-  %conv92 = sext i8 %17 to i64
+  %29 = load i8, ptr %arrayidx91, align 1, !tbaa !21
+  %conv92 = sext i8 %29 to i64
   %arrayidx93 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv92
-  %18 = load i16, ptr %arrayidx93, align 2, !tbaa !30
-  %conv94 = zext i16 %18 to i32
+  %30 = load i16, ptr %arrayidx93, align 2, !tbaa !30
+  %conv94 = zext i16 %30 to i32
   %add96 = add nuw nsw i32 %conv89, %conv84
   %add97 = add nuw nsw i32 %add96, %conv94
   %cmp98 = icmp ugt i32 %add97, 9999
@@ -1229,17 +1250,17 @@ sw.bb:                                            ; preds = %for.end76
   br i1 %cmp98, label %cleanup169, label %sw.epilog
 
 sw.bb110:                                         ; preds = %for.end76
-  %19 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
-  %conv113 = sext i8 %19 to i64
+  %31 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
+  %conv113 = sext i8 %31 to i64
   %arrayidx114 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %conv113
-  %20 = load i16, ptr %arrayidx114, align 2, !tbaa !30
-  %conv115 = zext i16 %20 to i32
+  %32 = load i16, ptr %arrayidx114, align 2, !tbaa !30
+  %conv115 = zext i16 %32 to i32
   %arrayidx117 = getelementptr inbounds i8, ptr %b.addr.3.lcssa, i64 1
-  %21 = load i8, ptr %arrayidx117, align 1, !tbaa !21
-  %conv118 = sext i8 %21 to i64
+  %33 = load i8, ptr %arrayidx117, align 1, !tbaa !21
+  %conv118 = sext i8 %33 to i64
   %arrayidx119 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv118
-  %22 = load i16, ptr %arrayidx119, align 2, !tbaa !30
-  %conv120 = zext i16 %22 to i32
+  %34 = load i16, ptr %arrayidx119, align 2, !tbaa !30
+  %conv120 = zext i16 %34 to i32
   %add122 = add nuw nsw i32 %conv120, %conv115
   %cmp123 = icmp ugt i32 %add122, 9999
   %conv126 = zext i8 %result.0.lcssa to i32
@@ -1249,16 +1270,16 @@ sw.bb110:                                         ; preds = %for.end76
   br i1 %cmp123, label %cleanup169, label %sw.epilog
 
 sw.bb134:                                         ; preds = %for.end76
-  %23 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
-  %conv137 = sext i8 %23 to i64
-  %24 = add nsw i64 %conv137, -58
-  %cmp140 = icmp ult i64 %24, -10
+  %35 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
+  %conv137 = sext i8 %35 to i64
+  %36 = add nsw i64 %conv137, -58
+  %cmp140 = icmp ult i64 %36, -10
   br i1 %cmp140, label %cleanup169, label %cleanup147.thread
 
 cleanup147.thread:                                ; preds = %sw.bb134
   %arrayidx138 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv137
-  %25 = load i16, ptr %arrayidx138, align 2, !tbaa !30
-  %conv139 = trunc i16 %25 to i8
+  %37 = load i16, ptr %arrayidx138, align 2, !tbaa !30
+  %conv139 = trunc i16 %37 to i8
   %mul144 = mul i8 %result.0.lcssa, 10
   %add145 = add i8 %mul144, %conv139
   br label %sw.epilog
@@ -1363,18 +1384,40 @@ land.lhs.true24:                                  ; preds = %if.end22, %land.lhs
   %size.0220 = phi i64 [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %land.lhs.true ], [ %sub.ptr.sub, %if.then5 ]
   %b.addr.1219 = phi ptr [ %storemerge, %if.end22 ], [ %b.addr.0.ph, %land.lhs.true ], [ %b.addr.0.ph, %if.then5 ]
   %cmp25.not = icmp eq i64 %size.0220, 3
-  br i1 %cmp25.not, label %lor.lhs.false, label %invoke.cont33
+  br i1 %cmp25.not, label %sub_0, label %invoke.cont33
 
-lor.lhs.false:                                    ; preds = %land.lhs.true24
-  %call26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %b.addr.1219, ptr noundef nonnull dereferenceable(4) @.str.1, i64 noundef 3) #18
-  %cmp27 = icmp sgt i32 %call26, 0
+sub_0:                                            ; preds = %land.lhs.true24
+  %4 = load i8, ptr %b.addr.1219, align 1
+  %5 = zext i8 %4 to i32
+  %6 = add nsw i32 %5, -50
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %sub_1, label %lor.lhs.false.tail
+
+sub_1:                                            ; preds = %sub_0
+  %7 = getelementptr inbounds i8, ptr %b.addr.1219, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  %10 = add nsw i32 %9, -53
+  %.not4 = icmp eq i32 %10, 0
+  br i1 %.not4, label %sub_2, label %lor.lhs.false.tail
+
+sub_2:                                            ; preds = %sub_1
+  %11 = getelementptr inbounds i8, ptr %b.addr.1219, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = add nsw i32 %13, -53
+  br label %lor.lhs.false.tail
+
+lor.lhs.false.tail:                               ; preds = %sub_0, %sub_1, %sub_2
+  %15 = phi i32 [ %6, %sub_0 ], [ %10, %sub_1 ], [ %14, %sub_2 ]
+  %cmp27 = icmp sgt i32 %15, 0
   br i1 %cmp27, label %invoke.cont33, label %if.end38
 
-invoke.cont33:                                    ; preds = %lor.lhs.false, %land.lhs.true24
+invoke.cont33:                                    ; preds = %lor.lhs.false.tail, %land.lhs.true24
   %cond.i = select i1 %sgn.sroa.0.1.ph, i8 7, i8 8
   br label %cleanup169
 
-if.end38:                                         ; preds = %lor.lhs.false
+if.end38:                                         ; preds = %lor.lhs.false.tail
   %.pre = ptrtoint ptr %b.addr.1219 to i64
   %.pre240 = sub i64 %sub.ptr.lhs.cast, %.pre
   %cmp43232 = icmp sgt i64 %.pre240, 3
@@ -1383,29 +1426,29 @@ if.end38:                                         ; preds = %lor.lhs.false
 for.body:                                         ; preds = %if.end38, %for.inc75
   %result.0234 = phi i8 [ %conv70, %for.inc75 ], [ 0, %if.end38 ]
   %b.addr.3233 = phi ptr [ %add.ptr, %for.inc75 ], [ %b.addr.1219, %if.end38 ]
-  %4 = load i8, ptr %b.addr.3233, align 1, !tbaa !21
-  %conv46 = sext i8 %4 to i64
+  %16 = load i8, ptr %b.addr.3233, align 1, !tbaa !21
+  %conv46 = sext i8 %16 to i64
   %arrayidx47 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %conv46
-  %5 = load i16, ptr %arrayidx47, align 2, !tbaa !30
-  %conv48 = zext i16 %5 to i32
+  %17 = load i16, ptr %arrayidx47, align 2, !tbaa !30
+  %conv48 = zext i16 %17 to i32
   %arrayidx49 = getelementptr inbounds i8, ptr %b.addr.3233, i64 1
-  %6 = load i8, ptr %arrayidx49, align 1, !tbaa !21
-  %conv50 = sext i8 %6 to i64
+  %18 = load i8, ptr %arrayidx49, align 1, !tbaa !21
+  %conv50 = sext i8 %18 to i64
   %arrayidx51 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %conv50
-  %7 = load i16, ptr %arrayidx51, align 2, !tbaa !30
-  %conv52 = zext i16 %7 to i32
+  %19 = load i16, ptr %arrayidx51, align 2, !tbaa !30
+  %conv52 = zext i16 %19 to i32
   %arrayidx53 = getelementptr inbounds i8, ptr %b.addr.3233, i64 2
-  %8 = load i8, ptr %arrayidx53, align 1, !tbaa !21
-  %conv54 = sext i8 %8 to i64
+  %20 = load i8, ptr %arrayidx53, align 1, !tbaa !21
+  %conv54 = sext i8 %20 to i64
   %arrayidx55 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %conv54
-  %9 = load i16, ptr %arrayidx55, align 2, !tbaa !30
-  %conv56 = zext i16 %9 to i32
+  %21 = load i16, ptr %arrayidx55, align 2, !tbaa !30
+  %conv56 = zext i16 %21 to i32
   %arrayidx57 = getelementptr inbounds i8, ptr %b.addr.3233, i64 3
-  %10 = load i8, ptr %arrayidx57, align 1, !tbaa !21
-  %conv58 = sext i8 %10 to i64
+  %22 = load i8, ptr %arrayidx57, align 1, !tbaa !21
+  %conv58 = sext i8 %22 to i64
   %arrayidx59 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv58
-  %11 = load i16, ptr %arrayidx59, align 2, !tbaa !30
-  %conv60 = zext i16 %11 to i32
+  %23 = load i16, ptr %arrayidx59, align 2, !tbaa !30
+  %conv60 = zext i16 %23 to i32
   %add = add nuw nsw i32 %conv52, %conv48
   %add61 = add nuw nsw i32 %add, %conv56
   %add62 = add nuw nsw i32 %add61, %conv60
@@ -1414,8 +1457,8 @@ for.body:                                         ; preds = %if.end38, %for.inc7
 
 for.inc75:                                        ; preds = %for.body
   %mul = shl i8 %result.0234, 4
-  %12 = trunc i32 %add62 to i8
-  %conv70 = add i8 %mul, %12
+  %24 = trunc i32 %add62 to i8
+  %conv70 = add i8 %mul, %24
   %add.ptr = getelementptr inbounds i8, ptr %b.addr.3233, i64 4
   %sub.ptr.rhs.cast41 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub42 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast41
@@ -1434,23 +1477,23 @@ for.end76:                                        ; preds = %for.inc75, %if.end3
   ]
 
 sw.bb:                                            ; preds = %for.end76
-  %13 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
-  %conv82 = sext i8 %13 to i64
+  %25 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
+  %conv82 = sext i8 %25 to i64
   %arrayidx83 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %conv82
-  %14 = load i16, ptr %arrayidx83, align 2, !tbaa !30
-  %conv84 = zext i16 %14 to i32
+  %26 = load i16, ptr %arrayidx83, align 2, !tbaa !30
+  %conv84 = zext i16 %26 to i32
   %arrayidx86 = getelementptr inbounds i8, ptr %b.addr.3.lcssa, i64 1
-  %15 = load i8, ptr %arrayidx86, align 1, !tbaa !21
-  %conv87 = sext i8 %15 to i64
+  %27 = load i8, ptr %arrayidx86, align 1, !tbaa !21
+  %conv87 = sext i8 %27 to i64
   %arrayidx88 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %conv87
-  %16 = load i16, ptr %arrayidx88, align 2, !tbaa !30
-  %conv89 = zext i16 %16 to i32
+  %28 = load i16, ptr %arrayidx88, align 2, !tbaa !30
+  %conv89 = zext i16 %28 to i32
   %arrayidx91 = getelementptr inbounds i8, ptr %b.addr.3.lcssa, i64 2
-  %17 = load i8, ptr %arrayidx91, align 1, !tbaa !21
-  %conv92 = sext i8 %17 to i64
+  %29 = load i8, ptr %arrayidx91, align 1, !tbaa !21
+  %conv92 = sext i8 %29 to i64
   %arrayidx93 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv92
-  %18 = load i16, ptr %arrayidx93, align 2, !tbaa !30
-  %conv94 = zext i16 %18 to i32
+  %30 = load i16, ptr %arrayidx93, align 2, !tbaa !30
+  %conv94 = zext i16 %30 to i32
   %add96 = add nuw nsw i32 %conv89, %conv84
   %add97 = add nuw nsw i32 %add96, %conv94
   %cmp98 = icmp ugt i32 %add97, 9999
@@ -1461,17 +1504,17 @@ sw.bb:                                            ; preds = %for.end76
   br i1 %cmp98, label %cleanup169, label %sw.epilog
 
 sw.bb110:                                         ; preds = %for.end76
-  %19 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
-  %conv113 = sext i8 %19 to i64
+  %31 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
+  %conv113 = sext i8 %31 to i64
   %arrayidx114 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %conv113
-  %20 = load i16, ptr %arrayidx114, align 2, !tbaa !30
-  %conv115 = zext i16 %20 to i32
+  %32 = load i16, ptr %arrayidx114, align 2, !tbaa !30
+  %conv115 = zext i16 %32 to i32
   %arrayidx117 = getelementptr inbounds i8, ptr %b.addr.3.lcssa, i64 1
-  %21 = load i8, ptr %arrayidx117, align 1, !tbaa !21
-  %conv118 = sext i8 %21 to i64
+  %33 = load i8, ptr %arrayidx117, align 1, !tbaa !21
+  %conv118 = sext i8 %33 to i64
   %arrayidx119 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv118
-  %22 = load i16, ptr %arrayidx119, align 2, !tbaa !30
-  %conv120 = zext i16 %22 to i32
+  %34 = load i16, ptr %arrayidx119, align 2, !tbaa !30
+  %conv120 = zext i16 %34 to i32
   %add122 = add nuw nsw i32 %conv120, %conv115
   %cmp123 = icmp ugt i32 %add122, 9999
   %conv126 = zext i8 %result.0.lcssa to i32
@@ -1481,16 +1524,16 @@ sw.bb110:                                         ; preds = %for.end76
   br i1 %cmp123, label %cleanup169, label %sw.epilog
 
 sw.bb134:                                         ; preds = %for.end76
-  %23 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
-  %conv137 = sext i8 %23 to i64
-  %24 = add nsw i64 %conv137, -58
-  %cmp140 = icmp ult i64 %24, -10
+  %35 = load i8, ptr %b.addr.3.lcssa, align 1, !tbaa !21
+  %conv137 = sext i8 %35 to i64
+  %36 = add nsw i64 %conv137, -58
+  %cmp140 = icmp ult i64 %36, -10
   br i1 %cmp140, label %cleanup169, label %cleanup147.thread
 
 cleanup147.thread:                                ; preds = %sw.bb134
   %arrayidx138 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv137
-  %25 = load i16, ptr %arrayidx138, align 2, !tbaa !30
-  %conv139 = trunc i16 %25 to i8
+  %37 = load i16, ptr %arrayidx138, align 2, !tbaa !30
+  %conv139 = trunc i16 %37 to i8
   %mul144 = mul i8 %result.0.lcssa, 10
   %add145 = add i8 %mul144, %conv139
   br label %sw.epilog
@@ -1569,14 +1612,36 @@ land.lhs.true24:                                  ; preds = %if.end22, %land.lhs
   %size.0207 = phi i64 [ %sub.ptr.sub19, %if.end22 ], [ %sub.ptr.sub, %land.lhs.true ], [ %sub.ptr.sub, %if.then5 ]
   %b.addr.0206 = phi ptr [ %storemerge, %if.end22 ], [ %b, %land.lhs.true ], [ %b, %if.then5 ]
   %cmp25.not = icmp eq i64 %size.0207, 3
-  br i1 %cmp25.not, label %lor.lhs.false, label %cleanup169
+  br i1 %cmp25.not, label %sub_0, label %cleanup169
 
-lor.lhs.false:                                    ; preds = %land.lhs.true24
-  %call26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %b.addr.0206, ptr noundef nonnull dereferenceable(4) @.str.1, i64 noundef 3) #18
-  %cmp27 = icmp sgt i32 %call26, 0
+sub_0:                                            ; preds = %land.lhs.true24
+  %2 = load i8, ptr %b.addr.0206, align 1
+  %3 = zext i8 %2 to i32
+  %4 = add nsw i32 %3, -50
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %sub_1, label %lor.lhs.false.tail
+
+sub_1:                                            ; preds = %sub_0
+  %5 = getelementptr inbounds i8, ptr %b.addr.0206, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = zext i8 %6 to i32
+  %8 = add nsw i32 %7, -53
+  %.not4 = icmp eq i32 %8, 0
+  br i1 %.not4, label %sub_2, label %lor.lhs.false.tail
+
+sub_2:                                            ; preds = %sub_1
+  %9 = getelementptr inbounds i8, ptr %b.addr.0206, i64 2
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i32
+  %12 = add nsw i32 %11, -53
+  br label %lor.lhs.false.tail
+
+lor.lhs.false.tail:                               ; preds = %sub_0, %sub_1, %sub_2
+  %13 = phi i32 [ %4, %sub_0 ], [ %8, %sub_1 ], [ %12, %sub_2 ]
+  %cmp27 = icmp sgt i32 %13, 0
   br i1 %cmp27, label %cleanup169, label %if.end38
 
-if.end38:                                         ; preds = %lor.lhs.false
+if.end38:                                         ; preds = %lor.lhs.false.tail
   %.pre = ptrtoint ptr %b.addr.0206 to i64
   %.pre227 = sub i64 %sub.ptr.lhs.cast, %.pre
   %cmp43219 = icmp sgt i64 %.pre227, 3
@@ -1585,29 +1650,29 @@ if.end38:                                         ; preds = %lor.lhs.false
 for.body:                                         ; preds = %if.end38, %for.inc75
   %result.0221 = phi i8 [ %conv70, %for.inc75 ], [ 0, %if.end38 ]
   %b.addr.2220 = phi ptr [ %add.ptr, %for.inc75 ], [ %b.addr.0206, %if.end38 ]
-  %2 = load i8, ptr %b.addr.2220, align 1, !tbaa !21
-  %conv46 = sext i8 %2 to i64
+  %14 = load i8, ptr %b.addr.2220, align 1, !tbaa !21
+  %conv46 = sext i8 %14 to i64
   %arrayidx47 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %conv46
-  %3 = load i16, ptr %arrayidx47, align 2, !tbaa !30
-  %conv48 = zext i16 %3 to i32
+  %15 = load i16, ptr %arrayidx47, align 2, !tbaa !30
+  %conv48 = zext i16 %15 to i32
   %arrayidx49 = getelementptr inbounds i8, ptr %b.addr.2220, i64 1
-  %4 = load i8, ptr %arrayidx49, align 1, !tbaa !21
-  %conv50 = sext i8 %4 to i64
+  %16 = load i8, ptr %arrayidx49, align 1, !tbaa !21
+  %conv50 = sext i8 %16 to i64
   %arrayidx51 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %conv50
-  %5 = load i16, ptr %arrayidx51, align 2, !tbaa !30
-  %conv52 = zext i16 %5 to i32
+  %17 = load i16, ptr %arrayidx51, align 2, !tbaa !30
+  %conv52 = zext i16 %17 to i32
   %arrayidx53 = getelementptr inbounds i8, ptr %b.addr.2220, i64 2
-  %6 = load i8, ptr %arrayidx53, align 1, !tbaa !21
-  %conv54 = sext i8 %6 to i64
+  %18 = load i8, ptr %arrayidx53, align 1, !tbaa !21
+  %conv54 = sext i8 %18 to i64
   %arrayidx55 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %conv54
-  %7 = load i16, ptr %arrayidx55, align 2, !tbaa !30
-  %conv56 = zext i16 %7 to i32
+  %19 = load i16, ptr %arrayidx55, align 2, !tbaa !30
+  %conv56 = zext i16 %19 to i32
   %arrayidx57 = getelementptr inbounds i8, ptr %b.addr.2220, i64 3
-  %8 = load i8, ptr %arrayidx57, align 1, !tbaa !21
-  %conv58 = sext i8 %8 to i64
+  %20 = load i8, ptr %arrayidx57, align 1, !tbaa !21
+  %conv58 = sext i8 %20 to i64
   %arrayidx59 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv58
-  %9 = load i16, ptr %arrayidx59, align 2, !tbaa !30
-  %conv60 = zext i16 %9 to i32
+  %21 = load i16, ptr %arrayidx59, align 2, !tbaa !30
+  %conv60 = zext i16 %21 to i32
   %add = add nuw nsw i32 %conv52, %conv48
   %add61 = add nuw nsw i32 %add, %conv56
   %add62 = add nuw nsw i32 %add61, %conv60
@@ -1616,8 +1681,8 @@ for.body:                                         ; preds = %if.end38, %for.inc7
 
 for.inc75:                                        ; preds = %for.body
   %mul = shl i8 %result.0221, 4
-  %10 = trunc i32 %add62 to i8
-  %conv70 = add i8 %mul, %10
+  %22 = trunc i32 %add62 to i8
+  %conv70 = add i8 %mul, %22
   %add.ptr = getelementptr inbounds i8, ptr %b.addr.2220, i64 4
   %sub.ptr.rhs.cast41 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub42 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast41
@@ -1636,23 +1701,23 @@ for.end76:                                        ; preds = %for.inc75, %if.end3
   ]
 
 sw.bb:                                            ; preds = %for.end76
-  %11 = load i8, ptr %b.addr.2.lcssa, align 1, !tbaa !21
-  %conv82 = sext i8 %11 to i64
+  %23 = load i8, ptr %b.addr.2.lcssa, align 1, !tbaa !21
+  %conv82 = sext i8 %23 to i64
   %arrayidx83 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %conv82
-  %12 = load i16, ptr %arrayidx83, align 2, !tbaa !30
-  %conv84 = zext i16 %12 to i32
+  %24 = load i16, ptr %arrayidx83, align 2, !tbaa !30
+  %conv84 = zext i16 %24 to i32
   %arrayidx86 = getelementptr inbounds i8, ptr %b.addr.2.lcssa, i64 1
-  %13 = load i8, ptr %arrayidx86, align 1, !tbaa !21
-  %conv87 = sext i8 %13 to i64
+  %25 = load i8, ptr %arrayidx86, align 1, !tbaa !21
+  %conv87 = sext i8 %25 to i64
   %arrayidx88 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %conv87
-  %14 = load i16, ptr %arrayidx88, align 2, !tbaa !30
-  %conv89 = zext i16 %14 to i32
+  %26 = load i16, ptr %arrayidx88, align 2, !tbaa !30
+  %conv89 = zext i16 %26 to i32
   %arrayidx91 = getelementptr inbounds i8, ptr %b.addr.2.lcssa, i64 2
-  %15 = load i8, ptr %arrayidx91, align 1, !tbaa !21
-  %conv92 = sext i8 %15 to i64
+  %27 = load i8, ptr %arrayidx91, align 1, !tbaa !21
+  %conv92 = sext i8 %27 to i64
   %arrayidx93 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv92
-  %16 = load i16, ptr %arrayidx93, align 2, !tbaa !30
-  %conv94 = zext i16 %16 to i32
+  %28 = load i16, ptr %arrayidx93, align 2, !tbaa !30
+  %conv94 = zext i16 %28 to i32
   %add96 = add nuw nsw i32 %conv89, %conv84
   %add97 = add nuw nsw i32 %add96, %conv94
   %cmp98 = icmp ugt i32 %add97, 9999
@@ -1663,17 +1728,17 @@ sw.bb:                                            ; preds = %for.end76
   br i1 %cmp98, label %cleanup169, label %sw.epilog
 
 sw.bb110:                                         ; preds = %for.end76
-  %17 = load i8, ptr %b.addr.2.lcssa, align 1, !tbaa !21
-  %conv113 = sext i8 %17 to i64
+  %29 = load i8, ptr %b.addr.2.lcssa, align 1, !tbaa !21
+  %conv113 = sext i8 %29 to i64
   %arrayidx114 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %conv113
-  %18 = load i16, ptr %arrayidx114, align 2, !tbaa !30
-  %conv115 = zext i16 %18 to i32
+  %30 = load i16, ptr %arrayidx114, align 2, !tbaa !30
+  %conv115 = zext i16 %30 to i32
   %arrayidx117 = getelementptr inbounds i8, ptr %b.addr.2.lcssa, i64 1
-  %19 = load i8, ptr %arrayidx117, align 1, !tbaa !21
-  %conv118 = sext i8 %19 to i64
+  %31 = load i8, ptr %arrayidx117, align 1, !tbaa !21
+  %conv118 = sext i8 %31 to i64
   %arrayidx119 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv118
-  %20 = load i16, ptr %arrayidx119, align 2, !tbaa !30
-  %conv120 = zext i16 %20 to i32
+  %32 = load i16, ptr %arrayidx119, align 2, !tbaa !30
+  %conv120 = zext i16 %32 to i32
   %add122 = add nuw nsw i32 %conv120, %conv115
   %cmp123 = icmp ugt i32 %add122, 9999
   %conv126 = zext i8 %result.0.lcssa to i32
@@ -1683,16 +1748,16 @@ sw.bb110:                                         ; preds = %for.end76
   br i1 %cmp123, label %cleanup169, label %sw.epilog
 
 sw.bb134:                                         ; preds = %for.end76
-  %21 = load i8, ptr %b.addr.2.lcssa, align 1, !tbaa !21
-  %conv137 = sext i8 %21 to i64
-  %22 = add nsw i64 %conv137, -58
-  %cmp140 = icmp ult i64 %22, -10
+  %33 = load i8, ptr %b.addr.2.lcssa, align 1, !tbaa !21
+  %conv137 = sext i8 %33 to i64
+  %34 = add nsw i64 %conv137, -58
+  %cmp140 = icmp ult i64 %34, -10
   br i1 %cmp140, label %cleanup169, label %cleanup147.thread
 
 cleanup147.thread:                                ; preds = %sw.bb134
   %arrayidx138 = getelementptr inbounds [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %conv137
-  %23 = load i16, ptr %arrayidx138, align 2, !tbaa !30
-  %conv139 = trunc i16 %23 to i8
+  %35 = load i16, ptr %arrayidx138, align 2, !tbaa !30
+  %conv139 = trunc i16 %35 to i8
   %mul144 = mul i8 %result.0.lcssa, 10
   %add145 = add i8 %mul144, %conv139
   br label %sw.epilog
@@ -1705,10 +1770,10 @@ sw.epilog:                                        ; preds = %sw.default, %cleanu
   %result.5 = phi i8 [ %result.0.lcssa, %sw.default ], [ %conv129, %sw.bb110 ], [ %conv104, %sw.bb ], [ %add145, %cleanup147.thread ]
   br label %cleanup169
 
-cleanup169:                                       ; preds = %for.cond, %for.body, %sw.epilog, %sw.default, %sw.bb134, %sw.bb110, %sw.bb, %lor.lhs.false, %land.lhs.true24
-  %retval.sroa.0.0 = phi i8 [ 1, %sw.epilog ], [ 2, %land.lhs.true24 ], [ 2, %lor.lhs.false ], [ 2, %sw.default ], [ 2, %sw.bb ], [ 2, %sw.bb110 ], [ 2, %sw.bb134 ], [ 2, %for.body ], [ 1, %for.cond ]
-  %retval.sroa.6.0 = phi i8 [ 0, %sw.epilog ], [ 7, %land.lhs.true24 ], [ 7, %lor.lhs.false ], [ 2, %sw.default ], [ 5, %sw.bb ], [ 5, %sw.bb110 ], [ 5, %sw.bb134 ], [ 5, %for.body ], [ 0, %for.cond ]
-  %retval.sroa.10.0 = phi i8 [ %result.5, %sw.epilog ], [ 0, %land.lhs.true24 ], [ 0, %lor.lhs.false ], [ 0, %sw.default ], [ 0, %sw.bb ], [ 0, %sw.bb110 ], [ 0, %sw.bb134 ], [ 0, %for.body ], [ 0, %for.cond ]
+cleanup169:                                       ; preds = %for.cond, %for.body, %sw.epilog, %sw.default, %sw.bb134, %sw.bb110, %sw.bb, %lor.lhs.false.tail, %land.lhs.true24
+  %retval.sroa.0.0 = phi i8 [ 1, %sw.epilog ], [ 2, %land.lhs.true24 ], [ 2, %lor.lhs.false.tail ], [ 2, %sw.default ], [ 2, %sw.bb ], [ 2, %sw.bb110 ], [ 2, %sw.bb134 ], [ 2, %for.body ], [ 1, %for.cond ]
+  %retval.sroa.6.0 = phi i8 [ 0, %sw.epilog ], [ 7, %land.lhs.true24 ], [ 7, %lor.lhs.false.tail ], [ 2, %sw.default ], [ 5, %sw.bb ], [ 5, %sw.bb110 ], [ 5, %sw.bb134 ], [ 5, %for.body ], [ 0, %for.cond ]
+  %retval.sroa.10.0 = phi i8 [ %result.5, %sw.epilog ], [ 0, %land.lhs.true24 ], [ 0, %lor.lhs.false.tail ], [ 0, %sw.default ], [ 0, %sw.bb ], [ 0, %sw.bb110 ], [ 0, %sw.bb134 ], [ 0, %for.body ], [ 0, %for.cond ]
   %retval.sroa.10.0.insert.ext = zext i8 %retval.sroa.10.0 to i24
   %retval.sroa.10.0.insert.shift = shl nuw i24 %retval.sroa.10.0.insert.ext, 16
   %retval.sroa.6.0.insert.ext = zext nneg i8 %retval.sroa.6.0 to i24
@@ -5030,7 +5095,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(ptr nocapture noundef %src) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define range(i24 1, 131072) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(ptr nocapture noundef %src) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8, !tbaa !17
   %e_.i = getelementptr inbounds i8, ptr %src, i64 8

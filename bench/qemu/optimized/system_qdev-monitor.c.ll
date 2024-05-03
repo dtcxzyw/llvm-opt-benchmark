@@ -53,7 +53,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.29 = private unnamed_addr constant [55 x i8] c"options 'driver', 'property', and 'value' are required\00", align 1
 @__func__.qmp_command_available = private unnamed_addr constant [22 x i8] c"qmp_command_available\00", align 1
 @.str.30 = private unnamed_addr constant [78 x i8] c"The command '%s' is permitted only after machine initialization has completed\00", align 1
-@.str.31 = private unnamed_addr constant [2 x i8] c"?\00", align 1
 @.str.32 = private unnamed_addr constant [5 x i8] c"help\00", align 1
 @qdev_print_devinfos.cat_name = internal unnamed_addr constant [11 x ptr] [ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43], align 16
 @.str.33 = private unnamed_addr constant [22 x i8] c"Controller/Bridge/Hub\00", align 1
@@ -207,7 +206,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.165 = private unnamed_addr constant [13 x i8] c"hotpluggable\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qdev_device_help(ptr noundef %opts) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qdev_device_help(ptr noundef %opts) local_unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -216,16 +215,22 @@ entry:
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(2) @.str.31) #9
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then, label %is_help_option.exit
+  %0 = load i8, ptr %call, align 1
+  %.not.i = icmp eq i8 %0, 63
+  br i1 %.not.i, label %entry.tail.i, label %is_help_option.exit
 
-is_help_option.exit:                              ; preds = %land.lhs.true
+entry.tail.i:                                     ; preds = %land.lhs.true
+  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.then, label %is_help_option.exit
+
+is_help_option.exit:                              ; preds = %land.lhs.true, %entry.tail.i
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.32) #9
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %lor.lhs.false
 
-if.then:                                          ; preds = %land.lhs.true, %is_help_option.exit
+if.then:                                          ; preds = %entry.tail.i, %is_help_option.exit
   tail call fastcc void @qdev_print_devinfos(i1 noundef zeroext false)
   br label %return
 
@@ -239,40 +244,40 @@ if.end5:                                          ; preds = %lor.lhs.false
   br i1 %tobool7.not, label %if.then8, label %if.end13
 
 if.then8:                                         ; preds = %if.end5
-  %0 = load i32, ptr @arch_type, align 4
+  %4 = load i32, ptr @arch_type, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then8
   %indvars.iv.i = phi i64 [ 0, %if.then8 ], [ %indvars.iv.next.i, %for.inc.i ]
-  %1 = phi ptr [ @.str.53, %if.then8 ], [ %4, %for.inc.i ]
+  %5 = phi ptr [ @.str.53, %if.then8 ], [ %8, %for.inc.i ]
   %arrayidx8.i = phi ptr [ @qdev_alias_table, %if.then8 ], [ %arrayidx.i, %for.inc.i ]
   %arch_mask.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 16
-  %2 = load i32, ptr %arch_mask.i, align 8
-  %tobool4.not.i = icmp ne i32 %2, 0
-  %and.i = and i32 %2, %0
+  %6 = load i32, ptr %arch_mask.i, align 8
+  %tobool4.not.i = icmp ne i32 %6, 0
+  %and.i = and i32 %6, %4
   %tobool8.not.i = icmp eq i32 %and.i, 0
   %or.cond.i = select i1 %tobool4.not.i, i1 %tobool8.not.i, i1 false
   br i1 %or.cond.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %call.i24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %call) #9
-  %cmp.i = icmp eq i32 %call.i24, 0
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %call) #9
+  %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then12.i, label %for.inc.i
 
 if.then12.i:                                      ; preds = %if.end.i
-  %3 = load ptr, ptr %arrayidx8.i, align 8
+  %7 = load ptr, ptr %arrayidx8.i, align 8
   br label %find_typename_by_alias.exit
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr [49 x %struct.QDevAlias], ptr @qdev_alias_table, i64 0, i64 %indvars.iv.next.i
   %alias1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %4 = load ptr, ptr %alias1.i, align 8
+  %8 = load ptr, ptr %alias1.i, align 8
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 48
   br i1 %exitcond.i, label %find_typename_by_alias.exit, label %for.body.i, !llvm.loop !5
 
 find_typename_by_alias.exit:                      ; preds = %for.inc.i, %if.then12.i
-  %retval.0.i = phi ptr [ %3, %if.then12.i ], [ null, %for.inc.i ]
+  %retval.0.i = phi ptr [ %7, %if.then12.i ], [ null, %for.inc.i ]
   %tobool10.not = icmp eq ptr %retval.0.i, null
   %spec.select = select i1 %tobool10.not, ptr %call, ptr %retval.0.i
   br label %if.end13
@@ -280,8 +285,8 @@ find_typename_by_alias.exit:                      ; preds = %for.inc.i, %if.then
 if.end13:                                         ; preds = %find_typename_by_alias.exit, %if.end5
   %driver.0 = phi ptr [ %call, %if.end5 ], [ %spec.select, %find_typename_by_alias.exit ]
   %call14 = call ptr @qmp_device_list_properties(ptr noundef nonnull %driver.0, ptr noundef nonnull %local_err) #8
-  %5 = load ptr, ptr %local_err, align 8
-  %tobool15.not = icmp eq ptr %5, null
+  %9 = load ptr, ptr %local_err, align 8
+  %tobool15.not = icmp eq ptr %9, null
   br i1 %tobool15.not, label %if.end17, label %error
 
 if.end17:                                         ; preds = %if.end13
@@ -290,7 +295,7 @@ if.end17:                                         ; preds = %if.end13
 
 if.end22.thread:                                  ; preds = %if.end17
   %call21 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.2, ptr noundef nonnull %driver.0) #8
-  %call2331 = call ptr @g_ptr_array_new() #8
+  %call2330 = call ptr @g_ptr_array_new() #8
   br label %for.end
 
 for.body.preheader:                               ; preds = %if.end17
@@ -299,50 +304,50 @@ for.body.preheader:                               ; preds = %if.end17
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %prop.027 = phi ptr [ %11, %for.body ], [ %call14, %for.body.preheader ]
-  %value = getelementptr inbounds i8, ptr %prop.027, i64 8
-  %6 = load ptr, ptr %value, align 8
-  %7 = load ptr, ptr %6, align 8
-  %type = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load ptr, ptr %type, align 8
-  %default_value = getelementptr inbounds i8, ptr %6, i64 24
-  %9 = load ptr, ptr %default_value, align 8
-  %description = getelementptr inbounds i8, ptr %6, i64 16
-  %10 = load ptr, ptr %description, align 8
-  %call28 = call ptr @object_property_help(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #8
+  %prop.026 = phi ptr [ %15, %for.body ], [ %call14, %for.body.preheader ]
+  %value = getelementptr inbounds i8, ptr %prop.026, i64 8
+  %10 = load ptr, ptr %value, align 8
+  %11 = load ptr, ptr %10, align 8
+  %type = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = load ptr, ptr %type, align 8
+  %default_value = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = load ptr, ptr %default_value, align 8
+  %description = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = load ptr, ptr %description, align 8
+  %call28 = call ptr @object_property_help(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) #8
   call void @g_ptr_array_add(ptr noundef %call23, ptr noundef %call28) #8
-  %11 = load ptr, ptr %prop.027, align 8
-  %tobool24.not = icmp eq ptr %11, null
+  %15 = load ptr, ptr %prop.026, align 8
+  %tobool24.not = icmp eq ptr %15, null
   br i1 %tobool24.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end22.thread
-  %call2332 = phi ptr [ %call2331, %if.end22.thread ], [ %call23, %for.body ]
-  call void @g_ptr_array_sort(ptr noundef %call2332, ptr noundef nonnull @qemu_pstrcmp0) #8
-  %len = getelementptr inbounds i8, ptr %call2332, i64 8
-  %12 = load i32, ptr %len, align 8
-  %cmp28.not = icmp eq i32 %12, 0
-  br i1 %cmp28.not, label %for.end33, label %for.body30
+  %call2331 = phi ptr [ %call2330, %if.end22.thread ], [ %call23, %for.body ]
+  call void @g_ptr_array_sort(ptr noundef %call2331, ptr noundef nonnull @qemu_pstrcmp0) #8
+  %len = getelementptr inbounds i8, ptr %call2331, i64 8
+  %16 = load i32, ptr %len, align 8
+  %cmp27.not = icmp eq i32 %16, 0
+  br i1 %cmp27.not, label %for.end33, label %for.body30
 
 for.body30:                                       ; preds = %for.end, %for.body30
-  %i.029 = phi i32 [ %inc, %for.body30 ], [ 0, %for.end ]
-  %13 = load ptr, ptr %call2332, align 8
-  %idxprom = sext i32 %i.029 to i64
-  %arrayidx = getelementptr ptr, ptr %13, i64 %idxprom
-  %14 = load ptr, ptr %arrayidx, align 8
-  %call31 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.3, ptr noundef %14) #8
-  %inc = add nuw i32 %i.029, 1
-  %15 = load i32, ptr %len, align 8
-  %cmp = icmp ult i32 %inc, %15
+  %i.028 = phi i32 [ %inc, %for.body30 ], [ 0, %for.end ]
+  %17 = load ptr, ptr %call2331, align 8
+  %idxprom = sext i32 %i.028 to i64
+  %arrayidx = getelementptr ptr, ptr %17, i64 %idxprom
+  %18 = load ptr, ptr %arrayidx, align 8
+  %call31 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.3, ptr noundef %18) #8
+  %inc = add nuw i32 %i.028, 1
+  %19 = load i32, ptr %len, align 8
+  %cmp = icmp ult i32 %inc, %19
   br i1 %cmp, label %for.body30, label %for.end33, !llvm.loop !8
 
 for.end33:                                        ; preds = %for.body30, %for.end
-  call void @g_ptr_array_set_free_func(ptr noundef nonnull %call2332, ptr noundef nonnull @g_free) #8
-  %call34 = call ptr @g_ptr_array_free(ptr noundef nonnull %call2332, i32 noundef 1) #8
+  call void @g_ptr_array_set_free_func(ptr noundef nonnull %call2331, ptr noundef nonnull @g_free) #8
+  %call34 = call ptr @g_ptr_array_free(ptr noundef nonnull %call2331, i32 noundef 1) #8
   call void @qapi_free_ObjectPropertyInfoList(ptr noundef %call14) #8
   br label %return
 
 error:                                            ; preds = %if.end13
-  call void @error_report_err(ptr noundef nonnull %5) #8
+  call void @error_report_err(ptr noundef nonnull %9) #8
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %entry, %error, %for.end33, %if.then
@@ -1818,7 +1823,7 @@ if.end:                                           ; preds = %entry
   br i1 %call2, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call i32 @qdev_device_help(ptr noundef nonnull %call1), !range !28
+  %call3 = tail call i32 @qdev_device_help(ptr noundef nonnull %call1)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
@@ -2171,7 +2176,7 @@ if.end6:                                          ; preds = %if.then4, %while.bo
   %next = getelementptr inbounds i8, ptr %elt.07, i64 8
   %2 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !29
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !28
 
 while.end:                                        ; preds = %if.end6, %if.end
   tail call void @g_slist_free(ptr noundef %call1) #8
@@ -2233,7 +2238,7 @@ cond.end.i:                                       ; preds = %if.then5.i, %for.bo
   %next.i = getelementptr inbounds i8, ptr %item.07.i, i64 8
   %3 = load ptr, ptr %next.i, align 8
   %tobool3.not.i = icmp eq ptr %3, null
-  br i1 %tobool3.not.i, label %for.end.i, label %for.body.i, !llvm.loop !30
+  br i1 %tobool3.not.i, label %for.end.i, label %for.body.i, !llvm.loop !29
 
 for.end.i:                                        ; preds = %cond.end.i
   call void @g_slist_free(ptr noundef nonnull %0) #8
@@ -2277,7 +2282,7 @@ declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #1
 declare ptr @blk_by_dev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_global_option(ptr noundef %str) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qemu_global_option(ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %driver = alloca [64 x i8], align 16
   %property = alloca [64 x i8], align 16
@@ -2531,6 +2536,5 @@ attributes #10 = { noreturn nounwind }
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
-!28 = !{i32 0, i32 2}
+!28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}

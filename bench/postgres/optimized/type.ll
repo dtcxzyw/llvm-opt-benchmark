@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [40 x i8] c"indicator for struct has to be a struct\00", align 1
 @.str.11 = private unnamed_addr constant [34 x i8] c"type of union has to be specified\00", align 1
 @.str.12 = private unnamed_addr constant [48 x i8] c"indicator for simple data type has to be simple\00", align 1
-@.str.13 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.14 = private unnamed_addr constant [46 x i8] c"internal error: found multidimensional array\0A\00", align 1
 @.str.15 = private unnamed_addr constant [35 x i8] c"unrecognized variable type code %d\00", align 1
 @.str.16 = private unnamed_addr constant [12 x i8] c"ECPGd_count\00", align 1
@@ -665,12 +664,12 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
 
 68:                                               ; preds = %thread-pre-split, %12, %12, %12, %14
   %69 = phi i32 [ %.pr, %thread-pre-split ], [ %13, %12 ], [ %13, %12 ], [ %13, %12 ], [ %13, %14 ]
-  switch i32 %69, label %167 [
+  switch i32 %69, label %172 [
     i32 21, label %70
     i32 22, label %119
     i32 23, label %127
     i32 25, label %128
-    i32 24, label %152
+    i32 24, label %157
   ]
 
 70:                                               ; preds = %68
@@ -701,7 +700,7 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
 
 78:                                               ; preds = %74
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.7) #11
-  br label %197
+  br label %204
 
 79:                                               ; preds = %74, %74
   %80 = getelementptr inbounds i8, ptr %2, i64 16
@@ -721,7 +720,7 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
 88:                                               ; preds = %82, %85, %79
   %89 = phi ptr [ null, %79 ], [ %87, %85 ], [ %5, %82 ]
   tail call fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %81, ptr noundef nonnull %76, ptr noundef %89, ptr noundef %7, ptr noundef %8)
-  br label %197
+  br label %204
 
 90:                                               ; preds = %74
   %91 = icmp ult i32 %77, 21
@@ -736,11 +735,11 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
 .thread252:                                       ; preds = %74, %92
   tail call void @base_yyerror(ptr noundef nonnull @.str.8) #11
   %.pre = load ptr, ptr %75, align 8
-  %.pre261 = load i32, ptr %.pre, align 8
+  %.pre276 = load i32, ptr %.pre, align 8
   br label %93
 
 93:                                               ; preds = %92, %92, %.thread252, %90
-  %94 = phi i32 [ %77, %92 ], [ %77, %92 ], [ %.pre261, %.thread252 ], [ %77, %90 ]
+  %94 = phi i32 [ %77, %92 ], [ %77, %92 ], [ %.pre276, %.thread252 ], [ %77, %90 ]
   %95 = phi ptr [ %76, %92 ], [ %76, %92 ], [ %.pre, %.thread252 ], [ %76, %90 ]
   %96 = getelementptr inbounds i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
@@ -749,7 +748,7 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
   %100 = getelementptr inbounds i8, ptr %95, i64 40
   %101 = load i32, ptr %100, align 8
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef %94, ptr noundef %97, ptr noundef %99, ptr noundef %10, ptr noundef %7, i32 noundef %101)
-  br i1 %.not226, label %197, label %102
+  br i1 %.not226, label %204, label %102
 
 102:                                              ; preds = %93
   %103 = load i32, ptr %5, align 8
@@ -770,7 +769,7 @@ mm_strdup.exit240:                                ; preds = %105
   %110 = load ptr, ptr %109, align 8
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef 29, ptr noundef %110, ptr noundef nonnull %106, ptr noundef null, ptr noundef %8, i32 noundef 0)
   tail call void @free(ptr noundef nonnull %106) #11
-  br label %197
+  br label %204
 
 111:                                              ; preds = %102
   %112 = getelementptr inbounds i8, ptr %5, i64 32
@@ -781,7 +780,7 @@ mm_strdup.exit240:                                ; preds = %105
   %117 = getelementptr inbounds i8, ptr %5, i64 16
   %118 = load ptr, ptr %117, align 8
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef %114, ptr noundef %116, ptr noundef %118, ptr noundef null, ptr noundef %8, i32 noundef 0)
-  br label %197
+  br label %204
 
 119:                                              ; preds = %68
   %120 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
@@ -810,11 +809,11 @@ mm_strdup.exit241:                                ; preds = %119
 126:                                              ; preds = %123, %123, %mm_strdup.exit241
   tail call fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %120, ptr noundef nonnull %2, ptr noundef %5, ptr noundef %7, ptr noundef %8)
   tail call void @free(ptr noundef nonnull %120) #11
-  br label %197
+  br label %204
 
 127:                                              ; preds = %68
   tail call void @base_yyerror(ptr noundef nonnull @.str.11) #11
-  br label %197
+  br label %204
 
 128:                                              ; preds = %68
   %129 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
@@ -859,180 +858,204 @@ mm_strdup.exit244:                                ; preds = %mm_strdup.exit243
 
 141:                                              ; preds = %mm_strdup.exit244
   %.not220 = icmp eq ptr %9, null
-  br i1 %.not220, label %144, label %142
+  br i1 %.not220, label %146, label %sub_0
 
 .thread257:                                       ; preds = %138
   %.not220258 = icmp eq ptr %9, null
-  br i1 %.not220258, label %145, label %142
+  br i1 %.not220258, label %147, label %sub_0
 
-142:                                              ; preds = %.thread257, %141
-  %143 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(2) @.str.13) #12
-  %.not221 = icmp eq i32 %143, 0
-  br i1 %.not221, label %.thread255, label %.thread253
+sub_0:                                            ; preds = %141, %.thread257
+  %142 = load i8, ptr %9, align 1
+  %.not = icmp eq i8 %142, 48
+  br i1 %.not, label %.tail, label %.thread253
 
-144:                                              ; preds = %141
+.tail:                                            ; preds = %sub_0
+  %143 = getelementptr inbounds i8, ptr %9, i64 1
+  %144 = load i8, ptr %143, align 1
+  %145 = icmp eq i8 %144, 0
+  br i1 %145, label %.thread255, label %.thread253
+
+146:                                              ; preds = %141
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef 25, ptr noundef nonnull %129, ptr noundef nonnull %132, ptr noundef %10, ptr noundef %7, i32 noundef 0)
-  br label %151
+  br label %156
 
-.thread255:                                       ; preds = %142
+.thread255:                                       ; preds = %.tail
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef 25, ptr noundef nonnull %129, ptr noundef nonnull %132, ptr noundef %10, ptr noundef %7, i32 noundef 0)
-  br i1 %.not218, label %151, label %.thread256
+  br i1 %.not218, label %156, label %sub_0262
 
-.thread253:                                       ; preds = %142
+.thread253:                                       ; preds = %sub_0, %.tail
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef 25, ptr noundef nonnull %129, ptr noundef nonnull %9, ptr noundef %10, ptr noundef %7, i32 noundef 0)
-  br i1 %.not218, label %151, label %.thread256
+  br i1 %.not218, label %156, label %sub_0262
 
-145:                                              ; preds = %.thread257
+147:                                              ; preds = %.thread257
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef 25, ptr noundef nonnull %129, ptr noundef nonnull %132, ptr noundef %10, ptr noundef %7, i32 noundef 0)
-  br label %147
+  br label %.tail261
 
-.thread256:                                       ; preds = %.thread253, %.thread255
-  %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(2) @.str.13) #12
-  %.not222 = icmp eq i32 %146, 0
-  %spec.select = select i1 %.not222, ptr %135, ptr %9
-  br label %147
+sub_0262:                                         ; preds = %.thread255, %.thread253
+  %148 = load i8, ptr %9, align 1
+  %.not273 = icmp eq i8 %148, 48
+  br i1 %.not273, label %sub_1263, label %.tail261
 
-147:                                              ; preds = %.thread256, %145
-  %148 = phi ptr [ %135, %145 ], [ %spec.select, %.thread256 ]
-  %149 = load i32, ptr %5, align 8
+sub_1263:                                         ; preds = %sub_0262
+  %149 = getelementptr inbounds i8, ptr %9, i64 1
+  %150 = load i8, ptr %149, align 1
+  %151 = icmp eq i8 %150, 0
+  %152 = select i1 %151, ptr %135, ptr %9
+  br label %.tail261
+
+.tail261:                                         ; preds = %sub_1263, %sub_0262, %147
+  %153 = phi ptr [ %135, %147 ], [ %9, %sub_0262 ], [ %152, %sub_1263 ]
+  %154 = load i32, ptr %5, align 8
   %.in260 = getelementptr inbounds i8, ptr %5, i64 16
-  %150 = load ptr, ptr %.in260, align 8
-  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef %149, ptr noundef %150, ptr noundef nonnull %148, ptr noundef %11, ptr noundef %8, i32 noundef 0)
-  br label %151
+  %155 = load ptr, ptr %.in260, align 8
+  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef %154, ptr noundef %155, ptr noundef nonnull %153, ptr noundef %11, ptr noundef %8, i32 noundef 0)
+  br label %156
 
-151:                                              ; preds = %144, %.thread255, %.thread253, %147
+156:                                              ; preds = %146, %.thread255, %.thread253, %.tail261
   tail call void @free(ptr noundef nonnull %129) #11
   tail call void @free(ptr noundef nonnull %132) #11
   tail call void @free(ptr noundef nonnull %135) #11
-  br label %197
+  br label %204
 
-152:                                              ; preds = %68
-  %153 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %155, label %mm_strdup.exit245
+157:                                              ; preds = %68
+  %158 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %160, label %mm_strdup.exit245
 
-155:                                              ; preds = %152
+160:                                              ; preds = %157
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
-mm_strdup.exit245:                                ; preds = %152
-  %156 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %158, label %mm_strdup.exit246
+mm_strdup.exit245:                                ; preds = %157
+  %161 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %163, label %mm_strdup.exit246
 
-158:                                              ; preds = %mm_strdup.exit245
+163:                                              ; preds = %mm_strdup.exit245
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
 mm_strdup.exit246:                                ; preds = %mm_strdup.exit245
   %.not216 = icmp eq ptr %5, null
-  br i1 %.not216, label %.critedge, label %159
+  br i1 %.not216, label %.critedge, label %164
 
-159:                                              ; preds = %mm_strdup.exit246
-  %160 = load i32, ptr %5, align 8
-  %.off235 = add i32 %160, -21
+164:                                              ; preds = %mm_strdup.exit246
+  %165 = load i32, ptr %5, align 8
+  %.off235 = add i32 %165, -21
   %switch236 = icmp ult i32 %.off235, 2
-  br i1 %switch236, label %161, label %162
+  br i1 %switch236, label %166, label %167
 
-161:                                              ; preds = %159
+166:                                              ; preds = %164
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 7, ptr noundef nonnull @.str.12) #10
   unreachable
 
-162:                                              ; preds = %159
-  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef 24, ptr noundef null, ptr noundef nonnull %153, ptr noundef null, ptr noundef %7, i32 noundef 0)
-  %163 = load i32, ptr %5, align 8
-  %164 = getelementptr inbounds i8, ptr %5, i64 16
-  %165 = load ptr, ptr %164, align 8
-  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef %163, ptr noundef %165, ptr noundef nonnull %156, ptr noundef null, ptr noundef %8, i32 noundef 0)
-  br label %166
+167:                                              ; preds = %164
+  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef 24, ptr noundef null, ptr noundef nonnull %158, ptr noundef null, ptr noundef %7, i32 noundef 0)
+  %168 = load i32, ptr %5, align 8
+  %169 = getelementptr inbounds i8, ptr %5, i64 16
+  %170 = load ptr, ptr %169, align 8
+  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef %168, ptr noundef %170, ptr noundef nonnull %161, ptr noundef null, ptr noundef %8, i32 noundef 0)
+  br label %171
 
 .critedge:                                        ; preds = %mm_strdup.exit246
-  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef 24, ptr noundef null, ptr noundef nonnull %153, ptr noundef null, ptr noundef %7, i32 noundef 0)
-  br label %166
+  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef 24, ptr noundef null, ptr noundef nonnull %158, ptr noundef null, ptr noundef %7, i32 noundef 0)
+  br label %171
 
-166:                                              ; preds = %.critedge, %162
-  tail call void @free(ptr noundef nonnull %153) #11
-  tail call void @free(ptr noundef nonnull %156) #11
-  br label %197
+171:                                              ; preds = %.critedge, %167
+  tail call void @free(ptr noundef nonnull %158) #11
+  tail call void @free(ptr noundef nonnull %161) #11
+  br label %204
 
-167:                                              ; preds = %68
-  %168 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
-  %169 = icmp eq ptr %168, null
-  br i1 %169, label %170, label %mm_strdup.exit247
+172:                                              ; preds = %68
+  %173 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %175, label %mm_strdup.exit247
 
-170:                                              ; preds = %167
+175:                                              ; preds = %172
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
-mm_strdup.exit247:                                ; preds = %167
-  %171 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %173, label %mm_strdup.exit248
+mm_strdup.exit247:                                ; preds = %172
+  %176 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.9) #11
+  %177 = icmp eq ptr %176, null
+  br i1 %177, label %178, label %mm_strdup.exit248
 
-173:                                              ; preds = %mm_strdup.exit247
+178:                                              ; preds = %mm_strdup.exit247
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 5, ptr noundef nonnull @.str) #10
   unreachable
 
 mm_strdup.exit248:                                ; preds = %mm_strdup.exit247
   %.not230 = icmp eq ptr %5, null
-  br i1 %.not230, label %177, label %174
+  br i1 %.not230, label %182, label %179
 
-174:                                              ; preds = %mm_strdup.exit248
-  %175 = load i32, ptr %5, align 8
-  %.off237 = add i32 %175, -21
+179:                                              ; preds = %mm_strdup.exit248
+  %180 = load i32, ptr %5, align 8
+  %.off237 = add i32 %180, -21
   %switch238 = icmp ult i32 %.off237, 2
-  br i1 %switch238, label %176, label %177
+  br i1 %switch238, label %181, label %182
 
-176:                                              ; preds = %174
+181:                                              ; preds = %179
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 7, ptr noundef nonnull @.str.12) #10
   unreachable
 
-177:                                              ; preds = %174, %mm_strdup.exit248
-  %178 = getelementptr inbounds i8, ptr %2, i64 16
-  %179 = load ptr, ptr %178, align 8
+182:                                              ; preds = %179, %mm_strdup.exit248
+  %183 = getelementptr inbounds i8, ptr %2, i64 16
+  %184 = load ptr, ptr %183, align 8
   %.not232 = icmp eq ptr %9, null
-  br i1 %.not232, label %182, label %180
+  br i1 %.not232, label %189, label %sub_0266
 
-180:                                              ; preds = %177
-  %181 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(2) @.str.13) #12
-  %.not233 = icmp eq i32 %181, 0
-  br i1 %.not233, label %182, label %183
+sub_0266:                                         ; preds = %182
+  %185 = load i8, ptr %9, align 1
+  %.not274 = icmp eq i8 %185, 48
+  br i1 %.not274, label %.tail265, label %.tail265.thread
 
-182:                                              ; preds = %180, %177
-  br label %183
+.tail265:                                         ; preds = %sub_0266
+  %186 = getelementptr inbounds i8, ptr %9, i64 1
+  %187 = load i8, ptr %186, align 1
+  %188 = icmp eq i8 %187, 0
+  br i1 %188, label %189, label %.tail265.thread
 
-183:                                              ; preds = %180, %182
-  %184 = phi ptr [ %168, %182 ], [ %9, %180 ]
-  %185 = getelementptr inbounds i8, ptr %2, i64 40
-  %186 = load i32, ptr %185, align 8
-  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef %69, ptr noundef %179, ptr noundef nonnull %184, ptr noundef %10, ptr noundef %7, i32 noundef %186)
-  br i1 %.not230, label %196, label %187
+189:                                              ; preds = %.tail265, %182
+  br label %.tail265.thread
 
-187:                                              ; preds = %183
-  %188 = load i32, ptr %5, align 8
-  %189 = getelementptr inbounds i8, ptr %5, i64 16
-  %190 = load ptr, ptr %189, align 8
-  br i1 %.not232, label %193, label %191
+.tail265.thread:                                  ; preds = %sub_0266, %.tail265, %189
+  %190 = phi ptr [ %173, %189 ], [ %9, %.tail265 ], [ %9, %sub_0266 ]
+  %191 = getelementptr inbounds i8, ptr %2, i64 40
+  %192 = load i32, ptr %191, align 8
+  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef %69, ptr noundef %184, ptr noundef nonnull %190, ptr noundef %10, ptr noundef %7, i32 noundef %192)
+  br i1 %.not230, label %203, label %193
 
-191:                                              ; preds = %187
-  %192 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(2) @.str.13) #12
-  %.not234 = icmp eq i32 %192, 0
-  br i1 %.not234, label %193, label %194
+193:                                              ; preds = %.tail265.thread
+  %194 = load i32, ptr %5, align 8
+  %195 = getelementptr inbounds i8, ptr %5, i64 16
+  %196 = load ptr, ptr %195, align 8
+  br i1 %.not232, label %201, label %sub_0270
 
-193:                                              ; preds = %191, %187
-  br label %194
+sub_0270:                                         ; preds = %193
+  %197 = load i8, ptr %9, align 1
+  %.not275 = icmp eq i8 %197, 48
+  br i1 %.not275, label %.tail269, label %.tail269.thread
 
-194:                                              ; preds = %191, %193
-  %195 = phi ptr [ %171, %193 ], [ %9, %191 ]
-  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef %188, ptr noundef %190, ptr noundef nonnull %195, ptr noundef %11, ptr noundef %8, i32 noundef 0)
-  br label %196
+.tail269:                                         ; preds = %sub_0270
+  %198 = getelementptr inbounds i8, ptr %9, i64 1
+  %199 = load i8, ptr %198, align 1
+  %200 = icmp eq i8 %199, 0
+  br i1 %200, label %201, label %.tail269.thread
 
-196:                                              ; preds = %194, %183
-  tail call void @free(ptr noundef nonnull %168) #11
-  tail call void @free(ptr noundef nonnull %171) #11
-  br label %197
+201:                                              ; preds = %.tail269, %193
+  br label %.tail269.thread
 
-197:                                              ; preds = %78, %88, %mm_strdup.exit240, %111, %93, %196, %166, %151, %127, %126
+.tail269.thread:                                  ; preds = %sub_0270, %.tail269, %201
+  %202 = phi ptr [ %176, %201 ], [ %9, %.tail269 ], [ %9, %sub_0270 ]
+  tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef %194, ptr noundef %196, ptr noundef nonnull %202, ptr noundef %11, ptr noundef %8, i32 noundef 0)
+  br label %203
+
+203:                                              ; preds = %.tail269.thread, %.tail265.thread
+  tail call void @free(ptr noundef nonnull %173) #11
+  tail call void @free(ptr noundef nonnull %176) #11
+  br label %204
+
+204:                                              ; preds = %78, %88, %mm_strdup.exit240, %111, %93, %203, %171, %156, %127, %126
   ret void
 }
 
@@ -1203,15 +1226,15 @@ define internal fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i
 
 9:                                                ; preds = %8
   %10 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.33) #11
-  br label %138
+  br label %148
 
 11:                                               ; preds = %8
   %12 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef %1) #11
-  br label %138
+  br label %148
 
 13:                                               ; preds = %8
   %14 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef %1) #11
-  br label %138
+  br label %148
 
 15:                                               ; preds = %8
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
@@ -1247,256 +1270,307 @@ mm_alloc.exit:                                    ; preds = %20
   unreachable
 
 mm_alloc.exit143:                                 ; preds = %mm_alloc.exit
-  switch i32 %2, label %103 [
+  switch i32 %2, label %111 [
     i32 14, label %33
     i32 32, label %33
-    i32 1, label %52
-    i32 2, label %52
-    i32 25, label %52
-    i32 30, label %52
-    i32 16, label %84
-    i32 20, label %88
-    i32 18, label %92
-    i32 19, label %96
-    i32 26, label %100
+    i32 1, label %54
+    i32 2, label %54
+    i32 25, label %54
+    i32 30, label %54
+    i32 16, label %92
+    i32 20, label %96
+    i32 18, label %100
+    i32 19, label %104
+    i32 26, label %108
   ]
 
 33:                                               ; preds = %mm_alloc.exit143, %mm_alloc.exit143
   %34 = tail call i32 @atoi(ptr nocapture noundef %4) #12
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %42, label %36
+  br i1 %35, label %44, label %36
 
 36:                                               ; preds = %33
   %37 = icmp eq i32 %34, 0
-  br i1 %37, label %38, label %43
+  br i1 %37, label %sub_0, label %45
 
-38:                                               ; preds = %36
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(2) @.str.13) #12
-  %40 = icmp ne i32 %39, 0
-  %41 = icmp eq ptr %5, null
-  %or.cond = and i1 %41, %40
-  br i1 %or.cond, label %44, label %43
+sub_0:                                            ; preds = %36
+  %38 = load i8, ptr %4, align 1
+  %.not169 = icmp eq i8 %38, 48
+  br i1 %.not169, label %sub_1, label %.tail
 
-42:                                               ; preds = %33
+sub_1:                                            ; preds = %sub_0
+  %39 = getelementptr inbounds i8, ptr %4, i64 1
+  %40 = load i8, ptr %39, align 1
+  %41 = icmp ne i8 %40, 0
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %42 = phi i1 [ true, %sub_0 ], [ %41, %sub_1 ]
+  %43 = icmp eq ptr %5, null
+  %or.cond = and i1 %43, %42
+  br i1 %or.cond, label %46, label %45
+
+44:                                               ; preds = %33
   %.old1 = icmp eq ptr %5, null
-  br i1 %.old1, label %44, label %43
+  br i1 %.old1, label %46, label %45
 
-43:                                               ; preds = %42, %38, %36
-  br label %44
+45:                                               ; preds = %44, %.tail, %36
+  br label %46
 
-44:                                               ; preds = %42, %38, %43
-  %.str.38.sink = phi ptr [ @.str.38, %43 ], [ @.str.36, %38 ], [ @.str.36, %42 ]
-  %45 = select i1 %17, ptr @.str.37, ptr %6
-  %46 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull %.str.38.sink, ptr noundef nonnull %45, ptr noundef %1) #11
-  %47 = icmp eq i32 %2, 14
-  %.str.39..str.40 = select i1 %47, ptr @.str.39, ptr @.str.40
+46:                                               ; preds = %44, %.tail, %45
+  %.str.38.sink = phi ptr [ @.str.38, %45 ], [ @.str.36, %.tail ], [ @.str.36, %44 ]
+  %47 = select i1 %17, ptr @.str.37, ptr %6
+  %48 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull %.str.38.sink, ptr noundef nonnull %47, ptr noundef %1) #11
+  %49 = icmp eq i32 %2, 14
+  %.str.39..str.40 = select i1 %49, ptr @.str.39, ptr @.str.40
   %.not140 = icmp eq i32 %7, 0
-  br i1 %.not140, label %50, label %48
+  br i1 %.not140, label %52, label %50
 
-48:                                               ; preds = %44
-  %49 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.41, ptr noundef nonnull %.str.39..str.40, i32 noundef %7) #11
-  br label %119
+50:                                               ; preds = %46
+  %51 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.41, ptr noundef nonnull %.str.39..str.40, i32 noundef %7) #11
+  br label %129
 
-50:                                               ; preds = %44
-  %51 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.42, ptr noundef nonnull %.str.39..str.40) #11
-  br label %119
+52:                                               ; preds = %46
+  %53 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.42, ptr noundef nonnull %.str.39..str.40) #11
+  br label %129
 
-52:                                               ; preds = %mm_alloc.exit143, %mm_alloc.exit143, %mm_alloc.exit143, %mm_alloc.exit143
-  %53 = tail call i32 @atoi(ptr nocapture noundef %3) #12
-  %54 = icmp sgt i32 %53, 1
-  br i1 %54, label %68, label %55
+54:                                               ; preds = %mm_alloc.exit143, %mm_alloc.exit143, %mm_alloc.exit143, %mm_alloc.exit143
+  %55 = tail call i32 @atoi(ptr nocapture noundef %3) #12
+  %56 = icmp sgt i32 %55, 1
+  br i1 %56, label %.critedge, label %57
 
-55:                                               ; preds = %52
-  %56 = tail call i32 @atoi(ptr nocapture noundef %4) #12
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %68, label %58
+57:                                               ; preds = %54
+  %58 = tail call i32 @atoi(ptr nocapture noundef %4) #12
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.critedge, label %60
 
-58:                                               ; preds = %55
-  %59 = icmp eq i32 %53, 0
-  br i1 %59, label %60, label %62
+60:                                               ; preds = %57
+  %61 = icmp eq i32 %55, 0
+  br i1 %61, label %sub_0147, label %66
 
-60:                                               ; preds = %58
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(2) @.str.13) #12
-  %.not135 = icmp eq i32 %61, 0
-  br i1 %.not135, label %62, label %68
+sub_0147:                                         ; preds = %60
+  %62 = load i8, ptr %3, align 1
+  %.not = icmp eq i8 %62, 48
+  br i1 %.not, label %sub_1148, label %.critedge
 
-62:                                               ; preds = %60, %58
-  %63 = icmp eq i32 %56, 0
-  br i1 %63, label %64, label %76
+sub_1148:                                         ; preds = %sub_0147
+  %63 = getelementptr inbounds i8, ptr %3, i64 1
+  %64 = load i8, ptr %63, align 1
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %66, label %.critedge
 
-64:                                               ; preds = %62
-  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(2) @.str.13) #12
-  %66 = icmp ne i32 %65, 0
-  %67 = icmp eq ptr %5, null
-  %or.cond4 = and i1 %67, %66
-  br i1 %or.cond4, label %69, label %76
+66:                                               ; preds = %sub_1148, %60
+  %67 = icmp eq i32 %58, 0
+  br i1 %67, label %sub_0151, label %82
 
-68:                                               ; preds = %60, %55, %52
+sub_0151:                                         ; preds = %66
+  %68 = load i8, ptr %4, align 1
+  %.not166 = icmp eq i8 %68, 48
+  br i1 %.not166, label %sub_1152, label %.tail150
+
+sub_1152:                                         ; preds = %sub_0151
+  %69 = getelementptr inbounds i8, ptr %4, i64 1
+  %70 = load i8, ptr %69, align 1
+  %71 = icmp ne i8 %70, 0
+  br label %.tail150
+
+.tail150:                                         ; preds = %sub_0151, %sub_1152
+  %72 = phi i1 [ true, %sub_0151 ], [ %71, %sub_1152 ]
+  %73 = icmp eq ptr %5, null
+  %or.cond4 = and i1 %73, %72
+  br i1 %or.cond4, label %74, label %82
+
+.critedge:                                        ; preds = %sub_0147, %sub_1148, %57, %54
   %.old3 = icmp eq ptr %5, null
-  br i1 %.old3, label %69, label %76
+  br i1 %.old3, label %74, label %82
 
-69:                                               ; preds = %64, %68
-  %70 = select i1 %17, ptr @.str.37, ptr %6
-  %71 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.36, ptr noundef nonnull %70, ptr noundef %1) #11
-  %72 = add nsw i32 %2, -1
-  %or.cond7 = icmp ult i32 %72, 2
-  br i1 %or.cond7, label %73, label %79
+74:                                               ; preds = %.tail150, %.critedge
+  %75 = select i1 %17, ptr @.str.37, ptr %6
+  %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.36, ptr noundef nonnull %75, ptr noundef %1) #11
+  %77 = add nsw i32 %2, -1
+  %or.cond7 = icmp ult i32 %77, 2
+  %.pre171 = load i8, ptr %3, align 1
+  %.not167 = icmp eq i8 %.pre171, 48
+  %or.cond181 = select i1 %or.cond7, i1 %.not167, i1 false
+  br i1 %or.cond181, label %sub_1156, label %sub_0159
 
-73:                                               ; preds = %69
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(2) @.str.13) #12
-  %75 = icmp eq i32 %74, 0
-  %spec.select = select i1 %75, ptr @.str.44, ptr @.str.43
-  br label %79
+sub_1156:                                         ; preds = %74
+  %78 = getelementptr inbounds i8, ptr %3, i64 1
+  %79 = load i8, ptr %78, align 1
+  %80 = icmp eq i8 %79, 0
+  %81 = select i1 %80, ptr @.str.44, ptr @.str.43
+  br label %sub_0159
 
-76:                                               ; preds = %68, %64, %62
-  %77 = select i1 %17, ptr @.str.37, ptr %6
-  %78 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %77, ptr noundef %1) #11
-  br label %79
+82:                                               ; preds = %.critedge, %.tail150, %66
+  %83 = select i1 %17, ptr @.str.37, ptr %6
+  %84 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %83, ptr noundef %1) #11
+  %.pre = load i8, ptr %3, align 1
+  br label %sub_0159
 
-79:                                               ; preds = %73, %69, %76
-  %.0 = phi ptr [ @.str.43, %69 ], [ @.str.43, %76 ], [ %spec.select, %73 ]
-  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(2) @.str.13) #12
-  %81 = icmp eq i32 %80, 0
-  %82 = select i1 %81, ptr @.str.1, ptr %3
-  %83 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.45, ptr noundef %82, ptr noundef nonnull %.0) #11
-  br label %119
+sub_0159:                                         ; preds = %sub_1156, %82, %74
+  %85 = phi i8 [ %.pre171, %74 ], [ %.pre, %82 ], [ %.pre171, %sub_1156 ]
+  %.0 = phi ptr [ @.str.43, %74 ], [ @.str.43, %82 ], [ %81, %sub_1156 ]
+  %.not168 = icmp eq i8 %85, 48
+  br i1 %.not168, label %sub_1160, label %.tail158
 
-84:                                               ; preds = %mm_alloc.exit143
-  %85 = select i1 %17, ptr @.str.37, ptr %6
-  %86 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %85, ptr noundef %1) #11
-  %87 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.46) #11
-  br label %119
+sub_1160:                                         ; preds = %sub_0159
+  %86 = getelementptr inbounds i8, ptr %3, i64 1
+  %87 = load i8, ptr %86, align 1
+  %88 = icmp eq i8 %87, 0
+  %89 = select i1 %88, ptr @.str.1, ptr %3
+  br label %.tail158
 
-88:                                               ; preds = %mm_alloc.exit143
-  %89 = select i1 %17, ptr @.str.37, ptr %6
-  %90 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %89, ptr noundef %1) #11
-  %91 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.47) #11
-  br label %119
+.tail158:                                         ; preds = %sub_0159, %sub_1160
+  %90 = phi ptr [ %3, %sub_0159 ], [ %89, %sub_1160 ]
+  %91 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.45, ptr noundef nonnull %90, ptr noundef nonnull %.0) #11
+  br label %129
 
 92:                                               ; preds = %mm_alloc.exit143
   %93 = select i1 %17, ptr @.str.37, ptr %6
   %94 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %93, ptr noundef %1) #11
-  %95 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.48) #11
-  br label %119
+  %95 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.46) #11
+  br label %129
 
 96:                                               ; preds = %mm_alloc.exit143
   %97 = select i1 %17, ptr @.str.37, ptr %6
   %98 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %97, ptr noundef %1) #11
-  %99 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.49) #11
-  br label %119
+  %99 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.47) #11
+  br label %129
 
 100:                                              ; preds = %mm_alloc.exit143
-  %101 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.50, ptr noundef %1) #11
-  %102 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.51, ptr noundef %1) #11
-  br label %119
+  %101 = select i1 %17, ptr @.str.37, ptr %6
+  %102 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %101, ptr noundef %1) #11
+  %103 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.48) #11
+  br label %129
 
-103:                                              ; preds = %mm_alloc.exit143
-  %104 = tail call i32 @atoi(ptr nocapture noundef %4) #12
-  %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %112, label %106
+104:                                              ; preds = %mm_alloc.exit143
+  %105 = select i1 %17, ptr @.str.37, ptr %6
+  %106 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %105, ptr noundef %1) #11
+  %107 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.49) #11
+  br label %129
 
-106:                                              ; preds = %103
-  %107 = icmp eq i32 %104, 0
-  br i1 %107, label %108, label %113
+108:                                              ; preds = %mm_alloc.exit143
+  %109 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.50, ptr noundef %1) #11
+  %110 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.51, ptr noundef %1) #11
+  br label %129
 
-108:                                              ; preds = %106
-  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(2) @.str.13) #12
-  %110 = icmp ne i32 %109, 0
-  %111 = icmp eq ptr %5, null
-  %or.cond10 = and i1 %111, %110
-  br i1 %or.cond10, label %114, label %113
+111:                                              ; preds = %mm_alloc.exit143
+  %112 = tail call i32 @atoi(ptr nocapture noundef %4) #12
+  %113 = icmp sgt i32 %112, 0
+  br i1 %113, label %122, label %114
 
-112:                                              ; preds = %103
+114:                                              ; preds = %111
+  %115 = icmp eq i32 %112, 0
+  br i1 %115, label %sub_0163, label %123
+
+sub_0163:                                         ; preds = %114
+  %116 = load i8, ptr %4, align 1
+  %.not170 = icmp eq i8 %116, 48
+  br i1 %.not170, label %sub_1164, label %.tail162
+
+sub_1164:                                         ; preds = %sub_0163
+  %117 = getelementptr inbounds i8, ptr %4, i64 1
+  %118 = load i8, ptr %117, align 1
+  %119 = icmp ne i8 %118, 0
+  br label %.tail162
+
+.tail162:                                         ; preds = %sub_0163, %sub_1164
+  %120 = phi i1 [ true, %sub_0163 ], [ %119, %sub_1164 ]
+  %121 = icmp eq ptr %5, null
+  %or.cond10 = and i1 %121, %120
+  br i1 %or.cond10, label %124, label %123
+
+122:                                              ; preds = %111
   %.old9 = icmp eq ptr %5, null
-  br i1 %.old9, label %114, label %113
+  br i1 %.old9, label %124, label %123
 
-113:                                              ; preds = %112, %108, %106
-  br label %114
+123:                                              ; preds = %122, %.tail162, %114
+  br label %124
 
-114:                                              ; preds = %112, %108, %113
-  %.str.38.sink146 = phi ptr [ @.str.38, %113 ], [ @.str.36, %108 ], [ @.str.36, %112 ]
-  %115 = select i1 %17, ptr @.str.37, ptr %6
-  %116 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull %.str.38.sink146, ptr noundef nonnull %115, ptr noundef %1) #11
-  %117 = tail call ptr @ecpg_type_name(i32 noundef %2) #11
-  %118 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.42, ptr noundef %117) #11
-  br label %119
+124:                                              ; preds = %122, %.tail162, %123
+  %.str.38.sink172 = phi ptr [ @.str.38, %123 ], [ @.str.36, %.tail162 ], [ @.str.36, %122 ]
+  %125 = select i1 %17, ptr @.str.37, ptr %6
+  %126 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull %.str.38.sink172, ptr noundef nonnull %125, ptr noundef %1) #11
+  %127 = tail call ptr @ecpg_type_name(i32 noundef %2) #11
+  %128 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.42, ptr noundef %127) #11
+  br label %129
 
-119:                                              ; preds = %48, %50, %114, %100, %96, %92, %88, %84, %79
-  %120 = tail call i32 @atoi(ptr nocapture noundef %4) #12
-  %121 = icmp sgt i32 %120, -1
-  %122 = icmp ne ptr %5, null
-  %or.cond13 = or i1 %122, %121
-  br i1 %or.cond13, label %123, label %.thread
+129:                                              ; preds = %50, %52, %124, %108, %104, %100, %96, %92, %.tail158
+  %130 = tail call i32 @atoi(ptr nocapture noundef %4) #12
+  %131 = icmp sgt i32 %130, -1
+  %132 = icmp ne ptr %5, null
+  %or.cond13 = or i1 %132, %131
+  br i1 %or.cond13, label %133, label %.thread
 
-.thread:                                          ; preds = %119
+.thread:                                          ; preds = %129
   store i16 49, ptr %4, align 1
-  br label %127
+  br label %137
 
-123:                                              ; preds = %119
-  %124 = icmp eq ptr %5, null
-  br i1 %124, label %127, label %125
+133:                                              ; preds = %129
+  %134 = icmp eq ptr %5, null
+  br i1 %134, label %137, label %135
 
-125:                                              ; preds = %123
+135:                                              ; preds = %133
   %char0 = load i8, ptr %5, align 1
-  %126 = icmp eq i8 %char0, 0
-  br i1 %126, label %127, label %132
+  %136 = icmp eq i8 %char0, 0
+  br i1 %136, label %137, label %142
 
-127:                                              ; preds = %.thread, %125, %123
+137:                                              ; preds = %.thread, %135, %133
   %switch.tableidx = add i32 %2, -1
-  %128 = icmp ult i32 %switch.tableidx, 32
-  br i1 %128, label %switch.hole_check, label %129
+  %138 = icmp ult i32 %switch.tableidx, 32
+  br i1 %138, label %switch.hole_check, label %139
 
-129:                                              ; preds = %switch.hole_check, %127
+139:                                              ; preds = %switch.hole_check, %137
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.15, i32 noundef %2) #11
   br label %get_type.exit
 
-switch.hole_check:                                ; preds = %127
+switch.hole_check:                                ; preds = %137
   %switch.shifted = lshr i32 -477118465, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %129
+  br i1 %switch.lobit, label %switch.lookup, label %139
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %130 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %130
+  %140 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %140
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type.exit
 
-get_type.exit:                                    ; preds = %switch.lookup, %129
-  %.0.i = phi ptr [ null, %129 ], [ %switch.load, %switch.lookup ]
-  %131 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i, ptr noundef nonnull %24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %30) #11
-  br label %137
+get_type.exit:                                    ; preds = %switch.lookup, %139
+  %.0.i = phi ptr [ null, %139 ], [ %switch.load, %switch.lookup ]
+  %141 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i, ptr noundef nonnull %24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %30) #11
+  br label %147
 
-132:                                              ; preds = %125
-  %switch.tableidx148 = add i32 %2, -1
-  %133 = icmp ult i32 %switch.tableidx148, 32
-  br i1 %133, label %switch.hole_check149, label %134
+142:                                              ; preds = %135
+  %switch.tableidx174 = add i32 %2, -1
+  %143 = icmp ult i32 %switch.tableidx174, 32
+  br i1 %143, label %switch.hole_check175, label %144
 
-134:                                              ; preds = %switch.hole_check149, %132
+144:                                              ; preds = %switch.hole_check175, %142
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.15, i32 noundef %2) #11
   br label %get_type.exit145
 
-switch.hole_check149:                             ; preds = %132
-  %switch.shifted151 = lshr i32 -477118465, %switch.tableidx148
-  %switch.lobit152 = trunc i32 %switch.shifted151 to i1
-  br i1 %switch.lobit152, label %switch.lookup150, label %134
+switch.hole_check175:                             ; preds = %142
+  %switch.shifted177 = lshr i32 -477118465, %switch.tableidx174
+  %switch.lobit178 = trunc i32 %switch.shifted177 to i1
+  br i1 %switch.lobit178, label %switch.lookup176, label %144
 
-switch.lookup150:                                 ; preds = %switch.hole_check149
-  %135 = zext nneg i32 %switch.tableidx148 to i64
-  %switch.gep153 = getelementptr inbounds [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %135
-  %switch.load154 = load ptr, ptr %switch.gep153, align 8
+switch.lookup176:                                 ; preds = %switch.hole_check175
+  %145 = zext nneg i32 %switch.tableidx174 to i64
+  %switch.gep179 = getelementptr inbounds [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %145
+  %switch.load180 = load ptr, ptr %switch.gep179, align 8
   br label %get_type.exit145
 
-get_type.exit145:                                 ; preds = %switch.lookup150, %134
-  %.0.i144 = phi ptr [ null, %134 ], [ %switch.load154, %switch.lookup150 ]
-  %136 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i144, ptr noundef nonnull %24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #11
-  br label %137
+get_type.exit145:                                 ; preds = %switch.lookup176, %144
+  %.0.i144 = phi ptr [ null, %144 ], [ %switch.load180, %switch.lookup176 ]
+  %146 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i144, ptr noundef nonnull %24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #11
+  br label %147
 
-137:                                              ; preds = %get_type.exit145, %get_type.exit
+147:                                              ; preds = %get_type.exit145, %get_type.exit
   tail call void @free(ptr noundef nonnull %24) #11
   tail call void @free(ptr noundef nonnull %30) #11
-  br label %138
+  br label %148
 
-138:                                              ; preds = %11, %137, %13, %9
+148:                                              ; preds = %11, %147, %13, %9
   ret void
 }
 

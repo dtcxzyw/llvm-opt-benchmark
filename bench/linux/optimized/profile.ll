@@ -93,75 +93,87 @@ define dso_local noundef i32 @profile_setup(ptr noundef %0) #0 align 16 {
 
 6:                                                ; preds = %1
   tail call void @force_schedstat_enabled() #12
-  br label %24
+  br label %26
 
 7:                                                ; preds = %1
   %8 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @profile_setup.schedstr, i64 noundef 8) #12
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %24, label %10
+  br i1 %9, label %26, label %sub_0
 
-10:                                               ; preds = %7
-  %11 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @profile_setup.kvmstr, i64 noundef 3) #12
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %24, label %13
+sub_0:                                            ; preds = %7
+  %10 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %10, 107
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-13:                                               ; preds = %10
-  %14 = call i32 @get_option(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %44, label %16
+sub_1:                                            ; preds = %sub_0
+  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = load i8, ptr %11, align 1
+  %.not1 = icmp eq i8 %12, 118
+  br i1 %.not1, label %.tail, label %.tail.thread
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr %3, align 4
-  %18 = icmp sgt i32 %17, 62
-  %19 = call i32 @llvm.smax.i32(i32 %17, i32 0)
-  %20 = trunc i32 %19 to i16
-  %21 = select i1 %18, i16 63, i16 %20
-  store i16 %21, ptr @prof_shift, align 2
+.tail:                                            ; preds = %sub_1
+  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 109
+  br i1 %15, label %26, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %16 = call i32 @get_option(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %46, label %18
+
+18:                                               ; preds = %.tail.thread
+  %19 = load i32, ptr %3, align 4
+  %20 = icmp sgt i32 %19, 62
+  %21 = call i32 @llvm.smax.i32(i32 %19, i32 0)
+  %22 = trunc i32 %21 to i16
+  %23 = select i1 %20, i16 63, i16 %22
+  store i16 %23, ptr @prof_shift, align 2
   store i32 1, ptr @prof_on, align 4
-  %22 = zext i16 %21 to i32
-  %23 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %22) #13
-  br label %44
+  %24 = zext i16 %23 to i32
+  %25 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %24) #13
+  br label %46
 
-24:                                               ; preds = %10, %7, %6
-  %.sink = phi i32 [ 3, %6 ], [ 2, %7 ], [ 4, %10 ]
-  %.ph = phi ptr [ @profile_setup.sleepstr, %6 ], [ @profile_setup.schedstr, %7 ], [ @profile_setup.kvmstr, %10 ]
+26:                                               ; preds = %.tail, %7, %6
+  %.sink = phi i32 [ 3, %6 ], [ 2, %7 ], [ 4, %.tail ]
+  %.ph = phi ptr [ @profile_setup.sleepstr, %6 ], [ @profile_setup.schedstr, %7 ], [ @profile_setup.kvmstr, %.tail ]
   store i32 %.sink, ptr @prof_on, align 4
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ph) #12
-  %26 = getelementptr i8, ptr %0, i64 %25
-  %27 = load i8, ptr %26, align 1
-  %28 = icmp eq i8 %27, 44
-  br i1 %28, label %29, label %31
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ph) #12
+  %28 = getelementptr i8, ptr %0, i64 %27
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp eq i8 %29, 44
+  br i1 %30, label %31, label %33
 
-29:                                               ; preds = %24
-  %30 = getelementptr i8, ptr %26, i64 1
-  store ptr %30, ptr %2, align 8
-  br label %31
+31:                                               ; preds = %26
+  %32 = getelementptr i8, ptr %28, i64 1
+  store ptr %32, ptr %2, align 8
+  br label %33
 
-31:                                               ; preds = %29, %24
-  %32 = call i32 @get_option(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %._crit_edge, label %34
+33:                                               ; preds = %31, %26
+  %34 = call i32 @get_option(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %._crit_edge, label %36
 
-._crit_edge:                                      ; preds = %31
+._crit_edge:                                      ; preds = %33
   %.pre = load i16, ptr @prof_shift, align 2
-  br label %40
+  br label %42
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr %3, align 4
-  %36 = icmp sgt i32 %35, 62
-  %37 = call i32 @llvm.smax.i32(i32 %35, i32 0)
-  %38 = trunc i32 %37 to i16
-  %39 = select i1 %36, i16 63, i16 %38
-  store i16 %39, ptr @prof_shift, align 2
-  br label %40
+36:                                               ; preds = %33
+  %37 = load i32, ptr %3, align 4
+  %38 = icmp sgt i32 %37, 62
+  %39 = call i32 @llvm.smax.i32(i32 %37, i32 0)
+  %40 = trunc i32 %39 to i16
+  %41 = select i1 %38, i16 63, i16 %40
+  store i16 %41, ptr @prof_shift, align 2
+  br label %42
 
-40:                                               ; preds = %._crit_edge, %34
-  %41 = phi i16 [ %.pre, %._crit_edge ], [ %39, %34 ]
-  %42 = zext i16 %41 to i32
-  %43 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %.ph, i32 noundef %42) #13
-  br label %44
+42:                                               ; preds = %._crit_edge, %36
+  %43 = phi i16 [ %.pre, %._crit_edge ], [ %41, %36 ]
+  %44 = zext i16 %43 to i32
+  %45 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %.ph, i32 noundef %44) #13
+  br label %46
 
-44:                                               ; preds = %13, %16, %40
+46:                                               ; preds = %.tail.thread, %18, %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   ret i32 1
 }
@@ -188,7 +200,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @profile_init() local_unnamed_addr #0 section ".ref.text" align 16 {
+define dso_local range(i32 -22, 1) i32 @profile_init() local_unnamed_addr #0 section ".ref.text" align 16 {
   %1 = load i32, ptr @prof_on, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %25, label %3
@@ -294,7 +306,7 @@ define dso_local void @profile_hits(i32 noundef %0, ptr noundef %1, i32 noundef 
   br label %98
 
 41:                                               ; preds = %10
-  %42 = trunc i64 %20 to i32
+  %42 = trunc nuw nsw i64 %20 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store i64 0, ptr %4, align 8, !annotation !6
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #12, !srcloc !14
@@ -497,7 +509,7 @@ define dso_local i32 @create_proc_profile() #0 section ".ref.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @profile_prepare_cpu(i32 noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @profile_prepare_cpu(i32 noundef %0) #0 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
@@ -660,7 +672,7 @@ define internal i32 @prof_cpu_mask_proc_open(ptr nocapture readnone %0, ptr noun
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @prof_cpu_mask_proc_write(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @prof_cpu_mask_proc_write(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   store i64 0, ptr %5, align 8

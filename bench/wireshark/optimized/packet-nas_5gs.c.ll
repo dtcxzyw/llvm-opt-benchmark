@@ -3767,7 +3767,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_cmn_dnn(ptr noundef %0, ptr nounde
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
+define hidden zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
   %8 = load i32, ptr @hf_nas_5gs_mm_sst, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #12
   %10 = icmp eq i32 %4, 1
@@ -3798,7 +3798,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr no
   ]
 
 23:                                               ; preds = %20, %20
-  %24 = trunc i32 %4 to i16
+  %24 = trunc nuw i32 %4 to i16
   br label %30
 
 25:                                               ; preds = %20
@@ -3999,13 +3999,13 @@ define internal noundef zeroext i16 @de_nas_5gs_cmn_eap_msg(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_nas_5gs_mm_5gmm_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal zeroext i16 @de_nas_5gs_mm_5gmm_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @de_nas_5gs_mm_5gmm_cap.flags1, i32 noundef 0) #12
   %8 = icmp ult i32 %4, 2
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = trunc i32 %4 to i16
+  %10 = trunc nuw nsw i32 %4 to i16
   br label %33
 
 11:                                               ; preds = %7
@@ -8110,7 +8110,7 @@ declare void @prefs_register_dissector_preference(ptr noundef, ptr noundef, ptr 
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nas_5gs_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_nas_5gs_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %6 = icmp slt i32 %5, 8
   br i1 %6, label %15, label %7
@@ -8226,67 +8226,79 @@ define internal i32 @dissect_nas_5gs_media_type(ptr noundef %0, ptr noundef %1, 
 45:                                               ; preds = %42
   %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(5) @.str.2048) #13
   %.not94 = icmp eq i32 %46, 0
-  br i1 %.not94, label %63, label %47
+  br i1 %.not94, label %66, label %sub_0
 
-47:                                               ; preds = %45
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(3) @.str.2044) #13
-  %.not95 = icmp eq i32 %48, 0
-  br i1 %.not95, label %63, label %49
+sub_0:                                            ; preds = %45
+  %47 = load i8, ptr %.2, align 1
+  %.not115 = icmp eq i8 %47, 83
+  br i1 %.not115, label %sub_1, label %.tail.thread
 
-49:                                               ; preds = %47
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(15) @.str.2045) #13
-  %.not96 = icmp eq i32 %50, 0
-  br i1 %.not96, label %55, label %51
+sub_1:                                            ; preds = %sub_0
+  %48 = getelementptr inbounds i8, ptr %.2, i64 1
+  %49 = load i8, ptr %48, align 1
+  %.not116 = icmp eq i8 %49, 77
+  br i1 %.not116, label %.tail, label %.tail.thread
 
-51:                                               ; preds = %49
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(13) @.str.2046) #13
-  %.not97 = icmp eq i32 %52, 0
-  br i1 %.not97, label %55, label %53
+.tail:                                            ; preds = %sub_1
+  %50 = getelementptr inbounds i8, ptr %.2, i64 2
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %66, label %.tail.thread
 
-53:                                               ; preds = %51
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(16) @.str.2047) #13
-  %.not98 = icmp eq i32 %54, 0
-  br i1 %.not98, label %55, label %56
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(15) @.str.2045) #13
+  %.not96 = icmp eq i32 %53, 0
+  br i1 %.not96, label %58, label %54
 
-55:                                               ; preds = %53, %51, %49
+54:                                               ; preds = %.tail.thread
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(13) @.str.2046) #13
+  %.not97 = icmp eq i32 %55, 0
+  br i1 %.not97, label %58, label %56
+
+56:                                               ; preds = %54
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(16) @.str.2047) #13
+  %.not98 = icmp eq i32 %57, 0
+  br i1 %.not98, label %58, label %59
+
+58:                                               ; preds = %56, %54, %.tail.thread
   tail call fastcc void @dissect_nas_5gs_sm_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.2)
   br label %.thread112.sink.split
 
-56:                                               ; preds = %53
-  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(4) @.str.2049) #13
-  %.not99 = icmp eq i32 %57, 0
-  br i1 %.not99, label %63, label %58
+59:                                               ; preds = %56
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(4) @.str.2049) #13
+  %.not99 = icmp eq i32 %60, 0
+  br i1 %.not99, label %66, label %61
 
-58:                                               ; preds = %56
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(4) @.str.1681) #13
-  %.not100 = icmp eq i32 %59, 0
-  br i1 %.not100, label %63, label %60
+61:                                               ; preds = %59
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(4) @.str.1681) #13
+  %.not100 = icmp eq i32 %62, 0
+  br i1 %.not100, label %66, label %63
 
-60:                                               ; preds = %58
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(5) @.str.2050) #13
-  %.not101 = icmp eq i32 %61, 0
-  br i1 %.not101, label %62, label %.thread112
+63:                                               ; preds = %61
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(5) @.str.2050) #13
+  %.not101 = icmp eq i32 %64, 0
+  br i1 %.not101, label %65, label %.thread112
 
-62:                                               ; preds = %60
+65:                                               ; preds = %63
   tail call fastcc void @dissect_nas_5gs_updp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread112.sink.split
 
-63:                                               ; preds = %58, %56, %45, %47
-  %.073.in = phi ptr [ @nas_5gs_handle, %47 ], [ @nas_5gs_handle, %45 ], [ @lpp_handle, %56 ], [ @gsm_a_dtap_handle, %58 ]
+66:                                               ; preds = %61, %59, %45, %.tail
+  %.073.in = phi ptr [ @nas_5gs_handle, %.tail ], [ @nas_5gs_handle, %45 ], [ @lpp_handle, %59 ], [ @gsm_a_dtap_handle, %61 ]
   %.073 = load ptr, ptr %.073.in, align 8
   %.not102 = icmp eq ptr %.073, null
-  br i1 %.not102, label %.thread112, label %64
+  br i1 %.not102, label %.thread112, label %67
 
-64:                                               ; preds = %63
-  %65 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %.073, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null) #12
+67:                                               ; preds = %66
+  %68 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %.073, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null) #12
   br label %.thread112.sink.split
 
-.thread112.sink.split:                            ; preds = %55, %62, %64
-  %66 = tail call i32 @tvb_captured_length(ptr noundef %0) #12
+.thread112.sink.split:                            ; preds = %58, %65, %67
+  %69 = tail call i32 @tvb_captured_length(ptr noundef %0) #12
   br label %.thread112
 
-.thread112:                                       ; preds = %.thread112.sink.split, %60, %63, %.thread106, %42, %39, %31, %29, %20, %14, %4, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %4 ], [ 0, %14 ], [ 0, %20 ], [ 0, %29 ], [ 0, %31 ], [ 0, %39 ], [ 0, %42 ], [ 0, %.thread106 ], [ 0, %63 ], [ 0, %60 ], [ %66, %.thread112.sink.split ]
+.thread112:                                       ; preds = %.thread112.sink.split, %63, %66, %.thread106, %42, %39, %31, %29, %20, %14, %4, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %4 ], [ 0, %14 ], [ 0, %20 ], [ 0, %29 ], [ 0, %31 ], [ 0, %39 ], [ 0, %42 ], [ 0, %.thread106 ], [ 0, %66 ], [ 0, %63 ], [ %69, %.thread112.sink.split ]
   ret i32 %.0
 }
 
@@ -13869,7 +13881,7 @@ define internal void @nas_5gs_unknown_n1_sm_info(ptr noundef %0, ptr noundef %1,
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_nas_5gs_tcp_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 65538) i32 @get_nas_5gs_tcp_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #12
   %6 = zext i16 %5 to i32
   %7 = add nuw nsw i32 %6, 2

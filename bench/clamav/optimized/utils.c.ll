@@ -27,12 +27,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.15 = private unnamed_addr constant [78 x i8] c"ClamMisc: when parsing path list ... could not stat '%s' ... %s ... skipping\0A\00", align 1
 @.str.16 = private unnamed_addr constant [75 x i8] c"ClamMisc: when parsing path list ... '%s' is not a directory ... skipping\0A\00", align 1
-@.str.17 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @.str.18 = private unnamed_addr constant [91 x i8] c"ClamMisc: when parsing path list ... ignoring path '%s' while DDD is enabled ... skipping\0A\00", align 1
 @.str.19 = private unnamed_addr constant [72 x i8] c"ClamMisc: use the OnAccessMountPath configuration option to watch '%s'\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onas_fan_checkowner(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @onas_fan_checkowner(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca %struct.stat, align 8
   %5 = tail call i32 @getpid() #8
@@ -258,7 +257,7 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr nocapture noundef %1
 
 8:                                                ; preds = %3
   store i32 20, ptr %2, align 4
-  br label %105
+  br label %110
 
 9:                                                ; preds = %3
   store ptr null, ptr %6, align 8
@@ -295,7 +294,7 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr nocapture noundef %1
   %25 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.13, ptr noundef %0, ptr noundef %24) #8
   store i32 3, ptr %2, align 4
   tail call void @free(ptr noundef nonnull %6) #8
-  br label %105
+  br label %110
 
 26:                                               ; preds = %.lr.ph, %.backedge
   %27 = load i32, ptr %1, align 4
@@ -326,7 +325,7 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr nocapture noundef %1
   store i64 0, ptr %5, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %39, %67, %72
+.backedge:                                        ; preds = %39, %67, %77
   %47 = load i32, ptr %1, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %48
@@ -352,98 +351,111 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr nocapture noundef %1
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %64
   %66 = load ptr, ptr %65, align 8
-  br i1 %62, label %69, label %67
+  br i1 %62, label %sub_0, label %67
 
 67:                                               ; preds = %59
   %68 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef %66) #8
   store i64 0, ptr %5, align 8
   br label %.backedge
 
-69:                                               ; preds = %59
-  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(2) @.str.17) #10
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %79
+sub_0:                                            ; preds = %59
+  %69 = load i8, ptr %66, align 1
+  %70 = zext i8 %69 to i32
+  %71 = add nsw i32 %70, -47
+  %.not70 = icmp eq i32 %71, 0
+  br i1 %.not70, label %sub_1, label %.tail
 
-72:                                               ; preds = %69
-  %73 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef %66) #8
-  %74 = load i32, ptr %1, align 4
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %75
-  %77 = load ptr, ptr %76, align 8
-  %78 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %77) #8
+sub_1:                                            ; preds = %sub_0
+  %72 = getelementptr inbounds i8, ptr %66, i64 1
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %75 = phi i32 [ %71, %sub_0 ], [ %74, %sub_1 ]
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %84
+
+77:                                               ; preds = %.tail
+  %78 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef nonnull %66) #8
+  %79 = load i32, ptr %1, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %80
+  %82 = load ptr, ptr %81, align 8
+  %83 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %82) #8
   store i64 0, ptr %5, align 8
   br label %.backedge
 
-79:                                               ; preds = %69
-  %80 = add nsw i32 %63, 1
-  store i32 %80, ptr %1, align 4
-  %81 = add nsw i32 %63, 2
-  %82 = sext i32 %81 to i64
-  %83 = shl nsw i64 %82, 3
-  %84 = call ptr @cli_safer_realloc(ptr noundef nonnull %.0.ph68, i64 noundef %83) #8
-  %.not62 = icmp eq ptr %84, null
-  br i1 %.not62, label %93, label %.outer
+84:                                               ; preds = %.tail
+  %85 = add nsw i32 %63, 1
+  store i32 %85, ptr %1, align 4
+  %86 = add nsw i32 %63, 2
+  %87 = sext i32 %86 to i64
+  %88 = shl nsw i64 %87, 3
+  %89 = call ptr @cli_safer_realloc(ptr noundef nonnull %.0.ph68, i64 noundef %88) #8
+  %.not62 = icmp eq ptr %89, null
+  br i1 %.not62, label %98, label %.outer
 
-.outer:                                           ; preds = %79
-  %85 = load i32, ptr %1, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
-  store ptr null, ptr %87, align 8
+.outer:                                           ; preds = %84
+  %90 = load i32, ptr %1, align 4
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds ptr, ptr %89, i64 %91
+  store ptr null, ptr %92, align 8
   store i64 0, ptr %5, align 8
-  %88 = load i32, ptr %1, align 4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds ptr, ptr %84, i64 %89
-  %91 = call i64 @getline(ptr noundef nonnull %90, ptr noundef nonnull %5, ptr noundef nonnull %11) #8
-  %92 = and i64 %91, 4294967295
-  %.not65 = icmp eq i64 %92, 4294967295
+  %93 = load i32, ptr %1, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds ptr, ptr %89, i64 %94
+  %96 = call i64 @getline(ptr noundef nonnull %95, ptr noundef nonnull %5, ptr noundef nonnull %11) #8
+  %97 = and i64 %96, 4294967295
+  %.not65 = icmp eq i64 %97, 4294967295
   br i1 %.not65, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.0.ph68 = phi ptr [ %6, %.lr.ph.lr.ph ], [ %84, %.outer ]
+  %.0.ph68 = phi ptr [ %6, %.lr.ph.lr.ph ], [ %89, %.outer ]
   br label %26
 
-93:                                               ; preds = %79
+98:                                               ; preds = %84
   store i32 20, ptr %2, align 4
-  %94 = call i32 @fclose(ptr noundef nonnull %11)
-  %95 = load i32, ptr %1, align 4
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph.preheader.i, label %free_opt_list.exit
+  %99 = call i32 @fclose(ptr noundef nonnull %11)
+  %100 = load i32, ptr %1, align 4
+  %101 = icmp sgt i32 %100, 0
+  br i1 %101, label %.lr.ph.preheader.i, label %free_opt_list.exit
 
-.lr.ph.preheader.i:                               ; preds = %93
-  %wide.trip.count.i = zext nneg i32 %95 to i64
+.lr.ph.preheader.i:                               ; preds = %98
+  %wide.trip.count.i = zext nneg i32 %100 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %100, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %100 ]
-  %97 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %indvars.iv.i
-  %98 = load ptr, ptr %97, align 8
-  %.not.i = icmp eq ptr %98, null
-  br i1 %.not.i, label %100, label %99
+.lr.ph.i:                                         ; preds = %105, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %105 ]
+  %102 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %indvars.iv.i
+  %103 = load ptr, ptr %102, align 8
+  %.not.i = icmp eq ptr %103, null
+  br i1 %.not.i, label %105, label %104
 
-99:                                               ; preds = %.lr.ph.i
-  call void @free(ptr noundef nonnull %98) #8
-  store ptr null, ptr %97, align 8
-  br label %100
+104:                                              ; preds = %.lr.ph.i
+  call void @free(ptr noundef nonnull %103) #8
+  store ptr null, ptr %102, align 8
+  br label %105
 
-100:                                              ; preds = %99, %.lr.ph.i
+105:                                              ; preds = %104, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %free_opt_list.exit, label %.lr.ph.i
 
-free_opt_list.exit:                               ; preds = %100, %93
+free_opt_list.exit:                               ; preds = %105, %98
   call void @free(ptr noundef nonnull %.0.ph68) #8
-  br label %105
+  br label %110
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.0.ph.lcssa64 = phi ptr [ %6, %.preheader ], [ %.0.ph68, %.backedge ], [ %84, %.outer ]
-  %101 = load i32, ptr %1, align 4
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds ptr, ptr %.0.ph.lcssa64, i64 %102
-  store ptr null, ptr %103, align 8
-  %104 = call i32 @fclose(ptr noundef nonnull %11)
-  br label %105
+  %.0.ph.lcssa64 = phi ptr [ %6, %.preheader ], [ %.0.ph68, %.backedge ], [ %89, %.outer ]
+  %106 = load i32, ptr %1, align 4
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds ptr, ptr %.0.ph.lcssa64, i64 %107
+  store ptr null, ptr %108, align 8
+  %109 = call i32 @fclose(ptr noundef nonnull %11)
+  br label %110
 
-105:                                              ; preds = %.outer._crit_edge, %free_opt_list.exit, %23, %8
+110:                                              ; preds = %.outer._crit_edge, %free_opt_list.exit, %23, %8
   %.057 = phi ptr [ null, %8 ], [ null, %23 ], [ null, %free_opt_list.exit ], [ %.0.ph.lcssa64, %.outer._crit_edge ]
   ret ptr %.057
 }
@@ -458,9 +470,6 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 declare i64 @getline(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 declare ptr @cli_safer_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 

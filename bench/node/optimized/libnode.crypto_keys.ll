@@ -548,7 +548,6 @@ $_ZZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EEC1EPS1_E4args_0 = comdat any
 @.str.231 = private unnamed_addr constant [23 x i8] c"ERR_CRYPTO_INVALID_JWK\00", align 1
 @.str.232 = private unnamed_addr constant [30 x i8] c"Invalid JWK secret key format\00", align 1
 @.str.233 = private unnamed_addr constant [4 x i8] c"RSA\00", align 1
-@.str.234 = private unnamed_addr constant [3 x i8] c"EC\00", align 1
 @.str.235 = private unnamed_addr constant [35 x i8] c"%s is not a supported JWK key type\00", align 1
 @_ZZN4node11SPrintFImplIRPKcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_E4args = linkonce_odr dso_local constant %"struct.node::AssertionInfo" { ptr @.str.236, ptr @.str.237, ptr @.str.238 }, comdat, align 8
 @.str.236 = private unnamed_addr constant [31 x i8] c"../../src/debug_utils-inl.h:79\00", align 1
@@ -4364,7 +4363,7 @@ _ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit
   %38 = load ptr, ptr %key, align 8
   %size_.i = getelementptr inbounds i8, ptr %key, i64 16
   %39 = load i64, ptr %size_.i, align 8
-  %call27 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef nonnull %pkey, ptr noundef nonnull align 8 dereferenceable(56) %value_.i, ptr noundef %38, i64 noundef %39), !range !36
+  %call27 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef nonnull %pkey, ptr noundef nonnull align 8 dereferenceable(56) %value_.i, ptr noundef %38, i64 noundef %39)
   call void @_ZN4node6crypto14ManagedEVPPKey12GetParsedKeyEPNS_11EnvironmentEOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS5_XadL_Z13EVP_PKEY_freeEEEEENS0_14ParseKeyResultEPKc(ptr sret(%"class.node::crypto::ManagedEVPPKey") align 8 %agg.result, ptr noundef %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pkey, i32 noundef %call27, ptr noundef nonnull @.str.12)
   %40 = load ptr, ptr %pkey, align 8
   %cmp.not.i41 = icmp eq ptr %40, null
@@ -4475,28 +4474,28 @@ if.then62:                                        ; preds = %_ZN4node10BaseObjec
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %pkey_.i49 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %pkey_.i49, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %call5.i.i.i.i.i.i.i.i50 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !40
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  %call5.i.i.i.i.i.i.i.i50 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !39
   %_M_use_count.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i50, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i51, align 8, !noalias !37
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i51, align 8, !noalias !36
   %_M_weak_count.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i50, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i52, align 4, !noalias !37
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i50, align 8, !noalias !37
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i52, align 4, !noalias !36
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i50, align 8, !noalias !36
   %_M_impl.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i50, i64 16
-  %call.i.i.i.i.i.i.i.i.i.i54 = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i53) #24, !noalias !37
+  %call.i.i.i.i.i.i.i.i.i.i54 = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i53) #24, !noalias !36
   %cmp.not.i.i.i.i.i.i.i.i.i55 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i54, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i55, label %_ZN4node6crypto14ManagedEVPPKeyC2Ev.exit59, label %do.body5.i.i.i.i.i.i.i.i.i56
 
 do.body5.i.i.i.i.i.i.i.i.i56:                     ; preds = %if.then62
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !37
-  tail call void @abort() #25, !noalias !37
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !36
+  tail call void @abort() #25, !noalias !36
   unreachable
 
 _ZN4node6crypto14ManagedEVPPKeyC2Ev.exit59:       ; preds = %if.then62
   %mutex_.i57 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_refcount.i.i.i.i58 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %call5.i.i.i.i.i.i.i.i50, ptr %_M_refcount.i.i.i.i58, align 8, !alias.scope !37
-  store ptr %_M_impl.i.i.i.i.i.i.i53, ptr %mutex_.i57, align 8, !alias.scope !37
+  store ptr %call5.i.i.i.i.i.i.i.i50, ptr %_M_refcount.i.i.i.i58, align 8, !alias.scope !36
+  store ptr %_M_impl.i.i.i.i.i.i.i53, ptr %mutex_.i57, align 8, !alias.scope !36
   br label %return
 
 do.body65:                                        ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
@@ -4517,22 +4516,22 @@ do.end77:                                         ; preds = %do.body65
   %add = add i32 %67, 4
   store i32 %add, ptr %offset, align 4
   %68 = load ptr, ptr %data_.i, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %key_type_.i61 = getelementptr inbounds i8, ptr %68, i64 8
-  %69 = load i32, ptr %key_type_.i61, align 8, !noalias !43
+  %69 = load i32, ptr %key_type_.i61, align 8, !noalias !42
   %cmp.not.i62 = icmp eq i32 %69, 0
   br i1 %cmp.not.i62, label %do.body4.i, label %_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit
 
 do.body4.i:                                       ; preds = %do.end77
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !43
-  tail call void @abort() #25, !noalias !43
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !42
+  tail call void @abort() #25, !noalias !42
   unreachable
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit: ; preds = %do.end77
   %asymmetric_key_.i = getelementptr inbounds i8, ptr %68, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !43
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !42
   %pkey_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !43
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !42
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i)
   br label %return
 
@@ -4543,7 +4542,7 @@ return:                                           ; preds = %_ZNK4node6crypto13K
 declare void @_ZN4node6crypto10ByteSource18FromStringOrBufferEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr sret(%"class.node::crypto::ByteSource") align 8, ptr noundef, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr nocapture noundef %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %key, i64 noundef %key_len) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr nocapture noundef %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %key, i64 noundef %key_len) unnamed_addr #3 {
 entry:
   %length.i.i = alloca i64, align 8
   %ref.tmp.i.i = alloca i64, align 8
@@ -4669,7 +4668,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   br i1 %or.cond.i.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then4.i.i
-  %invariant.gep.i.i = getelementptr i8, ptr %key, i64 2
+  %invariant.gep.i.i = getelementptr inbounds i8, ptr %key, i64 2
   %cmp1420.not.i.i = icmp eq i8 %10, 0
   br i1 %cmp1420.not.i.i, label %for.end.i.i, label %for.body.i.i
 
@@ -4677,13 +4676,13 @@ for.body.i.i:                                     ; preds = %if.end13.i.i, %for.
   %i.022.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end13.i.i ]
   %or1921.i.i = phi i64 [ %or.i.i, %for.body.i.i ], [ 0, %if.end13.i.i ]
   %shl.i.i = shl i64 %or1921.i.i, 8
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %i.022.i.i
+  %gep.i.i = getelementptr inbounds i8, ptr %invariant.gep.i.i, i64 %i.022.i.i
   %11 = load i8, ptr %gep.i.i, align 1
   %conv17.i.i = zext i8 %11 to i64
   %or.i.i = or disjoint i64 %shl.i.i, %conv17.i.i
   %inc.i.i = add nuw nsw i64 %i.022.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %conv8.i.i
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !46
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !45
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.end13.i.i
   %or19.lcssa.i.i = phi i64 [ 0, %if.end13.i.i ], [ %or.i.i, %for.body.i.i ]
@@ -4869,28 +4868,28 @@ sw.epilog:                                        ; preds = %do.body, %sw.defaul
   %2 = load i64, ptr %pkey, align 8
   store i64 %2, ptr %pkey_.i, align 8
   store ptr null, ptr %pkey, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !51
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !50
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !48
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !47
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !48
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !48
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !47
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !47
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !48
+  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !47
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4node6crypto14ManagedEVPPKeyC2EOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEE.exit, label %do.body5.i.i.i.i.i.i.i.i.i
 
 do.body5.i.i.i.i.i.i.i.i.i:                       ; preds = %sw.epilog
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !48
-  tail call void @abort() #25, !noalias !48
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !47
+  tail call void @abort() #25, !noalias !47
   unreachable
 
 _ZN4node6crypto14ManagedEVPPKeyC2EOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEE.exit: ; preds = %sw.epilog
   %mutex_.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !48
-  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !48
+  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !47
+  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !47
   ret void
 }
 
@@ -5046,28 +5045,28 @@ if.then19:                                        ; preds = %_ZNK2v820FunctionCa
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %pkey_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %pkey_.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %call5.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !57
+  call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  %call5.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !56
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !54
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !53
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !54
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !54
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !53
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !53
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !54
+  %call.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !53
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4node6crypto14ManagedEVPPKeyC2Ev.exit, label %do.body5.i.i.i.i.i.i.i.i.i
 
 do.body5.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then19
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !54
-  call void @abort() #25, !noalias !54
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !53
+  call void @abort() #25, !noalias !53
   unreachable
 
 _ZN4node6crypto14ManagedEVPPKeyC2Ev.exit:         ; preds = %if.then19
   %mutex_.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !54
-  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !54
+  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !53
+  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !53
   br label %return
 
 if.end:                                           ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit160
@@ -5080,28 +5079,28 @@ if.then21:                                        ; preds = %if.end
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %pkey_.i35 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %pkey_.i35, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %call5.i.i.i.i.i.i.i.i36 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !63
+  call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  %call5.i.i.i.i.i.i.i.i36 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !62
   %_M_use_count.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i36, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i37, align 8, !noalias !60
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i37, align 8, !noalias !59
   %_M_weak_count.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i36, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i38, align 4, !noalias !60
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i36, align 8, !noalias !60
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i38, align 4, !noalias !59
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i36, align 8, !noalias !59
   %_M_impl.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i36, i64 16
-  %call.i.i.i.i.i.i.i.i.i.i40 = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i39) #24, !noalias !60
+  %call.i.i.i.i.i.i.i.i.i.i40 = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i39) #24, !noalias !59
   %cmp.not.i.i.i.i.i.i.i.i.i41 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i40, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i41, label %_ZN4node6crypto14ManagedEVPPKeyC2Ev.exit45, label %do.body5.i.i.i.i.i.i.i.i.i42
 
 do.body5.i.i.i.i.i.i.i.i.i42:                     ; preds = %if.then21
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !60
-  call void @abort() #25, !noalias !60
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !59
+  call void @abort() #25, !noalias !59
   unreachable
 
 _ZN4node6crypto14ManagedEVPPKeyC2Ev.exit45:       ; preds = %if.then21
   %mutex_.i43 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_refcount.i.i.i.i44 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %call5.i.i.i.i.i.i.i.i36, ptr %_M_refcount.i.i.i.i44, align 8, !alias.scope !60
-  store ptr %_M_impl.i.i.i.i.i.i.i39, ptr %mutex_.i43, align 8, !alias.scope !60
+  store ptr %call5.i.i.i.i.i.i.i.i36, ptr %_M_refcount.i.i.i.i44, align 8, !alias.scope !59
+  store ptr %_M_impl.i.i.i.i.i.i.i39, ptr %mutex_.i43, align 8, !alias.scope !59
   br label %cleanup
 
 if.end22:                                         ; preds = %if.end
@@ -5157,7 +5156,7 @@ if.then29:                                        ; preds = %if.then24
   %38 = load i64, ptr %offset_.i, align 8
   %add.ptr.i55 = getelementptr inbounds i8, ptr %37, i64 %38
   %retval.0.i56 = select i1 %cmp.i52, ptr %data, ptr %add.ptr.i55
-  %call32 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef nonnull %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %retval.0.i56, i64 noundef %36), !range !36
+  %call32 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef nonnull %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %retval.0.i56, i64 noundef %36)
   br label %if.end50
 
 if.else:                                          ; preds = %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit
@@ -5294,7 +5293,7 @@ if.else45:                                        ; preds = %_ZNKR2v85MaybeIN4no
   %54 = load i64, ptr %offset_.i78, align 8
   %add.ptr.i79 = getelementptr inbounds i8, ptr %53, i64 %54
   %retval.0.i80 = select i1 %cmp.i76, ptr %data, ptr %add.ptr.i79
-  %call48 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef nonnull %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %retval.0.i80, i64 noundef %52), !range !36
+  %call48 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef nonnull %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %retval.0.i80, i64 noundef %52)
   br label %if.end50
 
 if.end50:                                         ; preds = %_ZN4node6crypto12_GLOBAL__N_114ParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_27AsymmetricKeyEncodingConfigEPKcm.exit, %if.else45, %if.then24, %if.then29
@@ -5430,22 +5429,22 @@ do.end116:                                        ; preds = %do.body101
   %add = add i32 %81, 4
   store i32 %add, ptr %offset, align 4
   %82 = load ptr, ptr %data_.i88, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %key_type_.i90 = getelementptr inbounds i8, ptr %82, i64 8
-  %83 = load i32, ptr %key_type_.i90, align 8, !noalias !66
+  %83 = load i32, ptr %key_type_.i90, align 8, !noalias !65
   %cmp.not.i91 = icmp eq i32 %83, 0
   br i1 %cmp.not.i91, label %do.body4.i, label %_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit
 
 do.body4.i:                                       ; preds = %do.end116
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !66
-  tail call void @abort() #25, !noalias !66
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !65
+  tail call void @abort() #25, !noalias !65
   unreachable
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit: ; preds = %do.end116
   %asymmetric_key_.i = getelementptr inbounds i8, ptr %82, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !66
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !65
   %pkey_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !66
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !65
   %call.i.i92 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i)
   br label %return
 
@@ -5471,7 +5470,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP11evp_pkey_stPPKhlEZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS6_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_0E9_M_invokeERKSt9_Any_dataOS4_Ol", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP11evp_pkey_stPPKhlEZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS6_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call3 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117TryParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKS2_I6bio_stNS4_IS8_XadL_Z12BIO_free_allEEEEEPKcRKSt8functionIFPS3_PPKhlEE(ptr noundef %pkey, ptr noundef nonnull align 8 dereferenceable(8) %bp, ptr noundef nonnull @.str.218, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp), !range !36
+  %call3 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117TryParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKS2_I6bio_stNS4_IS8_XadL_Z12BIO_free_allEEEEEPKcRKSt8functionIFPS3_PPKhlEE(ptr noundef %pkey, ptr noundef nonnull align 8 dereferenceable(8) %bp, ptr noundef nonnull @.str.218, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP11evp_pkey_stPPKhlEED2Ev.exit, label %if.then.i.i
@@ -5501,7 +5500,7 @@ do.end15:                                         ; preds = %do.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP11evp_pkey_stPPKhlEZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS6_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_1E9_M_invokeERKSt9_Any_dataOS4_Ol", ptr %_M_invoker.i8, align 8
   store ptr @"_ZNSt17_Function_handlerIFP11evp_pkey_stPPKhlEZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS6_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_1E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i7, align 8
-  %call18 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117TryParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKS2_I6bio_stNS4_IS8_XadL_Z12BIO_free_allEEEEEPKcRKSt8functionIFPS3_PPKhlEE(ptr noundef %pkey, ptr noundef nonnull align 8 dereferenceable(8) %bp, ptr noundef nonnull @.str.222, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16), !range !36
+  %call18 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117TryParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKS2_I6bio_stNS4_IS8_XadL_Z12BIO_free_allEEEEEPKcRKSt8functionIFPS3_PPKhlEE(ptr noundef %pkey, ptr noundef nonnull align 8 dereferenceable(8) %bp, ptr noundef nonnull @.str.222, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
   %2 = load ptr, ptr %_M_manager.i.i7, align 8
   %tobool.not.i.i10 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i10, label %_ZNSt8functionIFP11evp_pkey_stPPKhlEED2Ev.exit13, label %if.then.i.i11
@@ -5531,7 +5530,7 @@ do.end37:                                         ; preds = %do.body22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP11evp_pkey_stPPKhlEZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS6_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_2E9_M_invokeERKSt9_Any_dataOS4_Ol", ptr %_M_invoker.i15, align 8
   store ptr @"_ZNSt17_Function_handlerIFP11evp_pkey_stPPKhlEZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrIS0_NS6_15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEEPKciE3$_2E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager.i.i14, align 8
-  %call40 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117TryParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKS2_I6bio_stNS4_IS8_XadL_Z12BIO_free_allEEEEEPKcRKSt8functionIFPS3_PPKhlEE(ptr noundef %pkey, ptr noundef nonnull align 8 dereferenceable(8) %bp, ptr noundef nonnull @.str.224, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38), !range !36
+  %call40 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117TryParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKS2_I6bio_stNS4_IS8_XadL_Z12BIO_free_allEEEEEPKcRKSt8functionIFPS3_PPKhlEE(ptr noundef %pkey, ptr noundef nonnull align 8 dereferenceable(8) %bp, ptr noundef nonnull @.str.224, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38)
   %4 = load ptr, ptr %_M_manager.i.i14, align 8
   %tobool.not.i.i17 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i17, label %if.then.i, label %if.then.i.i18
@@ -5585,7 +5584,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %or.cond.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then4.i
-  %invariant.gep.i = getelementptr i8, ptr %data, i64 2
+  %invariant.gep.i = getelementptr inbounds i8, ptr %data, i64 2
   %cmp1420.not.i = icmp eq i8 %2, 0
   br i1 %cmp1420.not.i, label %for.end.i, label %for.body.i
 
@@ -5593,13 +5592,13 @@ for.body.i:                                       ; preds = %if.end13.i, %for.bo
   %i.022.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end13.i ]
   %or1921.i = phi i64 [ %or.i, %for.body.i ], [ 0, %if.end13.i ]
   %shl.i = shl i64 %or1921.i, 8
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %i.022.i
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %i.022.i
   %3 = load i8, ptr %gep.i, align 1
   %conv17.i = zext i8 %3 to i64
   %or.i = or disjoint i64 %shl.i, %conv17.i
   %inc.i = add nuw nsw i64 %i.022.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %conv8.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !46
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !45
 
 for.end.i:                                        ; preds = %for.body.i, %if.end13.i
   %or19.lcssa.i = phi i64 [ 0, %if.end13.i ], [ %or.i, %for.body.i ]
@@ -5677,28 +5676,28 @@ entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %asymmetric_key_, align 8
   %pkey_.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %pkey_.i, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !72
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !71
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !69
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !68
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !69
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !69
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !68
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !68
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !69
+  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !68
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4node6crypto14ManagedEVPPKeyC2Ev.exit, label %do.body5.i.i.i.i.i.i.i.i.i
 
 do.body5.i.i.i.i.i.i.i.i.i:                       ; preds = %entry
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !69
-  tail call void @abort() #25, !noalias !69
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !68
+  tail call void @abort() #25, !noalias !68
   unreachable
 
 _ZN4node6crypto14ManagedEVPPKeyC2Ev.exit:         ; preds = %entry
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 56
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !69
-  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !69
+  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !68
+  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !68
   ret void
 }
 
@@ -5925,28 +5924,28 @@ entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %asymmetric_key_.i, align 8
   %pkey_.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr null, ptr %pkey_.i.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  %call5.i.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !78
+  call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  %call5.i.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !77
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !noalias !75
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !noalias !74
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !75
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i.i, align 8, !noalias !75
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !74
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i.i, align 8, !noalias !74
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i.i) #24, !noalias !75
+  %call.i.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i.i) #24, !noalias !74
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4node6crypto13KeyObjectDataC2ENS0_10ByteSourceE.exit, label %do.body5.i.i.i.i.i.i.i.i.i.i
 
 do.body5.i.i.i.i.i.i.i.i.i.i:                     ; preds = %entry
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !75
-  call void @abort() #25, !noalias !75
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !74
+  call void @abort() #25, !noalias !74
   unreachable
 
 _ZN4node6crypto13KeyObjectDataC2ENS0_10ByteSourceE.exit: ; preds = %entry
   %mutex_.i.i = getelementptr inbounds i8, ptr %call, i64 56
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
-  store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8, !alias.scope !75
-  store ptr %_M_impl.i.i.i.i.i.i.i.i, ptr %mutex_.i.i, align 8, !alias.scope !75
+  store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8, !alias.scope !74
+  store ptr %_M_impl.i.i.i.i.i.i.i.i, ptr %mutex_.i.i, align 8, !alias.scope !74
   store ptr %call, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -6265,28 +6264,28 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit128: ; preds = %if.end.i120, %
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %pkey, align 8
   %pkey_.i = getelementptr inbounds i8, ptr %pkey, i64 8
   store ptr null, ptr %pkey_.i, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !84
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
+  %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !83
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !81
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !80
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !81
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !81
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !80
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !80
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !81
+  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !80
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4node6crypto14ManagedEVPPKeyC2Ev.exit, label %do.body5.i.i.i.i.i.i.i.i.i
 
 do.body5.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit128
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !81
-  tail call void @abort() #25, !noalias !81
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !80
+  tail call void @abort() #25, !noalias !80
   unreachable
 
 _ZN4node6crypto14ManagedEVPPKeyC2Ev.exit:         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit128
   %mutex_.i = getelementptr inbounds i8, ptr %pkey, i64 16
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %pkey, i64 24
-  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !81
-  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !81
+  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !80
+  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !80
   switch i32 %call37, label %do.body106 [
     i32 0, label %do.body38
     i32 1, label %do.body63
@@ -6308,36 +6307,36 @@ if.end.i:                                         ; preds = %do.body38
   %23 = load ptr, ptr %values_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %23, i64 8
   call void @_ZN4node6crypto25ArrayBufferOrViewContentsIcEC2EN2v85LocalINS3_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr nonnull %add.ptr.i)
-  call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %length_.i.i = getelementptr inbounds i8, ptr %buf, i64 16
-  %24 = load i64, ptr %length_.i.i, align 8, !noalias !87
+  %24 = load i64, ptr %length_.i.i, align 8, !noalias !86
   %cmp.i = icmp eq i64 %24, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i23
 
 if.then.i:                                        ; preds = %if.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp60, i8 0, i64 24, i1 false), !alias.scope !87
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp60, i8 0, i64 24, i1 false), !alias.scope !86
   br label %_ZNK4node6crypto25ArrayBufferOrViewContentsIcE6ToCopyEv.exit
 
 if.end.i23:                                       ; preds = %if.end.i
-  %call1.i.i.i = call ptr @CRYPTO_malloc(i64 noundef %24, ptr noundef nonnull @.str.261, i32 noundef 205) #24, !noalias !87
+  %call1.i.i.i = call ptr @CRYPTO_malloc(i64 noundef %24, ptr noundef nonnull @.str.261, i32 noundef 205) #24, !noalias !86
   %cmp.i.i.i = icmp eq ptr %call1.i.i.i, null
   br i1 %cmp.i.i.i, label %do.body5.i.i.i, label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i
 
 do.body5.i.i.i:                                   ; preds = %if.end.i23
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto13MallocOpenSSLIcEEPT_mE4args) #24, !noalias !87
-  call void @abort() #25, !noalias !87
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto13MallocOpenSSLIcEEPT_mE4args) #24, !noalias !86
+  call void @abort() #25, !noalias !86
   unreachable
 
 _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i: ; preds = %if.end.i23
-  %25 = load i64, ptr %length_.i.i, align 8, !noalias !87
+  %25 = load i64, ptr %length_.i.i, align 8, !noalias !86
   %cmp.i.i24 = icmp eq i64 %25, 0
   %data_.i.i = getelementptr inbounds i8, ptr %buf, i64 24
-  %26 = load ptr, ptr %data_.i.i, align 8, !noalias !87
+  %26 = load ptr, ptr %data_.i.i, align 8, !noalias !86
   %offset_.i.i = getelementptr inbounds i8, ptr %buf, i64 8
-  %27 = load i64, ptr %offset_.i.i, align 8, !noalias !87
+  %27 = load i64, ptr %offset_.i.i, align 8, !noalias !86
   %add.ptr.i.i = getelementptr inbounds i8, ptr %26, i64 %27
   %retval.0.i.i = select i1 %cmp.i.i24, ptr %buf, ptr %add.ptr.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i.i.i, ptr align 1 %retval.0.i.i, i64 %25, i1 false), !noalias !87
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i.i.i, ptr align 1 %retval.0.i.i, i64 %25, i1 false), !noalias !86
   call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %agg.tmp60, ptr noundef nonnull %call1.i.i.i, i64 noundef %24) #24
   call void @CRYPTO_clear_free(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.261, i32 noundef 225) #24
   br label %_ZNK4node6crypto25ArrayBufferOrViewContentsIcE6ToCopyEv.exit
@@ -6604,25 +6603,25 @@ _ZN4node6crypto14ManagedEVPPKeyD2Ev.exit:         ; preds = %_ZNSt10shared_ptrIN
   br i1 %cmp.i.i61.not, label %cleanup, label %_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE.exit
 
 _ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE.exit: ; preds = %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit
-  %call5.i = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !90
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i64 0, i32 0, i64 2), ptr %call5.i, align 8, !noalias !90
+  %call5.i = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !89
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i64 0, i32 0, i64 2), ptr %call5.i, align 8, !noalias !89
   %key_type_.i.i = getelementptr inbounds i8, ptr %call5.i, i64 8
-  store i32 1, ptr %key_type_.i.i, align 8, !noalias !90
+  store i32 1, ptr %key_type_.i.i, align 8, !noalias !89
   %symmetric_key_.i.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   %asymmetric_key_.i.i = getelementptr inbounds i8, ptr %call5.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !90
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %asymmetric_key_.i.i, align 8, !noalias !90
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !89
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %asymmetric_key_.i.i, align 8, !noalias !89
   %pkey_.i.i.i = getelementptr inbounds i8, ptr %call5.i, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !90
-  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %pkey), !noalias !90
-  %call.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !90
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !89
+  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %pkey), !noalias !89
+  %call.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !89
   %_M_use_count.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i63, align 8, !noalias !90
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i63, align 8, !noalias !89
   %_M_weak_count.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i64, align 4, !noalias !90
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto13KeyObjectDataELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i, align 8, !noalias !90
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i64, align 4, !noalias !89
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto13KeyObjectDataELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i, align 8, !noalias !89
   %_M_ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
-  store ptr %call5.i, ptr %_M_ptr.i.i.i.i.i.i, align 8, !noalias !90
+  store ptr %call5.i, ptr %_M_ptr.i.i.i.i.i.i, align 8, !noalias !89
   %data_82 = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   store ptr %call5.i, ptr %data_82, align 8
   %_M_refcount3.i.i.i66 = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
@@ -6804,25 +6803,25 @@ _ZN4node6crypto14ManagedEVPPKeyD2Ev.exit165:      ; preds = %_ZNSt10shared_ptrIN
   br i1 %cmp.i.i167.not, label %cleanup, label %_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE.exit182
 
 _ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE.exit182: ; preds = %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit165
-  %call5.i170 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !93
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i64 0, i32 0, i64 2), ptr %call5.i170, align 8, !noalias !93
+  %call5.i170 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !92
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i64 0, i32 0, i64 2), ptr %call5.i170, align 8, !noalias !92
   %key_type_.i.i171 = getelementptr inbounds i8, ptr %call5.i170, i64 8
-  store i32 2, ptr %key_type_.i.i171, align 8, !noalias !93
+  store i32 2, ptr %key_type_.i.i171, align 8, !noalias !92
   %symmetric_key_.i.i172 = getelementptr inbounds i8, ptr %call5.i170, i64 16
   %asymmetric_key_.i.i173 = getelementptr inbounds i8, ptr %call5.i170, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i172, i8 0, i64 24, i1 false), !noalias !93
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %asymmetric_key_.i.i173, align 8, !noalias !93
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i172, i8 0, i64 24, i1 false), !noalias !92
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %asymmetric_key_.i.i173, align 8, !noalias !92
   %pkey_.i.i.i174 = getelementptr inbounds i8, ptr %call5.i170, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i174, i8 0, i64 24, i1 false), !noalias !93
-  %call.i.i.i175 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i.i173, ptr noundef nonnull align 8 dereferenceable(32) %pkey), !noalias !93
-  %call.i.i.i.i.i177 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !93
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i174, i8 0, i64 24, i1 false), !noalias !92
+  %call.i.i.i175 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i.i173, ptr noundef nonnull align 8 dereferenceable(32) %pkey), !noalias !92
+  %call.i.i.i.i.i177 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !92
   %_M_use_count.i.i.i.i.i.i.i178 = getelementptr inbounds i8, ptr %call.i.i.i.i.i177, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i178, align 8, !noalias !93
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i178, align 8, !noalias !92
   %_M_weak_count.i.i.i.i.i.i.i179 = getelementptr inbounds i8, ptr %call.i.i.i.i.i177, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i179, align 4, !noalias !93
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto13KeyObjectDataELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i177, align 8, !noalias !93
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i179, align 4, !noalias !92
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto13KeyObjectDataELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i177, align 8, !noalias !92
   %_M_ptr.i.i.i.i.i.i180 = getelementptr inbounds i8, ptr %call.i.i.i.i.i177, i64 16
-  store ptr %call5.i170, ptr %_M_ptr.i.i.i.i.i.i180, align 8, !noalias !93
+  store ptr %call5.i170, ptr %_M_ptr.i.i.i.i.i.i180, align 8, !noalias !92
   %data_104 = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   store ptr %call5.i170, ptr %data_104, align 8
   %_M_refcount3.i.i.i184 = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
@@ -7870,56 +7869,56 @@ if.end74:                                         ; preds = %if.then70, %if.end6
   %pkey_.i = getelementptr inbounds i8, ptr %ref.tmp77, i64 8
   %57 = ptrtoint ptr %call65 to i64
   store i64 %57, ptr %pkey_.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  %call5.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !99
+  call void @llvm.experimental.noalias.scope.decl(metadata !95)
+  %call5.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !98
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !96
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !95
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !96
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !96
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !95
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !95
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !96
+  %call.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !95
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4node6crypto14ManagedEVPPKeyC2EOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEE.exit, label %do.body5.i.i.i.i.i.i.i.i.i
 
 do.body5.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end74
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !96
-  call void @abort() #25, !noalias !96
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !95
+  call void @abort() #25, !noalias !95
   unreachable
 
 _ZN4node6crypto14ManagedEVPPKeyC2EOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEE.exit: ; preds = %if.end74
   %mutex_.i = getelementptr inbounds i8, ptr %ref.tmp77, i64 16
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp77, i64 24
-  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !96
-  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !96
+  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !95
+  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !95
   %cmp.i.i.not.i = icmp eq ptr %call65, null
   br i1 %cmp.i.i.not.i, label %do.body3.i, label %_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE.exit
 
 do.body3.i:                                       ; preds = %_ZN4node6crypto14ManagedEVPPKeyC2EOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEE.exit
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyEE4args) #24, !noalias !102
-  call void @abort() #25, !noalias !102
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyEE4args) #24, !noalias !101
+  call void @abort() #25, !noalias !101
   unreachable
 
 _ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE.exit: ; preds = %_ZN4node6crypto14ManagedEVPPKeyC2EOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEE.exit
-  %call5.i = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !102
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i64 0, i32 0, i64 2), ptr %call5.i, align 8, !noalias !102
+  %call5.i = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !101
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i64 0, i32 0, i64 2), ptr %call5.i, align 8, !noalias !101
   %key_type_.i.i = getelementptr inbounds i8, ptr %call5.i, i64 8
-  store i32 1, ptr %key_type_.i.i, align 8, !noalias !102
+  store i32 1, ptr %key_type_.i.i, align 8, !noalias !101
   %symmetric_key_.i.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   %asymmetric_key_.i.i = getelementptr inbounds i8, ptr %call5.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !102
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %asymmetric_key_.i.i, align 8, !noalias !102
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !101
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %asymmetric_key_.i.i, align 8, !noalias !101
   %pkey_.i.i.i = getelementptr inbounds i8, ptr %call5.i, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !102
-  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77), !noalias !102
-  %call.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !102
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !101
+  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77), !noalias !101
+  %call.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !101
   %_M_use_count.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i33, align 8, !noalias !102
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i33, align 8, !noalias !101
   %_M_weak_count.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i34, align 4, !noalias !102
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto13KeyObjectDataELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i, align 8, !noalias !102
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i34, align 4, !noalias !101
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto13KeyObjectDataELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i, align 8, !noalias !101
   %_M_ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
-  store ptr %call5.i, ptr %_M_ptr.i.i.i.i.i.i, align 8, !noalias !102
+  store ptr %call5.i, ptr %_M_ptr.i.i.i.i.i.i, align 8, !noalias !101
   %data_ = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   store ptr %call5.i, ptr %data_, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
@@ -8327,7 +8326,7 @@ sw.bb:                                            ; preds = %_ZNK2v820FunctionCa
   %54 = load i64, ptr %offset_.i, align 8
   %add.ptr.i33 = getelementptr inbounds i8, ptr %53, i64 %54
   %retval.0.i = select i1 %cmp.i, ptr %key_data, ptr %add.ptr.i33
-  %call60 = call noundef ptr %EVP_PKEY_new_raw_private_key.EVP_PKEY_new_raw_public_key(i32 noundef %call57, ptr noundef null, ptr noundef %retval.0.i, i64 noundef %52) #24, !callees !105
+  %call60 = call noundef ptr %EVP_PKEY_new_raw_private_key.EVP_PKEY_new_raw_public_key(i32 noundef %call57, ptr noundef null, ptr noundef %retval.0.i, i64 noundef %52) #24, !callees !104
   %cmp.i35.not = icmp eq ptr %call60, null
   br i1 %cmp.i35.not, label %cleanup88, label %if.end66
 
@@ -8336,47 +8335,47 @@ if.end66:                                         ; preds = %sw.bb
   %pkey_.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
   %55 = ptrtoint ptr %call60 to i64
   store i64 %55, ptr %pkey_.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !106)
-  %call5.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !109
+  call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  %call5.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !108
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !106
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !105
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !106
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !106
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !105
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS0_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !105
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !106
+  %call.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i) #24, !noalias !105
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE.exit, label %do.body5.i.i.i.i.i.i.i.i.i
 
 do.body5.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end66
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !106
-  call void @abort() #25, !noalias !106
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args) #24, !noalias !105
+  call void @abort() #25, !noalias !105
   unreachable
 
 _ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE.exit: ; preds = %if.end66
   %mutex_.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 16
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp68, i64 24
-  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !106
-  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !106
-  %call5.i = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !112
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i64 0, i32 0, i64 2), ptr %call5.i, align 8, !noalias !112
+  store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !105
+  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %mutex_.i, align 8, !alias.scope !105
+  %call5.i = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !111
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto13KeyObjectDataE, i64 0, i32 0, i64 2), ptr %call5.i, align 8, !noalias !111
   %key_type_.i.i = getelementptr inbounds i8, ptr %call5.i, i64 8
-  store i32 %call54, ptr %key_type_.i.i, align 8, !noalias !112
+  store i32 %call54, ptr %key_type_.i.i, align 8, !noalias !111
   %symmetric_key_.i.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   %asymmetric_key_.i.i = getelementptr inbounds i8, ptr %call5.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !112
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %asymmetric_key_.i.i, align 8, !noalias !112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %symmetric_key_.i.i, i8 0, i64 24, i1 false), !noalias !111
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %asymmetric_key_.i.i, align 8, !noalias !111
   %pkey_.i.i.i = getelementptr inbounds i8, ptr %call5.i, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !112
-  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68), !noalias !112
-  %call.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !noalias !111
+  %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68), !noalias !111
+  %call.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !111
   %_M_use_count.i.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i36, align 8, !noalias !112
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i36, align 8, !noalias !111
   %_M_weak_count.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i37, align 4, !noalias !112
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto13KeyObjectDataELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i, align 8, !noalias !112
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i37, align 4, !noalias !111
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto13KeyObjectDataELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i, align 8, !noalias !111
   %_M_ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
-  store ptr %call5.i, ptr %_M_ptr.i.i.i.i.i.i, align 8, !noalias !112
+  store ptr %call5.i, ptr %_M_ptr.i.i.i.i.i.i, align 8, !noalias !111
   %data_ = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   store ptr %call5.i, ptr %data_, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
@@ -8754,20 +8753,20 @@ if.end68:                                         ; preds = %if.end.i193
 if.then77:                                        ; preds = %if.end68
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key_data.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp38.i)
-  %46 = load ptr, ptr %principal_realm_.i.i, align 8, !noalias !115
-  %vtable.i.i = load ptr, ptr %46, align 8, !noalias !115
+  %46 = load ptr, ptr %principal_realm_.i.i, align 8, !noalias !114
+  %vtable.i.i = load ptr, ptr %46, align 8, !noalias !114
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 64
-  %47 = load ptr, ptr %vfn.i.i, align 8, !noalias !115
-  %call2.i.i = call ptr %47(ptr noundef nonnull align 8 dereferenceable(872) %46) #24, !noalias !115
-  %48 = load ptr, ptr %isolate_data_.i.i, align 8, !noalias !115
+  %47 = load ptr, ptr %vfn.i.i, align 8, !noalias !114
+  %call2.i.i = call ptr %47(ptr noundef nonnull align 8 dereferenceable(872) %46) #24, !noalias !114
+  %48 = load ptr, ptr %isolate_data_.i.i, align 8, !noalias !114
   %jwk_k_string_.i.i.i = getelementptr inbounds i8, ptr %48, i64 1296
-  %49 = load ptr, ptr %jwk_k_string_.i.i.i, align 8, !noalias !115
-  %call22.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i112.sroa.0.0, ptr %call2.i.i, ptr %49) #24, !noalias !115
+  %49 = load ptr, ptr %jwk_k_string_.i.i.i, align 8, !noalias !114
+  %call22.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i112.sroa.0.0, ptr %call2.i.i, ptr %49) #24, !noalias !114
   %cmp.i.i.not.i = icmp eq ptr %call22.i, null
   br i1 %cmp.i.i.not.i, label %if.then.i36, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then77
-  %50 = load i64, ptr %call22.i, align 8, !noalias !115
+  %50 = load i64, ptr %call22.i, align 8, !noalias !114
   %and.i.i.i = and i64 %50, 3
   %cmp.i.i55.i = icmp eq i64 %and.i.i.i, 1
   br i1 %cmp.i.i55.i, label %if.end.i.i37, label %if.then.i36
@@ -8775,25 +8774,25 @@ lor.rhs.i:                                        ; preds = %if.then77
 if.end.i.i37:                                     ; preds = %lor.rhs.i
   %sub.i.i.i.i38 = add nsw i64 %50, -1
   %51 = inttoptr i64 %sub.i.i.i.i38 to ptr
-  %52 = load i64, ptr %51, align 8, !noalias !115
+  %52 = load i64, ptr %51, align 8, !noalias !114
   %sub.i.i.i39 = add i64 %52, 11
   %53 = inttoptr i64 %sub.i.i.i39 to ptr
-  %54 = load i16, ptr %53, align 2, !noalias !115
+  %54 = load i16, ptr %53, align 2, !noalias !114
   %cmp.i.i40 = icmp ugt i16 %54, 127
   br i1 %cmp.i.i40, label %if.then.i36, label %if.end.i41
 
 if.then.i36:                                      ; preds = %if.end.i.i37, %lor.rhs.i, %if.then77
-  %55 = load ptr, ptr %isolate_.i, align 8, !noalias !115
-  %call.i.i.i = call ptr @_ZN4node22ERR_CRYPTO_INVALID_JWKIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %55, ptr noundef nonnull @.str.232), !noalias !115
-  %call6.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr %call.i.i.i) #24, !noalias !115
+  %55 = load ptr, ptr %isolate_.i, align 8, !noalias !114
+  %call.i.i.i = call ptr @_ZN4node22ERR_CRYPTO_INVALID_JWKIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %55, ptr noundef nonnull @.str.232), !noalias !114
+  %call6.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr %call.i.i.i) #24, !noalias !114
   br label %_ZN4node6crypto12_GLOBAL__N_118ImportJWKSecretKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE.exit
 
 if.end.i41:                                       ; preds = %if.end.i.i37
-  call void @_ZN4node6crypto10ByteSource17FromEncodedStringEPNS_11EnvironmentEN2v85LocalINS4_6StringEEENS_8encodingE(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %key_data.i, ptr noundef nonnull %retval.0.i.i, ptr nonnull %call22.i, i32 noundef 2) #24, !noalias !115
-  call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp38.i, ptr noundef nonnull align 8 dereferenceable(24) %key_data.i) #24, !noalias !115
+  call void @_ZN4node6crypto10ByteSource17FromEncodedStringEPNS_11EnvironmentEN2v85LocalINS4_6StringEEENS_8encodingE(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %key_data.i, ptr noundef nonnull %retval.0.i.i, ptr nonnull %call22.i, i32 noundef 2) #24, !noalias !114
+  call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp38.i, ptr noundef nonnull align 8 dereferenceable(24) %key_data.i) #24, !noalias !114
   call void @_ZN4node6crypto13KeyObjectData12CreateSecretENS0_10ByteSourceE(ptr nonnull sret(%"class.std::shared_ptr.7") align 8 %ref.tmp78, ptr noundef nonnull %agg.tmp38.i)
-  call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp38.i) #24, !noalias !115
-  call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_data.i) #24, !noalias !115
+  call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp38.i) #24, !noalias !114
+  call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_data.i) #24, !noalias !114
   %56 = load <2 x ptr>, ptr %ref.tmp78, align 16
   br label %_ZN4node6crypto12_GLOBAL__N_118ImportJWKSecretKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE.exit
 
@@ -8957,31 +8956,43 @@ _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit: ; preds = %_ZNSt10sha
   br i1 %cmp.i.not, label %cleanup, label %if.end100
 
 if.else:                                          ; preds = %if.end68
-  call void @llvm.experimental.noalias.scope.decl(metadata !118)
+  call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %kty.addr.i)
-  store ptr %45, ptr %kty.addr.i, align 8, !noalias !118
-  %call.i46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(4) @.str.233) #26, !noalias !118
+  store ptr %45, ptr %kty.addr.i, align 8, !noalias !117
+  %call.i46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(4) @.str.233) #26, !noalias !117
   %cmp.i47 = icmp eq i32 %call.i46, 0
-  br i1 %cmp.i47, label %if.then.i51, label %if.else.i
+  br i1 %cmp.i47, label %if.then.i51, label %sub_0.i
 
 if.then.i51:                                      ; preds = %if.else
   call void @_ZN4node6crypto15ImportJWKRsaKeyEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS3_20FunctionCallbackInfoINS3_5ValueEEEj(ptr nonnull sret(%"class.std::shared_ptr.7") align 8 %ref.tmp88, ptr noundef nonnull %retval.0.i.i, ptr nonnull %retval.i112.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 1) #24
   br label %_ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEPKcRKNS4_20FunctionCallbackInfoINS4_5ValueEEEj.exit
 
-if.else.i:                                        ; preds = %if.else
-  %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(3) @.str.234) #26, !noalias !118
-  %cmp7.i = icmp eq i32 %call6.i, 0
-  br i1 %cmp7.i, label %if.then8.i, label %if.end13.i
+sub_0.i:                                          ; preds = %if.else
+  %81 = load i8, ptr %45, align 1, !noalias !117
+  %.not.i = icmp eq i8 %81, 69
+  br i1 %.not.i, label %sub_1.i, label %if.end13.i
 
-if.then8.i:                                       ; preds = %if.else.i
+sub_1.i:                                          ; preds = %sub_0.i
+  %82 = getelementptr inbounds i8, ptr %45, i64 1
+  %83 = load i8, ptr %82, align 1, !noalias !117
+  %.not5.i = icmp eq i8 %83, 67
+  br i1 %.not5.i, label %if.else.tail.i, label %if.end13.i
+
+if.else.tail.i:                                   ; preds = %sub_1.i
+  %84 = getelementptr inbounds i8, ptr %45, i64 2
+  %85 = load i8, ptr %84, align 1, !noalias !117
+  %86 = icmp eq i8 %85, 0
+  br i1 %86, label %if.then8.i, label %if.end13.i
+
+if.then8.i:                                       ; preds = %if.else.tail.i
   call void @_ZN4node6crypto14ImportJWKEcKeyEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS3_20FunctionCallbackInfoINS3_5ValueEEEj(ptr nonnull sret(%"class.std::shared_ptr.7") align 8 %ref.tmp88, ptr noundef nonnull %retval.0.i.i, ptr nonnull %retval.i112.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 1) #24
   br label %_ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEPKcRKNS4_20FunctionCallbackInfoINS4_5ValueEEEj.exit
 
-if.end13.i:                                       ; preds = %if.else.i
-  %81 = load ptr, ptr %isolate_.i, align 8, !noalias !118
-  %call.i.i.i49 = call ptr @_ZN4node22ERR_CRYPTO_INVALID_JWKIJRPKcEEEN2v85LocalINS4_5ValueEEEPNS4_7IsolateES2_DpOT_(ptr noundef %81, ptr noundef nonnull @.str.235, ptr noundef nonnull align 8 dereferenceable(8) %kty.addr.i), !noalias !118
-  %call6.i.i.i50 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr %call.i.i.i49) #24, !noalias !118
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp88, i8 0, i64 16, i1 false), !alias.scope !118
+if.end13.i:                                       ; preds = %if.else.tail.i, %sub_1.i, %sub_0.i
+  %87 = load ptr, ptr %isolate_.i, align 8, !noalias !117
+  %call.i.i.i49 = call ptr @_ZN4node22ERR_CRYPTO_INVALID_JWKIJRPKcEEEN2v85LocalINS4_5ValueEEEPNS4_7IsolateES2_DpOT_(ptr noundef %87, ptr noundef nonnull @.str.235, ptr noundef nonnull align 8 dereferenceable(8) %kty.addr.i), !noalias !117
+  %call6.i.i.i50 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %87, ptr %call.i.i.i49) #24, !noalias !117
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp88, i8 0, i64 16, i1 false), !alias.scope !117
   br label %_ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEPKcRKNS4_20FunctionCallbackInfoINS4_5ValueEEEj.exit
 
 _ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEPKcRKNS4_20FunctionCallbackInfoINS4_5ValueEEEj.exit: ; preds = %if.then.i51, %if.then8.i, %if.end13.i
@@ -8989,180 +9000,180 @@ _ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85Loc
   %data_94 = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %_M_refcount4.i.i.i52 = getelementptr inbounds i8, ptr %ref.tmp88, i64 8
   %_M_refcount3.i.i.i53 = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
-  %82 = load <2 x ptr>, ptr %ref.tmp88, align 16
+  %88 = load <2 x ptr>, ptr %ref.tmp88, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp88, i8 0, i64 16, i1 false)
-  %83 = load ptr, ptr %_M_refcount3.i.i.i53, align 8
-  store <2 x ptr> %82, ptr %data_94, align 8
-  %cmp.not.i.i.i.i54 = icmp eq ptr %83, null
+  %89 = load ptr, ptr %_M_refcount3.i.i.i53, align 8
+  store <2 x ptr> %88, ptr %data_94, align 8
+  %cmp.not.i.i.i.i54 = icmp eq ptr %89, null
   br i1 %cmp.not.i.i.i.i54, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEaSEOS3_.exit84, label %if.then.i.i.i.i55
 
 if.then.i.i.i.i55:                                ; preds = %_ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEPKcRKNS4_20FunctionCallbackInfoINS4_5ValueEEEj.exit
-  %_M_use_count.i.i.i.i.i56 = getelementptr inbounds i8, ptr %83, i64 8
-  %84 = load atomic i64, ptr %_M_use_count.i.i.i.i.i56 acquire, align 8
-  %cmp.i.i.i.i.i57 = icmp eq i64 %84, 4294967297
-  %85 = trunc i64 %84 to i32
+  %_M_use_count.i.i.i.i.i56 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = load atomic i64, ptr %_M_use_count.i.i.i.i.i56 acquire, align 8
+  %cmp.i.i.i.i.i57 = icmp eq i64 %90, 4294967297
+  %91 = trunc i64 %90 to i32
   br i1 %cmp.i.i.i.i.i57, label %if.then.i.i.i.i.i80, label %if.end.i.i.i.i.i58
 
 if.then.i.i.i.i.i80:                              ; preds = %if.then.i.i.i.i55
   store i32 0, ptr %_M_use_count.i.i.i.i.i56, align 8
-  %_M_weak_count.i.i.i.i.i81 = getelementptr inbounds i8, ptr %83, i64 12
+  %_M_weak_count.i.i.i.i.i81 = getelementptr inbounds i8, ptr %89, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i81, align 4
-  %vtable.i.i.i.i.i82 = load ptr, ptr %83, align 8
+  %vtable.i.i.i.i.i82 = load ptr, ptr %89, align 8
   %vfn.i.i.i.i.i83 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i82, i64 16
-  %86 = load ptr, ptr %vfn.i.i.i.i.i83, align 8
-  call void %86(ptr noundef nonnull align 8 dereferenceable(16) %83) #24
+  %92 = load ptr, ptr %vfn.i.i.i.i.i83, align 8
+  call void %92(ptr noundef nonnull align 8 dereferenceable(16) %89) #24
   br label %if.end8.sink.split.i.i.i.i.i75
 
 if.end.i.i.i.i.i58:                               ; preds = %if.then.i.i.i.i55
-  %87 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i59 = icmp eq i8 %87, 0
+  %93 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i59 = icmp eq i8 %93, 0
   br i1 %tobool.i.i.not.i.i.i.i.i59, label %if.else.i.i.i.i.i.i79, label %if.then.i.i.i.i.i.i60
 
 if.then.i.i.i.i.i.i60:                            ; preds = %if.end.i.i.i.i.i58
-  %add.i.i.i.i.i.i61 = add nsw i32 %85, -1
+  %add.i.i.i.i.i.i61 = add nsw i32 %91, -1
   store i32 %add.i.i.i.i.i.i61, ptr %_M_use_count.i.i.i.i.i56, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i62
 
 if.else.i.i.i.i.i.i79:                            ; preds = %if.end.i.i.i.i.i58
-  %88 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i56, i32 -1 acq_rel, align 4
+  %94 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i56, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i62
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i62: ; preds = %if.else.i.i.i.i.i.i79, %if.then.i.i.i.i.i.i60
-  %retval.i.0.i.i.i.i.i63 = phi i32 [ %85, %if.then.i.i.i.i.i.i60 ], [ %88, %if.else.i.i.i.i.i.i79 ]
+  %retval.i.0.i.i.i.i.i63 = phi i32 [ %91, %if.then.i.i.i.i.i.i60 ], [ %94, %if.else.i.i.i.i.i.i79 ]
   %cmp6.i.i.i.i.i64 = icmp eq i32 %retval.i.0.i.i.i.i.i63, 1
   br i1 %cmp6.i.i.i.i.i64, label %if.then7.i.i.i.i.i65, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEaSEOS3_.exit84
 
 if.then7.i.i.i.i.i65:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i62
-  %vtable.i.i.i.i.i.i.i66 = load ptr, ptr %83, align 8
+  %vtable.i.i.i.i.i.i.i66 = load ptr, ptr %89, align 8
   %vfn.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i66, i64 16
-  %89 = load ptr, ptr %vfn.i.i.i.i.i.i.i67, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(16) %83) #24
-  %_M_weak_count.i.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %83, i64 12
-  %90 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i.i69 = icmp eq i8 %90, 0
+  %95 = load ptr, ptr %vfn.i.i.i.i.i.i.i67, align 8
+  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %89) #24
+  %_M_weak_count.i.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %89, i64 12
+  %96 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i.i69 = icmp eq i8 %96, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i69, label %if.else.i.i.i.i.i.i.i.i78, label %if.then.i.i.i.i.i.i.i.i70
 
 if.then.i.i.i.i.i.i.i.i70:                        ; preds = %if.then7.i.i.i.i.i65
-  %91 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i68, align 4
-  %add.i.i.i.i.i.i.i.i71 = add nsw i32 %91, -1
+  %97 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i68, align 4
+  %add.i.i.i.i.i.i.i.i71 = add nsw i32 %97, -1
   store i32 %add.i.i.i.i.i.i.i.i71, ptr %_M_weak_count.i.i.i.i.i.i.i68, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i72
 
 if.else.i.i.i.i.i.i.i.i78:                        ; preds = %if.then7.i.i.i.i.i65
-  %92 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i68, i32 -1 acq_rel, align 4
+  %98 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i68, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i72
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i72: ; preds = %if.else.i.i.i.i.i.i.i.i78, %if.then.i.i.i.i.i.i.i.i70
-  %retval.i.0.i.i.i.i.i.i.i73 = phi i32 [ %91, %if.then.i.i.i.i.i.i.i.i70 ], [ %92, %if.else.i.i.i.i.i.i.i.i78 ]
+  %retval.i.0.i.i.i.i.i.i.i73 = phi i32 [ %97, %if.then.i.i.i.i.i.i.i.i70 ], [ %98, %if.else.i.i.i.i.i.i.i.i78 ]
   %cmp.i.i.i.i.i.i.i74 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i73, 1
   br i1 %cmp.i.i.i.i.i.i.i74, label %if.end8.sink.split.i.i.i.i.i75, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEaSEOS3_.exit84
 
 if.end8.sink.split.i.i.i.i.i75:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i72, %if.then.i.i.i.i.i80
-  %vtable2.i.i.i.i.i.i.i76 = load ptr, ptr %83, align 8
+  %vtable2.i.i.i.i.i.i.i76 = load ptr, ptr %89, align 8
   %vfn3.i.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i76, i64 24
-  %93 = load ptr, ptr %vfn3.i.i.i.i.i.i.i77, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #24
+  %99 = load ptr, ptr %vfn3.i.i.i.i.i.i.i77, align 8
+  call void %99(ptr noundef nonnull align 8 dereferenceable(16) %89) #24
   br label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEaSEOS3_.exit84
 
 _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEaSEOS3_.exit84: ; preds = %_ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEPKcRKNS4_20FunctionCallbackInfoINS4_5ValueEEEj.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i72, %if.end8.sink.split.i.i.i.i.i75
-  %94 = load ptr, ptr %_M_refcount4.i.i.i52, align 8
-  %cmp.not.i.i.i86 = icmp eq ptr %94, null
+  %100 = load ptr, ptr %_M_refcount4.i.i.i52, align 8
+  %cmp.not.i.i.i86 = icmp eq ptr %100, null
   br i1 %cmp.not.i.i.i86, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit116, label %if.then.i.i.i87
 
 if.then.i.i.i87:                                  ; preds = %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEaSEOS3_.exit84
-  %_M_use_count.i.i.i.i88 = getelementptr inbounds i8, ptr %94, i64 8
-  %95 = load atomic i64, ptr %_M_use_count.i.i.i.i88 acquire, align 8
-  %cmp.i.i.i.i89 = icmp eq i64 %95, 4294967297
-  %96 = trunc i64 %95 to i32
+  %_M_use_count.i.i.i.i88 = getelementptr inbounds i8, ptr %100, i64 8
+  %101 = load atomic i64, ptr %_M_use_count.i.i.i.i88 acquire, align 8
+  %cmp.i.i.i.i89 = icmp eq i64 %101, 4294967297
+  %102 = trunc i64 %101 to i32
   br i1 %cmp.i.i.i.i89, label %if.then.i.i.i.i112, label %if.end.i.i.i.i90
 
 if.then.i.i.i.i112:                               ; preds = %if.then.i.i.i87
   store i32 0, ptr %_M_use_count.i.i.i.i88, align 8
-  %_M_weak_count.i.i.i.i113 = getelementptr inbounds i8, ptr %94, i64 12
+  %_M_weak_count.i.i.i.i113 = getelementptr inbounds i8, ptr %100, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i113, align 4
-  %vtable.i.i.i.i114 = load ptr, ptr %94, align 8
+  %vtable.i.i.i.i114 = load ptr, ptr %100, align 8
   %vfn.i.i.i.i115 = getelementptr inbounds i8, ptr %vtable.i.i.i.i114, i64 16
-  %97 = load ptr, ptr %vfn.i.i.i.i115, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(16) %94) #24
+  %103 = load ptr, ptr %vfn.i.i.i.i115, align 8
+  call void %103(ptr noundef nonnull align 8 dereferenceable(16) %100) #24
   br label %if.end8.sink.split.i.i.i.i107
 
 if.end.i.i.i.i90:                                 ; preds = %if.then.i.i.i87
-  %98 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i91 = icmp eq i8 %98, 0
+  %104 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i91 = icmp eq i8 %104, 0
   br i1 %tobool.i.i.not.i.i.i.i91, label %if.else.i.i.i.i.i111, label %if.then.i.i.i.i.i92
 
 if.then.i.i.i.i.i92:                              ; preds = %if.end.i.i.i.i90
-  %add.i.i.i.i.i93 = add nsw i32 %96, -1
+  %add.i.i.i.i.i93 = add nsw i32 %102, -1
   store i32 %add.i.i.i.i.i93, ptr %_M_use_count.i.i.i.i88, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i94
 
 if.else.i.i.i.i.i111:                             ; preds = %if.end.i.i.i.i90
-  %99 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i88, i32 -1 acq_rel, align 4
+  %105 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i88, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i94
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i94: ; preds = %if.else.i.i.i.i.i111, %if.then.i.i.i.i.i92
-  %retval.i.0.i.i.i.i95 = phi i32 [ %96, %if.then.i.i.i.i.i92 ], [ %99, %if.else.i.i.i.i.i111 ]
+  %retval.i.0.i.i.i.i95 = phi i32 [ %102, %if.then.i.i.i.i.i92 ], [ %105, %if.else.i.i.i.i.i111 ]
   %cmp6.i.i.i.i96 = icmp eq i32 %retval.i.0.i.i.i.i95, 1
   br i1 %cmp6.i.i.i.i96, label %if.then7.i.i.i.i97, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit116
 
 if.then7.i.i.i.i97:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i94
-  %vtable.i.i.i.i.i.i98 = load ptr, ptr %94, align 8
+  %vtable.i.i.i.i.i.i98 = load ptr, ptr %100, align 8
   %vfn.i.i.i.i.i.i99 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i98, i64 16
-  %100 = load ptr, ptr %vfn.i.i.i.i.i.i99, align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(16) %94) #24
-  %_M_weak_count.i.i.i.i.i.i100 = getelementptr inbounds i8, ptr %94, i64 12
-  %101 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i101 = icmp eq i8 %101, 0
+  %106 = load ptr, ptr %vfn.i.i.i.i.i.i99, align 8
+  call void %106(ptr noundef nonnull align 8 dereferenceable(16) %100) #24
+  %_M_weak_count.i.i.i.i.i.i100 = getelementptr inbounds i8, ptr %100, i64 12
+  %107 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i101 = icmp eq i8 %107, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i101, label %if.else.i.i.i.i.i.i.i110, label %if.then.i.i.i.i.i.i.i102
 
 if.then.i.i.i.i.i.i.i102:                         ; preds = %if.then7.i.i.i.i97
-  %102 = load i32, ptr %_M_weak_count.i.i.i.i.i.i100, align 4
-  %add.i.i.i.i.i.i.i103 = add nsw i32 %102, -1
+  %108 = load i32, ptr %_M_weak_count.i.i.i.i.i.i100, align 4
+  %add.i.i.i.i.i.i.i103 = add nsw i32 %108, -1
   store i32 %add.i.i.i.i.i.i.i103, ptr %_M_weak_count.i.i.i.i.i.i100, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i104
 
 if.else.i.i.i.i.i.i.i110:                         ; preds = %if.then7.i.i.i.i97
-  %103 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i100, i32 -1 acq_rel, align 4
+  %109 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i100, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i104
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i104: ; preds = %if.else.i.i.i.i.i.i.i110, %if.then.i.i.i.i.i.i.i102
-  %retval.i.0.i.i.i.i.i.i105 = phi i32 [ %102, %if.then.i.i.i.i.i.i.i102 ], [ %103, %if.else.i.i.i.i.i.i.i110 ]
+  %retval.i.0.i.i.i.i.i.i105 = phi i32 [ %108, %if.then.i.i.i.i.i.i.i102 ], [ %109, %if.else.i.i.i.i.i.i.i110 ]
   %cmp.i.i.i.i.i.i106 = icmp eq i32 %retval.i.0.i.i.i.i.i.i105, 1
   br i1 %cmp.i.i.i.i.i.i106, label %if.end8.sink.split.i.i.i.i107, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit116
 
 if.end8.sink.split.i.i.i.i107:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i104, %if.then.i.i.i.i112
-  %vtable2.i.i.i.i.i.i108 = load ptr, ptr %94, align 8
+  %vtable2.i.i.i.i.i.i108 = load ptr, ptr %100, align 8
   %vfn3.i.i.i.i.i.i109 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i108, i64 24
-  %104 = load ptr, ptr %vfn3.i.i.i.i.i.i109, align 8
-  call void %104(ptr noundef nonnull align 8 dereferenceable(16) %94) #24
+  %110 = load ptr, ptr %vfn3.i.i.i.i.i.i109, align 8
+  call void %110(ptr noundef nonnull align 8 dereferenceable(16) %100) #24
   br label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit116
 
 _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit116: ; preds = %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEaSEOS3_.exit84, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i94, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i104, %if.end8.sink.split.i.i.i.i107
-  %105 = load ptr, ptr %data_94, align 8
-  %cmp.i117.not = icmp eq ptr %105, null
+  %111 = load ptr, ptr %data_94, align 8
+  %cmp.i117.not = icmp eq ptr %111, null
   br i1 %cmp.i117.not, label %cleanup, label %if.end100
 
 if.end100:                                        ; preds = %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit116, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit
-  %106 = phi ptr [ %105, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit116 ], [ %80, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit ]
-  %107 = load ptr, ptr %args, align 8
-  %key_type_.i = getelementptr inbounds i8, ptr %106, i64 8
-  %108 = load i32, ptr %key_type_.i, align 8
-  %conv.i = sext i32 %108 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %107, i64 24
+  %112 = phi ptr [ %111, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit116 ], [ %80, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit ]
+  %113 = load ptr, ptr %args, align 8
+  %key_type_.i = getelementptr inbounds i8, ptr %112, i64 8
+  %114 = load i32, ptr %key_type_.i, align 8
+  %conv.i = sext i32 %114 to i64
+  %arrayidx.i = getelementptr inbounds i8, ptr %113, i64 24
   %shl.i = shl nsw i64 %conv.i, 32
   store i64 %shl.i, ptr %arrayidx.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit116, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit, %if.end100
-  %109 = load ptr, ptr %buf_.i, align 8
-  %cmp.i.i.i.i118 = icmp ne ptr %109, null
+  %115 = load ptr, ptr %buf_.i, align 8
+  %cmp.i.i.i.i118 = icmp ne ptr %115, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %kty_string, i64 24
-  %cmp.i.i.i119 = icmp ne ptr %109, %buf_st_.i.i.i
-  %110 = select i1 %cmp.i.i.i.i118, i1 %cmp.i.i.i119, i1 false
-  br i1 %110, label %if.then.i.i120, label %cleanup107
+  %cmp.i.i.i119 = icmp ne ptr %115, %buf_st_.i.i.i
+  %116 = select i1 %cmp.i.i.i.i118, i1 %cmp.i.i.i119, i1 false
+  br i1 %116, label %if.then.i.i120, label %cleanup107
 
 if.then.i.i120:                                   ; preds = %cleanup
-  call void @free(ptr noundef nonnull %109) #24
+  call void @free(ptr noundef nonnull %115) #24
   br label %cleanup107
 
 cleanup107:                                       ; preds = %if.then.i.i120, %cleanup, %if.then67
@@ -9496,21 +9507,21 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit109: ; preds = %if.end.i101, %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp11.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp18.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp25.i)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  %69 = load i32, ptr %key_type_.i, align 8, !noalias !121
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
+  %69 = load i32, ptr %key_type_.i, align 8, !noalias !120
   %cmp.not.i.i58 = icmp eq i32 %69, 0
   br i1 %cmp.not.i.i58, label %do.body4.i.i73, label %_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit.i
 
 do.body4.i.i73:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit109
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !121
-  tail call void @abort() #25, !noalias !121
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !120
+  tail call void @abort() #25, !noalias !120
   unreachable
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit.i: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit109
   %asymmetric_key_.i.i = getelementptr inbounds i8, ptr %28, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !alias.scope !121
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !alias.scope !120
   %pkey_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !alias.scope !121
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i.i, i8 0, i64 24, i1 false), !alias.scope !120
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i.i)
   %70 = load ptr, ptr %pkey_.i.i.i, align 8
   %call4.i = call i32 @EVP_PKEY_get_id(ptr noundef %70) #24
@@ -10369,9 +10380,9 @@ sw.epilog.thread:                                 ; preds = %_ZNK4node6crypto13K
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit: ; preds = %do.end48, %do.end48
   %asymmetric_key_.i = getelementptr inbounds i8, ptr %25, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp63, align 8, !alias.scope !124
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp63, align 8, !alias.scope !123
   %pkey_.i.i = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !124
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !123
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i)
   %40 = load ptr, ptr %pkey_.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp63, align 8
@@ -10463,21 +10474,21 @@ if.then.i.i55:                                    ; preds = %_ZNSt10shared_ptrIN
 
 _ZN4node6crypto14ManagedEVPPKeyD2Ev.exit:         ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i, %if.then.i.i55
   store ptr null, ptr %pkey_.i.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  %53 = load i32, ptr %key_type_.i36, align 8, !noalias !127
+  call void @llvm.experimental.noalias.scope.decl(metadata !126)
+  %53 = load i32, ptr %key_type_.i36, align 8, !noalias !126
   %cmp.not.i58 = icmp eq i32 %53, 0
   br i1 %cmp.not.i58, label %do.body4.i62, label %_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit63
 
 do.body4.i62:                                     ; preds = %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !127
-  call void @abort() #25, !noalias !127
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !126
+  call void @abort() #25, !noalias !126
   unreachable
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit63: ; preds = %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit
   %asymmetric_key_.i59 = getelementptr inbounds i8, ptr %30, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp66, align 8, !alias.scope !127
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp66, align 8, !alias.scope !126
   %pkey_.i.i60 = getelementptr inbounds i8, ptr %ref.tmp66, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i60, i8 0, i64 24, i1 false), !alias.scope !127
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i60, i8 0, i64 24, i1 false), !alias.scope !126
   %call.i.i61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i59)
   %54 = load ptr, ptr %pkey_.i.i60, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp66, align 8
@@ -11847,22 +11858,22 @@ entry:
   %ref.tmp = alloca %"class.node::crypto::ManagedEVPPKey", align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %data_, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %key_type_.i = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load i32, ptr %key_type_.i, align 8, !noalias !130
+  %1 = load i32, ptr %key_type_.i, align 8, !noalias !129
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %do.body4.i, label %_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit
 
 do.body4.i:                                       ; preds = %entry
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !130
-  tail call void @abort() #25, !noalias !130
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !129
+  tail call void @abort() #25, !noalias !129
   unreachable
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit: ; preds = %entry
   %asymmetric_key_.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !130
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !129
   %pkey_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !130
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !129
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i)
   %2 = load ptr, ptr %pkey_.i.i, align 8
   %call3 = call i32 @EVP_PKEY_get_id(ptr noundef %2) #24
@@ -12051,22 +12062,22 @@ entry:
   %call.i = tail call i32 @ERR_set_mark() #24
   %data_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %data_, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %key_type_.i = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load i32, ptr %key_type_.i, align 8, !noalias !133
+  %1 = load i32, ptr %key_type_.i, align 8, !noalias !132
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %do.body4.i, label %_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit
 
 do.body4.i:                                       ; preds = %entry
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !133
-  tail call void @abort() #25, !noalias !133
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !132
+  tail call void @abort() #25, !noalias !132
   unreachable
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit: ; preds = %entry
   %asymmetric_key_.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !133
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !132
   %pkey_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !133
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !132
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i)
   %2 = load ptr, ptr %data_, align 8
   %key_type_.i3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -12251,22 +12262,22 @@ entry:
   %1 = load ptr, ptr %env_.i.i, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %data_, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
   %key_type_.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load i32, ptr %key_type_.i, align 8, !noalias !136
+  %3 = load i32, ptr %key_type_.i, align 8, !noalias !135
   %cmp.not.i = icmp eq i32 %3, 0
   br i1 %cmp.not.i, label %do.body4.i, label %_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit
 
 do.body4.i:                                       ; preds = %entry
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !136
-  tail call void @abort() #25, !noalias !136
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !135
+  tail call void @abort() #25, !noalias !135
   unreachable
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit: ; preds = %entry
   %asymmetric_key_.i = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !136
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !135
   %pkey_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !135
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i)
   %4 = load ptr, ptr %pkey_.i.i, align 8
   %call4 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_114WritePublicKeyEPNS_11EnvironmentEP11evp_pkey_stRKNS0_27AsymmetricKeyEncodingConfigE(ptr noundef %1, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(16) %config)
@@ -12367,22 +12378,22 @@ entry:
   %1 = load ptr, ptr %env_.i.i, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %data_, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %key_type_.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load i32, ptr %key_type_.i, align 8, !noalias !139
+  %3 = load i32, ptr %key_type_.i, align 8, !noalias !138
   %cmp.not.i = icmp eq i32 %3, 0
   br i1 %cmp.not.i, label %do.body4.i, label %_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit
 
 do.body4.i:                                       ; preds = %entry
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !139
-  tail call void @abort() #25, !noalias !139
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEvE4args) #24, !noalias !138
+  tail call void @abort() #25, !noalias !138
   unreachable
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit: ; preds = %entry
   %asymmetric_key_.i = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !139
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !138
   %pkey_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !139
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !138
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i)
   %4 = load ptr, ptr %pkey_.i.i, align 8
   %call4 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_115WritePrivateKeyEPNS_11EnvironmentEP11evp_pkey_stRKNS0_24PrivateKeyEncodingConfigE(ptr noundef %1, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(56) %config)
@@ -13207,32 +13218,32 @@ entry:
 define dso_local void @_ZNK4node6crypto15NativeKeyObject17CloneForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.347") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   %handle_data_ = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !142
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node6crypto15NativeKeyObject21KeyObjectTransferDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !142
+  %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !141
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node6crypto15NativeKeyObject21KeyObjectTransferDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !141
   %data_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %0 = load ptr, ptr %handle_data_, align 8, !noalias !142
-  store ptr %0, ptr %data_.i.i, align 8, !noalias !142
+  %0 = load ptr, ptr %handle_data_, align 8, !noalias !141
+  store ptr %0, ptr %data_.i.i, align 8, !noalias !141
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !142
-  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !142
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !141
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !141
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node6crypto15NativeKeyObject21KeyObjectTransferDataESt14default_deleteIS3_EED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !142
+  %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !141
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %3 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !142
+  %3 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !141
   %add.i.i.i.i.i.i.i = add nsw i32 %3, 1
-  store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !142
+  store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !141
   br label %_ZNSt10unique_ptrIN4node6crypto15NativeKeyObject21KeyObjectTransferDataESt14default_deleteIS3_EED2Ev.exit
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %4 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !142
+  %4 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !141
   br label %_ZNSt10unique_ptrIN4node6crypto15NativeKeyObject21KeyObjectTransferDataESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node6crypto15NativeKeyObject21KeyObjectTransferDataESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %entry
@@ -13241,7 +13252,7 @@ _ZNSt10unique_ptrIN4node6crypto15NativeKeyObject21KeyObjectTransferDataESt14defa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto16PKEY_SPKI_ExportEPNS0_13KeyObjectDataEPNS0_10ByteSourceE(ptr nocapture noundef readonly %key_data, ptr noundef %out) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN4node6crypto16PKEY_SPKI_ExportEPNS0_13KeyObjectDataEPNS0_10ByteSourceE(ptr nocapture noundef readonly %key_data, ptr noundef %out) local_unnamed_addr #3 {
 entry:
   %m_pkey = alloca %"class.node::crypto::ManagedEVPPKey", align 8
   %bio = alloca %"class.std::unique_ptr.363", align 8
@@ -13258,9 +13269,9 @@ do.body3:                                         ; preds = %entry
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit: ; preds = %entry
   %asymmetric_key_.i = getelementptr inbounds i8, ptr %key_data, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %m_pkey, align 8, !alias.scope !145
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %m_pkey, align 8, !alias.scope !144
   %pkey_.i.i = getelementptr inbounds i8, ptr %m_pkey, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !145
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !144
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %m_pkey, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i)
   %mutex_.i = getelementptr inbounds i8, ptr %m_pkey, i64 16
   %1 = load ptr, ptr %mutex_.i, align 8
@@ -13399,7 +13410,7 @@ declare void @_ZN4node6crypto10ByteSource7FromBIOERKSt10unique_ptrI6bio_stNS_15F
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto17PKEY_PKCS8_ExportEPNS0_13KeyObjectDataEPNS0_10ByteSourceE(ptr nocapture noundef readonly %key_data, ptr noundef %out) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN4node6crypto17PKEY_PKCS8_ExportEPNS0_13KeyObjectDataEPNS0_10ByteSourceE(ptr nocapture noundef readonly %key_data, ptr noundef %out) local_unnamed_addr #3 {
 entry:
   %m_pkey = alloca %"class.node::crypto::ManagedEVPPKey", align 8
   %bio = alloca %"class.std::unique_ptr.363", align 8
@@ -13416,9 +13427,9 @@ do.body3:                                         ; preds = %entry
 
 _ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv.exit: ; preds = %entry
   %asymmetric_key_.i = getelementptr inbounds i8, ptr %key_data, i64 40
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %m_pkey, align 8, !alias.scope !148
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %m_pkey, align 8, !alias.scope !147
   %pkey_.i.i = getelementptr inbounds i8, ptr %m_pkey, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !148
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkey_.i.i, i8 0, i64 24, i1 false), !alias.scope !147
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %m_pkey, ptr noundef nonnull align 8 dereferenceable(32) %asymmetric_key_.i)
   %mutex_.i = getelementptr inbounds i8, ptr %m_pkey, i64 16
   %1 = load ptr, ptr %mutex_.i, align 8
@@ -15122,24 +15133,24 @@ do.end10:                                         ; preds = %do.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
   %add.ptr14 = getelementptr inbounds i8, ptr %call, i64 2
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp13, ptr noundef nonnull %add.ptr14)
-  %call.i7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #24, !noalias !151
-  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24, !noalias !151
+  %call.i7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #24, !noalias !150
+  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24, !noalias !150
   %add.i = add i64 %call1.i, %call.i7
-  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #24, !noalias !151
+  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #24, !noalias !150
   %cmp.i8 = icmp ugt i64 %add.i, %call2.i
   br i1 %cmp.i8, label %land.lhs.true.i, label %if.end7.i
 
 land.lhs.true.i:                                  ; preds = %do.end10
-  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24, !noalias !151
+  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24, !noalias !150
   %cmp4.not.i = icmp ugt i64 %add.i, %call3.i
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %call6.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #24, !noalias !151
+  %call6.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #24, !noalias !150
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 
 if.end7.i:                                        ; preds = %land.lhs.true.i, %do.end10
-  %call8.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24, !noalias !151
+  %call8.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24, !noalias !150
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit: ; preds = %if.then5.i, %if.end7.i
@@ -15379,7 +15390,7 @@ declare i64 @ERR_peek_error() local_unnamed_addr #0
 declare noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117TryParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKS2_I6bio_stNS4_IS8_XadL_Z12BIO_free_allEEEEEPKcRKSt8functionIFPS3_PPKhlEE(ptr nocapture noundef %pkey, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bp, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %parse) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN4node6crypto12_GLOBAL__N_117TryParsePublicKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKS2_I6bio_stNS4_IS8_XadL_Z12BIO_free_allEEEEEPKcRKSt8functionIFPS3_PPKhlEE(ptr nocapture noundef %pkey, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bp, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %parse) unnamed_addr #3 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   %__args.addr2.i = alloca i64, align 8
@@ -15741,7 +15752,7 @@ while.cond:                                       ; preds = %while.cond, %do.end
   %conv = sext i8 %0 to i32
   %memchr = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.239, i32 %conv, i64 3)
   %cmp6.not = icmp eq ptr %memchr, null
-  br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !154
+  br i1 %cmp6.not, label %while.end, label %while.cond, !llvm.loop !153
 
 while.end:                                        ; preds = %while.cond
   switch i8 %0, label %sw.default [
@@ -15774,69 +15785,69 @@ sw.default:                                       ; preds = %while.end
   br label %cleanup
 
 sw.bb12:                                          ; preds = %while.end, %while.end, %while.end, %while.end
-  %1 = load ptr, ptr %arg, align 8, !noalias !155
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !155
+  %1 = load ptr, ptr %arg, align 8, !noalias !154
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !154
   %cmp.not.i.i = icmp eq ptr %1, null
   %cond.i.i = select i1 %cmp.not.i.i, ptr @.str.243, ptr %1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !158
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !157
   %call.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef %call.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24
-  %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond.i.i) #24, !noalias !161
+  %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond.i.i) #24, !noalias !160
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull %cond.i.i, ptr noundef nonnull %add.ptr.i.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !155
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !154
   %call14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %while.end
-  %2 = load ptr, ptr %arg, align 8, !noalias !162
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !165
+  %2 = load ptr, ptr %arg, align 8, !noalias !161
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !164
   %cmp.not.i.i.i = icmp eq ptr %2, null
   %cond.i.i.i = select i1 %cmp.not.i.i.i, ptr @.str.243, ptr %2
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #24, !noalias !168
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #24, !noalias !167
   %call.i.i.i.i16 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16, ptr noundef %call.i.i.i.i16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #24
-  %call.i.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #24, !noalias !171
+  %call.i.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #24, !noalias !170
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %call.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, ptr noundef nonnull %cond.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !165
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !164
   %call17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #24
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %while.end
-  %3 = load ptr, ptr %arg, align 8, !noalias !172
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i17), !noalias !175
+  %3 = load ptr, ptr %arg, align 8, !noalias !171
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i17), !noalias !174
   %cmp.not.i.i.i18 = icmp eq ptr %3, null
   %cond.i.i.i19 = select i1 %cmp.not.i.i.i18, ptr @.str.243, ptr %3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i17) #24, !noalias !178
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i17) #24, !noalias !177
   %call.i.i.i.i20 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19, ptr noundef %call.i.i.i.i20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i17) #24
-  %call.i.i.i.i.i21 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond.i.i.i19) #24, !noalias !181
+  %call.i.i.i.i.i21 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond.i.i.i19) #24, !noalias !180
   %add.ptr.i.i.i.i22 = getelementptr inbounds i8, ptr %cond.i.i.i19, i64 %call.i.i.i.i.i21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19, ptr noundef nonnull %cond.i.i.i19, ptr noundef nonnull %add.ptr.i.i.i.i22)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i17) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i17), !noalias !175
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i17), !noalias !174
   %call20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #24
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %while.end
-  %4 = load ptr, ptr %arg, align 8, !noalias !182
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i23), !noalias !185
+  %4 = load ptr, ptr %arg, align 8, !noalias !181
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i23), !noalias !184
   %cmp.not.i.i.i24 = icmp eq ptr %4, null
   %cond.i.i.i25 = select i1 %cmp.not.i.i.i24, ptr @.str.243, ptr %4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i23) #24, !noalias !188
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i23) #24, !noalias !187
   %call.i.i.i.i26 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp23, ptr noundef %call.i.i.i.i26, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i23) #24
-  %call.i.i.i.i.i27 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond.i.i.i25) #24, !noalias !191
+  %call.i.i.i.i.i27 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond.i.i.i25) #24, !noalias !190
   %add.ptr.i.i.i.i28 = getelementptr inbounds i8, ptr %cond.i.i.i25, i64 %call.i.i.i.i.i27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef nonnull %cond.i.i.i25, ptr noundef nonnull %add.ptr.i.i.i.i28)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i23) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i23), !noalias !185
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i23), !noalias !184
   call void @_ZN4node7ToUpperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23)
   %call24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #24
@@ -15861,7 +15872,7 @@ do.end41:                                         ; preds = %do.end27
 sw.epilog:                                        ; preds = %do.end41, %sw.bb21, %sw.bb18, %sw.bb15, %sw.bb12
   %add.ptr45 = getelementptr inbounds i8, ptr %p.0, i64 2
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp44, ptr noundef nonnull %add.ptr45)
-  %call.i29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ret) #24, !noalias !192
+  %call.i29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ret) #24, !noalias !191
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i29) #24
   br label %cleanup
 
@@ -15903,7 +15914,7 @@ for.body:                                         ; preds = %entry, %for.body
   %inc = add nuw i64 %i.09, 1
   %call1 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %in) #24
   %cmp = icmp ult i64 %inc, %call1
-  br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !195
+  br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !194
 
 nrvo.skipdtor:                                    ; preds = %for.body, %entry
   ret void
@@ -16478,163 +16489,162 @@ attributes #28 = { cold }
 !33 = !{!34, !31}
 !34 = distinct !{!34, !35, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
 !35 = distinct !{!35, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
-!36 = !{i32 0, i32 4}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!39 = distinct !{!39, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!40 = !{!41, !38}
-!41 = distinct !{!41, !42, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
-!42 = distinct !{!42, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!45 = distinct !{!45, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!46 = distinct !{!46, !47}
-!47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!50 = distinct !{!50, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!51 = !{!52, !49}
-!52 = distinct !{!52, !53, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
-!53 = distinct !{!53, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!56 = distinct !{!56, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!57 = !{!58, !55}
-!58 = distinct !{!58, !59, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
-!59 = distinct !{!59, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!62 = distinct !{!62, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!63 = !{!64, !61}
-!64 = distinct !{!64, !65, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
-!65 = distinct !{!65, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!68 = distinct !{!68, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!71 = distinct !{!71, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!72 = !{!73, !70}
-!73 = distinct !{!73, !74, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
-!74 = distinct !{!74, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!77 = distinct !{!77, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!78 = !{!79, !76}
-!79 = distinct !{!79, !80, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
-!80 = distinct !{!80, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!83 = distinct !{!83, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!84 = !{!85, !82}
-!85 = distinct !{!85, !86, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
-!86 = distinct !{!86, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZNK4node6crypto25ArrayBufferOrViewContentsIcE6ToCopyEv: %agg.result"}
-!89 = distinct !{!89, !"_ZNK4node6crypto25ArrayBufferOrViewContentsIcE6ToCopyEv"}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE: %agg.result"}
-!92 = distinct !{!92, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE: %agg.result"}
-!95 = distinct !{!95, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE"}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!98 = distinct !{!98, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!99 = !{!100, !97}
-!100 = distinct !{!100, !101, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
-!101 = distinct !{!101, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE: %agg.result"}
-!104 = distinct !{!104, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE"}
-!105 = !{ptr @EVP_PKEY_new_raw_private_key, ptr @EVP_PKEY_new_raw_public_key}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!108 = distinct !{!108, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!109 = !{!110, !107}
-!110 = distinct !{!110, !111, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
-!111 = distinct !{!111, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE: %agg.result"}
-!114 = distinct !{!114, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE"}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN4node6crypto12_GLOBAL__N_118ImportJWKSecretKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE: %agg.result"}
-!117 = distinct !{!117, !"_ZN4node6crypto12_GLOBAL__N_118ImportJWKSecretKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE"}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEPKcRKNS4_20FunctionCallbackInfoINS4_5ValueEEEj: %agg.result"}
-!120 = distinct !{!120, !"_ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEPKcRKNS4_20FunctionCallbackInfoINS4_5ValueEEEj"}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!123 = distinct !{!123, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!126 = distinct !{!126, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!129 = distinct !{!129, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!132 = distinct !{!132, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!135 = distinct !{!135, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!138 = distinct !{!138, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!141 = distinct !{!141, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZSt11make_uniqueIN4node6crypto15NativeKeyObject21KeyObjectTransferDataEJRKSt10shared_ptrINS1_13KeyObjectDataEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!144 = distinct !{!144, !"_ZSt11make_uniqueIN4node6crypto15NativeKeyObject21KeyObjectTransferDataEJRKSt10shared_ptrINS1_13KeyObjectDataEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!147 = distinct !{!147, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
-!150 = distinct !{!150, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
-!153 = distinct !{!153, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
-!154 = distinct !{!154, !47}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN4node8ToStringIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
-!157 = distinct !{!157, !"_ZN4node8ToStringIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!158 = !{!159, !156}
-!159 = distinct !{!159, !160, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc: %agg.result"}
-!160 = distinct !{!160, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc"}
-!161 = !{!159}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN4node12ToBaseStringILj3EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_: %agg.result"}
-!164 = distinct !{!164, !"_ZN4node12ToBaseStringILj3EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_"}
-!165 = !{!166, !163}
-!166 = distinct !{!166, !167, !"_ZN4node14ToStringHelper11BaseConvertILj3EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_: %agg.result"}
-!167 = distinct !{!167, !"_ZN4node14ToStringHelper11BaseConvertILj3EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_"}
-!168 = !{!169, !166, !163}
-!169 = distinct !{!169, !170, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc: %agg.result"}
-!170 = distinct !{!170, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc"}
-!171 = !{!169, !166}
-!172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZN4node12ToBaseStringILj4EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_: %agg.result"}
-!174 = distinct !{!174, !"_ZN4node12ToBaseStringILj4EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_"}
-!175 = !{!176, !173}
-!176 = distinct !{!176, !177, !"_ZN4node14ToStringHelper11BaseConvertILj4EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_: %agg.result"}
-!177 = distinct !{!177, !"_ZN4node14ToStringHelper11BaseConvertILj4EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_"}
-!178 = !{!179, !176, !173}
-!179 = distinct !{!179, !180, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc: %agg.result"}
-!180 = distinct !{!180, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc"}
-!181 = !{!179, !176}
-!182 = !{!183}
-!183 = distinct !{!183, !184, !"_ZN4node12ToBaseStringILj4EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_: %agg.result"}
-!184 = distinct !{!184, !"_ZN4node12ToBaseStringILj4EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_"}
-!185 = !{!186, !183}
-!186 = distinct !{!186, !187, !"_ZN4node14ToStringHelper11BaseConvertILj4EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_: %agg.result"}
-!187 = distinct !{!187, !"_ZN4node14ToStringHelper11BaseConvertILj4EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_"}
-!188 = !{!189, !186, !183}
-!189 = distinct !{!189, !190, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc: %agg.result"}
-!190 = distinct !{!190, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc"}
-!191 = !{!189, !186}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_OS8_: %agg.result"}
-!194 = distinct !{!194, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_OS8_"}
-!195 = distinct !{!195, !47}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!38 = distinct !{!38, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!39 = !{!40, !37}
+!40 = distinct !{!40, !41, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
+!41 = distinct !{!41, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!44 = distinct !{!44, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.mustprogress"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!49 = distinct !{!49, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!50 = !{!51, !48}
+!51 = distinct !{!51, !52, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
+!52 = distinct !{!52, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!55 = distinct !{!55, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!56 = !{!57, !54}
+!57 = distinct !{!57, !58, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
+!58 = distinct !{!58, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!61 = distinct !{!61, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!62 = !{!63, !60}
+!63 = distinct !{!63, !64, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
+!64 = distinct !{!64, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!67 = distinct !{!67, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!70 = distinct !{!70, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!71 = !{!72, !69}
+!72 = distinct !{!72, !73, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
+!73 = distinct !{!73, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!76 = distinct !{!76, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!77 = !{!78, !75}
+!78 = distinct !{!78, !79, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
+!79 = distinct !{!79, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!82 = distinct !{!82, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!83 = !{!84, !81}
+!84 = distinct !{!84, !85, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
+!85 = distinct !{!85, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZNK4node6crypto25ArrayBufferOrViewContentsIcE6ToCopyEv: %agg.result"}
+!88 = distinct !{!88, !"_ZNK4node6crypto25ArrayBufferOrViewContentsIcE6ToCopyEv"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE: %agg.result"}
+!91 = distinct !{!91, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE: %agg.result"}
+!94 = distinct !{!94, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!97 = distinct !{!97, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!98 = !{!99, !96}
+!99 = distinct !{!99, !100, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
+!100 = distinct !{!100, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE: %agg.result"}
+!103 = distinct !{!103, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE"}
+!104 = !{ptr @EVP_PKEY_new_raw_private_key, ptr @EVP_PKEY_new_raw_public_key}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!107 = distinct !{!107, !"_ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!108 = !{!109, !106}
+!109 = distinct !{!109, !110, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_: %agg.result"}
+!110 = distinct !{!110, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9MutexBaseINS1_16LibuvMutexTraitsEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_"}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE: %agg.result"}
+!113 = distinct !{!113, !"_ZN4node6crypto13KeyObjectData16CreateAsymmetricENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN4node6crypto12_GLOBAL__N_118ImportJWKSecretKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE: %agg.result"}
+!116 = distinct !{!116, !"_ZN4node6crypto12_GLOBAL__N_118ImportJWKSecretKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE"}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"_ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEPKcRKNS4_20FunctionCallbackInfoINS4_5ValueEEEj: %agg.result"}
+!119 = distinct !{!119, !"_ZN4node6crypto12_GLOBAL__N_122ImportJWKAsymmetricKeyEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEPKcRKNS4_20FunctionCallbackInfoINS4_5ValueEEEj"}
+!120 = !{!121}
+!121 = distinct !{!121, !122, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!122 = distinct !{!122, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!125 = distinct !{!125, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!128 = distinct !{!128, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!129 = !{!130}
+!130 = distinct !{!130, !131, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!131 = distinct !{!131, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!134 = distinct !{!134, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!137 = distinct !{!137, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!140 = distinct !{!140, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!141 = !{!142}
+!142 = distinct !{!142, !143, !"_ZSt11make_uniqueIN4node6crypto15NativeKeyObject21KeyObjectTransferDataEJRKSt10shared_ptrINS1_13KeyObjectDataEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!143 = distinct !{!143, !"_ZSt11make_uniqueIN4node6crypto15NativeKeyObject21KeyObjectTransferDataEJRKSt10shared_ptrINS1_13KeyObjectDataEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!144 = !{!145}
+!145 = distinct !{!145, !146, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!146 = distinct !{!146, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!147 = !{!148}
+!148 = distinct !{!148, !149, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv: %agg.result"}
+!149 = distinct !{!149, !"_ZNK4node6crypto13KeyObjectData16GetAsymmetricKeyEv"}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
+!152 = distinct !{!152, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
+!153 = distinct !{!153, !46}
+!154 = !{!155}
+!155 = distinct !{!155, !156, !"_ZN4node8ToStringIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: %agg.result"}
+!156 = distinct !{!156, !"_ZN4node8ToStringIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!157 = !{!158, !155}
+!158 = distinct !{!158, !159, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc: %agg.result"}
+!159 = distinct !{!159, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc"}
+!160 = !{!158}
+!161 = !{!162}
+!162 = distinct !{!162, !163, !"_ZN4node12ToBaseStringILj3EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_: %agg.result"}
+!163 = distinct !{!163, !"_ZN4node12ToBaseStringILj3EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_"}
+!164 = !{!165, !162}
+!165 = distinct !{!165, !166, !"_ZN4node14ToStringHelper11BaseConvertILj3EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_: %agg.result"}
+!166 = distinct !{!166, !"_ZN4node14ToStringHelper11BaseConvertILj3EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_"}
+!167 = !{!168, !165, !162}
+!168 = distinct !{!168, !169, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc: %agg.result"}
+!169 = distinct !{!169, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc"}
+!170 = !{!168, !165}
+!171 = !{!172}
+!172 = distinct !{!172, !173, !"_ZN4node12ToBaseStringILj4EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_: %agg.result"}
+!173 = distinct !{!173, !"_ZN4node12ToBaseStringILj4EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_"}
+!174 = !{!175, !172}
+!175 = distinct !{!175, !176, !"_ZN4node14ToStringHelper11BaseConvertILj4EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_: %agg.result"}
+!176 = distinct !{!176, !"_ZN4node14ToStringHelper11BaseConvertILj4EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_"}
+!177 = !{!178, !175, !172}
+!178 = distinct !{!178, !179, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc: %agg.result"}
+!179 = distinct !{!179, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc"}
+!180 = !{!178, !175}
+!181 = !{!182}
+!182 = distinct !{!182, !183, !"_ZN4node12ToBaseStringILj4EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_: %agg.result"}
+!183 = distinct !{!183, !"_ZN4node12ToBaseStringILj4EPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT0_"}
+!184 = !{!185, !182}
+!185 = distinct !{!185, !186, !"_ZN4node14ToStringHelper11BaseConvertILj4EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_: %agg.result"}
+!186 = distinct !{!186, !"_ZN4node14ToStringHelper11BaseConvertILj4EPKcvEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET0_"}
+!187 = !{!188, !185, !182}
+!188 = distinct !{!188, !189, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc: %agg.result"}
+!189 = distinct !{!189, !"_ZN4node14ToStringHelper7ConvertB5cxx11EPKc"}
+!190 = !{!188, !185}
+!191 = !{!192}
+!192 = distinct !{!192, !193, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_OS8_: %agg.result"}
+!193 = distinct !{!193, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_OS8_"}
+!194 = distinct !{!194, !46}

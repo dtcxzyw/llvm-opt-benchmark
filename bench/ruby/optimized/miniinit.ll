@@ -127,349 +127,410 @@ define hidden void @Init_ext() local_unnamed_addr #0 {
 define hidden ptr @rb_builtin_ast(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   switch i64 %3, label %.thread236 [
-    i64 3, label %4
-    i64 2, label %30
-    i64 7, label %43
-    i64 4, label %63
-    i64 6, label %70
-    i64 11, label %83
-    i64 5, label %96
+    i64 3, label %sub_0
+    i64 2, label %sub_0264
+    i64 7, label %62
+    i64 4, label %87
+    i64 6, label %94
+    i64 11, label %107
+    i64 5, label %120
   ]
 
-4:                                                ; preds = %2
-  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds ([15 x i8], ptr @prelude_name0, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 3) #7
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %17
+sub_0:                                            ; preds = %2
+  %4 = load i8, ptr %0, align 1
+  %5 = zext i8 %4 to i32
+  %6 = sub nsw i32 97, %5
+  %.not273 = icmp eq i8 %4, 97
+  br i1 %.not273, label %sub_1, label %.tail
 
-7:                                                ; preds = %4
-  %8 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name0, i64 noundef 14) #6
-  store i64 %8, ptr %1, align 8
-  %9 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code0, i64 noundef 2204) #6
-  %10 = tail call i64 @rb_parser_new() #6
-  %11 = tail call ptr @rb_parser_compile_string_path(i64 noundef %10, i64 noundef %8, i64 noundef %9, i32 noundef 20) #6
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %.critedge.i, label %12
+sub_1:                                            ; preds = %sub_0
+  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  %10 = sub nsw i32 115, %9
+  %.not274 = icmp eq i8 %8, 115
+  br i1 %.not274, label %sub_2, label %.tail
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %.not7.i = icmp eq ptr %14, null
-  br i1 %.not7.i, label %15, label %prelude_ast.exit
+sub_2:                                            ; preds = %sub_1
+  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = sub nsw i32 116, %13
+  br label %.tail
 
-15:                                               ; preds = %12
-  tail call void @rb_ast_dispose(ptr noundef nonnull %11) #6
+.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
+  %15 = phi i32 [ %6, %sub_0 ], [ %10, %sub_1 ], [ %14, %sub_2 ]
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %sub_0259
+
+17:                                               ; preds = %.tail
+  %18 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name0, i64 noundef 14) #6
+  store i64 %18, ptr %1, align 8
+  %19 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code0, i64 noundef 2204) #6
+  %20 = tail call i64 @rb_parser_new() #6
+  %21 = tail call ptr @rb_parser_compile_string_path(i64 noundef %20, i64 noundef %18, i64 noundef %19, i32 noundef 20) #6
+  %.not.i = icmp eq ptr %21, null
+  br i1 %.not.i, label %.critedge.i, label %22
+
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %.not7.i = icmp eq ptr %24, null
+  br i1 %.not7.i, label %25, label %prelude_ast.exit
+
+25:                                               ; preds = %22
+  tail call void @rb_ast_dispose(ptr noundef nonnull %21) #6
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %15, %7
-  %16 = tail call i64 @rb_errinfo() #6
-  tail call void @rb_exc_raise(i64 noundef %16) #8
+.critedge.i:                                      ; preds = %25, %17
+  %26 = tail call i64 @rb_errinfo() #6
+  tail call void @rb_exc_raise(i64 noundef %26) #8
   unreachable
 
-17:                                               ; preds = %4
-  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds ([15 x i8], ptr @prelude_name1, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 3) #7
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %prelude_ast.exit
+sub_0259:                                         ; preds = %.tail
+  %27 = sub nsw i32 100, %5
+  %.not275 = icmp eq i8 %4, 100
+  br i1 %.not275, label %sub_1260, label %.tail258
 
-20:                                               ; preds = %17
-  %21 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name1, i64 noundef 14) #6
-  store i64 %21, ptr %1, align 8
-  %22 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code1, i64 noundef 974) #6
-  %23 = tail call i64 @rb_parser_new() #6
-  %24 = tail call ptr @rb_parser_compile_string_path(i64 noundef %23, i64 noundef %21, i64 noundef %22, i32 noundef 158) #6
-  %.not.i150 = icmp eq ptr %24, null
-  br i1 %.not.i150, label %.critedge.i152, label %25
+sub_1260:                                         ; preds = %sub_0259
+  %28 = getelementptr inbounds i8, ptr %0, i64 1
+  %29 = load i8, ptr %28, align 1
+  %30 = zext i8 %29 to i32
+  %31 = sub nsw i32 105, %30
+  %.not276 = icmp eq i8 %29, 105
+  br i1 %.not276, label %sub_2261, label %.tail258
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %.not7.i151 = icmp eq ptr %27, null
-  br i1 %.not7.i151, label %28, label %prelude_ast.exit
+sub_2261:                                         ; preds = %sub_1260
+  %32 = getelementptr inbounds i8, ptr %0, i64 2
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  %35 = sub nsw i32 114, %34
+  br label %.tail258
 
-28:                                               ; preds = %25
-  tail call void @rb_ast_dispose(ptr noundef nonnull %24) #6
-  br label %.critedge.i152
+.tail258:                                         ; preds = %sub_0259, %sub_1260, %sub_2261
+  %36 = phi i32 [ %27, %sub_0259 ], [ %31, %sub_1260 ], [ %35, %sub_2261 ]
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %prelude_ast.exit
 
-.critedge.i152:                                   ; preds = %28, %20
-  %29 = tail call i64 @rb_errinfo() #6
-  tail call void @rb_exc_raise(i64 noundef %29) #8
-  unreachable
+38:                                               ; preds = %.tail258
+  %39 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name1, i64 noundef 14) #6
+  store i64 %39, ptr %1, align 8
+  %40 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code1, i64 noundef 974) #6
+  %41 = tail call i64 @rb_parser_new() #6
+  %42 = tail call ptr @rb_parser_compile_string_path(i64 noundef %41, i64 noundef %39, i64 noundef %40, i32 noundef 158) #6
+  %.not.i150 = icmp eq ptr %42, null
+  br i1 %.not.i150, label %.critedge.i152, label %43
 
-30:                                               ; preds = %2
-  %31 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds ([14 x i8], ptr @prelude_name2, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 2) #7
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %50
-
-33:                                               ; preds = %30
-  %34 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name2, i64 noundef 13) #6
-  store i64 %34, ptr %1, align 8
-  %35 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code2, i64 noundef 2026) #6
-  %36 = tail call i64 @rb_parser_new() #6
-  %37 = tail call ptr @rb_parser_compile_string_path(i64 noundef %36, i64 noundef %34, i64 noundef %35, i32 noundef 11) #6
-  %.not.i154 = icmp eq ptr %37, null
-  br i1 %.not.i154, label %.critedge.i156, label %38
-
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %37, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %.not7.i155 = icmp eq ptr %40, null
-  br i1 %.not7.i155, label %41, label %prelude_ast.exit
-
-41:                                               ; preds = %38
-  tail call void @rb_ast_dispose(ptr noundef nonnull %37) #6
-  br label %.critedge.i156
-
-.critedge.i156:                                   ; preds = %41, %33
-  %42 = tail call i64 @rb_errinfo() #6
-  tail call void @rb_exc_raise(i64 noundef %42) #8
-  unreachable
-
-43:                                               ; preds = %2
-  %44 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name3, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %.thread180.thread
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %.not7.i151 = icmp eq ptr %45, null
+  br i1 %.not7.i151, label %46, label %prelude_ast.exit
 
 46:                                               ; preds = %43
-  %47 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name3, i64 noundef 18) #6
-  store i64 %47, ptr %1, align 8
-  %48 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code3, i64 noundef 2304) #6
-  %49 = tail call fastcc ptr @prelude_ast(i64 noundef %47, i64 noundef %48, i32 noundef 1)
-  %.not132 = icmp eq ptr %49, null
+  tail call void @rb_ast_dispose(ptr noundef nonnull %42) #6
+  br label %.critedge.i152
+
+.critedge.i152:                                   ; preds = %46, %38
+  %47 = tail call i64 @rb_errinfo() #6
+  tail call void @rb_exc_raise(i64 noundef %47) #8
+  unreachable
+
+sub_0264:                                         ; preds = %2
+  %48 = load i8, ptr %0, align 1
+  %.not271 = icmp eq i8 %48, 103
+  br i1 %.not271, label %.tail263.thread, label %sub_0268
+
+.tail263.thread:                                  ; preds = %sub_0264
+  %49 = getelementptr inbounds i8, ptr %0, i64 1
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp eq i8 %50, 99
+  br i1 %51, label %52, label %prelude_ast.exit
+
+52:                                               ; preds = %.tail263.thread
+  %53 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name2, i64 noundef 13) #6
+  store i64 %53, ptr %1, align 8
+  %54 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code2, i64 noundef 2026) #6
+  %55 = tail call i64 @rb_parser_new() #6
+  %56 = tail call ptr @rb_parser_compile_string_path(i64 noundef %55, i64 noundef %53, i64 noundef %54, i32 noundef 11) #6
+  %.not.i154 = icmp eq ptr %56, null
+  br i1 %.not.i154, label %.critedge.i156, label %57
+
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds i8, ptr %56, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %.not7.i155 = icmp eq ptr %59, null
+  br i1 %.not7.i155, label %60, label %prelude_ast.exit
+
+60:                                               ; preds = %57
+  tail call void @rb_ast_dispose(ptr noundef nonnull %56) #6
+  br label %.critedge.i156
+
+.critedge.i156:                                   ; preds = %60, %52
+  %61 = tail call i64 @rb_errinfo() #6
+  tail call void @rb_exc_raise(i64 noundef %61) #8
+  unreachable
+
+62:                                               ; preds = %2
+  %63 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name3, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %.thread180.thread
+
+65:                                               ; preds = %62
+  %66 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name3, i64 noundef 18) #6
+  store i64 %66, ptr %1, align 8
+  %67 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code3, i64 noundef 2304) #6
+  %68 = tail call fastcc ptr @prelude_ast(i64 noundef %66, i64 noundef %67, i32 noundef 1)
+  %.not132 = icmp eq ptr %68, null
   br i1 %.not132, label %.thread180.thread, label %prelude_ast.exit
 
-50:                                               ; preds = %30
-  %51 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds ([14 x i8], ptr @prelude_name4, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 2) #7
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %prelude_ast.exit
+sub_0268:                                         ; preds = %sub_0264
+  %69 = zext i8 %48 to i32
+  %70 = sub nsw i32 105, %69
+  %.not272 = icmp eq i8 %48, 105
+  br i1 %.not272, label %sub_1269, label %.tail267
 
-53:                                               ; preds = %50
-  %54 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name4, i64 noundef 13) #6
-  store i64 %54, ptr %1, align 8
-  %55 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code4, i64 noundef 449) #6
-  %56 = tail call fastcc ptr @prelude_ast(i64 noundef %54, i64 noundef %55, i32 noundef 1)
+sub_1269:                                         ; preds = %sub_0268
+  %71 = getelementptr inbounds i8, ptr %0, i64 1
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  %74 = sub nsw i32 111, %73
+  br label %.tail267
+
+.tail267:                                         ; preds = %sub_0268, %sub_1269
+  %75 = phi i32 [ %70, %sub_0268 ], [ %74, %sub_1269 ]
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %prelude_ast.exit
+
+77:                                               ; preds = %.tail267
+  %78 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name4, i64 noundef 13) #6
+  store i64 %78, ptr %1, align 8
+  %79 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code4, i64 noundef 449) #6
+  %80 = tail call fastcc ptr @prelude_ast(i64 noundef %78, i64 noundef %79, i32 noundef 1)
   br label %prelude_ast.exit
 
-.thread180.thread:                                ; preds = %43, %46
-  %57 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name5, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %.thread211
+.thread180.thread:                                ; preds = %62, %65
+  %81 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name5, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %.thread211
 
-59:                                               ; preds = %.thread180.thread
-  %60 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name5, i64 noundef 18) #6
-  store i64 %60, ptr %1, align 8
-  %61 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code5, i64 noundef 202) #6
-  %62 = tail call fastcc ptr @prelude_ast(i64 noundef %60, i64 noundef %61, i32 noundef 1)
-  %.not134 = icmp eq ptr %62, null
+83:                                               ; preds = %.thread180.thread
+  %84 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name5, i64 noundef 18) #6
+  store i64 %84, ptr %1, align 8
+  %85 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code5, i64 noundef 202) #6
+  %86 = tail call fastcc ptr @prelude_ast(i64 noundef %84, i64 noundef %85, i32 noundef 1)
+  %.not134 = icmp eq ptr %86, null
   br i1 %.not134, label %.thread211, label %prelude_ast.exit
 
-63:                                               ; preds = %2
-  %64 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds ([16 x i8], ptr @prelude_name6, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %.thread190
+87:                                               ; preds = %2
+  %88 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds ([16 x i8], ptr @prelude_name6, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %.thread190
 
-66:                                               ; preds = %63
-  %67 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name6, i64 noundef 15) #6
-  store i64 %67, ptr %1, align 8
-  %68 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code6, i64 noundef 695) #6
-  %69 = tail call fastcc ptr @prelude_ast(i64 noundef %67, i64 noundef %68, i32 noundef 1)
-  %.not135 = icmp eq ptr %69, null
+90:                                               ; preds = %87
+  %91 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name6, i64 noundef 15) #6
+  store i64 %91, ptr %1, align 8
+  %92 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code6, i64 noundef 695) #6
+  %93 = tail call fastcc ptr @prelude_ast(i64 noundef %91, i64 noundef %92, i32 noundef 1)
+  %.not135 = icmp eq ptr %93, null
   br i1 %.not135, label %.thread190, label %prelude_ast.exit
 
-70:                                               ; preds = %2
-  %71 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name7, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %103
+94:                                               ; preds = %2
+  %95 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name7, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %127
 
-73:                                               ; preds = %70
-  %74 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name7, i64 noundef 17) #6
-  store i64 %74, ptr %1, align 8
-  %75 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code7, i64 noundef 92210) #6
-  %76 = tail call fastcc ptr @prelude_ast(i64 noundef %74, i64 noundef %75, i32 noundef 4)
-  %.not136 = icmp eq ptr %76, null
-  br i1 %.not136, label %103, label %prelude_ast.exit
+97:                                               ; preds = %94
+  %98 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name7, i64 noundef 17) #6
+  store i64 %98, ptr %1, align 8
+  %99 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code7, i64 noundef 92210) #6
+  %100 = tail call fastcc ptr @prelude_ast(i64 noundef %98, i64 noundef %99, i32 noundef 4)
+  %.not136 = icmp eq ptr %100, null
+  br i1 %.not136, label %127, label %prelude_ast.exit
 
-.thread190:                                       ; preds = %66, %63
-  %77 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds ([16 x i8], ptr @prelude_name8, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %.thread242.thread.thread
+.thread190:                                       ; preds = %90, %87
+  %101 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds ([16 x i8], ptr @prelude_name8, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %.thread242.thread.thread
 
-79:                                               ; preds = %.thread190
-  %80 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name8, i64 noundef 15) #6
-  store i64 %80, ptr %1, align 8
-  %81 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code8, i64 noundef 273) #6
-  %82 = tail call fastcc ptr @prelude_ast(i64 noundef %80, i64 noundef %81, i32 noundef 1)
-  %.not137 = icmp eq ptr %82, null
+103:                                              ; preds = %.thread190
+  %104 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name8, i64 noundef 15) #6
+  store i64 %104, ptr %1, align 8
+  %105 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code8, i64 noundef 273) #6
+  %106 = tail call fastcc ptr @prelude_ast(i64 noundef %104, i64 noundef %105, i32 noundef 1)
+  %.not137 = icmp eq ptr %106, null
   br i1 %.not137, label %.thread242.thread.thread, label %prelude_ast.exit
 
-83:                                               ; preds = %2
-  %84 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds ([23 x i8], ptr @prelude_name9, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %.thread233.thread285
+107:                                              ; preds = %2
+  %108 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds ([23 x i8], ptr @prelude_name9, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %.thread233.thread305
 
-86:                                               ; preds = %83
-  %87 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name9, i64 noundef 22) #6
-  store i64 %87, ptr %1, align 8
-  %88 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code9, i64 noundef 1724) #6
-  %89 = tail call fastcc ptr @prelude_ast(i64 noundef %87, i64 noundef %88, i32 noundef 50)
-  %.not138 = icmp eq ptr %89, null
-  br i1 %.not138, label %.thread233.thread285, label %prelude_ast.exit
+110:                                              ; preds = %107
+  %111 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name9, i64 noundef 22) #6
+  store i64 %111, ptr %1, align 8
+  %112 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code9, i64 noundef 1724) #6
+  %113 = tail call fastcc ptr @prelude_ast(i64 noundef %111, i64 noundef %112, i32 noundef 50)
+  %.not138 = icmp eq ptr %113, null
+  br i1 %.not138, label %.thread233.thread305, label %prelude_ast.exit
 
-.thread211:                                       ; preds = %59, %.thread180.thread
-  %90 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name10, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %.thread236.thread
+.thread211:                                       ; preds = %83, %.thread180.thread
+  %114 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name10, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %.thread236.thread
 
-92:                                               ; preds = %.thread211
-  %93 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name10, i64 noundef 18) #6
-  store i64 %93, ptr %1, align 8
-  %94 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code10, i64 noundef 182) #6
-  %95 = tail call fastcc ptr @prelude_ast(i64 noundef %93, i64 noundef %94, i32 noundef 4)
-  %.not139 = icmp eq ptr %95, null
+116:                                              ; preds = %.thread211
+  %117 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name10, i64 noundef 18) #6
+  store i64 %117, ptr %1, align 8
+  %118 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code10, i64 noundef 182) #6
+  %119 = tail call fastcc ptr @prelude_ast(i64 noundef %117, i64 noundef %118, i32 noundef 4)
+  %.not139 = icmp eq ptr %119, null
   br i1 %.not139, label %.thread236.thread, label %prelude_ast.exit
 
-96:                                               ; preds = %2
-  %97 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) getelementptr inbounds ([17 x i8], ptr @prelude_name11, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 5) #7
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %.thread217.thread.thread
+120:                                              ; preds = %2
+  %121 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) getelementptr inbounds ([17 x i8], ptr @prelude_name11, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 5) #7
+  %122 = icmp eq i32 %121, 0
+  br i1 %122, label %123, label %.thread217.thread.thread
 
-99:                                               ; preds = %96
-  %100 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name11, i64 noundef 16) #6
-  store i64 %100, ptr %1, align 8
-  %101 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code11, i64 noundef 1503) #6
-  %102 = tail call fastcc ptr @prelude_ast(i64 noundef %100, i64 noundef %101, i32 noundef 1)
-  %.not140 = icmp eq ptr %102, null
+123:                                              ; preds = %120
+  %124 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name11, i64 noundef 16) #6
+  store i64 %124, ptr %1, align 8
+  %125 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code11, i64 noundef 1503) #6
+  %126 = tail call fastcc ptr @prelude_ast(i64 noundef %124, i64 noundef %125, i32 noundef 1)
+  %.not140 = icmp eq ptr %126, null
   br i1 %.not140, label %.thread217.thread.thread, label %prelude_ast.exit
 
-103:                                              ; preds = %70, %73
-  %104 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name12, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %.thread223
+127:                                              ; preds = %94, %97
+  %128 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name12, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %.thread223
 
-106:                                              ; preds = %103
-  %107 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name12, i64 noundef 17) #6
-  store i64 %107, ptr %1, align 8
-  %108 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code12, i64 noundef 1591) #6
-  %109 = tail call fastcc ptr @prelude_ast(i64 noundef %107, i64 noundef %108, i32 noundef 1)
-  %.not141 = icmp eq ptr %109, null
+130:                                              ; preds = %127
+  %131 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name12, i64 noundef 17) #6
+  store i64 %131, ptr %1, align 8
+  %132 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code12, i64 noundef 1591) #6
+  %133 = tail call fastcc ptr @prelude_ast(i64 noundef %131, i64 noundef %132, i32 noundef 1)
+  %.not141 = icmp eq ptr %133, null
   br i1 %.not141, label %.thread223, label %prelude_ast.exit
 
-.thread223:                                       ; preds = %106, %103
-  %110 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name13, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %.thread228
+.thread223:                                       ; preds = %130, %127
+  %134 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name13, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %.thread228
 
-112:                                              ; preds = %.thread223
-  %113 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name13, i64 noundef 17) #6
-  store i64 %113, ptr %1, align 8
-  %114 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code13, i64 noundef 3683) #6
-  %115 = tail call fastcc ptr @prelude_ast(i64 noundef %113, i64 noundef %114, i32 noundef 239)
-  %.not142 = icmp eq ptr %115, null
+136:                                              ; preds = %.thread223
+  %137 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name13, i64 noundef 17) #6
+  store i64 %137, ptr %1, align 8
+  %138 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code13, i64 noundef 3683) #6
+  %139 = tail call fastcc ptr @prelude_ast(i64 noundef %137, i64 noundef %138, i32 noundef 239)
+  %.not142 = icmp eq ptr %139, null
   br i1 %.not142, label %.thread228, label %prelude_ast.exit
 
-.thread228:                                       ; preds = %112, %.thread223
-  %116 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name14, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %.thread230
+.thread228:                                       ; preds = %136, %.thread223
+  %140 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) getelementptr inbounds ([18 x i8], ptr @prelude_name14, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 6) #7
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %.thread230
 
-118:                                              ; preds = %.thread228
-  %119 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name14, i64 noundef 17) #6
-  store i64 %119, ptr %1, align 8
-  %120 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code14, i64 noundef 189) #6
-  %121 = tail call fastcc ptr @prelude_ast(i64 noundef %119, i64 noundef %120, i32 noundef 1)
-  %.not143 = icmp eq ptr %121, null
+142:                                              ; preds = %.thread228
+  %143 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name14, i64 noundef 17) #6
+  store i64 %143, ptr %1, align 8
+  %144 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code14, i64 noundef 189) #6
+  %145 = tail call fastcc ptr @prelude_ast(i64 noundef %143, i64 noundef %144, i32 noundef 1)
+  %.not143 = icmp eq ptr %145, null
   br i1 %.not143, label %.thread230, label %prelude_ast.exit
 
-.thread230:                                       ; preds = %.thread228, %118
+.thread230:                                       ; preds = %.thread228, %142
   br label %prelude_ast.exit
 
-.thread217.thread.thread:                         ; preds = %96, %99
-  %122 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) getelementptr inbounds ([17 x i8], ptr @prelude_name15, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 5) #7
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %.thread236
+.thread217.thread.thread:                         ; preds = %120, %123
+  %146 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(7) getelementptr inbounds ([17 x i8], ptr @prelude_name15, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 5) #7
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %148, label %.thread236
 
-124:                                              ; preds = %.thread217.thread.thread
-  %125 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name15, i64 noundef 16) #6
-  store i64 %125, ptr %1, align 8
-  %126 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code15, i64 noundef 1062) #6
-  %127 = tail call fastcc ptr @prelude_ast(i64 noundef %125, i64 noundef %126, i32 noundef 216)
-  %.not144 = icmp eq ptr %127, null
+148:                                              ; preds = %.thread217.thread.thread
+  %149 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name15, i64 noundef 16) #6
+  store i64 %149, ptr %1, align 8
+  %150 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code15, i64 noundef 1062) #6
+  %151 = tail call fastcc ptr @prelude_ast(i64 noundef %149, i64 noundef %150, i32 noundef 216)
+  %.not144 = icmp eq ptr %151, null
   br i1 %.not144, label %.thread236, label %prelude_ast.exit
 
-.thread233.thread285:                             ; preds = %86, %83
-  %128 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds ([23 x i8], ptr @prelude_name16, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %.thread236
+.thread233.thread305:                             ; preds = %110, %107
+  %152 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds ([23 x i8], ptr @prelude_name16, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
+  %153 = icmp eq i32 %152, 0
+  br i1 %153, label %154, label %.thread236
 
-130:                                              ; preds = %.thread233.thread285
-  %131 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name16, i64 noundef 22) #6
-  store i64 %131, ptr %1, align 8
-  %132 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code16, i64 noundef 946) #6
-  %133 = tail call fastcc ptr @prelude_ast(i64 noundef %131, i64 noundef %132, i32 noundef 1)
-  %.not145 = icmp eq ptr %133, null
+154:                                              ; preds = %.thread233.thread305
+  %155 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name16, i64 noundef 22) #6
+  store i64 %155, ptr %1, align 8
+  %156 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code16, i64 noundef 946) #6
+  %157 = tail call fastcc ptr @prelude_ast(i64 noundef %155, i64 noundef %156, i32 noundef 1)
+  %.not145 = icmp eq ptr %157, null
   br i1 %.not145, label %.thread236, label %prelude_ast.exit
 
-.thread236:                                       ; preds = %124, %.thread217.thread.thread, %2, %.thread233.thread285, %130
-  %134 = phi i1 [ true, %.thread233.thread285 ], [ true, %130 ], [ false, %2 ], [ false, %.thread217.thread.thread ], [ false, %124 ]
-  %135 = icmp eq i64 %3, 8
-  br i1 %135, label %136, label %.thread242
+.thread236:                                       ; preds = %148, %.thread217.thread.thread, %2, %.thread233.thread305, %154
+  %158 = phi i1 [ true, %.thread233.thread305 ], [ true, %154 ], [ false, %2 ], [ false, %.thread217.thread.thread ], [ false, %148 ]
+  %159 = icmp eq i64 %3, 8
+  br i1 %159, label %160, label %.thread242
 
-136:                                              ; preds = %.thread236
-  %137 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(10) getelementptr inbounds ([20 x i8], ptr @prelude_name17, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 8) #7
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %.thread242
+160:                                              ; preds = %.thread236
+  %161 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(10) getelementptr inbounds ([20 x i8], ptr @prelude_name17, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 8) #7
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %.thread242
 
-139:                                              ; preds = %136
-  %140 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name17, i64 noundef 19) #6
-  store i64 %140, ptr %1, align 8
-  %141 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code17, i64 noundef 98) #6
-  %142 = tail call fastcc ptr @prelude_ast(i64 noundef %140, i64 noundef %141, i32 noundef 1)
-  %.not146 = icmp eq ptr %142, null
+163:                                              ; preds = %160
+  %164 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name17, i64 noundef 19) #6
+  store i64 %164, ptr %1, align 8
+  %165 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code17, i64 noundef 98) #6
+  %166 = tail call fastcc ptr @prelude_ast(i64 noundef %164, i64 noundef %165, i32 noundef 1)
+  %.not146 = icmp eq ptr %166, null
   br i1 %.not146, label %.thread242, label %prelude_ast.exit
 
-.thread236.thread:                                ; preds = %.thread211, %92
-  %143 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name18, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
-  %144 = icmp eq i32 %143, 0
-  br i1 %144, label %145, label %.thread245
+.thread236.thread:                                ; preds = %.thread211, %116
+  %167 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(9) getelementptr inbounds ([19 x i8], ptr @prelude_name18, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 7) #7
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %169, label %.thread245
 
-145:                                              ; preds = %.thread236.thread
-  %146 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name18, i64 noundef 18) #6
-  store i64 %146, ptr %1, align 8
-  %147 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code18, i64 noundef 352) #6
-  %148 = tail call fastcc ptr @prelude_ast(i64 noundef %146, i64 noundef %147, i32 noundef 1)
-  %.not147 = icmp eq ptr %148, null
+169:                                              ; preds = %.thread236.thread
+  %170 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name18, i64 noundef 18) #6
+  store i64 %170, ptr %1, align 8
+  %171 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code18, i64 noundef 352) #6
+  %172 = tail call fastcc ptr @prelude_ast(i64 noundef %170, i64 noundef %171, i32 noundef 1)
+  %.not147 = icmp eq ptr %172, null
   br i1 %.not147, label %.thread245, label %prelude_ast.exit
 
-.thread242:                                       ; preds = %139, %136, %.thread236
-  br i1 %134, label %149, label %.thread245
+.thread242:                                       ; preds = %163, %160, %.thread236
+  br i1 %158, label %173, label %.thread245
 
-149:                                              ; preds = %.thread242
-  %150 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds ([23 x i8], ptr @prelude_name19, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %152, label %.thread245
+173:                                              ; preds = %.thread242
+  %174 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(13) getelementptr inbounds ([23 x i8], ptr @prelude_name19, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 11) #7
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %176, label %.thread245
 
-152:                                              ; preds = %149
-  %153 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name19, i64 noundef 22) #6
-  store i64 %153, ptr %1, align 8
-  %154 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code19, i64 noundef 552) #6
-  %155 = tail call fastcc ptr @prelude_ast(i64 noundef %153, i64 noundef %154, i32 noundef 1)
+176:                                              ; preds = %173
+  %177 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name19, i64 noundef 22) #6
+  store i64 %177, ptr %1, align 8
+  %178 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code19, i64 noundef 552) #6
+  %179 = tail call fastcc ptr @prelude_ast(i64 noundef %177, i64 noundef %178, i32 noundef 1)
   br label %prelude_ast.exit
 
-.thread245:                                       ; preds = %.thread236.thread, %145, %.thread242, %149
+.thread245:                                       ; preds = %.thread236.thread, %169, %.thread242, %173
   br label %prelude_ast.exit
 
-.thread242.thread.thread:                         ; preds = %79, %.thread190
-  %156 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds ([16 x i8], ptr @prelude_name20, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
-  %157 = icmp eq i32 %156, 0
-  br i1 %157, label %158, label %prelude_ast.exit
+.thread242.thread.thread:                         ; preds = %103, %.thread190
+  %180 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) getelementptr inbounds ([16 x i8], ptr @prelude_name20, i64 0, i64 10), ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #7
+  %181 = icmp eq i32 %180, 0
+  br i1 %181, label %182, label %prelude_ast.exit
 
-158:                                              ; preds = %.thread242.thread.thread
-  %159 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name20, i64 noundef 15) #6
-  store i64 %159, ptr %1, align 8
-  %160 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code20, i64 noundef 16901) #6
-  %161 = tail call fastcc ptr @prelude_ast(i64 noundef %159, i64 noundef %160, i32 noundef 10)
+182:                                              ; preds = %.thread242.thread.thread
+  %183 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @prelude_name20, i64 noundef 15) #6
+  store i64 %183, ptr %1, align 8
+  %184 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code20, i64 noundef 16901) #6
+  %185 = tail call fastcc ptr @prelude_ast(i64 noundef %183, i64 noundef %184, i32 noundef 10)
   br label %prelude_ast.exit
 
-prelude_ast.exit:                                 ; preds = %152, %.thread230, %.thread245, %53, %158, %.thread242.thread.thread, %17, %50, %38, %25, %12, %145, %139, %130, %124, %118, %112, %106, %99, %92, %86, %79, %73, %66, %59, %46
-  %.0 = phi ptr [ %49, %46 ], [ %62, %59 ], [ %69, %66 ], [ %76, %73 ], [ %82, %79 ], [ %89, %86 ], [ %95, %92 ], [ %102, %99 ], [ %109, %106 ], [ %115, %112 ], [ %121, %118 ], [ %127, %124 ], [ %133, %130 ], [ %142, %139 ], [ %148, %145 ], [ %155, %152 ], [ %11, %12 ], [ %24, %25 ], [ %37, %38 ], [ %161, %158 ], [ null, %.thread242.thread.thread ], [ null, %.thread245 ], [ null, %17 ], [ null, %50 ], [ %56, %53 ], [ null, %.thread230 ]
+prelude_ast.exit:                                 ; preds = %176, %.thread230, %.thread245, %.tail263.thread, %77, %182, %.thread242.thread.thread, %.tail258, %.tail267, %57, %43, %22, %169, %163, %154, %148, %142, %136, %130, %123, %116, %110, %103, %97, %90, %83, %65
+  %.0 = phi ptr [ %68, %65 ], [ %86, %83 ], [ %93, %90 ], [ %100, %97 ], [ %106, %103 ], [ %113, %110 ], [ %119, %116 ], [ %126, %123 ], [ %133, %130 ], [ %139, %136 ], [ %145, %142 ], [ %151, %148 ], [ %157, %154 ], [ %166, %163 ], [ %172, %169 ], [ %179, %176 ], [ %21, %22 ], [ %42, %43 ], [ %56, %57 ], [ %185, %182 ], [ null, %.thread242.thread.thread ], [ null, %.thread245 ], [ null, %.tail258 ], [ null, %.tail267 ], [ %80, %77 ], [ null, %.tail263.thread ], [ null, %.thread230 ]
   ret ptr %.0
 }
 

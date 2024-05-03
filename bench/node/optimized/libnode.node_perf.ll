@@ -1366,11 +1366,23 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   store ptr %retval.i.sroa.0.0, ptr %entry8, align 8
   %buf_.i = getelementptr inbounds i8, ptr %type, i64 16
   %25 = load ptr, ptr %buf_.i, align 8
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(3) @.str.14) #23
-  %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %land.rhs, label %if.end.i15
+  %26 = load i8, ptr %25, align 1
+  %.not.i = icmp eq i8 %26, 103
+  br i1 %.not.i, label %sub_1.i, label %if.end.i15
 
-if.end.i15:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+sub_1.i:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+  %27 = getelementptr inbounds i8, ptr %25, i64 1
+  %28 = load i8, ptr %27, align 1
+  %.not5.i = icmp eq i8 %28, 99
+  br i1 %.not5.i, label %entry.tail.i, label %if.end.i15
+
+entry.tail.i:                                     ; preds = %sub_1.i
+  %29 = getelementptr inbounds i8, ptr %25, i64 2
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %land.rhs, label %if.end.i15
+
+if.end.i15:                                       ; preds = %entry.tail.i, %sub_1.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %call1.i16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.56) #23
   %cmp2.i17 = icmp eq i32 %call1.i16, 0
   br i1 %cmp2.i17, label %land.rhs, label %if.end4.i
@@ -1390,47 +1402,47 @@ if.end12.i:                                       ; preds = %if.end8.i
   %cmp14.i = icmp eq i32 %call13.i, 0
   br i1 %cmp14.i, label %land.rhs, label %if.end
 
-land.rhs:                                         ; preds = %if.end12.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.end.i15, %if.end4.i, %if.end8.i
-  %retval.0.i.ph = phi i64 [ 3, %if.end8.i ], [ 2, %if.end4.i ], [ 1, %if.end.i15 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 4, %if.end12.i ]
+land.rhs:                                         ; preds = %if.end12.i, %entry.tail.i, %if.end.i15, %if.end4.i, %if.end8.i
+  %retval.0.i.ph = phi i64 [ 3, %if.end8.i ], [ 2, %if.end4.i ], [ 1, %if.end.i15 ], [ 0, %entry.tail.i ], [ 4, %if.end12.i ]
   %performance_state_.i26 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2048
-  %26 = load ptr, ptr %performance_state_.i26, align 8
-  %buffer_.i.i = getelementptr inbounds i8, ptr %26, i64 144
-  %27 = load ptr, ptr %buffer_.i.i, align 8
-  %arrayidx.i.i18 = getelementptr inbounds i32, ptr %27, i64 %retval.0.i.ph
-  %28 = load i32, ptr %arrayidx.i.i18, align 4
-  %tobool.not = icmp eq i32 %28, 0
+  %32 = load ptr, ptr %performance_state_.i26, align 8
+  %buffer_.i.i = getelementptr inbounds i8, ptr %32, i64 144
+  %33 = load ptr, ptr %buffer_.i.i, align 8
+  %arrayidx.i.i18 = getelementptr inbounds i32, ptr %33, i64 %retval.0.i.ph
+  %34 = load i32, ptr %arrayidx.i.i18, align 4
+  %tobool.not = icmp eq i32 %34, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.rhs
   %principal_realm_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
-  %29 = load ptr, ptr %principal_realm_.i, align 8
-  %vtable.i = load ptr, ptr %29, align 8
+  %35 = load ptr, ptr %principal_realm_.i, align 8
+  %vtable.i = load ptr, ptr %35, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 680
-  %30 = load ptr, ptr %vfn.i, align 8
-  %call2.i = call ptr %30(ptr noundef nonnull align 8 dereferenceable(872) %29) #20
-  %31 = load ptr, ptr %principal_realm_.i, align 8
-  %vtable.i19 = load ptr, ptr %31, align 8
+  %36 = load ptr, ptr %vfn.i, align 8
+  %call2.i = call ptr %36(ptr noundef nonnull align 8 dereferenceable(872) %35) #20
+  %37 = load ptr, ptr %principal_realm_.i, align 8
+  %vtable.i19 = load ptr, ptr %37, align 8
   %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 64
-  %32 = load ptr, ptr %vfn.i20, align 8
-  %call2.i21 = call ptr %32(ptr noundef nonnull align 8 dereferenceable(872) %31) #20
-  %33 = load ptr, ptr %isolate_.i, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %add1.i = add i64 %34, 608
-  %35 = inttoptr i64 %add1.i to ptr
-  %call46 = call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %call2.i, ptr %call2.i21, ptr %35, i32 noundef 1, ptr noundef nonnull %entry8) #20
+  %38 = load ptr, ptr %vfn.i20, align 8
+  %call2.i21 = call ptr %38(ptr noundef nonnull align 8 dereferenceable(872) %37) #20
+  %39 = load ptr, ptr %isolate_.i, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %add1.i = add i64 %40, 608
+  %41 = inttoptr i64 %add1.i to ptr
+  %call46 = call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %call2.i, ptr %call2.i21, ptr %41, i32 noundef 1, ptr noundef nonnull %entry8) #20
   %.pre = load ptr, ptr %buf_.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end12.i, %if.then, %land.rhs
-  %36 = phi ptr [ %25, %if.end12.i ], [ %.pre, %if.then ], [ %25, %land.rhs ]
-  %cmp.i.i.i.i23 = icmp ne ptr %36, null
+  %42 = phi ptr [ %25, %if.end12.i ], [ %.pre, %if.then ], [ %25, %land.rhs ]
+  %cmp.i.i.i.i23 = icmp ne ptr %42, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %type, i64 24
-  %cmp.i.i.i24 = icmp ne ptr %36, %buf_st_.i.i.i
-  %37 = select i1 %cmp.i.i.i.i23, i1 %cmp.i.i.i24, i1 false
-  br i1 %37, label %if.then.i.i, label %_ZN4node9Utf8ValueD2Ev.exit
+  %cmp.i.i.i24 = icmp ne ptr %42, %buf_st_.i.i.i
+  %43 = select i1 %cmp.i.i.i.i23, i1 %cmp.i.i.i24, i1 false
+  br i1 %43, label %if.then.i.i, label %_ZN4node9Utf8ValueD2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.end
-  call void @free(ptr noundef nonnull %36) #20
+  call void @free(ptr noundef nonnull %42) #20
   br label %_ZN4node9Utf8ValueD2Ev.exit
 
 _ZN4node9Utf8ValueD2Ev.exit:                      ; preds = %if.end, %if.then.i.i

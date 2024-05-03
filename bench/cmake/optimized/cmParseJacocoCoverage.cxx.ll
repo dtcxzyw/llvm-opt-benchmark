@@ -95,8 +95,6 @@ $_ZSt19piecewise_construct = comdat any
 @.str.7 = private unnamed_addr constant [15 x i8] c"Reading file: \00", align 1
 @.str.8 = private unnamed_addr constant [32 x i8] c"Jacoco Coverage: Error opening \00", align 1
 @.str.9 = private unnamed_addr constant [5 x i8] c"line\00", align 1
-@.str.10 = private unnamed_addr constant [3 x i8] c"ci\00", align 1
-@.str.11 = private unnamed_addr constant [3 x i8] c"nr\00", align 1
 @.str.12 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @_ZSt19piecewise_construct = linkonce_odr dso_local constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @.str.13 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -405,7 +403,7 @@ define linkonce_odr dso_local void @_ZN21cmParseJacocoCoverage9XMLParser12StartE
   %22 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef %20)
   %23 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #17
-  br label %249
+  br label %266
 
 24:                                               ; preds = %3
   %25 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.4) #17
@@ -518,7 +516,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .body:                                            ; preds = %35, %70
   %eh.lpad-body = phi { ptr, i32 } [ %71, %70 ], [ %36, %35 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  br label %250
+  br label %267
 
 72:                                               ; preds = %96, %101, %79, %48, %42
   %73 = landingpad { ptr, i32 }
@@ -879,7 +877,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 212:                                              ; preds = %211, %65
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  br label %249
+  br label %266
 
 213:                                              ; preds = %178, %136, %130
   %.pn41 = phi { ptr, i32 } [ %lpad.phi, %178 ], [ %.pn39, %136 ], [ %131, %130 ]
@@ -889,72 +887,112 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 .body47:                                          ; preds = %72, %98, %213, %128, %127, %78
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %213 ], [ %129, %128 ], [ %.pn37, %127 ], [ %.pn, %78 ], [ %73, %72 ], [ %99, %98 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  br label %250
+  br label %267
 
 214:                                              ; preds = %24
   %215 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.9) #17
   %216 = icmp eq i32 %215, 0
-  br i1 %216, label %.preheader, label %249
+  br i1 %216, label %sub_0, label %266
 
-.preheader:                                       ; preds = %214, %232
-  %indvars.iv = phi i64 [ %indvars.iv.next, %232 ], [ 0, %214 ]
-  %.027 = phi i32 [ %.128, %232 ], [ -1, %214 ]
-  %.025 = phi i32 [ %.126, %232 ], [ -1, %214 ]
+sub_0:                                            ; preds = %214, %249
+  %indvars.iv = phi i64 [ %indvars.iv.next, %249 ], [ 0, %214 ]
+  %.027 = phi i32 [ %.128, %249 ], [ -1, %214 ]
+  %.025 = phi i32 [ %.126, %249 ], [ -1, %214 ]
   %217 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %218 = load ptr, ptr %217, align 8
-  %219 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %218, ptr noundef nonnull dereferenceable(3) @.str.10) #22
-  %220 = icmp eq i32 %219, 0
-  br i1 %220, label %221, label %225
+  %219 = load i8, ptr %218, align 1
+  %220 = zext i8 %219 to i32
+  %221 = add nsw i32 %220, -99
+  %.not = icmp eq i32 %221, 0
+  br i1 %.not, label %sub_1, label %.tail
 
-221:                                              ; preds = %.preheader
-  %222 = getelementptr i8, ptr %217, i64 8
-  %223 = load ptr, ptr %222, align 8
-  %224 = tail call i32 @atoi(ptr nocapture noundef %223) #22
-  br label %232
+sub_1:                                            ; preds = %sub_0
+  %222 = getelementptr inbounds i8, ptr %218, i64 1
+  %223 = load i8, ptr %222, align 1
+  %224 = zext i8 %223 to i32
+  %225 = add nsw i32 %224, -105
+  %.not71 = icmp eq i32 %225, 0
+  br i1 %.not71, label %sub_2, label %.tail
 
-225:                                              ; preds = %.preheader
-  %226 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %218, ptr noundef nonnull dereferenceable(3) @.str.11) #22
-  %227 = icmp eq i32 %226, 0
-  br i1 %227, label %228, label %232
+sub_2:                                            ; preds = %sub_1
+  %226 = getelementptr inbounds i8, ptr %218, i64 2
+  %227 = load i8, ptr %226, align 1
+  %228 = zext i8 %227 to i32
+  br label %.tail
 
-228:                                              ; preds = %225
-  %229 = getelementptr i8, ptr %217, i64 8
-  %230 = load ptr, ptr %229, align 8
-  %231 = tail call i32 @atoi(ptr nocapture noundef %230) #22
-  br label %232
+.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
+  %229 = phi i32 [ %221, %sub_0 ], [ %225, %sub_1 ], [ %228, %sub_2 ]
+  %230 = icmp eq i32 %229, 0
+  br i1 %230, label %231, label %sub_067
 
-232:                                              ; preds = %225, %228, %221
-  %.128 = phi i32 [ %.027, %221 ], [ %231, %228 ], [ %.027, %225 ]
-  %.126 = phi i32 [ %224, %221 ], [ %.025, %228 ], [ %.025, %225 ]
-  %233 = icmp sgt i32 %.126, -1
-  %234 = icmp sgt i32 %.128, 0
-  %or.cond = select i1 %233, i1 %234, i1 false
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %or.cond, label %235, label %.preheader, !llvm.loop !7
-
-235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %0, i64 144
-  %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 72
-  %239 = getelementptr inbounds i8, ptr %0, i64 40
-  %240 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIiSaIiEESt4lessIS5_ESaISt4pairIKS5_S8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %238, ptr noundef nonnull align 8 dereferenceable(32) %239)
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %240, i64 8
-  %243 = load ptr, ptr %242, align 8
-  %244 = icmp eq ptr %241, %243
-  br i1 %244, label %249, label %245
-
-245:                                              ; preds = %235
-  %246 = zext nneg i32 %.128 to i64
-  %247 = getelementptr i32, ptr %241, i64 %246
-  %248 = getelementptr i8, ptr %247, i64 -4
-  store i32 %.126, ptr %248, align 4
+231:                                              ; preds = %.tail
+  %232 = getelementptr inbounds i8, ptr %217, i64 8
+  %233 = load ptr, ptr %232, align 8
+  %234 = tail call i32 @atoi(ptr nocapture noundef %233) #22
   br label %249
 
-249:                                              ; preds = %212, %245, %235, %214, %18
+sub_067:                                          ; preds = %.tail
+  %235 = add nsw i32 %220, -110
+  %.not72 = icmp eq i32 %235, 0
+  br i1 %.not72, label %sub_168, label %.tail66
+
+sub_168:                                          ; preds = %sub_067
+  %236 = getelementptr inbounds i8, ptr %218, i64 1
+  %237 = load i8, ptr %236, align 1
+  %238 = zext i8 %237 to i32
+  %239 = add nsw i32 %238, -114
+  %.not73 = icmp eq i32 %239, 0
+  br i1 %.not73, label %sub_269, label %.tail66
+
+sub_269:                                          ; preds = %sub_168
+  %240 = getelementptr inbounds i8, ptr %218, i64 2
+  %241 = load i8, ptr %240, align 1
+  %242 = zext i8 %241 to i32
+  br label %.tail66
+
+.tail66:                                          ; preds = %sub_067, %sub_168, %sub_269
+  %243 = phi i32 [ %235, %sub_067 ], [ %239, %sub_168 ], [ %242, %sub_269 ]
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %245, label %249
+
+245:                                              ; preds = %.tail66
+  %246 = getelementptr inbounds i8, ptr %217, i64 8
+  %247 = load ptr, ptr %246, align 8
+  %248 = tail call i32 @atoi(ptr nocapture noundef %247) #22
+  br label %249
+
+249:                                              ; preds = %.tail66, %245, %231
+  %.128 = phi i32 [ %.027, %231 ], [ %248, %245 ], [ %.027, %.tail66 ]
+  %.126 = phi i32 [ %234, %231 ], [ %.025, %245 ], [ %.025, %.tail66 ]
+  %250 = icmp sgt i32 %.126, -1
+  %251 = icmp sgt i32 %.128, 0
+  %or.cond = select i1 %250, i1 %251, i1 false
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  br i1 %or.cond, label %252, label %sub_0, !llvm.loop !7
+
+252:                                              ; preds = %249
+  %253 = getelementptr inbounds i8, ptr %0, i64 144
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 72
+  %256 = getelementptr inbounds i8, ptr %0, i64 40
+  %257 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIiSaIiEESt4lessIS5_ESaISt4pairIKS5_S8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %255, ptr noundef nonnull align 8 dereferenceable(32) %256)
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds i8, ptr %257, i64 8
+  %260 = load ptr, ptr %259, align 8
+  %261 = icmp eq ptr %258, %260
+  br i1 %261, label %266, label %262
+
+262:                                              ; preds = %252
+  %263 = zext nneg i32 %.128 to i64
+  %264 = getelementptr i32, ptr %258, i64 %263
+  %265 = getelementptr i8, ptr %264, i64 -4
+  store i32 %.126, ptr %265, align 4
+  br label %266
+
+266:                                              ; preds = %212, %262, %252, %214, %18
   ret void
 
-250:                                              ; preds = %.body47, %.body
+267:                                              ; preds = %.body47, %.body
   %.pn41.pn.pn = phi { ptr, i32 } [ %.pn41.pn, %.body47 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn41.pn.pn
 }
@@ -1304,18 +1342,15 @@ declare noundef zeroext i1 @_ZN5cmsys11SystemTools17GetLineFromStreamERSiRNSt7__
 ; Function Attrs: nounwind
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1369,7 +1404,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -1887,16 +1922,16 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #8
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #8
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
@@ -1952,9 +1987,9 @@ attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

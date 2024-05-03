@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [20 x i8] c"multipart/form-data\00", align 1
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
-@.str.1 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @stdin = external local_unnamed_addr global ptr, align 8
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 @Curl_cstrdup = external local_unnamed_addr global ptr, align 8
@@ -1296,7 +1295,7 @@ declare void @Curl_mime_initpart(ptr noundef) local_unnamed_addr #1
 define dso_local i32 @Curl_getformdata(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call void @Curl_mime_cleanpart(ptr noundef %1) #6
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %111, label %5
+  br i1 %.not, label %116, label %5
 
 5:                                                ; preds = %4
   %6 = tail call ptr @curl_mime_init(ptr noundef %0) #6
@@ -1309,7 +1308,7 @@ define dso_local i32 @Curl_getformdata(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not94163, label %.lr.ph167, label %._crit_edge168.thread
 
 .lr.ph167:                                        ; preds = %7, %._crit_edge
-  %.086164 = phi ptr [ %108, %._crit_edge ], [ %2, %7 ]
+  %.086164 = phi ptr [ %113, %._crit_edge ], [ %2, %7 ]
   %9 = getelementptr inbounds i8, ptr %.086164, i64 72
   %10 = load ptr, ptr %9, align 8
   %.not95 = icmp eq ptr %10, null
@@ -1366,7 +1365,7 @@ setname.exit:                                     ; preds = %24, %20
   br i1 %.not101160, label %.lr.ph, label %._crit_edge168.thread
 
 .lr.ph:                                           ; preds = %.lr.ph167, %.thread
-  %.1182 = phi ptr [ %.1, %.thread ], [ %6, %.lr.ph167 ]
+  %.1183 = phi ptr [ %.1, %.thread ], [ %6, %.lr.ph167 ]
   %31 = getelementptr inbounds i8, ptr %.086164, i64 8
   %32 = getelementptr inbounds i8, ptr %.086164, i64 16
   %33 = getelementptr inbounds i8, ptr %.086164, i64 80
@@ -1378,8 +1377,8 @@ setname.exit:                                     ; preds = %24, %20
   br label %39
 
 39:                                               ; preds = %.lr.ph, %.thread154
-  %.082162 = phi ptr [ %.086164, %.lr.ph ], [ %105, %.thread154 ]
-  %40 = tail call ptr @curl_mime_addpart(ptr noundef %.1182) #6
+  %.082162 = phi ptr [ %.086164, %.lr.ph ], [ %110, %.thread154 ]
+  %40 = tail call ptr @curl_mime_addpart(ptr noundef %.1183) #6
   %.not102.not = icmp eq ptr %40, null
   br i1 %.not102.not, label %.thread154, label %41
 
@@ -1443,120 +1442,133 @@ setname.exit132.thread150:                        ; preds = %.thread145, %setnam
   %.080 = load i64, ptr %spec.select127, align 8
   %65 = and i64 %63, 3
   %.not110 = icmp eq i64 %65, 0
-  br i1 %.not110, label %81, label %66
+  br i1 %.not110, label %86, label %sub_0
 
-66:                                               ; preds = %setname.exit132.thread150
-  %67 = getelementptr inbounds i8, ptr %.082162, i64 24
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(2) @.str.1) #7
-  %.not116 = icmp eq i32 %69, 0
-  br i1 %.not116, label %70, label %73
+sub_0:                                            ; preds = %setname.exit132.thread150
+  %66 = getelementptr inbounds i8, ptr %.082162, i64 24
+  %67 = load ptr, ptr %66, align 8
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %70 = add nsw i32 %69, -45
+  %.not171 = icmp eq i32 %70, 0
+  br i1 %.not171, label %sub_1, label %.tail
 
-70:                                               ; preds = %66
-  %71 = load ptr, ptr @stdin, align 8
-  %72 = tail call i32 @curl_mime_data_cb(ptr noundef nonnull %40, i64 noundef -1, ptr noundef nonnull @fread, ptr noundef nonnull @fseeko_wrapper, ptr noundef null, ptr noundef %71) #6
-  br label %75
+sub_1:                                            ; preds = %sub_0
+  %71 = getelementptr inbounds i8, ptr %67, i64 1
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  br label %.tail
 
-73:                                               ; preds = %66
-  %74 = tail call i32 @curl_mime_filedata(ptr noundef nonnull %40, ptr noundef %68) #6
-  br label %75
+.tail:                                            ; preds = %sub_0, %sub_1
+  %74 = phi i32 [ %70, %sub_0 ], [ %73, %sub_1 ]
+  %.not116 = icmp eq i32 %74, 0
+  br i1 %.not116, label %75, label %78
 
-75:                                               ; preds = %73, %70
-  %.12 = phi i32 [ %74, %73 ], [ %72, %70 ]
+75:                                               ; preds = %.tail
+  %76 = load ptr, ptr @stdin, align 8
+  %77 = tail call i32 @curl_mime_data_cb(ptr noundef nonnull %40, i64 noundef -1, ptr noundef nonnull @fread, ptr noundef nonnull @fseeko_wrapper, ptr noundef null, ptr noundef %76) #6
+  br label %80
+
+78:                                               ; preds = %.tail
+  %79 = tail call i32 @curl_mime_filedata(ptr noundef nonnull %40, ptr noundef nonnull %67) #6
+  br label %80
+
+80:                                               ; preds = %78, %75
+  %.12 = phi i32 [ %79, %78 ], [ %77, %75 ]
   %.not117 = icmp eq i32 %.12, 0
-  br i1 %.not117, label %76, label %._crit_edge168.thread
+  br i1 %.not117, label %81, label %._crit_edge168.thread
 
-76:                                               ; preds = %75
-  %77 = load i64, ptr %33, align 8
-  %78 = and i64 %77, 2
-  %.not118 = icmp eq i64 %78, 0
-  br i1 %.not118, label %.thread157, label %79
+81:                                               ; preds = %80
+  %82 = load i64, ptr %33, align 8
+  %83 = and i64 %82, 2
+  %.not118 = icmp eq i64 %83, 0
+  br i1 %.not118, label %.thread157, label %84
 
-79:                                               ; preds = %76
-  %80 = tail call i32 @curl_mime_filename(ptr noundef nonnull %40, ptr noundef null) #6
-  br label %95
+84:                                               ; preds = %81
+  %85 = tail call i32 @curl_mime_filename(ptr noundef nonnull %40, ptr noundef null) #6
+  br label %100
 
-81:                                               ; preds = %setname.exit132.thread150
-  %82 = and i64 %63, 16
-  %.not111 = icmp eq i64 %82, 0
-  br i1 %.not111, label %87, label %83
+86:                                               ; preds = %setname.exit132.thread150
+  %87 = and i64 %63, 16
+  %.not111 = icmp eq i64 %87, 0
+  br i1 %.not111, label %92, label %88
 
-83:                                               ; preds = %81
-  %84 = load ptr, ptr %34, align 8
-  %85 = load i64, ptr %35, align 8
-  %.not115 = icmp eq i64 %85, 0
-  %spec.select128 = select i1 %.not115, i64 -1, i64 %85
-  %86 = tail call i32 @curl_mime_data(ptr noundef nonnull %40, ptr noundef %84, i64 noundef %spec.select128) #6
-  br label %95
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %34, align 8
+  %90 = load i64, ptr %35, align 8
+  %.not115 = icmp eq i64 %90, 0
+  %spec.select128 = select i1 %.not115, i64 -1, i64 %90
+  %91 = tail call i32 @curl_mime_data(ptr noundef nonnull %40, ptr noundef %89, i64 noundef %spec.select128) #6
+  br label %100
 
-87:                                               ; preds = %81
-  %88 = and i64 %63, 64
-  %.not112 = icmp eq i64 %88, 0
+92:                                               ; preds = %86
+  %93 = and i64 %63, 64
+  %.not112 = icmp eq i64 %93, 0
   %.not113 = icmp eq i64 %.080, 0
   %..080 = select i1 %.not113, i64 -1, i64 %.080
-  br i1 %.not112, label %92, label %89
+  br i1 %.not112, label %97, label %94
 
-89:                                               ; preds = %87
-  %90 = load ptr, ptr %36, align 8
-  %91 = tail call i32 @curl_mime_data_cb(ptr noundef nonnull %40, i64 noundef %..080, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef %90) #6
-  br label %95
+94:                                               ; preds = %92
+  %95 = load ptr, ptr %36, align 8
+  %96 = tail call i32 @curl_mime_data_cb(ptr noundef nonnull %40, i64 noundef %..080, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef %95) #6
+  br label %100
 
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %37, align 8
-  %94 = tail call i32 @curl_mime_data(ptr noundef nonnull %40, ptr noundef %93, i64 noundef %..080) #6
-  br label %95
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %37, align 8
+  %99 = tail call i32 @curl_mime_data(ptr noundef nonnull %40, ptr noundef %98, i64 noundef %..080) #6
+  br label %100
 
-95:                                               ; preds = %79, %89, %92, %83
-  %.13 = phi i32 [ %80, %79 ], [ %86, %83 ], [ %91, %89 ], [ %94, %92 ]
+100:                                              ; preds = %84, %94, %97, %88
+  %.13 = phi i32 [ %85, %84 ], [ %91, %88 ], [ %96, %94 ], [ %99, %97 ]
   %.not119 = icmp eq i32 %.13, 0
   br i1 %.not119, label %.thread157, label %._crit_edge168.thread
 
-.thread157:                                       ; preds = %76, %95
-  %96 = load ptr, ptr %38, align 8
-  %.not120 = icmp eq ptr %96, null
-  br i1 %.not120, label %.thread154, label %97
+.thread157:                                       ; preds = %81, %100
+  %101 = load ptr, ptr %38, align 8
+  %.not120 = icmp eq ptr %101, null
+  br i1 %.not120, label %.thread154, label %102
 
-97:                                               ; preds = %.thread157
-  %98 = load ptr, ptr %9, align 8
-  %.not121 = icmp eq ptr %98, null
-  br i1 %.not121, label %99, label %102
+102:                                              ; preds = %.thread157
+  %103 = load ptr, ptr %9, align 8
+  %.not121 = icmp eq ptr %103, null
+  br i1 %.not121, label %104, label %107
 
-99:                                               ; preds = %97
-  %100 = load i64, ptr %33, align 8
-  %101 = and i64 %100, 81
-  %.not122 = icmp eq i64 %101, 0
-  br i1 %.not122, label %.thread154, label %102
+104:                                              ; preds = %102
+  %105 = load i64, ptr %33, align 8
+  %106 = and i64 %105, 81
+  %.not122 = icmp eq i64 %106, 0
+  br i1 %.not122, label %.thread154, label %107
 
-102:                                              ; preds = %99, %97
-  %103 = tail call i32 @curl_mime_filename(ptr noundef nonnull %40, ptr noundef nonnull %96) #6
+107:                                              ; preds = %104, %102
+  %108 = tail call i32 @curl_mime_filename(ptr noundef nonnull %40, ptr noundef nonnull %101) #6
   br label %.thread154
 
-.thread154:                                       ; preds = %39, %.thread157, %102, %99
-  %.14 = phi i32 [ %103, %102 ], [ 0, %99 ], [ 0, %.thread157 ], [ 27, %39 ]
-  %104 = getelementptr inbounds i8, ptr %.082162, i64 72
-  %105 = load ptr, ptr %104, align 8
+.thread154:                                       ; preds = %39, %.thread157, %107, %104
+  %.14 = phi i32 [ %108, %107 ], [ 0, %104 ], [ 0, %.thread157 ], [ 27, %39 ]
+  %109 = getelementptr inbounds i8, ptr %.082162, i64 72
+  %110 = load ptr, ptr %109, align 8
   %.not101 = icmp eq i32 %.14, 0
-  %106 = icmp ne ptr %105, null
-  %107 = select i1 %.not101, i1 %106, i1 false
-  br i1 %107, label %39, label %._crit_edge, !llvm.loop !13
+  %111 = icmp ne ptr %110, null
+  %112 = select i1 %.not101, i1 %111, i1 false
+  br i1 %112, label %39, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.thread154
-  %108 = load ptr, ptr %.086164, align 8
+  %113 = load ptr, ptr %.086164, align 8
   %.not94 = icmp eq i32 %.14, 0
-  %109 = icmp ne ptr %108, null
-  %110 = select i1 %.not94, i1 %109, i1 false
-  br i1 %110, label %.lr.ph167, label %._crit_edge168, !llvm.loop !14
+  %114 = icmp ne ptr %113, null
+  %115 = select i1 %.not94, i1 %114, i1 false
+  br i1 %115, label %.lr.ph167, label %._crit_edge168, !llvm.loop !14
 
 ._crit_edge168:                                   ; preds = %._crit_edge
-  br i1 %.not94, label %111, label %._crit_edge168.thread
+  br i1 %.not94, label %116, label %._crit_edge168.thread
 
-._crit_edge168.thread:                            ; preds = %27, %22, %setname.exit, %.thread, %41, %48, %58, %setname.exit132, %75, %95, %5, %7, %._crit_edge168
-  %.2.lcssa192 = phi i32 [ %.14, %._crit_edge168 ], [ %8, %7 ], [ 27, %5 ], [ %.13, %95 ], [ %.12, %75 ], [ %.11, %setname.exit132 ], [ 27, %58 ], [ %49, %48 ], [ %44, %41 ], [ %.4, %setname.exit ], [ 27, %22 ], [ 27, %27 ], [ %.6, %.thread ]
+._crit_edge168.thread:                            ; preds = %27, %22, %setname.exit, %.thread, %41, %48, %58, %setname.exit132, %80, %100, %5, %7, %._crit_edge168
+  %.2.lcssa193 = phi i32 [ %.14, %._crit_edge168 ], [ %8, %7 ], [ 27, %5 ], [ %.13, %100 ], [ %.12, %80 ], [ %.11, %setname.exit132 ], [ 27, %58 ], [ %49, %48 ], [ %44, %41 ], [ %.4, %setname.exit ], [ 27, %22 ], [ 27, %27 ], [ %.6, %.thread ]
   tail call void @Curl_mime_cleanpart(ptr noundef %1) #6
-  br label %111
+  br label %116
 
-111:                                              ; preds = %._crit_edge168, %._crit_edge168.thread, %4
-  %.085 = phi i32 [ 0, %4 ], [ %.2.lcssa192, %._crit_edge168.thread ], [ 0, %._crit_edge168 ]
+116:                                              ; preds = %._crit_edge168, %._crit_edge168.thread, %4
+  %.085 = phi i32 [ 0, %4 ], [ %.2.lcssa193, %._crit_edge168.thread ], [ 0, %._crit_edge168 ]
   ret i32 %.085
 }
 
@@ -1632,16 +1644,13 @@ declare i32 @curl_mime_headers(ptr noundef, ptr noundef, i32 noundef) local_unna
 
 declare i32 @curl_mime_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
-
 declare i32 @curl_mime_data_cb(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #3
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @fseeko_wrapper(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #4 {
+define internal noundef i32 @fseeko_wrapper(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #3 {
   %4 = tail call i32 @fseeko64(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   ret i32 %4
 }
@@ -1657,14 +1666,14 @@ declare ptr @Curl_mime_contenttype(ptr noundef) local_unnamed_addr #1
 declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 declare ptr @Curl_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @curl_mime_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #5
@@ -1674,9 +1683,9 @@ declare void @llvm.va_end.p0(ptr) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

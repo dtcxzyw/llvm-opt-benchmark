@@ -256,7 +256,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.171 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 @.str.172 = private unnamed_addr constant [7 x i8] c"server\00", align 1
 @.str.173 = private unnamed_addr constant [7 x i8] c"client\00", align 1
-@.str.174 = private unnamed_addr constant [4 x i8] c"MMS\00", align 1
 @.str.175 = private unnamed_addr constant [16 x i8] c"seq=%03u: %s %s\00", align 1
 @.str.176 = private unnamed_addr constant [4 x i8] c"-->\00", align 1
 @.str.177 = private unnamed_addr constant [4 x i8] c"<--\00", align 1
@@ -272,12 +271,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_msmms() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110) #7
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110) #6
   store i32 %1, ptr @proto_msmms, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_msmms.hf, i32 noundef 57) #7
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_msmms.ett, i32 noundef 4) #7
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_msmms.hf, i32 noundef 57) #6
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_msmms.ett, i32 noundef 4) #6
   %2 = load i32, ptr @proto_msmms, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.110, ptr noundef nonnull @dissect_msmms_pdu, i32 noundef %2) #7
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.110, ptr noundef nonnull @dissect_msmms_pdu, i32 noundef %2) #6
   store ptr %3, ptr @msmms_handle, align 8
   ret void
 }
@@ -292,17 +291,17 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_msmms_pdu(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %dissect_msmms_command.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4) #7
+  %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4) #6
   %9 = icmp eq i32 %8, -1341392178
-  br i1 %9, label %10, label %102
+  br i1 %9, label %10, label %107
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #7
+  %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
   %12 = icmp slt i32 %11, 12
   br i1 %12, label %13, label %16
 
@@ -314,8 +313,8 @@ define internal i32 @dissect_msmms_pdu(ptr noundef %0, ptr nocapture noundef %1,
   br label %dissect_msmms_command.exit
 
 16:                                               ; preds = %10
-  %17 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #7
-  %18 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 16) #7
+  %17 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #6
+  %18 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 16) #6
   %19 = icmp slt i32 %18, %17
   br i1 %19, label %20, label %23
 
@@ -329,11 +328,11 @@ define internal i32 @dissect_msmms_pdu(ptr noundef %0, ptr nocapture noundef %1,
 23:                                               ; preds = %16
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.109) #7
+  tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.109) #6
   %26 = load ptr, ptr %24, align 8
-  tail call void @col_set_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.168) #7
+  tail call void @col_set_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.168) #6
   %27 = load i32, ptr @hf_msmms_command, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %29
 
@@ -352,314 +351,326 @@ define internal i32 @dissect_msmms_pdu(ptr noundef %0, ptr nocapture noundef %1,
 
 proto_item_set_hidden.exit.i:                     ; preds = %32, %29, %23
   %36 = load i32, ptr @proto_msmms, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %38 = load i32, ptr @ett_msmms_command, align 4
-  %39 = tail call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #7
-  %40 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 36) #7
-  %41 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 38) #7
+  %39 = tail call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #6
+  %40 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 36) #6
+  %41 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 38) #6
   %42 = load i32, ptr @hf_msmms_command_common_header, align 4
   %43 = icmp eq i16 %41, 3
   %44 = zext i16 %40 to i32
   %to_server_command_vals.to_client_command_vals.i = select i1 %43, ptr @to_server_command_vals, ptr @to_client_command_vals
   %.str.172..str.173.i = select i1 %43, ptr @.str.172, ptr @.str.173
-  %45 = tail call ptr @val_to_str_const(i32 noundef %44, ptr noundef nonnull %to_server_command_vals.to_client_command_vals.i, ptr noundef nonnull @.str.171) #7
-  %46 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %39, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef %45, ptr noundef nonnull %.str.172..str.173.i) #7
+  %45 = tail call ptr @val_to_str_const(i32 noundef %44, ptr noundef nonnull %to_server_command_vals.to_client_command_vals.i, ptr noundef nonnull @.str.171) #6
+  %46 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %39, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170, ptr noundef %45, ptr noundef nonnull %.str.172..str.173.i) #6
   %47 = load i32, ptr @ett_msmms_command_common_header, align 4
-  %48 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47) #7
+  %48 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47) #6
   %49 = load i32, ptr @hf_msmms_command_signature, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #7
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #6
   %51 = load i32, ptr @hf_msmms_command_length, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %51, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #7
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %51, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #6
   %53 = getelementptr inbounds i8, ptr %1, i64 408
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @tvb_get_string_enc(ptr noundef %54, ptr noundef %0, i32 noundef 12, i32 noundef 3, i32 noundef 0) #7
-  %56 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(4) @.str.174, i64 noundef 3) #8
-  %.not.i = icmp eq i32 %56, 0
-  br i1 %.not.i, label %57, label %dissect_msmms_command.exit
+  %55 = tail call ptr @tvb_get_string_enc(ptr noundef %54, ptr noundef %0, i32 noundef 12, i32 noundef 3, i32 noundef 0) #6
+  %56 = load i8, ptr %55, align 1
+  %.not142.i = icmp eq i8 %56, 77
+  br i1 %.not142.i, label %sub_1.i, label %dissect_msmms_command.exit
 
-57:                                               ; preds = %proto_item_set_hidden.exit.i
-  %58 = load i32, ptr @hf_msmms_command_protocol_type, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %58, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
-  %60 = load i32, ptr @hf_msmms_command_length_remaining, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %60, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #7
-  %62 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20) #7
-  %63 = load i32, ptr @hf_msmms_command_sequence_number, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %63, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #7
-  %65 = load i32, ptr @hf_msmms_command_timestamp, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %65, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef -2147483648) #7
-  %67 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 32) #7
-  %68 = load i32, ptr @hf_msmms_command_length_remaining2, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %68, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef -2147483648) #7
-  %70 = load i32, ptr @hf_msmms_command_to_server_id, align 4
-  %71 = load i32, ptr @hf_msmms_command_to_client_id, align 4
-  %72 = select i1 %43, i32 %70, i32 %71
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %72, ptr noundef %0, i32 noundef 36, i32 noundef 2, i32 noundef -2147483648) #7
-  %74 = load i32, ptr @hf_msmms_command_direction, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %74, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef -2147483648) #7
-  tail call void @proto_item_set_len(ptr noundef %48, i32 noundef 40) #7
-  %76 = load ptr, ptr %24, align 8
-  br i1 %43, label %77, label %91
+sub_1.i:                                          ; preds = %proto_item_set_hidden.exit.i
+  %57 = getelementptr inbounds i8, ptr %55, i64 1
+  %58 = load i8, ptr %57, align 1
+  %.not143.i = icmp eq i8 %58, 77
+  br i1 %.not143.i, label %.tail.i, label %dissect_msmms_command.exit
 
-77:                                               ; preds = %57
-  %78 = tail call ptr @val_to_str_const(i32 noundef %44, ptr noundef nonnull @to_server_command_vals, ptr noundef nonnull @.str.171) #7
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.175, i32 noundef %62, ptr noundef nonnull @.str.176, ptr noundef %78) #7
-  %79 = shl i32 %67, 3
-  %80 = add i32 %79, -8
-  switch i16 %40, label %100 [
-    i16 2, label %81
-    i16 1, label %82
-    i16 7, label %83
-    i16 13, label %84
-    i16 24, label %85
-    i16 5, label %86
-    i16 27, label %87
-    i16 51, label %88
-    i16 21, label %89
-    i16 9, label %90
-  ]
+.tail.i:                                          ; preds = %sub_1.i
+  %59 = getelementptr inbounds i8, ptr %55, i64 2
+  %60 = load i8, ptr %59, align 1
+  %61 = icmp eq i8 %60, 83
+  br i1 %61, label %62, label %dissect_msmms_command.exit
 
-81:                                               ; preds = %77
-  tail call fastcc void @dissect_client_transport_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %80)
-  br label %100
+62:                                               ; preds = %.tail.i
+  %63 = load i32, ptr @hf_msmms_command_protocol_type, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %63, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #6
+  %65 = load i32, ptr @hf_msmms_command_length_remaining, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %65, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #6
+  %67 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20) #6
+  %68 = load i32, ptr @hf_msmms_command_sequence_number, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %68, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #6
+  %70 = load i32, ptr @hf_msmms_command_timestamp, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %70, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef -2147483648) #6
+  %72 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 32) #6
+  %73 = load i32, ptr @hf_msmms_command_length_remaining2, align 4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %73, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef -2147483648) #6
+  %75 = load i32, ptr @hf_msmms_command_to_server_id, align 4
+  %76 = load i32, ptr @hf_msmms_command_to_client_id, align 4
+  %77 = select i1 %43, i32 %75, i32 %76
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %77, ptr noundef %0, i32 noundef 36, i32 noundef 2, i32 noundef -2147483648) #6
+  %79 = load i32, ptr @hf_msmms_command_direction, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %79, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef -2147483648) #6
+  tail call void @proto_item_set_len(ptr noundef %48, i32 noundef 40) #6
+  %81 = load ptr, ptr %24, align 8
+  br i1 %43, label %82, label %96
 
-82:                                               ; preds = %77
-  tail call fastcc void @dissect_client_player_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %80)
-  br label %100
-
-83:                                               ; preds = %77
-  tail call fastcc void @dissect_start_sending_from_info(ptr noundef %0, ptr noundef %39)
-  br label %100
-
-84:                                               ; preds = %77
-  tail call fastcc void @dissect_cancel_info(ptr noundef %0, ptr noundef %39)
-  br label %100
-
-85:                                               ; preds = %77
-  tail call fastcc void @dissect_timing_test_request(ptr noundef %0, ptr noundef %2)
-  br label %100
-
-86:                                               ; preds = %77
-  tail call fastcc void @dissect_request_server_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %80)
-  br label %100
-
-87:                                               ; preds = %77
-  tail call fastcc void @dissect_network_timer_test_response(ptr noundef %0, ptr noundef %2)
-  br label %100
-
-88:                                               ; preds = %77
-  tail call fastcc void @dissect_media_stream_mbr_selector(ptr noundef %0, ptr noundef %2)
-  br label %100
-
-89:                                               ; preds = %77
-  tail call fastcc void @dissect_header_request(ptr noundef %0, ptr noundef %2)
-  br label %100
-
-90:                                               ; preds = %77
-  tail call fastcc void @dissect_stop_button_pressed(ptr noundef %0, ptr noundef %2)
-  br label %100
-
-91:                                               ; preds = %57
-  %92 = tail call ptr @val_to_str_const(i32 noundef %44, ptr noundef nonnull @to_client_command_vals, ptr noundef nonnull @.str.171) #7
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.175, i32 noundef %62, ptr noundef nonnull @.str.177, ptr noundef %92) #7
-  switch i16 %40, label %100 [
-    i16 1, label %93
+82:                                               ; preds = %62
+  %83 = tail call ptr @val_to_str_const(i32 noundef %44, ptr noundef nonnull @to_server_command_vals, ptr noundef nonnull @.str.171) #6
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.175, i32 noundef %67, ptr noundef nonnull @.str.176, ptr noundef %83) #6
+  %84 = shl i32 %72, 3
+  %85 = add i32 %84, -8
+  switch i16 %40, label %105 [
+    i16 2, label %86
+    i16 1, label %87
+    i16 7, label %88
+    i16 13, label %89
+    i16 24, label %90
+    i16 5, label %91
+    i16 27, label %92
+    i16 51, label %93
     i16 21, label %94
-    i16 6, label %95
-    i16 17, label %96
-    i16 2, label %97
+    i16 9, label %95
   ]
 
-93:                                               ; preds = %91
+86:                                               ; preds = %82
+  tail call fastcc void @dissect_client_transport_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %85)
+  br label %105
+
+87:                                               ; preds = %82
+  tail call fastcc void @dissect_client_player_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39, i32 noundef %85)
+  br label %105
+
+88:                                               ; preds = %82
+  tail call fastcc void @dissect_start_sending_from_info(ptr noundef %0, ptr noundef %39)
+  br label %105
+
+89:                                               ; preds = %82
+  tail call fastcc void @dissect_cancel_info(ptr noundef %0, ptr noundef %39)
+  br label %105
+
+90:                                               ; preds = %82
+  tail call fastcc void @dissect_timing_test_request(ptr noundef %0, ptr noundef %2)
+  br label %105
+
+91:                                               ; preds = %82
+  tail call fastcc void @dissect_request_server_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %85)
+  br label %105
+
+92:                                               ; preds = %82
+  tail call fastcc void @dissect_network_timer_test_response(ptr noundef %0, ptr noundef %2)
+  br label %105
+
+93:                                               ; preds = %82
+  tail call fastcc void @dissect_media_stream_mbr_selector(ptr noundef %0, ptr noundef %2)
+  br label %105
+
+94:                                               ; preds = %82
+  tail call fastcc void @dissect_header_request(ptr noundef %0, ptr noundef %2)
+  br label %105
+
+95:                                               ; preds = %82
+  tail call fastcc void @dissect_stop_button_pressed(ptr noundef %0, ptr noundef %2)
+  br label %105
+
+96:                                               ; preds = %62
+  %97 = tail call ptr @val_to_str_const(i32 noundef %44, ptr noundef nonnull @to_client_command_vals, ptr noundef nonnull @.str.171) #6
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.175, i32 noundef %67, ptr noundef nonnull @.str.177, ptr noundef %97) #6
+  switch i16 %40, label %105 [
+    i16 1, label %98
+    i16 21, label %99
+    i16 6, label %100
+    i16 17, label %101
+    i16 2, label %102
+  ]
+
+98:                                               ; preds = %96
   tail call fastcc void @dissect_server_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %39)
-  br label %100
+  br label %105
 
-94:                                               ; preds = %91
+99:                                               ; preds = %96
   tail call fastcc void @dissect_timing_test_response(ptr noundef %0, ptr noundef %2)
-  br label %100
+  br label %105
 
-95:                                               ; preds = %91
+100:                                              ; preds = %96
   tail call fastcc void @dissect_media_details(ptr noundef %0, ptr noundef %2)
-  br label %100
+  br label %105
 
-96:                                               ; preds = %91
+101:                                              ; preds = %96
   tail call fastcc void @dissect_header_response(ptr noundef %0, ptr noundef %2)
-  br label %100
+  br label %105
 
-97:                                               ; preds = %91
-  %98 = shl i32 %67, 3
-  %99 = add i32 %98, -8
-  tail call fastcc void @dissect_transport_info_response(ptr noundef %0, ptr noundef %2, i32 noundef %99)
-  br label %100
+102:                                              ; preds = %96
+  %103 = shl i32 %72, 3
+  %104 = add i32 %103, -8
+  tail call fastcc void @dissect_transport_info_response(ptr noundef %0, ptr noundef %2, i32 noundef %104)
+  br label %105
 
-100:                                              ; preds = %97, %96, %95, %94, %93, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %77
-  %101 = add i32 %17, 12
+105:                                              ; preds = %102, %101, %100, %99, %98, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %82
+  %106 = add i32 %17, 12
   br label %dissect_msmms_command.exit
 
-102:                                              ; preds = %7
-  %103 = getelementptr inbounds i8, ptr %1, i64 280
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp eq i32 %104, 3
-  %106 = getelementptr inbounds i8, ptr %1, i64 288
-  %107 = load i32, ptr %106, align 8
-  %108 = icmp eq i32 %107, 1755
-  br i1 %105, label %109, label %134
+107:                                              ; preds = %7
+  %108 = getelementptr inbounds i8, ptr %1, i64 280
+  %109 = load i32, ptr %108, align 8
+  %110 = icmp eq i32 %109, 3
+  %111 = getelementptr inbounds i8, ptr %1, i64 288
+  %112 = load i32, ptr %111, align 8
+  %113 = icmp eq i32 %112, 1755
+  br i1 %110, label %114, label %139
 
-109:                                              ; preds = %102
-  br i1 %108, label %110, label %.thread
+114:                                              ; preds = %107
+  br i1 %113, label %115, label %.thread
 
-110:                                              ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
-  %112 = load ptr, ptr %111, align 8
-  tail call void @col_set_str(ptr noundef %112, i32 noundef 34, ptr noundef nonnull @.str.109) #7
-  %113 = load i32, ptr @proto_msmms, align 4
-  %114 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %113, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
-  %115 = load i32, ptr @ett_msmms_data, align 4
-  %116 = tail call ptr @proto_item_add_subtree(ptr noundef %114, i32 noundef %115) #7
-  %117 = load i32, ptr @hf_msmms_data_header_id, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #7
-  %119 = load i32, ptr @hf_msmms_data_client_id, align 4
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %119, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #7
-  %121 = load i32, ptr @hf_msmms_data_command_id, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %121, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #7
-  %123 = load ptr, ptr %111, align 8
-  tail call void @col_set_str(ptr noundef %123, i32 noundef 25, ptr noundef nonnull @.str.184) #7
-  %124 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #7
-  %125 = icmp sgt i32 %124, 3
-  br i1 %125, label %.lr.ph.i, label %dissect_msmms_data_udp_command.exit
+115:                                              ; preds = %114
+  %116 = getelementptr inbounds i8, ptr %1, i64 8
+  %117 = load ptr, ptr %116, align 8
+  tail call void @col_set_str(ptr noundef %117, i32 noundef 34, ptr noundef nonnull @.str.109) #6
+  %118 = load i32, ptr @proto_msmms, align 4
+  %119 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %118, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
+  %120 = load i32, ptr @ett_msmms_data, align 4
+  %121 = tail call ptr @proto_item_add_subtree(ptr noundef %119, i32 noundef %120) #6
+  %122 = load i32, ptr @hf_msmms_data_header_id, align 4
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #6
+  %124 = load i32, ptr @hf_msmms_data_client_id, align 4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %124, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #6
+  %126 = load i32, ptr @hf_msmms_data_command_id, align 4
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %126, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #6
+  %128 = load ptr, ptr %116, align 8
+  tail call void @col_set_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.184) #6
+  %129 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 12) #6
+  %130 = icmp sgt i32 %129, 3
+  br i1 %130, label %.lr.ph.i, label %dissect_msmms_data_udp_command.exit
 
-.lr.ph.i:                                         ; preds = %110, %.lr.ph.i
-  %.028.i = phi i32 [ %129, %.lr.ph.i ], [ 12, %110 ]
-  %126 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.028.i) #7
-  %127 = load i32, ptr @hf_msmms_data_packet_to_resend, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %127, ptr noundef %0, i32 noundef %.028.i, i32 noundef 4, i32 noundef -2147483648) #7
-  %129 = add i32 %.028.i, 4
-  %130 = load ptr, ptr %111, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %130, i32 noundef 25, ptr noundef nonnull @.str.185, i32 noundef %126) #7
-  %131 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %129) #7
-  %132 = icmp sgt i32 %131, 3
-  br i1 %132, label %.lr.ph.i, label %dissect_msmms_data_udp_command.exit, !llvm.loop !4
+.lr.ph.i:                                         ; preds = %115, %.lr.ph.i
+  %.028.i = phi i32 [ %134, %.lr.ph.i ], [ 12, %115 ]
+  %131 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.028.i) #6
+  %132 = load i32, ptr @hf_msmms_data_packet_to_resend, align 4
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %132, ptr noundef %0, i32 noundef %.028.i, i32 noundef 4, i32 noundef -2147483648) #6
+  %134 = add i32 %.028.i, 4
+  %135 = load ptr, ptr %116, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %135, i32 noundef 25, ptr noundef nonnull @.str.185, i32 noundef %131) #6
+  %136 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %134) #6
+  %137 = icmp sgt i32 %136, 3
+  br i1 %137, label %.lr.ph.i, label %dissect_msmms_data_udp_command.exit, !llvm.loop !4
 
-dissect_msmms_data_udp_command.exit:              ; preds = %.lr.ph.i, %110
-  %133 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #7
+dissect_msmms_data_udp_command.exit:              ; preds = %.lr.ph.i, %115
+  %138 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
   br label %dissect_msmms_command.exit
 
-134:                                              ; preds = %102
-  br i1 %108, label %dissect_msmms_command.exit, label %.thread
+139:                                              ; preds = %107
+  br i1 %113, label %dissect_msmms_command.exit, label %.thread
 
-.thread:                                          ; preds = %109, %134
-  %135 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6) #7
-  %136 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #7
-  %137 = icmp ult i16 %135, 8
-  br i1 %137, label %dissect_msmms_command.exit, label %138
+.thread:                                          ; preds = %114, %139
+  %140 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6) #6
+  %141 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
+  %142 = icmp ult i16 %140, 8
+  br i1 %142, label %dissect_msmms_command.exit, label %143
 
-138:                                              ; preds = %.thread
-  %139 = zext i16 %135 to i32
-  %140 = and i32 %136, 65535
-  %141 = icmp ult i32 %140, %139
-  br i1 %141, label %142, label %145
+143:                                              ; preds = %.thread
+  %144 = zext i16 %140 to i32
+  %145 = and i32 %141, 65535
+  %146 = icmp ult i32 %145, %144
+  br i1 %146, label %147, label %150
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 0, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %1, i64 336
-  store i32 268435455, ptr %144, align 8
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds i8, ptr %1, i64 332
+  store i32 0, ptr %148, align 4
+  %149 = getelementptr inbounds i8, ptr %1, i64 336
+  store i32 268435455, ptr %149, align 8
   br label %dissect_msmms_command.exit
 
-145:                                              ; preds = %138
-  %146 = load i32, ptr %103, align 8
-  %147 = icmp eq i32 %146, 2
-  br i1 %147, label %148, label %153
+150:                                              ; preds = %143
+  %151 = load i32, ptr %108, align 8
+  %152 = icmp eq i32 %151, 2
+  br i1 %152, label %153, label %158
 
-148:                                              ; preds = %145
-  %149 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #7
-  %150 = zext i8 %149 to i32
-  %151 = tail call ptr @try_val_to_str(i32 noundef %150, ptr noundef nonnull @tcp_flags_vals) #7
-  %152 = icmp eq ptr %151, null
-  br i1 %152, label %dissect_msmms_command.exit, label %153
+153:                                              ; preds = %150
+  %154 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #6
+  %155 = zext i8 %154 to i32
+  %156 = tail call ptr @try_val_to_str(i32 noundef %155, ptr noundef nonnull @tcp_flags_vals) #6
+  %157 = icmp eq ptr %156, null
+  br i1 %157, label %dissect_msmms_command.exit, label %158
 
-153:                                              ; preds = %148, %145
-  %.0.i14 = phi i8 [ %149, %148 ], [ 0, %145 ]
-  %154 = getelementptr inbounds i8, ptr %1, i64 8
-  %155 = load ptr, ptr %154, align 8
-  tail call void @col_set_str(ptr noundef %155, i32 noundef 34, ptr noundef nonnull @.str.109) #7
-  %156 = load i32, ptr @hf_msmms_data, align 4
-  %157 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %156, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
-  %.not.i.i15 = icmp eq ptr %157, null
-  br i1 %.not.i.i15, label %proto_item_set_hidden.exit.i17, label %158
-
-158:                                              ; preds = %153
-  %159 = getelementptr inbounds i8, ptr %157, i64 32
+158:                                              ; preds = %153, %150
+  %.0.i14 = phi i8 [ %154, %153 ], [ 0, %150 ]
+  %159 = getelementptr inbounds i8, ptr %1, i64 8
   %160 = load ptr, ptr %159, align 8
-  %.not5.i.i16 = icmp eq ptr %160, null
-  br i1 %.not5.i.i16, label %proto_item_set_hidden.exit.i17, label %161
+  tail call void @col_set_str(ptr noundef %160, i32 noundef 34, ptr noundef nonnull @.str.109) #6
+  %161 = load i32, ptr @hf_msmms_data, align 4
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %161, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %.not.i.i15 = icmp eq ptr %162, null
+  br i1 %.not.i.i15, label %proto_item_set_hidden.exit.i17, label %163
 
-161:                                              ; preds = %158
-  %162 = getelementptr inbounds i8, ptr %160, i64 28
-  %163 = load i32, ptr %162, align 4
-  %164 = or i32 %163, 1
-  store i32 %164, ptr %162, align 4
+163:                                              ; preds = %158
+  %164 = getelementptr inbounds i8, ptr %162, i64 32
+  %165 = load ptr, ptr %164, align 8
+  %.not5.i.i16 = icmp eq ptr %165, null
+  br i1 %.not5.i.i16, label %proto_item_set_hidden.exit.i17, label %166
+
+166:                                              ; preds = %163
+  %167 = getelementptr inbounds i8, ptr %165, i64 28
+  %168 = load i32, ptr %167, align 4
+  %169 = or i32 %168, 1
+  store i32 %169, ptr %167, align 4
   br label %proto_item_set_hidden.exit.i17
 
-proto_item_set_hidden.exit.i17:                   ; preds = %161, %158, %153
-  %165 = load i32, ptr @proto_msmms, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %165, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
-  %167 = load i32, ptr @ett_msmms_data, align 4
-  %168 = tail call ptr @proto_item_add_subtree(ptr noundef %166, i32 noundef %167) #7
-  %169 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #7
-  %170 = load i32, ptr @hf_msmms_data_sequence_number, align 4
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %170, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #7
-  %172 = load i32, ptr @hf_msmms_data_packet_id_type, align 4
-  %173 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %172, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #7
-  %174 = load i32, ptr %103, align 8
-  %175 = icmp eq i32 %174, 3
+proto_item_set_hidden.exit.i17:                   ; preds = %166, %163, %158
+  %170 = load i32, ptr @proto_msmms, align 4
+  %171 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %170, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
+  %172 = load i32, ptr @ett_msmms_data, align 4
+  %173 = tail call ptr @proto_item_add_subtree(ptr noundef %171, i32 noundef %172) #6
+  %174 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #6
+  %175 = load i32, ptr @hf_msmms_data_sequence_number, align 4
+  %176 = tail call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %175, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #6
+  %177 = load i32, ptr @hf_msmms_data_packet_id_type, align 4
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %177, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #6
+  %179 = load i32, ptr %108, align 8
+  %180 = icmp eq i32 %179, 3
   %hf_msmms_data_udp_sequence.val.i = load i32, ptr @hf_msmms_data_udp_sequence, align 4
   %hf_msmms_data_tcp_flags.val.i = load i32, ptr @hf_msmms_data_tcp_flags, align 4
-  %176 = select i1 %175, i32 %hf_msmms_data_udp_sequence.val.i, i32 %hf_msmms_data_tcp_flags.val.i
-  %177 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %176, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648) #7
-  %178 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6) #7
-  %179 = load i32, ptr @hf_msmms_data_packet_length, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %179, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #7
-  %181 = icmp eq i8 %.0.i14, 1
-  br i1 %181, label %182, label %197
+  %181 = select i1 %180, i32 %hf_msmms_data_udp_sequence.val.i, i32 %hf_msmms_data_tcp_flags.val.i
+  %182 = tail call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %181, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648) #6
+  %183 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6) #6
+  %184 = load i32, ptr @hf_msmms_data_packet_length, align 4
+  %185 = tail call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %184, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #6
+  %186 = icmp eq i8 %.0.i14, 1
+  br i1 %186, label %187, label %202
 
-182:                                              ; preds = %proto_item_set_hidden.exit.i17
-  %183 = load i32, ptr @hf_msmms_data_timing_pair, align 4
-  %184 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %168, i32 noundef %183, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.96) #7
-  %185 = load i32, ptr @ett_msmms_data_timing_packet_pair, align 4
-  %186 = tail call ptr @proto_item_add_subtree(ptr noundef %184, i32 noundef %185) #7
-  %187 = load i32, ptr @hf_msmms_data_timing_pair_seqno, align 4
-  %188 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %187, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #7
-  %189 = load i32, ptr @hf_msmms_data_timing_pair_flags, align 4
-  %190 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %189, ptr noundef %0, i32 noundef 9, i32 noundef 3, i32 noundef -2147483648) #7
-  %191 = load i32, ptr @hf_msmms_data_timing_pair_id, align 4
-  %192 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %191, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648) #7
-  %193 = load i32, ptr @hf_msmms_data_timing_pair_flag, align 4
-  %194 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %193, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef -2147483648) #7
-  %195 = load i32, ptr @hf_msmms_data_timing_pair_packet_length, align 4
-  %196 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %195, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648) #7
-  br label %197
+187:                                              ; preds = %proto_item_set_hidden.exit.i17
+  %188 = load i32, ptr @hf_msmms_data_timing_pair, align 4
+  %189 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %173, i32 noundef %188, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.96) #6
+  %190 = load i32, ptr @ett_msmms_data_timing_packet_pair, align 4
+  %191 = tail call ptr @proto_item_add_subtree(ptr noundef %189, i32 noundef %190) #6
+  %192 = load i32, ptr @hf_msmms_data_timing_pair_seqno, align 4
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %192, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #6
+  %194 = load i32, ptr @hf_msmms_data_timing_pair_flags, align 4
+  %195 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %194, ptr noundef %0, i32 noundef 9, i32 noundef 3, i32 noundef -2147483648) #6
+  %196 = load i32, ptr @hf_msmms_data_timing_pair_id, align 4
+  %197 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %196, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648) #6
+  %198 = load i32, ptr @hf_msmms_data_timing_pair_flag, align 4
+  %199 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %198, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef -2147483648) #6
+  %200 = load i32, ptr @hf_msmms_data_timing_pair_packet_length, align 4
+  %201 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %200, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648) #6
+  br label %202
 
-197:                                              ; preds = %182, %proto_item_set_hidden.exit.i17
-  %.078.i = phi i32 [ 16, %182 ], [ 8, %proto_item_set_hidden.exit.i17 ]
-  %198 = load i32, ptr @hf_msmms_data_unparsed, align 4
-  %199 = zext i16 %178 to i32
-  %200 = sub nsw i32 %199, %.078.i
-  %201 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %198, ptr noundef %0, i32 noundef %.078.i, i32 noundef %200, i32 noundef 0) #7
-  %202 = load ptr, ptr %154, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %202, i32 noundef 25, ptr noundef nonnull @.str.186, i32 noundef %169, i32 noundef %199) #7
+202:                                              ; preds = %187, %proto_item_set_hidden.exit.i17
+  %.078.i = phi i32 [ 16, %187 ], [ 8, %proto_item_set_hidden.exit.i17 ]
+  %203 = load i32, ptr @hf_msmms_data_unparsed, align 4
+  %204 = zext i16 %183 to i32
+  %205 = sub nsw i32 %204, %.078.i
+  %206 = tail call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %203, ptr noundef %0, i32 noundef %.078.i, i32 noundef %205, i32 noundef 0) #6
+  %207 = load ptr, ptr %159, align 8
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %207, i32 noundef 25, ptr noundef nonnull @.str.186, i32 noundef %174, i32 noundef %204) #6
   br label %dissect_msmms_command.exit
 
-dissect_msmms_command.exit:                       ; preds = %197, %148, %142, %.thread, %100, %proto_item_set_hidden.exit.i, %20, %13, %134, %4, %dissect_msmms_data_udp_command.exit
-  %.0 = phi i32 [ %133, %dissect_msmms_data_udp_command.exit ], [ 0, %4 ], [ 0, %134 ], [ -1, %13 ], [ -1, %20 ], [ %101, %100 ], [ 12, %proto_item_set_hidden.exit.i ], [ -1, %142 ], [ %199, %197 ], [ 0, %.thread ], [ 0, %148 ]
+dissect_msmms_command.exit:                       ; preds = %202, %153, %147, %.thread, %105, %.tail.i, %sub_1.i, %proto_item_set_hidden.exit.i, %20, %13, %139, %4, %dissect_msmms_data_udp_command.exit
+  %.0 = phi i32 [ %138, %dissect_msmms_data_udp_command.exit ], [ 0, %4 ], [ 0, %139 ], [ -1, %13 ], [ -1, %20 ], [ %106, %105 ], [ 12, %.tail.i ], [ 12, %proto_item_set_hidden.exit.i ], [ 12, %sub_1.i ], [ -1, %147 ], [ %204, %202 ], [ 0, %.thread ], [ 0, %153 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_msmms_command() local_unnamed_addr #0 {
   %1 = load ptr, ptr @msmms_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.111, i32 noundef 1755, ptr noundef %1) #7
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.111, i32 noundef 1755, ptr noundef %1) #6
   %2 = load ptr, ptr @msmms_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.112, i32 noundef 1755, ptr noundef %2) #7
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.112, i32 noundef 1755, ptr noundef %2) #6
   ret void
 }
 
@@ -683,9 +694,6 @@ declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef,
 
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
-
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -702,24 +710,24 @@ define internal fastcc void @dissect_client_transport_info(ptr noundef %0, ptr n
   %10 = alloca %struct._address, align 8
   store i32 0, ptr %7, align 4
   %11 = load i32, ptr @hf_msmms_command_prefix1, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %13 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   %15 = getelementptr inbounds i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = add i32 %3, -20
-  %18 = tail call ptr @tvb_get_string_enc(ptr noundef %16, ptr noundef %0, i32 noundef 60, i32 noundef %17, i32 noundef -2147483644) #7
+  %18 = tail call ptr @tvb_get_string_enc(ptr noundef %16, ptr noundef %0, i32 noundef 60, i32 noundef %17, i32 noundef -2147483644) #6
   %19 = load i32, ptr @hf_msmms_command_client_transport_info, align 4
-  %20 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 60, i32 noundef %17, ptr noundef %18, ptr noundef nonnull @.str.178, ptr noundef %18) #7
+  %20 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 60, i32 noundef %17, ptr noundef %18, ptr noundef nonnull @.str.178, ptr noundef %18) #6
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %15, align 8
-  %24 = tail call ptr @format_text_string(ptr noundef %23, ptr noundef %18) #7
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.179, ptr noundef %24) #7
+  %24 = tail call ptr @format_text_string(ptr noundef %23, ptr noundef %18) #6
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.179, ptr noundef %24) #6
   %25 = getelementptr inbounds i8, ptr %6, i64 4
   %26 = getelementptr inbounds i8, ptr %6, i64 8
   %27 = getelementptr inbounds i8, ptr %6, i64 12
-  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %18, ptr noundef nonnull @.str.180, ptr noundef nonnull %6, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
+  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %18, ptr noundef nonnull @.str.180, ptr noundef nonnull %6, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %29 = icmp eq i32 %28, 6
   br i1 %29, label %30, label %52
 
@@ -757,19 +765,19 @@ define internal fastcc void @dissect_client_transport_info(ptr noundef %0, ptr n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %44 = getelementptr inbounds i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4
-  %46 = call ptr @find_conversation(i32 noundef %45, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %37, i32 noundef 0, i32 noundef 196608) #7
+  %46 = call ptr @find_conversation(i32 noundef %45, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %37, i32 noundef 0, i32 noundef 196608) #6
   %.not11.i = icmp eq ptr %46, null
   br i1 %.not11.i, label %47, label %50
 
 47:                                               ; preds = %43
   %48 = load i32, ptr %44, align 4
-  %49 = call nonnull ptr @conversation_new(i32 noundef %48, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %37, i32 noundef 0, i32 noundef 3) #7
+  %49 = call nonnull ptr @conversation_new(i32 noundef %48, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %37, i32 noundef 0, i32 noundef 3) #6
   br label %50
 
 50:                                               ; preds = %47, %43
   %.0.i = phi ptr [ %46, %43 ], [ %49, %47 ]
   %51 = load ptr, ptr @msmms_handle, align 8
-  call void @conversation_set_dissector(ptr noundef nonnull %.0.i, ptr noundef %51) #7
+  call void @conversation_set_dissector(ptr noundef nonnull %.0.i, ptr noundef %51) #6
   br label %msmms_data_add_address.exit
 
 msmms_data_add_address.exit:                      ; preds = %.thread, %50
@@ -784,47 +792,47 @@ msmms_data_add_address.exit:                      ; preds = %.thread, %50
 define internal fastcc void @dissect_client_player_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_msmms_command_prefix1, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %8 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   %10 = load i32, ptr @hf_msmms_command_client_player_info, align 4
   %11 = add i32 %3, -12
   %12 = getelementptr inbounds i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
-  %14 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 52, i32 noundef %11, i32 noundef -2147483644, ptr noundef %13, ptr noundef nonnull %5) #7
+  %14 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 52, i32 noundef %11, i32 noundef -2147483644, ptr noundef %13, ptr noundef nonnull %5) #6
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %12, align 8
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @format_text_string(ptr noundef %17, ptr noundef %18) #7
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.179, ptr noundef %19) #7
+  %19 = call ptr @format_text_string(ptr noundef %17, ptr noundef %18) #6
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.179, ptr noundef %19) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_start_sending_from_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_cancel_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_timing_test_request(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
@@ -832,62 +840,62 @@ define internal fastcc void @dissect_timing_test_request(ptr noundef %0, ptr nou
 define internal fastcc void @dissect_request_server_file(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %8 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   %10 = load i32, ptr @hf_msmms_command_server_file, align 4
   %11 = add i32 %3, -16
   %12 = getelementptr inbounds i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
-  %14 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 56, i32 noundef %11, i32 noundef -2147483644, ptr noundef %13, ptr noundef nonnull %5) #7
+  %14 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 56, i32 noundef %11, i32 noundef -2147483644, ptr noundef %13, ptr noundef nonnull %5) #6
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %12, align 8
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @format_text_string(ptr noundef %17, ptr noundef %18) #7
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.179, ptr noundef %19) #7
+  %19 = call ptr @format_text_string(ptr noundef %17, ptr noundef %18) #6
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.179, ptr noundef %19) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_network_timer_test_response(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_media_stream_mbr_selector(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_stream_structure_count, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_stream_selection_flags, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 2, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 2, i32 noundef -2147483648) #6
   %7 = load i32, ptr @hf_msmms_stream_selection_stream_id, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 46, i32 noundef 2, i32 noundef -2147483648) #7
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 46, i32 noundef 2, i32 noundef -2147483648) #6
   %9 = load i32, ptr @hf_msmms_stream_selection_action, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 48, i32 noundef 2, i32 noundef -2147483648) #7
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 48, i32 noundef 2, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_header_request(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   %7 = load i32, ptr @hf_msmms_command_header_packet_id_type, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 80, i32 noundef 4, i32 noundef -2147483648) #7
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 80, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_stop_button_pressed(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
@@ -895,21 +903,21 @@ define internal fastcc void @dissect_stop_button_pressed(ptr noundef %0, ptr nou
 define internal fastcc void @dissect_server_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_msmms_command_prefix1_error, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %7 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
-  %9 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 80) #7
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
+  %9 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 80) #6
   %10 = load i32, ptr @hf_msmms_command_server_version_length, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 80, i32 noundef 4, i32 noundef -2147483648) #7
-  %12 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 84) #7
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 80, i32 noundef 4, i32 noundef -2147483648) #6
+  %12 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 84) #6
   %13 = load i32, ptr @hf_msmms_command_tool_version_length, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 84, i32 noundef 4, i32 noundef -2147483648) #7
-  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 88) #7
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 84, i32 noundef 4, i32 noundef -2147483648) #6
+  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 88) #6
   %16 = load i32, ptr @hf_msmms_command_update_url_length, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 88, i32 noundef 4, i32 noundef -2147483648) #7
-  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 92) #7
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 88, i32 noundef 4, i32 noundef -2147483648) #6
+  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 92) #6
   %19 = load i32, ptr @hf_msmms_command_password_type_length, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 92, i32 noundef 4, i32 noundef -2147483648) #7
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 92, i32 noundef 4, i32 noundef -2147483648) #6
   %21 = icmp ugt i32 %9, 1
   br i1 %21, label %22, label %33
 
@@ -918,13 +926,13 @@ define internal fastcc void @dissect_server_info(ptr noundef %0, ptr nocapture n
   %24 = shl i32 %9, 1
   %25 = getelementptr inbounds i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
-  %27 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 96, i32 noundef %24, i32 noundef -2147483644, ptr noundef %26, ptr noundef nonnull %4) #7
+  %27 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 96, i32 noundef %24, i32 noundef -2147483644, ptr noundef %26, ptr noundef nonnull %4) #6
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %25, align 8
   %31 = load ptr, ptr %4, align 8
-  %32 = call ptr @format_text_string(ptr noundef %30, ptr noundef %31) #7
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.183, ptr noundef %32) #7
+  %32 = call ptr @format_text_string(ptr noundef %30, ptr noundef %31) #6
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.183, ptr noundef %32) #6
   br label %33
 
 33:                                               ; preds = %22, %3
@@ -936,7 +944,7 @@ define internal fastcc void @dissect_server_info(ptr noundef %0, ptr nocapture n
   %37 = add i32 %36, 96
   %38 = load i32, ptr @hf_msmms_command_tool_version, align 4
   %39 = shl i32 %12, 1
-  %40 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef %39, i32 noundef -2147483644) #7
+  %40 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef %39, i32 noundef -2147483644) #6
   br label %41
 
 41:                                               ; preds = %35, %33
@@ -949,7 +957,7 @@ define internal fastcc void @dissect_server_info(ptr noundef %0, ptr nocapture n
   %46 = add i32 %45, 96
   %47 = load i32, ptr @hf_msmms_command_update_url, align 4
   %48 = shl i32 %15, 1
-  %49 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef %48, i32 noundef -2147483644) #7
+  %49 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef %48, i32 noundef -2147483644) #6
   br label %50
 
 50:                                               ; preds = %44, %41
@@ -962,7 +970,7 @@ define internal fastcc void @dissect_server_info(ptr noundef %0, ptr nocapture n
   %55 = add i32 %54, 96
   %56 = load i32, ptr @hf_msmms_command_password_type, align 4
   %57 = shl i32 %18, 1
-  %58 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef %57, i32 noundef -2147483644) #7
+  %58 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef %57, i32 noundef -2147483644) #6
   br label %59
 
 59:                                               ; preds = %52, %50
@@ -972,65 +980,65 @@ define internal fastcc void @dissect_server_info(ptr noundef %0, ptr nocapture n
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_timing_test_response(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_error, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   %7 = load i32, ptr @hf_msmms_command_number_of_words, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 48, i32 noundef 4, i32 noundef -2147483648) #7
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 48, i32 noundef 4, i32 noundef -2147483648) #6
   %9 = load i32, ptr @hf_msmms_command_client_id, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 60, i32 noundef 4, i32 noundef -2147483648) #7
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 60, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_media_details(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_error, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   %7 = load i32, ptr @hf_msmms_command_result_flags, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 48, i32 noundef 4, i32 noundef -2147483648) #7
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 48, i32 noundef 4, i32 noundef -2147483648) #6
   %9 = load i32, ptr @hf_msmms_command_broadcast_indexing, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 62, i32 noundef 1, i32 noundef -2147483648) #7
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 62, i32 noundef 1, i32 noundef -2147483648) #6
   %11 = load i32, ptr @hf_msmms_command_broadcast_liveness, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 63, i32 noundef 1, i32 noundef -2147483648) #7
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 63, i32 noundef 1, i32 noundef -2147483648) #6
   %13 = load i32, ptr @hf_msmms_command_recorded_media_length, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef 72, i32 noundef 4, i32 noundef -2147483648) #7
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef 72, i32 noundef 4, i32 noundef -2147483648) #6
   %15 = load i32, ptr @hf_msmms_command_media_packet_length, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef 92, i32 noundef 4, i32 noundef -2147483648) #7
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef 92, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_header_response(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_msmms_command_prefix1_error, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %5 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_transport_info_response(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_msmms_command_prefix1_command_level, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #7
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648) #6
   %6 = load i32, ptr @hf_msmms_command_prefix2, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #7
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648) #6
   %8 = load i32, ptr @hf_msmms_command_number_of_words, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef 48, i32 noundef 4, i32 noundef -2147483648) #7
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef 48, i32 noundef 4, i32 noundef -2147483648) #6
   %10 = load i32, ptr @hf_msmms_command_strange_string, align 4
   %11 = add i32 %2, -12
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef 52, i32 noundef %11, i32 noundef -2147483644) #7
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef 52, i32 noundef %11, i32 noundef -2147483644) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 declare ptr @format_text_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1047,23 +1055,21 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

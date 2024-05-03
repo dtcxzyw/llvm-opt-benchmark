@@ -18,69 +18,66 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [9 x i8] c"version \00", align 1
 @.str.10 = private unnamed_addr constant [39 x i8] c"server is speaking an unknown protocol\00", align 1
 @.str.11 = private unnamed_addr constant [49 x i8] c"protocol error: server explicitly said version 0\00", align 1
-@.str.12 = private unnamed_addr constant [2 x i8] c"0\00", align 1
-@.str.13 = private unnamed_addr constant [2 x i8] c"1\00", align 1
-@.str.14 = private unnamed_addr constant [2 x i8] c"2\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @get_protocol_version_config() local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @get_protocol_version_config() local_unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
-  %call = call i32 @git_config_get_string_tmp(ptr noundef nonnull @.str.1, ptr noundef nonnull %value) #7
+  %call = call i32 @git_config_get_string_tmp(ptr noundef nonnull @.str.1, ptr noundef nonnull %value) #6
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %value, align 8
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.12) #8
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %return, label %if.else.i
+  %1 = load i8, ptr %0, align 1
+  %switch.tableidx = add i8 %1, -48
+  %2 = icmp ult i8 %switch.tableidx, 3
+  br i1 %2, label %switch.lookup, label %if.then2
 
-if.else.i:                                        ; preds = %if.then
-  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.13) #8
-  %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %return, label %if.else4.i
+switch.lookup:                                    ; preds = %if.then
+  %switch.idx.cast = zext nneg i8 %switch.tableidx to i32
+  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %return, label %if.then2
 
-if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.14) #8
-  %tobool6.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool6.not.i, label %return, label %if.then2
-
-if.then2:                                         ; preds = %if.else4.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef %0) #9
+if.then2:                                         ; preds = %if.then, %switch.lookup
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef nonnull %0) #7
   unreachable
 
 if.end3:                                          ; preds = %entry
-  %call4 = call ptr @getenv(ptr noundef nonnull @.str) #7
+  %call4 = call ptr @getenv(ptr noundef nonnull @.str) #6
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %1 = load i8, ptr %call4, align 1
-  %tobool6.not = icmp eq i8 %1, 0
-  br i1 %tobool6.not, label %return, label %if.then7
+  %6 = load i8, ptr %call4, align 1
+  switch i8 %6, label %if.then11 [
+    i8 0, label %return
+    i8 48, label %return.sink.split.i8
+    i8 49, label %if.else.tail.i12
+    i8 50, label %sub_17.i7
+  ]
 
-if.then7:                                         ; preds = %land.lhs.true
-  %call.i7 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(2) @.str.12) #8
-  %tobool.not.i8 = icmp eq i32 %call.i7, 0
-  br i1 %tobool.not.i8, label %return, label %if.else.i9
+if.else.tail.i12:                                 ; preds = %land.lhs.true
+  br label %return.sink.split.i8
 
-if.else.i9:                                       ; preds = %if.then7
-  %call1.i10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(2) @.str.13) #8
-  %tobool2.not.i11 = icmp eq i32 %call1.i10, 0
-  br i1 %tobool2.not.i11, label %return, label %if.else4.i12
+sub_17.i7:                                        ; preds = %land.lhs.true
+  br label %return.sink.split.i8
 
-if.else4.i12:                                     ; preds = %if.else.i9
-  %call5.i13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(2) @.str.14) #8
-  %tobool6.not.i14 = icmp eq i32 %call5.i13, 0
-  br i1 %tobool6.not.i14, label %return, label %if.then11
+return.sink.split.i8:                             ; preds = %land.lhs.true, %sub_17.i7, %if.else.tail.i12
+  %.sink18.i9 = phi i32 [ 1, %if.else.tail.i12 ], [ 2, %sub_17.i7 ], [ 0, %land.lhs.true ]
+  %7 = getelementptr inbounds i8, ptr %call4, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %return, label %if.then11
 
-if.then11:                                        ; preds = %if.else4.i12
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %call4) #9
+if.then11:                                        ; preds = %land.lhs.true, %return.sink.split.i8
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %call4) #7
   unreachable
 
-return:                                           ; preds = %if.else4.i12, %if.else.i9, %if.then7, %if.else4.i, %if.else.i, %if.then, %if.end3, %land.lhs.true
-  %retval.0 = phi i32 [ 2, %land.lhs.true ], [ 2, %if.end3 ], [ 1, %if.else.i ], [ 0, %if.then ], [ 2, %if.else4.i ], [ 1, %if.else.i9 ], [ 0, %if.then7 ], [ 2, %if.else4.i12 ]
+return:                                           ; preds = %land.lhs.true, %return.sink.split.i8, %switch.lookup, %if.end3
+  %retval.0 = phi i32 [ 2, %land.lhs.true ], [ 2, %if.end3 ], [ %switch.idx.cast, %switch.lookup ], [ %.sink18.i9, %return.sink.split.i8 ]
   ret i32 %retval.0
 }
 
@@ -93,10 +90,10 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #2
 declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @determine_protocol_version_server() local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @determine_protocol_version_server() local_unnamed_addr #0 {
 entry:
   %list = alloca %struct.string_list, align 8
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str.4) #7
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str.4) #6
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end10, label %if.then
 
@@ -104,22 +101,22 @@ if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %list, i8 0, i64 40, i1 false)
   %0 = getelementptr inbounds i8, ptr %list, i64 24
   store i8 1, ptr %0, align 8
-  %call1 = call i32 @string_list_split(ptr noundef nonnull %list, ptr noundef nonnull %call, i32 noundef 58, i32 noundef -1) #7
+  %call1 = call i32 @string_list_split(ptr noundef nonnull %list, ptr noundef nonnull %call, i32 noundef 58, i32 noundef -1) #6
   %1 = load ptr, ptr %list, align 8
-  %tobool2.not13 = icmp eq ptr %1, null
-  br i1 %tobool2.not13, label %for.end, label %land.rhs.lr.ph
+  %tobool2.not12 = icmp eq ptr %1, null
+  br i1 %tobool2.not12, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then
   %nr = getelementptr inbounds i8, ptr %list, i64 8
   %2 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %1, i64 %2
-  %cmp18 = icmp sgt i64 %2, 0
-  br i1 %cmp18, label %for.body, label %for.end
+  %cmp17 = icmp sgt i64 %2, 0
+  br i1 %cmp17, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %item.01420 = phi ptr [ %incdec.ptr, %for.inc ], [ %1, %land.rhs.lr.ph ]
-  %version.01519 = phi i32 [ %version.1, %for.inc ], [ 0, %land.rhs.lr.ph ]
-  %3 = load ptr, ptr %item.01420, align 8
+  %item.01319 = phi ptr [ %incdec.ptr, %for.inc ], [ %1, %land.rhs.lr.ph ]
+  %version.01418 = phi i32 [ %version.1, %for.inc ], [ 0, %land.rhs.lr.ph ]
+  %3 = load ptr, ptr %item.01319, align 8
   %scevgep = getelementptr i8, ptr %3, i64 8
   br label %do.body.i
 
@@ -139,41 +136,39 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %for.inc, !llvm.loop !5
 
 if.then5:                                         ; preds = %do.body.i
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(2) @.str.12) #8
-  %tobool.not.i8 = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i8, label %parse_protocol_version.exit, label %if.else.i
+  %6 = load i8, ptr %scevgep, align 1
+  %switch.tableidx = add i8 %6, -48
+  %7 = icmp ult i8 %switch.tableidx, 3
+  br i1 %7, label %switch.lookup, label %parse_protocol_version.exit
 
-if.else.i:                                        ; preds = %if.then5
-  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(2) @.str.13) #8
-  %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %parse_protocol_version.exit, label %if.else4.i
-
-if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(2) @.str.14) #8
-  %tobool6.not.i = icmp eq i32 %call5.i, 0
-  %..i = select i1 %tobool6.not.i, i32 2, i32 -1
+switch.lookup:                                    ; preds = %if.then5
+  %switch.idx.cast = zext nneg i8 %switch.tableidx to i32
+  %8 = getelementptr i8, ptr %3, i64 9
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  %spec.select17.i = select i1 %10, i32 %switch.idx.cast, i32 -1
   br label %parse_protocol_version.exit
 
-parse_protocol_version.exit:                      ; preds = %if.then5, %if.else.i, %if.else4.i
-  %retval.0.i = phi i32 [ 0, %if.then5 ], [ 1, %if.else.i ], [ %..i, %if.else4.i ]
-  %spec.select = call i32 @llvm.smax.i32(i32 %retval.0.i, i32 %version.01519)
+parse_protocol_version.exit:                      ; preds = %if.then5, %switch.lookup
+  %retval.0.i = phi i32 [ -1, %if.then5 ], [ %spec.select17.i, %switch.lookup ]
+  %spec.select = call i32 @llvm.smax.i32(i32 %retval.0.i, i32 %version.01418)
   br label %for.inc
 
 for.inc:                                          ; preds = %do.cond.i, %parse_protocol_version.exit
-  %version.1 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %version.01519, %do.cond.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %item.01420, i64 16
+  %version.1 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %version.01418, %do.cond.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %item.01319, i64 16
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end
 
 for.end:                                          ; preds = %for.inc, %land.rhs.lr.ph, %if.then
   %version.0.lcssa = phi i32 [ 0, %if.then ], [ 0, %land.rhs.lr.ph ], [ %version.1, %for.inc ]
-  call void @string_list_clear(ptr noundef nonnull %list, i32 noundef 0) #7
+  call void @string_list_clear(ptr noundef nonnull %list, i32 noundef 0) #6
   br label %if.end10
 
 if.end10:                                         ; preds = %for.end, %entry
   %version.2 = phi i32 [ %version.0.lcssa, %for.end ], [ 0, %entry ]
   %conv = zext nneg i32 %version.2 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.6, i32 noundef 78, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef %conv) #7
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.6, i32 noundef 78, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef %conv) #6
   ret i32 %version.2
 }
 
@@ -187,7 +182,7 @@ declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @trace2_data_intmax_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @determine_protocol_version_client(ptr nocapture noundef readonly %server_response) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @determine_protocol_version_client(ptr nocapture noundef readonly %server_response) local_unnamed_addr #0 {
 entry:
   %scevgep = getelementptr i8, ptr %server_response, i64 8
   br label %do.body.i
@@ -208,49 +203,53 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %if.end6, !llvm.loop !5
 
 if.then:                                          ; preds = %do.body.i
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(2) @.str.12) #8
-  %tobool.not.i3 = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i3, label %if.then4, label %if.else.i
+  %2 = load i8, ptr %scevgep, align 1
+  switch i8 %2, label %if.then2 [
+    i8 48, label %return.sink.split.i.thread
+    i8 49, label %return.sink.split.i
+    i8 50, label %sub_17.i
+  ]
 
-if.else.i:                                        ; preds = %if.then
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(2) @.str.13) #8
-  %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %if.end6, label %if.else4.i
+sub_17.i:                                         ; preds = %if.then
+  br label %return.sink.split.i
 
-if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(2) @.str.14) #8
-  %tobool6.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool6.not.i, label %if.end6, label %if.then2
+return.sink.split.i:                              ; preds = %if.then, %sub_17.i
+  %.sink18.i = phi i32 [ 2, %sub_17.i ], [ 1, %if.then ]
+  %3 = getelementptr i8, ptr %server_response, i64 9
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %if.end6, label %if.then2
 
-if.then2:                                         ; preds = %if.else4.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.10) #9
+return.sink.split.i.thread:                       ; preds = %if.then
+  %6 = getelementptr i8, ptr %server_response, i64 9
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %if.then4, label %if.then2
+
+if.then2:                                         ; preds = %return.sink.split.i.thread, %return.sink.split.i, %if.then
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.10) #7
   unreachable
 
-if.then4:                                         ; preds = %if.then
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.11) #9
+if.then4:                                         ; preds = %return.sink.split.i.thread
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.11) #7
   unreachable
 
-if.end6:                                          ; preds = %do.cond.i, %if.else4.i, %if.else.i
-  %version.0 = phi i32 [ 1, %if.else.i ], [ 2, %if.else4.i ], [ 0, %do.cond.i ]
+if.end6:                                          ; preds = %do.cond.i, %return.sink.split.i
+  %version.0 = phi i32 [ %.sink18.i, %return.sink.split.i ], [ 0, %do.cond.i ]
   ret i32 %version.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { noreturn nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

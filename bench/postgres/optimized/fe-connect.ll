@@ -104,7 +104,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.78 = private unnamed_addr constant [38 x i8] c"SELECT pg_catalog.pg_is_in_recovery()\00", align 1
 @.str.79 = private unnamed_addr constant [30 x i8] c"server is in hot standby mode\00", align 1
 @.str.80 = private unnamed_addr constant [34 x i8] c"server is not in hot standby mode\00", align 1
-@.str.81 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.82 = private unnamed_addr constant [12 x i8] c"\22%s\22 failed\00", align 1
 @.str.84 = private unnamed_addr constant [27 x i8] c"SELECT pg_is_in_recovery()\00", align 1
 @.str.85 = private unnamed_addr constant [70 x i8] c"invalid connection state %d, probably indicative of memory corruption\00", align 1
@@ -3891,11 +3890,11 @@ define range(i32 0, 4) i32 @PQconnectPoll(ptr noundef %0) local_unnamed_addr #0 
 96:                                               ; preds = %94
   call void @free(ptr noundef nonnull %95) #23
   store ptr null, ptr %56, align 8
-  %.pre614 = load i32, ptr %54, align 4
+  %.pre615 = load i32, ptr %54, align 4
   br label %release_conn_addrinfo.exit
 
 release_conn_addrinfo.exit:                       ; preds = %94, %96
-  %97 = phi i32 [ %storemerge, %94 ], [ %.pre614, %96 ]
+  %97 = phi i32 [ %storemerge, %94 ], [ %.pre615, %96 ]
   %98 = load ptr, ptr %57, align 8
   %99 = sext i32 %97 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
@@ -3991,7 +3990,7 @@ pqParseIntParam.exit:                             ; preds = %107, %112, %114, %1
   %141 = load ptr, ptr %10, align 8
   %142 = icmp ne ptr %141, null
   %or.cond7 = select i1 %140, i1 %142, i1 false
-  br i1 %or.cond7, label %.thread618, label %143
+  br i1 %or.cond7, label %.thread619, label %143
 
 143:                                              ; preds = %136
   %144 = load ptr, ptr %137, align 8
@@ -4008,7 +4007,7 @@ pqParseIntParam.exit:                             ; preds = %107, %112, %114, %1
   %151 = load ptr, ptr %10, align 8
   %152 = icmp ne ptr %151, null
   %or.cond9 = select i1 %150, i1 %152, i1 false
-  br i1 %or.cond9, label %.thread618, label %153
+  br i1 %or.cond9, label %.thread619, label %153
 
 153:                                              ; preds = %146
   %154 = load ptr, ptr %147, align 8
@@ -4035,14 +4034,14 @@ pqParseIntParam.exit:                             ; preds = %107, %112, %114, %1
   %166 = load ptr, ptr %10, align 8
   %167 = icmp ne ptr %166, null
   %or.cond11 = select i1 %165, i1 %167, i1 false
-  br i1 %or.cond11, label %.thread618, label %168
+  br i1 %or.cond11, label %.thread619, label %168
 
 168:                                              ; preds = %163
   %169 = call ptr @gai_strerror(i32 noundef %164) #23
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef nonnull %11, ptr noundef %169) #23
   br label %.backedge.backedge
 
-.thread618:                                       ; preds = %163, %146, %136
+.thread619:                                       ; preds = %163, %146, %136
   %.ph = phi ptr [ %141, %136 ], [ %151, %146 ], [ %166, %163 ]
   store i32 0, ptr %36, align 4
   store i32 0, ptr %37, align 8
@@ -4055,8 +4054,8 @@ pqParseIntParam.exit:                             ; preds = %107, %112, %114, %1
   %.not27.i = icmp eq ptr %.pr, null
   br i1 %.not27.i, label %._crit_edge.i443, label %.lr.ph.i441.preheader
 
-.lr.ph.i441.preheader:                            ; preds = %.thread618, %170
-  %171 = phi ptr [ %.ph, %.thread618 ], [ %.pr, %170 ]
+.lr.ph.i441.preheader:                            ; preds = %.thread619, %170
+  %171 = phi ptr [ %.ph, %.thread619 ], [ %.pr, %170 ]
   br label %.lr.ph.i441
 
 .lr.ph.i441:                                      ; preds = %.lr.ph.i441.preheader, %.lr.ph.i441
@@ -4080,9 +4079,9 @@ pqParseIntParam.exit:                             ; preds = %107, %112, %114, %1
 
 .preheader.i444:                                  ; preds = %._crit_edge.i443
   %179 = icmp sgt i32 %176, 0
-  br i1 %179, label %.lr.ph32.i, label %store_conn_addrinfo.exit.thread620
+  br i1 %179, label %.lr.ph32.i, label %store_conn_addrinfo.exit.thread621
 
-store_conn_addrinfo.exit.thread620:               ; preds = %.preheader.i444
+store_conn_addrinfo.exit.thread621:               ; preds = %.preheader.i444
   %180 = load i32, ptr %59, align 4
   %181 = load ptr, ptr %10, align 8
   call void @pg_freeaddrinfo_all(i32 noundef %180, ptr noundef %181) #23
@@ -4129,7 +4128,7 @@ store_conn_addrinfo.exit:                         ; preds = %.lr.ph32.i
   call void @pg_freeaddrinfo_all(i32 noundef %203, ptr noundef %204) #23
   br i1 %.not, label %.loopexit492, label %205
 
-205:                                              ; preds = %store_conn_addrinfo.exit.thread620, %store_conn_addrinfo.exit
+205:                                              ; preds = %store_conn_addrinfo.exit.thread621, %store_conn_addrinfo.exit
   %206 = load i32, ptr %60, align 8
   %207 = icmp eq i32 %206, 1
   br i1 %207, label %.preheader, label %.thread
@@ -4185,7 +4184,7 @@ store_conn_addrinfo.exit:                         ; preds = %.lr.ph32.i
 
 222:                                              ; preds = %221
   %.pr471 = load i32, ptr %24, align 8
-  switch i32 %.pr471, label %586 [
+  switch i32 %.pr471, label %592 [
     i32 8, label %223
     i32 2, label %310
     i32 3, label %335
@@ -4196,7 +4195,7 @@ store_conn_addrinfo.exit:                         ; preds = %.lr.ph32.i
     i32 12, label %486
     i32 10, label %532
     i32 9, label %541
-    i32 13, label %564
+    i32 13, label %570
   ]
 
 223:                                              ; preds = %.thread472, %222
@@ -4582,7 +4581,7 @@ getHostaddr.exit:                                 ; preds = %237, %240
 
 383:                                              ; preds = %381
   %384 = load i8, ptr %19, align 1
-  %.pre613 = load i32, ptr %20, align 4
+  %.pre614 = load i32, ptr %20, align 4
   switch i8 %384, label %.thread489 [
     i8 82, label %385
     i8 118, label %388
@@ -4590,7 +4589,7 @@ getHostaddr.exit:                                 ; preds = %237, %240
   ]
 
 385:                                              ; preds = %383
-  %386 = add i32 %.pre613, -2001
+  %386 = add i32 %.pre614, -2001
   %or.cond19 = icmp ult i32 %386, -1993
   br i1 %or.cond19, label %387, label %.thread489
 
@@ -4599,7 +4598,7 @@ getHostaddr.exit:                                 ; preds = %237, %240
   br label %.loopexit492
 
 388:                                              ; preds = %383
-  %389 = add i32 %.pre613, -2001
+  %389 = add i32 %.pre614, -2001
   %or.cond21 = icmp ult i32 %389, -1993
   br i1 %or.cond21, label %390, label %.thread489
 
@@ -4608,7 +4607,7 @@ getHostaddr.exit:                                 ; preds = %237, %240
   br label %.loopexit492
 
 391:                                              ; preds = %383
-  %392 = add i32 %.pre613, -30001
+  %392 = add i32 %.pre614, -30001
   %or.cond23 = icmp ult i32 %392, -29993
   br i1 %or.cond23, label %393, label %.thread489
 
@@ -4652,7 +4651,7 @@ getHostaddr.exit:                                 ; preds = %237, %240
   br label %.loopexit492
 
 .thread489:                                       ; preds = %383, %385, %388, %391
-  %414 = add i32 %.pre613, -4
+  %414 = add i32 %.pre614, -4
   store i32 %414, ptr %20, align 4
   %415 = load i32, ptr %48, align 4
   %416 = load i32, ptr %47, align 8
@@ -4743,9 +4742,9 @@ getHostaddr.exit:                                 ; preds = %237, %240
   %452 = icmp eq i32 %451, 0
   br i1 %452, label %453, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %450, %453, %131, %143, %153, %162, %168, %227, %258, %269, %.critedge, %308, %309, %320, %432, %474, %485, %sendTerminateConn.exit, %sendTerminateConn.exit450, %540, %554, %sendTerminateConn.exit454, %577, %sendTerminateConn.exit456
-  %.0357.be = phi i1 [ false, %577 ], [ false, %sendTerminateConn.exit456 ], [ false, %554 ], [ false, %sendTerminateConn.exit454 ], [ false, %540 ], [ false, %sendTerminateConn.exit ], [ false, %sendTerminateConn.exit450 ], [ true, %474 ], [ false, %485 ], [ false, %432 ], [ false, %320 ], [ false, %227 ], [ false, %258 ], [ false, %.critedge ], [ false, %309 ], [ false, %308 ], [ false, %269 ], [ %.0357, %162 ], [ %.0357, %168 ], [ %.0357, %153 ], [ %.0357, %143 ], [ %.0357, %131 ], [ false, %453 ], [ false, %450 ]
-  %.0356.be = phi i1 [ false, %577 ], [ false, %sendTerminateConn.exit456 ], [ false, %554 ], [ false, %sendTerminateConn.exit454 ], [ false, %540 ], [ false, %sendTerminateConn.exit ], [ false, %sendTerminateConn.exit450 ], [ false, %474 ], [ false, %485 ], [ false, %432 ], [ false, %320 ], [ false, %227 ], [ false, %258 ], [ false, %.critedge ], [ false, %309 ], [ false, %308 ], [ false, %269 ], [ %.2, %162 ], [ %.2, %168 ], [ %.2, %153 ], [ %.2, %143 ], [ %.2, %131 ], [ false, %453 ], [ false, %450 ]
+.backedge.backedge:                               ; preds = %450, %453, %131, %143, %153, %162, %168, %227, %258, %269, %.critedge, %308, %309, %320, %432, %474, %485, %sendTerminateConn.exit, %sendTerminateConn.exit450, %540, %.tail, %sendTerminateConn.exit454, %583, %sendTerminateConn.exit456
+  %.0357.be = phi i1 [ false, %583 ], [ false, %sendTerminateConn.exit456 ], [ false, %.tail ], [ false, %sendTerminateConn.exit454 ], [ false, %540 ], [ false, %sendTerminateConn.exit ], [ false, %sendTerminateConn.exit450 ], [ true, %474 ], [ false, %485 ], [ false, %432 ], [ false, %320 ], [ false, %227 ], [ false, %258 ], [ false, %.critedge ], [ false, %309 ], [ false, %308 ], [ false, %269 ], [ %.0357, %162 ], [ %.0357, %168 ], [ %.0357, %153 ], [ %.0357, %143 ], [ %.0357, %131 ], [ false, %453 ], [ false, %450 ]
+  %.0356.be = phi i1 [ false, %583 ], [ false, %sendTerminateConn.exit456 ], [ false, %.tail ], [ false, %sendTerminateConn.exit454 ], [ false, %540 ], [ false, %sendTerminateConn.exit ], [ false, %sendTerminateConn.exit450 ], [ false, %474 ], [ false, %485 ], [ false, %432 ], [ false, %320 ], [ false, %227 ], [ false, %258 ], [ false, %.critedge ], [ false, %309 ], [ false, %308 ], [ false, %269 ], [ %.2, %162 ], [ %.2, %168 ], [ %.2, %153 ], [ %.2, %143 ], [ %.2, %131 ], [ false, %453 ], [ false, %450 ]
   br label %.backedge
 
 453:                                              ; preds = %450
@@ -4831,7 +4830,7 @@ getHostaddr.exit:                                 ; preds = %237, %240
 
 486:                                              ; preds = %222
   %487 = load i32, ptr %41, align 4
-  switch i32 %487, label %.thread623 [
+  switch i32 %487, label %.thread624 [
     i32 1, label %488
     i32 2, label %488
     i32 3, label %509
@@ -4867,10 +4866,10 @@ getHostaddr.exit:                                 ; preds = %237, %240
   br i1 %500, label %501, label %502
 
 501:                                              ; preds = %497
-  br i1 %spec.select439, label %503, label %.thread623
+  br i1 %spec.select439, label %503, label %.thread624
 
 502:                                              ; preds = %497
-  br i1 %spec.select439, label %.thread623, label %503
+  br i1 %spec.select439, label %.thread624, label %503
 
 503:                                              ; preds = %502, %501
   %.str.77.sink = phi ptr [ @.str.76, %501 ], [ @.str.77, %502 ]
@@ -4893,7 +4892,7 @@ sendTerminateConn.exit:                           ; preds = %503, %505
 509:                                              ; preds = %486, %486, %486
   %510 = load i32, ptr %42, align 4
   %511 = icmp slt i32 %510, 90000
-  br i1 %511, label %.thread622, label %512
+  br i1 %511, label %.thread623, label %512
 
 512:                                              ; preds = %509
   %.pre = load i32, ptr %38, align 4
@@ -4914,48 +4913,48 @@ sendTerminateConn.exit:                           ; preds = %503, %505
   %518 = icmp eq i32 %487, 3
   br i1 %518, label %520, label %522
 
-.thread622:                                       ; preds = %509
+.thread623:                                       ; preds = %509
   store i32 2, ptr %38, align 4
   %519 = icmp eq i32 %487, 3
-  br i1 %519, label %.thread623, label %.thread624
+  br i1 %519, label %.thread624, label %.thread625
 
 520:                                              ; preds = %517
   %521 = icmp eq i32 %.pre, 1
-  br i1 %521, label %.thread624, label %.thread623
+  br i1 %521, label %.thread625, label %.thread624
 
 522:                                              ; preds = %517
   %523 = icmp eq i32 %.pre, 2
-  br i1 %523, label %.thread624, label %.thread623
+  br i1 %523, label %.thread625, label %.thread624
 
-.thread624:                                       ; preds = %522, %.thread622, %520
-  %.str.80.sink = phi ptr [ @.str.79, %520 ], [ @.str.80, %.thread622 ], [ @.str.80, %522 ]
+.thread625:                                       ; preds = %522, %.thread623, %520
+  %.str.80.sink = phi ptr [ @.str.79, %520 ], [ @.str.80, %.thread623 ], [ @.str.80, %522 ]
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull %.str.80.sink) #23
   store i32 0, ptr %24, align 8
   %524 = load i32, ptr %39, align 8
   %.not.i449 = icmp eq i32 %524, -1
   br i1 %.not.i449, label %sendTerminateConn.exit450, label %525
 
-525:                                              ; preds = %.thread624
+525:                                              ; preds = %.thread625
   %526 = call i32 @pqPutMsgStart(i8 noundef signext 88, ptr noundef nonnull %0) #23
   %527 = call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #23
   %528 = call i32 @pqFlush(ptr noundef nonnull %0) #23
   br label %sendTerminateConn.exit450
 
-sendTerminateConn.exit450:                        ; preds = %.thread624, %525
+sendTerminateConn.exit450:                        ; preds = %.thread625, %525
   store i8 1, ptr %35, align 1
   br label %.backedge.backedge
 
-.thread623:                                       ; preds = %.thread622, %486, %522, %520, %501, %502
+.thread624:                                       ; preds = %.thread623, %486, %522, %520, %501, %502
   %529 = load ptr, ptr %56, align 8
   %.not.i451 = icmp eq ptr %529, null
   br i1 %.not.i451, label %release_conn_addrinfo.exit452, label %530
 
-530:                                              ; preds = %.thread623
+530:                                              ; preds = %.thread624
   call void @free(ptr noundef nonnull %529) #23
   store ptr null, ptr %56, align 8
   br label %release_conn_addrinfo.exit452
 
-release_conn_addrinfo.exit452:                    ; preds = %.thread623, %530
+release_conn_addrinfo.exit452:                    ; preds = %.thread624, %530
   call void @resetPQExpBuffer(ptr noundef nonnull %52) #23
   %531 = getelementptr inbounds i8, ptr %0, i64 1024
   store i32 0, ptr %531, align 8
@@ -5009,115 +5008,129 @@ release_conn_addrinfo.exit452:                    ; preds = %.thread623, %530
 546:                                              ; preds = %543
   %547 = call ptr @PQgetResult(ptr noundef nonnull %0) #23
   %.not397 = icmp eq ptr %547, null
-  br i1 %.not397, label %558, label %548
+  br i1 %.not397, label %564, label %548
 
 548:                                              ; preds = %546
   %549 = call i32 @PQresultStatus(ptr noundef nonnull %547) #23
   %550 = icmp eq i32 %549, 2
-  br i1 %550, label %551, label %558
+  br i1 %550, label %551, label %564
 
 551:                                              ; preds = %548
   %552 = call i32 @PQntuples(ptr noundef nonnull %547) #23
   %553 = icmp eq i32 %552, 1
-  br i1 %553, label %554, label %558
+  br i1 %553, label %sub_0, label %564
 
-554:                                              ; preds = %551
-  %555 = call ptr @PQgetvalue(ptr noundef nonnull %547, i32 noundef 0, i32 noundef 0) #23
-  %556 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %555, ptr noundef nonnull dereferenceable(3) @.str.81, i64 noundef 2) #24
-  %557 = icmp eq i32 %556, 0
-  %spec.select = select i1 %557, i32 1, i32 2
+sub_0:                                            ; preds = %551
+  %554 = call ptr @PQgetvalue(ptr noundef nonnull %547, i32 noundef 0, i32 noundef 0) #23
+  %555 = load i8, ptr %554, align 1
+  %556 = zext i8 %555 to i32
+  %557 = add nsw i32 %556, -111
+  %.not565 = icmp eq i32 %557, 0
+  br i1 %.not565, label %sub_1, label %.tail
+
+sub_1:                                            ; preds = %sub_0
+  %558 = getelementptr inbounds i8, ptr %554, i64 1
+  %559 = load i8, ptr %558, align 1
+  %560 = zext i8 %559 to i32
+  %561 = add nsw i32 %560, -110
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %562 = phi i32 [ %557, %sub_0 ], [ %561, %sub_1 ]
+  %563 = icmp eq i32 %562, 0
+  %spec.select = select i1 %563, i32 1, i32 2
   store i32 %spec.select, ptr %40, align 8
   store i32 %spec.select, ptr %38, align 4
   call void @PQclear(ptr noundef nonnull %547) #23
   store i32 10, ptr %24, align 8
   br label %.backedge.backedge
 
-558:                                              ; preds = %551, %548, %546
+564:                                              ; preds = %551, %548, %546
   call void @PQclear(ptr noundef %547) #23
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.75) #23
   store i32 0, ptr %24, align 8
-  %559 = load i32, ptr %39, align 8
-  %.not.i453 = icmp eq i32 %559, -1
-  br i1 %.not.i453, label %sendTerminateConn.exit454, label %560
+  %565 = load i32, ptr %39, align 8
+  %.not.i453 = icmp eq i32 %565, -1
+  br i1 %.not.i453, label %sendTerminateConn.exit454, label %566
 
-560:                                              ; preds = %558
-  %561 = call i32 @pqPutMsgStart(i8 noundef signext 88, ptr noundef nonnull %0) #23
-  %562 = call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #23
-  %563 = call i32 @pqFlush(ptr noundef nonnull %0) #23
+566:                                              ; preds = %564
+  %567 = call i32 @pqPutMsgStart(i8 noundef signext 88, ptr noundef nonnull %0) #23
+  %568 = call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #23
+  %569 = call i32 @pqFlush(ptr noundef nonnull %0) #23
   br label %sendTerminateConn.exit454
 
-sendTerminateConn.exit454:                        ; preds = %558, %560
+sendTerminateConn.exit454:                        ; preds = %564, %566
   store i8 1, ptr %35, align 1
   br label %.backedge.backedge
 
-564:                                              ; preds = %222
+570:                                              ; preds = %222
   store i32 0, ptr %24, align 8
-  %565 = call i32 @PQconsumeInput(ptr noundef nonnull %0) #23
-  %.not392 = icmp eq i32 %565, 0
-  br i1 %.not392, label %.loopexit492, label %566
+  %571 = call i32 @PQconsumeInput(ptr noundef nonnull %0) #23
+  %.not392 = icmp eq i32 %571, 0
+  br i1 %.not392, label %.loopexit492, label %572
 
-566:                                              ; preds = %564
-  %567 = call i32 @PQisBusy(ptr noundef nonnull %0) #23
-  %.not393 = icmp eq i32 %567, 0
-  br i1 %.not393, label %569, label %568
+572:                                              ; preds = %570
+  %573 = call i32 @PQisBusy(ptr noundef nonnull %0) #23
+  %.not393 = icmp eq i32 %573, 0
+  br i1 %.not393, label %575, label %574
 
-568:                                              ; preds = %566
+574:                                              ; preds = %572
   store i32 13, ptr %24, align 8
   br label %.loopexit493
 
-569:                                              ; preds = %566
-  %570 = call ptr @PQgetResult(ptr noundef nonnull %0) #23
-  %.not394 = icmp eq ptr %570, null
-  br i1 %.not394, label %580, label %571
+575:                                              ; preds = %572
+  %576 = call ptr @PQgetResult(ptr noundef nonnull %0) #23
+  %.not394 = icmp eq ptr %576, null
+  br i1 %.not394, label %586, label %577
 
-571:                                              ; preds = %569
-  %572 = call i32 @PQresultStatus(ptr noundef nonnull %570) #23
-  %573 = icmp eq i32 %572, 2
-  br i1 %573, label %574, label %580
+577:                                              ; preds = %575
+  %578 = call i32 @PQresultStatus(ptr noundef nonnull %576) #23
+  %579 = icmp eq i32 %578, 2
+  br i1 %579, label %580, label %586
 
-574:                                              ; preds = %571
-  %575 = call i32 @PQntuples(ptr noundef nonnull %570) #23
-  %576 = icmp eq i32 %575, 1
-  br i1 %576, label %577, label %580
+580:                                              ; preds = %577
+  %581 = call i32 @PQntuples(ptr noundef nonnull %576) #23
+  %582 = icmp eq i32 %581, 1
+  br i1 %582, label %583, label %586
 
-577:                                              ; preds = %574
-  %578 = call ptr @PQgetvalue(ptr noundef nonnull %570, i32 noundef 0, i32 noundef 0) #23
-  %lhsc = load i8, ptr %578, align 1
-  %579 = icmp eq i8 %lhsc, 116
-  %spec.select673 = select i1 %579, i32 1, i32 2
-  store i32 %spec.select673, ptr %38, align 4
-  call void @PQclear(ptr noundef nonnull %570) #23
+583:                                              ; preds = %580
+  %584 = call ptr @PQgetvalue(ptr noundef nonnull %576, i32 noundef 0, i32 noundef 0) #23
+  %lhsc = load i8, ptr %584, align 1
+  %585 = icmp eq i8 %lhsc, 116
+  %spec.select674 = select i1 %585, i32 1, i32 2
+  store i32 %spec.select674, ptr %38, align 4
+  call void @PQclear(ptr noundef nonnull %576) #23
   store i32 10, ptr %24, align 8
   br label %.backedge.backedge
 
-580:                                              ; preds = %574, %571, %569
-  call void @PQclear(ptr noundef %570) #23
+586:                                              ; preds = %580, %577, %575
+  call void @PQclear(ptr noundef %576) #23
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.84) #23
   store i32 0, ptr %24, align 8
-  %581 = load i32, ptr %39, align 8
-  %.not.i455 = icmp eq i32 %581, -1
-  br i1 %.not.i455, label %sendTerminateConn.exit456, label %582
+  %587 = load i32, ptr %39, align 8
+  %.not.i455 = icmp eq i32 %587, -1
+  br i1 %.not.i455, label %sendTerminateConn.exit456, label %588
 
-582:                                              ; preds = %580
-  %583 = call i32 @pqPutMsgStart(i8 noundef signext 88, ptr noundef nonnull %0) #23
-  %584 = call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #23
-  %585 = call i32 @pqFlush(ptr noundef nonnull %0) #23
+588:                                              ; preds = %586
+  %589 = call i32 @pqPutMsgStart(i8 noundef signext 88, ptr noundef nonnull %0) #23
+  %590 = call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #23
+  %591 = call i32 @pqFlush(ptr noundef nonnull %0) #23
   br label %sendTerminateConn.exit456
 
-sendTerminateConn.exit456:                        ; preds = %580, %582
+sendTerminateConn.exit456:                        ; preds = %586, %588
   store i8 1, ptr %35, align 1
   br label %.backedge.backedge
 
-586:                                              ; preds = %222
+592:                                              ; preds = %222
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.85, i32 noundef %.pr471) #23
   br label %.loopexit492
 
-.loopexit492:                                     ; preds = %564, %541, %532, %448, %442, %222, %222, %store_conn_addrinfo.exit, %89, %store_conn_addrinfo.exit.thread, %pqParseIntParam.exit, %514, %494, %419, %408, %413, %353, %350, %351, %27, %586, %484, %441, %437, %436, %433, %427, %402, %390, %387, %379, %369, %364, %360, %330, %314, %259, %32
+.loopexit492:                                     ; preds = %570, %541, %532, %448, %442, %222, %222, %store_conn_addrinfo.exit, %89, %store_conn_addrinfo.exit.thread, %pqParseIntParam.exit, %514, %494, %419, %408, %413, %353, %350, %351, %27, %592, %484, %441, %437, %436, %433, %427, %402, %390, %387, %379, %369, %364, %360, %330, %314, %259, %32
   store i32 1, ptr %24, align 8
   br label %.loopexit493
 
-.loopexit493:                                     ; preds = %454, %381, %374, %419, %397, %30, %23, %1, %.loopexit492, %568, %545, %539, %536, %release_conn_addrinfo.exit452, %516, %496, %373, %334, %307, %26
-  %.0 = phi i32 [ 0, %.loopexit492 ], [ 1, %568 ], [ 1, %545 ], [ 1, %536 ], [ 1, %539 ], [ 1, %496 ], [ 3, %release_conn_addrinfo.exit452 ], [ 1, %516 ], [ 1, %373 ], [ 2, %334 ], [ 2, %307 ], [ 3, %26 ], [ 0, %1 ], [ 0, %23 ], [ 1, %30 ], [ 1, %397 ], [ 1, %419 ], [ 1, %374 ], [ 1, %381 ], [ 1, %454 ]
+.loopexit493:                                     ; preds = %454, %381, %374, %419, %397, %30, %23, %1, %.loopexit492, %574, %545, %539, %536, %release_conn_addrinfo.exit452, %516, %496, %373, %334, %307, %26
+  %.0 = phi i32 [ 0, %.loopexit492 ], [ 1, %574 ], [ 1, %545 ], [ 1, %536 ], [ 1, %539 ], [ 1, %496 ], [ 3, %release_conn_addrinfo.exit452 ], [ 1, %516 ], [ 1, %373 ], [ 2, %334 ], [ 2, %307 ], [ 3, %26 ], [ 0, %1 ], [ 0, %23 ], [ 1, %30 ], [ 1, %397 ], [ 1, %419 ], [ 1, %374 ], [ 1, %381 ], [ 1, %454 ]
   ret i32 %.0
 }
 

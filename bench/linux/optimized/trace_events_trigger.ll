@@ -32,7 +32,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_event_trigge
 @event_mutex = external dso_local global %struct.mutex, align 8
 @.str.1 = private unnamed_addr constant [3 x i8] c" \09\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c":\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"if\00", align 1
 @system_state = external dso_local local_unnamed_addr global i32, align 4
 @named_triggers = internal global %struct.list_head { ptr @named_triggers, ptr @named_triggers }, align 8
 @.str.4 = private unnamed_addr constant [9 x i8] c"%s:%s:%s\00", align 1
@@ -521,7 +520,7 @@ define internal noundef i32 @event_trigger_release(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @register_event_command(ptr noundef %0) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @register_event_command(ptr noundef %0) local_unnamed_addr #4 section ".init.text" align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @trigger_cmd_mutex) #15
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   br label %3
@@ -557,7 +556,7 @@ define dso_local noundef i32 @register_event_command(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @unregister_event_command(ptr nocapture noundef readonly %0) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @unregister_event_command(ptr nocapture noundef readonly %0) local_unnamed_addr #4 section ".init.text" align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @trigger_cmd_mutex) #15
   %2 = load ptr, ptr @trigger_commands, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -770,7 +769,7 @@ define dso_local noundef zeroext i1 @event_trigger_empty_param(ptr noundef readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @event_trigger_separate_filter(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @event_trigger_separate_filter(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr null, ptr %2, align 8
@@ -932,88 +931,95 @@ define dso_local i32 @set_trigger_filter(ptr noundef %0, ptr noundef %1, ptr noc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   store ptr null, ptr %5, align 8
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %30, label %7
+  br i1 %6, label %31, label %7
 
 7:                                                ; preds = %3
   %8 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.1) #15
   %9 = load i8, ptr %8, align 1
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %51, label %11
+  %cond = icmp eq i8 %9, 105
+  br i1 %cond, label %sub_1, label %.tail.thread
 
-11:                                               ; preds = %7
-  %12 = call i32 @strcmp(ptr noundef %8, ptr noundef nonnull dereferenceable(3) @.str.3) #15
-  %13 = icmp eq i32 %12, 0
-  %14 = load ptr, ptr %4, align 8
-  %15 = icmp ne ptr %14, null
-  %16 = select i1 %13, i1 %15, i1 false
-  br i1 %16, label %17, label %51
+sub_1:                                            ; preds = %7
+  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %11 = load i8, ptr %10, align 1
+  %.not4 = icmp eq i8 %11, 102
+  br i1 %.not4, label %.tail, label %.tail.thread
 
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %2, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = call i32 @create_event_filter(ptr noundef %19, ptr noundef %21, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef nonnull %5) #15
-  %23 = load ptr, ptr %5, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %30, label %25
+.tail:                                            ; preds = %sub_1
+  %12 = getelementptr inbounds i8, ptr %8, i64 2
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 0
+  %15 = load ptr, ptr %4, align 8
+  %16 = icmp ne ptr %15, null
+  %17 = select i1 %14, i1 %16, i1 false
+  br i1 %17, label %18, label %.tail.thread
 
-25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = load ptr, ptr %26, align 8
-  call void @kfree(ptr noundef %27) #15
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr null, ptr %29, align 8
-  br label %30
+18:                                               ; preds = %.tail
+  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = call i32 @create_event_filter(ptr noundef %20, ptr noundef %22, ptr noundef nonnull %15, i1 noundef zeroext true, ptr noundef nonnull %5) #15
+  %24 = load ptr, ptr %5, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %31, label %26
 
-30:                                               ; preds = %25, %17, %3
-  %31 = phi ptr [ %28, %25 ], [ null, %17 ], [ null, %3 ]
-  %32 = phi i32 [ %22, %25 ], [ %22, %17 ], [ -22, %3 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
-  %34 = load volatile ptr, ptr %33, align 8
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = load ptr, ptr %27, align 8
+  call void @kfree(ptr noundef %28) #15
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr null, ptr %30, align 8
+  br label %31
+
+31:                                               ; preds = %26, %18, %3
+  %32 = phi ptr [ %29, %26 ], [ null, %18 ], [ null, %3 ]
+  %33 = phi i32 [ %23, %26 ], [ %23, %18 ], [ -22, %3 ]
+  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = load volatile ptr, ptr %34, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !22
-  store volatile ptr %31, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %41, label %36
+  store volatile ptr %32, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %42, label %37
 
-36:                                               ; preds = %30
-  %37 = load i32, ptr @system_state, align 4
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %40, label %39
+37:                                               ; preds = %31
+  %38 = load i32, ptr @system_state, align 4
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %41, label %40
 
-39:                                               ; preds = %36
+40:                                               ; preds = %37
   call void @synchronize_srcu(ptr noundef nonnull @tracepoint_srcu) #15
   call void @synchronize_rcu() #15
-  br label %40
-
-40:                                               ; preds = %39, %36
-  call void @free_event_filter(ptr noundef nonnull %34) #15
   br label %41
 
-41:                                               ; preds = %40, %30
-  %42 = getelementptr inbounds i8, ptr %1, i64 40
-  %43 = load ptr, ptr %42, align 8
-  call void @kfree(ptr noundef %43) #15
-  store ptr null, ptr %42, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %51, label %46
+41:                                               ; preds = %40, %37
+  call void @free_event_filter(ptr noundef nonnull %35) #15
+  br label %42
 
-46:                                               ; preds = %41
-  %47 = call noalias ptr @kstrdup(ptr noundef nonnull %44, i32 noundef 3264) #15
-  store ptr %47, ptr %42, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %51
+42:                                               ; preds = %41, %31
+  %43 = getelementptr inbounds i8, ptr %1, i64 40
+  %44 = load ptr, ptr %43, align 8
+  call void @kfree(ptr noundef %44) #15
+  store ptr null, ptr %43, align 8
+  %45 = load ptr, ptr %4, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %.tail.thread, label %47
 
-49:                                               ; preds = %46
-  %50 = load volatile ptr, ptr %33, align 8
-  call void @free_event_filter(ptr noundef %50) #15
-  store ptr null, ptr %33, align 8
-  br label %51
+47:                                               ; preds = %42
+  %48 = call noalias ptr @kstrdup(ptr noundef nonnull %45, i32 noundef 3264) #15
+  store ptr %48, ptr %43, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %.tail.thread
 
-51:                                               ; preds = %49, %46, %41, %11, %7
-  %52 = phi i32 [ %32, %46 ], [ -12, %49 ], [ %32, %41 ], [ -22, %11 ], [ -22, %7 ]
+50:                                               ; preds = %47
+  %51 = load volatile ptr, ptr %34, align 8
+  call void @free_event_filter(ptr noundef %51) #15
+  store ptr null, ptr %34, align 8
+  br label %.tail.thread
+
+.tail.thread:                                     ; preds = %7, %sub_1, %50, %47, %42, %.tail
+  %52 = phi i32 [ %33, %47 ], [ -12, %50 ], [ %33, %42 ], [ -22, %.tail ], [ -22, %sub_1 ], [ -22, %7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   ret i32 %52
 }
@@ -1081,7 +1087,7 @@ define dso_local zeroext i1 @is_named_trigger(ptr noundef readnone %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @save_named_trigger(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @save_named_trigger(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #15
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   store ptr %3, ptr %4, align 8

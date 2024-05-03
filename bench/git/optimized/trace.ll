@@ -30,9 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [19 x i8] c"setup: prefix: %s\0A\00", align 1
 @getnanotime.offset = internal unnamed_addr global i64 0, align 8
 @command_line = internal global %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
-@.str.12 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.13 = private unnamed_addr constant [6 x i8] c"false\00", align 1
-@.str.14 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @.str.15 = private unnamed_addr constant [5 x i8] c"true\00", align 1
 @sane_ctype = external local_unnamed_addr constant [256 x i8], align 16
 @.str.16 = private unnamed_addr constant [36 x i8] c"could not open '%s' for tracing: %s\00", align 1
@@ -125,35 +123,48 @@ cond.end:                                         ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end, %cond.end
   %cond30 = phi ptr [ %call, %cond.end ], [ %override_envvar, %if.end ]
   %strcmpload = load i8, ptr %cond30, align 1
-  %tobool5.not = icmp eq i8 %strcmpload, 0
-  br i1 %tobool5.not, label %if.then12, label %lor.lhs.false6
+  switch i8 %strcmpload, label %lor.lhs.false9 [
+    i8 0, label %if.then12
+    i8 48, label %lor.lhs.false6.tail
+  ]
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond30, ptr noundef nonnull dereferenceable(2) @.str.12) #15
-  %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.then12, label %lor.lhs.false9
+lor.lhs.false6.tail:                              ; preds = %lor.lhs.false
+  %1 = getelementptr inbounds i8, ptr %cond30, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.then12, label %lor.lhs.false9.thread
 
-lor.lhs.false9:                                   ; preds = %lor.lhs.false6
+lor.lhs.false9:                                   ; preds = %lor.lhs.false
   %call10 = tail call i32 @strcasecmp(ptr noundef nonnull %cond30, ptr noundef nonnull @.str.13) #15
   %tobool11.not = icmp eq i32 %call10, 0
-  br i1 %tobool11.not, label %if.then12, label %if.else
+  br i1 %tobool11.not, label %if.then12, label %sub_031
 
-if.then12:                                        ; preds = %lor.lhs.false9, %lor.lhs.false6, %lor.lhs.false, %cond.end
+lor.lhs.false9.thread:                            ; preds = %lor.lhs.false6.tail
+  %call1036 = tail call i32 @strcasecmp(ptr noundef nonnull %cond30, ptr noundef nonnull @.str.13) #15
+  %tobool11.not37 = icmp eq i32 %call1036, 0
+  br i1 %tobool11.not37, label %if.then12, label %lor.lhs.false16
+
+if.then12:                                        ; preds = %lor.lhs.false, %lor.lhs.false9.thread, %lor.lhs.false9, %lor.lhs.false6.tail, %cond.end
   %fd13 = getelementptr inbounds i8, ptr %key, i64 8
   store i32 0, ptr %fd13, align 8
   br label %if.end50
 
-if.else:                                          ; preds = %lor.lhs.false9
-  %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond30, ptr noundef nonnull dereferenceable(2) @.str.14) #15
-  %tobool15.not = icmp eq i32 %call14, 0
-  br i1 %tobool15.not, label %if.then19, label %lor.lhs.false16
+sub_031:                                          ; preds = %lor.lhs.false9
+  %.not34 = icmp eq i8 %strcmpload, 49
+  br i1 %.not34, label %if.else.tail, label %lor.lhs.false16
 
-lor.lhs.false16:                                  ; preds = %if.else
+if.else.tail:                                     ; preds = %sub_031
+  %4 = getelementptr inbounds i8, ptr %cond30, i64 1
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.then19, label %lor.lhs.false16
+
+lor.lhs.false16:                                  ; preds = %lor.lhs.false9.thread, %sub_031, %if.else.tail
   %call17 = tail call i32 @strcasecmp(ptr noundef nonnull %cond30, ptr noundef nonnull @.str.15) #15
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.then19, label %if.else21
 
-if.then19:                                        ; preds = %lor.lhs.false16, %if.else
+if.then19:                                        ; preds = %lor.lhs.false16, %if.else.tail
   %fd20 = getelementptr inbounds i8, ptr %key, i64 8
   store i32 2, ptr %fd20, align 8
   br label %if.end50
@@ -166,9 +177,9 @@ if.else21:                                        ; preds = %lor.lhs.false16
 land.lhs.true:                                    ; preds = %if.else21
   %idxprom = zext i8 %strcmpload to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
-  %1 = load i8, ptr %arrayidx, align 1
-  %2 = and i8 %1, 2
-  %cmp23.not = icmp eq i8 %2, 0
+  %7 = load i8, ptr %arrayidx, align 1
+  %8 = and i8 %7, 2
+  %cmp23.not = icmp eq i8 %8, 0
   br i1 %cmp23.not, label %if.else28, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true
@@ -188,8 +199,8 @@ if.then31:                                        ; preds = %if.else28
 
 if.then36:                                        ; preds = %if.then31
   %call37 = tail call ptr @__errno_location() #16
-  %3 = load i32, ptr %call37, align 4
-  %call38 = tail call ptr @strerror(i32 noundef %3) #14
+  %9 = load i32, ptr %call37, align 4
+  %call38 = tail call ptr @strerror(i32 noundef %9) #14
   tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.16, ptr noundef nonnull %cond30, ptr noundef %call38) #14
   tail call void @trace_disable(ptr noundef nonnull %key)
   br label %if.end50
@@ -203,8 +214,8 @@ if.else39:                                        ; preds = %if.then31
   br label %if.end50
 
 if.else44:                                        ; preds = %if.else28
-  %4 = load ptr, ptr %key, align 8
-  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.17, ptr noundef %4, ptr noundef nonnull %cond30, ptr noundef %4) #14
+  %10 = load ptr, ptr %key, align 8
+  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.17, ptr noundef %10, ptr noundef nonnull %cond30, ptr noundef %10) #14
   tail call void @trace_disable(ptr noundef nonnull %key)
   br label %if.end50
 
@@ -238,7 +249,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @trace_want(ptr nocapture noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @trace_want(ptr nocapture noundef %key) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @get_trace_fd(ptr noundef %key, ptr noundef null)
   %tobool = icmp ne i32 %call, 0
@@ -292,7 +303,7 @@ define dso_local void @trace_strbuf_fl(ptr noundef %file, i32 noundef %line, ptr
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_performance_vprintf_fl.buf, i64 24, i1 false)
-  %call = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef %key, ptr noundef nonnull %buf), !range !5
+  %call = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef %key, ptr noundef nonnull %buf)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -358,7 +369,7 @@ return:                                           ; preds = %entry, %print_trace
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr nocapture noundef %key, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr nocapture noundef %key, ptr noundef %buf) unnamed_addr #0 {
 entry:
   %tv = alloca %struct.timeval, align 8
   %tm = alloca %struct.tm, align 8
@@ -422,7 +433,7 @@ strbuf_addch.exit:                                ; preds = %while.body, %if.the
   store i8 0, ptr %arrayidx3.i, align 1
   %12 = load i64, ptr %len, align 8
   %cmp = icmp ult i64 %12, 40
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !6
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !5
 
 return:                                           ; preds = %strbuf_addch.exit, %if.end4, %if.end, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 1, %if.end4 ], [ 1, %strbuf_addch.exit ]
@@ -565,7 +576,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_performance_vprintf_fl.buf, i64 24, i1 false)
-  %call.i = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef %key, ptr noundef nonnull %buf.i), !range !5
+  %call.i = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef %key, ptr noundef nonnull %buf.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %trace_vprintf_fl.exit, label %if.end.i
 
@@ -637,7 +648,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_performance_vprintf_fl.buf, i64 24, i1 false)
-  %call.i = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @trace_default_key, ptr noundef nonnull %buf.i), !range !5
+  %call.i = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @trace_default_key, ptr noundef nonnull %buf.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %trace_argv_vprintf_fl.exit, label %if.end.i
 
@@ -717,7 +728,7 @@ define internal fastcc void @trace_performance_vprintf_fl(ptr noundef %file, i32
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_performance_vprintf_fl.buf, i64 24, i1 false)
-  %call = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @trace_perf_key, ptr noundef nonnull %buf), !range !5
+  %call = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @trace_perf_key, ptr noundef nonnull %buf)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1000,7 +1011,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 sw.epilog:                                        ; preds = %strbuf_addch.exit, %sw.bb3, %sw.bb2, %sw.bb
   %incdec.ptr = getelementptr inbounds i8, ptr %path.addr.0, i64 1
-  br label %while.cond, !llvm.loop !8
+  br label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
   %8 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @quote_crnl.new_path, i64 0, i32 2), align 8
@@ -1072,7 +1083,7 @@ return:                                           ; preds = %if.then3.i, %strbuf
   ret void
 }
 
-; Function Attrs: nounwind
+; Function Attrs: nofree nounwind
 declare i32 @atexit(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
@@ -1101,17 +1112,14 @@ declare void @sq_quote_argv_pretty(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree
 declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
@@ -1119,18 +1127,18 @@ declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) lo
 declare void @warning(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #5
+declare ptr @strerror(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #10
+declare ptr @__errno_location() local_unnamed_addr #11
 
 declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1141,7 +1149,7 @@ declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #12
@@ -1160,13 +1168,13 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nounwind }
@@ -1181,7 +1189,6 @@ attributes #17 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

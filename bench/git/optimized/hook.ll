@@ -17,7 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [5 x i8] c"path\00", align 1
 @.str.5 = private unnamed_addr constant [31 x i8] c"file to read into hooks' stdin\00", align 1
 @builtin_hook_run_usage = internal constant [2 x ptr] [ptr @.str.8, ptr null], align 16
-@.str.6 = private unnamed_addr constant [3 x i8] c"--\00", align 1
 @.str.7 = private unnamed_addr constant [17 x i8] c"--end-of-options\00", align 1
 @.str.8 = private unnamed_addr constant [81 x i8] c"git hook run [--ignore-missing] [--to-stdin=<path>] <hook-name> [-- <hook-args>]\00", align 1
 
@@ -99,16 +98,28 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.6) #7
-  %tobool27.not = icmp eq i32 %call26, 0
-  br i1 %tobool27.not, label %if.end33, label %land.lhs.true28
+  %1 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %1, 45
+  br i1 %.not, label %sub_1, label %land.lhs.true28
 
-land.lhs.true28:                                  ; preds = %land.lhs.true
+sub_1:                                            ; preds = %land.lhs.true
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not13 = icmp eq i8 %3, 45
+  br i1 %.not13, label %land.lhs.true.tail, label %land.lhs.true28
+
+land.lhs.true.tail:                               ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.end33, label %land.lhs.true28
+
+land.lhs.true28:                                  ; preds = %sub_1, %land.lhs.true, %land.lhs.true.tail
   %call30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.7) #7
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.end33, label %usage
 
-if.end33:                                         ; preds = %land.lhs.true28, %land.lhs.true
+if.end33:                                         ; preds = %land.lhs.true28, %land.lhs.true.tail
   %cmp3411.not = icmp eq i32 %call, 2
   br i1 %cmp3411.not, label %for.end, label %for.body.lr.ph
 
@@ -120,17 +131,17 @@ for.body.lr.ph:                                   ; preds = %if.end33
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 2, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %arrayidx35 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx35, align 8
-  %call36 = call ptr @strvec_push(ptr noundef nonnull %args, ptr noundef %1) #6
+  %7 = load ptr, ptr %arrayidx35, align 8
+  %call36 = call ptr @strvec_push(ptr noundef nonnull %args, ptr noundef %7) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.end, %if.end33
   call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #6
-  %2 = load ptr, ptr %argv, align 8
-  %3 = load i32, ptr %ignore_missing, align 4
-  %tobool38.not = icmp eq i32 %3, 0
+  %8 = load ptr, ptr %argv, align 8
+  %9 = load i32, ptr %ignore_missing, align 4
+  %tobool38.not = icmp eq i32 %9, 0
   br i1 %tobool38.not, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %for.end
@@ -141,7 +152,7 @@ if.then39:                                        ; preds = %for.end
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then39, %for.end
-  %call41 = call i32 @run_hooks_opt(ptr noundef %2, ptr noundef nonnull %opt) #6
+  %call41 = call i32 @run_hooks_opt(ptr noundef %8, ptr noundef nonnull %opt) #6
   %cmp42 = icmp slt i32 %call41, 0
   %spec.store.select = select i1 %cmp42, i32 1, i32 %call41
   ret i32 %spec.store.select

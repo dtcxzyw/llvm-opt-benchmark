@@ -21,8 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [4 x i8] c".sv\00", align 1
 @.str.14 = private unnamed_addr constant [19 x i8] c"Did you mean \22%s\22?\00", align 1
 @.str.15 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
-@.str.16 = private unnamed_addr constant [2 x i8] c"v\00", align 1
-@.str.17 = private unnamed_addr constant [3 x i8] c"sv\00", align 1
 @.str.18 = private unnamed_addr constant [6 x i8] c"rtlil\00", align 1
 @.str.20 = private unnamed_addr constant [69 x i8] c"usage: %%yosys [-T <module>] [-D <defines>] [-bismlcvh] <file_name>\0A\00", align 1
 @.str.21 = private unnamed_addr constant [54 x i8] c"\09         reads Verilog or SystemVerilog using Yosys\0A\00", align 1
@@ -82,7 +80,7 @@ define void @Wln_Init(ptr noundef %0) local_unnamed_addr #0 {
 declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandYosys(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandYosys(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #8
   br label %4
 
@@ -184,7 +182,7 @@ define internal noundef i32 @Abc_CommandYosys(ptr noundef %0, i32 noundef %1, pt
 
 37:                                               ; preds = %34
   %puts112 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %81
+  br label %91
 
 38:                                               ; preds = %34
   %39 = sext i32 %35 to i64
@@ -206,73 +204,109 @@ define internal noundef i32 @Abc_CommandYosys(ptr noundef %0, i32 noundef %1, pt
 
 47:                                               ; preds = %46, %44
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.15)
-  br label %81
+  br label %91
 
 48:                                               ; preds = %38
   %49 = tail call i32 @fclose(ptr noundef nonnull %42)
   %.not103 = icmp eq i32 %.091, 0
   %50 = tail call ptr @Extra_FileNameExtension(ptr noundef %41) #8
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(2) @.str.16) #9
-  %.not104 = icmp eq i32 %51, 0
-  br i1 %.not103, label %62, label %52
+  %51 = load i8, ptr %50, align 1
+  %.not171 = icmp eq i8 %51, 118
+  br i1 %.not103, label %sub_0127, label %sub_0
 
-52:                                               ; preds = %48
-  br i1 %.not104, label %60, label %53
+sub_0:                                            ; preds = %48
+  br i1 %.not171, label %.tail, label %sub_0123
 
-53:                                               ; preds = %52
-  %54 = tail call ptr @Extra_FileNameExtension(ptr noundef %41) #8
-  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(3) @.str.17) #9
-  %.not108 = icmp eq i32 %55, 0
-  br i1 %.not108, label %60, label %56
+.tail:                                            ; preds = %sub_0
+  %52 = getelementptr inbounds i8, ptr %50, i64 1
+  %53 = load i8, ptr %52, align 1
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %65, label %sub_0123
 
-56:                                               ; preds = %53
-  %57 = tail call ptr @Extra_FileNameExtension(ptr noundef %41) #8
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(6) @.str.18) #9
-  %.not109 = icmp eq i32 %58, 0
-  br i1 %.not109, label %60, label %59
+sub_0123:                                         ; preds = %sub_0, %.tail
+  %55 = tail call ptr @Extra_FileNameExtension(ptr noundef %41) #8
+  %56 = load i8, ptr %55, align 1
+  %.not169 = icmp eq i8 %56, 115
+  br i1 %.not169, label %sub_1124, label %.tail122.thread
 
-59:                                               ; preds = %56
+sub_1124:                                         ; preds = %sub_0123
+  %57 = getelementptr inbounds i8, ptr %55, i64 1
+  %58 = load i8, ptr %57, align 1
+  %.not170 = icmp eq i8 %58, 118
+  br i1 %.not170, label %.tail122, label %.tail122.thread
+
+.tail122:                                         ; preds = %sub_1124
+  %59 = getelementptr inbounds i8, ptr %55, i64 2
+  %60 = load i8, ptr %59, align 1
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %65, label %.tail122.thread
+
+.tail122.thread:                                  ; preds = %sub_1124, %sub_0123, %.tail122
+  %62 = tail call ptr @Extra_FileNameExtension(ptr noundef %41) #8
+  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(6) @.str.18) #9
+  %.not109 = icmp eq i32 %63, 0
+  br i1 %.not109, label %65, label %64
+
+64:                                               ; preds = %.tail122.thread
   %puts110 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %81
+  br label %91
 
-60:                                               ; preds = %56, %53, %52
-  %61 = tail call ptr @Wln_BlastSystemVerilog(ptr noundef %41, ptr noundef %.095, ptr noundef %.093, i32 noundef %.083, i32 noundef %.089, i32 noundef %.087, i32 noundef %.085, i32 noundef %.079) #8
-  tail call void @Abc_FrameUpdateGia(ptr noundef %0, ptr noundef %61) #8
-  br label %81
+65:                                               ; preds = %.tail122.thread, %.tail122, %.tail
+  %66 = tail call ptr @Wln_BlastSystemVerilog(ptr noundef %41, ptr noundef %.095, ptr noundef %.093, i32 noundef %.083, i32 noundef %.089, i32 noundef %.087, i32 noundef %.085, i32 noundef %.079) #8
+  tail call void @Abc_FrameUpdateGia(ptr noundef %0, ptr noundef %66) #8
+  br label %91
 
-62:                                               ; preds = %48
-  br i1 %.not104, label %70, label %63
+sub_0127:                                         ; preds = %48
+  br i1 %.not171, label %.tail126, label %sub_0131
 
-63:                                               ; preds = %62
-  %64 = tail call ptr @Extra_FileNameExtension(ptr noundef %41) #8
-  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(3) @.str.17) #9
-  %.not105 = icmp eq i32 %65, 0
-  br i1 %.not105, label %70, label %66
+.tail126:                                         ; preds = %sub_0127
+  %67 = getelementptr inbounds i8, ptr %50, i64 1
+  %68 = load i8, ptr %67, align 1
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %80, label %sub_0131
 
-66:                                               ; preds = %63
-  %67 = tail call ptr @Extra_FileNameExtension(ptr noundef %41) #8
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(6) @.str.18) #9
-  %.not106 = icmp eq i32 %68, 0
-  br i1 %.not106, label %70, label %69
+sub_0131:                                         ; preds = %sub_0127, %.tail126
+  %70 = tail call ptr @Extra_FileNameExtension(ptr noundef %41) #8
+  %71 = load i8, ptr %70, align 1
+  %.not172 = icmp eq i8 %71, 115
+  br i1 %.not172, label %sub_1132, label %.tail130.thread
 
-69:                                               ; preds = %66
+sub_1132:                                         ; preds = %sub_0131
+  %72 = getelementptr inbounds i8, ptr %70, i64 1
+  %73 = load i8, ptr %72, align 1
+  %.not173 = icmp eq i8 %73, 118
+  br i1 %.not173, label %.tail130, label %.tail130.thread
+
+.tail130:                                         ; preds = %sub_1132
+  %74 = getelementptr inbounds i8, ptr %70, i64 2
+  %75 = load i8, ptr %74, align 1
+  %76 = icmp eq i8 %75, 0
+  br i1 %76, label %80, label %.tail130.thread
+
+.tail130.thread:                                  ; preds = %sub_1132, %sub_0131, %.tail130
+  %77 = tail call ptr @Extra_FileNameExtension(ptr noundef %41) #8
+  %78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(6) @.str.18) #9
+  %.not106 = icmp eq i32 %78, 0
+  br i1 %.not106, label %80, label %79
+
+79:                                               ; preds = %.tail130.thread
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %81
+  br label %91
 
-70:                                               ; preds = %66, %63, %62
-  %71 = tail call ptr @Wln_ReadSystemVerilog(ptr noundef %41, ptr noundef %.095, ptr noundef %.093, i32 noundef %.081, i32 noundef %.079) #8
-  %72 = getelementptr i8, ptr %0, i64 520
-  %.val.i = load ptr, ptr %72, align 8
+80:                                               ; preds = %.tail130.thread, %.tail130, %.tail126
+  %81 = tail call ptr @Wln_ReadSystemVerilog(ptr noundef %41, ptr noundef %.095, ptr noundef %.093, i32 noundef %.081, i32 noundef %.079) #8
+  %82 = getelementptr i8, ptr %0, i64 520
+  %.val.i = load ptr, ptr %82, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %Wln_AbcUpdateRtl.exit, label %73
+  br i1 %.not.i.i, label %Wln_AbcUpdateRtl.exit, label %83
 
-73:                                               ; preds = %70
+83:                                               ; preds = %80
   tail call void @Rtl_LibFree(ptr noundef nonnull %.val.i) #8
   br label %Wln_AbcUpdateRtl.exit
 
-Wln_AbcUpdateRtl.exit:                            ; preds = %70, %73
-  store ptr %71, ptr %72, align 8
-  br label %81
+Wln_AbcUpdateRtl.exit:                            ; preds = %80, %83
+  store ptr %81, ptr %82, align 8
+  br label %91
 
 .loopexit.sink.split:                             ; preds = %13, %6
   %.str.8.sink = phi ptr [ @.str.7, %6 ], [ @.str.8, %13 ]
@@ -285,36 +319,36 @@ Wln_AbcUpdateRtl.exit:                            ; preds = %70, %73
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.22)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.23)
   %.not115 = icmp eq i32 %.091, 0
-  %74 = select i1 %.not115, ptr @.str.26, ptr @.str.25
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.24, ptr noundef nonnull %74)
+  %84 = select i1 %.not115, ptr @.str.26, ptr @.str.25
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.24, ptr noundef nonnull %84)
   %.not116 = icmp eq i32 %.089, 0
-  %75 = select i1 %.not116, ptr @.str.26, ptr @.str.25
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.27, ptr noundef nonnull %75)
+  %85 = select i1 %.not116, ptr @.str.26, ptr @.str.25
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.27, ptr noundef nonnull %85)
   %.not117 = icmp eq i32 %.083, 0
-  %76 = select i1 %.not117, ptr @.str.30, ptr @.str.29
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.28, ptr noundef nonnull %76)
+  %86 = select i1 %.not117, ptr @.str.30, ptr @.str.29
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.28, ptr noundef nonnull %86)
   %.not118 = icmp eq i32 %.087, 0
-  %77 = select i1 %.not118, ptr @.str.26, ptr @.str.25
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.31, ptr noundef nonnull %77)
+  %87 = select i1 %.not118, ptr @.str.26, ptr @.str.25
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.31, ptr noundef nonnull %87)
   %.not119 = icmp eq i32 %.085, 0
-  %78 = select i1 %.not119, ptr @.str.26, ptr @.str.25
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.32, ptr noundef nonnull %78)
+  %88 = select i1 %.not119, ptr @.str.26, ptr @.str.25
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.32, ptr noundef nonnull %88)
   %.not120 = icmp eq i32 %.081, 0
-  %79 = select i1 %.not120, ptr @.str.26, ptr @.str.25
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.33, ptr noundef nonnull %79)
+  %89 = select i1 %.not120, ptr @.str.26, ptr @.str.25
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.33, ptr noundef nonnull %89)
   %.not121 = icmp eq i32 %.079, 0
-  %80 = select i1 %.not121, ptr @.str.26, ptr @.str.25
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.34, ptr noundef nonnull %80)
+  %90 = select i1 %.not121, ptr @.str.26, ptr @.str.25
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.34, ptr noundef nonnull %90)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.35)
-  br label %81
+  br label %91
 
-81:                                               ; preds = %60, %Wln_AbcUpdateRtl.exit, %.loopexit, %69, %59, %47, %37
-  %.080 = phi i32 [ 1, %.loopexit ], [ 0, %37 ], [ 0, %47 ], [ 0, %59 ], [ 0, %69 ], [ 0, %Wln_AbcUpdateRtl.exit ], [ 0, %60 ]
+91:                                               ; preds = %65, %Wln_AbcUpdateRtl.exit, %.loopexit, %79, %64, %47, %37
+  %.080 = phi i32 [ 1, %.loopexit ], [ 0, %37 ], [ 0, %47 ], [ 0, %64 ], [ 0, %79 ], [ 0, %Wln_AbcUpdateRtl.exit ], [ 0, %65 ]
   ret i32 %.080
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandGraft(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandGraft(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 520
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #8
@@ -386,7 +420,7 @@ define internal noundef i32 @Abc_CommandGraft(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandHierarchy(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandHierarchy(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 520
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #8
@@ -443,7 +477,7 @@ define internal noundef i32 @Abc_CommandHierarchy(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandCollapse(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandCollapse(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 520
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #8
@@ -550,7 +584,7 @@ define internal noundef i32 @Abc_CommandCollapse(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandPrint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandPrint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 520
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #8
@@ -710,7 +744,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %19
 
 19:                                               ; preds = %12, %7, %13, %16, %8, %10
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %20 = call i32 (...) @Abc_FrameIsBridgeMode() #8
   %.not9 = icmp eq i32 %20, 0
   br i1 %.not9, label %27, label %21
@@ -729,7 +763,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %29
 
 29:                                               ; preds = %27, %21
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %2, %29
@@ -762,22 +796,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 declare void @Wln_LibGraftOne(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -793,6 +821,12 @@ declare void @Rtl_LibPrintHieStats(ptr noundef) local_unnamed_addr #1
 
 declare void @Rtl_LibPrint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
@@ -803,8 +837,8 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nofree nounwind }
 attributes #8 = { nounwind }

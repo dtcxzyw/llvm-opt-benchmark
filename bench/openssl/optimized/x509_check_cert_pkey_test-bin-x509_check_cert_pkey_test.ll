@@ -54,7 +54,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [5 x i8] c"cert\00", align 1
 @.str.39 = private unnamed_addr constant [4 x i8] c"req\00", align 1
 @.str.40 = private unnamed_addr constant [15 x i8] c"invalid 'type'\00", align 1
-@.str.41 = private unnamed_addr constant [3 x i8] c"ok\00", align 1
 @.str.42 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 @.str.43 = private unnamed_addr constant [19 x i8] c"invalid 'expected'\00", align 1
 @.str.44 = private unnamed_addr constant [27 x i8] c"bio = BIO_new_file(k, \22r\22)\00", align 1
@@ -72,7 +71,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -215,7 +214,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_x509_check_cert_pkey() #1 {
+define internal range(i32 0, 2) i32 @test_x509_check_cert_pkey() #1 {
 entry:
   %0 = load ptr, ptr @t, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.38) #6
@@ -233,11 +232,23 @@ if.else4:                                         ; preds = %if.else
 
 if.end5:                                          ; preds = %if.else, %entry
   %1 = load ptr, ptr @e, align 8
-  %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.41) #6
-  %cmp7 = icmp eq i32 %call6, 0
-  br i1 %cmp7, label %if.end15, label %if.else9
+  %2 = load i8, ptr %1, align 1
+  %.not = icmp eq i8 %2, 111
+  br i1 %.not, label %sub_1, label %if.else9
 
-if.else9:                                         ; preds = %if.end5
+sub_1:                                            ; preds = %if.end5
+  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %4 = load i8, ptr %3, align 1
+  %.not13 = icmp eq i8 %4, 107
+  br i1 %.not13, label %if.end5.tail, label %if.else9
+
+if.end5.tail:                                     ; preds = %sub_1
+  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %if.end15, label %if.else9
+
+if.else9:                                         ; preds = %sub_1, %if.end5, %if.end5.tail
   %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.42) #6
   %cmp11 = icmp eq i32 %call10, 0
   br i1 %cmp11, label %if.end15, label %if.else13
@@ -246,10 +257,10 @@ if.else13:                                        ; preds = %if.else9
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.20, i32 noundef 54, ptr noundef nonnull @.str.43) #5
   br label %failed
 
-if.end15:                                         ; preds = %if.else9, %if.end5
-  %expected.0 = phi i32 [ 1, %if.end5 ], [ 0, %if.else9 ]
-  %2 = load ptr, ptr @k, align 8
-  %call16 = tail call ptr @BIO_new_file(ptr noundef %2, ptr noundef nonnull @.str.34) #5
+if.end15:                                         ; preds = %if.else9, %if.end5.tail
+  %expected.0 = phi i32 [ 1, %if.end5.tail ], [ 0, %if.else9 ]
+  %8 = load ptr, ptr @k, align 8
+  %call16 = tail call ptr @BIO_new_file(ptr noundef %8, ptr noundef nonnull @.str.34) #5
   %call17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 59, ptr noundef nonnull @.str.44, ptr noundef %call16) #5
   %tobool.not = icmp eq i32 %call17, 0
   br i1 %tobool.not, label %failed, label %if.end19
@@ -262,8 +273,8 @@ if.end19:                                         ; preds = %if.end15
 
 if.end24:                                         ; preds = %if.end19
   %call25 = tail call i32 @BIO_free(ptr noundef %call16) #5
-  %3 = load ptr, ptr @c, align 8
-  %call26 = tail call ptr @BIO_new_file(ptr noundef %3, ptr noundef nonnull @.str.34) #5
+  %9 = load ptr, ptr @c, align 8
+  %call26 = tail call ptr @BIO_new_file(ptr noundef %9, ptr noundef nonnull @.str.34) #5
   %call27 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 68, ptr noundef nonnull @.str.46, ptr noundef %call26) #5
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %failed, label %if.end30

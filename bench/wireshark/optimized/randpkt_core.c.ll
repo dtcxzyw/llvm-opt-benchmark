@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [66 x i8] c"randpkt: Internal error. Type %d has no entry in examples table.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.2 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.3 = private unnamed_addr constant [20 x i8] c"the standard output\00", align 1
 @.str.4 = private unnamed_addr constant [72 x i8] c"randpkt: Sample packet length is %d, which is greater than or equal to\0A\00", align 1
 @.str.5 = private unnamed_addr constant [38 x i8] c"your requested max_bytes value of %d\0A\00", align 1
@@ -109,7 +108,7 @@ define hidden ptr @randpkt_find_example(i32 noundef %0) local_unnamed_addr #1 {
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef %0) #12
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef %0) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %8
@@ -124,8 +123,8 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = tail call noalias dereferenceable_or_null(280) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 280) #13
-  %7 = tail call noalias dereferenceable_or_null(65536) ptr @g_malloc0(i64 noundef 65536) #14
+  %6 = tail call noalias dereferenceable_or_null(280) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 280) #12
+  %7 = tail call noalias dereferenceable_or_null(65536) ptr @g_malloc0(i64 noundef 65536) #13
   store i32 0, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 1, ptr %8, align 4
@@ -186,7 +185,7 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
 39:                                               ; preds = %36
   %40 = load ptr, ptr @pkt_rand, align 8
   %41 = add i32 %38, 1
-  %42 = call i32 @g_rand_int_range(ptr noundef %40, i32 noundef 0, i32 noundef %41) #15
+  %42 = call i32 @g_rand_int_range(ptr noundef %40, i32 noundef 0, i32 noundef %41) #14
   br label %43
 
 43:                                               ; preds = %36, %39
@@ -208,7 +207,7 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %48, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %49 = load ptr, ptr @pkt_rand, align 8
-  %50 = call i32 @g_rand_int_range(ptr noundef %49, i32 noundef 0, i32 noundef 256) #15
+  %50 = call i32 @g_rand_int_range(ptr noundef %49, i32 noundef 0, i32 noundef 256) #14
   %51 = trunc i32 %50 to i8
   %52 = getelementptr i8, ptr %13, i64 %indvars.iv
   store i8 %51, ptr %52, align 1
@@ -233,7 +232,7 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
 57:                                               ; preds = %.lr.ph70, %74
   %.168 = phi i32 [ %54, %.lr.ph70 ], [ %75, %74 ]
   %58 = load ptr, ptr @pkt_rand, align 8
-  %59 = call double @g_rand_double(ptr noundef %58) #15
+  %59 = call double @g_rand_double(ptr noundef %58) #14
   %60 = fmul double %59, 1.000000e+02
   %61 = fptosi double %60 to i32
   %62 = icmp slt i32 %61, 3
@@ -250,7 +249,7 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
 
 68:                                               ; preds = %57
   %69 = load ptr, ptr @pkt_rand, align 8
-  %70 = call i32 @g_rand_int_range(ptr noundef %69, i32 noundef 0, i32 noundef 256) #15
+  %70 = call i32 @g_rand_int_range(ptr noundef %69, i32 noundef 0, i32 noundef 256) #14
   %71 = trunc i32 %70 to i8
   %72 = zext i32 %.168 to i64
   %73 = getelementptr i8, ptr %7, i64 %72
@@ -265,7 +264,7 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
 
 ._crit_edge71:                                    ; preds = %74, %._crit_edge
   %77 = load ptr, ptr %33, align 8
-  %78 = call i32 @wtap_dump(ptr noundef %77, ptr noundef nonnull %6, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
+  %78 = call i32 @wtap_dump(ptr noundef %77, ptr noundef nonnull %6, ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %.not63 = icmp eq i32 %78, 0
   br i1 %.not63, label %79, label %85
 
@@ -274,17 +273,17 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
   %81 = load i32, ptr %4, align 4
   %82 = load ptr, ptr %5, align 8
   %83 = load ptr, ptr %33, align 8
-  %84 = call i32 @wtap_dump_file_type_subtype(ptr noundef %83) #15
-  call void @cfile_write_failure_message(ptr noundef null, ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef 0, i32 noundef %84) #15
+  %84 = call i32 @wtap_dump_file_type_subtype(ptr noundef %83) #14
+  call void @cfile_write_failure_message(ptr noundef null, ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef 0, i32 noundef %84) #14
   br label %85
 
 85:                                               ; preds = %79, %._crit_edge71
   br i1 %.not64, label %94, label %86
 
 86:                                               ; preds = %85
-  call void @g_usleep(i64 noundef %35) #15
+  call void @g_usleep(i64 noundef %35) #14
   %87 = load ptr, ptr %33, align 8
-  %88 = call i32 @wtap_dump_flush(ptr noundef %87, ptr noundef nonnull %4) #15
+  %88 = call i32 @wtap_dump_flush(ptr noundef %87, ptr noundef nonnull %4) #14
   %.not65 = icmp eq i32 %88, 0
   br i1 %.not65, label %89, label %94
 
@@ -292,8 +291,8 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
   %90 = load ptr, ptr %34, align 8
   %91 = load i32, ptr %4, align 4
   %92 = load ptr, ptr %33, align 8
-  %93 = call i32 @wtap_dump_file_type_subtype(ptr noundef %92) #15
-  call void @cfile_write_failure_message(ptr noundef null, ptr noundef %90, i32 noundef %91, ptr noundef null, i32 noundef 0, i32 noundef %93) #15
+  %93 = call i32 @wtap_dump_file_type_subtype(ptr noundef %92) #14
+  call void @cfile_write_failure_message(ptr noundef null, ptr noundef %90, i32 noundef %91, ptr noundef null, i32 noundef 0, i32 noundef %93) #14
   br label %94
 
 94:                                               ; preds = %85, %89, %86
@@ -303,8 +302,8 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %97, label %36, label %._crit_edge75, !llvm.loop !8
 
 ._crit_edge75:                                    ; preds = %94, %27
-  call void @g_free(ptr noundef nonnull %6) #15
-  call void @g_free(ptr noundef %7) #15
+  call void @g_free(ptr noundef nonnull %6) #14
+  call void @g_free(ptr noundef %7) #14
   ret void
 }
 
@@ -334,12 +333,12 @@ declare i32 @wtap_dump_flush(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @g_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @randpkt_example_close(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @randpkt_example_close(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = call i32 @wtap_dump_close(ptr noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3) #15
+  %6 = call i32 @wtap_dump_close(ptr noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %12
 
@@ -348,7 +347,7 @@ define hidden noundef i32 @randpkt_example_close(ptr nocapture noundef readonly 
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %2, align 4
   %11 = load ptr, ptr %3, align 8
-  call void @cfile_close_failure_message(ptr noundef %9, i32 noundef %10, ptr noundef %11) #15
+  call void @cfile_close_failure_message(ptr noundef %9, i32 noundef %10, ptr noundef %11) #14
   br label %12
 
 12:                                               ; preds = %7, %1
@@ -358,7 +357,7 @@ define hidden noundef i32 @randpkt_example_close(ptr nocapture noundef readonly 
   br i1 %.not3, label %15, label %14
 
 14:                                               ; preds = %12
-  call void @g_rand_free(ptr noundef nonnull %13) #15
+  call void @g_rand_free(ptr noundef nonnull %13) #14
   store ptr null, ptr @pkt_rand, align 8
   br label %15
 
@@ -373,53 +372,59 @@ declare void @cfile_close_failure_message(ptr noundef, i32 noundef, ptr noundef)
 declare void @g_rand_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @randpkt_example_init(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 0, 3) i32 @randpkt_example_init(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %struct.wtap_dump_params, align 8
   %8 = load ptr, ptr @pkt_rand, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %sub_0
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @g_rand_new() #15
+  %11 = tail call ptr @g_rand_new() #14
   store ptr %11, ptr @pkt_rand, align 8
-  br label %12
+  br label %sub_0
 
-12:                                               ; preds = %10, %4
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %13, i8 0, i64 72, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
-  %15 = load i32, ptr %14, align 4
-  store i32 %15, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %2, ptr %16, align 4
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.2) #16
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %21
+sub_0:                                            ; preds = %10, %4
+  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 72, i1 false)
+  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = load i32, ptr %13, align 4
+  store i32 %14, ptr %7, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %2, ptr %15, align 4
+  %16 = load i8, ptr %1, align 1
+  %.not25 = icmp eq i8 %16, 45
+  br i1 %.not25, label %.tail, label %.tail.thread
 
-19:                                               ; preds = %12
-  %20 = call ptr @wtap_dump_open_stdout(i32 noundef %3, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
+.tail:                                            ; preds = %sub_0
+  %17 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %.tail.thread
+
+20:                                               ; preds = %.tail
+  %21 = call ptr @wtap_dump_open_stdout(i32 noundef %3, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
   br label %23
 
-21:                                               ; preds = %12
-  %22 = call ptr @wtap_dump_open(ptr noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
+.tail.thread:                                     ; preds = %sub_0, %.tail
+  %22 = call ptr @wtap_dump_open(ptr noundef nonnull %1, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
   br label %23
 
-23:                                               ; preds = %21, %19
-  %.sink25 = phi ptr [ %20, %19 ], [ %22, %21 ]
-  %.sink = phi ptr [ @.str.3, %19 ], [ %1, %21 ]
+23:                                               ; preds = %.tail.thread, %20
+  %.sink26 = phi ptr [ %21, %20 ], [ %22, %.tail.thread ]
+  %.sink = phi ptr [ @.str.3, %20 ], [ %1, %.tail.thread ]
   %24 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %.sink25, ptr %24, align 8
+  store ptr %.sink26, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sink, ptr %25, align 8
-  %.not = icmp eq ptr %.sink25, null
+  %.not = icmp eq ptr %.sink26, null
   br i1 %.not, label %26, label %29
 
 26:                                               ; preds = %23
   %27 = load i32, ptr %5, align 4
   %28 = load ptr, ptr %6, align 8
-  call void @cfile_dump_open_failure_message(ptr noundef %1, i32 noundef %27, ptr noundef %28, i32 noundef %3) #15
+  call void @cfile_dump_open_failure_message(ptr noundef nonnull %1, i32 noundef %27, ptr noundef %28, i32 noundef %3) #14
   br label %40
 
 29:                                               ; preds = %23
@@ -430,9 +435,9 @@ define hidden noundef i32 @randpkt_example_init(ptr nocapture noundef %0, ptr no
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr @stderr, align 8
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.4, i32 noundef %31) #12
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.4, i32 noundef %31) #11
   %35 = load ptr, ptr @stderr, align 8
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.5, i32 noundef %2) #12
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.5, i32 noundef %2) #11
   br label %40
 
 37:                                               ; preds = %29
@@ -451,9 +456,6 @@ declare ptr @g_rand_new() local_unnamed_addr #7
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
-
 declare ptr @wtap_dump_open_stdout(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 declare ptr @wtap_dump_open(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
@@ -466,12 +468,12 @@ define hidden i32 @randpkt_parse_type(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @g_strcmp0(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
+  %3 = tail call i32 @g_strcmp0(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
   %.not12 = icmp eq i32 %3, 0
   br i1 %.not12, label %4, label %.preheader
 
 4:                                                ; preds = %2, %1
-  %5 = tail call i32 @g_random_int_range(i32 noundef 0, i32 noundef 23) #15
+  %5 = tail call i32 @g_random_int_range(i32 noundef 0, i32 noundef 23) #14
   %6 = sext i32 %5 to i64
   %7 = getelementptr [23 x %struct.randpkt_example], ptr @examples, i64 0, i64 %6, i32 2
   br label %16
@@ -485,7 +487,7 @@ define hidden i32 @randpkt_parse_type(ptr noundef %0) local_unnamed_addr #3 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %2 ]
   %9 = getelementptr [23 x %struct.randpkt_example], ptr @examples, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 16
-  %11 = tail call i32 @g_strcmp0(ptr noundef %10, ptr noundef nonnull %0) #15
+  %11 = tail call i32 @g_strcmp0(ptr noundef %10, ptr noundef nonnull %0) #14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %8
 
@@ -494,7 +496,7 @@ define hidden i32 @randpkt_parse_type(ptr noundef %0) local_unnamed_addr #3 {
   br label %16
 
 15:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef nonnull @.str.8, i64 noundef 721, ptr noundef nonnull @__func__.randpkt_parse_type, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #17
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef nonnull @.str.8, i64 noundef 721, ptr noundef nonnull @__func__.randpkt_parse_type, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #15
   unreachable
 
 16:                                               ; preds = %13, %4
@@ -508,13 +510,13 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare i32 @g_random_int_range(i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #10
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden void @randpkt_example_list(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
-  %3 = tail call noalias dereferenceable_or_null(192) ptr @g_malloc0_n(i64 noundef 24, i64 noundef 8) #13
+  %3 = tail call noalias dereferenceable_or_null(192) ptr @g_malloc0_n(i64 noundef 24, i64 noundef 8) #12
   store ptr %3, ptr %0, align 8
-  %4 = tail call noalias dereferenceable_or_null(192) ptr @g_malloc0_n(i64 noundef 24, i64 noundef 8) #13
+  %4 = tail call noalias dereferenceable_or_null(192) ptr @g_malloc0_n(i64 noundef 24, i64 noundef 8) #12
   store ptr %4, ptr %1, align 8
   br label %5
 
@@ -522,13 +524,13 @@ define hidden void @randpkt_example_list(ptr nocapture noundef %0, ptr nocapture
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr [23 x %struct.randpkt_example], ptr @examples, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 16
-  %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #15
+  %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #14
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr ptr, ptr %9, i64 %indvars.iv
   store ptr %8, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #15
+  %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #14
   %14 = load ptr, ptr %1, align 8
   %15 = getelementptr ptr, ptr %14, i64 %indvars.iv
   store ptr %13, ptr %15, align 8
@@ -543,7 +545,7 @@ define hidden void @randpkt_example_list(ptr nocapture noundef %0, ptr nocapture
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -554,15 +556,13 @@ attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { noreturn nounwind }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

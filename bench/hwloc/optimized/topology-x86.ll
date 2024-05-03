@@ -60,7 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.67 = private unnamed_addr constant [50 x i8] c"hwloc/x86: Found read dumped cpuid summary in %s\0A\00", align 1
 @.str.68 = private unnamed_addr constant [19 x i8] c"Architecture: x86\0A\00", align 1
 @.str.69 = private unnamed_addr constant [57 x i8] c"hwloc/x86: Found non-x86 dumped cpuid summary in %s: %s\0A\00", align 1
-@.str.70 = private unnamed_addr constant [3 x i8] c"pu\00", align 1
 @.str.71 = private unnamed_addr constant [72 x i8] c"hwloc/x86: Ignoring invalid dirent `%s' in dumped cpuid directory `%s'\0A\00", align 1
 @.str.72 = private unnamed_addr constant [78 x i8] c"hwloc/x86: Did not find any valid pu%%u entry in dumped cpuid directory `%s'\0A\00", align 1
 @.str.73 = private unnamed_addr constant [75 x i8] c"hwloc/x86: Found non-contigous pu%%u range in dumped cpuid directory `%s'\0A\00", align 1
@@ -71,7 +70,7 @@ define internal ptr @hwloc_x86_component_instantiate(ptr noundef %0, ptr noundef
   %8 = alloca ptr, align 8
   %9 = tail call ptr @hwloc_backend_alloc(ptr noundef %0, ptr noundef %1, i64 noundef 64) #22
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %87, label %10
+  br i1 %.not, label %94, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %9, i64 64
@@ -94,7 +93,7 @@ define internal ptr @hwloc_x86_component_instantiate(ptr noundef %0, ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
   %21 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #22
   %.not29 = icmp eq ptr %21, null
-  br i1 %.not29, label %87, label %22
+  br i1 %.not29, label %94, label %22
 
 22:                                               ; preds = %10
   %23 = tail call noalias ptr @hwloc_bitmap_alloc() #22
@@ -102,14 +101,14 @@ define internal ptr @hwloc_x86_component_instantiate(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %24 = tail call ptr @opendir(ptr noundef nonnull %21)
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %83, label %25
+  br i1 %.not.i, label %90, label %25
 
 25:                                               ; preds = %22
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #23
   %27 = add i64 %26, 18
   %28 = tail call noalias ptr @malloc(i64 noundef %27) #24
   %.not34.i = icmp eq ptr %28, null
-  br i1 %.not34.i, label %77, label %29
+  br i1 %.not34.i, label %84, label %29
 
 29:                                               ; preds = %25
   %30 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.65, ptr noundef nonnull %21) #22
@@ -120,7 +119,7 @@ define internal ptr @hwloc_x86_component_instantiate(ptr noundef %0, ptr noundef
 32:                                               ; preds = %29
   %33 = load ptr, ptr @stderr, align 8
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.66, ptr noundef nonnull %28) #25
-  br label %76
+  br label %83
 
 35:                                               ; preds = %29
   %36 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 32, ptr noundef nonnull %31)
@@ -131,7 +130,7 @@ define internal ptr @hwloc_x86_component_instantiate(ptr noundef %0, ptr noundef
   %38 = load ptr, ptr @stderr, align 8
   %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.67, ptr noundef nonnull %28) #25
   %40 = call i32 @fclose(ptr noundef nonnull %31)
-  br label %76
+  br label %83
 
 41:                                               ; preds = %35
   %42 = call i32 @fclose(ptr noundef nonnull %31)
@@ -142,105 +141,119 @@ define internal ptr @hwloc_x86_component_instantiate(ptr noundef %0, ptr noundef
 43:                                               ; preds = %41
   %44 = load ptr, ptr @stderr, align 8
   %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.69, ptr noundef nonnull %28, ptr noundef nonnull %7) #25
-  br label %76
+  br label %83
 
 46:                                               ; preds = %41
   call void @free(ptr noundef nonnull %28) #22
   %47 = call ptr @readdir(ptr noundef nonnull %24) #22
   %.not3843.i = icmp eq ptr %47, null
-  br i1 %.not3843.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not3843.i, label %._crit_edge.i, label %sub_0.i
 
-.lr.ph.i:                                         ; preds = %46, %62
-  %48 = phi ptr [ %63, %62 ], [ %47, %46 ]
+sub_0.i:                                          ; preds = %46, %69
+  %48 = phi ptr [ %70, %69 ], [ %47, %46 ]
   %49 = getelementptr inbounds i8, ptr %48, i64 19
-  %50 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(3) @.str.70, i64 noundef 2) #23
-  %.not41.i = icmp eq i32 %50, 0
-  br i1 %.not41.i, label %51, label %62
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i32
+  %52 = add nsw i32 %51, -112
+  %.not44.i = icmp eq i32 %52, 0
+  br i1 %.not44.i, label %sub_1.i, label %.tail.i
 
-51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds i8, ptr %48, i64 21
-  %53 = call i64 @strtoul(ptr noundef nonnull %52, ptr noundef nonnull %8, i32 noundef 10) #22
-  %54 = load ptr, ptr %8, align 8
-  %55 = load i8, ptr %54, align 1
-  %.not42.i = icmp eq i8 %55, 0
-  br i1 %.not42.i, label %56, label %59
+sub_1.i:                                          ; preds = %sub_0.i
+  %53 = getelementptr inbounds i8, ptr %48, i64 20
+  %54 = load i8, ptr %53, align 1
+  %55 = zext i8 %54 to i32
+  %56 = add nsw i32 %55, -117
+  br label %.tail.i
 
-56:                                               ; preds = %51
-  %57 = trunc i64 %53 to i32
-  %58 = call i32 @hwloc_bitmap_set(ptr noundef %23, i32 noundef %57) #22
-  br label %62
+.tail.i:                                          ; preds = %sub_1.i, %sub_0.i
+  %57 = phi i32 [ %52, %sub_0.i ], [ %56, %sub_1.i ]
+  %.not41.i = icmp eq i32 %57, 0
+  br i1 %.not41.i, label %58, label %69
 
-59:                                               ; preds = %51
-  %60 = load ptr, ptr @stderr, align 8
-  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.71, ptr noundef nonnull %49, ptr noundef nonnull %21) #25
-  br label %62
+58:                                               ; preds = %.tail.i
+  %59 = getelementptr inbounds i8, ptr %48, i64 21
+  %60 = call i64 @strtoul(ptr noundef nonnull %59, ptr noundef nonnull %8, i32 noundef 10) #22
+  %61 = load ptr, ptr %8, align 8
+  %62 = load i8, ptr %61, align 1
+  %.not42.i = icmp eq i8 %62, 0
+  br i1 %.not42.i, label %63, label %66
 
-62:                                               ; preds = %59, %56, %.lr.ph.i
-  %63 = call ptr @readdir(ptr noundef nonnull %24) #22
-  %.not38.i = icmp eq ptr %63, null
-  br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
+63:                                               ; preds = %58
+  %64 = trunc i64 %60 to i32
+  %65 = call i32 @hwloc_bitmap_set(ptr noundef %23, i32 noundef %64) #22
+  br label %69
 
-._crit_edge.i:                                    ; preds = %62, %46
-  %64 = call i32 @closedir(ptr noundef nonnull %24)
-  %65 = call i32 @hwloc_bitmap_iszero(ptr noundef %23) #23
-  %.not39.i = icmp eq i32 %65, 0
-  br i1 %.not39.i, label %69, label %66
-
-66:                                               ; preds = %._crit_edge.i
+66:                                               ; preds = %58
   %67 = load ptr, ptr @stderr, align 8
-  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.72, ptr noundef nonnull %21) #25
-  br label %83
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.71, ptr noundef nonnull %49, ptr noundef nonnull %21) #25
+  br label %69
 
-69:                                               ; preds = %._crit_edge.i
-  %70 = call i32 @hwloc_bitmap_last(ptr noundef %23) #23
-  %71 = call i32 @hwloc_bitmap_weight(ptr noundef %23) #23
-  %72 = add nsw i32 %71, -1
-  %.not40.i = icmp eq i32 %70, %72
-  br i1 %.not40.i, label %79, label %73
+69:                                               ; preds = %66, %63, %.tail.i
+  %70 = call ptr @readdir(ptr noundef nonnull %24) #22
+  %.not38.i = icmp eq ptr %70, null
+  br i1 %.not38.i, label %._crit_edge.i, label %sub_0.i, !llvm.loop !4
 
-73:                                               ; preds = %69
+._crit_edge.i:                                    ; preds = %69, %46
+  %71 = call i32 @closedir(ptr noundef nonnull %24)
+  %72 = call i32 @hwloc_bitmap_iszero(ptr noundef %23) #23
+  %.not39.i = icmp eq i32 %72, 0
+  br i1 %.not39.i, label %76, label %73
+
+73:                                               ; preds = %._crit_edge.i
   %74 = load ptr, ptr @stderr, align 8
-  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.73, ptr noundef nonnull %21) #25
-  br label %83
+  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.72, ptr noundef nonnull %21) #25
+  br label %90
 
-76:                                               ; preds = %43, %37, %32
+76:                                               ; preds = %._crit_edge.i
+  %77 = call i32 @hwloc_bitmap_last(ptr noundef %23) #23
+  %78 = call i32 @hwloc_bitmap_weight(ptr noundef %23) #23
+  %79 = add nsw i32 %78, -1
+  %.not40.i = icmp eq i32 %77, %79
+  br i1 %.not40.i, label %86, label %80
+
+80:                                               ; preds = %76
+  %81 = load ptr, ptr @stderr, align 8
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.73, ptr noundef nonnull %21) #25
+  br label %90
+
+83:                                               ; preds = %43, %37, %32
   call void @free(ptr noundef nonnull %28) #22
-  br label %77
+  br label %84
 
-77:                                               ; preds = %76, %25
-  %78 = call i32 @closedir(ptr noundef nonnull %24)
-  br label %83
+84:                                               ; preds = %83, %25
+  %85 = call i32 @closedir(ptr noundef nonnull %24)
+  br label %90
 
-79:                                               ; preds = %69
+86:                                               ; preds = %76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %80 = getelementptr inbounds i8, ptr %9, i64 48
-  store i32 0, ptr %80, align 8
-  %81 = call noalias ptr @strdup(ptr noundef nonnull %21) #22
-  store ptr %81, ptr %19, align 8
-  %82 = call i32 @hwloc_bitmap_weight(ptr noundef %23) #23
-  store i32 %82, ptr %13, align 8
-  br label %86
+  %87 = getelementptr inbounds i8, ptr %9, i64 48
+  store i32 0, ptr %87, align 8
+  %88 = call noalias ptr @strdup(ptr noundef nonnull %21) #22
+  store ptr %88, ptr %19, align 8
+  %89 = call i32 @hwloc_bitmap_weight(ptr noundef %23) #23
+  store i32 %89, ptr %13, align 8
+  br label %93
 
-83:                                               ; preds = %77, %66, %73, %22
+90:                                               ; preds = %84, %73, %80, %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %84 = load ptr, ptr @stderr, align 8
-  %85 = call i64 @fwrite(ptr nonnull @.str.2, i64 44, i64 1, ptr %84) #26
-  br label %86
+  %91 = load ptr, ptr @stderr, align 8
+  %92 = call i64 @fwrite(ptr nonnull @.str.2, i64 44, i64 1, ptr %91) #26
+  br label %93
 
-86:                                               ; preds = %83, %79
+93:                                               ; preds = %90, %86
   call void @hwloc_bitmap_free(ptr noundef %23) #22
-  br label %87
+  br label %94
 
-87:                                               ; preds = %6, %10, %86
+94:                                               ; preds = %6, %10, %93
   ret ptr %9
 }
 
 declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hwloc_x86_discover(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @hwloc_x86_discover(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
   %3 = alloca [6 x i64], align 16
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -344,7 +357,7 @@ define internal noundef i32 @hwloc_x86_discover(ptr nocapture noundef %0, ptr no
   br i1 %58, label %65, label %59
 
 59:                                               ; preds = %52, %47
-  %60 = call fastcc i32 @hwloc_look_x86(ptr noundef nonnull %0, i64 noundef %spec.select), !range !7
+  %60 = call fastcc i32 @hwloc_look_x86(ptr noundef nonnull %0, i64 noundef %spec.select)
   %.not41 = icmp eq i32 %60, 0
   br i1 %.not41, label %76, label %61
 
@@ -359,7 +372,7 @@ define internal noundef i32 @hwloc_x86_discover(ptr nocapture noundef %0, ptr no
 
 65:                                               ; preds = %52, %64
   %66 = or disjoint i64 %spec.select, 1
-  %67 = call fastcc i32 @hwloc_look_x86(ptr noundef nonnull %0, i64 noundef %66), !range !7
+  %67 = call fastcc i32 @hwloc_look_x86(ptr noundef nonnull %0, i64 noundef %66)
   %68 = icmp sgt i32 %67, -1
   %or.cond = or i1 %.not40, %68
   br i1 %or.cond, label %71, label %69
@@ -417,7 +430,7 @@ declare i32 @hwloc_fallback_nbprocessors(i32 noundef) local_unnamed_addr #1
 declare i32 @hwloc_topology_reconnect(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hwloc_look_x86(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_look_x86(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.hwloc_infos_s, align 8
   %4 = alloca %struct.hwloc_info_s, align 8
   %5 = alloca %struct.hwloc_infos_s, align 8
@@ -528,7 +541,7 @@ define internal fastcc noundef i32 @hwloc_look_x86(ptr nocapture noundef %0, i64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %56, i8 -1, i64 28, i1 false)
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   br i1 %.not140, label %90, label %57
@@ -596,7 +609,7 @@ define internal fastcc noundef i32 @hwloc_look_x86(ptr nocapture noundef %0, i64
 87:                                               ; preds = %75, %70, %65
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.thread310, label %61, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %.thread310, label %61, !llvm.loop !8
 
 .thread310:                                       ; preds = %87, %57
   %88 = load ptr, ptr @stderr, align 8
@@ -605,7 +618,7 @@ define internal fastcc noundef i32 @hwloc_look_x86(ptr nocapture noundef %0, i64
   br label %111
 
 90:                                               ; preds = %._crit_edge
-  %91 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 0, i32 0) #22, !srcloc !10
+  %91 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 0, i32 0) #22, !srcloc !9
   %92 = extractvalue { i32, i64, i32, i32 } %91, 0
   %93 = extractvalue { i32, i64, i32, i32 } %91, 2
   %94 = extractvalue { i32, i64, i32, i32 } %91, 3
@@ -745,7 +758,7 @@ cpuid_or_from_dump.exit:                          ; preds = %78, %90
 153:                                              ; preds = %143, %138, %133, %128
   %indvars.iv.next.i.i153 = add nuw nsw i64 %indvars.iv.i.i150, 1
   %exitcond.not.i.i154 = icmp eq i64 %indvars.iv.next.i.i153, %wide.trip.count.i.i149
-  br i1 %exitcond.not.i.i154, label %._crit_edge.i.i155, label %124, !llvm.loop !9
+  br i1 %exitcond.not.i.i154, label %._crit_edge.i.i155, label %124, !llvm.loop !8
 
 ._crit_edge.i.i155:                               ; preds = %153, %120
   %154 = load ptr, ptr @stderr, align 8
@@ -755,13 +768,13 @@ cpuid_or_from_dump.exit:                          ; preds = %78, %90
   br label %cpuid_or_from_dump.exit163
 
 cpuid_or_from_dump.exit163.thread:                ; preds = %119
-  %156 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 1, i32 %.0271284) #22, !srcloc !10
+  %156 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 1, i32 %.0271284) #22, !srcloc !9
   %157 = extractvalue { i32, i64, i32, i32 } %156, 2
   %158 = extractvalue { i32, i64, i32, i32 } %156, 3
   store i32 %158, ptr %8, align 16
   %159 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 %157, ptr %159, align 16
-  %160 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 -2147483648, i32 %157) #22, !srcloc !10
+  %160 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 -2147483648, i32 %157) #22, !srcloc !9
   %161 = extractvalue { i32, i64, i32, i32 } %160, 0
   %162 = icmp ugt i32 %.0274281, 6
   br i1 %162, label %.thread330, label %.thread335
@@ -845,7 +858,7 @@ cpuid_or_from_dump.exit163:                       ; preds = %146, %._crit_edge.i
 199:                                              ; preds = %187, %182, %177, %172
   %indvars.iv.next.i.i171 = add nuw nsw i64 %indvars.iv.i.i168, 1
   %exitcond.not.i.i172 = icmp eq i64 %indvars.iv.next.i.i171, %wide.trip.count.i.i167
-  br i1 %exitcond.not.i.i172, label %._crit_edge.i.i173, label %168, !llvm.loop !9
+  br i1 %exitcond.not.i.i172, label %._crit_edge.i.i173, label %168, !llvm.loop !8
 
 ._crit_edge.i.i173:                               ; preds = %199, %cpuid_or_from_dump.exit163
   %200 = load ptr, ptr @stderr, align 8
@@ -932,7 +945,7 @@ cpuid_or_from_dump.exit181:                       ; preds = %190, %._crit_edge.i
 237:                                              ; preds = %227, %222, %217, %212
   %indvars.iv.next.i.i189 = add nuw nsw i64 %indvars.iv.i.i186, 1
   %exitcond.not.i.i190 = icmp eq i64 %indvars.iv.next.i.i189, %wide.trip.count.i.i185
-  br i1 %exitcond.not.i.i190, label %._crit_edge.i.i191, label %208, !llvm.loop !9
+  br i1 %exitcond.not.i.i190, label %._crit_edge.i.i191, label %208, !llvm.loop !8
 
 ._crit_edge.i.i191:                               ; preds = %237, %204
   %238 = load ptr, ptr @stderr, align 8
@@ -941,7 +954,7 @@ cpuid_or_from_dump.exit181:                       ; preds = %190, %._crit_edge.i
   br label %cpuid_or_from_dump.exit199
 
 .thread330:                                       ; preds = %cpuid_or_from_dump.exit163.thread
-  %240 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 7, i32 0) #22, !srcloc !10
+  %240 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 7, i32 0) #22, !srcloc !9
   %241 = extractvalue { i32, i64, i32, i32 } %240, 2
   %242 = extractvalue { i32, i64, i32, i32 } %240, 3
   %.pre396 = load i32, ptr %7, align 4
@@ -1049,7 +1062,7 @@ cpuid_or_from_dump.exit199:                       ; preds = %230, %._crit_edge.i
 286:                                              ; preds = %276, %271, %266, %261
   %indvars.iv.next.i.i207 = add nuw nsw i64 %indvars.iv.i.i204, 1
   %exitcond.not.i.i208 = icmp eq i64 %indvars.iv.next.i.i207, %wide.trip.count.i.i203
-  br i1 %exitcond.not.i.i208, label %._crit_edge.i.i209, label %257, !llvm.loop !9
+  br i1 %exitcond.not.i.i208, label %._crit_edge.i.i209, label %257, !llvm.loop !8
 
 ._crit_edge.i.i209:                               ; preds = %286, %253
   %287 = load ptr, ptr @stderr, align 8
@@ -1060,7 +1073,7 @@ cpuid_or_from_dump.exit199:                       ; preds = %230, %._crit_edge.i
 .thread344:                                       ; preds = %.thread335, %252
   %.1275327341350 = phi i32 [ %.1275327, %252 ], [ %161, %.thread335 ]
   %.4342348 = phi i32 [ %.4, %252 ], [ %250, %.thread335 ]
-  %289 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 -2147483647, i32 %.4342348) #22, !srcloc !10
+  %289 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 -2147483647, i32 %.4342348) #22, !srcloc !9
   %290 = extractvalue { i32, i64, i32, i32 } %289, 2
   %291 = extractvalue { i32, i64, i32, i32 } %289, 3
   br label %cpuid_or_from_dump.exit217
@@ -1112,7 +1125,7 @@ cpuid_or_from_dump.exit217:                       ; preds = %279, %._crit_edge.i
   %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %323 ], [ 0, %.lr.ph.i ]
   %304 = load ptr, ptr %17, align 8
   %.not86.us.i = icmp eq ptr %304, null
-  %305 = trunc i64 %indvars.iv99.i to i32
+  %305 = trunc nuw i64 %indvars.iv99.i to i32
   br i1 %.not86.us.i, label %308, label %306
 
 306:                                              ; preds = %.lr.ph.split.us.i
@@ -1158,11 +1171,11 @@ cpuiddump_free.exit.us.i:                         ; preds = %320, %318
 323:                                              ; preds = %cpuiddump_free.exit.us.i, %315, %311, %306
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
   %exitcond103.not.i = icmp eq i64 %indvars.iv.next100.i, %wide.trip.count102.i
-  br i1 %exitcond103.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !11
+  br i1 %exitcond103.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %345
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %345 ], [ 0, %.lr.ph.i ]
-  %324 = trunc i64 %indvars.iv.i to i32
+  %324 = trunc nuw i64 %indvars.iv.i to i32
   %325 = call i32 @hwloc_bitmap_isset(ptr noundef nonnull %.0113, i32 noundef %324) #23
   %.not85.i = icmp eq i32 %325, 0
   br i1 %.not85.i, label %345, label %326
@@ -1215,7 +1228,7 @@ cpuiddump_free.exit.i:                            ; preds = %342, %340
 345:                                              ; preds = %cpuiddump_free.exit.i, %337, %333, %328, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count102.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %345, %323, %303
   %346 = load ptr, ptr %17, align 8
@@ -1273,14 +1286,14 @@ cpuiddump_free.exit.i:                            ; preds = %342, %340
 
 .sink.split.i:                                    ; preds = %366, %.lr.ph93.i
   %.sink.i = phi ptr [ %363, %366 ], [ %362, %.lr.ph93.i ]
-  %367 = trunc i64 %indvars.iv104.i to i32
+  %367 = trunc nuw i64 %indvars.iv104.i to i32
   %368 = call i32 @hwloc_bitmap_set(ptr noundef %.sink.i, i32 noundef %367) #22
   br label %369
 
 369:                                              ; preds = %.sink.split.i, %.lr.ph93.i
   %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
   %exitcond108.not.i = icmp eq i64 %indvars.iv.next105.i, %wide.trip.count107.i
-  br i1 %exitcond108.not.i, label %._crit_edge94.i, label %.lr.ph93.i, !llvm.loop !12
+  br i1 %exitcond108.not.i, label %._crit_edge94.i, label %.lr.ph93.i, !llvm.loop !11
 
 ._crit_edge94.i:                                  ; preds = %369, %361
   %370 = call i32 @hwloc_bitmap_iszero(ptr noundef %362) #23
@@ -1364,7 +1377,7 @@ look_procs.exit:                                  ; preds = %298
   call void @free(ptr noundef %391) #22
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %exitcond393.not = icmp eq i64 %indvars.iv.next390, %53
-  br i1 %exitcond393.not, label %._crit_edge375, label %.lr.ph374, !llvm.loop !13
+  br i1 %exitcond393.not, label %._crit_edge375, label %.lr.ph374, !llvm.loop !12
 
 ._crit_edge375:                                   ; preds = %.lr.ph374, %386
   %.1399 = phi i32 [ %.1, %386 ], [ %.1398, %.lr.ph374 ]
@@ -1450,7 +1463,7 @@ define internal fastcc noalias noundef ptr @cpuiddump_read(ptr noundef %0, i32 n
   %18 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 128, ptr noundef nonnull %14)
   %.not49 = icmp eq ptr %18, null
   %19 = add i32 %.0, 1
-  br i1 %.not49, label %20, label %.preheader, !llvm.loop !14
+  br i1 %.not49, label %20, label %.preheader, !llvm.loop !13
 
 20:                                               ; preds = %.preheader
   %21 = zext i32 %.0 to i64
@@ -1484,7 +1497,7 @@ define internal fastcc noalias noundef ptr @cpuiddump_read(ptr noundef %0, i32 n
 33:                                               ; preds = %31
   %34 = load i8, ptr %3, align 16
   %35 = icmp eq i8 %34, 35
-  br i1 %35, label %31, label %36, !llvm.loop !15
+  br i1 %35, label %31, label %36, !llvm.loop !14
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %.042.ph, i64 4
@@ -1501,7 +1514,7 @@ define internal fastcc noalias noundef ptr @cpuiddump_read(ptr noundef %0, i32 n
   %.143 = getelementptr inbounds i8, ptr %.042.ph, i64 %.143.idx
   %47 = zext i1 %46 to i32
   %.2 = add i32 %.1.ph, %47
-  br label %.outer, !llvm.loop !15
+  br label %.outer, !llvm.loop !14
 
 48:                                               ; preds = %31
   store i32 %.1.ph, ptr %4, align 8
@@ -1622,7 +1635,7 @@ define internal fastcc void @cpuid_or_from_dump(ptr nocapture noundef %0, ptr no
 45:                                               ; preds = %32, %26, %20, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %10, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %10, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %45, %6
   %46 = load ptr, ptr @stderr, align 8
@@ -1639,7 +1652,7 @@ define internal fastcc void @cpuid_or_from_dump(ptr nocapture noundef %0, ptr no
 52:                                               ; preds = %5
   %53 = load i32, ptr %0, align 4
   %54 = load i32, ptr %2, align 4
-  %55 = tail call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 %53, i32 %54) #22, !srcloc !10
+  %55 = tail call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 %53, i32 %54) #22, !srcloc !9
   %56 = extractvalue { i32, i64, i32, i32 } %55, 0
   %57 = extractvalue { i32, i64, i32, i32 } %55, 2
   %58 = extractvalue { i32, i64, i32, i32 } %55, 3
@@ -1719,7 +1732,7 @@ define internal fastcc void @look_proc(ptr nocapture noundef %0, ptr nocapture n
 41:                                               ; preds = %31, %25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %cpuid_or_from_dump.exit.thread, label %21, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %cpuid_or_from_dump.exit.thread, label %21, !llvm.loop !8
 
 cpuid_or_from_dump.exit.thread:                   ; preds = %41, %17
   %42 = load ptr, ptr @stderr, align 8
@@ -1730,7 +1743,7 @@ cpuid_or_from_dump.exit.thread:                   ; preds = %41, %17
   br label %73
 
 45:                                               ; preds = %8
-  %46 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 1, i32 0) #22, !srcloc !10
+  %46 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 1, i32 0) #22, !srcloc !9
   %47 = extractvalue { i32, i64, i32, i32 } %46, 0
   %48 = extractvalue { i32, i64, i32, i32 } %46, 3
   %.pre = load i32, ptr %14, align 4
@@ -1778,7 +1791,7 @@ cpuid_or_from_dump.exit:                          ; preds = %34, %45
   %68 = or disjoint i32 %.3.i, 2
   %.425.i = select i1 %.not31.i, i64 %.324.i, i64 %67
   %.4.i = select i1 %.not31.i, i32 %.3.i, i32 %68
-  %69 = trunc i64 %.425.i to i32
+  %69 = trunc nuw i64 %.425.i to i32
   %70 = lshr i32 %69, 1
   %71 = and i32 %70, 1
   %.5.i = add nuw nsw i32 %71, %.4.i
@@ -1974,7 +1987,7 @@ hwloc_flsl_manual.exit:                           ; preds = %53, %57
 157:                                              ; preds = %147, %142, %137, %132
   %indvars.iv.next.i.i271 = add nuw nsw i64 %indvars.iv.i.i268, 1
   %exitcond.not.i.i272 = icmp eq i64 %indvars.iv.next.i.i271, %wide.trip.count.i.i267
-  br i1 %exitcond.not.i.i272, label %cpuid_or_from_dump.exit281.thread, label %128, !llvm.loop !9
+  br i1 %exitcond.not.i.i272, label %cpuid_or_from_dump.exit281.thread, label %128, !llvm.loop !8
 
 cpuid_or_from_dump.exit281.thread:                ; preds = %157, %124
   %158 = load ptr, ptr @stderr, align 8
@@ -1983,7 +1996,7 @@ cpuid_or_from_dump.exit281.thread:                ; preds = %157, %124
   br label %172
 
 160:                                              ; preds = %123
-  %161 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 4, i32 0) #22, !srcloc !10
+  %161 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 4, i32 0) #22, !srcloc !9
   %162 = extractvalue { i32, i64, i32, i32 } %161, 0
   %163 = extractvalue { i32, i64, i32, i32 } %161, 3
   br label %cpuid_or_from_dump.exit281
@@ -2093,7 +2106,7 @@ cpuid_or_from_dump.exit281:                       ; preds = %150, %160
 210:                                              ; preds = %202, %197, %192, %187
   %indvars.iv.next.i.i289 = add nuw nsw i64 %indvars.iv.i.i286, 1
   %exitcond.not.i.i290 = icmp eq i64 %indvars.iv.next.i.i289, %wide.trip.count.i.i285
-  br i1 %exitcond.not.i.i290, label %._crit_edge.i.i291, label %183, !llvm.loop !9
+  br i1 %exitcond.not.i.i290, label %._crit_edge.i.i291, label %183, !llvm.loop !8
 
 ._crit_edge.i.i291:                               ; preds = %210, %179
   %211 = load ptr, ptr @stderr, align 8
@@ -2102,7 +2115,7 @@ cpuid_or_from_dump.exit281:                       ; preds = %150, %160
   br label %cpuid_or_from_dump.exit299
 
 213:                                              ; preds = %178
-  %214 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 26, i32 0) #22, !srcloc !10
+  %214 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 26, i32 0) #22, !srcloc !9
   %215 = extractvalue { i32, i64, i32, i32 } %214, 0
   br label %cpuid_or_from_dump.exit299
 
@@ -2171,7 +2184,7 @@ cpuid_or_from_dump.exit299:                       ; preds = %205, %._crit_edge.i
 243:                                              ; preds = %236
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %232, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %232, !llvm.loop !8
 
 ._crit_edge.i.i.i:                                ; preds = %243, %228
   %244 = load ptr, ptr @stderr, align 8
@@ -2179,7 +2192,7 @@ cpuid_or_from_dump.exit299:                       ; preds = %205, %._crit_edge.i
   br label %read_amd_cores_legacy.exit
 
 246:                                              ; preds = %227
-  %247 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 -2147483640, i32 undef) #22, !srcloc !10
+  %247 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 -2147483640, i32 undef) #22, !srcloc !9
   %248 = extractvalue { i32, i64, i32, i32 } %247, 2
   br label %read_amd_cores_legacy.exit
 
@@ -2256,7 +2269,7 @@ read_amd_cores_legacy.exit:                       ; preds = %239, %._crit_edge.i
 282:                                              ; preds = %271
   %indvars.iv.next.i.i.i309 = add nuw nsw i64 %indvars.iv.i.i.i306, 1
   %exitcond.not.i.i.i310 = icmp eq i64 %indvars.iv.next.i.i.i309, %wide.trip.count.i.i.i305
-  br i1 %exitcond.not.i.i.i310, label %._crit_edge.i.i.i311, label %267, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i310, label %._crit_edge.i.i.i311, label %267, !llvm.loop !8
 
 ._crit_edge.i.i.i311:                             ; preds = %282, %263
   %283 = load ptr, ptr @stderr, align 8
@@ -2265,7 +2278,7 @@ read_amd_cores_legacy.exit:                       ; preds = %239, %._crit_edge.i
   br label %cpuid_or_from_dump.exit.i
 
 285:                                              ; preds = %262
-  %286 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 -2147483618, i32 undef) #22, !srcloc !10
+  %286 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 -2147483618, i32 undef) #22, !srcloc !9
   %287 = extractvalue { i32, i64, i32, i32 } %286, 0
   %288 = extractvalue { i32, i64, i32, i32 } %286, 2
   br label %cpuid_or_from_dump.exit.i
@@ -2385,7 +2398,7 @@ read_amd_cores_topoext.exit:                      ; preds = %297, %302
 
 cpuid_or_from_dump.exit.us.i:                     ; preds = %331, %337
   %.0113.us.i = phi i32 [ %340, %337 ], [ 0, %331 ]
-  %333 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 -2147483619, i32 %.0113.us.i) #22, !srcloc !10
+  %333 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 -2147483619, i32 %.0113.us.i) #22, !srcloc !9
   %334 = extractvalue { i32, i64, i32, i32 } %333, 0
   %335 = and i32 %334, 31
   %336 = icmp eq i32 %335, 0
@@ -2397,7 +2410,7 @@ cpuid_or_from_dump.exit.us.i:                     ; preds = %331, %337
   store i32 %339, ptr %325, align 4
   %340 = add nuw nsw i32 %.0113.us.i, 1
   %exitcond141.not.i = icmp eq i32 %340, 16
-  br i1 %exitcond141.not.i, label %.loopexit95.split.us.i, label %cpuid_or_from_dump.exit.us.i, !llvm.loop !16
+  br i1 %exitcond141.not.i, label %.loopexit95.split.us.i, label %cpuid_or_from_dump.exit.us.i, !llvm.loop !15
 
 .loopexit95.split.us.i:                           ; preds = %337, %cpuid_or_from_dump.exit.us.i
   %341 = extractvalue { i32, i64, i32, i32 } %333, 3
@@ -2479,7 +2492,7 @@ cpuid_or_from_dump.exit.i326:                     ; preds = %365, %363
 376:                                              ; preds = %365, %360, %355, %350
   %indvars.iv.next.i.i.i321 = add nuw nsw i64 %indvars.iv.i.i.i318, 1
   %exitcond.not.i.i.i322 = icmp eq i64 %indvars.iv.next.i.i.i321, %wide.trip.count.i.i.i317
-  br i1 %exitcond.not.i.i.i322, label %cpuid_or_from_dump.exit.thread.i, label %346, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i322, label %cpuid_or_from_dump.exit.thread.i, label %346, !llvm.loop !8
 
 cpuid_or_from_dump.exit.thread.i:                 ; preds = %.split.i, %376
   %377 = load ptr, ptr @stderr, align 8
@@ -2492,7 +2505,7 @@ cpuid_or_from_dump.exit.thread.i:                 ; preds = %.split.i, %376
   store i32 %380, ptr %325, align 4
   %381 = add nuw nsw i32 %.0113.i, 1
   %exitcond.not.i = icmp eq i32 %381, 16
-  br i1 %exitcond.not.i, label %.loopexit95.i, label %.split.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.loopexit95.i, label %.split.i, !llvm.loop !15
 
 .loopexit95.i:                                    ; preds = %379, %cpuid_or_from_dump.exit.i326, %cpuid_or_from_dump.exit.thread.i, %.loopexit95.split.us.i
   %.185.i = phi i32 [ 0, %cpuid_or_from_dump.exit.thread.i ], [ %341, %.loopexit95.split.us.i ], [ %373, %cpuid_or_from_dump.exit.i326 ], [ %373, %379 ]
@@ -2510,7 +2523,7 @@ cpuid_or_from_dump.exit.thread.i:                 ; preds = %.split.i, %376
 cpuid_or_from_dump.exit62.us.i:                   ; preds = %.preheader.i, %393
   %.1118.us.i = phi i32 [ %424, %393 ], [ 0, %.preheader.i ]
   %.040117.us.i = phi ptr [ %423, %393 ], [ %385, %.preheader.i ]
-  %386 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 -2147483619, i32 %.1118.us.i) #22, !srcloc !10
+  %386 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 -2147483619, i32 %.1118.us.i) #22, !srcloc !9
   %387 = extractvalue { i32, i64, i32, i32 } %386, 0
   %388 = extractvalue { i32, i64, i32, i32 } %386, 2
   %389 = extractvalue { i32, i64, i32, i32 } %386, 3
@@ -2573,7 +2586,7 @@ cpuid_or_from_dump.exit62.us.i:                   ; preds = %.preheader.i, %393
   %423 = getelementptr inbounds i8, ptr %.040117.us.i, i64 48
   %424 = add nuw nsw i32 %.1118.us.i, 1
   %exitcond143.not.i = icmp eq i32 %424, 16
-  br i1 %exitcond143.not.i, label %read_amd_caches_topoext.exit, label %cpuid_or_from_dump.exit62.us.i, !llvm.loop !17
+  br i1 %exitcond143.not.i, label %read_amd_caches_topoext.exit, label %cpuid_or_from_dump.exit62.us.i, !llvm.loop !16
 
 .preheader.split.i:                               ; preds = %.preheader.i
   %.promoted120.i = load i32, ptr %11, align 4
@@ -2660,7 +2673,7 @@ cpuid_or_from_dump.exit62.i:                      ; preds = %446, %444
 458:                                              ; preds = %446, %441, %436, %431
   %indvars.iv.next.i.i52.i = add nuw nsw i64 %indvars.iv.i.i49.i, 1
   %exitcond.not.i.i53.i = icmp eq i64 %indvars.iv.next.i.i52.i, %wide.trip.count.i.i48.i
-  br i1 %exitcond.not.i.i53.i, label %cpuid_or_from_dump.exit62.thread.i, label %427, !llvm.loop !9
+  br i1 %exitcond.not.i.i53.i, label %cpuid_or_from_dump.exit62.thread.i, label %427, !llvm.loop !8
 
 cpuid_or_from_dump.exit62.thread.i:               ; preds = %458, %.preheader.split.i
   %459 = phi i32 [ %.promoted120.i, %.preheader.split.i ], [ %426, %458 ]
@@ -2721,7 +2734,7 @@ cpuid_or_from_dump.exit62.thread.i:               ; preds = %458, %.preheader.sp
   %493 = getelementptr inbounds i8, ptr %.040117.i, i64 48
   %494 = add nuw nsw i32 %.1118.i, 1
   %exitcond142.not.i = icmp eq i32 %494, 16
-  br i1 %exitcond142.not.i, label %read_amd_caches_topoext.exit, label %.lr.ph.i.i47.i, !llvm.loop !17
+  br i1 %exitcond142.not.i, label %read_amd_caches_topoext.exit, label %.lr.ph.i.i47.i, !llvm.loop !16
 
 495:                                              ; preds = %.loopexit95.i
   store i32 0, ptr %325, align 4
@@ -2780,7 +2793,7 @@ read_amd_caches_topoext.exit:                     ; preds = %cpuid_or_from_dump.
 518:                                              ; preds = %507
   %indvars.iv.next.i.i.i334 = add nuw nsw i64 %indvars.iv.i.i.i331, 1
   %exitcond.not.i.i.i335 = icmp eq i64 %indvars.iv.next.i.i.i334, %wide.trip.count.i.i.i330
-  br i1 %exitcond.not.i.i.i335, label %setup__amd_cache_legacy.exit.thread.i, label %503, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i335, label %setup__amd_cache_legacy.exit.thread.i, label %503, !llvm.loop !8
 
 setup__amd_cache_legacy.exit.thread.i:            ; preds = %518, %499
   %519 = load ptr, ptr @stderr, align 8
@@ -2789,7 +2802,7 @@ setup__amd_cache_legacy.exit.thread.i:            ; preds = %518, %499
   br label %setup__amd_cache_legacy.exit12.i
 
 521:                                              ; preds = %498
-  %522 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 -2147483643, i32 undef) #22, !srcloc !10
+  %522 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 -2147483643, i32 undef) #22, !srcloc !9
   %523 = extractvalue { i32, i64, i32, i32 } %522, 2
   %524 = extractvalue { i32, i64, i32, i32 } %522, 3
   br label %cpuid_or_from_dump.exit.i339
@@ -2969,7 +2982,7 @@ setup__amd_cache_legacy.exit12.i:                 ; preds = %560, %553, %setup__
 610:                                              ; preds = %600, %595, %590, %585
   %indvars.iv.next.i.i20.i = add nuw nsw i64 %indvars.iv.i.i17.i, 1
   %exitcond.not.i.i21.i = icmp eq i64 %indvars.iv.next.i.i20.i, %wide.trip.count.i.i16.i
-  br i1 %exitcond.not.i.i21.i, label %setup__amd_cache_legacy.exit34.thread.i, label %581, !llvm.loop !9
+  br i1 %exitcond.not.i.i21.i, label %setup__amd_cache_legacy.exit34.thread.i, label %581, !llvm.loop !8
 
 setup__amd_cache_legacy.exit34.thread.i:          ; preds = %610, %577
   %611 = load ptr, ptr @stderr, align 8
@@ -2977,7 +2990,7 @@ setup__amd_cache_legacy.exit34.thread.i:          ; preds = %610, %577
   br label %read_amd_caches_legacy.exit
 
 613:                                              ; preds = %setup__amd_cache_legacy.exit12.i
-  %614 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 -2147483642, i32 %.06269.i) #22, !srcloc !10
+  %614 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 -2147483642, i32 %.06269.i) #22, !srcloc !9
   %615 = extractvalue { i32, i64, i32, i32 } %614, 2
   %616 = extractvalue { i32, i64, i32, i32 } %614, 3
   br label %cpuid_or_from_dump.exit30.i
@@ -3108,7 +3121,7 @@ read_amd_caches_legacy.exit:                      ; preds = %setup__amd_cache_le
 
 cpuid_or_from_dump.exit.us.i364:                  ; preds = %677, %689
   %.0129.us.i = phi i32 [ %692, %689 ], [ 0, %677 ]
-  %680 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 4, i32 %.0129.us.i) #22, !srcloc !10
+  %680 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 4, i32 %.0129.us.i) #22, !srcloc !9
   %681 = extractvalue { i32, i64, i32, i32 } %680, 0
   %682 = and i32 %681, 31
   %683 = icmp eq i32 %682, 0
@@ -3128,7 +3141,7 @@ cpuid_or_from_dump.exit.us.i364:                  ; preds = %677, %689
   store i32 %691, ptr %325, align 4
   %692 = add nuw nsw i32 %.0129.us.i, 1
   %exitcond155.not.i = icmp eq i32 %692, 16
-  br i1 %exitcond155.not.i, label %.loopexit111.split.us.i, label %cpuid_or_from_dump.exit.us.i364, !llvm.loop !18
+  br i1 %exitcond155.not.i, label %.loopexit111.split.us.i, label %cpuid_or_from_dump.exit.us.i364, !llvm.loop !17
 
 .loopexit111.split.us.i:                          ; preds = %689, %684, %cpuid_or_from_dump.exit.us.i364
   %693 = extractvalue { i32, i64, i32, i32 } %680, 3
@@ -3210,7 +3223,7 @@ cpuid_or_from_dump.exit.i362:                     ; preds = %717, %715
 728:                                              ; preds = %717, %712, %707, %702
   %indvars.iv.next.i.i.i349 = add nuw nsw i64 %indvars.iv.i.i.i346, 1
   %exitcond.not.i.i.i350 = icmp eq i64 %indvars.iv.next.i.i.i349, %wide.trip.count.i.i.i345
-  br i1 %exitcond.not.i.i.i350, label %cpuid_or_from_dump.exit.thread.i351, label %698, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i350, label %cpuid_or_from_dump.exit.thread.i351, label %698, !llvm.loop !8
 
 cpuid_or_from_dump.exit.thread.i351:              ; preds = %.split.i342, %728
   %729 = load ptr, ptr @stderr, align 8
@@ -3231,7 +3244,7 @@ cpuid_or_from_dump.exit.thread.i351:              ; preds = %.split.i342, %728
   store i32 %737, ptr %325, align 4
   %738 = add nuw nsw i32 %.0129.i, 1
   %exitcond.not.i363 = icmp eq i32 %738, 16
-  br i1 %exitcond.not.i363, label %.loopexit111.i, label %.split.i342, !llvm.loop !18
+  br i1 %exitcond.not.i363, label %.loopexit111.i, label %.split.i342, !llvm.loop !17
 
 .loopexit111.i:                                   ; preds = %736, %731, %cpuid_or_from_dump.exit.i362, %cpuid_or_from_dump.exit.thread.i351, %.loopexit111.split.us.i
   %.1101.i = phi i32 [ 0, %cpuid_or_from_dump.exit.thread.i351 ], [ %693, %.loopexit111.split.us.i ], [ %725, %cpuid_or_from_dump.exit.i362 ], [ %725, %731 ], [ %725, %736 ]
@@ -3332,7 +3345,7 @@ cpuid_or_from_dump.exit.thread.i351:              ; preds = %.split.i342, %728
 784:                                              ; preds = %772, %767, %762, %757
   %indvars.iv.next.i.i67.i = add nuw nsw i64 %indvars.iv.i.i64.i, 1
   %exitcond.not.i.i68.i = icmp eq i64 %indvars.iv.next.i.i67.i, %wide.trip.count.i.i63.i
-  br i1 %exitcond.not.i.i68.i, label %cpuid_or_from_dump.exit77.thread.i, label %753, !llvm.loop !9
+  br i1 %exitcond.not.i.i68.i, label %cpuid_or_from_dump.exit77.thread.i, label %753, !llvm.loop !8
 
 cpuid_or_from_dump.exit77.thread.loopexit136.i:   ; preds = %749
   %.pre.i355 = load i32, ptr %9, align 4
@@ -3345,7 +3358,7 @@ cpuid_or_from_dump.exit77.thread.i:               ; preds = %784, %cpuid_or_from
   br label %read_intel_caches.exit
 
 788:                                              ; preds = %748
-  %789 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 4, i32 %.1134.i) #22, !srcloc !10
+  %789 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 4, i32 %.1134.i) #22, !srcloc !9
   %790 = extractvalue { i32, i64, i32, i32 } %789, 0
   %791 = extractvalue { i32, i64, i32, i32 } %789, 2
   %792 = extractvalue { i32, i64, i32, i32 } %789, 3
@@ -3415,7 +3428,7 @@ cpuid_or_from_dump.exit77.i:                      ; preds = %788, %775
   %829 = getelementptr inbounds i8, ptr %.055133.i, i64 48
   %830 = add nuw nsw i32 %.1134.i, 1
   %exitcond156.not.i = icmp eq i32 %830, 16
-  br i1 %exitcond156.not.i, label %read_intel_caches.exit, label %748, !llvm.loop !19
+  br i1 %exitcond156.not.i, label %read_intel_caches.exit, label %748, !llvm.loop !18
 
 read_intel_caches.exit:                           ; preds = %cpuid_or_from_dump.exit77.i, %795, %801, %744, %cpuid_or_from_dump.exit77.thread.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -3472,7 +3485,7 @@ read_intel_caches.exit:                           ; preds = %cpuid_or_from_dump.
   %855 = or disjoint i32 %.3.i374, 2
   %.425.i376 = select i1 %.not31.i375, i64 %.324.i373, i64 %854
   %.4.i377 = select i1 %.not31.i375, i32 %.3.i374, i32 %855
-  %856 = trunc i64 %.425.i376 to i32
+  %856 = trunc nuw i64 %.425.i376 to i32
   %857 = lshr i32 %856, 1
   %858 = and i32 %857, 1
   %.5.i378 = add nuw nsw i32 %858, %.4.i377
@@ -3500,9 +3513,9 @@ hwloc_flsl_manual.exit380:                        ; preds = %842, %844
   br i1 %868, label %869, label %.thread425
 
 869:                                              ; preds = %865
-  %870 = call i32 @llvm.ctpop.i32(i32 %839), !range !20
+  %870 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %839)
   %.not258 = icmp ult i32 %870, 2
-  %871 = call i32 @llvm.cttz.i32(i32 %839, i1 true), !range !20
+  %871 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %839, i1 true)
   %872 = shl nuw i32 4, %871
   %.0 = select i1 %.not258, i32 %839, i32 %872
   %873 = load i32, ptr %74, align 4
@@ -3616,7 +3629,7 @@ hwloc_flsl_manual.exit380:                        ; preds = %842, %844
   %932 = load i32, ptr %325, align 4
   %933 = zext i32 %932 to i64
   %934 = icmp ult i64 %indvars.iv.next, %933
-  br i1 %934, label %834, label %.loopexit, !llvm.loop !21
+  br i1 %934, label %834, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.thread425, %831, %319
   %935 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3669,7 +3682,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not443, label %21, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw i64 %indvars.iv to i32
   %20 = tail call i32 @hwloc_bitmap_set(ptr noundef %13, i32 noundef %19) #22
   br label %21
 
@@ -3677,7 +3690,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %.1397 = phi i32 [ %19, %18 ], [ %.0396501, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %21
   %22 = icmp eq i32 %.1397, -1
@@ -3738,13 +3751,13 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %44 = call i32 @hwloc_bitmap_andnot(ptr noundef %24, ptr noundef %24, ptr noundef %43) #22
   %45 = call i32 @hwloc_bitmap_first(ptr noundef %24) #23
   %.not418.us = icmp eq i32 %45, -1
-  br i1 %.not418.us, label %.loopexit483, label %.lr.ph509.split.us, !llvm.loop !23
+  br i1 %.not418.us, label %.loopexit483, label %.lr.ph509.split.us, !llvm.loop !21
 
 46:                                               ; preds = %.preheader.i.i.us
   %47 = getelementptr inbounds i8, ptr %.01.i.i.us, i64 56
   %48 = load ptr, ptr %47, align 8
   %.not11.i.i.us = icmp eq ptr %48, null
-  br i1 %.not11.i.i.us, label %.loopexit482, label %.preheader.i.i.us, !llvm.loop !24
+  br i1 %.not11.i.i.us, label %.loopexit482, label %.preheader.i.i.us, !llvm.loop !22
 
 .lr.ph509.split:                                  ; preds = %.lr.ph509, %._crit_edge506
   %49 = phi i32 [ %67, %._crit_edge506 ], [ %29, %.lr.ph509 ]
@@ -3764,7 +3777,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %.lr.ph505
-  %60 = trunc i64 %indvars.iv613 to i32
+  %60 = trunc nuw i64 %indvars.iv613 to i32
   %61 = call i32 @hwloc_bitmap_set(ptr noundef %54, i32 noundef %60) #22
   %62 = call i32 @hwloc_bitmap_clr(ptr noundef %24, i32 noundef %60) #22
   br label %63
@@ -3773,7 +3786,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next614 to i32
   %exitcond616.not = icmp eq i32 %12, %lftr.wideiv
-  br i1 %exitcond616.not, label %._crit_edge506, label %.lr.ph505, !llvm.loop !25
+  br i1 %exitcond616.not, label %._crit_edge506, label %.lr.ph505, !llvm.loop !23
 
 ._crit_edge506:                                   ; preds = %63, %.lr.ph509.split
   %64 = call ptr @hwloc_alloc_setup_object(ptr noundef %10, i32 noundef 1, i32 noundef %53) #22
@@ -3783,7 +3796,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %66 = call ptr @hwloc__insert_object_by_cpuset(ptr noundef %10, ptr noundef null, ptr noundef %64, ptr noundef nonnull @.str.42) #22
   %67 = call i32 @hwloc_bitmap_first(ptr noundef %24) #23
   %.not418 = icmp eq i32 %67, -1
-  br i1 %.not418, label %.loopexit483, label %.lr.ph509.split, !llvm.loop !23
+  br i1 %.not418, label %.loopexit483, label %.lr.ph509.split, !llvm.loop !21
 
 .loopexit482:                                     ; preds = %34, %.lr.ph509.split.us, %46
   call void @hwloc_bitmap_free(ptr noundef %31) #22
@@ -3825,7 +3838,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %86 = call i32 @hwloc_bitmap_clr(ptr noundef %24, i32 noundef %78) #22
   %87 = call i32 @hwloc_bitmap_first(ptr noundef %24) #23
   %.not422 = icmp eq i32 %87, -1
-  br i1 %.not422, label %.loopexit481, label %77, !llvm.loop !26
+  br i1 %.not422, label %.loopexit481, label %77, !llvm.loop !24
 
 88:                                               ; preds = %77
   %89 = call noalias ptr @hwloc_bitmap_alloc() #22
@@ -3841,7 +3854,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %.lr.ph519
-  %96 = trunc i64 %indvars.iv617 to i32
+  %96 = trunc nuw i64 %indvars.iv617 to i32
   br label %.sink.split
 
 97:                                               ; preds = %.lr.ph519
@@ -3852,7 +3865,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %or.cond446, label %101, label %105
 
 101:                                              ; preds = %97
-  %102 = trunc i64 %indvars.iv617 to i32
+  %102 = trunc nuw i64 %indvars.iv617 to i32
   %103 = call i32 @hwloc_bitmap_set(ptr noundef %89, i32 noundef %102) #22
   br label %.sink.split
 
@@ -3865,7 +3878,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
   %lftr.wideiv620 = trunc i64 %indvars.iv.next618 to i32
   %exitcond621.not = icmp eq i32 %12, %lftr.wideiv620
-  br i1 %exitcond621.not, label %.outer, label %.lr.ph519, !llvm.loop !27
+  br i1 %exitcond621.not, label %.outer, label %.lr.ph519, !llvm.loop !25
 
 .outer:                                           ; preds = %105, %88
   %106 = call ptr @hwloc_alloc_setup_object(ptr noundef %10, i32 noundef 13, i32 noundef %83) #22
@@ -3879,7 +3892,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %112 = add nuw nsw i32 %.0399.ph522, 1
   %113 = call i32 @hwloc_bitmap_first(ptr noundef %24) #23
   %.not422513 = icmp eq i32 %113, -1
-  br i1 %.not422513, label %.loopexit481, label %.lr.ph514, !llvm.loop !26
+  br i1 %.not422513, label %.loopexit481, label %.lr.ph514, !llvm.loop !24
 
 .loopexit481:                                     ; preds = %.outer, %85, %73, %.loopexit483
   %.1400 = phi i32 [ 0, %.loopexit483 ], [ 0, %73 ], [ %.0399.ph522, %85 ], [ 1, %.outer ]
@@ -3982,7 +3995,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %159, label %160, label %164
 
 160:                                              ; preds = %.lr.ph526
-  %161 = trunc i64 %indvars.iv622 to i32
+  %161 = trunc nuw i64 %indvars.iv622 to i32
   %162 = call i32 @hwloc_bitmap_set(ptr noundef %153, i32 noundef %161) #22
   %163 = call i32 @hwloc_bitmap_clr(ptr noundef %24, i32 noundef %161) #22
   br label %164
@@ -3991,7 +4004,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next623 = add nuw nsw i64 %indvars.iv622, 1
   %lftr.wideiv625 = trunc i64 %indvars.iv.next623 to i32
   %exitcond626.not = icmp eq i32 %12, %lftr.wideiv625
-  br i1 %exitcond626.not, label %._crit_edge527, label %.lr.ph526, !llvm.loop !28
+  br i1 %exitcond626.not, label %._crit_edge527, label %.lr.ph526, !llvm.loop !26
 
 ._crit_edge527:                                   ; preds = %164, %.lr.ph530
   %165 = call ptr @hwloc_alloc_setup_object(ptr noundef %10, i32 noundef 12, i32 noundef %152) #22
@@ -4007,14 +4020,14 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %172 = call ptr @hwloc__insert_object_by_cpuset(ptr noundef %10, ptr noundef null, ptr noundef %165, ptr noundef nonnull @.str.48) #22
   %173 = call i32 @hwloc_bitmap_first(ptr noundef %24) #23
   %.not442 = icmp eq i32 %173, -1
-  br i1 %.not442, label %.loopexit479, label %.lr.ph530, !llvm.loop !29
+  br i1 %.not442, label %.loopexit479, label %.lr.ph530, !llvm.loop !27
 
 .loopexit479:                                     ; preds = %._crit_edge527, %144, %.lr.ph535
   %.0391 = add i32 %.0391533, -1
   %174 = load i32, ptr %138, align 8
   %175 = add i32 %174, -1
   %.not428 = icmp ugt i32 %.0391, %175
-  br i1 %.not428, label %.loopexit480, label %.lr.ph535, !llvm.loop !30
+  br i1 %.not428, label %.loopexit480, label %.lr.ph535, !llvm.loop !28
 
 .loopexit480:                                     ; preds = %.loopexit479, %133, %.loopexit481
   %176 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4055,7 +4068,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
 .backedge478:                                     ; preds = %192, %._crit_edge539
   %194 = call i32 @hwloc_bitmap_first(ptr noundef %24) #23
   %.not430 = icmp eq i32 %194, -1
-  br i1 %.not430, label %.loopexit477, label %.lr.ph542, !llvm.loop !31
+  br i1 %.not430, label %.loopexit477, label %.lr.ph542, !llvm.loop !29
 
 195:                                              ; preds = %.lr.ph542
   %196 = call noalias ptr @hwloc_bitmap_alloc() #22
@@ -4071,7 +4084,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %201, label %202, label %204
 
 202:                                              ; preds = %.lr.ph538
-  %203 = trunc i64 %indvars.iv627 to i32
+  %203 = trunc nuw i64 %indvars.iv627 to i32
   br label %.sink.split703
 
 204:                                              ; preds = %.lr.ph538
@@ -4082,7 +4095,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %or.cond447, label %208, label %212
 
 208:                                              ; preds = %204
-  %209 = trunc i64 %indvars.iv627 to i32
+  %209 = trunc nuw i64 %indvars.iv627 to i32
   %210 = call i32 @hwloc_bitmap_set(ptr noundef %196, i32 noundef %209) #22
   br label %.sink.split703
 
@@ -4095,7 +4108,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next628 = add nuw nsw i64 %indvars.iv627, 1
   %lftr.wideiv630 = trunc i64 %indvars.iv.next628 to i32
   %exitcond631.not = icmp eq i32 %12, %lftr.wideiv630
-  br i1 %exitcond631.not, label %._crit_edge539, label %.lr.ph538, !llvm.loop !32
+  br i1 %exitcond631.not, label %._crit_edge539, label %.lr.ph538, !llvm.loop !30
 
 ._crit_edge539:                                   ; preds = %212, %195
   %213 = call ptr @hwloc_alloc_setup_object(ptr noundef %10, i32 noundef 19, i32 noundef %190) #22
@@ -4139,7 +4152,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
 .backedge476:                                     ; preds = %231, %._crit_edge546
   %233 = call i32 @hwloc_bitmap_first(ptr noundef %24) #23
   %.not431 = icmp eq i32 %233, -1
-  br i1 %.not431, label %.loopexit475, label %.lr.ph549, !llvm.loop !33
+  br i1 %.not431, label %.loopexit475, label %.lr.ph549, !llvm.loop !31
 
 234:                                              ; preds = %.lr.ph549
   %235 = call noalias ptr @hwloc_bitmap_alloc() #22
@@ -4155,7 +4168,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %240, label %241, label %243
 
 241:                                              ; preds = %.lr.ph545
-  %242 = trunc i64 %indvars.iv632 to i32
+  %242 = trunc nuw i64 %indvars.iv632 to i32
   br label %.sink.split705
 
 243:                                              ; preds = %.lr.ph545
@@ -4172,7 +4185,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %or.cond448, label %251, label %255
 
 251:                                              ; preds = %246
-  %252 = trunc i64 %indvars.iv632 to i32
+  %252 = trunc nuw i64 %indvars.iv632 to i32
   %253 = call i32 @hwloc_bitmap_set(ptr noundef %235, i32 noundef %252) #22
   br label %.sink.split705
 
@@ -4185,7 +4198,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next633 = add nuw nsw i64 %indvars.iv632, 1
   %lftr.wideiv635 = trunc i64 %indvars.iv.next633 to i32
   %exitcond636.not = icmp eq i32 %12, %lftr.wideiv635
-  br i1 %exitcond636.not, label %._crit_edge546, label %.lr.ph545, !llvm.loop !34
+  br i1 %exitcond636.not, label %._crit_edge546, label %.lr.ph545, !llvm.loop !32
 
 ._crit_edge546:                                   ; preds = %255, %234
   %256 = call ptr @hwloc_alloc_setup_object(ptr noundef %10, i32 noundef 2, i32 noundef %229) #22
@@ -4209,7 +4222,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not440, label %268, label %261
 
 261:                                              ; preds = %.lr.ph551
-  %262 = trunc i64 %indvars.iv637 to i32
+  %262 = trunc nuw i64 %indvars.iv637 to i32
   %263 = call ptr @hwloc_alloc_setup_object(ptr noundef %10, i32 noundef 3, i32 noundef %262) #22
   %264 = call noalias ptr @hwloc_bitmap_alloc() #22
   %265 = getelementptr inbounds i8, ptr %263, i64 184
@@ -4221,7 +4234,7 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
 268:                                              ; preds = %.lr.ph551, %261
   %indvars.iv.next638 = add nuw nsw i64 %indvars.iv637, 1
   %exitcond641.not = icmp eq i64 %indvars.iv.next638, %wide.trip.count640
-  br i1 %exitcond641.not, label %.loopexit474, label %.lr.ph551, !llvm.loop !35
+  br i1 %exitcond641.not, label %.loopexit474, label %.lr.ph551, !llvm.loop !33
 
 .loopexit474:                                     ; preds = %268, %.loopexit475
   br i1 %.not588, label %._crit_edge586, label %.preheader472.preheader
@@ -4261,13 +4274,13 @@ define internal fastcc void @summarize(ptr nocapture noundef readonly %0, ptr no
   %spec.select = call i32 @llvm.umax.i32(i32 %276, i32 %.2393552)
   %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
   %exitcond646.not = icmp eq i64 %indvars.iv.next643, %wide.trip.count645
-  br i1 %exitcond646.not, label %._crit_edge555, label %274, !llvm.loop !36
+  br i1 %exitcond646.not, label %._crit_edge555, label %274, !llvm.loop !34
 
 ._crit_edge555:                                   ; preds = %274, %.preheader472
   %.2393.lcssa = phi i32 [ %.1392557, %.preheader472 ], [ %spec.select, %274 ]
   %indvars.iv.next648 = add nuw nsw i64 %indvars.iv647, 1
   %exitcond651.not = icmp eq i64 %indvars.iv.next648, %wide.trip.count650
-  br i1 %exitcond651.not, label %.preheader471, label %.preheader472, !llvm.loop !37
+  br i1 %exitcond651.not, label %.preheader471, label %.preheader472, !llvm.loop !35
 
 .preheader470:                                    ; preds = %.preheader470.preheader, %hwloc_cache_type_by_depth_type.exit.thread.thread
   %.4395585 = phi i32 [ %420, %hwloc_cache_type_by_depth_type.exit.thread.thread ], [ %.2393.lcssa, %.preheader470.preheader ]
@@ -4335,10 +4348,10 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
 305:                                              ; preds = %297, %302
   %indvars.iv.next653 = add nuw nsw i64 %indvars.iv652, 1
   %exitcond656.not = icmp eq i64 %indvars.iv.next653, %wide.trip.count655
-  br i1 %exitcond656.not, label %._crit_edge562.thread, label %297, !llvm.loop !38
+  br i1 %exitcond656.not, label %._crit_edge562.thread, label %297, !llvm.loop !36
 
 ._crit_edge562.loopexit:                          ; preds = %302
-  %306 = trunc i64 %indvars.iv652 to i32
+  %306 = trunc nuw i64 %indvars.iv652 to i32
   br label %._crit_edge562
 
 ._crit_edge562:                                   ; preds = %._crit_edge562.loopexit, %.preheader469
@@ -4353,7 +4366,7 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
 .backedge:                                        ; preds = %343, %._crit_edge581, %._crit_edge562.thread
   %309 = call i32 @hwloc_bitmap_first(ptr noundef %24) #23
   %.not435 = icmp eq i32 %309, -1
-  br i1 %.not435, label %hwloc_cache_type_by_depth_type.exit.thread, label %.preheader469, !llvm.loop !39
+  br i1 %.not435, label %hwloc_cache_type_by_depth_type.exit.thread, label %.preheader469, !llvm.loop !37
 
 310:                                              ; preds = %._crit_edge562
   %311 = call noalias ptr @hwloc_bitmap_alloc() #22
@@ -4379,7 +4392,7 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
   %320 = getelementptr inbounds i8, ptr %.01.i.i453, i64 56
   %321 = load ptr, ptr %320, align 8
   %.not11.i.i456 = icmp eq ptr %321, null
-  br i1 %.not11.i.i456, label %.loopexit, label %.preheader.i.i452, !llvm.loop !24
+  br i1 %.not11.i.i456, label %.loopexit, label %.preheader.i.i452, !llvm.loop !22
 
 322:                                              ; preds = %.preheader.i.i452
   %323 = getelementptr inbounds i8, ptr %.01.i.i453, i64 184
@@ -4398,7 +4411,7 @@ hwloc_cache_type_by_depth_type.exit:              ; preds = %284, %283
 328:                                              ; preds = %329
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %hwloc_obj_get_info_by_name.exit.thread, label %329, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %hwloc_obj_get_info_by_name.exit.thread, label %329, !llvm.loop !38
 
 329:                                              ; preds = %328, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %328 ]
@@ -4474,10 +4487,10 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %328, %322, %hwloc_o
 368:                                              ; preds = %360, %365
   %indvars.iv.next658 = add nuw nsw i64 %indvars.iv657, 1
   %exitcond661.not = icmp eq i64 %indvars.iv.next658, %wide.trip.count660
-  br i1 %exitcond661.not, label %._crit_edge572.thread, label %360, !llvm.loop !41
+  br i1 %exitcond661.not, label %._crit_edge572.thread, label %360, !llvm.loop !39
 
 ._crit_edge572.loopexit:                          ; preds = %365
-  %369 = trunc i64 %indvars.iv657 to i32
+  %369 = trunc nuw i64 %indvars.iv657 to i32
   br label %._crit_edge572
 
 ._crit_edge572:                                   ; preds = %._crit_edge572.loopexit, %.preheader
@@ -4486,7 +4499,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %328, %322, %hwloc_o
   br i1 %370, label %._crit_edge572.thread, label %372
 
 ._crit_edge572.thread:                            ; preds = %368, %._crit_edge572
-  %371 = trunc i64 %indvars.iv662 to i32
+  %371 = trunc nuw i64 %indvars.iv662 to i32
   br label %.sink.split707
 
 372:                                              ; preds = %._crit_edge572
@@ -4505,7 +4518,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %328, %322, %hwloc_o
   br i1 %382, label %383, label %387
 
 383:                                              ; preds = %376
-  %384 = trunc i64 %indvars.iv662 to i32
+  %384 = trunc nuw i64 %indvars.iv662 to i32
   %385 = call i32 @hwloc_bitmap_set(ptr noundef %353, i32 noundef %384) #22
   br label %.sink.split707
 
@@ -4517,7 +4530,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %328, %322, %hwloc_o
 387:                                              ; preds = %.sink.split707, %372, %376
   %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
   %exitcond666.not = icmp eq i64 %indvars.iv.next663, %wide.trip.count665
-  br i1 %exitcond666.not, label %._crit_edge581, label %.preheader, !llvm.loop !42
+  br i1 %exitcond666.not, label %._crit_edge581, label %.preheader, !llvm.loop !40
 
 ._crit_edge581:                                   ; preds = %387, %.loopexit
   %388 = call ptr @hwloc_alloc_setup_object(ptr noundef %10, i32 noundef %.0.i449, i32 noundef -1) #22
@@ -4563,12 +4576,12 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %328, %322, %hwloc_o
 hwloc_cache_type_by_depth_type.exit.thread:       ; preds = %.backedge, %287, %284, %hwloc_cache_type_by_depth_type.exit
   %419 = add nuw nsw i32 %.0398583, 1
   %exitcond667.not = icmp eq i32 %419, 3
-  br i1 %exitcond667.not, label %hwloc_cache_type_by_depth_type.exit.thread.thread, label %281, !llvm.loop !43
+  br i1 %exitcond667.not, label %hwloc_cache_type_by_depth_type.exit.thread.thread, label %281, !llvm.loop !41
 
 hwloc_cache_type_by_depth_type.exit.thread.thread: ; preds = %283, %hwloc_cache_type_by_depth_type.exit.thread
   %420 = add i32 %.4395585, -1
   %.not432 = icmp eq i32 %420, 0
-  br i1 %.not432, label %._crit_edge586, label %.preheader470, !llvm.loop !44
+  br i1 %.not432, label %._crit_edge586, label %.preheader470, !llvm.loop !42
 
 ._crit_edge586:                                   ; preds = %hwloc_cache_type_by_depth_type.exit.thread.thread, %.loopexit474, %.preheader471
   call void @hwloc_bitmap_free(ptr noundef %24) #22
@@ -4652,17 +4665,17 @@ define internal fastcc void @read_extended_topo(ptr nocapture noundef writeonly 
 
 cpuid_or_from_dump.exit.us.us:                    ; preds = %.lr.ph161
   %12 = add nuw nsw i32 %.068134.us.us160, 1
-  %13 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 %2, i32 %12) #22, !srcloc !10
+  %13 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 %2, i32 %12) #22, !srcloc !9
   %14 = load i32, ptr %6, align 4
   %15 = and i32 %14, 65535
   %.not72.us.us = icmp eq i32 %15, 0
-  br i1 %.not72.us.us, label %.split137.us.loopexit, label %.lr.ph161, !llvm.loop !45
+  br i1 %.not72.us.us, label %.split137.us.loopexit, label %.lr.ph161, !llvm.loop !43
 
 .lr.ph161:                                        ; preds = %.split.us.split.us, %cpuid_or_from_dump.exit.us.us
   %16 = phi { i32, i64, i32, i32 } [ %13, %cpuid_or_from_dump.exit.us.us ], [ %9, %.split.us.split.us ]
   %.068134.us.us160 = phi i32 [ %12, %cpuid_or_from_dump.exit.us.us ], [ 0, %.split.us.split.us ]
   %exitcond196.not = icmp eq i32 %.068134.us.us160, 31
-  br i1 %exitcond196.not, label %.thread.loopexit.split.us, label %cpuid_or_from_dump.exit.us.us, !llvm.loop !45
+  br i1 %exitcond196.not, label %.thread.loopexit.split.us, label %cpuid_or_from_dump.exit.us.us, !llvm.loop !43
 
 .split.us.split:                                  ; preds = %.split.us
   %17 = extractvalue { i32, i64, i32, i32 } %9, 2
@@ -4672,17 +4685,17 @@ cpuid_or_from_dump.exit.us.us:                    ; preds = %.lr.ph161
 
 cpuid_or_from_dump.exit.us:                       ; preds = %.lr.ph
   %19 = add nuw nsw i32 %.068134.us156, 1
-  %20 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 %2, i32 %19) #22, !srcloc !10
+  %20 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 %2, i32 %19) #22, !srcloc !9
   %21 = extractvalue { i32, i64, i32, i32 } %20, 2
   %22 = and i32 %21, 65280
   %.not.us = icmp eq i32 %22, 0
-  br i1 %.not.us, label %.split137.us.loopexit200, label %.lr.ph, !llvm.loop !45
+  br i1 %.not.us, label %.split137.us.loopexit200, label %.lr.ph, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %.split.us.split, %cpuid_or_from_dump.exit.us
   %23 = phi { i32, i64, i32, i32 } [ %20, %cpuid_or_from_dump.exit.us ], [ %9, %.split.us.split ]
   %.068134.us156 = phi i32 [ %19, %cpuid_or_from_dump.exit.us ], [ 0, %.split.us.split ]
   %exitcond195.not = icmp eq i32 %.068134.us156, 31
-  br i1 %exitcond195.not, label %.thread.loopexit.split.us, label %cpuid_or_from_dump.exit.us, !llvm.loop !45
+  br i1 %exitcond195.not, label %.thread.loopexit.split.us, label %cpuid_or_from_dump.exit.us, !llvm.loop !43
 
 .split137.us.loopexit:                            ; preds = %cpuid_or_from_dump.exit.us.us
   %24 = extractvalue { i32, i64, i32, i32 } %16, 0
@@ -4784,7 +4797,7 @@ cpuid_or_from_dump.exit.us:                       ; preds = %.lr.ph
 66:                                               ; preds = %54, %49, %44, %39
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %35, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %35, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %66, %.split
   %67 = load ptr, ptr @stderr, align 8
@@ -4813,7 +4826,7 @@ cpuid_or_from_dump.exit:                          ; preds = %57, %._crit_edge.i.
   %75 = and i32 %.0120, 31
   %76 = add nuw nsw i32 %.068134, 1
   %exitcond.not = icmp eq i32 %76, 32
-  br i1 %exitcond.not, label %.thread, label %.split, !llvm.loop !45
+  br i1 %exitcond.not, label %.thread, label %.split, !llvm.loop !43
 
 .split137:                                        ; preds = %70, %72, %.split137.us
   %.us-phi = phi i32 [ %28, %.split137.us ], [ %storemerge.i, %72 ], [ %storemerge.i, %70 ]
@@ -4931,18 +4944,18 @@ cpuid_or_from_dump.exit:                          ; preds = %57, %._crit_edge.i.
 130:                                              ; preds = %118, %112, %107, %102
   %indvars.iv.next.i.i84 = add nuw nsw i64 %indvars.iv.i.i81, 1
   %exitcond.not.i.i85 = icmp eq i64 %indvars.iv.next.i.i84, %wide.trip.count.i.i80
-  br i1 %exitcond.not.i.i85, label %._crit_edge.i.i86, label %98, !llvm.loop !9
+  br i1 %exitcond.not.i.i85, label %._crit_edge.i.i86, label %98, !llvm.loop !8
 
 ._crit_edge.i.i86:                                ; preds = %130, %95
   %131 = load ptr, ptr @stderr, align 8
-  %132 = trunc i64 %indvars.iv to i32
+  %132 = trunc nuw nsw i64 %indvars.iv to i32
   %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.14, i32 noundef %2, i32 noundef %.pre, i32 noundef %132, i32 noundef %.2165) #25
   store i32 0, ptr %6, align 4
   br label %cpuid_or_from_dump.exit94
 
 134:                                              ; preds = %94
-  %135 = trunc i64 %indvars.iv to i32
-  %136 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 %2, i32 %135) #22, !srcloc !10
+  %135 = trunc nuw nsw i64 %indvars.iv to i32
+  %136 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 %2, i32 %135) #22, !srcloc !9
   %137 = extractvalue { i32, i64, i32, i32 } %136, 0
   %138 = extractvalue { i32, i64, i32, i32 } %136, 2
   %139 = extractvalue { i32, i64, i32, i32 } %136, 3
@@ -5033,7 +5046,7 @@ cpuid_or_from_dump.exit94:                        ; preds = %121, %._crit_edge.i
 166:                                              ; preds = %145, %159, %160, %156, %157, %163, %162, %154
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond198.not, label %167, label %94, !llvm.loop !46
+  br i1 %exitcond198.not, label %167, label %94, !llvm.loop !44
 
 167:                                              ; preds = %143, %140, %166
   %.071.lcssa = phi i32 [ %.071166, %143 ], [ %.071166, %140 ], [ %storemerge.i87, %166 ]
@@ -5095,7 +5108,7 @@ define internal fastcc void @hwloc_x86_add_cpuinfos(ptr noundef %0, ptr noundef 
   %21 = getelementptr inbounds i8, ptr %.016, i64 1
   %.pr = load i8, ptr %21, align 1
   %22 = icmp eq i8 %.pr, 32
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %.0.lcssa = phi ptr [ %19, %9 ], [ %21, %.lr.ph ]
@@ -5141,7 +5154,7 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr nocapture 
 .backedge:                                        ; preds = %18, %._crit_edge
   %20 = tail call i32 @hwloc_bitmap_first(ptr noundef %3) #23
   %.not = icmp eq i32 %20, -1
-  br i1 %.not, label %._crit_edge47, label %10, !llvm.loop !48
+  br i1 %.not, label %._crit_edge47, label %10, !llvm.loop !46
 
 21:                                               ; preds = %10
   %22 = tail call noalias ptr @hwloc_bitmap_alloc() #22
@@ -5156,7 +5169,7 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr nocapture 
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.lr.ph
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw i64 %indvars.iv to i32
   br label %.sink.split
 
 29:                                               ; preds = %.lr.ph
@@ -5168,7 +5181,7 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr nocapture 
   br i1 %or.cond, label %34, label %38
 
 34:                                               ; preds = %29
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw i64 %indvars.iv to i32
   %36 = tail call i32 @hwloc_bitmap_set(ptr noundef %22, i32 noundef %35) #22
   br label %.sink.split
 
@@ -5181,7 +5194,7 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr nocapture 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %38, %21
   %39 = tail call ptr @hwloc_alloc_setup_object(ptr noundef %0, i32 noundef 12, i32 noundef %16) #22
@@ -5228,9 +5241,6 @@ declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnam
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
@@ -5305,10 +5315,10 @@ attributes #29 = { nounwind allocsize(1) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{i64 2149377929, i64 2149377965, i64 2149378033}
-!7 = !{i32 -1, i32 1}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = !{i64 1435803, i64 1435818, i64 1435832, i64 1435854, i64 1435874}
+!9 = !{i64 1435803, i64 1435818, i64 1435832, i64 1435854, i64 1435874}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -5318,7 +5328,7 @@ attributes #29 = { nounwind allocsize(1) }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i32 0, i32 33}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
@@ -5346,5 +5356,3 @@ attributes #29 = { nounwind allocsize(1) }
 !45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}

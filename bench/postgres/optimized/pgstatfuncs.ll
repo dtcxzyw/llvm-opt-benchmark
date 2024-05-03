@@ -45,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [9 x i8] c"archiver\00", align 1
 @.str.30 = private unnamed_addr constant [9 x i8] c"bgwriter\00", align 1
 @.str.31 = private unnamed_addr constant [13 x i8] c"checkpointer\00", align 1
-@.str.32 = private unnamed_addr constant [3 x i8] c"io\00", align 1
 @.str.33 = private unnamed_addr constant [18 x i8] c"recovery_prefetch\00", align 1
 @.str.34 = private unnamed_addr constant [5 x i8] c"slru\00", align 1
 @.str.35 = private unnamed_addr constant [4 x i8] c"wal\00", align 1
@@ -624,7 +623,7 @@ define dso_local i64 @pg_stat_get_function_self_time(ptr nocapture noundef %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_idset(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_backend_idset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1555,14 +1554,14 @@ declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 
 declare i64 @numeric_in(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @pg_backend_pid(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_backend_pid(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
   %2 = load i32, ptr @MyProcPid, align 4
   %3 = sext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_pid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_backend_pid(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1589,7 +1588,7 @@ define dso_local i64 @pg_stat_get_backend_pid(ptr nocapture noundef %0) local_un
 declare ptr @pgstat_get_beentry_by_proc_number(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_dbid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @pg_stat_get_backend_dbid(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1614,7 +1613,7 @@ define dso_local i64 @pg_stat_get_backend_dbid(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_userid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @pg_stat_get_backend_userid(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2110,7 +2109,7 @@ define dso_local i64 @pg_stat_get_backend_client_port(ptr nocapture noundef %0) 
 declare i64 @int4in(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_numbackends(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_db_numbackends(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2937,7 +2936,7 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
 
 15:                                               ; preds = %1, %.loopexit
   %indvars.iv80 = phi i64 [ 0, %1 ], [ %indvars.iv.next81, %.loopexit ]
-  %16 = trunc i64 %indvars.iv80 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv80 to i32
   %17 = call ptr @GetBackendTypeDesc(i32 noundef %16) #10
   %18 = call ptr @cstring_to_text(ptr noundef %17) #10
   %19 = ptrtoint ptr %18 to i64
@@ -2952,13 +2951,13 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
 23:                                               ; preds = %.preheader, %66
   %24 = phi i1 [ true, %.preheader ], [ false, %66 ]
   %indvars.iv77 = phi i64 [ 0, %.preheader ], [ 1, %66 ]
-  %25 = trunc i64 %indvars.iv77 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv77 to i32
   %26 = call ptr @pgstat_get_io_object_name(i32 noundef %25) #10
   br label %27
 
 27:                                               ; preds = %23, %65
   %indvars.iv73 = phi i64 [ 0, %23 ], [ %indvars.iv.next74, %65 ]
-  %28 = trunc i64 %indvars.iv73 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv73 to i32
   %29 = call ptr @pgstat_get_io_context_name(i32 noundef %28) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %3, i8 0, i64 18, i1 false)
@@ -2979,7 +2978,7 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
 
 36:                                               ; preds = %31, %61
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %61 ]
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %37, label %40 [
     i32 0, label %pgstat_get_io_op_index.exit.thread
     i32 1, label %pgstat_get_io_op_index.exit.i
@@ -3544,7 +3543,7 @@ define dso_local noundef i64 @pg_stat_reset_shared(ptr nocapture noundef readonl
   tail call void @XLogPrefetchResetStats() #10
   tail call void @pgstat_reset_of_kind(i32 noundef 10) #10
   tail call void @pgstat_reset_of_kind(i32 noundef 11) #10
-  br label %44
+  br label %46
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3558,7 +3557,7 @@ define dso_local noundef i64 @pg_stat_reset_shared(ptr nocapture noundef readonl
 
 14:                                               ; preds = %6
   tail call void @pgstat_reset_of_kind(i32 noundef 6) #10
-  br label %44
+  br label %46
 
 15:                                               ; preds = %6
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(9) @.str.30) #12
@@ -3567,63 +3566,75 @@ define dso_local noundef i64 @pg_stat_reset_shared(ptr nocapture noundef readonl
 
 18:                                               ; preds = %15
   tail call void @pgstat_reset_of_kind(i32 noundef 7) #10
-  br label %44
+  br label %46
 
 19:                                               ; preds = %15
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(13) @.str.31) #12
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+  br i1 %21, label %22, label %sub_0
 
 22:                                               ; preds = %19
   tail call void @pgstat_reset_of_kind(i32 noundef 8) #10
-  br label %44
+  br label %46
 
-23:                                               ; preds = %19
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(3) @.str.32) #12
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %27
+sub_0:                                            ; preds = %19
+  %23 = load i8, ptr %11, align 1
+  %.not = icmp eq i8 %23, 105
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-26:                                               ; preds = %23
+sub_1:                                            ; preds = %sub_0
+  %24 = getelementptr inbounds i8, ptr %11, i64 1
+  %25 = load i8, ptr %24, align 1
+  %.not10 = icmp eq i8 %25, 111
+  br i1 %.not10, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %26 = getelementptr inbounds i8, ptr %11, i64 2
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %29, label %.tail.thread
+
+29:                                               ; preds = %.tail
   tail call void @pgstat_reset_of_kind(i32 noundef 9) #10
-  br label %44
+  br label %46
 
-27:                                               ; preds = %23
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(18) @.str.33) #12
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %31
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(18) @.str.33) #12
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %33
 
-30:                                               ; preds = %27
+32:                                               ; preds = %.tail.thread
   tail call void @XLogPrefetchResetStats() #10
-  br label %44
+  br label %46
 
-31:                                               ; preds = %27
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(5) @.str.34) #12
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %35
+33:                                               ; preds = %.tail.thread
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(5) @.str.34) #12
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %37
 
-34:                                               ; preds = %31
+36:                                               ; preds = %33
   tail call void @pgstat_reset_of_kind(i32 noundef 10) #10
-  br label %44
+  br label %46
 
-35:                                               ; preds = %31
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(4) @.str.35) #12
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %39
+37:                                               ; preds = %33
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(4) @.str.35) #12
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %41
 
-38:                                               ; preds = %35
+40:                                               ; preds = %37
   tail call void @pgstat_reset_of_kind(i32 noundef 11) #10
-  br label %44
+  br label %46
 
-39:                                               ; preds = %35
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 @errcode(i32 noundef 50856066) #10
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef %11) #10
-  %43 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.37) #10
+41:                                               ; preds = %37
+  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %42)
+  %43 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef nonnull %11) #10
+  %45 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.37) #10
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1742, ptr noundef nonnull @__func__.pg_stat_reset_shared) #10
   unreachable
 
-44:                                               ; preds = %14, %22, %30, %38, %34, %26, %18, %5
+46:                                               ; preds = %14, %22, %32, %40, %36, %29, %18, %5
   ret i64 0
 }
 
@@ -4029,7 +4040,7 @@ define dso_local i64 @pg_stat_get_subscription_stats(ptr nocapture noundef reado
 declare ptr @pgstat_fetch_stat_subscription(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_have_stats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_stat_have_stats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

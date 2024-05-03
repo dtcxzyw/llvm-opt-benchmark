@@ -170,7 +170,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %36, label %71, label %50
 
 50:                                               ; preds = %.loopexit59
-  %51 = trunc i64 %49 to i32
+  %51 = trunc nuw nsw i64 %49 to i32
   %52 = add i32 %40, %51
   %53 = mul nsw i32 %52, 3
   %54 = zext nneg i32 %53 to i64
@@ -522,7 +522,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %267, label %302, label %281
 
 281:                                              ; preds = %.loopexit79
-  %282 = trunc i64 %280 to i32
+  %282 = trunc nuw nsw i64 %280 to i32
   %283 = add i32 %271, %282
   %284 = mul nsw i32 %283, 3
   %285 = zext nneg i32 %284 to i64
@@ -1583,7 +1583,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef readonly %0, i32 %1, i
   %100 = xor i64 %99, %93
   %101 = add i64 %100, %93
   %102 = lshr i64 %101, 41
-  %103 = trunc i64 %102 to i32
+  %103 = trunc nuw nsw i64 %102 to i32
   %104 = or disjoint i32 %103, 1065353216
   %105 = bitcast i32 %104 to float
   %106 = fadd reassoc nsz arcp contract afn float %105, -1.000000e+00
@@ -1591,7 +1591,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef readonly %0, i32 %1, i
   %108 = fptosi float %107 to i32
   %109 = add i64 %93, %84
   %110 = lshr i64 %109, 41
-  %111 = trunc i64 %110 to i32
+  %111 = trunc nuw nsw i64 %110 to i32
   %112 = or disjoint i32 %111, 1065353216
   %113 = bitcast i32 %112 to float
   %114 = fadd reassoc nsz arcp contract afn float %113, -1.000000e+00
@@ -1901,7 +1901,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef readonly %0, i32 %1, i
   %335 = insertelement <2 x i64> %334, i64 %331, i64 1
   %336 = add <2 x i64> %335, %333
   %337 = lshr <2 x i64> %336, <i64 41, i64 41>
-  %338 = trunc <2 x i64> %337 to <2 x i32>
+  %338 = trunc nuw nsw <2 x i64> %337 to <2 x i32>
   %339 = or disjoint <2 x i32> %338, <i32 1065353216, i32 1065353216>
   %340 = bitcast <2 x i32> %339 to <2 x float>
   %341 = fmul reassoc nsz arcp contract afn <2 x float> %340, <float 4.000000e+01, float 4.000000e+01>
@@ -2035,7 +2035,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !78
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
@@ -2066,7 +2066,7 @@ define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unn
 define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.10) #18
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %40, label %5
+  br i1 %4, label %.tail.thread, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.11) #18
@@ -2075,7 +2075,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %40
+  br label %.tail.thread
 
 10:                                               ; preds = %5
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.12) #18
@@ -2084,7 +2084,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %40
+  br label %.tail.thread
 
 15:                                               ; preds = %10
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.13) #18
@@ -2093,7 +2093,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 8196
-  br label %40
+  br label %.tail.thread
 
 20:                                               ; preds = %15
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.14) #18
@@ -2102,7 +2102,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %0, i64 8196
-  br label %40
+  br label %.tail.thread
 
 25:                                               ; preds = %20
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #18
@@ -2111,27 +2111,34 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %0, i64 8236
-  br label %40
+  br label %.tail.thread
 
 30:                                               ; preds = %25
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.16) #18
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %35
+  br i1 %32, label %33, label %sub_0
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %0, i64 8236
-  br label %40
+  br label %.tail.thread
 
-35:                                               ; preds = %30
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.17) #18
-  %37 = icmp eq i32 %36, 0
-  %38 = getelementptr inbounds i8, ptr %0, i64 8276
-  %39 = select i1 %37, ptr %38, ptr null
-  br label %40
+sub_0:                                            ; preds = %30
+  %35 = load i8, ptr %1, align 1
+  %.not = icmp eq i8 %35, 110
+  br i1 %.not, label %.tail, label %.tail.thread
 
-40:                                               ; preds = %35, %33, %28, %23, %18, %13, %8, %2
-  %41 = phi ptr [ %34, %33 ], [ %29, %28 ], [ %24, %23 ], [ %19, %18 ], [ %14, %13 ], [ %9, %8 ], [ %0, %2 ], [ %39, %35 ]
-  ret ptr %41
+.tail:                                            ; preds = %sub_0
+  %36 = getelementptr inbounds i8, ptr %1, i64 1
+  %37 = load i8, ptr %36, align 1
+  %.fr = freeze i8 %37
+  %38 = icmp eq i8 %.fr, 0
+  %39 = getelementptr inbounds i8, ptr %0, i64 8276
+  %spec.select = select i1 %38, ptr %39, ptr null
+  br label %.tail.thread
+
+.tail.thread:                                     ; preds = %.tail, %sub_0, %33, %28, %23, %18, %13, %8, %2
+  %40 = phi ptr [ %34, %33 ], [ %29, %28 ], [ %24, %23 ], [ %19, %18 ], [ %14, %13 ], [ %9, %8 ], [ %0, %2 ], [ null, %sub_0 ], [ %spec.select, %.tail ]
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

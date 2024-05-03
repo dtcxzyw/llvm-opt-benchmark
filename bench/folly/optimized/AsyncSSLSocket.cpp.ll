@@ -871,7 +871,6 @@ $_ZZN5folly7hexlifyISt5arrayIhLm2EENSt7__cxx1112basic_stringIcSt11char_traitsIcE
 @.str.133 = private unnamed_addr constant [57 x i8] c"TODO: AsyncSSLSocket currently does not support calling \00", align 1
 @.str.134 = private unnamed_addr constant [49 x i8] c"write() before the handshake has fully completed\00", align 1
 @.str.135 = private unnamed_addr constant [35 x i8] c"iovecWrittenToSslWriteBuf <= count\00", align 1
-@.str.136 = private unnamed_addr constant [3 x i8] c"NR\00", align 1
 @.str.137 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.138 = private unnamed_addr constant [23 x i8] c"Check failed: appData \00", align 1
 @_ZZN5folly14AsyncSSLSocket7bioReadEP6bio_stPciE8vlocal__ = internal global %"struct.google::SiteFlag" zeroinitializer, align 8
@@ -5892,19 +5891,31 @@ if.end:                                           ; preds = %if.then, %_ZN5folly
 if.then7:                                         ; preds = %if.end
   %call8 = tail call ptr @SSL_alert_desc_string(i32 noundef %ret)
   %tobool9.not = icmp eq ptr %call8, null
-  br i1 %tobool9.not, label %if.end15, label %land.lhs.true10
+  br i1 %tobool9.not, label %if.end15, label %sub_0
 
-land.lhs.true10:                                  ; preds = %if.then7
-  %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call8, ptr noundef nonnull dereferenceable(3) @.str.136) #41
-  %cmp = icmp eq i32 %call11, 0
-  br i1 %cmp, label %if.then12, label %if.end15
+sub_0:                                            ; preds = %if.then7
+  %5 = load i8, ptr %call8, align 1
+  %.not = icmp eq i8 %5, 78
+  br i1 %.not, label %sub_1, label %if.end15
 
-if.then12:                                        ; preds = %land.lhs.true10
+sub_1:                                            ; preds = %sub_0
+  %6 = getelementptr inbounds i8, ptr %call8, i64 1
+  %7 = load i8, ptr %6, align 1
+  %.not3 = icmp eq i8 %7, 82
+  br i1 %.not3, label %land.lhs.true10.tail, label %if.end15
+
+land.lhs.true10.tail:                             ; preds = %sub_1
+  %8 = getelementptr inbounds i8, ptr %call8, i64 2
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %if.then12, label %if.end15
+
+if.then12:                                        ; preds = %land.lhs.true10.tail
   %renegotiateAttempted_13 = getelementptr inbounds i8, ptr %call1.i, i64 1131
   store i8 1, ptr %renegotiateAttempted_13, align 1, !tbaa !279
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then12, %land.lhs.true10, %if.then7, %if.end
+if.end15:                                         ; preds = %sub_1, %sub_0, %if.then12, %land.lhs.true10.tail, %if.then7, %if.end
   %and16 = and i32 %where, 16388
   %tobool17.not = icmp eq i32 %and16, 0
   br i1 %tobool17.not, label %if.end27, label %if.then18
@@ -5920,28 +5931,28 @@ if.then21:                                        ; preds = %if.then18
   %call24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call23) #41
   %add.ptr.i = getelementptr inbounds i8, ptr %call23, i64 %call24
   %_M_finish.i = getelementptr inbounds i8, ptr %call1.i, i64 1736
-  %5 = load ptr, ptr %_M_finish.i, align 8, !tbaa !17
+  %11 = load ptr, ptr %_M_finish.i, align 8, !tbaa !17
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %call1.i, i64 1744
-  %6 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !331
-  %cmp.not.i = icmp eq ptr %5, %6
+  %12 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !331
+  %cmp.not.i = icmp eq ptr %11, %12
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then21
-  %7 = load i8, ptr %call19, align 1, !tbaa !175
-  store i8 %7, ptr %5, align 8, !tbaa !332
-  %second.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = load i8, ptr %call19, align 1, !tbaa !175
+  store i8 %13, ptr %11, align 8, !tbaa !332
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %call23, ptr %second.i.i.i.i, align 8, !tbaa !17
-  %ref.tmp.sroa.5.0.second.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %ref.tmp.sroa.5.0.second.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %add.ptr.i, ptr %ref.tmp.sroa.5.0.second.i.i.i.i.sroa_idx, align 8, !tbaa !17
-  %8 = load ptr, ptr %_M_finish.i, align 8, !tbaa !335
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = load ptr, ptr %_M_finish.i, align 8, !tbaa !335
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !335
   br label %if.end27
 
 if.else.i:                                        ; preds = %if.then21
-  %9 = load ptr, ptr %alertsReceived_, align 8, !tbaa !17
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %9 to i64
+  %15 = load ptr, ptr %alertsReceived_, align 8, !tbaa !17
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE12_M_check_lenEmS4_.exit.i.i
@@ -5955,8 +5966,8 @@ _ZNKSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE12_M_check_lenEmS4_.exit.i.i:
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %10 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %10
+  %16 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %16
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i40, label %cond.true.i.i.i
 
@@ -5968,32 +5979,32 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorISt4pa
 invoke.cont.i.i40:                                ; preds = %cond.true.i.i.i, %_ZNKSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE12_M_check_lenEmS4_.exit.i.i
   %cond.i49.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE12_M_check_lenEmS4_.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.427", ptr %cond.i49.i.i, i64 %sub.ptr.div.i.i.i.i
-  %11 = load i8, ptr %call19, align 1, !tbaa !175
-  store i8 %11, ptr %add.ptr.i.i, align 8, !tbaa !332
+  %17 = load i8, ptr %call19, align 1, !tbaa !175
+  store i8 %17, ptr %add.ptr.i.i, align 8, !tbaa !332
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store ptr %call23, ptr %second.i.i.i.i.i, align 8, !tbaa !17
   %ref.tmp.sroa.5.0.second.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store ptr %add.ptr.i, ptr %ref.tmp.sroa.5.0.second.i.i.i.i.i.sroa_idx, align 8, !tbaa !17
-  %cmp.not6.i.i.i.i.i = icmp eq ptr %9, %5
+  %cmp.not6.i.i.i.i.i = icmp eq ptr %15, %11
   br i1 %cmp.not6.i.i.i.i.i, label %_ZNSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit58.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i40, %for.body.i.i.i.i.i
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i49.i.i, %invoke.cont.i.i40 ]
-  %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %9, %invoke.cont.i.i40 ]
+  %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %15, %invoke.cont.i.i40 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.07.i.i.i.i.i, i64 24, i1 false), !alias.scope !336
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %5
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %11
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit58.i.i, label %for.body.i.i.i.i.i, !llvm.loop !340
 
 _ZNSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit58.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i40
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i49.i.i, %invoke.cont.i.i40 ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
-  %tobool.not.i.i.i = icmp eq ptr %9, null
+  %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE17_M_realloc_insertIJRS3_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i59.i.i
 
 if.then.i59.i.i:                                  ; preds = %_ZNSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit58.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #36
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #36
   br label %_ZNSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE17_M_realloc_insertIJRS3_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE17_M_realloc_insertIJRS3_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %if.then.i59.i.i, %_ZNSt6vectorISt4pairIcN5folly5RangeIPKcEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit58.i.i
@@ -15746,7 +15757,7 @@ declare i32 @X509_VERIFY_PARAM_set1_host(ptr noundef, ptr noundef, i64 noundef) 
 declare void @SSL_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly14AsyncSSLSocket17sslVerifyCallbackEiP17x509_store_ctx_st(i32 noundef %preverifyOk, ptr noundef %x509Ctx) #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN5folly14AsyncSSLSocket17sslVerifyCallbackEiP17x509_store_ctx_st(i32 noundef %preverifyOk, ptr noundef %x509Ctx) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.google::LogMessage", align 8
@@ -22600,9 +22611,6 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 
 declare ptr @SSL_alert_desc_string(i32 noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 declare ptr @SSL_alert_type_string(i32 noundef) local_unnamed_addr #0
 

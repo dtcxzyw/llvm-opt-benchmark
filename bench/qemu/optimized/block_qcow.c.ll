@@ -68,7 +68,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.42 = private unnamed_addr constant [13 x i8] c"backing-file\00", align 1
 @__func__.qcow_co_create_opts = private unnamed_addr constant [20 x i8] c"qcow_co_create_opts\00", align 1
 @.str.43 = private unnamed_addr constant [33 x i8] c"unrecognized backing format '%s'\00", align 1
-@.str.44 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.45 = private unnamed_addr constant [4 x i8] c"off\00", align 1
 @.str.46 = private unnamed_addr constant [7 x i8] c"driver\00", align 1
 @.str.47 = private unnamed_addr constant [47 x i8] c"create_options->driver == BLOCKDEV_DRIVER_QCOW\00", align 1
@@ -117,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow_open(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow_open(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %header = alloca %struct.QCowHeader, align 4
   %encryptopts = alloca ptr, align 8
@@ -549,7 +548,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
 entry:
   %header = alloca %struct.QCowHeader, align 4
   %0 = load i32, ptr %opts, align 8
@@ -724,7 +723,7 @@ return:                                           ; preds = %if.end7, %exit, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -746,18 +745,30 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %call3 = tail call ptr @qemu_opts_to_qdict_filtered(ptr noundef %opts, ptr noundef null, ptr noundef nonnull @qcow_create_opts, i1 noundef zeroext true) #15
   %call4 = tail call ptr @qdict_get_try_str(ptr noundef %call3, ptr noundef nonnull @.str.8) #15
   %tobool5.not = icmp eq ptr %call4, null
-  br i1 %tobool5.not, label %if.end16, label %land.lhs.true6
+  br i1 %tobool5.not, label %if.end16, label %sub_0
 
-land.lhs.true6:                                   ; preds = %if.end
-  %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(3) @.str.44) #19
-  %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.then9, label %land.lhs.true11
+sub_0:                                            ; preds = %if.end
+  %0 = load i8, ptr %call4, align 1
+  %.not = icmp eq i8 %0, 111
+  br i1 %.not, label %sub_1, label %land.lhs.true11
 
-if.then9:                                         ; preds = %land.lhs.true6
+sub_1:                                            ; preds = %sub_0
+  %1 = getelementptr inbounds i8, ptr %call4, i64 1
+  %2 = load i8, ptr %1, align 1
+  %.not40 = icmp eq i8 %2, 110
+  br i1 %.not40, label %land.lhs.true6.tail, label %land.lhs.true11
+
+land.lhs.true6.tail:                              ; preds = %sub_1
+  %3 = getelementptr inbounds i8, ptr %call4, i64 2
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %if.then9, label %land.lhs.true11
+
+if.then9:                                         ; preds = %land.lhs.true6.tail
   tail call void @qdict_put_str(ptr noundef %call3, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str) #15
   br label %if.end16
 
-land.lhs.true11:                                  ; preds = %land.lhs.true6
+land.lhs.true11:                                  ; preds = %sub_1, %sub_0, %land.lhs.true6.tail
   %call12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(4) @.str.45) #19
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %if.then14, label %if.end16
@@ -805,13 +816,13 @@ if.end33:                                         ; preds = %if.end29
 if.end37:                                         ; preds = %if.end33
   %call38 = call zeroext i1 @visit_type_BlockdevCreateOptions(ptr noundef nonnull %call34, ptr noundef null, ptr noundef nonnull %create_options, ptr noundef %errp) #15
   call void @visit_free(ptr noundef nonnull %call34) #15
-  %0 = load ptr, ptr %create_options, align 8
-  %tobool39.not = icmp eq ptr %0, null
+  %6 = load ptr, ptr %create_options, align 8
+  %tobool39.not = icmp eq ptr %6, null
   br i1 %tobool39.not, label %fail, label %if.end41
 
 if.end41:                                         ; preds = %if.end37
-  %1 = load i32, ptr %0, align 8
-  %cmp42 = icmp eq i32 %1, 28
+  %7 = load i32, ptr %6, align 8
+  %cmp42 = icmp eq i32 %7, 28
   br i1 %cmp42, label %if.end45, label %if.else44
 
 if.else44:                                        ; preds = %if.end41
@@ -819,12 +830,12 @@ if.else44:                                        ; preds = %if.end41
   unreachable
 
 if.end45:                                         ; preds = %if.end41
-  %size = getelementptr inbounds i8, ptr %0, i64 16
-  %2 = load i64, ptr %size, align 8
-  %sub = add i64 %2, 511
+  %size = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = load i64, ptr %size, align 8
+  %sub = add i64 %8, 511
   %and = and i64 %sub, -512
   store i64 %and, ptr %size, align 8
-  %call48 = call i32 @qcow_co_create(ptr noundef nonnull %0, ptr noundef %errp), !range !8
+  %call48 = call i32 @qcow_co_create(ptr noundef nonnull %6, ptr noundef %errp)
   br label %fail
 
 fail:                                             ; preds = %if.end37, %if.end33, %if.end29, %if.end23, %if.end45, %if.end26
@@ -836,8 +847,8 @@ fail:                                             ; preds = %if.end37, %if.end33
 
 lor.lhs.false.i:                                  ; preds = %fail
   %refcnt.i = getelementptr inbounds i8, ptr %call3, i64 8
-  %3 = load i64, ptr %refcnt.i, align 8
-  %tobool1.not.i = icmp eq i64 %3, 0
+  %9 = load i64, ptr %refcnt.i, align 8
+  %tobool1.not.i = icmp eq i64 %9, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
@@ -845,7 +856,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %dec.i = add i64 %3, -1
+  %dec.i = add i64 %9, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
@@ -858,13 +869,13 @@ qobject_unref_impl.exit:                          ; preds = %fail.thread, %fail,
   %bs.039 = phi ptr [ null, %fail.thread ], [ %bs.0, %fail ], [ %bs.0, %land.lhs.true.i ], [ %bs.0, %if.then5.i ]
   %ret.038 = phi i32 [ -22, %fail.thread ], [ %ret.0, %fail ], [ %ret.0, %land.lhs.true.i ], [ %ret.0, %if.then5.i ]
   call void @bdrv_co_unref(ptr noundef %bs.039) #15
-  %4 = load ptr, ptr %create_options, align 8
-  call void @qapi_free_BlockdevCreateOptions(ptr noundef %4) #15
+  %10 = load ptr, ptr %create_options, align 8
+  call void @qapi_free_BlockdevCreateOptions(ptr noundef %10) #15
   ret i32 %ret.038
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow_make_empty(ptr nocapture noundef readonly %bs) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow_make_empty(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -923,7 +934,7 @@ declare i32 @bdrv_has_zero_init_1(ptr noundef) #1
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @qcow_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #4 {
+define internal range(i32 0, 101) i32 @qcow_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #4 {
 entry:
   %cmp = icmp ugt i32 %buf_size, 47
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -948,7 +959,7 @@ return:                                           ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow_co_preadv(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow_co_preadv(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %qiov.i57 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
@@ -1061,7 +1072,7 @@ if.else38:                                        ; preds = %if.end8
   br i1 %tobool40.not, label %if.else48, label %if.then41
 
 if.then41:                                        ; preds = %if.else38
-  %call42 = call i32 @decompress_cluster(ptr noundef %bs, i64 noundef %9), !range !9
+  %call42 = call i32 @decompress_cluster(ptr noundef %bs, i64 noundef %9)
   %cmp43 = icmp slt i32 %call42, 0
   br i1 %cmp43, label %while.end, label %if.end46
 
@@ -1133,7 +1144,7 @@ if.end87:                                         ; preds = %if.end46, %if.end77
   %add91 = add i64 %offset.addr.064, %conv88.pre-phi
   %add.ptr93 = getelementptr i8, ptr %buf.165, i64 %conv88.pre-phi
   %cmp4.not = icmp eq i64 %sub89, 0
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !10
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end87, %while.body, %do.end, %do.end62, %if.then41, %if.else48, %if.end77, %if.end3
   %ret.1 = phi i32 [ 0, %if.end3 ], [ -5, %if.end77 ], [ -5, %if.else48 ], [ -5, %if.then41 ], [ %call.i61, %do.end62 ], [ %call.i, %do.end ], [ %call5, %while.body ], [ 0, %if.end87 ]
@@ -1155,7 +1166,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow_co_pwritev(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow_co_pwritev(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %cluster_offset = alloca i64, align 8
@@ -1290,7 +1301,7 @@ if.end58:                                         ; preds = %do.end
   %add62 = add i64 %offset.addr.045, %conv52
   %add.ptr = getelementptr i8, ptr %buf.146, i64 %conv52
   %cmp6.not = icmp eq i64 %sub60, 0
-  br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !11
+  br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end58, %while.body, %do.end, %if.end20, %if.end34, %if.end5
   %ret.1 = phi i32 [ 0, %if.end5 ], [ -5, %if.end34 ], [ -5, %if.end20 ], [ %call.i, %do.end ], [ %call16, %while.body ], [ 0, %if.end58 ]
@@ -1304,7 +1315,7 @@ return:                                           ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 -2147483648, 130) i32 @qcow_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
 entry:
   %cluster_offset = alloca i64, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -1356,7 +1367,7 @@ return:                                           ; preds = %if.end15, %if.end11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow_co_pwritev_compressed(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow_co_pwritev_compressed(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov) #0 {
 entry:
   %strm = alloca %struct.z_stream_s, align 8
   %cluster_offset = alloca i64, align 8
@@ -1438,7 +1449,7 @@ lor.lhs.false38:                                  ; preds = %if.end32
   br i1 %cmp40.not, label %if.end48, label %if.then42
 
 if.then42:                                        ; preds = %lor.lhs.false38, %if.end32
-  %call43 = call i32 @qcow_co_pwritev(ptr noundef nonnull %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 poison), !range !8
+  %call43 = call i32 @qcow_co_pwritev(ptr noundef nonnull %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 poison)
   %cmp44 = icmp slt i32 %call43, 0
   br i1 %cmp44, label %fail, label %success
 
@@ -1758,7 +1769,7 @@ for.body49:                                       ; preds = %if.then40, %for.bod
   store i32 %shr53, ptr %arrayidx52, align 4
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next191, 16
-  br i1 %exitcond193.not, label %if.end55, label %for.body49, !llvm.loop !12
+  br i1 %exitcond193.not, label %if.end55, label %for.body49, !llvm.loop !10
 
 if.end55:                                         ; preds = %for.body49, %if.then40
   %l2_cache = getelementptr inbounds i8, ptr %0, i64 48
@@ -1772,7 +1783,7 @@ if.end55:                                         ; preds = %for.body49, %if.the
 for.inc58:                                        ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.cond61.preheader, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.cond61.preheader, label %for.body, !llvm.loop !11
 
 for.body64:                                       ; preds = %for.cond61.preheader, %for.body64
   %indvars.iv186 = phi i64 [ 0, %for.cond61.preheader ], [ %indvars.iv.next187, %for.body64 ]
@@ -1786,7 +1797,7 @@ for.body64:                                       ; preds = %for.cond61.preheade
   %spec.select159 = call i32 @llvm.umin.i32(i32 %21, i32 %min_count.0179)
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next187, 16
-  br i1 %exitcond189.not, label %for.end77, label %for.body64, !llvm.loop !14
+  br i1 %exitcond189.not, label %for.end77, label %for.body64, !llvm.loop !12
 
 for.end77:                                        ; preds = %for.body64
   %l2_cache78 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1912,7 +1923,7 @@ land.lhs.true155:                                 ; preds = %if.end152
   br i1 %cmp158, label %if.then160, label %if.else200
 
 if.then160:                                       ; preds = %land.lhs.true155
-  %call161 = call i32 @decompress_cluster(ptr noundef nonnull %bs, i64 noundef %37), !range !9
+  %call161 = call i32 @decompress_cluster(ptr noundef nonnull %bs, i64 noundef %37)
   %cmp162 = icmp slt i32 %call161, 0
   br i1 %cmp162, label %return, label %if.end165
 
@@ -2083,7 +2094,7 @@ for.inc292:                                       ; preds = %do.end281.for.inc29
   %67 = phi i32 [ %.pre197, %do.end281.for.inc292_crit_edge ], [ %59, %for.body258 ]
   %add294 = add i32 %i.2182, 512
   %cmp256 = icmp slt i32 %add294, %67
-  br i1 %cmp256, label %for.body258, label %if.end311, !llvm.loop !15
+  br i1 %cmp256, label %for.body258, label %if.end311, !llvm.loop !13
 
 if.end311.thread171:                              ; preds = %if.end208
   %conv302 = sext i32 %compressed_size to i64
@@ -2175,7 +2186,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @decompress_cluster(ptr nocapture noundef readonly %bs, i64 noundef %cluster_offset) #0 {
+define internal range(i32 -1, 1) i32 @decompress_cluster(ptr nocapture noundef readonly %bs, i64 noundef %cluster_offset) #0 {
 entry:
   %strm1.i = alloca %struct.z_stream_s, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
@@ -2383,11 +2394,9 @@ attributes #19 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -2147483648, i32 1}
-!9 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

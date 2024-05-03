@@ -79,7 +79,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.51 = private unnamed_addr constant [12 x i8] c"--log-fatal\00", align 1
 @.str.52 = private unnamed_addr constant [12 x i8] c"--log-debug\00", align 1
 @.str.53 = private unnamed_addr constant [12 x i8] c"--log-noisy\00", align 1
-@.str.54 = private unnamed_addr constant [3 x i8] c"-o\00", align 1
 @.str.55 = private unnamed_addr constant [19 x i8] c"console.log.level:\00", align 1
 @.str.56 = private unnamed_addr constant [21 x i8] c"-oconsole.log.level:\00", align 1
 @.str.57 = private unnamed_addr constant [91 x i8] c"Option 'console.log.level' is deprecated, consult '--help' for diagnostic message options.\00", align 1
@@ -331,13 +330,13 @@ level_filter_matches.exit:                        ; preds = %67, %69, %45, %47, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @ws_log_get_level() local_unnamed_addr #2 {
+define range(i32 0, 9) i32 @ws_log_get_level() local_unnamed_addr #2 {
   %1 = load i32, ptr @current_log_level, align 4
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @ws_log_set_level(i32 noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 9) i32 @ws_log_set_level(i32 noundef %0) local_unnamed_addr #3 {
   %2 = add i32 %0, -9
   %or.cond = icmp ult i32 %2, -8
   br i1 %or.cond, label %4, label %3
@@ -353,8 +352,8 @@ define noundef i32 @ws_log_set_level(i32 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ws_log_set_level_str(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call fastcc i32 @string_to_log_level(ptr noundef %0), !range !6
+define range(i32 0, 9) i32 @ws_log_set_level_str(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = tail call fastcc i32 @string_to_log_level(ptr noundef %0)
   %or.cond.i = icmp eq i32 %2, 0
   br i1 %or.cond.i, label %ws_log_set_level.exit, label %3
 
@@ -369,7 +368,7 @@ ws_log_set_level.exit:                            ; preds = %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @string_to_log_level(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 9) i32 @string_to_log_level(ptr noundef %0) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %2
 
@@ -469,7 +468,7 @@ define i32 @ws_log_parse_args(ptr nocapture noundef %0, ptr noundef %1, ptr noun
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %.013.i, i64 1
   %18 = getelementptr i8, ptr %.0.i, i64 1
-  br label %11, !llvm.loop !7
+  br label %11, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %13
   %switch.and.i = and i8 %12, -33
@@ -506,7 +505,7 @@ optequal.exit.thread:                             ; preds = %optequal.exit.threa
 24:                                               ; preds = %22
   %25 = getelementptr i8, ptr %.013.i95, i64 1
   %26 = getelementptr i8, ptr %.0.i96, i64 1
-  br label %optequal.exit.thread, !llvm.loop !7
+  br label %optequal.exit.thread, !llvm.loop !6
 
 .critedge.i102:                                   ; preds = %21
   %switch.and.i103 = and i8 %20, -33
@@ -543,7 +542,7 @@ optequal.exit105.thread:                          ; preds = %optequal.exit105.th
 32:                                               ; preds = %30
   %33 = getelementptr i8, ptr %.013.i106, i64 1
   %34 = getelementptr i8, ptr %.0.i107, i64 1
-  br label %optequal.exit105.thread, !llvm.loop !7
+  br label %optequal.exit105.thread, !llvm.loop !6
 
 .critedge.i113:                                   ; preds = %29
   %switch.and.i114 = and i8 %28, -33
@@ -580,7 +579,7 @@ optequal.exit116.thread:                          ; preds = %optequal.exit116.th
 40:                                               ; preds = %38
   %41 = getelementptr i8, ptr %.013.i117, i64 1
   %42 = getelementptr i8, ptr %.0.i118, i64 1
-  br label %optequal.exit116.thread, !llvm.loop !7
+  br label %optequal.exit116.thread, !llvm.loop !6
 
 .critedge.i124:                                   ; preds = %37
   %switch.and.i125 = and i8 %36, -33
@@ -617,7 +616,7 @@ optequal.exit127.thread:                          ; preds = %optequal.exit127.th
 48:                                               ; preds = %46
   %49 = getelementptr i8, ptr %.013.i128, i64 1
   %50 = getelementptr i8, ptr %.0.i129, i64 1
-  br label %optequal.exit127.thread, !llvm.loop !7
+  br label %optequal.exit127.thread, !llvm.loop !6
 
 .critedge.i135:                                   ; preds = %45
   %switch.and.i136 = and i8 %44, -33
@@ -654,7 +653,7 @@ optequal.exit138.thread:                          ; preds = %optequal.exit138.th
 56:                                               ; preds = %54
   %57 = getelementptr i8, ptr %.013.i139, i64 1
   %58 = getelementptr i8, ptr %.0.i140, i64 1
-  br label %optequal.exit138.thread, !llvm.loop !7
+  br label %optequal.exit138.thread, !llvm.loop !6
 
 .critedge.i146:                                   ; preds = %53
   %switch.and.i147 = and i8 %52, -33
@@ -691,7 +690,7 @@ optequal.exit149.thread:                          ; preds = %optequal.exit149.th
 64:                                               ; preds = %62
   %65 = getelementptr i8, ptr %.013.i150, i64 1
   %66 = getelementptr i8, ptr %.0.i151, i64 1
-  br label %optequal.exit149.thread, !llvm.loop !7
+  br label %optequal.exit149.thread, !llvm.loop !6
 
 .critedge.i157:                                   ; preds = %61
   %switch.and.i158 = and i8 %60, -33
@@ -728,7 +727,7 @@ optequal.exit160.thread:                          ; preds = %optequal.exit160.th
 72:                                               ; preds = %70
   %73 = getelementptr i8, ptr %.013.i161, i64 1
   %74 = getelementptr i8, ptr %.0.i162, i64 1
-  br label %optequal.exit160.thread, !llvm.loop !7
+  br label %optequal.exit160.thread, !llvm.loop !6
 
 .critedge.i168:                                   ; preds = %69
   %switch.and.i169 = and i8 %68, -33
@@ -765,7 +764,7 @@ optequal.exit171.thread:                          ; preds = %optequal.exit171.th
 80:                                               ; preds = %78
   %81 = getelementptr i8, ptr %.013.i172, i64 1
   %82 = getelementptr i8, ptr %.0.i173, i64 1
-  br label %optequal.exit171.thread, !llvm.loop !7
+  br label %optequal.exit171.thread, !llvm.loop !6
 
 .critedge.i179:                                   ; preds = %77
   %switch.and.i180 = and i8 %76, -33
@@ -833,7 +832,7 @@ optequal.exit182.thread:                          ; preds = %.critedge.i179, %op
   %.086.ph.be = add i32 %.086320, -1
   %109 = load ptr, ptr %9, align 8
   %.not319 = icmp eq ptr %109, null
-  br i1 %.not319, label %.loopexit, label %.preheader.lr.ph, !llvm.loop !8
+  br i1 %.not319, label %.loopexit, label %.preheader.lr.ph, !llvm.loop !7
 
 110:                                              ; preds = %104, %107
   %.081 = phi ptr [ %108, %107 ], [ %102, %104 ]
@@ -841,7 +840,7 @@ optequal.exit182.thread:                          ; preds = %.critedge.i179, %op
   br i1 %92, label %111, label %114
 
 111:                                              ; preds = %110
-  %112 = tail call fastcc i32 @string_to_log_level(ptr noundef %.081), !range !6
+  %112 = tail call fastcc i32 @string_to_log_level(ptr noundef %.081)
   %or.cond.i.i = icmp eq i32 %112, 0
   br i1 %or.cond.i.i, label %ws_log_set_level_str.exit.thread, label %ws_log_set_level_str.exit
 
@@ -981,7 +980,7 @@ ws_log_add_custom_file.exit:                      ; preds = %165, %167
   br i1 %96, label %170, label %173
 
 170:                                              ; preds = %169
-  %171 = tail call fastcc i32 @string_to_log_level(ptr noundef %.081), !range !6
+  %171 = tail call fastcc i32 @string_to_log_level(ptr noundef %.081)
   %or.cond.i.i188 = icmp eq i32 %171, 0
   br i1 %or.cond.i.i188, label %ws_log_set_fatal_level_str.exit.thread, label %ws_log_set_fatal_level_str.exit
 
@@ -1096,7 +1095,7 @@ ws_log_set_domain_filter.exit:                    ; preds = %ws_log_set_level_st
   store i32 %219, ptr %0, align 4
   %220 = load ptr, ptr %.087.ph324, align 8
   %.not = icmp eq ptr %220, null
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.outer.backedge, %ws_log_set_domain_filter.exit, %.preheader269, %4
   %.0 = phi i32 [ -1, %4 ], [ 0, %.preheader269 ], [ %.2, %ws_log_set_domain_filter.exit ], [ %.084321, %.outer.backedge ]
@@ -1111,93 +1110,105 @@ define internal fastcc void @parse_console_compat_option(ptr nocapture noundef r
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %ws_log_set_level.exit, label %7
+  br i1 %6, label %ws_log_set_level.exit, label %sub_0
 
-7:                                                ; preds = %3
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(3) @.str.54) #22
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %16
+sub_0:                                            ; preds = %3
+  %7 = load i8, ptr %5, align 1
+  %.not35 = icmp eq i8 %7, 45
+  br i1 %.not35, label %sub_1, label %.tail.thread
 
-10:                                               ; preds = %7
-  %11 = getelementptr i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %ws_log_set_level.exit, label %14
+sub_1:                                            ; preds = %sub_0
+  %8 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = load i8, ptr %8, align 1
+  %.not36 = icmp eq i8 %9, 111
+  br i1 %.not36, label %.tail, label %.tail.thread
 
-14:                                               ; preds = %10
-  %15 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %12, ptr noundef nonnull @.str.55) #19
-  %.not22 = icmp eq i32 %15, 0
-  br i1 %.not22, label %ws_log_set_level.exit, label %18
+.tail:                                            ; preds = %sub_1
+  %10 = getelementptr inbounds i8, ptr %5, i64 2
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %13, label %.tail.thread
 
-16:                                               ; preds = %7
-  %17 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %5, ptr noundef nonnull @.str.56) #19
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %ws_log_set_level.exit, label %18
+13:                                               ; preds = %.tail
+  %14 = getelementptr i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %ws_log_set_level.exit, label %17
 
-18:                                               ; preds = %16, %14
-  %.sink36 = phi ptr [ %11, %14 ], [ %0, %16 ]
-  %.sink35 = phi i64 [ 18, %14 ], [ 20, %16 ]
-  %19 = load ptr, ptr %.sink36, align 8
-  %20 = getelementptr i8, ptr %19, i64 %.sink35
+17:                                               ; preds = %13
+  %18 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %15, ptr noundef nonnull @.str.55) #19
+  %.not22 = icmp eq i32 %18, 0
+  br i1 %.not22, label %ws_log_set_level.exit, label %20
+
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %19 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %5, ptr noundef nonnull @.str.56) #19
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %ws_log_set_level.exit, label %20
+
+20:                                               ; preds = %.tail.thread, %17
+  %.sink38 = phi ptr [ %14, %17 ], [ %0, %.tail.thread ]
+  %.sink37 = phi i64 [ 18, %17 ], [ 20, %.tail.thread ]
+  %21 = load ptr, ptr %.sink38, align 8
+  %22 = getelementptr i8, ptr %21, i64 %.sink37
   tail call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef -1, ptr noundef nonnull @.str.57)
-  %21 = load i8, ptr %20, align 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %24
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %26
 
-23:                                               ; preds = %18
+25:                                               ; preds = %20
   tail call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.58)
   br label %ws_log_set_level.exit
 
-24:                                               ; preds = %18
-  %25 = call zeroext i1 @ws_basestrtou32(ptr noundef nonnull %20, ptr noundef null, ptr noundef nonnull %4, i32 noundef 10) #19
-  br i1 %25, label %27, label %26
+26:                                               ; preds = %20
+  %27 = call zeroext i1 @ws_basestrtou32(ptr noundef nonnull %22, ptr noundef null, ptr noundef nonnull %4, i32 noundef 10) #19
+  br i1 %27, label %29, label %28
 
-26:                                               ; preds = %24
-  call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.59, ptr noundef nonnull %20)
+28:                                               ; preds = %26
+  call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.59, ptr noundef nonnull %22)
   br label %ws_log_set_level.exit
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr %4, align 4
-  %29 = and i32 %28, 128
-  %.not23 = icmp eq i32 %29, 0
-  br i1 %.not23, label %30, label %.thread.thread
+29:                                               ; preds = %26
+  %30 = load i32, ptr %4, align 4
+  %31 = and i32 %30, 128
+  %.not23 = icmp eq i32 %31, 0
+  br i1 %.not23, label %32, label %.thread.thread
 
-30:                                               ; preds = %27
-  %31 = and i32 %28, 64
-  %.not24 = icmp eq i32 %31, 0
-  br i1 %.not24, label %32, label %.thread.thread
-
-32:                                               ; preds = %30
-  %33 = and i32 %28, 32
-  %.not25 = icmp eq i32 %33, 0
-  br i1 %.not25, label %34, label %.thread.thread
+32:                                               ; preds = %29
+  %33 = and i32 %30, 64
+  %.not24 = icmp eq i32 %33, 0
+  br i1 %.not24, label %34, label %.thread.thread
 
 34:                                               ; preds = %32
-  %35 = and i32 %28, 16
-  %.not26 = icmp eq i32 %35, 0
-  br i1 %.not26, label %36, label %.thread.thread
+  %35 = and i32 %30, 32
+  %.not25 = icmp eq i32 %35, 0
+  br i1 %.not25, label %36, label %.thread.thread
 
 36:                                               ; preds = %34
-  %37 = and i32 %28, 8
-  %.not27 = icmp eq i32 %37, 0
-  br i1 %.not27, label %38, label %.thread.thread
+  %37 = and i32 %30, 16
+  %.not26 = icmp eq i32 %37, 0
+  br i1 %.not26, label %38, label %.thread.thread
 
 38:                                               ; preds = %36
-  %39 = and i32 %28, 4
-  %.not28 = icmp eq i32 %39, 0
-  br i1 %.not28, label %40, label %.thread.thread
+  %39 = and i32 %30, 8
+  %.not27 = icmp eq i32 %39, 0
+  br i1 %.not27, label %40, label %.thread.thread
 
 40:                                               ; preds = %38
-  call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.60, ptr noundef nonnull %20)
+  %41 = and i32 %30, 4
+  %.not28 = icmp eq i32 %41, 0
+  br i1 %.not28, label %42, label %.thread.thread
+
+42:                                               ; preds = %40
+  call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.60, ptr noundef nonnull %22)
   br label %ws_log_set_level.exit
 
-.thread.thread:                                   ; preds = %38, %27, %30, %32, %34, %36
-  %.03134 = phi i32 [ 2, %27 ], [ 3, %30 ], [ 4, %32 ], [ 5, %34 ], [ 6, %36 ], [ 7, %38 ]
+.thread.thread:                                   ; preds = %40, %29, %32, %34, %36, %38
+  %.03134 = phi i32 [ 2, %29 ], [ 3, %32 ], [ 4, %34 ], [ 5, %36 ], [ 6, %38 ], [ 7, %40 ]
   %spec.store.select.i = call i32 @llvm.umin.i32(i32 %.03134, i32 6)
   store i32 %spec.store.select.i, ptr @current_log_level, align 4
   br label %ws_log_set_level.exit
 
-ws_log_set_level.exit:                            ; preds = %.thread.thread, %16, %10, %14, %3, %40, %26, %23
+ws_log_set_level.exit:                            ; preds = %.thread.thread, %.tail.thread, %13, %17, %3, %42, %28, %25
   ret void
 }
 
@@ -1214,7 +1225,7 @@ define internal void @print_err(ptr noundef readonly %0, i32 noundef %1, ptr nou
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @stderr, align 8
-  %8 = call i32 @vfprintf(ptr noundef %7, ptr noundef %2, ptr noundef nonnull %4) #23
+  %8 = call i32 @vfprintf(ptr noundef %7, ptr noundef %2, ptr noundef nonnull %4) #22
   br label %9
 
 9:                                                ; preds = %6, %5
@@ -1223,7 +1234,7 @@ define internal void @print_err(ptr noundef readonly %0, i32 noundef %1, ptr nou
   br i1 %.not6, label %11, label %10
 
 10:                                               ; preds = %9
-  call void @exit(i32 noundef %1) #24
+  call void @exit(i32 noundef %1) #23
   unreachable
 
 11:                                               ; preds = %9
@@ -1343,8 +1354,8 @@ define void @ws_log_add_custom_file(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ws_log_set_fatal_level_str(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call fastcc i32 @string_to_log_level(ptr noundef %0), !range !6
+define range(i32 0, 9) i32 @ws_log_set_fatal_level_str(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = tail call fastcc i32 @string_to_log_level(ptr noundef %0)
   %or.cond.i = icmp eq i32 %2, 0
   br i1 %or.cond.i, label %ws_log_set_fatal_level.exit, label %3
 
@@ -1451,7 +1462,7 @@ tokenize_filter_str.exit:                         ; preds = %free_log_filter.exi
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @ws_log_set_fatal_level(i32 noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 9) i32 @ws_log_set_fatal_level(i32 noundef %0) local_unnamed_addr #3 {
   %2 = add i32 %0, -9
   %or.cond = icmp ult i32 %2, -8
   br i1 %or.cond, label %4, label %3
@@ -1549,7 +1560,7 @@ define void @ws_log_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %.not30, label %26, label %24
 
 24:                                               ; preds = %20
-  %25 = tail call fastcc i32 @string_to_log_level(ptr noundef nonnull %23), !range !6
+  %25 = tail call fastcc i32 @string_to_log_level(ptr noundef nonnull %23)
   %or.cond.i.i = icmp eq i32 %25, 0
   br i1 %or.cond.i.i, label %ws_log_set_level_str.exit.thread, label %ws_log_set_level_str.exit
 
@@ -1568,7 +1579,7 @@ ws_log_set_level_str.exit.thread:                 ; preds = %24
   br i1 %.not31, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call fastcc i32 @string_to_log_level(ptr noundef nonnull %27), !range !6
+  %29 = tail call fastcc i32 @string_to_log_level(ptr noundef nonnull %27)
   %or.cond.i.i38 = icmp eq i32 %29, 0
   br i1 %or.cond.i.i38, label %ws_log_set_fatal_level_str.exit.thread, label %ws_log_set_fatal_level_str.exit
 
@@ -1854,8 +1865,8 @@ define internal void @glib_log_handler(ptr noundef %0, i32 noundef %1, ptr nound
   ret void
 }
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #10
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @ws_log_cleanup() #1 {
@@ -2128,7 +2139,7 @@ console_file.exit53:                              ; preds = %58, %61
   br i1 %.042, label %66, label %67
 
 66:                                               ; preds = %65
-  call void @abort() #24
+  call void @abort() #23
   unreachable
 
 67:                                               ; preds = %65
@@ -2256,14 +2267,14 @@ msg_is_active.exit:                               ; preds = %6, %17
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @ws_log_fatal_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ...) local_unnamed_addr #11 {
+define void @ws_log_fatal_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ...) local_unnamed_addr #10 {
   %7 = alloca %struct.ws_log_manifest_t, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   call fastcc void @fill_manifest(ptr noundef nonnull %7)
   call void @llvm.va_start.p0(ptr nonnull %8)
   call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef %5, ptr noundef nonnull %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
-  call void @abort() #24
+  call void @abort() #23
   unreachable
 }
 
@@ -2295,7 +2306,7 @@ get_timestamp.exit:                               ; preds = %1, %5
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #12
+declare void @abort() local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define void @ws_log_write_always_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ...) local_unnamed_addr #1 {
@@ -2343,7 +2354,7 @@ define void @ws_log_utf8_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #22
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #24
   br label %15
 
 15:                                               ; preds = %11, %13
@@ -2379,7 +2390,7 @@ define void @ws_log_utf8_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
 
 30:                                               ; preds = %36, %.lr.ph.i
   %.026.i = phi ptr [ %5, %.lr.ph.i ], [ %42, %36 ]
-  %31 = call i32 @g_utf8_get_char(ptr noundef %.026.i) #22
+  %31 = call i32 @g_utf8_get_char(ptr noundef %.026.i) #24
   %32 = call i32 @g_unichar_isprint(i32 noundef %31) #21
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %34, label %33
@@ -2402,7 +2413,7 @@ define void @ws_log_utf8_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
   %41 = sext i8 %40 to i64
   %42 = getelementptr i8, ptr %.026.i, i64 %41
   %43 = icmp ult ptr %42, %21
-  br i1 %43, label %30, label %._crit_edge.i, !llvm.loop !9
+  br i1 %43, label %30, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %36, %20
   %44 = sub i64 %.0, %24
@@ -2416,7 +2427,7 @@ define void @ws_log_utf8_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
 46:                                               ; preds = %65, %.lr.ph.i.i
   %.030.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %.1.i.i, %65 ]
   %.02429.i.i = phi i64 [ %44, %.lr.ph.i.i ], [ %.125.i.i, %65 ]
-  %47 = call i32 @g_utf8_get_char_validated(ptr noundef %.030.i.i, i64 noundef %.02429.i.i) #22
+  %47 = call i32 @g_utf8_get_char_validated(ptr noundef %.030.i.i, i64 noundef %.02429.i.i) #24
   %or.cond.i.i = icmp ugt i32 %47, -3
   br i1 %or.cond.i.i, label %48, label %52
 
@@ -2457,7 +2468,7 @@ define void @ws_log_utf8_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
   %.125.i.i = phi i64 [ %51, %48 ], [ %64, %57 ]
   %.1.i.i = phi ptr [ %50, %48 ], [ %63, %57 ]
   %.not.i.i = icmp eq i64 %.125.i.i, 0
-  br i1 %.not.i.i, label %make_utf8_display.exit, label %46, !llvm.loop !10
+  br i1 %.not.i.i, label %make_utf8_display.exit, label %46, !llvm.loop !9
 
 make_utf8_display.exit:                           ; preds = %65, %._crit_edge.i
   call void @wmem_strbuf_append_c(ptr noundef %25, i8 noundef signext 10) #19
@@ -2717,9 +2728,6 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
-
 declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 declare zeroext i1 @ws_basestrtou32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
@@ -2728,25 +2736,25 @@ declare zeroext i1 @ws_basestrtou32(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #12
+declare void @exit(i32 noundef) local_unnamed_addr #11
 
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #13
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 declare ptr @g_strsplit_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
 declare ptr @ws_localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #10
+declare i32 @getpid() local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #10
+declare i64 @time(ptr noundef) local_unnamed_addr #13
 
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #9
 
@@ -2815,10 +2823,10 @@ attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "f
 attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -2827,9 +2835,9 @@ attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #19 = { nounwind }
 attributes #20 = { nounwind allocsize(0,1) }
 attributes #21 = { nounwind willreturn memory(none) }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { cold nounwind }
-attributes #24 = { noreturn nounwind }
+attributes #22 = { cold nounwind }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -2839,8 +2847,7 @@ attributes #24 = { noreturn nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 9}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

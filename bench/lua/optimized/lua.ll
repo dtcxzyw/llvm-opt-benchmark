@@ -25,9 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [13 x i8] c"interrupted!\00", align 1
 @.str.16 = private unnamed_addr constant [16 x i8] c"=(command line)\00", align 1
 @.str.17 = private unnamed_addr constant [4 x i8] c"@on\00", align 1
-@.str.18 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.19 = private unnamed_addr constant [8 x i8] c"require\00", align 1
-@.str.20 = private unnamed_addr constant [3 x i8] c"--\00", align 1
 @.str.21 = private unnamed_addr constant [21 x i8] c"'arg' is not a table\00", align 1
 @.str.22 = private unnamed_addr constant [29 x i8] c"too many arguments to script\00", align 1
 @stdin = external local_unnamed_addr global ptr, align 8
@@ -44,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.33 = private unnamed_addr constant [27 x i8] c"error calling 'print' (%s)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaL_newstate() #8
   %cmp = icmp eq ptr %call, null
@@ -97,7 +95,7 @@ declare i32 @lua_gc(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pmain(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @pmain(ptr noundef %L) #0 {
 entry:
   %call = tail call i64 @lua_tointegerx(ptr noundef %L, i32 noundef 1, ptr noundef null) #8
   %conv = trunc i64 %call to i32
@@ -149,7 +147,7 @@ sw.bb.i:                                          ; preds = %if.end14.i
   %cmp23.not.i = icmp eq i8 %6, 0
   %add.i = zext i1 %cmp23.not.i to i32
   %spec.select = add nsw i32 %i.048.i, %add.i
-  %spec.select110 = select i1 %cmp23.not.i, i32 %args.047.i, i32 1
+  %spec.select107 = select i1 %cmp23.not.i, i32 %args.047.i, i32 1
   br label %collectargs.exit
 
 sw.bb28.i:                                        ; preds = %if.end14.i
@@ -222,7 +220,7 @@ collectargs.exit.loopexit:                        ; preds = %if.end14.i
 
 collectargs.exit:                                 ; preds = %for.inc.i, %for.body.i, %sw.bb28.i, %sw.bb37.i, %sw.bb48.i, %if.then67.i, %lor.lhs.false.i, %if.end14.i, %collectargs.exit.loopexit, %sw.bb.i, %if.end5.i, %entry
   %script.0 = phi i32 [ -1, %entry ], [ 0, %if.end5.i ], [ %spec.select, %sw.bb.i ], [ %i.048.i, %if.end14.i ], [ 0, %for.inc.i ], [ %i.048.i, %for.body.i ], [ %i.048.i, %sw.bb28.i ], [ %i.048.i, %sw.bb37.i ], [ %i.048.i, %sw.bb48.i ], [ %i.048.i, %lor.lhs.false.i ], [ %i.048.i, %if.then67.i ], [ %i.048.i, %collectargs.exit.loopexit ]
-  %retval.0.i = phi i32 [ 0, %entry ], [ 0, %if.end5.i ], [ %spec.select110, %sw.bb.i ], [ %args.047.i, %if.end14.i ], [ %args.3.i, %for.inc.i ], [ %args.047.i, %for.body.i ], [ 1, %sw.bb28.i ], [ 1, %sw.bb37.i ], [ 1, %sw.bb48.i ], [ 1, %lor.lhs.false.i ], [ 1, %if.then67.i ], [ 1, %collectargs.exit.loopexit ]
+  %retval.0.i = phi i32 [ 0, %entry ], [ 0, %if.end5.i ], [ %spec.select107, %sw.bb.i ], [ %args.047.i, %if.end14.i ], [ %args.3.i, %for.inc.i ], [ %args.047.i, %for.body.i ], [ 1, %sw.bb28.i ], [ 1, %sw.bb37.i ], [ 1, %sw.bb48.i ], [ 1, %lor.lhs.false.i ], [ 1, %if.then67.i ], [ 1, %collectargs.exit.loopexit ]
   %cmp = icmp sgt i32 %script.0, 0
   %cond = select i1 %cmp, i32 %script.0, i32 %conv
   tail call void @luaL_checkversion_(ptr noundef %L, double noundef 5.040000e+02, i64 noundef 136) #8
@@ -474,65 +472,83 @@ if.then29:                                        ; preds = %if.end26
   %idx.ext = zext nneg i32 %script.0 to i64
   %add.ptr = getelementptr inbounds ptr, ptr %call1, i64 %idx.ext
   %39 = load ptr, ptr %add.ptr, align 8
-  %call.i62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(2) @.str.18) #10
-  %cmp.i63 = icmp eq i32 %call.i62, 0
-  br i1 %cmp.i63, label %land.lhs.true.i, label %if.end.i64
+  %40 = load i8, ptr %39, align 1
+  %.not.i = icmp eq i8 %40, 45
+  br i1 %.not.i, label %entry.tail.i, label %if.end.i62
 
-land.lhs.true.i:                                  ; preds = %if.then29
-  %arrayidx1.i73 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
-  %40 = load ptr, ptr %arrayidx1.i73, align 8
-  %call2.i74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(3) @.str.20) #10
-  %cmp3.not.i = icmp eq i32 %call2.i74, 0
-  %spec.select.i = select i1 %cmp3.not.i, ptr %39, ptr null
-  br label %if.end.i64
+entry.tail.i:                                     ; preds = %if.then29
+  %41 = getelementptr inbounds i8, ptr %39, i64 1
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %land.lhs.true.i, label %if.end.i62
 
-if.end.i64:                                       ; preds = %land.lhs.true.i, %if.then29
-  %fname.0.i = phi ptr [ %39, %if.then29 ], [ %spec.select.i, %land.lhs.true.i ]
+land.lhs.true.i:                                  ; preds = %entry.tail.i
+  %arrayidx1.i71 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
+  %44 = load ptr, ptr %arrayidx1.i71, align 8
+  %45 = load i8, ptr %44, align 1
+  %.not13.i = icmp eq i8 %45, 45
+  br i1 %.not13.i, label %sub_111.i, label %if.end.i62
+
+sub_111.i:                                        ; preds = %land.lhs.true.i
+  %46 = getelementptr inbounds i8, ptr %44, i64 1
+  %47 = load i8, ptr %46, align 1
+  %.not14.i = icmp eq i8 %47, 45
+  br i1 %.not14.i, label %sub_2.i, label %if.end.i62
+
+sub_2.i:                                          ; preds = %sub_111.i
+  %48 = getelementptr inbounds i8, ptr %44, i64 2
+  %49 = load i8, ptr %48, align 1
+  %50 = icmp eq i8 %49, 0
+  %51 = select i1 %50, ptr %39, ptr null
+  br label %if.end.i62
+
+if.end.i62:                                       ; preds = %sub_2.i, %sub_111.i, %land.lhs.true.i, %entry.tail.i, %if.then29
+  %fname.0.i = phi ptr [ %39, %entry.tail.i ], [ null, %land.lhs.true.i ], [ null, %sub_111.i ], [ %51, %sub_2.i ], [ %39, %if.then29 ]
   %call4.i = tail call i32 @luaL_loadfilex(ptr noundef %L, ptr noundef %fname.0.i, ptr noundef null) #8
-  %cmp5.i65 = icmp eq i32 %call4.i, 0
-  br i1 %cmp5.i65, label %if.then6.i, label %handle_script.exit.thread
+  %cmp5.i63 = icmp eq i32 %call4.i, 0
+  br i1 %cmp5.i63, label %if.then6.i, label %handle_script.exit.thread
 
-handle_script.exit.thread:                        ; preds = %if.end.i64
-  %call10.i6688 = tail call fastcc i32 @report(ptr noundef %L, i32 noundef %call4.i)
+handle_script.exit.thread:                        ; preds = %if.end.i62
+  %call10.i6485 = tail call fastcc i32 @report(ptr noundef %L, i32 noundef %call4.i)
   br label %return
 
-if.then6.i:                                       ; preds = %if.end.i64
-  %call.i.i67 = tail call i32 @lua_getglobal(ptr noundef %L, ptr noundef nonnull @.str.10) #8
-  %cmp.not.i.i = icmp eq i32 %call.i.i67, 5
-  br i1 %cmp.not.i.i, label %if.end.i.i70, label %if.then.i.i68
+if.then6.i:                                       ; preds = %if.end.i62
+  %call.i.i65 = tail call i32 @lua_getglobal(ptr noundef %L, ptr noundef nonnull @.str.10) #8
+  %cmp.not.i.i = icmp eq i32 %call.i.i65, 5
+  br i1 %cmp.not.i.i, label %if.end.i.i68, label %if.then.i.i66
 
-if.then.i.i68:                                    ; preds = %if.then6.i
-  %call1.i.i69 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.21) #8
-  br label %if.end.i.i70
+if.then.i.i66:                                    ; preds = %if.then6.i
+  %call1.i.i67 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.21) #8
+  br label %if.end.i.i68
 
-if.end.i.i70:                                     ; preds = %if.then.i.i68, %if.then6.i
-  %call2.i.i71 = tail call i64 @luaL_len(ptr noundef %L, i32 noundef -1) #8
-  %conv.i.i = trunc i64 %call2.i.i71 to i32
+if.end.i.i68:                                     ; preds = %if.then.i.i66, %if.then6.i
+  %call2.i.i69 = tail call i64 @luaL_len(ptr noundef %L, i32 noundef -1) #8
+  %conv.i.i = trunc i64 %call2.i.i69 to i32
   %add.i.i = add nsw i32 %conv.i.i, 3
   tail call void @luaL_checkstack(ptr noundef %L, i32 noundef %add.i.i, ptr noundef nonnull @.str.22) #8
   %cmp3.not13.i.i = icmp slt i32 %conv.i.i, 1
   br i1 %cmp3.not13.i.i, label %handle_script.exit, label %for.body.preheader.i.i
 
-for.body.preheader.i.i:                           ; preds = %if.end.i.i70
-  %41 = add nuw nsw i64 %call2.i.i71, 1
-  %wide.trip.count.i.i = and i64 %41, 4294967295
+for.body.preheader.i.i:                           ; preds = %if.end.i.i68
+  %52 = add nuw nsw i64 %call2.i.i69, 1
+  %wide.trip.count.i.i = and i64 %52, 4294967295
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %42 = trunc i64 %indvars.iv.i.i to i32
-  %43 = sub i32 0, %42
-  %call6.i.i = tail call i32 @lua_rawgeti(ptr noundef %L, i32 noundef %43, i64 noundef %indvars.iv.i.i) #8
+  %53 = trunc i64 %indvars.iv.i.i to i32
+  %54 = sub i32 0, %53
+  %call6.i.i = tail call i32 @lua_rawgeti(ptr noundef %L, i32 noundef %54, i64 noundef %indvars.iv.i.i) #8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !9
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
-  %44 = xor i32 %conv.i.i, -1
+  %55 = xor i32 %conv.i.i, -1
   br label %handle_script.exit
 
-handle_script.exit:                               ; preds = %if.end.i.i70, %for.end.loopexit.i.i
-  %i.0.lcssa.neg.i.i = phi i32 [ -1, %if.end.i.i70 ], [ %44, %for.end.loopexit.i.i ]
+handle_script.exit:                               ; preds = %if.end.i.i68, %for.end.loopexit.i.i
+  %i.0.lcssa.neg.i.i = phi i32 [ -1, %if.end.i.i68 ], [ %55, %for.end.loopexit.i.i ]
   tail call void @lua_rotate(ptr noundef %L, i32 noundef %i.0.lcssa.neg.i.i, i32 noundef -1) #8
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #8
   %call.i7.i = tail call i32 @lua_gettop(ptr noundef %L) #8
@@ -542,10 +558,10 @@ handle_script.exit:                               ; preds = %if.end.i.i70, %for.
   store ptr %L, ptr @globalL, align 8
   %call1.i8.i = tail call ptr @__sysv_signal(i32 noundef 2, ptr noundef nonnull @laction) #8
   %call2.i9.i = tail call i32 @lua_pcallk(ptr noundef %L, i32 noundef %conv.i.i, i32 noundef -1, i32 noundef %sub.i.i, i64 noundef 0, ptr noundef null) #8
-  %call3.i.i72 = tail call ptr @__sysv_signal(i32 noundef 2, ptr noundef null) #8
+  %call3.i.i70 = tail call ptr @__sysv_signal(i32 noundef 2, ptr noundef null) #8
   tail call void @lua_rotate(ptr noundef %L, i32 noundef %sub.i.i, i32 noundef -1) #8
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #8
-  %call10.i66 = tail call fastcc i32 @report(ptr noundef %L, i32 noundef %call2.i9.i)
+  %call10.i64 = tail call fastcc i32 @report(ptr noundef %L, i32 noundef %call2.i9.i)
   %cmp31.not = icmp eq i32 %call2.i9.i, 0
   br i1 %cmp31.not, label %if.end35, label %return
 
@@ -562,12 +578,12 @@ if.else:                                          ; preds = %if.end35
   br i1 %or.cond, label %if.then43, label %if.end45
 
 if.then43:                                        ; preds = %if.else
-  %45 = load ptr, ptr @stdout, align 8
-  %call.i75 = tail call i64 @fwrite(ptr noundef nonnull @.str.8, i64 noundef 1, i64 noundef 51, ptr noundef %45)
-  %46 = load ptr, ptr @stdout, align 8
-  %fputc.i76 = tail call i32 @fputc(i32 10, ptr %46)
-  %47 = load ptr, ptr @stdout, align 8
-  %call2.i77 = tail call i32 @fflush(ptr noundef %47)
+  %56 = load ptr, ptr @stdout, align 8
+  %call.i72 = tail call i64 @fwrite(ptr noundef nonnull @.str.8, i64 noundef 1, i64 noundef 51, ptr noundef %56)
+  %57 = load ptr, ptr @stdout, align 8
+  %fputc.i73 = tail call i32 @fputc(i32 10, ptr %57)
+  %58 = load ptr, ptr @stdout, align 8
+  %call2.i74 = tail call i32 @fflush(ptr noundef %58)
   br label %if.end45.sink.split
 
 if.end45.sink.split:                              ; preds = %if.end35, %if.then43

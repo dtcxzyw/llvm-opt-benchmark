@@ -283,9 +283,7 @@ module asm ".previous\09\09\09\09\09"
 @lapic_resource = internal global %struct.resource { i64 0, i64 0, ptr @.str.79, i64 2147484160, i64 0, ptr null, ptr null, ptr null }, align 8
 @iomem_resource = external dso_local global %struct.resource, align 8
 @.str.79 = private unnamed_addr constant [11 x i8] c"Local APIC\00", align 1
-@.str.80 = private unnamed_addr constant [4 x i8] c"all\00", align 1
 @.str.81 = private unnamed_addr constant [5 x i8] c"none\00", align 1
-@.str.82 = private unnamed_addr constant [4 x i8] c"bsp\00", align 1
 @.str.83 = private unnamed_addr constant [51 x i8] c"\014Unknown external NMI delivery mode `%s' ignored\0A\00", align 1
 @llvm.compiler.used = appending global [36 x ptr] [ptr @__UNIQUE_ID___addressable_boot_cpu_physical_apicid1031, ptr @__UNIQUE_ID___addressable_init_lapic_sysfs1059, ptr @__UNIQUE_ID___addressable_lapic_insert_resource1061, ptr @__UNIQUE_ID___addressable_local_apic_timer_c2_ok1034, ptr @__UNIQUE_ID___addressable_setup_APIC_eilvt1035, ptr @__UNIQUE_ID___addressable_smp_init_primary_thread_mask1050, ptr @__UNIQUE_ID___addressable_x86_cpu_to_acpiid1033, ptr @__UNIQUE_ID___addressable_x86_cpu_to_apicid1032, ptr @__UNIQUE_ID___addressable_x86_msi_msg_get_destid1057, ptr @__apic_send_IPI_mask.__UNIQUE_ID___addressable___SCK__apic_call_send_IPI_mask1012, ptr @__setup_apic_set_disabled_cpu_apicid, ptr @__setup_apic_set_extnmi, ptr @__setup_apic_set_verbosity, ptr @__setup_parse_disable_apic_timer, ptr @__setup_parse_lapic, ptr @__setup_parse_lapic_timer_c2_ok, ptr @__setup_parse_nolapic_timer, ptr @__setup_setup_apicpmtimer, ptr @__setup_setup_disableapic, ptr @__setup_setup_nolapic, ptr @apic_eoi.__UNIQUE_ID___addressable___SCK__apic_call_eoi1007, ptr @apic_read.__UNIQUE_ID___addressable___SCK__apic_call_read1005, ptr @apic_wait_icr_idle.__UNIQUE_ID___addressable___SCK__apic_call_wait_icr_idle1017, ptr @apic_write.__UNIQUE_ID___addressable___SCK__apic_call_write1006, ptr @trace_error_apic_entry.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace517, ptr @trace_error_apic_entry.__UNIQUE_ID___addressable___SCK__tp_func_error_apic_entry516, ptr @trace_error_apic_exit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace531, ptr @trace_error_apic_exit.__UNIQUE_ID___addressable___SCK__tp_func_error_apic_exit530, ptr @trace_local_timer_entry.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace461, ptr @trace_local_timer_entry.__UNIQUE_ID___addressable___SCK__tp_func_local_timer_entry460, ptr @trace_local_timer_exit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace475, ptr @trace_local_timer_exit.__UNIQUE_ID___addressable___SCK__tp_func_local_timer_exit474, ptr @trace_spurious_apic_entry.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace489, ptr @trace_spurious_apic_entry.__UNIQUE_ID___addressable___SCK__tp_func_spurious_apic_entry488, ptr @trace_spurious_apic_exit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace503, ptr @trace_spurious_apic_exit.__UNIQUE_ID___addressable___SCK__tp_func_spurious_apic_exit502], section "llvm.metadata"
 
@@ -355,7 +353,7 @@ define dso_local i64 @native_apic_icr_read() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @lapic_get_maxlvt() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 256) i32 @lapic_get_maxlvt() local_unnamed_addr #1 align 16 {
   %1 = tail call i32 @__SCT__apic_call_read(i32 noundef 48) #17
   %2 = lshr i32 %1, 16
   %3 = and i32 %2, 255
@@ -363,7 +361,7 @@ define dso_local i32 @lapic_get_maxlvt() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @setup_APIC_eilvt(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @setup_APIC_eilvt(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) #1 align 16 {
   %5 = zext i8 %0 to i32
   %6 = shl nuw nsw i32 %5, 4
   %7 = add nuw nsw i32 %6, 1280
@@ -669,7 +667,7 @@ define internal fastcc void @setup_APIC_timer() unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @calibrate_APIC_clock() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @calibrate_APIC_clock() unnamed_addr #0 section ".init.text" align 16 {
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @lapic_events) #19, !srcloc !25
@@ -1394,7 +1392,7 @@ define dso_local void @apic_intr_mode_select() local_unnamed_addr #0 section ".i
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @__apic_intr_mode_select() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 5) i32 @__apic_intr_mode_select() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i8, ptr @apic_is_disabled, align 1, !range !20, !noundef !56
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %17
@@ -2310,7 +2308,7 @@ define internal noundef i32 @smp_init_primary_thread_mask() #0 section ".init.te
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @generic_processor_info(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -22, -2147483648) i32 @generic_processor_info(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = load i32, ptr @nr_cpu_ids, align 4
   %3 = load i32, ptr @cpuid_to_apicid, align 16
   %4 = icmp eq i32 %3, 65535
@@ -2557,7 +2555,7 @@ define internal noundef i32 @init_lapic_sysfs() #0 section ".init.text" align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @apic_is_clustered_box() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @apic_is_clustered_box() local_unnamed_addr #1 align 16 {
   %1 = load i1, ptr @multi_checked, align 4
   br i1 %1, label %4, label %2
 
@@ -2605,7 +2603,7 @@ define internal noundef i32 @parse_nolapic_timer(ptr nocapture readnone %0) #13 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @apic_set_verbosity(ptr noundef %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @apic_set_verbosity(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -2638,7 +2636,7 @@ define internal noundef i32 @apic_set_verbosity(ptr noundef %0) #0 section ".ini
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @lapic_insert_resource() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -1, 1) i32 @lapic_insert_resource() #0 section ".init.text" align 16 {
   %1 = load i64, ptr @apic_mmio_base, align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %6, label %3
@@ -2656,7 +2654,7 @@ define internal noundef i32 @lapic_insert_resource() #0 section ".init.text" ali
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @apic_set_disabled_cpu_apicid(ptr noundef %0) #0 section ".init.text" align 16 {
+define internal range(i32 -22, 1) i32 @apic_set_disabled_cpu_apicid(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = icmp eq ptr %0, null
@@ -2674,44 +2672,86 @@ define internal i32 @apic_set_disabled_cpu_apicid(ptr noundef %0) #0 section ".i
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @apic_set_extnmi(ptr noundef %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @apic_set_extnmi(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %17, label %3
+  br i1 %2, label %35, label %sub_0
 
-3:                                                ; preds = %1
-  %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(4) @.str.80, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 3) #17
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %7
+sub_0:                                            ; preds = %1
+  %3 = load i8, ptr %0, align 1
+  %4 = zext i8 %3 to i32
+  %5 = sub nsw i32 97, %4
+  %.not = icmp eq i8 %3, 97
+  br i1 %.not, label %sub_1, label %.tail
 
-6:                                                ; preds = %3
+sub_1:                                            ; preds = %sub_0
+  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  %9 = sub nsw i32 108, %8
+  %.not6 = icmp eq i8 %7, 108
+  br i1 %.not6, label %sub_2, label %.tail
+
+sub_2:                                            ; preds = %sub_1
+  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i32
+  %13 = sub nsw i32 108, %12
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
+  %14 = phi i32 [ %5, %sub_0 ], [ %9, %sub_1 ], [ %13, %sub_2 ]
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %.tail
   store i32 1, ptr @apic_extnmi, align 4
-  br label %17
+  br label %35
 
-7:                                                ; preds = %3
-  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.81, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #17
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %11
+17:                                               ; preds = %.tail
+  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.81, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4) #17
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %sub_02
 
-10:                                               ; preds = %7
+20:                                               ; preds = %17
   store i32 2, ptr @apic_extnmi, align 4
-  br label %17
+  br label %35
 
-11:                                               ; preds = %7
-  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(4) @.str.82, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %15
+sub_02:                                           ; preds = %17
+  %21 = sub nsw i32 98, %4
+  %.not7 = icmp eq i8 %3, 98
+  br i1 %.not7, label %sub_13, label %.tail1
 
-14:                                               ; preds = %11
+sub_13:                                           ; preds = %sub_02
+  %22 = getelementptr inbounds i8, ptr %0, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = sub nsw i32 115, %24
+  %.not8 = icmp eq i8 %23, 115
+  br i1 %.not8, label %sub_24, label %.tail1
+
+sub_24:                                           ; preds = %sub_13
+  %26 = getelementptr inbounds i8, ptr %0, i64 2
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  %29 = sub nsw i32 112, %28
+  br label %.tail1
+
+.tail1:                                           ; preds = %sub_02, %sub_13, %sub_24
+  %30 = phi i32 [ %21, %sub_02 ], [ %25, %sub_13 ], [ %29, %sub_24 ]
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %.tail1
   store i32 0, ptr @apic_extnmi, align 4
-  br label %17
+  br label %35
 
-15:                                               ; preds = %11
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.83, ptr noundef nonnull %0) #18
-  br label %17
+33:                                               ; preds = %.tail1
+  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.83, ptr noundef nonnull %0) #18
+  br label %35
 
-17:                                               ; preds = %15, %14, %10, %6, %1
-  %18 = phi i32 [ -22, %15 ], [ -22, %1 ], [ 0, %10 ], [ 0, %14 ], [ 0, %6 ]
-  ret i32 %18
+35:                                               ; preds = %33, %32, %20, %16, %1
+  %36 = phi i32 [ -22, %33 ], [ -22, %1 ], [ 0, %20 ], [ 0, %32 ], [ 0, %16 ]
+  ret i32 %36
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -2850,7 +2890,7 @@ define internal noundef i32 @lapic_next_deadline(i64 noundef %0, ptr nocapture r
   %9 = add i64 %7, %8
   %10 = trunc i64 %9 to i32
   %11 = lshr i64 %9, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1760, i32 %10, i32 %12) #17, !srcloc !115
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #17
           to label %14 [label %13], !srcloc !39
@@ -2873,7 +2913,7 @@ declare dso_local void @clockevents_register_device(ptr noundef) local_unnamed_a
 declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @lapic_init_clockevent() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @lapic_init_clockevent() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i32, ptr @lapic_timer_period, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %13, label %3
@@ -2966,7 +3006,7 @@ define internal void @lapic_cal_handler(ptr nocapture readnone %0) #0 section ".
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @calibrate_by_pmtimer(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @calibrate_by_pmtimer(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = load i32, ptr @apic_verbosity, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %8
@@ -3412,7 +3452,7 @@ define internal void @lapic_resume() #1 align 16 {
 
 17:                                               ; preds = %16, %10
   %18 = lshr i64 %15, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   %20 = and i64 %12, 2047
   %21 = load i64, ptr @mp_lapic_addr, align 8
   %22 = or i64 %20, %21

@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [32 x i8] c"could not clear search_path: %s\00", align 1
 @.str.14 = private unnamed_addr constant [18 x i8] c"integer_datetimes\00", align 1
 @.str.15 = private unnamed_addr constant [57 x i8] c"could not determine server setting for integer_datetimes\00", align 1
-@.str.16 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.17 = private unnamed_addr constant [53 x i8] c"integer_datetimes compile flag does not match server\00", align 1
 @WalSegSz = dso_local local_unnamed_addr global i32 0, align 4
 @.str.18 = private unnamed_addr constant [22 x i8] c"SHOW wal_segment_size\00", align 1
@@ -258,7 +257,7 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 
 86:                                               ; preds = %105, %77
   %.0101 = phi i8 [ %82, %77 ], [ %.2, %105 ]
-  %87 = trunc i8 %.0101 to i1
+  %87 = trunc nuw i8 %.0101 to i1
   %88 = load ptr, ptr @password, align 8
   br i1 %87, label %89, label %thread-pre-split
 
@@ -272,8 +271,8 @@ thread-pre-split:                                 ; preds = %86, %89
   %91 = phi ptr [ %90, %89 ], [ %88, %86 ]
   %.1102 = phi i8 [ 0, %89 ], [ %.0101, %86 ]
   %.not123 = icmp eq ptr %91, null
-  %spec.select149 = select i1 %.not123, ptr null, ptr @.str.10
-  store ptr %spec.select149, ptr %84, align 8
+  %spec.select152 = select i1 %.not123, ptr null, ptr @.str.10
+  store ptr %spec.select152, ptr %84, align 8
   store ptr %91, ptr %85, align 8
   %92 = load ptr, ptr @connection_string, align 8
   %.not124 = icmp eq ptr %92, null
@@ -306,7 +305,7 @@ thread-pre-split:                                 ; preds = %86, %89
 
 105:                                              ; preds = %96, %99, %104
   %.2 = phi i8 [ 1, %104 ], [ %.1102, %99 ], [ %.1102, %96 ]
-  %106 = trunc i8 %.2 to i1
+  %106 = trunc nuw i8 %.2 to i1
   br i1 %106, label %86, label %107, !llvm.loop !8
 
 107:                                              ; preds = %105
@@ -321,7 +320,7 @@ thread-pre-split:                                 ; preds = %86, %89
   call void @free(ptr noundef nonnull %.0105) #15
   call void @free(ptr noundef nonnull %.0106) #15
   call void @PQconninfoFree(ptr noundef %.0100) #15
-  br label %152
+  br label %155
 
 111:                                              ; preds = %107
   call void @free(ptr noundef nonnull %.0105) #15
@@ -357,7 +356,7 @@ thread-pre-split:                                 ; preds = %86, %89
 122:                                              ; preds = %121, %113, %111
   %123 = call ptr @PQparameterStatus(ptr noundef nonnull %94, ptr noundef nonnull @.str.14) #15
   %.not129 = icmp eq ptr %123, null
-  br i1 %.not129, label %124, label %125
+  br i1 %.not129, label %124, label %sub_0
 
 124:                                              ; preds = %122
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15) #15
@@ -365,79 +364,91 @@ thread-pre-split:                                 ; preds = %86, %89
   call void @exit(i32 noundef 1) #16
   unreachable
 
-125:                                              ; preds = %122
-  %126 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %123, ptr noundef nonnull dereferenceable(3) @.str.16) #17
-  %.not130 = icmp eq i32 %126, 0
-  br i1 %.not130, label %128, label %127
+sub_0:                                            ; preds = %122
+  %125 = load i8, ptr %123, align 1
+  %.not146 = icmp eq i8 %125, 111
+  br i1 %.not146, label %sub_1, label %.tail.thread
 
-127:                                              ; preds = %125
+sub_1:                                            ; preds = %sub_0
+  %126 = getelementptr inbounds i8, ptr %123, i64 1
+  %127 = load i8, ptr %126, align 1
+  %.not147 = icmp eq i8 %127, 110
+  br i1 %.not147, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %128 = getelementptr inbounds i8, ptr %123, i64 2
+  %129 = load i8, ptr %128, align 1
+  %130 = icmp eq i8 %129, 0
+  br i1 %130, label %131, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17) #15
   call void @PQfinish(ptr noundef nonnull %94) #15
   call void @exit(i32 noundef 1) #16
   unreachable
 
-128:                                              ; preds = %125
+131:                                              ; preds = %.tail
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  %129 = call i32 @PQserverVersion(ptr noundef nonnull %94) #15
-  %130 = icmp slt i32 %129, 110000
-  br i1 %130, label %RetrieveDataDirCreatePerm.exit, label %131
-
-131:                                              ; preds = %128
-  %132 = call ptr @PQexec(ptr noundef nonnull %94, ptr noundef nonnull @.str.57) #15
-  %133 = call i32 @PQresultStatus(ptr noundef %132) #15
-  %.not.i = icmp eq i32 %133, 2
-  br i1 %.not.i, label %136, label %134
+  %132 = call i32 @PQserverVersion(ptr noundef nonnull %94) #15
+  %133 = icmp slt i32 %132, 110000
+  br i1 %133, label %RetrieveDataDirCreatePerm.exit, label %134
 
 134:                                              ; preds = %131
-  %135 = call ptr @PQerrorMessage(ptr noundef nonnull %94) #15
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.57, ptr noundef %135) #15
-  br label %151
+  %135 = call ptr @PQexec(ptr noundef nonnull %94, ptr noundef nonnull @.str.57) #15
+  %136 = call i32 @PQresultStatus(ptr noundef %135) #15
+  %.not.i = icmp eq i32 %136, 2
+  br i1 %.not.i, label %139, label %137
 
-136:                                              ; preds = %131
-  %137 = call i32 @PQntuples(ptr noundef %132) #15
-  %.not15.i = icmp eq i32 %137, 1
-  br i1 %.not15.i, label %138, label %141
+137:                                              ; preds = %134
+  %138 = call ptr @PQerrorMessage(ptr noundef nonnull %94) #15
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.57, ptr noundef %138) #15
+  br label %154
 
-138:                                              ; preds = %136
-  %139 = call i32 @PQnfields(ptr noundef %132) #15
-  %140 = icmp slt i32 %139, 1
-  br i1 %140, label %141, label %144
+139:                                              ; preds = %134
+  %140 = call i32 @PQntuples(ptr noundef %135) #15
+  %.not15.i = icmp eq i32 %140, 1
+  br i1 %.not15.i, label %141, label %144
 
-141:                                              ; preds = %138, %136
-  %142 = call i32 @PQntuples(ptr noundef %132) #15
-  %143 = call i32 @PQnfields(ptr noundef %132) #15
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.58, i32 noundef %142, i32 noundef %143, i32 noundef 1, i32 noundef 1) #15
-  br label %151
+141:                                              ; preds = %139
+  %142 = call i32 @PQnfields(ptr noundef %135) #15
+  %143 = icmp slt i32 %142, 1
+  br i1 %143, label %144, label %147
 
-144:                                              ; preds = %138
-  %145 = call ptr @PQgetvalue(ptr noundef %132, i32 noundef 0, i32 noundef 0) #15
-  %146 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %145, ptr noundef nonnull @.str.59, ptr noundef nonnull %1) #15
-  %.not16.i = icmp eq i32 %146, 1
-  br i1 %.not16.i, label %149, label %147
+144:                                              ; preds = %141, %139
+  %145 = call i32 @PQntuples(ptr noundef %135) #15
+  %146 = call i32 @PQnfields(ptr noundef %135) #15
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.58, i32 noundef %145, i32 noundef %146, i32 noundef 1, i32 noundef 1) #15
+  br label %154
 
-147:                                              ; preds = %144
-  %148 = call ptr @PQgetvalue(ptr noundef %132, i32 noundef 0, i32 noundef 0) #15
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.60, ptr noundef %148) #15
-  br label %151
+147:                                              ; preds = %141
+  %148 = call ptr @PQgetvalue(ptr noundef %135, i32 noundef 0, i32 noundef 0) #15
+  %149 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %148, ptr noundef nonnull @.str.59, ptr noundef nonnull %1) #15
+  %.not16.i = icmp eq i32 %149, 1
+  br i1 %.not16.i, label %152, label %150
 
-149:                                              ; preds = %144
-  %150 = load i32, ptr %1, align 4
-  call void @SetDataDirectoryCreatePerm(i32 noundef %150) #15
-  call void @PQclear(ptr noundef %132) #15
+150:                                              ; preds = %147
+  %151 = call ptr @PQgetvalue(ptr noundef %135, i32 noundef 0, i32 noundef 0) #15
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.60, ptr noundef %151) #15
+  br label %154
+
+152:                                              ; preds = %147
+  %153 = load i32, ptr %1, align 4
+  call void @SetDataDirectoryCreatePerm(i32 noundef %153) #15
+  call void @PQclear(ptr noundef %135) #15
   br label %RetrieveDataDirCreatePerm.exit
 
-RetrieveDataDirCreatePerm.exit:                   ; preds = %128, %149
+RetrieveDataDirCreatePerm.exit:                   ; preds = %131, %152
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
-  br label %152
+  br label %155
 
-151:                                              ; preds = %134, %141, %147
-  call void @PQclear(ptr noundef %132) #15
+154:                                              ; preds = %137, %144, %150
+  call void @PQclear(ptr noundef %135) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @PQfinish(ptr noundef nonnull %94) #15
   call void @exit(i32 noundef 1) #16
   unreachable
 
-152:                                              ; preds = %RetrieveDataDirCreatePerm.exit, %109
+155:                                              ; preds = %RetrieveDataDirCreatePerm.exit, %109
   %.0 = phi ptr [ null, %109 ], [ %94, %RetrieveDataDirCreatePerm.exit ]
   ret ptr %.0
 }
@@ -554,7 +565,7 @@ define dso_local noundef zeroext i1 @RetrieveWalSegSize(ptr noundef %0) local_un
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %28
-  %33 = call i32 @llvm.ctpop.i32(i32 %30), !range !9
+  %33 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %30)
   %34 = icmp ult i32 %33, 2
   %35 = add nsw i32 %30, -1048576
   %36 = icmp ult i32 %35, 1072693249
@@ -1246,7 +1257,7 @@ define dso_local void @feTimestampDifference(i64 noundef %0, i64 noundef %1, ptr
 7:                                                ; preds = %4
   %8 = udiv i64 %5, 1000000
   %9 = urem i64 %5, 1000000
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   br label %11
 
 11:                                               ; preds = %4, %7
@@ -1327,4 +1338,3 @@ attributes #17 = { nounwind willreturn memory(read) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 32}

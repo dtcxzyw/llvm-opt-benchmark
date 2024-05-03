@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 @G_ordering = external local_unnamed_addr global ptr, align 8
 @N_ordering = external local_unnamed_addr global ptr, align 8
 @.str.14 = private unnamed_addr constant [4 x i8] c"out\00", align 1
-@.str.15 = private unnamed_addr constant [3 x i8] c"in\00", align 1
 @.str.16 = private unnamed_addr constant [31 x i8] c"ordering '%s' not recognized.\0A\00", align 1
 @TE_list = internal unnamed_addr global ptr null, align 8
 @.str.17 = private unnamed_addr constant [45 x i8] c"ordering '%s' not recognized for node '%s'.\0A\00", align 1
@@ -4997,7 +4996,7 @@ define internal fastcc i32 @getComp(ptr noundef %0, ptr noundef %1, ptr noundef 
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ordercmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal range(i32 -1, 2) i32 @ordercmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -5036,7 +5035,7 @@ define internal fastcc void @ordered_edges(ptr noundef %0) unnamed_addr #0 {
 8:                                                ; preds = %6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.14) #28
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %14
+  br i1 %10, label %11, label %sub_0
 
 11:                                               ; preds = %8
   %12 = tail call ptr @agfstnode(ptr noundef %0) #23
@@ -5050,29 +5049,38 @@ define internal fastcc void @ordered_edges(ptr noundef %0) unnamed_addr #0 {
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %do_ordering.exit, label %.lr.ph.i
 
-14:                                               ; preds = %8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(3) @.str.15) #28
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %20
+sub_0:                                            ; preds = %8
+  %14 = load i8, ptr %7, align 1
+  switch i8 %14, label %.thread34 [
+    i8 105, label %sub_1
+    i8 0, label %do_ordering.exit
+  ]
 
-17:                                               ; preds = %14
-  %18 = tail call ptr @agfstnode(ptr noundef %0) #23
-  %.not6.i18 = icmp eq ptr %18, null
+sub_1:                                            ; preds = %sub_0
+  %15 = getelementptr inbounds i8, ptr %7, i64 1
+  %16 = load i8, ptr %15, align 1
+  %.not30 = icmp eq i8 %16, 110
+  br i1 %.not30, label %.tail, label %.thread34
+
+.tail:                                            ; preds = %sub_1
+  %17 = getelementptr inbounds i8, ptr %7, i64 2
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %.thread34
+
+20:                                               ; preds = %.tail
+  %21 = tail call ptr @agfstnode(ptr noundef %0) #23
+  %.not6.i18 = icmp eq ptr %21, null
   br i1 %.not6.i18, label %do_ordering.exit, label %.lr.ph.i19
 
-.lr.ph.i19:                                       ; preds = %17, %.lr.ph.i19
-  %.07.i20 = phi ptr [ %19, %.lr.ph.i19 ], [ %18, %17 ]
+.lr.ph.i19:                                       ; preds = %20, %.lr.ph.i19
+  %.07.i20 = phi ptr [ %22, %.lr.ph.i19 ], [ %21, %20 ]
   tail call fastcc void @do_ordering_node(ptr noundef %0, ptr noundef nonnull %.07.i20, i1 noundef zeroext false)
-  %19 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.07.i20) #23
-  %.not.i21 = icmp eq ptr %19, null
+  %22 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.07.i20) #23
+  %.not.i21 = icmp eq ptr %22, null
   br i1 %.not.i21, label %do_ordering.exit, label %.lr.ph.i19
 
-20:                                               ; preds = %14
-  %21 = load i8, ptr %7, align 1
-  %.not17 = icmp eq i8 %21, 0
-  br i1 %.not17, label %do_ordering.exit, label %22
-
-22:                                               ; preds = %20
+.thread34:                                        ; preds = %sub_0, %.tail, %sub_1
   %23 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.16, ptr noundef nonnull %7) #23
   br label %do_ordering.exit
 
@@ -5105,47 +5113,67 @@ define internal fastcc void @ordered_edges(ptr noundef %0) unnamed_addr #0 {
   %.not17.i = icmp eq ptr %32, null
   br i1 %.not17.i, label %do_ordering.exit, label %.lr.ph.i23
 
-.lr.ph.i23:                                       ; preds = %31, %48
-  %.018.i = phi ptr [ %49, %48 ], [ %32, %31 ]
+.lr.ph.i23:                                       ; preds = %31, %56
+  %.018.i = phi ptr [ %57, %56 ], [ %32, %31 ]
   %33 = load ptr, ptr @N_ordering, align 8
   %34 = tail call ptr @late_string(ptr noundef nonnull %.018.i, ptr noundef %33, ptr noundef null) #23
   %.not15.i = icmp eq ptr %34, null
-  br i1 %.not15.i, label %48, label %35
+  br i1 %.not15.i, label %56, label %35
 
 35:                                               ; preds = %.lr.ph.i23
   %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(4) @.str.14) #28
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %39
+  br i1 %37, label %38, label %sub_0.i
 
 38:                                               ; preds = %35
   tail call fastcc void @do_ordering_node(ptr noundef %0, ptr noundef nonnull %.018.i, i1 noundef zeroext true)
-  br label %48
+  br label %56
 
-39:                                               ; preds = %35
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(3) @.str.15) #28
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %43
+sub_0.i:                                          ; preds = %35
+  %39 = load i8, ptr %34, align 1
+  %40 = zext i8 %39 to i32
+  %41 = add nsw i32 %40, -105
+  %.not19.i = icmp eq i32 %41, 0
+  br i1 %.not19.i, label %sub_1.i, label %.tail.i
 
-42:                                               ; preds = %39
+sub_1.i:                                          ; preds = %sub_0.i
+  %42 = getelementptr inbounds i8, ptr %34, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = add nsw i32 %44, -110
+  %.not20.i = icmp eq i32 %45, 0
+  br i1 %.not20.i, label %sub_2.i, label %.tail.i
+
+sub_2.i:                                          ; preds = %sub_1.i
+  %46 = getelementptr inbounds i8, ptr %34, i64 2
+  %47 = load i8, ptr %46, align 1
+  %48 = zext i8 %47 to i32
+  br label %.tail.i
+
+.tail.i:                                          ; preds = %sub_2.i, %sub_1.i, %sub_0.i
+  %49 = phi i32 [ %41, %sub_0.i ], [ %45, %sub_1.i ], [ %48, %sub_2.i ]
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %.tail.i
   tail call fastcc void @do_ordering_node(ptr noundef %0, ptr noundef nonnull %.018.i, i1 noundef zeroext false)
-  br label %48
+  br label %56
 
-43:                                               ; preds = %39
-  %44 = load i8, ptr %34, align 1
-  %.not16.i = icmp eq i8 %44, 0
-  br i1 %.not16.i, label %48, label %45
+52:                                               ; preds = %.tail.i
+  %.not16.i = icmp eq i8 %39, 0
+  br i1 %.not16.i, label %56, label %53
 
-45:                                               ; preds = %43
-  %46 = tail call ptr @agnameof(ptr noundef nonnull %.018.i) #23
-  %47 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef nonnull %34, ptr noundef %46) #23
-  br label %48
+53:                                               ; preds = %52
+  %54 = tail call ptr @agnameof(ptr noundef nonnull %.018.i) #23
+  %55 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef nonnull %34, ptr noundef %54) #23
+  br label %56
 
-48:                                               ; preds = %45, %43, %42, %38, %.lr.ph.i23
-  %49 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.018.i) #23
-  %.not.i24 = icmp eq ptr %49, null
+56:                                               ; preds = %53, %52, %51, %38, %.lr.ph.i23
+  %57 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.018.i) #23
+  %.not.i24 = icmp eq ptr %57, null
   br i1 %.not.i24, label %do_ordering.exit, label %.lr.ph.i23
 
-do_ordering.exit:                                 ; preds = %.lr.ph.i19, %.lr.ph.i, %48, %31, %17, %11, %._crit_edge, %20, %22, %1
+do_ordering.exit:                                 ; preds = %.lr.ph.i19, %.lr.ph.i, %56, %sub_0, %31, %20, %11, %._crit_edge, %.thread34, %1
   ret void
 }
 
@@ -6284,7 +6312,7 @@ betweenclust.exit66:                              ; preds = %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @edgeidcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 -1, 2) i32 @edgeidcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 4
@@ -7023,7 +7051,7 @@ define internal fastcc void @restore_best(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @nodeposcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 -1, 2) i32 @nodeposcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8

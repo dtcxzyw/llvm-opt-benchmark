@@ -899,7 +899,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @Py_IgnoreEnvironmentFlag = external local_unnamed_addr global i32, align 4
 @Py_UTF8Mode = external local_unnamed_addr global i32, align 4
 @.str.19 = private unnamed_addr constant [20 x i8] c"PYTHONCOERCECLOCALE\00", align 1
-@.str.20 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.21 = private unnamed_addr constant [5 x i8] c"warn\00", align 1
 @.str.22 = private unnamed_addr constant [5 x i32] [i32 117, i32 116, i32 102, i32 56, i32 0], align 4
 @.str.23 = private unnamed_addr constant [2 x i32] [i32 49, i32 0], align 4
@@ -907,9 +906,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.preconfig_init_utf8_mode = private unnamed_addr constant [25 x i8] c"preconfig_init_utf8_mode\00", align 1
 @.str.25 = private unnamed_addr constant [29 x i8] c"invalid -X utf8 option value\00", align 1
 @.str.26 = private unnamed_addr constant [11 x i8] c"PYTHONUTF8\00", align 1
-@.str.27 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @.str.28 = private unnamed_addr constant [46 x i8] c"invalid PYTHONUTF8 environment variable value\00", align 1
-@.str.29 = private unnamed_addr constant [2 x i8] c"C\00", align 1
 @.str.30 = private unnamed_addr constant [6 x i8] c"POSIX\00", align 1
 @.str.31 = private unnamed_addr constant [13 x i8] c"PYTHONMALLOC\00", align 1
 @__func__.preconfig_init_allocator = private unnamed_addr constant [25 x i8] c"preconfig_init_allocator\00", align 1
@@ -950,7 +947,7 @@ if.end6:                                          ; preds = %if.then5, %if.end
 declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_Py_SetFileSystemEncoding(ptr noundef %encoding, ptr noundef %errors) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_Py_SetFileSystemEncoding(ptr noundef %encoding, ptr noundef %errors) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyMem_RawStrdup(ptr noundef %encoding) #17
   %cmp = icmp eq ptr %call, null
@@ -2097,7 +2094,7 @@ declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_u
 declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noundef i32 @_Py_str_to_int(ptr noundef %str, ptr nocapture noundef writeonly %result) local_unnamed_addr #8 {
+define hidden range(i32 -1, 1) i32 @_Py_str_to_int(ptr noundef %str, ptr nocapture noundef writeonly %result) local_unnamed_addr #8 {
 entry:
   %endptr = alloca ptr, align 8
   store ptr %str, ptr %endptr, align 8
@@ -2352,7 +2349,7 @@ if.end28:                                         ; preds = %if.end20, %if.end60
   %19 = phi i32 [ %.pre, %if.end20 ], [ %12, %if.end60 ]
   %inc127 = phi i32 [ 1, %if.end20 ], [ %inc, %if.end60 ]
   %locale_coerced.0126 = phi i32 [ 0, %if.end20 ], [ %locale_coerced.1, %if.end60 ]
-  %20 = phi i32 [ %.pr, %if.end20 ], [ %57, %if.end60 ]
+  %20 = phi i32 [ %.pr, %if.end20 ], [ %70, %if.end60 ]
   store i32 %19, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28), align 8
   %21 = load i32, ptr %parse_argv.i.i, align 4
   store i32 %21, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28, i32 1), align 4
@@ -2428,31 +2425,34 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
   %36 = load i8, ptr %call.i.i.i, align 1, !noalias !14
-  %cmp.not.i.i.i = icmp eq i8 %36, 0
-  br i1 %cmp.not.i.i.i, label %if.end26.i.i, label %if.then2.i.i
+  switch i8 %36, label %if.else.i.i [
+    i8 0, label %if.end26.i.i
+    i8 48, label %if.then2.tail.i.i
+  ]
 
-if.then2.i.i:                                     ; preds = %land.lhs.true.i.i.i
-  %call3.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i.i, ptr noundef nonnull dereferenceable(2) @.str.20) #18, !noalias !14
-  %cmp.i.i = icmp eq i32 %call3.i.i, 0
-  br i1 %cmp.i.i, label %if.then4.i.i, label %if.else.i.i
+if.then2.tail.i.i:                                ; preds = %land.lhs.true.i.i.i
+  %37 = getelementptr inbounds i8, ptr %call.i.i.i, i64 1
+  %38 = load i8, ptr %37, align 1, !noalias !14
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %if.then4.i.i, label %if.else.i.i
 
-if.then4.i.i:                                     ; preds = %if.then2.i.i
-  %37 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
-  %cmp6.i.i = icmp slt i32 %37, 0
+if.then4.i.i:                                     ; preds = %if.then2.tail.i.i
+  %40 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
+  %cmp6.i.i = icmp slt i32 %40, 0
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end26.i.i
 
 if.then7.i.i:                                     ; preds = %if.then4.i.i
   store i32 0, ptr %coerce_c_locale.i.i, align 4, !noalias !14
   br label %if.end26.i.i
 
-if.else.i.i:                                      ; preds = %if.then2.i.i
+if.else.i.i:                                      ; preds = %if.then2.tail.i.i, %land.lhs.true.i.i.i
   %call10.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.21) #18, !noalias !14
   %cmp11.i.i = icmp eq i32 %call10.i.i, 0
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.else18.i.i
 
 if.then12.i.i:                                    ; preds = %if.else.i.i
-  %38 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !14
-  %cmp14.i.i = icmp slt i32 %38, 0
+  %41 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !14
+  %cmp14.i.i = icmp slt i32 %41, 0
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.end26.i.i
 
 if.then15.i.i:                                    ; preds = %if.then12.i.i
@@ -2460,8 +2460,8 @@ if.then15.i.i:                                    ; preds = %if.then12.i.i
   br label %if.end26.i.i
 
 if.else18.i.i:                                    ; preds = %if.else.i.i
-  %39 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
-  %cmp20.i.i = icmp slt i32 %39, 0
+  %42 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
+  %cmp20.i.i = icmp slt i32 %42, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.end26.i.i
 
 if.then21.i.i:                                    ; preds = %if.else18.i.i
@@ -2469,9 +2469,9 @@ if.then21.i.i:                                    ; preds = %if.else18.i.i
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %if.then21.i.i, %if.else18.i.i, %if.then15.i.i, %if.then12.i.i, %if.then7.i.i, %if.then4.i.i, %land.lhs.true.i.i.i, %if.end.i.i.i, %if.end.i.i
-  %40 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
-  %cmp28.i.i = icmp slt i32 %40, 0
-  %cmp30.i.i = icmp eq i32 %40, 1
+  %43 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
+  %cmp28.i.i = icmp slt i32 %43, 0
+  %cmp30.i.i = icmp eq i32 %43, 1
   %or.cond.i.i = or i1 %cmp28.i.i, %cmp30.i.i
   br i1 %or.cond.i.i, label %if.then31.i.i, label %if.end39.i.i
 
@@ -2483,8 +2483,8 @@ if.then31.i.i:                                    ; preds = %if.end26.i.i
   br label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then31.i.i, %if.end26.i.i
-  %41 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !14
-  %cmp41.i.i = icmp slt i32 %41, 0
+  %44 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !14
+  %cmp41.i.i = icmp slt i32 %44, 0
   br i1 %cmp41.i.i, label %if.end44.sink.split.i.i, label %preconfig_init_coerce_c_locale.exit.i
 
 if.end44.sink.split.i.i:                          ; preds = %if.end39.i.i, %if.then.i.i
@@ -2492,111 +2492,122 @@ if.end44.sink.split.i.i:                          ; preds = %if.end39.i.i, %if.t
   br label %preconfig_init_coerce_c_locale.exit.i
 
 preconfig_init_coerce_c_locale.exit.i:            ; preds = %if.end44.sink.split.i.i, %if.end39.i.i
-  %42 = load i32, ptr %utf8_mode.i.i, align 4, !noalias !17
-  %cmp.i17.i = icmp sgt i32 %42, -1
-  br i1 %cmp.i17.i, label %if.end5.i, label %if.end.i18.i
+  %45 = load i32, ptr %utf8_mode.i.i, align 4, !noalias !17
+  %cmp.i.i = icmp sgt i32 %45, -1
+  br i1 %cmp.i.i, label %if.end5.i, label %if.end.i17.i
 
-if.end.i18.i:                                     ; preds = %preconfig_init_coerce_c_locale.exit.i
-  %43 = load i64, ptr %xoptions.i.i, align 8, !noalias !17
-  %cmp11.i.i.i = icmp sgt i64 %43, 0
+if.end.i17.i:                                     ; preds = %preconfig_init_coerce_c_locale.exit.i
+  %46 = load i64, ptr %xoptions.i.i, align 8, !noalias !17
+  %cmp11.i.i.i = icmp sgt i64 %46, 0
   br i1 %cmp11.i.i.i, label %for.body.lr.ph.i.i.i, label %if.end24.i.i
 
-for.body.lr.ph.i.i.i:                             ; preds = %if.end.i18.i
-  %44 = load ptr, ptr %items.i.i.i, align 8, !noalias !17
+for.body.lr.ph.i.i.i:                             ; preds = %if.end.i17.i
+  %47 = load ptr, ptr %items.i.i.i, align 8, !noalias !17
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
   %i.012.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr ptr, ptr %44, i64 %i.012.i.i.i
-  %45 = load ptr, ptr %arrayidx.i.i.i, align 8, !noalias !17
-  %call.i.i23.i = call ptr @wcschr(ptr noundef %45, i32 noundef 61) #18, !noalias !17
-  %cmp1.not.i.i.i = icmp eq ptr %call.i.i23.i, null
+  %arrayidx.i.i.i = getelementptr ptr, ptr %47, i64 %i.012.i.i.i
+  %48 = load ptr, ptr %arrayidx.i.i.i, align 8, !noalias !17
+  %call.i.i21.i = call ptr @wcschr(ptr noundef %48, i32 noundef 61) #18, !noalias !17
+  %cmp1.not.i.i.i = icmp eq ptr %call.i.i21.i, null
   br i1 %cmp1.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i23.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %45 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i21.i to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  br label %if.end.i.i24.i
+  br label %if.end.i.i22.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
-  %call2.i.i.i = call i64 @wcslen(ptr noundef %45) #18, !noalias !17
-  br label %if.end.i.i24.i
+  %call2.i.i.i = call i64 @wcslen(ptr noundef %48) #18, !noalias !17
+  br label %if.end.i.i22.i
 
-if.end.i.i24.i:                                   ; preds = %if.else.i.i.i, %if.then.i.i.i
+if.end.i.i22.i:                                   ; preds = %if.else.i.i.i, %if.then.i.i.i
   %len.0.i.i.i = phi i64 [ %sub.ptr.div.i.i.i, %if.then.i.i.i ], [ %call2.i.i.i, %if.else.i.i.i ]
-  %call3.i.i.i = call i32 @wcsncmp(ptr noundef %45, ptr noundef nonnull @.str.22, i64 noundef %len.0.i.i.i) #18, !noalias !17
+  %call3.i.i.i = call i32 @wcsncmp(ptr noundef %48, ptr noundef nonnull @.str.22, i64 noundef %len.0.i.i.i) #18, !noalias !17
   %cmp4.i.i.i = icmp eq i32 %call3.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %land.lhs.true.i.i25.i, label %for.inc.i.i.i
+  br i1 %cmp4.i.i.i, label %land.lhs.true.i.i23.i, label %for.inc.i.i.i
 
-land.lhs.true.i.i25.i:                            ; preds = %if.end.i.i24.i
+land.lhs.true.i.i23.i:                            ; preds = %if.end.i.i22.i
   %arrayidx5.i.i.i = getelementptr i32, ptr @.str.22, i64 %len.0.i.i.i
-  %46 = load i32, ptr %arrayidx5.i.i.i, align 4, !noalias !17
-  %cmp6.i.i.i = icmp eq i32 %46, 0
+  %49 = load i32, ptr %arrayidx5.i.i.i, align 4, !noalias !17
+  %cmp6.i.i.i = icmp eq i32 %49, 0
   br i1 %cmp6.i.i.i, label %_Py_get_xoption.exit.i.i, label %for.inc.i.i.i
 
-for.inc.i.i.i:                                    ; preds = %land.lhs.true.i.i25.i, %if.end.i.i24.i
+for.inc.i.i.i:                                    ; preds = %land.lhs.true.i.i23.i, %if.end.i.i22.i
   %inc.i.i.i = add nuw nsw i64 %i.012.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %43
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %46
   br i1 %exitcond.not.i.i.i, label %if.end24.i.i, label %for.body.i.i.i, !llvm.loop !10
 
-_Py_get_xoption.exit.i.i:                         ; preds = %land.lhs.true.i.i25.i
-  %tobool.not.i26.i = icmp eq ptr %45, null
-  br i1 %tobool.not.i26.i, label %if.end24.i.i, label %if.then1.i.i
+_Py_get_xoption.exit.i.i:                         ; preds = %land.lhs.true.i.i23.i
+  %tobool.not.i24.i = icmp eq ptr %48, null
+  br i1 %tobool.not.i24.i, label %if.end24.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %_Py_get_xoption.exit.i.i
-  %call2.i.i = call ptr @wcschr(ptr noundef nonnull %45, i32 noundef 61) #18, !noalias !17
+  %call2.i.i = call ptr @wcschr(ptr noundef nonnull %48, i32 noundef 61) #18, !noalias !17
   %tobool3.not.i.i = icmp eq ptr %call2.i.i, null
-  br i1 %tobool3.not.i.i, label %if.end5.sink.split.i, label %if.then4.i27.i
+  br i1 %tobool3.not.i.i, label %if.end5.sink.split.i, label %if.then4.i25.i
 
-if.then4.i27.i:                                   ; preds = %if.then1.i.i
+if.then4.i25.i:                                   ; preds = %if.then1.i.i
   %add.ptr.i.i = getelementptr i8, ptr %call2.i.i, i64 4
   %call5.i.i = call i32 @wcscmp(ptr noundef %add.ptr.i.i, ptr noundef nonnull @.str.23) #18, !noalias !17
-  %cmp6.i28.i = icmp eq i32 %call5.i.i, 0
-  br i1 %cmp6.i28.i, label %if.end5.sink.split.i, label %if.else.i29.i
+  %cmp6.i26.i = icmp eq i32 %call5.i.i, 0
+  br i1 %cmp6.i26.i, label %if.end5.sink.split.i, label %if.else.i27.i
 
-if.else.i29.i:                                    ; preds = %if.then4.i27.i
+if.else.i27.i:                                    ; preds = %if.then4.i25.i
   %call9.i.i = call i32 @wcscmp(ptr noundef %add.ptr.i.i, ptr noundef nonnull @.str.24) #18, !noalias !17
   %cmp10.i.i = icmp eq i32 %call9.i.i, 0
   br i1 %cmp10.i.i, label %if.end5.sink.split.i, label %preconfig_read.exit.thread
 
-if.end24.i.i:                                     ; preds = %for.inc.i.i.i, %_Py_get_xoption.exit.i.i, %if.end.i18.i
-  %47 = load i32, ptr %use_environment.i.i, align 4, !noalias !17
-  %tobool.not.i.i20.i = icmp eq i32 %47, 0
-  br i1 %tobool.not.i.i20.i, label %if.then51.i.i, label %if.end.i19.i.i
+if.end24.i.i:                                     ; preds = %for.inc.i.i.i, %_Py_get_xoption.exit.i.i, %if.end.i17.i
+  %50 = load i32, ptr %use_environment.i.i, align 4, !noalias !17
+  %tobool.not.i.i19.i = icmp eq i32 %50, 0
+  br i1 %tobool.not.i.i19.i, label %if.then51.i.i, label %if.end.i19.i.i
 
 if.end.i19.i.i:                                   ; preds = %if.end24.i.i
   %call.i20.i.i = call ptr @getenv(ptr noundef nonnull @.str.26) #17, !noalias !17
-  %tobool1.not.i.i21.i = icmp eq ptr %call.i20.i.i, null
-  br i1 %tobool1.not.i.i21.i, label %if.then51.i.i, label %land.lhs.true.i21.i.i
+  %tobool1.not.i.i20.i = icmp eq ptr %call.i20.i.i, null
+  br i1 %tobool1.not.i.i20.i, label %if.then51.i.i, label %land.lhs.true.i21.i.i
 
 land.lhs.true.i21.i.i:                            ; preds = %if.end.i19.i.i
-  %48 = load i8, ptr %call.i20.i.i, align 1, !noalias !17
-  %cmp.not.i.i22.i = icmp eq i8 %48, 0
-  br i1 %cmp.not.i.i22.i, label %if.then51.i.i, label %if.then27.i.i
+  %51 = load i8, ptr %call.i20.i.i, align 1, !noalias !17
+  switch i8 %51, label %preconfig_read.exit.thread [
+    i8 0, label %if.then51.i.i
+    i8 49, label %if.then27.tail.i.i
+    i8 48, label %if.else32.tail.i.i
+  ]
 
-if.then27.i.i:                                    ; preds = %land.lhs.true.i21.i.i
-  %call28.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i20.i.i, ptr noundef nonnull dereferenceable(2) @.str.27) #18, !noalias !17
-  %cmp29.i.i = icmp eq i32 %call28.i.i, 0
-  br i1 %cmp29.i.i, label %if.end5.sink.split.i, label %if.else32.i.i
+if.then27.tail.i.i:                               ; preds = %land.lhs.true.i21.i.i
+  %52 = getelementptr inbounds i8, ptr %call.i20.i.i, i64 1
+  %53 = load i8, ptr %52, align 1, !noalias !17
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %if.end5.sink.split.i, label %preconfig_read.exit.thread
 
-if.else32.i.i:                                    ; preds = %if.then27.i.i
-  %call33.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i20.i.i, ptr noundef nonnull dereferenceable(2) @.str.20) #18, !noalias !17
-  %cmp34.i.i = icmp eq i32 %call33.i.i, 0
-  br i1 %cmp34.i.i, label %if.end5.sink.split.i, label %preconfig_read.exit.thread
+if.else32.tail.i.i:                               ; preds = %land.lhs.true.i21.i.i
+  %55 = getelementptr inbounds i8, ptr %call.i20.i.i, i64 1
+  %56 = load i8, ptr %55, align 1, !noalias !17
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %if.end5.sink.split.i, label %preconfig_read.exit.thread
 
 if.then51.i.i:                                    ; preds = %land.lhs.true.i21.i.i, %if.end.i19.i.i, %if.end24.i.i
   %call52.i.i = call ptr @setlocale(i32 noundef 0, ptr noundef null) #17, !noalias !17
   %cmp53.not.i.i = icmp eq ptr %call52.i.i, null
-  br i1 %cmp53.not.i.i, label %if.end61.i.i, label %land.lhs.true.i.i
+  br i1 %cmp53.not.i.i, label %if.end61.i.i, label %sub_032.i.i
 
-land.lhs.true.i.i:                                ; preds = %if.then51.i.i
-  %call54.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call52.i.i, ptr noundef nonnull dereferenceable(2) @.str.29) #18, !noalias !17
-  %cmp55.i.i = icmp eq i32 %call54.i.i, 0
-  br i1 %cmp55.i.i, label %if.end5.sink.split.i, label %lor.lhs.false.i.i
+sub_032.i.i:                                      ; preds = %if.then51.i.i
+  %58 = load i8, ptr %call52.i.i, align 1, !noalias !17
+  %.not37.i.i = icmp eq i8 %58, 67
+  br i1 %.not37.i.i, label %land.lhs.true.tail.i.i, label %lor.lhs.false.i.i
 
-lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
+land.lhs.true.tail.i.i:                           ; preds = %sub_032.i.i
+  %59 = getelementptr inbounds i8, ptr %call52.i.i, i64 1
+  %60 = load i8, ptr %59, align 1, !noalias !17
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %if.end5.sink.split.i, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %land.lhs.true.tail.i.i, %sub_032.i.i
   %call56.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call52.i.i, ptr noundef nonnull dereferenceable(6) @.str.30) #18, !noalias !17
   %cmp57.i.i = icmp eq i32 %call56.i.i, 0
   br i1 %cmp57.i.i, label %if.end5.sink.split.i, label %if.end61.i.i
@@ -2606,72 +2617,72 @@ if.end61.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %cmp63.i.i = icmp slt i32 %.pr.i.i, 0
   br i1 %cmp63.i.i, label %if.end5.sink.split.i, label %if.end5.i
 
-if.end5.sink.split.i:                             ; preds = %if.end61.i.i, %lor.lhs.false.i.i, %land.lhs.true.i.i, %if.else32.i.i, %if.then27.i.i, %if.else.i29.i, %if.then4.i27.i, %if.then1.i.i
-  %storemerge.i.sink.i = phi i32 [ 1, %if.then4.i27.i ], [ 0, %if.else.i29.i ], [ 1, %if.then1.i.i ], [ 1, %if.then27.i.i ], [ 0, %if.else32.i.i ], [ 1, %land.lhs.true.i.i ], [ 1, %lor.lhs.false.i.i ], [ 0, %if.end61.i.i ]
+if.end5.sink.split.i:                             ; preds = %if.end61.i.i, %lor.lhs.false.i.i, %land.lhs.true.tail.i.i, %if.else32.tail.i.i, %if.then27.tail.i.i, %if.else.i27.i, %if.then4.i25.i, %if.then1.i.i
+  %storemerge.i.sink.i = phi i32 [ 1, %if.then4.i25.i ], [ 0, %if.else.i27.i ], [ 1, %if.then1.i.i ], [ 1, %if.then27.tail.i.i ], [ 0, %if.else32.tail.i.i ], [ 1, %land.lhs.true.tail.i.i ], [ 1, %lor.lhs.false.i.i ], [ 0, %if.end61.i.i ]
   store i32 %storemerge.i.sink.i, ptr %utf8_mode.i.i, align 4, !noalias !17
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end5.sink.split.i, %if.end61.i.i, %preconfig_init_coerce_c_locale.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %name.i.i), !noalias !14
-  %49 = load i32, ptr %allocator.i.i, align 4, !noalias !20
-  %cmp.i31.i = icmp eq i32 %49, 0
-  br i1 %cmp.i31.i, label %if.then.i32.i, label %if.end41
+  %62 = load i32, ptr %allocator.i.i, align 4, !noalias !20
+  %cmp.i29.i = icmp eq i32 %62, 0
+  br i1 %cmp.i29.i, label %if.then.i30.i, label %if.end41
 
-if.then.i32.i:                                    ; preds = %if.end5.i
-  %50 = load i32, ptr %use_environment.i.i, align 4, !noalias !20
-  %tobool.not.i.i34.i = icmp eq i32 %50, 0
-  br i1 %tobool.not.i.i34.i, label %if.end7.i.i, label %if.end.i.i35.i
+if.then.i30.i:                                    ; preds = %if.end5.i
+  %63 = load i32, ptr %use_environment.i.i, align 4, !noalias !20
+  %tobool.not.i.i32.i = icmp eq i32 %63, 0
+  br i1 %tobool.not.i.i32.i, label %if.end7.i.i, label %if.end.i.i33.i
 
-if.end.i.i35.i:                                   ; preds = %if.then.i32.i
-  %call.i.i36.i = call ptr @getenv(ptr noundef nonnull @.str.31) #17, !noalias !20
-  %tobool1.not.i.i37.i = icmp eq ptr %call.i.i36.i, null
-  br i1 %tobool1.not.i.i37.i, label %if.end7.i.i, label %land.lhs.true.i.i38.i
+if.end.i.i33.i:                                   ; preds = %if.then.i30.i
+  %call.i.i34.i = call ptr @getenv(ptr noundef nonnull @.str.31) #17, !noalias !20
+  %tobool1.not.i.i35.i = icmp eq ptr %call.i.i34.i, null
+  br i1 %tobool1.not.i.i35.i, label %if.end7.i.i, label %land.lhs.true.i.i36.i
 
-land.lhs.true.i.i38.i:                            ; preds = %if.end.i.i35.i
-  %51 = load i8, ptr %call.i.i36.i, align 1, !noalias !20
-  %cmp.not.i.i39.i = icmp eq i8 %51, 0
-  br i1 %cmp.not.i.i39.i, label %if.end7.i.i, label %if.then1.i40.i
+land.lhs.true.i.i36.i:                            ; preds = %if.end.i.i33.i
+  %64 = load i8, ptr %call.i.i34.i, align 1, !noalias !20
+  %cmp.not.i.i.i = icmp eq i8 %64, 0
+  br i1 %cmp.not.i.i.i, label %if.end7.i.i, label %if.then1.i37.i
 
-if.then1.i40.i:                                   ; preds = %land.lhs.true.i.i38.i
-  %call2.i41.i = call i32 @_PyMem_GetAllocatorName(ptr noundef nonnull %call.i.i36.i, ptr noundef nonnull %name.i.i) #17, !noalias !20
-  %cmp3.i.i = icmp slt i32 %call2.i41.i, 0
-  br i1 %cmp3.i.i, label %if.then9.i, label %if.end.i42.i
+if.then1.i37.i:                                   ; preds = %land.lhs.true.i.i36.i
+  %call2.i38.i = call i32 @_PyMem_GetAllocatorName(ptr noundef nonnull %call.i.i34.i, ptr noundef nonnull %name.i.i) #17, !noalias !20
+  %cmp3.i.i = icmp slt i32 %call2.i38.i, 0
+  br i1 %cmp3.i.i, label %if.then9.i, label %if.end.i39.i
 
-if.end.i42.i:                                     ; preds = %if.then1.i40.i
-  %52 = load i32, ptr %name.i.i, align 4, !noalias !20
-  store i32 %52, ptr %allocator.i.i, align 4, !noalias !20
-  %53 = icmp ne i32 %52, 0
+if.end.i39.i:                                     ; preds = %if.then1.i37.i
+  %65 = load i32, ptr %name.i.i, align 4, !noalias !20
+  store i32 %65, ptr %allocator.i.i, align 4, !noalias !20
+  %66 = icmp ne i32 %65, 0
   br label %if.end7.i.i
 
-if.end7.i.i:                                      ; preds = %if.end.i42.i, %land.lhs.true.i.i38.i, %if.end.i.i35.i, %if.then.i32.i
-  %cmp10.i43.i = phi i1 [ false, %if.end.i.i35.i ], [ false, %land.lhs.true.i.i38.i ], [ false, %if.then.i32.i ], [ %53, %if.end.i42.i ]
-  %54 = load i32, ptr %dev_mode.i.i, align 4, !noalias !20
-  %tobool8.not.i.i = icmp eq i32 %54, 0
-  %brmerge.i.i = select i1 %tobool8.not.i.i, i1 true, i1 %cmp10.i43.i
+if.end7.i.i:                                      ; preds = %if.end.i39.i, %land.lhs.true.i.i36.i, %if.end.i.i33.i, %if.then.i30.i
+  %cmp10.i40.i = phi i1 [ false, %if.end.i.i33.i ], [ false, %land.lhs.true.i.i36.i ], [ false, %if.then.i30.i ], [ %66, %if.end.i39.i ]
+  %67 = load i32, ptr %dev_mode.i.i, align 4, !noalias !20
+  %tobool8.not.i.i = icmp eq i32 %67, 0
+  %brmerge.i.i = select i1 %tobool8.not.i.i, i1 true, i1 %cmp10.i40.i
   br i1 %brmerge.i.i, label %if.end41, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end7.i.i
   store i32 2, ptr %allocator.i.i, align 4, !noalias !20
   br label %if.end41
 
-if.then9.i:                                       ; preds = %if.then1.i40.i
+if.then9.i:                                       ; preds = %if.then1.i37.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %name.i.i), !noalias !14
   br label %preconfig_read.exit.thread
 
-preconfig_read.exit.thread:                       ; preds = %if.else32.i.i, %if.else.i29.i, %if.then9.i, %if.then.i
-  %tmp37.sroa.0.1.ph = phi i32 [ %status.sroa.0.0.copyload.i, %if.then.i ], [ 1, %if.then9.i ], [ 1, %if.else.i29.i ], [ 1, %if.else32.i.i ]
-  %tmp37.sroa.5.1.ph = phi i32 [ %status.sroa.9.sroa.0.0.copyload.i, %if.then.i ], [ 0, %if.then9.i ], [ 0, %if.else.i29.i ], [ 0, %if.else32.i.i ]
-  %tmp37.sroa.9.1.ph = phi ptr [ %status.sroa.9.sroa.6.0.copyload.i, %if.then.i ], [ @__func__.preconfig_init_allocator, %if.then9.i ], [ @__func__.preconfig_init_utf8_mode, %if.else.i29.i ], [ @__func__.preconfig_init_utf8_mode, %if.else32.i.i ]
-  %tmp37.sroa.13.1.ph = phi ptr [ %status.sroa.9.sroa.8.0.copyload.i, %if.then.i ], [ @.str.32, %if.then9.i ], [ @.str.28, %if.else32.i.i ], [ @.str.25, %if.else.i29.i ]
-  %55 = phi <2 x i32> [ %31, %if.then.i ], [ zeroinitializer, %if.then9.i ], [ zeroinitializer, %if.else.i29.i ], [ zeroinitializer, %if.else32.i.i ]
+preconfig_read.exit.thread:                       ; preds = %if.else32.tail.i.i, %if.then27.tail.i.i, %land.lhs.true.i21.i.i, %if.else.i27.i, %if.then9.i, %if.then.i
+  %tmp37.sroa.0.1.ph = phi i32 [ %status.sroa.0.0.copyload.i, %if.then.i ], [ 1, %if.then9.i ], [ 1, %if.else.i27.i ], [ 1, %land.lhs.true.i21.i.i ], [ 1, %if.then27.tail.i.i ], [ 1, %if.else32.tail.i.i ]
+  %tmp37.sroa.5.1.ph = phi i32 [ %status.sroa.9.sroa.0.0.copyload.i, %if.then.i ], [ 0, %if.then9.i ], [ 0, %if.else.i27.i ], [ 0, %land.lhs.true.i21.i.i ], [ 0, %if.then27.tail.i.i ], [ 0, %if.else32.tail.i.i ]
+  %tmp37.sroa.9.1.ph = phi ptr [ %status.sroa.9.sroa.6.0.copyload.i, %if.then.i ], [ @__func__.preconfig_init_allocator, %if.then9.i ], [ @__func__.preconfig_init_utf8_mode, %if.else.i27.i ], [ @__func__.preconfig_init_utf8_mode, %land.lhs.true.i21.i.i ], [ @__func__.preconfig_init_utf8_mode, %if.then27.tail.i.i ], [ @__func__.preconfig_init_utf8_mode, %if.else32.tail.i.i ]
+  %tmp37.sroa.13.1.ph = phi ptr [ %status.sroa.9.sroa.8.0.copyload.i, %if.then.i ], [ @.str.32, %if.then9.i ], [ @.str.28, %if.else32.tail.i.i ], [ @.str.28, %if.then27.tail.i.i ], [ @.str.28, %land.lhs.true.i21.i.i ], [ @.str.25, %if.else.i27.i ]
+  %68 = phi <2 x i32> [ %31, %if.then.i ], [ zeroinitializer, %if.then9.i ], [ zeroinitializer, %if.else.i27.i ], [ zeroinitializer, %land.lhs.true.i21.i.i ], [ zeroinitializer, %if.then27.tail.i.i ], [ zeroinitializer, %if.else32.tail.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   br label %done
 
 if.end41:                                         ; preds = %if.then11.i.i, %if.end7.i.i, %if.end5.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %name.i.i), !noalias !14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
-  %56 = load i32, ptr %coerce_c_locale.i.i, align 4
-  %tobool42 = icmp eq i32 %56, 0
+  %69 = load i32, ptr %coerce_c_locale.i.i, align 4
+  %tobool42 = icmp eq i32 %69, 0
   %tobool43 = icmp ne i32 %locale_coerced.0126, 0
   %or.cond = select i1 %tobool42, i1 true, i1 %tobool43
   br i1 %or.cond, label %if.end46, label %if.then44
@@ -2683,27 +2694,27 @@ if.then44:                                        ; preds = %if.end41
 if.end46:                                         ; preds = %if.then44, %if.end41
   %locale_coerced.1 = phi i32 [ %locale_coerced.0126, %if.end41 ], [ 1, %if.then44 ]
   %cmp47 = icmp eq i32 %20, -1
-  %57 = load i32, ptr %utf8_mode.i.i, align 4
+  %70 = load i32, ptr %utf8_mode.i.i, align 4
   br i1 %cmp47, label %if.then48, label %if.else
 
 if.then48:                                        ; preds = %if.end46
-  %cmp50 = icmp ne i32 %57, 1
+  %cmp50 = icmp ne i32 %70, 1
   %or.cond122 = and i1 %or.cond, %cmp50
   br i1 %or.cond122, label %done, label %if.end60
 
 if.else:                                          ; preds = %if.end46
-  %cmp54.not = icmp eq i32 %57, %20
+  %cmp54.not = icmp eq i32 %70, %20
   %or.cond121 = and i1 %or.cond, %cmp54.not
   br i1 %or.cond121, label %done, label %if.end60
 
 if.end60:                                         ; preds = %if.then48, %if.else
-  %58 = load i32, ptr %coerce_c_locale.i.i, align 4
+  %71 = load i32, ptr %coerce_c_locale.i.i, align 4
   store <4 x i32> %8, ptr %config, align 4
   store i32 %9, ptr %configure_locale.i.i, align 4
   store i32 %10, ptr %coerce_c_locale_warn.i.i, align 4
   store <2 x i32> %11, ptr %dev_mode.i.i, align 4
-  store i32 %57, ptr %utf8_mode.i.i, align 4
-  store i32 %58, ptr %coerce_c_locale.i.i, align 4
+  store i32 %70, ptr %utf8_mode.i.i, align 4
+  store i32 %71, ptr %coerce_c_locale.i.i, align 4
   %inc = add nuw nsw i32 %inc127, 1
   %cmp22 = icmp eq i32 %inc, 3
   br i1 %cmp22, label %done, label %if.end28
@@ -2713,7 +2724,7 @@ done:                                             ; preds = %if.then48, %if.else
   %status.sroa.13.0 = phi i32 [ %tmp37.sroa.5.1.ph, %preconfig_read.exit.thread ], [ 0, %if.then48 ], [ 0, %if.else ], [ undef, %if.end60 ], [ %status.sroa.13.0.copyload20, %if.then30 ]
   %status.sroa.15.0 = phi ptr [ %tmp37.sroa.9.1.ph, %preconfig_read.exit.thread ], [ null, %if.then48 ], [ null, %if.else ], [ @__func__._PyPreConfig_Read, %if.end60 ], [ %status.sroa.15.0.copyload28, %if.then30 ]
   %status.sroa.16.0 = phi ptr [ %tmp37.sroa.13.1.ph, %preconfig_read.exit.thread ], [ null, %if.then48 ], [ null, %if.else ], [ @.str.17, %if.end60 ], [ %status.sroa.16.0.copyload36, %if.then30 ]
-  %59 = phi <2 x i32> [ %55, %preconfig_read.exit.thread ], [ zeroinitializer, %if.then48 ], [ zeroinitializer, %if.else ], [ <i32 0, i32 undef>, %if.end60 ], [ %30, %if.then30 ]
+  %72 = phi <2 x i32> [ %68, %preconfig_read.exit.thread ], [ zeroinitializer, %if.then48 ], [ zeroinitializer, %if.else ], [ <i32 0, i32 undef>, %if.end60 ], [ %30, %if.then30 ]
   %call70 = call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %call5) #17
   call void @PyMem_RawFree(ptr noundef nonnull %call5) #17
   store <4 x i32> %13, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 28), align 8
@@ -2729,7 +2740,7 @@ done:                                             ; preds = %if.then48, %if.else
   %status.sroa.16.0.agg.result.sroa_idx38 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %status.sroa.16.0, ptr %status.sroa.16.0.agg.result.sroa_idx38, align 8
   %status.sroa.17.0.agg.result.sroa_idx46 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store <2 x i32> %59, ptr %status.sroa.17.0.agg.result.sroa_idx46, align 8
+  store <2 x i32> %72, ptr %status.sroa.17.0.agg.result.sroa_idx46, align 8
   br label %return
 
 return:                                           ; preds = %done, %if.then7, %if.then2, %if.then

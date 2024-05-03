@@ -37,20 +37,23 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 land.lhs.true5:                                   ; preds = %if.end
   %1 = load i8, ptr %call3, align 1
-  %tobool7.not = icmp eq i8 %1, 0
-  br i1 %tobool7.not, label %if.end15, label %land.lhs.true8
+  switch i8 %1, label %land.lhs.true11 [
+    i8 0, label %if.end15
+    i8 67, label %land.lhs.true8.tail
+  ]
 
-land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %call9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3, ptr noundef nonnull dereferenceable(2) @.str.1) #10
-  %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %if.end15, label %land.lhs.true11
+land.lhs.true8.tail:                              ; preds = %land.lhs.true5
+  %2 = getelementptr inbounds i8, ptr %call3, i64 1
+  %3 = load i8, ptr %2, align 1
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %if.end15, label %land.lhs.true11
 
-land.lhs.true11:                                  ; preds = %land.lhs.true8
+land.lhs.true11:                                  ; preds = %land.lhs.true5, %land.lhs.true8.tail
   %call12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3, ptr noundef nonnull dereferenceable(6) @.str.2) #10
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %if.end15, label %return
 
-if.end15:                                         ; preds = %land.lhs.true11, %land.lhs.true8, %land.lhs.true5, %if.end
+if.end15:                                         ; preds = %land.lhs.true5, %land.lhs.true11, %land.lhs.true8.tail, %if.end
   br label %return
 
 return:                                           ; preds = %land.lhs.true11, %land.lhs.true, %if.end15

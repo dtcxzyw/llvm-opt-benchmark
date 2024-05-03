@@ -910,7 +910,7 @@ define internal i32 @ssh_hash(ptr noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @ssh_equal(ptr noundef readonly %0, ptr noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @ssh_equal(ptr noundef readonly %0, ptr noundef readonly %1) #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1188,13 +1188,13 @@ switch.lookup:                                    ; preds = %66
   %109 = getelementptr inbounds i8, ptr %69, i64 24
   %110 = getelementptr inbounds i8, ptr %69, i64 64
   %111 = getelementptr i8, ptr %69, i64 72
-  %.not.i128.i.i.i = icmp eq ptr %111, null
+  %.not.i130.i.i.i = icmp eq ptr %111, null
   %112 = getelementptr inbounds i8, ptr %69, i64 32
   %113 = getelementptr i8, ptr %69, i64 40
-  %.not.i129.i.i.i = icmp eq ptr %113, null
+  %.not.i132.i.i.i = icmp eq ptr %113, null
   %114 = getelementptr inbounds i8, ptr %69, i64 88
   %115 = getelementptr i8, ptr %69, i64 96
-  %.not.i131.i.i.i = icmp eq ptr %115, null
+  %.not.i135.i.i.i = icmp eq ptr %115, null
   %116 = getelementptr inbounds i8, ptr %.0120, i64 48
   %117 = getelementptr i8, ptr %.0120, i64 336
   %118 = getelementptr inbounds i8, ptr %.0120, i64 16
@@ -1865,7 +1865,7 @@ ssh_kex_make_bignum.exit.i.i.i:                   ; preds = %438, %432
   %472 = call ptr @proto_tree_add_uint(ptr noundef %427, i32 noundef %469, ptr noundef %0, i32 noundef %468, i32 noundef 4, i32 noundef %471) #21
   %473 = add i32 %468, 4
   %474 = call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %470, ptr noundef %0, i32 noundef %473, i32 noundef %471, i32 noundef 0) #21
-  br i1 %.not.i128.i.i.i, label %ssh_dissect_proposal.exit.i.i.i, label %475
+  br i1 %.not.i130.i.i.i, label %ssh_dissect_proposal.exit.i.i.i, label %475
 
 475:                                              ; preds = %440
   %476 = call ptr @wmem_file_scope() #21
@@ -1891,15 +1891,15 @@ ssh_dissect_proposal.exit.i.i.i:                  ; preds = %475, %440
   %491 = call ptr @proto_tree_add_uint(ptr noundef %427, i32 noundef %488, ptr noundef %0, i32 noundef %487, i32 noundef 4, i32 noundef %490) #21
   %492 = add i32 %487, 4
   %493 = call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %489, ptr noundef %0, i32 noundef %492, i32 noundef %490, i32 noundef 0) #21
-  br i1 %.not.i129.i.i.i, label %ssh_dissect_proposal.exit130.i.i.i, label %494
+  br i1 %.not.i132.i.i.i, label %ssh_dissect_proposal.exit133.i.i.i, label %494
 
 494:                                              ; preds = %ssh_dissect_proposal.exit.i.i.i
   %495 = call ptr @wmem_file_scope() #21
   %496 = call ptr @tvb_get_string_enc(ptr noundef %495, ptr noundef %0, i32 noundef %492, i32 noundef %490, i32 noundef 0) #21
   store ptr %496, ptr %113, align 8
-  br label %ssh_dissect_proposal.exit130.i.i.i
+  br label %ssh_dissect_proposal.exit133.i.i.i
 
-ssh_dissect_proposal.exit130.i.i.i:               ; preds = %494, %ssh_dissect_proposal.exit.i.i.i
+ssh_dissect_proposal.exit133.i.i.i:               ; preds = %494, %ssh_dissect_proposal.exit.i.i.i
   %497 = add i32 %490, %492
   %498 = load i32, ptr @hf_ssh_compression_algorithms_client_to_server_length, align 4
   %499 = load i32, ptr @hf_ssh_compression_algorithms_client_to_server, align 4
@@ -1917,15 +1917,15 @@ ssh_dissect_proposal.exit130.i.i.i:               ; preds = %494, %ssh_dissect_p
   %510 = call ptr @proto_tree_add_uint(ptr noundef %427, i32 noundef %507, ptr noundef %0, i32 noundef %506, i32 noundef 4, i32 noundef %509) #21
   %511 = add i32 %506, 4
   %512 = call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %508, ptr noundef %0, i32 noundef %511, i32 noundef %509, i32 noundef 0) #21
-  br i1 %.not.i131.i.i.i, label %ssh_dissect_proposal.exit132.i.i.i, label %513
+  br i1 %.not.i135.i.i.i, label %ssh_dissect_proposal.exit136.i.i.i, label %513
 
-513:                                              ; preds = %ssh_dissect_proposal.exit130.i.i.i
+513:                                              ; preds = %ssh_dissect_proposal.exit133.i.i.i
   %514 = call ptr @wmem_file_scope() #21
   %515 = call ptr @tvb_get_string_enc(ptr noundef %514, ptr noundef %0, i32 noundef %511, i32 noundef %509, i32 noundef 0) #21
   store ptr %515, ptr %115, align 8
-  br label %ssh_dissect_proposal.exit132.i.i.i
+  br label %ssh_dissect_proposal.exit136.i.i.i
 
-ssh_dissect_proposal.exit132.i.i.i:               ; preds = %513, %ssh_dissect_proposal.exit130.i.i.i
+ssh_dissect_proposal.exit136.i.i.i:               ; preds = %513, %ssh_dissect_proposal.exit133.i.i.i
   %516 = add i32 %509, %511
   %517 = load i32, ptr @hf_ssh_languages_client_to_server_length, align 4
   %518 = load i32, ptr @hf_ssh_languages_client_to_server, align 4
@@ -1952,7 +1952,7 @@ ssh_dissect_proposal.exit132.i.i.i:               ; preds = %513, %ssh_dissect_p
   %539 = load ptr, ptr %109, align 8
   br i1 %11, label %562, label %540
 
-540:                                              ; preds = %ssh_dissect_proposal.exit132.i.i.i
+540:                                              ; preds = %ssh_dissect_proposal.exit136.i.i.i
   %541 = load ptr, ptr %110, align 8
   %542 = load ptr, ptr %112, align 8
   %543 = load ptr, ptr %114, align 8
@@ -1963,8 +1963,8 @@ ssh_dissect_proposal.exit132.i.i.i:               ; preds = %513, %ssh_dissect_p
   %547 = load i32, ptr @hf_ssh_kex_hassh_algo, align 4
   %548 = call ptr @wmem_strbuf_get_str(ptr noundef %538) #21
   %549 = call ptr @proto_tree_add_string(ptr noundef %427, i32 noundef %547, ptr noundef %0, i32 noundef %536, i32 noundef 0, ptr noundef %548) #21
-  %.not.i133.i.i.i = icmp eq ptr %549, null
-  br i1 %.not.i133.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %550
+  %.not.i137.i.i.i = icmp eq ptr %549, null
+  br i1 %.not.i137.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %550
 
 550:                                              ; preds = %540
   %551 = getelementptr inbounds i8, ptr %549, i64 32
@@ -1982,16 +1982,16 @@ ssh_dissect_proposal.exit132.i.i.i:               ; preds = %513, %ssh_dissect_p
 proto_item_set_generated.exit.i.i.i:              ; preds = %553, %550, %540
   %557 = load i32, ptr @hf_ssh_kex_hassh, align 4
   %558 = call ptr @proto_tree_add_string(ptr noundef %427, i32 noundef %557, ptr noundef %0, i32 noundef %536, i32 noundef 0, ptr noundef %546) #21
-  %.not.i134.i.i.i = icmp eq ptr %558, null
-  br i1 %.not.i134.i.i.i, label %proto_item_set_generated.exit136.i.i.i, label %559
+  %.not.i138.i.i.i = icmp eq ptr %558, null
+  br i1 %.not.i138.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %559
 
 559:                                              ; preds = %proto_item_set_generated.exit.i.i.i
   %560 = getelementptr inbounds i8, ptr %558, i64 32
   %561 = load ptr, ptr %560, align 8
-  %.not5.i135.i.i.i = icmp eq ptr %561, null
-  br i1 %.not5.i135.i.i.i, label %proto_item_set_generated.exit136.i.i.i, label %proto_item_set_generated.exit136.sink.split.i.i.i
+  %.not5.i139.i.i.i = icmp eq ptr %561, null
+  br i1 %.not5.i139.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %proto_item_set_generated.exit140.sink.split.i.i.i
 
-562:                                              ; preds = %ssh_dissect_proposal.exit132.i.i.i
+562:                                              ; preds = %ssh_dissect_proposal.exit136.i.i.i
   %563 = load ptr, ptr %111, align 8
   %564 = load ptr, ptr %113, align 8
   %565 = load ptr, ptr %115, align 8
@@ -2002,51 +2002,51 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %553, %550, %540
   %569 = load i32, ptr @hf_ssh_kex_hasshserver_algo, align 4
   %570 = call ptr @wmem_strbuf_get_str(ptr noundef %538) #21
   %571 = call ptr @proto_tree_add_string(ptr noundef %427, i32 noundef %569, ptr noundef %0, i32 noundef %536, i32 noundef 0, ptr noundef %570) #21
-  %.not.i137.i.i.i = icmp eq ptr %571, null
-  br i1 %.not.i137.i.i.i, label %proto_item_set_generated.exit139.i.i.i, label %572
+  %.not.i141.i.i.i = icmp eq ptr %571, null
+  br i1 %.not.i141.i.i.i, label %proto_item_set_generated.exit143.i.i.i, label %572
 
 572:                                              ; preds = %562
   %573 = getelementptr inbounds i8, ptr %571, i64 32
   %574 = load ptr, ptr %573, align 8
-  %.not5.i138.i.i.i = icmp eq ptr %574, null
-  br i1 %.not5.i138.i.i.i, label %proto_item_set_generated.exit139.i.i.i, label %575
+  %.not5.i142.i.i.i = icmp eq ptr %574, null
+  br i1 %.not5.i142.i.i.i, label %proto_item_set_generated.exit143.i.i.i, label %575
 
 575:                                              ; preds = %572
   %576 = getelementptr inbounds i8, ptr %574, i64 28
   %577 = load i32, ptr %576, align 4
   %578 = or i32 %577, 2
   store i32 %578, ptr %576, align 4
-  br label %proto_item_set_generated.exit139.i.i.i
+  br label %proto_item_set_generated.exit143.i.i.i
 
-proto_item_set_generated.exit139.i.i.i:           ; preds = %575, %572, %562
+proto_item_set_generated.exit143.i.i.i:           ; preds = %575, %572, %562
   %579 = load i32, ptr @hf_ssh_kex_hasshserver, align 4
   %580 = call ptr @proto_tree_add_string(ptr noundef %427, i32 noundef %579, ptr noundef %0, i32 noundef %536, i32 noundef 0, ptr noundef %568) #21
-  %.not.i140.i.i.i = icmp eq ptr %580, null
-  br i1 %.not.i140.i.i.i, label %proto_item_set_generated.exit136.i.i.i, label %581
+  %.not.i144.i.i.i = icmp eq ptr %580, null
+  br i1 %.not.i144.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %581
 
-581:                                              ; preds = %proto_item_set_generated.exit139.i.i.i
+581:                                              ; preds = %proto_item_set_generated.exit143.i.i.i
   %582 = getelementptr inbounds i8, ptr %580, i64 32
   %583 = load ptr, ptr %582, align 8
-  %.not5.i141.i.i.i = icmp eq ptr %583, null
-  br i1 %.not5.i141.i.i.i, label %proto_item_set_generated.exit136.i.i.i, label %proto_item_set_generated.exit136.sink.split.i.i.i
+  %.not5.i145.i.i.i = icmp eq ptr %583, null
+  br i1 %.not5.i145.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %proto_item_set_generated.exit140.sink.split.i.i.i
 
-proto_item_set_generated.exit136.sink.split.i.i.i: ; preds = %581, %559
-  %.sink151.i.i.i = phi ptr [ %561, %559 ], [ %583, %581 ]
+proto_item_set_generated.exit140.sink.split.i.i.i: ; preds = %581, %559
+  %.sink155.i.i.i = phi ptr [ %561, %559 ], [ %583, %581 ]
   %.sink.ph.i.i.i = phi ptr [ %546, %559 ], [ %568, %581 ]
-  %584 = getelementptr inbounds i8, ptr %.sink151.i.i.i, i64 28
+  %584 = getelementptr inbounds i8, ptr %.sink155.i.i.i, i64 28
   %585 = load i32, ptr %584, align 4
   %586 = or i32 %585, 2
   store i32 %586, ptr %584, align 4
-  br label %proto_item_set_generated.exit136.i.i.i
+  br label %proto_item_set_generated.exit140.i.i.i
 
-proto_item_set_generated.exit136.i.i.i:           ; preds = %proto_item_set_generated.exit136.sink.split.i.i.i, %581, %proto_item_set_generated.exit139.i.i.i, %559, %proto_item_set_generated.exit.i.i.i
-  %.sink.i.i.i = phi ptr [ %546, %proto_item_set_generated.exit.i.i.i ], [ %546, %559 ], [ %568, %proto_item_set_generated.exit139.i.i.i ], [ %568, %581 ], [ %.sink.ph.i.i.i, %proto_item_set_generated.exit136.sink.split.i.i.i ]
+proto_item_set_generated.exit140.i.i.i:           ; preds = %proto_item_set_generated.exit140.sink.split.i.i.i, %581, %proto_item_set_generated.exit143.i.i.i, %559, %proto_item_set_generated.exit.i.i.i
+  %.sink.i.i.i = phi ptr [ %546, %proto_item_set_generated.exit.i.i.i ], [ %546, %559 ], [ %568, %proto_item_set_generated.exit143.i.i.i ], [ %568, %581 ], [ %.sink.ph.i.i.i, %proto_item_set_generated.exit140.sink.split.i.i.i ]
   call void @g_free(ptr noundef %.sink.i.i.i) #21
   %587 = load ptr, ptr %116, align 8
   %.not123.i.i.i = icmp eq ptr %587, null
   br i1 %.not123.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i, label %588
 
-588:                                              ; preds = %proto_item_set_generated.exit136.i.i.i
+588:                                              ; preds = %proto_item_set_generated.exit140.i.i.i
   %589 = load ptr, ptr %117, align 8
   %.not124.i.i.i = icmp eq ptr %589, null
   br i1 %.not124.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i, label %590
@@ -2059,8 +2059,8 @@ proto_item_set_generated.exit136.i.i.i:           ; preds = %proto_item_set_gene
 592:                                              ; preds = %590
   call fastcc void @ssh_choose_algo(ptr noundef nonnull %587, ptr noundef nonnull %589, ptr noundef nonnull %91)
   %593 = load ptr, ptr %91, align 8
-  %.not.i143.i.i.i = icmp eq ptr %593, null
-  br i1 %.not.i143.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i, label %594
+  %.not.i147.i.i.i = icmp eq ptr %593, null
+  br i1 %.not.i147.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i, label %594
 
 594:                                              ; preds = %592
   %595 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %593, ptr noundef nonnull dereferenceable(35) @.str.573) #22
@@ -2122,7 +2122,7 @@ proto_item_set_generated.exit136.i.i.i:           ; preds = %proto_item_set_gene
   store ptr %ssh_dissect_kex_ecdh.sink.i.i.i.i, ptr %118, align 8
   br label %ssh_set_kex_specific_dissector.exit.i.i.i
 
-ssh_set_kex_specific_dissector.exit.i.i.i:        ; preds = %.sink.split.i.i.i.i, %623, %592, %590, %588, %proto_item_set_generated.exit136.i.i.i
+ssh_set_kex_specific_dissector.exit.i.i.i:        ; preds = %.sink.split.i.i.i.i, %623, %592, %590, %588, %proto_item_set_generated.exit140.i.i.i
   %626 = sub i32 %536, %422
   %627 = load ptr, ptr %5, align 8
   %.not126.i.i.i = icmp eq ptr %627, null
@@ -2153,8 +2153,8 @@ ssh_set_kex_specific_dissector.exit.i.i.i:        ; preds = %.sink.split.i.i.i.i
 
 642:                                              ; preds = %634
   %643 = load ptr, ptr %119, align 8
-  %.not.i144.i.i.i = icmp eq ptr %643, null
-  br i1 %.not.i144.i.i.i, label %ssh_dissect_key_init.exit.i.i, label %644
+  %.not.i148.i.i.i = icmp eq ptr %643, null
+  br i1 %.not.i148.i.i.i, label %ssh_dissect_key_init.exit.i.i, label %644
 
 644:                                              ; preds = %642
   %645 = call ptr @wmem_packet_scope() #21
@@ -2183,8 +2183,8 @@ ssh_set_kex_specific_dissector.exit.i.i.i:        ; preds = %.sink.split.i.i.i.i
 
 661:                                              ; preds = %634
   %662 = load ptr, ptr %120, align 8
-  %.not.i145.i.i.i = icmp eq ptr %662, null
-  br i1 %.not.i145.i.i.i, label %ssh_dissect_key_init.exit.i.i, label %663
+  %.not.i149.i.i.i = icmp eq ptr %662, null
+  br i1 %.not.i149.i.i.i, label %ssh_dissect_key_init.exit.i.i, label %663
 
 663:                                              ; preds = %661
   %664 = call ptr @wmem_packet_scope() #21
@@ -2492,24 +2492,30 @@ define hidden void @proto_reg_handoff_ssh() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ssh_set_debug(ptr noundef readonly %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %5, label %2
+  br i1 %.not, label %.tail, label %sub_0
 
-2:                                                ; preds = %1
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.431) #22
-  %4 = icmp ne i32 %3, 0
-  br label %5
+sub_0:                                            ; preds = %1
+  %2 = load i8, ptr %0, align 1
+  %.not8 = icmp eq i8 %2, 45
+  br i1 %.not8, label %sub_1, label %.tail
 
-5:                                                ; preds = %1, %2
-  %6 = phi i1 [ %4, %2 ], [ true, %1 ]
+sub_1:                                            ; preds = %sub_0
+  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp ne i8 %4, 0
+  br label %.tail
+
+.tail:                                            ; preds = %sub_1, %sub_0, %1
+  %6 = phi i1 [ true, %1 ], [ true, %sub_0 ], [ %5, %sub_1 ]
   %.b = load i1, ptr @ssh_set_debug.debug_file_must_be_closed, align 4
   br i1 %.b, label %7, label %10
 
-7:                                                ; preds = %5
+7:                                                ; preds = %.tail
   %8 = load ptr, ptr @ssh_debug_file, align 8
   %9 = tail call i32 @fclose(ptr noundef %8)
   br label %10
 
-10:                                               ; preds = %7, %5
+10:                                               ; preds = %7, %.tail
   br i1 %6, label %13, label %11
 
 11:                                               ; preds = %10
@@ -6667,8 +6673,8 @@ get_channel_info_for_channel.exit:                ; preds = %95
   store i32 0, ptr %130, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = call ptr @wmem_tree_lookup32(ptr noundef %132, i32 noundef %126) #21
-  %.not403.i.i = icmp eq ptr %133, null
-  br i1 %.not403.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not404.i.i = icmp eq ptr %133, null
+  br i1 %.not404.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %124
   %134 = getelementptr inbounds i8, ptr %1, i64 20
@@ -6703,7 +6709,7 @@ get_channel_info_for_channel.exit:                ; preds = %95
   br label %157
 
 153:                                              ; preds = %146
-  br i1 %.not403.i.i, label %157, label %154
+  br i1 %.not404.i.i, label %157, label %154
 
 154:                                              ; preds = %153
   %155 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6748,7 +6754,7 @@ get_channel_info_for_channel.exit:                ; preds = %95
   br label %proto_item_set_generated.exit.i.i
 
 proto_item_set_generated.exit.i.i:                ; preds = %171, %168, %165, %163, %160, %157, %._crit_edge.i.i
-  %.0213280.i.i = phi ptr [ @.str.505, %157 ], [ @.str.505, %160 ], [ @.str.505, %163 ], [ @.str.547, %._crit_edge.i.i ], [ @.str.505, %165 ], [ @.str.505, %168 ], [ @.str.505, %171 ]
+  %.0213281.i.i = phi ptr [ @.str.505, %157 ], [ @.str.505, %160 ], [ @.str.505, %163 ], [ @.str.547, %._crit_edge.i.i ], [ @.str.505, %165 ], [ @.str.505, %168 ], [ @.str.505, %171 ]
   %175 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217.lcssa.i.i) #21
   %176 = load i32, ptr @hf_ssh_segment_data, align 4
   %177 = icmp eq i32 %175, -1
@@ -6762,29 +6768,29 @@ ssh_proto_tree_add_segment_data.exit.i.i:         ; preds = %178, %proto_item_se
   %180 = phi i32 [ %179, %178 ], [ %175, %proto_item_set_generated.exit.i.i ]
   %181 = icmp eq i32 %175, 1
   %182 = select i1 %181, ptr @.str.551, ptr @.str.552
-  %183 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %176, ptr noundef %101, i32 noundef %.0217.lcssa.i.i, i32 noundef %175, ptr noundef null, ptr noundef nonnull @.str.550, ptr noundef nonnull %.0213280.i.i, i32 noundef %180, ptr noundef nonnull %182) #21
+  %183 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %176, ptr noundef %101, i32 noundef %.0217.lcssa.i.i, i32 noundef %175, ptr noundef null, ptr noundef nonnull @.str.550, ptr noundef nonnull %.0213281.i.i, i32 noundef %180, ptr noundef nonnull %182) #21
   br label %ssh_dissect_channel_data.exit
 
 184:                                              ; preds = %402, %.lr.ph.i.i
-  %.0410.i.i = phi i32 [ %126, %.lr.ph.i.i ], [ %406, %402 ]
+  %.0411.i.i = phi i32 [ %126, %.lr.ph.i.i ], [ %406, %402 ]
   %185 = phi i1 [ true, %.lr.ph.i.i ], [ false, %402 ]
-  %.0217405.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %405, %402 ]
-  %.0221404.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1222307343.i.i, %402 ]
+  %.0217406.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %405, %402 ]
+  %.0221405.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1222308344.i.i, %402 ]
   %186 = load ptr, ptr %131, align 8
-  %187 = add i32 %.0410.i.i, -1
+  %187 = add i32 %.0411.i.i, -1
   %188 = call ptr @wmem_tree_lookup32_le(ptr noundef %186, i32 noundef %187) #21
   %.not240.i.i = icmp eq ptr %188, null
   br i1 %.not240.i.i, label %238, label %189
 
 189:                                              ; preds = %184
   %190 = load i32, ptr %188, align 8
-  %.not241.i.i = icmp ugt i32 %190, %.0410.i.i
+  %.not241.i.i = icmp ugt i32 %190, %.0411.i.i
   br i1 %.not241.i.i, label %238, label %191
 
 191:                                              ; preds = %189
   %192 = getelementptr inbounds i8, ptr %188, i64 4
   %193 = load i32, ptr %192, align 4
-  %194 = icmp ugt i32 %193, %.0410.i.i
+  %194 = icmp ugt i32 %193, %.0411.i.i
   br i1 %194, label %195, label %238
 
 195:                                              ; preds = %191
@@ -6811,17 +6817,17 @@ ssh_proto_tree_add_segment_data.exit.i.i:         ; preds = %178, %proto_item_se
   br i1 %.not245.i.i, label %213, label %208
 
 208:                                              ; preds = %204
-  %209 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217405.i.i) #21
+  %209 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217406.i.i) #21
   %210 = icmp slt i32 %209, 0
   br i1 %210, label %215, label %211
 
 211:                                              ; preds = %208
-  %212 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217405.i.i) #21
+  %212 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217406.i.i) #21
   br label %215
 
 213:                                              ; preds = %204
   %..i.i = call i32 @llvm.umin.i32(i32 %193, i32 %128)
-  %214 = sub i32 %..i.i, %.0410.i.i
+  %214 = sub i32 %..i.i, %.0411.i.i
   br label %215
 
 215:                                              ; preds = %213, %211, %208
@@ -6829,11 +6835,11 @@ ssh_proto_tree_add_segment_data.exit.i.i:         ; preds = %178, %proto_item_se
   %216 = getelementptr i8, ptr %188, i64 8
   %.val.i.i = load i32, ptr %216, align 8
   %217 = load i32, ptr %188, align 8
-  %218 = sub i32 %.0410.i.i, %217
+  %218 = sub i32 %.0411.i.i, %217
   %219 = load i32, ptr %192, align 4
   %220 = sub i32 %128, %219
   %.lobit.i.i = lshr i32 %220, 31
-  %221 = call ptr @fragment_add(ptr noundef nonnull @ssh_reassembly_table, ptr noundef %101, i32 noundef %.0217405.i.i, ptr noundef nonnull %1, i32 noundef %.val.i.i, ptr noundef nonnull %188, i32 noundef %218, i32 noundef %.0211.i.i, i32 noundef %.lobit.i.i) #21
+  %221 = call ptr @fragment_add(ptr noundef nonnull @ssh_reassembly_table, ptr noundef %101, i32 noundef %.0217406.i.i, ptr noundef nonnull %1, i32 noundef %.val.i.i, ptr noundef nonnull %188, i32 noundef %218, i32 noundef %.0211.i.i, i32 noundef %.lobit.i.i) #21
   %222 = load ptr, ptr %109, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 50
   %224 = load i16, ptr %223, align 2
@@ -6859,19 +6865,19 @@ ssh_proto_tree_add_segment_data.exit.i.i:         ; preds = %178, %proto_item_se
   br i1 %233, label %234, label %254
 
 234:                                              ; preds = %231
-  %235 = icmp uge i32 %232, %.0410.i.i
+  %235 = icmp uge i32 %232, %.0411.i.i
   %236 = icmp sgt i32 %.0211.i.i, 0
   %or.cond.i.i = and i1 %236, %235
-  %237 = sub i32 %232, %.0410.i.i
+  %237 = sub i32 %232, %.0411.i.i
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %237, i32 0
   br label %254
 
 238:                                              ; preds = %191, %189, %184
-  %239 = call ptr @tvb_new_subset_remaining(ptr noundef %101, i32 noundef %.0217405.i.i) #21
+  %239 = call ptr @tvb_new_subset_remaining(ptr noundef %101, i32 noundef %.0217406.i.i) #21
   %240 = load ptr, ptr %137, align 8
-  %.not.i271.i.i = icmp eq ptr %240, null
+  %.not.i272.i.i = icmp eq ptr %240, null
   %241 = call ptr @proto_tree_get_root(ptr noundef %3) #21
-  br i1 %.not.i271.i.i, label %244, label %242
+  br i1 %.not.i272.i.i, label %244, label %242
 
 242:                                              ; preds = %238
   %243 = call i32 @call_dissector(ptr noundef nonnull %240, ptr noundef %239, ptr noundef nonnull %1, ptr noundef %241) #21
@@ -6884,9 +6890,9 @@ ssh_proto_tree_add_segment_data.exit.i.i:         ; preds = %178, %proto_item_se
 ssh_process_payload.exit.i.i:                     ; preds = %244, %242
   %246 = load i32, ptr %130, align 8
   %.not242.i.i = icmp eq i32 %246, 0
-  br i1 %.not242.i.i, label %.thread331.thread.thread.i.i, label %247
+  br i1 %.not242.i.i, label %.thread332.thread.thread.i.i, label %247
 
-.thread331.thread.thread.i.i:                     ; preds = %ssh_process_payload.exit.i.i
+.thread332.thread.thread.i.i:                     ; preds = %ssh_process_payload.exit.i.i
   store i32 0, ptr %129, align 4
   br label %ssh_dissect_channel_data.exit
 
@@ -6897,26 +6903,26 @@ ssh_process_payload.exit.i.i:                     ; preds = %244, %242
   %251 = and i16 %250, 8
   %.not243.i.i = icmp eq i16 %251, 0
   %252 = load i32, ptr %129, align 4
-  %253 = add i32 %252, %.0217405.i.i
-  br i1 %.not243.i.i, label %.thread309.i.i, label %proto_item_set_generated.exit277.i.i
+  %253 = add i32 %252, %.0217406.i.i
+  br i1 %.not243.i.i, label %.thread310.i.i, label %proto_item_set_generated.exit278.i.i
 
 254:                                              ; preds = %234, %231
   %.0223.i.i = phi i32 [ 0, %231 ], [ %spec.select.i.i, %234 ]
   %.not248.i.i = icmp eq ptr %221, null
-  br i1 %.not248.i.i, label %proto_item_set_generated.exit277.i.i, label %255
+  br i1 %.not248.i.i, label %proto_item_set_generated.exit278.i.i, label %255
 
 255:                                              ; preds = %254
   %256 = getelementptr inbounds i8, ptr %221, i64 40
   %257 = load i32, ptr %256, align 8
   %258 = load i32, ptr %134, align 4
   %259 = icmp eq i32 %257, %258
-  br i1 %259, label %260, label %.thread359.i.i
+  br i1 %259, label %260, label %.thread360.i.i
 
 260:                                              ; preds = %255
   %261 = icmp ugt i32 %232, %128
   %262 = load ptr, ptr %136, align 8
   call void @col_clear(ptr noundef %262, i32 noundef 25) #21
-  br i1 %261, label %.thread359.i.i, label %263
+  br i1 %261, label %.thread360.i.i, label %263
 
 263:                                              ; preds = %260
   %264 = getelementptr inbounds i8, ptr %221, i64 56
@@ -6925,26 +6931,26 @@ ssh_process_payload.exit.i.i:                     ; preds = %244, %242
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %266, ptr noundef nonnull @.str.548) #21
   %267 = call ptr @tvb_new_subset_remaining(ptr noundef %266, i32 noundef 0) #21
   %268 = load ptr, ptr %137, align 8
-  %.not.i272.i.i = icmp eq ptr %268, null
+  %.not.i273.i.i = icmp eq ptr %268, null
   %269 = call ptr @proto_tree_get_root(ptr noundef %3) #21
-  br i1 %.not.i272.i.i, label %272, label %270
+  br i1 %.not.i273.i.i, label %272, label %270
 
 270:                                              ; preds = %263
   %271 = call i32 @call_dissector(ptr noundef nonnull %268, ptr noundef %267, ptr noundef nonnull %1, ptr noundef %269) #21
-  br label %ssh_process_payload.exit273.i.i
+  br label %ssh_process_payload.exit274.i.i
 
 272:                                              ; preds = %263
   %273 = call i32 @call_data_dissector(ptr noundef %267, ptr noundef nonnull %1, ptr noundef %269) #21
-  br label %ssh_process_payload.exit273.i.i
+  br label %ssh_process_payload.exit274.i.i
 
-ssh_process_payload.exit273.i.i:                  ; preds = %272, %270
+ssh_process_payload.exit274.i.i:                  ; preds = %272, %270
   %274 = call i32 @tvb_reported_length(ptr noundef %266) #21
-  %275 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217405.i.i) #21
+  %275 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217406.i.i) #21
   %276 = load i32, ptr %130, align 8
   %.not249.i.i = icmp eq i32 %276, 0
   br i1 %.not249.i.i, label %296, label %277
 
-277:                                              ; preds = %ssh_process_payload.exit273.i.i
+277:                                              ; preds = %ssh_process_payload.exit274.i.i
   %278 = sub i32 %274, %275
   %279 = load i32, ptr %129, align 4
   %.not250.i.i = icmp sgt i32 %279, %278
@@ -6960,61 +6966,61 @@ ssh_process_payload.exit273.i.i:                  ; preds = %272, %270
   ]
 
 282:                                              ; preds = %280
-  %283 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217405.i.i) #21
-  %284 = add nuw i32 %.0410.i.i, 1
+  %283 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217406.i.i) #21
+  %284 = add nuw i32 %.0411.i.i, 1
   %285 = add i32 %284, %283
   store i32 %285, ptr %192, align 4
   %286 = load i32, ptr %205, align 4
   %287 = or i32 %286, 1
   store i32 %287, ptr %205, align 4
-  br label %.thread331.i.i
+  br label %.thread332.i.i
 
 288:                                              ; preds = %280
   %289 = load i16, ptr %138, align 4
   %290 = or i16 %289, 1
   store i16 %290, ptr %138, align 4
   store i32 %139, ptr %192, align 4
-  br label %.thread331.i.i
+  br label %.thread332.i.i
 
 291:                                              ; preds = %280
-  %292 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217405.i.i) #21
-  %293 = add i32 %292, %.0410.i.i
+  %292 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217406.i.i) #21
+  %293 = add i32 %292, %.0411.i.i
   %294 = load i32, ptr %130, align 8
   %295 = add i32 %293, %294
   store i32 %295, ptr %192, align 4
-  br label %.thread331.i.i
+  br label %.thread332.i.i
 
-296:                                              ; preds = %277, %ssh_process_payload.exit273.i.i
+296:                                              ; preds = %277, %ssh_process_payload.exit274.i.i
   %297 = icmp sgt i32 %.0223.i.i, 0
-  br i1 %297, label %.thread292.i.i, label %299
+  br i1 %297, label %.thread293.i.i, label %299
 
-.thread292.i.i:                                   ; preds = %296
+.thread293.i.i:                                   ; preds = %296
   %298 = load i32, ptr @hf_ssh_segment_data, align 4
-  br label %ssh_proto_tree_add_segment_data.exit274.i.i
+  br label %ssh_proto_tree_add_segment_data.exit275.i.i
 
 299:                                              ; preds = %296
-  %300 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217405.i.i) #21
+  %300 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217406.i.i) #21
   %301 = load i32, ptr @hf_ssh_segment_data, align 4
   %302 = icmp eq i32 %300, -1
-  br i1 %302, label %ssh_proto_tree_add_segment_data.exit274.thread.i.i, label %ssh_proto_tree_add_segment_data.exit274.i.i
+  br i1 %302, label %ssh_proto_tree_add_segment_data.exit275.thread.i.i, label %ssh_proto_tree_add_segment_data.exit275.i.i
 
-ssh_proto_tree_add_segment_data.exit274.thread.i.i: ; preds = %299
-  %303 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217405.i.i) #21
+ssh_proto_tree_add_segment_data.exit275.thread.i.i: ; preds = %299
+  %303 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.0217406.i.i) #21
   br label %307
 
-ssh_proto_tree_add_segment_data.exit274.i.i:      ; preds = %299, %.thread292.i.i
-  %304 = phi i32 [ %301, %299 ], [ %298, %.thread292.i.i ]
-  %305 = phi i32 [ %300, %299 ], [ %.0223.i.i, %.thread292.i.i ]
+ssh_proto_tree_add_segment_data.exit275.i.i:      ; preds = %299, %.thread293.i.i
+  %304 = phi i32 [ %301, %299 ], [ %298, %.thread293.i.i ]
+  %305 = phi i32 [ %300, %299 ], [ %.0223.i.i, %.thread293.i.i ]
   %306 = icmp eq i32 %305, 1
-  %spec.select442.i.i = select i1 %306, ptr @.str.551, ptr @.str.552
+  %spec.select443.i.i = select i1 %306, ptr @.str.551, ptr @.str.552
   br label %307
 
-307:                                              ; preds = %ssh_proto_tree_add_segment_data.exit274.i.i, %ssh_proto_tree_add_segment_data.exit274.thread.i.i
-  %308 = phi i32 [ %303, %ssh_proto_tree_add_segment_data.exit274.thread.i.i ], [ %305, %ssh_proto_tree_add_segment_data.exit274.i.i ]
-  %309 = phi i32 [ -1, %ssh_proto_tree_add_segment_data.exit274.thread.i.i ], [ %305, %ssh_proto_tree_add_segment_data.exit274.i.i ]
-  %310 = phi i32 [ %301, %ssh_proto_tree_add_segment_data.exit274.thread.i.i ], [ %304, %ssh_proto_tree_add_segment_data.exit274.i.i ]
-  %311 = phi ptr [ @.str.552, %ssh_proto_tree_add_segment_data.exit274.thread.i.i ], [ %spec.select442.i.i, %ssh_proto_tree_add_segment_data.exit274.i.i ]
-  %312 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %310, ptr noundef %101, i32 noundef %.0217405.i.i, i32 noundef %309, ptr noundef null, ptr noundef nonnull @.str.550, ptr noundef nonnull @.str.505, i32 noundef %308, ptr noundef nonnull %311) #21
+307:                                              ; preds = %ssh_proto_tree_add_segment_data.exit275.i.i, %ssh_proto_tree_add_segment_data.exit275.thread.i.i
+  %308 = phi i32 [ %303, %ssh_proto_tree_add_segment_data.exit275.thread.i.i ], [ %305, %ssh_proto_tree_add_segment_data.exit275.i.i ]
+  %309 = phi i32 [ -1, %ssh_proto_tree_add_segment_data.exit275.thread.i.i ], [ %305, %ssh_proto_tree_add_segment_data.exit275.i.i ]
+  %310 = phi i32 [ %301, %ssh_proto_tree_add_segment_data.exit275.thread.i.i ], [ %304, %ssh_proto_tree_add_segment_data.exit275.i.i ]
+  %311 = phi ptr [ @.str.552, %ssh_proto_tree_add_segment_data.exit275.thread.i.i ], [ %spec.select443.i.i, %ssh_proto_tree_add_segment_data.exit275.i.i ]
+  %312 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %310, ptr noundef %101, i32 noundef %.0217406.i.i, i32 noundef %309, ptr noundef null, ptr noundef nonnull @.str.550, ptr noundef nonnull @.str.505, i32 noundef %308, ptr noundef nonnull %311) #21
   %313 = call ptr @proto_tree_get_root(ptr noundef %3) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %314 = call i32 @show_fragment_tree(ptr noundef nonnull %221, ptr noundef nonnull @ssh_segment_items, ptr noundef %313, ptr noundef nonnull %1, ptr noundef %266, ptr noundef nonnull %8) #21
@@ -7034,7 +7040,7 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %321 = load i32, ptr %130, align 8
   %.not251.i.i = icmp eq i32 %321, 0
-  br i1 %.not251.i.i, label %.thread331.thread.i.i, label %322
+  br i1 %.not251.i.i, label %.thread332.thread.i.i, label %322
 
 322:                                              ; preds = %print_ssh_fragment_tree.exit.i.i
   %323 = load ptr, ptr %109, align 8
@@ -7048,33 +7054,33 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
   %.neg.i.i = sub i32 %329, %328
   %330 = call i32 @tvb_reported_length(ptr noundef %101) #21
   %331 = add i32 %.neg.i.i, %330
-  br i1 %.not252.i.i, label %..thread309_crit_edge.i.i, label %.thread331.i.i
+  br i1 %.not252.i.i, label %..thread310_crit_edge.i.i, label %.thread332.i.i
 
-..thread309_crit_edge.i.i:                        ; preds = %322
+..thread310_crit_edge.i.i:                        ; preds = %322
   %.pre.i.i = load i32, ptr %130, align 8
-  br label %.thread309.i.i
+  br label %.thread310.i.i
 
-.thread309.i.i:                                   ; preds = %..thread309_crit_edge.i.i, %247
-  %332 = phi i32 [ %246, %247 ], [ %.pre.i.i, %..thread309_crit_edge.i.i ]
-  %.2220323.i.i = phi i32 [ %253, %247 ], [ %331, %..thread309_crit_edge.i.i ]
-  %.1224321.i.i = phi i32 [ 0, %247 ], [ %.0223.i.i, %..thread309_crit_edge.i.i ]
-  %.0210290319.i.i = phi ptr [ null, %247 ], [ %221, %..thread309_crit_edge.i.i ]
-  %.not248291318.i.i = phi i1 [ true, %247 ], [ false, %..thread309_crit_edge.i.i ]
+.thread310.i.i:                                   ; preds = %..thread310_crit_edge.i.i, %247
+  %332 = phi i32 [ %246, %247 ], [ %.pre.i.i, %..thread310_crit_edge.i.i ]
+  %.2220324.i.i = phi i32 [ %253, %247 ], [ %331, %..thread310_crit_edge.i.i ]
+  %.1224322.i.i = phi i32 [ 0, %247 ], [ %.0223.i.i, %..thread310_crit_edge.i.i ]
+  %.0210291320.i.i = phi ptr [ null, %247 ], [ %221, %..thread310_crit_edge.i.i ]
+  %.not248292319.i.i = phi i1 [ true, %247 ], [ false, %..thread310_crit_edge.i.i ]
   %333 = icmp eq i32 %332, 268435454
   br i1 %333, label %334, label %337
 
-334:                                              ; preds = %.thread309.i.i
+334:                                              ; preds = %.thread310.i.i
   %335 = load i16, ptr %138, align 4
   %336 = or i16 %335, 1
   store i16 %336, ptr %138, align 4
   br label %337
 
-337:                                              ; preds = %334, %.thread309.i.i
-  %338 = sub i32 %.2220323.i.i, %.0217405.i.i
-  %339 = add i32 %338, %.0410.i.i
+337:                                              ; preds = %334, %.thread310.i.i
+  %338 = sub i32 %.2220324.i.i, %.0217406.i.i
+  %339 = add i32 %338, %.0411.i.i
   %340 = sub i32 %128, %339
   %341 = icmp ult i32 %340, 1048577
-  br i1 %341, label %342, label %.thread331.i.i
+  br i1 %341, label %342, label %.thread332.i.i
 
 342:                                              ; preds = %337
   %343 = load ptr, ptr %109, align 8
@@ -7082,7 +7088,7 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
   %345 = load i16, ptr %344, align 2
   %346 = and i16 %345, 8
   %.not254.i.i = icmp eq i16 %346, 0
-  br i1 %.not254.i.i, label %347, label %.thread331.i.i
+  br i1 %.not254.i.i, label %347, label %.thread332.i.i
 
 347:                                              ; preds = %342
   %348 = load i32, ptr %130, align 8
@@ -7119,70 +7125,70 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
   %365 = load i32, ptr %364, align 4
   %366 = sub i32 %128, %365
   %.lobit255.i.i = lshr i32 %366, 31
-  %367 = call ptr @fragment_add(ptr noundef nonnull @ssh_reassembly_table, ptr noundef %101, i32 noundef %.2220323.i.i, ptr noundef nonnull %1, i32 noundef %.0215.val.i.i, ptr noundef %.0215.i.i, i32 noundef 0, i32 noundef %340, i32 noundef %.lobit255.i.i) #21
-  br label %.thread331.i.i
+  %367 = call ptr @fragment_add(ptr noundef nonnull @ssh_reassembly_table, ptr noundef %101, i32 noundef %.2220324.i.i, ptr noundef nonnull %1, i32 noundef %.0215.val.i.i, ptr noundef %.0215.i.i, i32 noundef 0, i32 noundef %340, i32 noundef %.lobit255.i.i) #21
+  br label %.thread332.i.i
 
-.thread331.i.i:                                   ; preds = %362, %342, %337, %322, %291, %288, %282
-  %.not248291303349.ph.i.i = phi i1 [ false, %322 ], [ false, %288 ], [ false, %291 ], [ false, %282 ], [ %.not248291318.i.i, %337 ], [ %.not248291318.i.i, %342 ], [ %.not248291318.i.i, %362 ]
-  %.0210290304347.ph.i.i = phi ptr [ %221, %322 ], [ %221, %288 ], [ %221, %291 ], [ %221, %282 ], [ %.0210290319.i.i, %337 ], [ %.0210290319.i.i, %342 ], [ %.0210290319.i.i, %362 ]
-  %.1224306346.ph.i.i = phi i32 [ %.0223.i.i, %322 ], [ 0, %288 ], [ 0, %291 ], [ 0, %282 ], [ %.1224321.i.i, %337 ], [ %.1224321.i.i, %342 ], [ %.1224321.i.i, %362 ]
-  %.2220308339.ph.i.i = phi i32 [ %331, %322 ], [ %.0217405.i.i, %288 ], [ %.0217405.i.i, %291 ], [ %.0217405.i.i, %282 ], [ %.2220323.i.i, %337 ], [ %.2220323.i.i, %342 ], [ %.2220323.i.i, %362 ]
+.thread332.i.i:                                   ; preds = %362, %342, %337, %322, %291, %288, %282
+  %.not248292304350.ph.i.i = phi i1 [ false, %322 ], [ false, %288 ], [ false, %291 ], [ false, %282 ], [ %.not248292319.i.i, %337 ], [ %.not248292319.i.i, %342 ], [ %.not248292319.i.i, %362 ]
+  %.0210291305348.ph.i.i = phi ptr [ %221, %322 ], [ %221, %288 ], [ %221, %291 ], [ %221, %282 ], [ %.0210291320.i.i, %337 ], [ %.0210291320.i.i, %342 ], [ %.0210291320.i.i, %362 ]
+  %.1224307347.ph.i.i = phi i32 [ %.0223.i.i, %322 ], [ 0, %288 ], [ 0, %291 ], [ 0, %282 ], [ %.1224322.i.i, %337 ], [ %.1224322.i.i, %342 ], [ %.1224322.i.i, %362 ]
+  %.2220309340.ph.i.i = phi i32 [ %331, %322 ], [ %.0217406.i.i, %288 ], [ %.0217406.i.i, %291 ], [ %.0217406.i.i, %282 ], [ %.2220324.i.i, %337 ], [ %.2220324.i.i, %342 ], [ %.2220324.i.i, %362 ]
   %.pr.i.i = load i32, ptr %130, align 8
   %.not257.i.i = icmp eq i32 %.pr.i.i, 0
-  br i1 %.not257.i.i, label %.thread331.thread.i.i, label %368
+  br i1 %.not257.i.i, label %.thread332.thread.i.i, label %368
 
-368:                                              ; preds = %.thread331.i.i
-  br i1 %.not248291303349.ph.i.i, label %proto_item_set_generated.exit277.i.i, label %.thread359.i.i
+368:                                              ; preds = %.thread332.i.i
+  br i1 %.not248292304350.ph.i.i, label %proto_item_set_generated.exit278.i.i, label %.thread360.i.i
 
-.thread359.i.i:                                   ; preds = %368, %260, %255
-  %.2220308340370.i.i = phi i32 [ %.2220308339.ph.i.i, %368 ], [ %.0217405.i.i, %255 ], [ %.0217405.i.i, %260 ]
-  %.1222307342368.i.i = phi i32 [ %.0221404.i.i, %368 ], [ %.0221404.i.i, %255 ], [ 1, %260 ]
-  %.1224306344366.i.i = phi i32 [ %.1224306346.ph.i.i, %368 ], [ %.0223.i.i, %255 ], [ 0, %260 ]
-  %.0210290304348365.i.i = phi ptr [ %.0210290304347.ph.i.i, %368 ], [ %221, %255 ], [ %221, %260 ]
-  %369 = getelementptr inbounds i8, ptr %.0210290304348365.i.i, i64 40
+.thread360.i.i:                                   ; preds = %368, %260, %255
+  %.2220309341371.i.i = phi i32 [ %.2220309340.ph.i.i, %368 ], [ %.0217406.i.i, %255 ], [ %.0217406.i.i, %260 ]
+  %.1222308343369.i.i = phi i32 [ %.0221405.i.i, %368 ], [ %.0221405.i.i, %255 ], [ 1, %260 ]
+  %.1224307345367.i.i = phi i32 [ %.1224307347.ph.i.i, %368 ], [ %.0223.i.i, %255 ], [ 0, %260 ]
+  %.0210291305349366.i.i = phi ptr [ %.0210291305348.ph.i.i, %368 ], [ %221, %255 ], [ %221, %260 ]
+  %369 = getelementptr inbounds i8, ptr %.0210291305349366.i.i, i64 40
   %370 = load i32, ptr %369, align 8
   %.not258.i.i = icmp eq i32 %370, 0
-  br i1 %.not258.i.i, label %proto_item_set_generated.exit277.i.i, label %371
+  br i1 %.not258.i.i, label %proto_item_set_generated.exit278.i.i, label %371
 
-371:                                              ; preds = %.thread359.i.i
+371:                                              ; preds = %.thread360.i.i
   %372 = load i32, ptr %134, align 4
   %.not259.i.i = icmp eq i32 %370, %372
-  br i1 %.not259.i.i, label %proto_item_set_generated.exit277.i.i, label %373
+  br i1 %.not259.i.i, label %proto_item_set_generated.exit278.i.i, label %373
 
 373:                                              ; preds = %371
-  %374 = getelementptr inbounds i8, ptr %.0210290304348365.i.i, i64 48
+  %374 = getelementptr inbounds i8, ptr %.0210291305349366.i.i, i64 48
   %375 = load i32, ptr %374, align 8
   %376 = and i32 %375, 64
   %.not260.i.i = icmp eq i32 %376, 0
-  br i1 %.not260.i.i, label %377, label %proto_item_set_generated.exit277.i.i
+  br i1 %.not260.i.i, label %377, label %proto_item_set_generated.exit278.i.i
 
 377:                                              ; preds = %373
   %378 = load i32, ptr @hf_ssh_reassembled_in, align 4
   %379 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %378, ptr noundef %101, i32 noundef 0, i32 noundef 0, i32 noundef %370) #21
-  %.not.i275.i.i = icmp eq ptr %379, null
-  br i1 %.not.i275.i.i, label %proto_item_set_generated.exit277.i.i, label %380
+  %.not.i276.i.i = icmp eq ptr %379, null
+  br i1 %.not.i276.i.i, label %proto_item_set_generated.exit278.i.i, label %380
 
 380:                                              ; preds = %377
   %381 = getelementptr inbounds i8, ptr %379, i64 32
   %382 = load ptr, ptr %381, align 8
-  %.not5.i276.i.i = icmp eq ptr %382, null
-  br i1 %.not5.i276.i.i, label %proto_item_set_generated.exit277.i.i, label %383
+  %.not5.i277.i.i = icmp eq ptr %382, null
+  br i1 %.not5.i277.i.i, label %proto_item_set_generated.exit278.i.i, label %383
 
 383:                                              ; preds = %380
   %384 = getelementptr inbounds i8, ptr %382, i64 28
   %385 = load i32, ptr %384, align 4
   %386 = or i32 %385, 2
   store i32 %386, ptr %384, align 4
-  br label %proto_item_set_generated.exit277.i.i
+  br label %proto_item_set_generated.exit278.i.i
 
-proto_item_set_generated.exit277.i.i:             ; preds = %383, %380, %377, %373, %371, %.thread359.i.i, %368, %254, %247
-  %.2220308340371.i.i = phi i32 [ %.2220308340370.i.i, %373 ], [ %.2220308340370.i.i, %371 ], [ %.2220308340370.i.i, %.thread359.i.i ], [ %.2220308339.ph.i.i, %368 ], [ %.2220308340370.i.i, %377 ], [ %.2220308340370.i.i, %380 ], [ %.2220308340370.i.i, %383 ], [ %.0217405.i.i, %254 ], [ %253, %247 ]
-  %.1222307342369.i.i = phi i32 [ %.1222307342368.i.i, %373 ], [ %.1222307342368.i.i, %371 ], [ %.1222307342368.i.i, %.thread359.i.i ], [ %.0221404.i.i, %368 ], [ %.1222307342368.i.i, %377 ], [ %.1222307342368.i.i, %380 ], [ %.1222307342368.i.i, %383 ], [ %.0221404.i.i, %254 ], [ %.0221404.i.i, %247 ]
-  %.1224306344367.i.i = phi i32 [ %.1224306344366.i.i, %373 ], [ %.1224306344366.i.i, %371 ], [ %.1224306344366.i.i, %.thread359.i.i ], [ %.1224306346.ph.i.i, %368 ], [ %.1224306344366.i.i, %377 ], [ %.1224306344366.i.i, %380 ], [ %.1224306344366.i.i, %383 ], [ %.0223.i.i, %254 ], [ 0, %247 ]
-  %.not261.i.i = icmp eq i32 %.1222307342369.i.i, 0
+proto_item_set_generated.exit278.i.i:             ; preds = %383, %380, %377, %373, %371, %.thread360.i.i, %368, %254, %247
+  %.2220309341372.i.i = phi i32 [ %.2220309341371.i.i, %373 ], [ %.2220309341371.i.i, %371 ], [ %.2220309341371.i.i, %.thread360.i.i ], [ %.2220309340.ph.i.i, %368 ], [ %.2220309341371.i.i, %377 ], [ %.2220309341371.i.i, %380 ], [ %.2220309341371.i.i, %383 ], [ %.0217406.i.i, %254 ], [ %253, %247 ]
+  %.1222308343370.i.i = phi i32 [ %.1222308343369.i.i, %373 ], [ %.1222308343369.i.i, %371 ], [ %.1222308343369.i.i, %.thread360.i.i ], [ %.0221405.i.i, %368 ], [ %.1222308343369.i.i, %377 ], [ %.1222308343369.i.i, %380 ], [ %.1222308343369.i.i, %383 ], [ %.0221405.i.i, %254 ], [ %.0221405.i.i, %247 ]
+  %.1224307345368.i.i = phi i32 [ %.1224307345367.i.i, %373 ], [ %.1224307345367.i.i, %371 ], [ %.1224307345367.i.i, %.thread360.i.i ], [ %.1224307347.ph.i.i, %368 ], [ %.1224307345367.i.i, %377 ], [ %.1224307345367.i.i, %380 ], [ %.1224307345367.i.i, %383 ], [ %.0223.i.i, %254 ], [ 0, %247 ]
+  %.not261.i.i = icmp eq i32 %.1222308343370.i.i, 0
   br i1 %.not261.i.i, label %387, label %392
 
-387:                                              ; preds = %proto_item_set_generated.exit277.i.i
+387:                                              ; preds = %proto_item_set_generated.exit278.i.i
   %388 = load i32, ptr %129, align 4
   %389 = icmp eq i32 %388, 0
   %or.cond3.i.i = and i1 %185, %389
@@ -7193,39 +7199,39 @@ proto_item_set_generated.exit277.i.i:             ; preds = %383, %380, %377, %3
   call void @col_append_sep_str(ptr noundef %391, i32 noundef 25, ptr noundef nonnull @.str.399, ptr noundef nonnull @.str.546) #21
   br label %392
 
-392:                                              ; preds = %390, %387, %proto_item_set_generated.exit277.i.i
-  %393 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.2220308340371.i.i) #21
+392:                                              ; preds = %390, %387, %proto_item_set_generated.exit278.i.i
+  %393 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.2220309341372.i.i) #21
   %394 = load i32, ptr @hf_ssh_segment_data, align 4
   %395 = icmp eq i32 %393, -1
-  br i1 %395, label %396, label %ssh_proto_tree_add_segment_data.exit278.i.i
+  br i1 %395, label %396, label %ssh_proto_tree_add_segment_data.exit279.i.i
 
 396:                                              ; preds = %392
-  %397 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.2220308340371.i.i) #21
-  br label %ssh_proto_tree_add_segment_data.exit278.i.i
+  %397 = call i32 @tvb_reported_length_remaining(ptr noundef %101, i32 noundef %.2220309341372.i.i) #21
+  br label %ssh_proto_tree_add_segment_data.exit279.i.i
 
-ssh_proto_tree_add_segment_data.exit278.i.i:      ; preds = %396, %392
+ssh_proto_tree_add_segment_data.exit279.i.i:      ; preds = %396, %392
   %398 = phi i32 [ %397, %396 ], [ %393, %392 ]
   %399 = icmp eq i32 %393, 1
   %400 = select i1 %399, ptr @.str.551, ptr @.str.552
-  %401 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %394, ptr noundef %101, i32 noundef %.2220308340371.i.i, i32 noundef %393, ptr noundef null, ptr noundef nonnull @.str.550, ptr noundef nonnull @.str.505, i32 noundef %398, ptr noundef nonnull %400) #21
-  br label %.thread331.thread.i.i
+  %401 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %394, ptr noundef %101, i32 noundef %.2220309341372.i.i, i32 noundef %393, ptr noundef null, ptr noundef nonnull @.str.550, ptr noundef nonnull @.str.505, i32 noundef %398, ptr noundef nonnull %400) #21
+  br label %.thread332.thread.i.i
 
-.thread331.thread.i.i:                            ; preds = %ssh_proto_tree_add_segment_data.exit278.i.i, %.thread331.i.i, %print_ssh_fragment_tree.exit.i.i
-  %.1224306345.i.i = phi i32 [ %.1224306344367.i.i, %ssh_proto_tree_add_segment_data.exit278.i.i ], [ %.1224306346.ph.i.i, %.thread331.i.i ], [ %.0223.i.i, %print_ssh_fragment_tree.exit.i.i ]
-  %.1222307343.i.i = phi i32 [ %.1222307342369.i.i, %ssh_proto_tree_add_segment_data.exit278.i.i ], [ %.0221404.i.i, %.thread331.i.i ], [ %.0221404.i.i, %print_ssh_fragment_tree.exit.i.i ]
+.thread332.thread.i.i:                            ; preds = %ssh_proto_tree_add_segment_data.exit279.i.i, %.thread332.i.i, %print_ssh_fragment_tree.exit.i.i
+  %.1224307346.i.i = phi i32 [ %.1224307345368.i.i, %ssh_proto_tree_add_segment_data.exit279.i.i ], [ %.1224307347.ph.i.i, %.thread332.i.i ], [ %.0223.i.i, %print_ssh_fragment_tree.exit.i.i ]
+  %.1222308344.i.i = phi i32 [ %.1222308343370.i.i, %ssh_proto_tree_add_segment_data.exit279.i.i ], [ %.0221405.i.i, %.thread332.i.i ], [ %.0221405.i.i, %print_ssh_fragment_tree.exit.i.i ]
   store i32 0, ptr %129, align 4
   store i32 0, ptr %130, align 8
-  %.not262.i.i = icmp eq i32 %.1224306345.i.i, 0
+  %.not262.i.i = icmp eq i32 %.1224307346.i.i, 0
   br i1 %.not262.i.i, label %ssh_dissect_channel_data.exit, label %402
 
-402:                                              ; preds = %.thread331.thread.i.i
+402:                                              ; preds = %.thread332.thread.i.i
   store i16 2, ptr %121, align 8
   %403 = load ptr, ptr %136, align 8
   call void @col_set_fence(ptr noundef %403, i32 noundef 25) #21
   %404 = load ptr, ptr %136, align 8
   call void @col_set_writable(ptr noundef %404, i32 noundef 34, i32 noundef 0) #21
-  %405 = add i32 %.1224306345.i.i, %.0217405.i.i
-  %406 = add i32 %.1224306345.i.i, %.0410.i.i
+  %405 = add i32 %.1224307346.i.i, %.0217406.i.i
+  %406 = add i32 %.1224307346.i.i, %.0411.i.i
   store i32 0, ptr %129, align 4
   store i32 0, ptr %130, align 8
   %407 = load ptr, ptr %131, align 8
@@ -7257,7 +7263,7 @@ ssh_process_payload.exit.i:                       ; preds = %418, %416
   store i32 %411, ptr %410, align 8
   br label %ssh_dissect_channel_data.exit
 
-ssh_dissect_channel_data.exit:                    ; preds = %.thread331.thread.i.i, %ssh_proto_tree_add_segment_data.exit.i.i, %.thread331.thread.thread.i.i, %ssh_process_payload.exit.i
+ssh_dissect_channel_data.exit:                    ; preds = %.thread332.thread.i.i, %ssh_proto_tree_add_segment_data.exit.i.i, %.thread332.thread.thread.i.i, %ssh_process_payload.exit.i
   store i16 %122, ptr %121, align 8
   br label %422
 

@@ -18,7 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @NetClientDriver_lookup = external constant %struct.QEnumLookup, align 8
 @.str.7 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.8 = private unnamed_addr constant [4 x i8] c"off\00", align 1
-@.str.9 = private unnamed_addr constant [2 x i8] c"?\00", align 1
 @.str.10 = private unnamed_addr constant [5 x i8] c"help\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -147,30 +146,36 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(2) @.str.9) #5
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then, label %is_help_option.exit
+  %0 = load i8, ptr %call, align 1
+  %.not.i = icmp eq i8 %0, 63
+  br i1 %.not.i, label %entry.tail.i, label %is_help_option.exit
 
-is_help_option.exit:                              ; preds = %land.lhs.true
+entry.tail.i:                                     ; preds = %land.lhs.true
+  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.then, label %is_help_option.exit
+
+is_help_option.exit:                              ; preds = %land.lhs.true, %entry.tail.i
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.10) #5
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true, %is_help_option.exit
+if.then:                                          ; preds = %entry.tail.i, %is_help_option.exit
   tail call void @show_netdevs() #4
   br label %return
 
 if.end:                                           ; preds = %is_help_option.exit, %entry
   %call2 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.6) #4
   %call3 = call ptr @qemu_opts_from_qdict(ptr noundef %call2, ptr noundef %qdict, ptr noundef nonnull %err) #4
-  %0 = load ptr, ptr %err, align 8
-  %tobool4.not = icmp eq ptr %0, null
+  %4 = load ptr, ptr %err, align 8
+  %tobool4.not = icmp eq ptr %4, null
   br i1 %tobool4.not, label %if.end6, label %out
 
 if.end6:                                          ; preds = %if.end
   call void @netdev_add(ptr noundef %call3, ptr noundef nonnull %err) #4
-  %1 = load ptr, ptr %err, align 8
-  %tobool7.not = icmp eq ptr %1, null
+  %5 = load ptr, ptr %err, align 8
+  %tobool7.not = icmp eq ptr %5, null
   br i1 %tobool7.not, label %out, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
@@ -179,8 +184,8 @@ if.then8:                                         ; preds = %if.end6
   br label %out
 
 out:                                              ; preds = %if.end6, %if.then8, %if.end
-  %2 = phi ptr [ null, %if.end6 ], [ %.pre, %if.then8 ], [ %0, %if.end ]
-  %call10 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %2) #4
+  %6 = phi ptr [ null, %if.end6 ], [ %.pre, %if.then8 ], [ %4, %if.end ]
+  %call10 = call zeroext i1 @hmp_handle_error(ptr noundef %mon, ptr noundef %6) #4
   br label %return
 
 return:                                           ; preds = %out, %if.then

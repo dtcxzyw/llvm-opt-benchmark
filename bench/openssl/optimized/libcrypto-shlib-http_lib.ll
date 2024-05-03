@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [9 x i8] c"NO_PROXY\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_parse_url(ptr noundef %url, ptr noundef %pscheme, ptr noundef %puser, ptr noundef %phost, ptr noundef %pport, ptr noundef writeonly %pport_num, ptr noundef %ppath, ptr noundef %pquery, ptr noundef %pfrag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_parse_url(ptr noundef %url, ptr noundef %pscheme, ptr noundef %puser, ptr noundef %phost, ptr noundef %pport, ptr noundef writeonly %pport_num, ptr noundef %ppath, ptr noundef %pquery, ptr noundef %pfrag) local_unnamed_addr #0 {
 entry:
   %portnum = alloca i32, align 4
   %cmp.not.i = icmp eq ptr %pscheme, null
@@ -439,7 +439,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_HTTP_parse_url(ptr noundef %url, ptr noundef writeonly %pssl, ptr noundef %puser, ptr noundef %phost, ptr noundef writeonly %pport, ptr noundef %pport_num, ptr noundef %ppath, ptr noundef %pquery, ptr noundef %pfrag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HTTP_parse_url(ptr noundef %url, ptr noundef writeonly %pssl, ptr noundef %puser, ptr noundef %phost, ptr noundef writeonly %pport, ptr noundef %pport_num, ptr noundef %ppath, ptr noundef %pquery, ptr noundef %pfrag) local_unnamed_addr #0 {
 entry:
   %scheme = alloca ptr, align 8
   %port = alloca ptr, align 8
@@ -460,7 +460,7 @@ if.then:                                          ; preds = %init_pstring.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %init_pstring.exit
-  %call = call i32 @OSSL_parse_url(ptr noundef %url, ptr noundef nonnull %scheme, ptr noundef %puser, ptr noundef %phost, ptr noundef nonnull %port, ptr noundef %pport_num, ptr noundef %ppath, ptr noundef %pquery, ptr noundef %pfrag), !range !6
+  %call = call i32 @OSSL_parse_url(ptr noundef %url, ptr noundef nonnull %scheme, ptr noundef %puser, ptr noundef %phost, ptr noundef nonnull %port, ptr noundef %pport_num, ptr noundef %ppath, ptr noundef %pquery, ptr noundef %pfrag)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -500,12 +500,18 @@ if.then14:                                        ; preds = %land.lhs.true
 if.end16:                                         ; preds = %if.else, %land.lhs.true, %if.then5, %if.then7
   call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 217) #4
   %4 = load ptr, ptr %port, align 8
-  %call17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(2) @.str.2) #5
-  %cmp18 = icmp eq i32 %call17, 0
-  br i1 %cmp18, label %if.then20, label %if.else45
+  %5 = load i8, ptr %4, align 1
+  %.not = icmp eq i8 %5, 48
+  br i1 %.not, label %if.end16.tail, label %if.else45
 
-if.then20:                                        ; preds = %if.end16
-  call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 221) #4
+if.end16.tail:                                    ; preds = %if.end16
+  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %if.then20, label %if.else45
+
+if.then20:                                        ; preds = %if.end16.tail
+  call void @CRYPTO_free(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 221) #4
   %cond = select i1 %cmp4.not, ptr @.str.8, ptr @.str.9
   store ptr %cond, ptr %port, align 8
   %call22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %cond, ptr noundef nonnull @.str.10, ptr noundef nonnull %portnum) #4
@@ -517,21 +523,21 @@ if.end31:                                         ; preds = %if.then20
   br i1 %cmp32.not, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %if.end31
-  %5 = load i32, ptr %portnum, align 4
-  store i32 %5, ptr %pport_num, align 4
+  %9 = load i32, ptr %portnum, align 4
+  store i32 %9, ptr %pport_num, align 4
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %if.end31
   br i1 %cmp.not.i, label %return, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
-  %6 = load ptr, ptr %port, align 8
-  %call39 = call noalias ptr @CRYPTO_strdup(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 228) #4
+  %10 = load ptr, ptr %port, align 8
+  %call39 = call noalias ptr @CRYPTO_strdup(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 228) #4
   store ptr %call39, ptr %pport, align 8
   %cmp40 = icmp eq ptr %call39, null
   br i1 %cmp40, label %err, label %return
 
-if.else45:                                        ; preds = %if.end16
+if.else45:                                        ; preds = %if.end16, %if.end16.tail
   br i1 %cmp.not.i, label %if.else49, label %if.then48
 
 if.then48:                                        ; preds = %if.else45
@@ -539,7 +545,7 @@ if.then48:                                        ; preds = %if.else45
   br label %return
 
 if.else49:                                        ; preds = %if.else45
-  call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 236) #4
+  call void @CRYPTO_free(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 236) #4
   br label %return
 
 err:                                              ; preds = %if.then38, %if.then20, %if.then14
@@ -547,8 +553,8 @@ err:                                              ; preds = %if.then38, %if.then
   br i1 %cmp.not.i17, label %free_pstring.exit, label %if.then.i18
 
 if.then.i18:                                      ; preds = %err
-  %7 = load ptr, ptr %puser, align 8
-  call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 41) #4
+  %11 = load ptr, ptr %puser, align 8
+  call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 41) #4
   store ptr null, ptr %puser, align 8
   br label %free_pstring.exit
 
@@ -557,8 +563,8 @@ free_pstring.exit:                                ; preds = %err, %if.then.i18
   br i1 %cmp.not.i19, label %free_pstring.exit21, label %if.then.i20
 
 if.then.i20:                                      ; preds = %free_pstring.exit
-  %8 = load ptr, ptr %phost, align 8
-  call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 41) #4
+  %12 = load ptr, ptr %phost, align 8
+  call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 41) #4
   store ptr null, ptr %phost, align 8
   br label %free_pstring.exit21
 
@@ -567,8 +573,8 @@ free_pstring.exit21:                              ; preds = %free_pstring.exit, 
   br i1 %cmp.not.i22, label %free_pstring.exit24, label %if.then.i23
 
 if.then.i23:                                      ; preds = %free_pstring.exit21
-  %9 = load ptr, ptr %ppath, align 8
-  call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 41) #4
+  %13 = load ptr, ptr %ppath, align 8
+  call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef 41) #4
   store ptr null, ptr %ppath, align 8
   br label %free_pstring.exit24
 
@@ -577,8 +583,8 @@ free_pstring.exit24:                              ; preds = %free_pstring.exit21
   br i1 %cmp.not.i25, label %free_pstring.exit27, label %if.then.i26
 
 if.then.i26:                                      ; preds = %free_pstring.exit24
-  %10 = load ptr, ptr %pquery, align 8
-  call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 41) #4
+  %14 = load ptr, ptr %pquery, align 8
+  call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 41) #4
   store ptr null, ptr %pquery, align 8
   br label %free_pstring.exit27
 
@@ -587,8 +593,8 @@ free_pstring.exit27:                              ; preds = %free_pstring.exit24
   br i1 %cmp.not.i28, label %return, label %if.then.i29
 
 if.then.i29:                                      ; preds = %free_pstring.exit27
-  %11 = load ptr, ptr %pfrag, align 8
-  call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 41) #4
+  %15 = load ptr, ptr %pfrag, align 8
+  call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 41) #4
   store ptr null, ptr %pfrag, align 8
   br label %return
 
@@ -605,7 +611,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_HTTP_adapt_proxy(ptr noundef readonly %proxy, ptr noundef readonly %no_proxy, ptr noundef readonly %server, i32 noundef %use_ssl) local_unnamed_addr #0 {
+define noundef ptr @OSSL_HTTP_adapt_proxy(ptr noundef readonly %proxy, ptr noundef readonly %no_proxy, ptr noundef readonly %server, i32 noundef %use_ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %proxy, null
   br i1 %cmp, label %if.end, label %lor.lhs.false
@@ -678,7 +684,7 @@ while.body.i:                                     ; preds = %lor.rhs.i, %land.lh
   %add.ptr.i = getelementptr inbounds i8, ptr %found.125.i, i64 1
   %call47.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %server) #5
   %cmp20.not.i = icmp eq ptr %call47.i, null
-  br i1 %cmp20.not.i, label %return, label %land.rhs.i, !llvm.loop !7
+  br i1 %cmp20.not.i, label %return, label %land.rhs.i, !llvm.loop !6
 
 return:                                           ; preds = %while.body.i, %lor.rhs.i, %lor.rhs.i, %lor.rhs.i, %if.end14.i, %if.end19.i, %if.end6, %lor.lhs.false
   %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %if.end6 ], [ %proxy.addr.110, %if.end19.i ], [ %proxy.addr.110, %if.end14.i ], [ %proxy.addr.110, %while.body.i ], [ null, %lor.rhs.i ], [ null, %lor.rhs.i ], [ null, %lor.rhs.i ]
@@ -704,5 +710,4 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

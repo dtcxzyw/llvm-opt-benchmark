@@ -16,10 +16,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [9 x i8] c"filename\00", align 1
 @.str.3 = private unnamed_addr constant [14 x i8] c"secs-per-test\00", align 1
 @.str.4 = private unnamed_addr constant [7 x i8] c"--help\00", align 1
-@.str.5 = private unnamed_addr constant [3 x i8] c"-?\00", align 1
 @.str.6 = private unnamed_addr constant [44 x i8] c"Usage: %s [-f FILENAME] [-s SECS-PER-TEST]\0A\00", align 1
 @.str.7 = private unnamed_addr constant [10 x i8] c"--version\00", align 1
-@.str.8 = private unnamed_addr constant [3 x i8] c"-V\00", align 1
 @.str.9 = private unnamed_addr constant [35 x i8] c"pg_test_fsync (PostgreSQL) 17devel\00", align 1
 @.str.10 = private unnamed_addr constant [5 x i8] c"f:s:\00", align 1
 @optarg = external local_unnamed_addr global ptr, align 8
@@ -88,419 +86,446 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 0, ptr %3, align 4
   %9 = icmp sgt i32 %0, 1
-  br i1 %9, label %10, label %.preheader
+  br i1 %9, label %10, label %.tail17.thread.i.preheader
 
-.preheader:                                       ; preds = %23, %2
-  br label %28
+.tail17.thread.i.preheader:                       ; preds = %.thread.i, %.tail17.i, %sub_119.i, %.tail.thread.thread.i, %2
+  br label %.tail17.thread.i
 
 10:                                               ; preds = %2
   %11 = getelementptr i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(7) @.str.4) #15
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %18, label %15
+  br i1 %14, label %21, label %sub_0.i
 
-15:                                               ; preds = %10
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(3) @.str.5) #15
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %20
+sub_0.i:                                          ; preds = %10
+  %15 = load i8, ptr %12, align 1
+  %.not.i = icmp eq i8 %15, 45
+  br i1 %.not.i, label %sub_1.i, label %.tail.thread.thread.i
 
-18:                                               ; preds = %15, %10
-  %19 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.6, ptr noundef %8) #14
+sub_1.i:                                          ; preds = %sub_0.i
+  %16 = getelementptr inbounds i8, ptr %12, i64 1
+  %17 = load i8, ptr %16, align 1
+  %.not22.i = icmp eq i8 %17, 63
+  br i1 %.not22.i, label %.tail.i, label %.tail.thread.i
+
+.tail.i:                                          ; preds = %sub_1.i
+  %18 = getelementptr inbounds i8, ptr %12, i64 2
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %21, label %.thread.i
+
+21:                                               ; preds = %.tail.i, %10
+  %22 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.6, ptr noundef %8) #14
   tail call void @exit(i32 noundef 0) #16
   unreachable
 
-20:                                               ; preds = %15
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.7) #15
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %26, label %23
+.tail.thread.i:                                   ; preds = %sub_1.i
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.7) #15
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %32, label %sub_119.i
 
-23:                                               ; preds = %20
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(3) @.str.8) #15
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %.preheader
+.tail.thread.thread.i:                            ; preds = %sub_0.i
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.7) #15
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %32, label %.tail17.thread.i.preheader
 
-26:                                               ; preds = %23, %20
-  %27 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.9)
+.thread.i:                                        ; preds = %.tail.i
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.7) #15
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %32, label %.tail17.thread.i.preheader
+
+sub_119.i:                                        ; preds = %.tail.thread.i
+  %.not24.i = icmp eq i8 %17, 86
+  br i1 %.not24.i, label %.tail17.i, label %.tail17.thread.i.preheader
+
+.tail17.i:                                        ; preds = %sub_119.i
+  %29 = getelementptr inbounds i8, ptr %12, i64 2
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %32, label %.tail17.thread.i.preheader
+
+32:                                               ; preds = %.tail17.i, %.thread.i, %.tail.thread.thread.i, %.tail.thread.i
+  %33 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.9)
   tail call void @exit(i32 noundef 0) #16
   unreachable
 
-28:                                               ; preds = %.backedge, %.preheader
-  %29 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @handle_args.long_options, ptr noundef nonnull %3) #14
-  switch i32 %29, label %50 [
-    i32 -1, label %52
-    i32 102, label %30
-    i32 115, label %33
+.tail17.thread.i:                                 ; preds = %.tail17.thread.i.backedge, %.tail17.thread.i.preheader
+  %34 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @handle_args.long_options, ptr noundef nonnull %3) #14
+  switch i32 %34, label %55 [
+    i32 -1, label %57
+    i32 102, label %35
+    i32 115, label %38
   ]
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr @optarg, align 8
-  %32 = call ptr @pg_strdup(ptr noundef %31) #14
-  store ptr %32, ptr @filename, align 8
-  br label %.backedge
+35:                                               ; preds = %.tail17.thread.i
+  %36 = load ptr, ptr @optarg, align 8
+  %37 = call ptr @pg_strdup(ptr noundef %36) #14
+  store ptr %37, ptr @filename, align 8
+  br label %.tail17.thread.i.backedge
 
-33:                                               ; preds = %28
-  %34 = tail call ptr @__errno_location() #17
-  store i32 0, ptr %34, align 4
-  %35 = load ptr, ptr @optarg, align 8
-  %36 = call i64 @strtoul(ptr noundef %35, ptr noundef nonnull %4, i32 noundef 10) #14
-  %37 = load ptr, ptr %4, align 8
-  %38 = load ptr, ptr @optarg, align 8
-  %39 = icmp eq ptr %37, %38
-  br i1 %39, label %44, label %40
+38:                                               ; preds = %.tail17.thread.i
+  %39 = tail call ptr @__errno_location() #17
+  store i32 0, ptr %39, align 4
+  %40 = load ptr, ptr @optarg, align 8
+  %41 = call i64 @strtoul(ptr noundef %40, ptr noundef nonnull %4, i32 noundef 10) #14
+  %42 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr @optarg, align 8
+  %44 = icmp eq ptr %42, %43
+  br i1 %44, label %49, label %45
 
-40:                                               ; preds = %33
-  %41 = load i8, ptr %37, align 1
-  %.not14.i = icmp eq i8 %41, 0
-  br i1 %.not14.i, label %42, label %44
+45:                                               ; preds = %38
+  %46 = load i8, ptr %42, align 1
+  %.not14.i = icmp eq i8 %46, 0
+  br i1 %.not14.i, label %47, label %49
 
-42:                                               ; preds = %40
-  %43 = load i32, ptr %34, align 4
-  %.not15.i = icmp eq i32 %43, 0
-  %.not16.i = icmp ult i64 %36, 4294967296
+47:                                               ; preds = %45
+  %48 = load i32, ptr %39, align 4
+  %.not15.i = icmp eq i32 %48, 0
+  %.not16.i = icmp ult i64 %41, 4294967296
   %or.cond.i = select i1 %.not15.i, i1 %.not16.i, i1 false
-  br i1 %or.cond.i, label %46, label %44
+  br i1 %or.cond.i, label %51, label %49
 
-44:                                               ; preds = %42, %40, %33
+49:                                               ; preds = %47, %45, %38
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
-  %45 = load ptr, ptr @progname, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %45) #14
+  %50 = load ptr, ptr @progname, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %50) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-46:                                               ; preds = %42
-  %47 = trunc i64 %36 to i32
-  store i32 %47, ptr @secs_per_test, align 4
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %.backedge
+51:                                               ; preds = %47
+  %52 = trunc nuw i64 %41 to i32
+  store i32 %52, ptr @secs_per_test, align 4
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %.tail17.thread.i.backedge
 
-.backedge:                                        ; preds = %46, %30
-  br label %28, !llvm.loop !5
+.tail17.thread.i.backedge:                        ; preds = %51, %35
+  br label %.tail17.thread.i, !llvm.loop !5
 
-49:                                               ; preds = %46
+54:                                               ; preds = %51
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, i32 noundef 1, i32 noundef -1) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-50:                                               ; preds = %28
-  %51 = load ptr, ptr @progname, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %51) #14
+55:                                               ; preds = %.tail17.thread.i
+  %56 = load ptr, ptr @progname, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %56) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-52:                                               ; preds = %28
-  %53 = load i32, ptr @optind, align 4
-  %54 = icmp slt i32 %53, %0
-  br i1 %54, label %55, label %handle_args.exit
+57:                                               ; preds = %.tail17.thread.i
+  %58 = load i32, ptr @optind, align 4
+  %59 = icmp slt i32 %58, %0
+  br i1 %59, label %60, label %handle_args.exit
 
-55:                                               ; preds = %52
-  %56 = sext i32 %53 to i64
-  %57 = getelementptr ptr, ptr %1, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %58) #14
-  %59 = load ptr, ptr @progname, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %59) #14
+60:                                               ; preds = %57
+  %61 = sext i32 %58 to i64
+  %62 = getelementptr ptr, ptr %1, i64 %61
+  %63 = load ptr, ptr %62, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %63) #14
+  %64 = load ptr, ptr @progname, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %64) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-handle_args.exit:                                 ; preds = %52
-  %60 = load i32, ptr @secs_per_test, align 4
-  %61 = icmp eq i32 %60, 1
-  %62 = select i1 %61, ptr @.str.16, ptr @.str.17
-  %63 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull %62, i32 noundef %60) #14
-  %64 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.18) #14
+handle_args.exit:                                 ; preds = %57
+  %65 = load i32, ptr @secs_per_test, align 4
+  %66 = icmp eq i32 %65, 1
+  %67 = select i1 %66, ptr @.str.16, ptr @.str.17
+  %68 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull %67, i32 noundef %65) #14
+  %69 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.18) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %65 = call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull @signal_cleanup) #14
-  %66 = call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @signal_cleanup) #14
-  %67 = call ptr @pqsignal(i32 noundef 14, ptr noundef nonnull @process_alarm) #14
-  %68 = call ptr @pqsignal(i32 noundef 1, ptr noundef nonnull @signal_cleanup) #14
-  %69 = call i64 @time(ptr noundef null) #14
-  call void @pg_prng_seed(ptr noundef nonnull @pg_global_prng_state, i64 noundef %69) #14
-  br label %70
+  %70 = call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull @signal_cleanup) #14
+  %71 = call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @signal_cleanup) #14
+  %72 = call ptr @pqsignal(i32 noundef 14, ptr noundef nonnull @process_alarm) #14
+  %73 = call ptr @pqsignal(i32 noundef 1, ptr noundef nonnull @signal_cleanup) #14
+  %74 = call i64 @time(ptr noundef null) #14
+  call void @pg_prng_seed(ptr noundef nonnull @pg_global_prng_state, i64 noundef %74) #14
+  br label %75
 
-70:                                               ; preds = %70, %handle_args.exit
-  %indvars.iv.i = phi i64 [ 0, %handle_args.exit ], [ %indvars.iv.next.i, %70 ]
-  %71 = call i32 @pg_prng_int32(ptr noundef nonnull @pg_global_prng_state) #14
-  %72 = trunc i32 %71 to i8
-  %73 = getelementptr [16777216 x i8], ptr @full_buf, i64 0, i64 %indvars.iv.i
-  store i8 %72, ptr %73, align 1
+75:                                               ; preds = %75, %handle_args.exit
+  %indvars.iv.i = phi i64 [ 0, %handle_args.exit ], [ %indvars.iv.next.i, %75 ]
+  %76 = call i32 @pg_prng_int32(ptr noundef nonnull @pg_global_prng_state) #14
+  %77 = trunc i32 %76 to i8
+  %78 = getelementptr [16777216 x i8], ptr @full_buf, i64 0, i64 %indvars.iv.i
+  store i8 %77, ptr %78, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16777216
-  br i1 %exitcond.not.i, label %prepare_buf.exit, label %70, !llvm.loop !7
+  br i1 %exitcond.not.i, label %prepare_buf.exit, label %75, !llvm.loop !7
 
-prepare_buf.exit:                                 ; preds = %70
-  %74 = and i64 add (i64 ptrtoint (ptr @full_buf to i64), i64 8191), -8192
-  %75 = inttoptr i64 %74 to ptr
-  store ptr %75, ptr @buf, align 8
-  %76 = load ptr, ptr @filename, align 8
-  %77 = call i32 (ptr, i32, ...) @open(ptr noundef %76, i32 noundef 66, i32 noundef 384) #14
-  %78 = icmp eq i32 %77, -1
-  br i1 %78, label %79, label %80
+prepare_buf.exit:                                 ; preds = %75
+  %79 = and i64 add (i64 ptrtoint (ptr @full_buf to i64), i64 8191), -8192
+  %80 = inttoptr i64 %79 to ptr
+  store ptr %80, ptr @buf, align 8
+  %81 = load ptr, ptr @filename, align 8
+  %82 = call i32 (ptr, i32, ...) @open(ptr noundef %81, i32 noundef 66, i32 noundef 384) #14
+  %83 = icmp eq i32 %82, -1
+  br i1 %83, label %84, label %85
 
-79:                                               ; preds = %prepare_buf.exit
+84:                                               ; preds = %prepare_buf.exit
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-80:                                               ; preds = %prepare_buf.exit
+85:                                               ; preds = %prepare_buf.exit
   store i1 true, ptr @needs_unlink, align 4
-  %81 = call i64 @write(i32 noundef %77, ptr noundef nonnull @full_buf, i64 noundef 16777216) #14
-  %.not.i = icmp eq i64 %81, 16777216
-  br i1 %.not.i, label %83, label %82
+  %86 = call i64 @write(i32 noundef %82, ptr noundef nonnull @full_buf, i64 noundef 16777216) #14
+  %.not.i4 = icmp eq i64 %86, 16777216
+  br i1 %.not.i4, label %88, label %87
 
-82:                                               ; preds = %80
+87:                                               ; preds = %85
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-83:                                               ; preds = %80
-  %84 = call i32 @fsync(i32 noundef %77) #14
-  %.not3.i = icmp eq i32 %84, 0
-  br i1 %.not3.i, label %test_open.exit, label %85
+88:                                               ; preds = %85
+  %89 = call i32 @fsync(i32 noundef %82) #14
+  %.not3.i = icmp eq i32 %89, 0
+  br i1 %.not3.i, label %test_open.exit, label %90
 
-85:                                               ; preds = %83
+90:                                               ; preds = %88
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-test_open.exit:                                   ; preds = %83
-  %86 = call i32 @close(i32 noundef %77) #14
+test_open.exit:                                   ; preds = %88
+  %91 = call i32 @close(i32 noundef %82) #14
   call fastcc void @test_sync(i32 noundef 1)
   call fastcc void @test_sync(i32 noundef 2)
-  %87 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.37) #14
-  %88 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.38) #14
+  %92 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.37) #14
+  %93 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.38) #14
   call fastcc void @test_open_sync(ptr noundef nonnull @.str.39, i32 noundef 16)
   call fastcc void @test_open_sync(ptr noundef nonnull @.str.40, i32 noundef 8)
   call fastcc void @test_open_sync(ptr noundef nonnull @.str.41, i32 noundef 4)
   call fastcc void @test_open_sync(ptr noundef nonnull @.str.42, i32 noundef 2)
   call fastcc void @test_open_sync(ptr noundef nonnull @.str.43, i32 noundef 1)
-  %89 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44) #14
-  %90 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.45) #14
-  %91 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.46) #14
-  %92 = load ptr, ptr @stdout, align 8
-  %93 = call i32 @fflush(ptr noundef %92)
+  %94 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44) #14
+  %95 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.45) #14
+  %96 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.46) #14
+  %97 = load ptr, ptr @stdout, align 8
+  %98 = call i32 @fflush(ptr noundef %97)
   store i1 false, ptr @alarm_triggered, align 4
-  %94 = load i32, ptr @secs_per_test, align 4
-  %95 = call i32 @alarm(i32 noundef %94) #14
-  %96 = call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
+  %99 = load i32, ptr @secs_per_test, align 4
+  %100 = call i32 @alarm(i32 noundef %99) #14
+  %101 = call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
   %.b1628.i = load i1, ptr @alarm_triggered, align 4
   br i1 %.b1628.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %test_open.exit, %114
-  %.029.i = phi i32 [ %116, %114 ], [ 0, %test_open.exit ]
-  %97 = load ptr, ptr @filename, align 8
-  %98 = call i32 (ptr, i32, ...) @open(ptr noundef %97, i32 noundef 2, i32 noundef 0) #14
-  %99 = icmp eq i32 %98, -1
-  br i1 %99, label %100, label %101
+.lr.ph.i:                                         ; preds = %test_open.exit, %119
+  %.029.i = phi i32 [ %121, %119 ], [ 0, %test_open.exit ]
+  %102 = load ptr, ptr @filename, align 8
+  %103 = call i32 (ptr, i32, ...) @open(ptr noundef %102, i32 noundef 2, i32 noundef 0) #14
+  %104 = icmp eq i32 %103, -1
+  br i1 %104, label %105, label %106
 
-100:                                              ; preds = %.lr.ph.i
+105:                                              ; preds = %.lr.ph.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-101:                                              ; preds = %.lr.ph.i
-  %102 = load ptr, ptr @buf, align 8
-  %103 = call i64 @write(i32 noundef %98, ptr noundef %102, i64 noundef 8192) #14
-  %.not18.i = icmp eq i64 %103, 8192
-  br i1 %.not18.i, label %105, label %104
+106:                                              ; preds = %.lr.ph.i
+  %107 = load ptr, ptr @buf, align 8
+  %108 = call i64 @write(i32 noundef %103, ptr noundef %107, i64 noundef 8192) #14
+  %.not18.i = icmp eq i64 %108, 8192
+  br i1 %.not18.i, label %110, label %109
 
-104:                                              ; preds = %101
+109:                                              ; preds = %106
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-105:                                              ; preds = %101
-  %106 = call i32 @fsync(i32 noundef %98) #14
-  %.not19.i = icmp eq i32 %106, 0
-  br i1 %.not19.i, label %108, label %107
+110:                                              ; preds = %106
+  %111 = call i32 @fsync(i32 noundef %103) #14
+  %.not19.i = icmp eq i32 %111, 0
+  br i1 %.not19.i, label %113, label %112
 
-107:                                              ; preds = %105
+112:                                              ; preds = %110
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-108:                                              ; preds = %105
-  %109 = call i32 @close(i32 noundef %98) #14
-  %110 = load ptr, ptr @filename, align 8
-  %111 = call i32 (ptr, i32, ...) @open(ptr noundef %110, i32 noundef 2, i32 noundef 0) #14
-  %112 = icmp eq i32 %111, -1
-  br i1 %112, label %113, label %114
+113:                                              ; preds = %110
+  %114 = call i32 @close(i32 noundef %103) #14
+  %115 = load ptr, ptr @filename, align 8
+  %116 = call i32 (ptr, i32, ...) @open(ptr noundef %115, i32 noundef 2, i32 noundef 0) #14
+  %117 = icmp eq i32 %116, -1
+  br i1 %117, label %118, label %119
 
-113:                                              ; preds = %108
+118:                                              ; preds = %113
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-114:                                              ; preds = %108
-  %115 = call i32 @close(i32 noundef %111) #14
-  %116 = add i32 %.029.i, 1
+119:                                              ; preds = %113
+  %120 = call i32 @close(i32 noundef %116) #14
+  %121 = add i32 %.029.i, 1
   %.b16.i = load i1, ptr @alarm_triggered, align 4
   br i1 %.b16.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
-._crit_edge.loopexit.i:                           ; preds = %114
-  %117 = sitofp i32 %116 to double
+._crit_edge.loopexit.i:                           ; preds = %119
+  %122 = sitofp i32 %121 to double
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %test_open.exit
-  %.0.lcssa.i = phi double [ 0.000000e+00, %test_open.exit ], [ %117, %._crit_edge.loopexit.i ]
-  %118 = call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
-  %119 = load i64, ptr @start_t, align 8
-  %120 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @start_t, i64 0, i32 1), align 8
-  %121 = load i64, ptr @stop_t, align 8
-  %122 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @stop_t, i64 0, i32 1), align 8
-  %123 = sub i64 %121, %119
-  %124 = sitofp i64 %123 to double
-  %125 = sub i64 %122, %120
-  %126 = sitofp i64 %125 to double
-  %127 = call double @llvm.fmuladd.f64(double %126, double 0x3EB0C6F7A0B5ED8D, double %124)
-  %128 = fdiv double %.0.lcssa.i, %127
-  %129 = fdiv double %127, %.0.lcssa.i
-  %130 = fmul double %129, 1.000000e+06
-  %131 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %128, double noundef %130) #14
-  %132 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.47) #14
-  %133 = load ptr, ptr @stdout, align 8
-  %134 = call i32 @fflush(ptr noundef %133)
+  %.0.lcssa.i = phi double [ 0.000000e+00, %test_open.exit ], [ %122, %._crit_edge.loopexit.i ]
+  %123 = call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
+  %124 = load i64, ptr @start_t, align 8
+  %125 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @start_t, i64 0, i32 1), align 8
+  %126 = load i64, ptr @stop_t, align 8
+  %127 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @stop_t, i64 0, i32 1), align 8
+  %128 = sub i64 %126, %124
+  %129 = sitofp i64 %128 to double
+  %130 = sub i64 %127, %125
+  %131 = sitofp i64 %130 to double
+  %132 = call double @llvm.fmuladd.f64(double %131, double 0x3EB0C6F7A0B5ED8D, double %129)
+  %133 = fdiv double %.0.lcssa.i, %132
+  %134 = fdiv double %132, %.0.lcssa.i
+  %135 = fmul double %134, 1.000000e+06
+  %136 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %133, double noundef %135) #14
+  %137 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.47) #14
+  %138 = load ptr, ptr @stdout, align 8
+  %139 = call i32 @fflush(ptr noundef %138)
   store i1 false, ptr @alarm_triggered, align 4
-  %135 = load i32, ptr @secs_per_test, align 4
-  %136 = call i32 @alarm(i32 noundef %135) #14
-  %137 = call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
+  %140 = load i32, ptr @secs_per_test, align 4
+  %141 = call i32 @alarm(i32 noundef %140) #14
+  %142 = call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
   %.b30.i = load i1, ptr @alarm_triggered, align 4
   br i1 %.b30.i, label %test_file_descriptor_sync.exit, label %.lr.ph33.i
 
-.lr.ph33.i:                                       ; preds = %._crit_edge.i, %155
-  %.131.i = phi i32 [ %157, %155 ], [ 0, %._crit_edge.i ]
-  %138 = load ptr, ptr @filename, align 8
-  %139 = call i32 (ptr, i32, ...) @open(ptr noundef %138, i32 noundef 2, i32 noundef 0) #14
-  %140 = icmp eq i32 %139, -1
-  br i1 %140, label %141, label %142
+.lr.ph33.i:                                       ; preds = %._crit_edge.i, %160
+  %.131.i = phi i32 [ %162, %160 ], [ 0, %._crit_edge.i ]
+  %143 = load ptr, ptr @filename, align 8
+  %144 = call i32 (ptr, i32, ...) @open(ptr noundef %143, i32 noundef 2, i32 noundef 0) #14
+  %145 = icmp eq i32 %144, -1
+  br i1 %145, label %146, label %147
 
-141:                                              ; preds = %.lr.ph33.i
+146:                                              ; preds = %.lr.ph33.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-142:                                              ; preds = %.lr.ph33.i
-  %143 = load ptr, ptr @buf, align 8
-  %144 = call i64 @write(i32 noundef %139, ptr noundef %143, i64 noundef 8192) #14
-  %.not.i4 = icmp eq i64 %144, 8192
-  br i1 %.not.i4, label %146, label %145
+147:                                              ; preds = %.lr.ph33.i
+  %148 = load ptr, ptr @buf, align 8
+  %149 = call i64 @write(i32 noundef %144, ptr noundef %148, i64 noundef 8192) #14
+  %.not.i5 = icmp eq i64 %149, 8192
+  br i1 %.not.i5, label %151, label %150
 
-145:                                              ; preds = %142
+150:                                              ; preds = %147
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-146:                                              ; preds = %142
-  %147 = call i32 @close(i32 noundef %139) #14
-  %148 = load ptr, ptr @filename, align 8
-  %149 = call i32 (ptr, i32, ...) @open(ptr noundef %148, i32 noundef 2, i32 noundef 0) #14
-  %150 = icmp eq i32 %149, -1
-  br i1 %150, label %151, label %152
+151:                                              ; preds = %147
+  %152 = call i32 @close(i32 noundef %144) #14
+  %153 = load ptr, ptr @filename, align 8
+  %154 = call i32 (ptr, i32, ...) @open(ptr noundef %153, i32 noundef 2, i32 noundef 0) #14
+  %155 = icmp eq i32 %154, -1
+  br i1 %155, label %156, label %157
 
-151:                                              ; preds = %146
+156:                                              ; preds = %151
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-152:                                              ; preds = %146
-  %153 = call i32 @fsync(i32 noundef %149) #14
-  %.not17.i = icmp eq i32 %153, 0
-  br i1 %.not17.i, label %155, label %154
+157:                                              ; preds = %151
+  %158 = call i32 @fsync(i32 noundef %154) #14
+  %.not17.i = icmp eq i32 %158, 0
+  br i1 %.not17.i, label %160, label %159
 
-154:                                              ; preds = %152
+159:                                              ; preds = %157
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-155:                                              ; preds = %152
-  %156 = call i32 @close(i32 noundef %149) #14
-  %157 = add i32 %.131.i, 1
+160:                                              ; preds = %157
+  %161 = call i32 @close(i32 noundef %154) #14
+  %162 = add i32 %.131.i, 1
   %.b.i = load i1, ptr @alarm_triggered, align 4
   br i1 %.b.i, label %._crit_edge34.loopexit.i, label %.lr.ph33.i, !llvm.loop !9
 
-._crit_edge34.loopexit.i:                         ; preds = %155
-  %158 = sitofp i32 %157 to double
+._crit_edge34.loopexit.i:                         ; preds = %160
+  %163 = sitofp i32 %162 to double
   br label %test_file_descriptor_sync.exit
 
 test_file_descriptor_sync.exit:                   ; preds = %._crit_edge.i, %._crit_edge34.loopexit.i
-  %.1.lcssa.i = phi double [ 0.000000e+00, %._crit_edge.i ], [ %158, %._crit_edge34.loopexit.i ]
-  %159 = call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
-  %160 = load i64, ptr @start_t, align 8
-  %161 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @start_t, i64 0, i32 1), align 8
-  %162 = load i64, ptr @stop_t, align 8
-  %163 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @stop_t, i64 0, i32 1), align 8
-  %164 = sub i64 %162, %160
-  %165 = sitofp i64 %164 to double
-  %166 = sub i64 %163, %161
-  %167 = sitofp i64 %166 to double
-  %168 = call double @llvm.fmuladd.f64(double %167, double 0x3EB0C6F7A0B5ED8D, double %165)
-  %169 = fdiv double %.1.lcssa.i, %168
-  %170 = fdiv double %168, %.1.lcssa.i
-  %171 = fmul double %170, 1.000000e+06
-  %172 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %169, double noundef %171) #14
-  %173 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.48, i32 noundef 8) #14
-  %174 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.49) #14
-  %175 = load ptr, ptr @stdout, align 8
-  %176 = call i32 @fflush(ptr noundef %175)
-  %177 = load ptr, ptr @filename, align 8
-  %178 = call i32 (ptr, i32, ...) @open(ptr noundef %177, i32 noundef 2, i32 noundef 0) #14
-  %179 = icmp eq i32 %178, -1
-  br i1 %179, label %180, label %181
+  %.1.lcssa.i = phi double [ 0.000000e+00, %._crit_edge.i ], [ %163, %._crit_edge34.loopexit.i ]
+  %164 = call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
+  %165 = load i64, ptr @start_t, align 8
+  %166 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @start_t, i64 0, i32 1), align 8
+  %167 = load i64, ptr @stop_t, align 8
+  %168 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @stop_t, i64 0, i32 1), align 8
+  %169 = sub i64 %167, %165
+  %170 = sitofp i64 %169 to double
+  %171 = sub i64 %168, %166
+  %172 = sitofp i64 %171 to double
+  %173 = call double @llvm.fmuladd.f64(double %172, double 0x3EB0C6F7A0B5ED8D, double %170)
+  %174 = fdiv double %.1.lcssa.i, %173
+  %175 = fdiv double %173, %.1.lcssa.i
+  %176 = fmul double %175, 1.000000e+06
+  %177 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %174, double noundef %176) #14
+  %178 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.48, i32 noundef 8) #14
+  %179 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.49) #14
+  %180 = load ptr, ptr @stdout, align 8
+  %181 = call i32 @fflush(ptr noundef %180)
+  %182 = load ptr, ptr @filename, align 8
+  %183 = call i32 (ptr, i32, ...) @open(ptr noundef %182, i32 noundef 2, i32 noundef 0) #14
+  %184 = icmp eq i32 %183, -1
+  br i1 %184, label %185, label %186
 
-180:                                              ; preds = %test_file_descriptor_sync.exit
+185:                                              ; preds = %test_file_descriptor_sync.exit
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-181:                                              ; preds = %test_file_descriptor_sync.exit
+186:                                              ; preds = %test_file_descriptor_sync.exit
   store i1 false, ptr @alarm_triggered, align 4
-  %182 = load i32, ptr @secs_per_test, align 4
-  %183 = call i32 @alarm(i32 noundef %182) #14
-  %184 = call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
+  %187 = load i32, ptr @secs_per_test, align 4
+  %188 = call i32 @alarm(i32 noundef %187) #14
+  %189 = call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
   %.b6.i = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b6.i, label %test_non_sync.exit, label %.lr.ph.i5
+  br i1 %.b6.i, label %test_non_sync.exit, label %.lr.ph.i6
 
-.lr.ph.i5:                                        ; preds = %181, %188
-  %.07.i = phi i32 [ %189, %188 ], [ 0, %181 ]
-  %185 = load ptr, ptr @buf, align 8
-  %186 = call i64 @pwrite(i32 noundef %178, ptr noundef %185, i64 noundef 8192, i64 noundef 0) #14
-  %.not.i6 = icmp eq i64 %186, 8192
-  br i1 %.not.i6, label %188, label %187
+.lr.ph.i6:                                        ; preds = %186, %193
+  %.07.i = phi i32 [ %194, %193 ], [ 0, %186 ]
+  %190 = load ptr, ptr @buf, align 8
+  %191 = call i64 @pwrite(i32 noundef %183, ptr noundef %190, i64 noundef 8192, i64 noundef 0) #14
+  %.not.i7 = icmp eq i64 %191, 8192
+  br i1 %.not.i7, label %193, label %192
 
-187:                                              ; preds = %.lr.ph.i5
+192:                                              ; preds = %.lr.ph.i6
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
-188:                                              ; preds = %.lr.ph.i5
-  %189 = add i32 %.07.i, 1
-  %.b.i7 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b.i7, label %._crit_edge.loopexit.i8, label %.lr.ph.i5, !llvm.loop !10
+193:                                              ; preds = %.lr.ph.i6
+  %194 = add i32 %.07.i, 1
+  %.b.i8 = load i1, ptr @alarm_triggered, align 4
+  br i1 %.b.i8, label %._crit_edge.loopexit.i9, label %.lr.ph.i6, !llvm.loop !10
 
-._crit_edge.loopexit.i8:                          ; preds = %188
-  %190 = sitofp i32 %189 to double
+._crit_edge.loopexit.i9:                          ; preds = %193
+  %195 = sitofp i32 %194 to double
   br label %test_non_sync.exit
 
-test_non_sync.exit:                               ; preds = %181, %._crit_edge.loopexit.i8
-  %.0.lcssa.i10 = phi double [ 0.000000e+00, %181 ], [ %190, %._crit_edge.loopexit.i8 ]
-  %191 = call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
-  %192 = load i64, ptr @start_t, align 8
-  %193 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @start_t, i64 0, i32 1), align 8
-  %194 = load i64, ptr @stop_t, align 8
-  %195 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @stop_t, i64 0, i32 1), align 8
-  %196 = sub i64 %194, %192
-  %197 = sitofp i64 %196 to double
-  %198 = sub i64 %195, %193
-  %199 = sitofp i64 %198 to double
-  %200 = call double @llvm.fmuladd.f64(double %199, double 0x3EB0C6F7A0B5ED8D, double %197)
-  %201 = fdiv double %.0.lcssa.i10, %200
-  %202 = fdiv double %200, %.0.lcssa.i10
-  %203 = fmul double %202, 1.000000e+06
-  %204 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %201, double noundef %203) #14
-  %205 = call i32 @close(i32 noundef %178) #14
-  %206 = load ptr, ptr @filename, align 8
-  %207 = call i32 @unlink(ptr noundef %206) #14
+test_non_sync.exit:                               ; preds = %186, %._crit_edge.loopexit.i9
+  %.0.lcssa.i11 = phi double [ 0.000000e+00, %186 ], [ %195, %._crit_edge.loopexit.i9 ]
+  %196 = call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
+  %197 = load i64, ptr @start_t, align 8
+  %198 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @start_t, i64 0, i32 1), align 8
+  %199 = load i64, ptr @stop_t, align 8
+  %200 = load i64, ptr getelementptr inbounds (%struct.timeval, ptr @stop_t, i64 0, i32 1), align 8
+  %201 = sub i64 %199, %197
+  %202 = sitofp i64 %201 to double
+  %203 = sub i64 %200, %198
+  %204 = sitofp i64 %203 to double
+  %205 = call double @llvm.fmuladd.f64(double %204, double 0x3EB0C6F7A0B5ED8D, double %202)
+  %206 = fdiv double %.0.lcssa.i11, %205
+  %207 = fdiv double %205, %.0.lcssa.i11
+  %208 = fmul double %207, 1.000000e+06
+  %209 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %206, double noundef %208) #14
+  %210 = call i32 @close(i32 noundef %183) #14
+  %211 = load ptr, ptr @filename, align 8
+  %212 = call i32 @unlink(ptr noundef %211) #14
   ret i32 0
 }
 
@@ -979,7 +1004,7 @@ define internal fastcc void @test_open_sync(ptr noundef %0, i32 noundef %1) unna
   br i1 %.not, label %.preheader, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %.rhs.trunc = trunc i32 %1 to i8
+  %.rhs.trunc = trunc nuw i32 %1 to i8
   %17 = udiv i8 16, %.rhs.trunc
   %18 = zext nneg i8 %17 to i64
   br label %.preheader.us
@@ -996,7 +1021,7 @@ define internal fastcc void @test_open_sync(ptr noundef %0, i32 noundef %1) unna
 21:                                               ; preds = %.preheader.us, %19
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %19 ]
   %22 = load ptr, ptr @buf, align 8
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = mul i32 %15, %23
   %25 = sext i32 %24 to i64
   %26 = tail call i64 @pwrite(i32 noundef %7, ptr noundef %22, i64 noundef %16, i64 noundef %25) #14

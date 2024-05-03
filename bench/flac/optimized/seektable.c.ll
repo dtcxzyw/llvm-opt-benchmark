@@ -3,10 +3,8 @@ source_filename = "bench/flac/original/seektable.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@.str = private unnamed_addr constant [3 x i8] c"X;\00", align 1
-
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @grabbag__seektable_convert_specification_to_template(ptr noundef %spec, i32 noundef %only_explicit_placeholders, i64 noundef %total_samples_to_encode, i32 noundef %sample_rate, ptr noundef %seektable_template, ptr noundef writeonly %spec_has_real_points) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @grabbag__seektable_convert_specification_to_template(ptr noundef %spec, i32 noundef %only_explicit_placeholders, i64 noundef %total_samples_to_encode, i32 noundef %sample_rate, ptr noundef %seektable_template, ptr noundef writeonly %spec_has_real_points) local_unnamed_addr #0 {
 entry:
   %endptr = alloca ptr, align 8
   %cmp.not = icmp eq ptr %spec_has_real_points, null
@@ -34,25 +32,39 @@ land.rhs.lr.ph:                                   ; preds = %if.end
   br i1 %tobool1.not45, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %if.end107
+  %2 = phi i8 [ %13, %if.end107 ], [ %1, %land.rhs.lr.ph ]
   %pt.04446 = phi ptr [ %incdec.ptr, %if.end107 ], [ %spec, %land.rhs.lr.ph ]
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %pt.04446, i32 noundef 59) #6
   %cmp2 = icmp ugt ptr %call, %pt.04446
-  br i1 %cmp2, label %if.then4, label %if.end107
+  br i1 %cmp2, label %sub_0, label %if.end107
 
-if.then4:                                         ; preds = %for.body
-  %call5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %pt.04446, ptr noundef nonnull dereferenceable(3) @.str, i64 noundef 2) #6
-  %cmp6 = icmp eq i32 %call5, 0
+sub_0:                                            ; preds = %for.body
+  %3 = zext i8 %2 to i32
+  %4 = add nsw i32 %3, -88
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %sub_1, label %if.then4.tail
+
+sub_1:                                            ; preds = %sub_0
+  %5 = getelementptr inbounds i8, ptr %pt.04446, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = zext i8 %6 to i32
+  %8 = add nsw i32 %7, -59
+  br label %if.then4.tail
+
+if.then4.tail:                                    ; preds = %sub_0, %sub_1
+  %9 = phi i32 [ %4, %sub_0 ], [ %8, %sub_1 ]
+  %cmp6 = icmp eq i32 %9, 0
   br i1 %cmp6, label %if.then8, label %if.else
 
-if.then8:                                         ; preds = %if.then4
+if.then8:                                         ; preds = %if.then4.tail
   %call9 = tail call i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef %seektable_template, i32 noundef 1) #7
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %if.end107
 
-if.else:                                          ; preds = %if.then4
+if.else:                                          ; preds = %if.then4.tail
   %arrayidx = getelementptr inbounds i8, ptr %call, i64 -1
-  %2 = load i8, ptr %arrayidx, align 1
-  switch i8 %2, label %if.else74 [
+  %10 = load i8, ptr %arrayidx, align 1
+  switch i8 %10, label %if.else74 [
     i8 120, label %if.then16
     i8 115, label %if.then42
   ]
@@ -126,13 +138,13 @@ if.then80:                                        ; preds = %if.end78
   br i1 %cmp83, label %land.lhs.true91, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then80
-  %3 = load ptr, ptr %endptr, align 8
-  %cmp85 = icmp ugt ptr %3, %pt.04446
+  %11 = load ptr, ptr %endptr, align 8
+  %cmp85 = icmp ugt ptr %11, %pt.04446
   br i1 %cmp85, label %land.lhs.true87, label %if.end107
 
 land.lhs.true87:                                  ; preds = %lor.lhs.false
-  %4 = load i8, ptr %3, align 1
-  %cmp89 = icmp ne i8 %4, 59
+  %12 = load i8, ptr %11, align 1
+  %cmp89 = icmp ne i8 %12, 59
   %or.cond41.not = icmp ult i64 %0, %call82
   %or.cond42 = or i1 %or.cond41.not, %cmp89
   br i1 %or.cond42, label %if.end107, label %if.then97
@@ -148,8 +160,8 @@ if.then97:                                        ; preds = %land.lhs.true87, %l
 
 if.end107:                                        ; preds = %land.lhs.true91, %if.then8, %if.end51, %if.then57, %if.then65, %if.then53, %if.then42, %lor.lhs.false, %land.lhs.true87, %if.then97, %if.end78, %if.then16, %if.then25, %if.then29, %if.end23, %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
-  %5 = load i8, ptr %incdec.ptr, align 1
-  %tobool1.not = icmp eq i8 %5, 0
+  %13 = load i8, ptr %incdec.ptr, align 1
+  %tobool1.not = icmp eq i8 %13, 0
   br i1 %tobool1.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %if.end107, %land.rhs.lr.ph, %if.end
@@ -165,9 +177,6 @@ return:                                           ; preds = %if.then97, %if.then
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef, i32 noundef) local_unnamed_addr #2
 

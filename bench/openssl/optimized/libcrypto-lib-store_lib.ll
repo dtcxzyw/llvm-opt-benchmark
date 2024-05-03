@@ -13,7 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_store_search_st = type { i32, ptr, ptr, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [5 x i8] c"file\00", align 1
-@.str.1 = private unnamed_addr constant [3 x i8] c"//\00", align 1
 @.str.2 = private unnamed_addr constant [36 x i8] c"../openssl/crypto/store/store_lib.c\00", align 1
 @__func__.OSSL_STORE_open_ex = private unnamed_addr constant [19 x i8] c"OSSL_STORE_open_ex\00", align 1
 @.str.3 = private unnamed_addr constant [11 x i8] c"use_secmem\00", align 1
@@ -71,16 +70,28 @@ if.then:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.then
   %incdec.ptr = getelementptr inbounds i8, ptr %call2, i64 1
-  %call7 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(3) @.str.1, i64 noundef 2) #10
-  %cmp8.not = icmp eq i32 %call7, 0
-  %inc11 = select i1 %cmp8.not, i64 1, i64 2
-  %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %cmp8.not, i64 0, i64 8
-  %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %schemes, i64 %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  store ptr %scheme_copy, ptr %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 8
+  %0 = load i8, ptr %incdec.ptr, align 1
+  %.not = icmp eq i8 %0, 47
+  br i1 %.not, label %if.then6.tail, label %.thread
+
+if.then6.tail:                                    ; preds = %if.then6
+  %1 = getelementptr inbounds i8, ptr %call2, i64 2
+  %2 = load i8, ptr %1, align 1
+  %.fr = freeze i8 %2
+  %3 = icmp eq i8 %.fr, 47
+  %spec.select = select i1 %3, i64 1, i64 2
+  %spec.select105 = select i1 %3, i64 0, i64 8
+  br label %.thread
+
+.thread:                                          ; preds = %if.then6.tail, %if.then6
+  %4 = phi i64 [ 2, %if.then6 ], [ %spec.select, %if.then6.tail ]
+  %5 = phi i64 [ 8, %if.then6 ], [ %spec.select105, %if.then6.tail ]
+  %spec.select.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %schemes, i64 %5
+  store ptr %scheme_copy, ptr %spec.select.sroa.sel.idx.sroa.sel, align 8
   br label %if.end14
 
-if.end14:                                         ; preds = %if.then, %if.then6, %entry
-  %schemes_n.1 = phi i64 [ %inc11, %if.then6 ], [ 1, %if.then ], [ 1, %entry ]
+if.end14:                                         ; preds = %if.then, %.thread, %entry
+  %schemes_n.1 = phi i64 [ %4, %.thread ], [ 1, %if.then ], [ 1, %entry ]
   %call15 = call i32 @ERR_set_mark() #9
   %cmp16.not = icmp eq ptr %ui_method, null
   br i1 %cmp16.not, label %if.end21, label %land.lhs.true
@@ -113,32 +124,32 @@ for.body:                                         ; preds = %if.end21, %for.inc
   %no_loader_found.093 = phi i32 [ 1, %if.end21 ], [ %no_loader_found.2, %for.inc ]
   %fetched_loader.092 = phi ptr [ null, %if.end21 ], [ %fetched_loader.2, %for.inc ]
   %arrayidx24 = getelementptr inbounds [2 x ptr], ptr %schemes, i64 0, i64 %i.094
-  %0 = load ptr, ptr %arrayidx24, align 8
+  %6 = load ptr, ptr %arrayidx24, align 8
   %call25 = call i32 @ERR_set_mark() #9
-  %call26 = call ptr @ossl_store_get0_loader_int(ptr noundef %0) #9
+  %call26 = call ptr @ossl_store_get0_loader_int(ptr noundef %6) #9
   %cmp27.not = icmp eq ptr %call26, null
   br i1 %cmp27.not, label %land.lhs.true40, label %if.then28
 
 if.then28:                                        ; preds = %for.body
   %call29 = call i32 @ERR_clear_last_mark() #9
   %open_ex = getelementptr inbounds i8, ptr %call26, i64 88
-  %1 = load ptr, ptr %open_ex, align 8
-  %cmp30.not = icmp eq ptr %1, null
+  %7 = load ptr, ptr %open_ex, align 8
+  %cmp30.not = icmp eq ptr %7, null
   br i1 %cmp30.not, label %if.else, label %if.then31
 
 if.then31:                                        ; preds = %if.then28
-  %call33 = call ptr %1(ptr noundef nonnull %call26, ptr noundef %uri, ptr noundef %libctx, ptr noundef %propq, ptr noundef %ui_method, ptr noundef %ui_data) #9
+  %call33 = call ptr %7(ptr noundef nonnull %call26, ptr noundef %uri, ptr noundef %libctx, ptr noundef %propq, ptr noundef %ui_method, ptr noundef %ui_data) #9
   br label %for.inc
 
 if.else:                                          ; preds = %if.then28
   %open = getelementptr inbounds i8, ptr %call26, i64 16
-  %2 = load ptr, ptr %open, align 8
-  %call34 = call ptr %2(ptr noundef nonnull %call26, ptr noundef %uri, ptr noundef %ui_method, ptr noundef %ui_data) #9
+  %8 = load ptr, ptr %open, align 8
+  %call34 = call ptr %8(ptr noundef nonnull %call26, ptr noundef %uri, ptr noundef %ui_method, ptr noundef %ui_data) #9
   br label %for.inc
 
 land.lhs.true40:                                  ; preds = %for.body
   %call37 = call i32 @ERR_pop_to_mark() #9
-  %call41 = call ptr @OSSL_STORE_LOADER_fetch(ptr noundef %libctx, ptr noundef %0, ptr noundef %propq) #9
+  %call41 = call ptr @OSSL_STORE_LOADER_fetch(ptr noundef %libctx, ptr noundef %6, ptr noundef %propq) #9
   %cmp42.not = icmp eq ptr %call41, null
   br i1 %cmp42.not, label %for.inc, label %if.then43
 
@@ -146,14 +157,14 @@ if.then43:                                        ; preds = %land.lhs.true40
   %call44 = call ptr @OSSL_STORE_LOADER_get0_provider(ptr noundef nonnull %call41) #9
   %call45 = call ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef %call44) #9
   %p_open_ex = getelementptr inbounds i8, ptr %call41, i64 208
-  %3 = load ptr, ptr %p_open_ex, align 8
-  %cmp46.not = icmp eq ptr %3, null
+  %9 = load ptr, ptr %p_open_ex, align 8
+  %cmp46.not = icmp eq ptr %9, null
   br i1 %cmp46.not, label %if.else50, label %if.end59
 
 if.else50:                                        ; preds = %if.then43
   %p_open = getelementptr inbounds i8, ptr %call41, i64 136
-  %4 = load ptr, ptr %p_open, align 8
-  %call51 = call ptr %4(ptr noundef %call45, ptr noundef %uri) #9
+  %10 = load ptr, ptr %p_open, align 8
+  %call51 = call ptr %10(ptr noundef %call45, ptr noundef %uri) #9
   %cmp52.not = icmp eq ptr %call51, null
   br i1 %cmp52.not, label %if.then61, label %land.lhs.true53
 
@@ -165,8 +176,8 @@ land.lhs.true53:                                  ; preds = %if.else50
 
 if.then.i:                                        ; preds = %land.lhs.true53
   %p_set_ctx_params.i = getelementptr inbounds i8, ptr %call41, i64 160
-  %5 = load ptr, ptr %p_set_ctx_params.i, align 8
-  %call.i = call i32 %5(ptr noundef nonnull %call51, ptr noundef nonnull %params) #9
+  %11 = load ptr, ptr %p_set_ctx_params.i, align 8
+  %call.i = call i32 %11(ptr noundef nonnull %call51, ptr noundef nonnull %params) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then56, label %if.end2.i
 
@@ -184,8 +195,8 @@ if.end8.i:                                        ; preds = %if.then4.i
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp10.i) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx9.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp10.i, i64 40, i1 false)
   %p_set_ctx_params11.i = getelementptr inbounds i8, ptr %call41, i64 160
-  %6 = load ptr, ptr %p_set_ctx_params11.i, align 8
-  %call12.i = call i32 %6(ptr noundef nonnull %call51, ptr noundef nonnull %propp.i) #9
+  %12 = load ptr, ptr %p_set_ctx_params11.i, align 8
+  %call12.i = call i32 %12(ptr noundef nonnull %call51, ptr noundef nonnull %propp.i) #9
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %if.then56, label %if.end59.thread70
 
@@ -200,12 +211,12 @@ if.then56:                                        ; preds = %if.then.i, %if.end8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp10.i)
   %p_close = getelementptr inbounds i8, ptr %call41, i64 184
-  %7 = load ptr, ptr %p_close, align 8
-  %call57 = call i32 %7(ptr noundef nonnull %call51) #9
+  %13 = load ptr, ptr %p_close, align 8
+  %call57 = call i32 %13(ptr noundef nonnull %call51) #9
   br label %if.then61
 
 if.end59:                                         ; preds = %if.then43
-  %call49 = call ptr %3(ptr noundef %call45, ptr noundef %uri, ptr noundef %params, ptr noundef nonnull @ossl_pw_passphrase_callback_dec, ptr noundef nonnull %pwdata) #9
+  %call49 = call ptr %9(ptr noundef %call45, ptr noundef %uri, ptr noundef %params, ptr noundef nonnull @ossl_pw_passphrase_callback_dec, ptr noundef nonnull %pwdata) #9
   %cmp60 = icmp eq ptr %call49, null
   br i1 %cmp60, label %if.then61, label %if.end62
 
@@ -227,8 +238,8 @@ for.inc:                                          ; preds = %if.else, %if.then31
   %inc64 = add nuw nsw i64 %i.094, 1
   %cmp22 = icmp eq ptr %loader_ctx.3, null
   %cmp23 = icmp ult i64 %inc64, %schemes_n.1
-  %8 = select i1 %cmp22, i1 %cmp23, i1 false
-  br i1 %8, label %for.body, label %for.end, !llvm.loop !4
+  %14 = select i1 %cmp22, i1 %cmp23, i1 false
+  br i1 %14, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
   %tobool65 = icmp ne i32 %no_loader_found.2, 0
@@ -277,8 +288,8 @@ err:                                              ; preds = %for.end
 
 if.then89:                                        ; preds = %err.thread, %err
   %propq_copy.182 = phi ptr [ %propq_copy.1.ph, %err.thread ], [ null, %err ]
-  %9 = getelementptr inbounds i8, ptr %tmpctx, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, i8 0, i64 96, i1 false)
+  %15 = getelementptr inbounds i8, ptr %tmpctx, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %15, i8 0, i64 96, i1 false)
   %fetched_loader90 = getelementptr inbounds i8, ptr %tmpctx, i64 8
   store ptr %fetched_loader.2, ptr %fetched_loader90, align 8
   store ptr %loader.1, ptr %tmpctx, align 8
@@ -289,8 +300,8 @@ if.then89:                                        ; preds = %err.thread, %err
 
 if.end3.i:                                        ; preds = %if.then89
   %p_close.i = getelementptr inbounds i8, ptr %loader.1, i64 184
-  %10 = load ptr, ptr %p_close.i, align 8
-  %call.i59 = call i32 %10(ptr noundef nonnull %loader_ctx.3) #9
+  %16 = load ptr, ptr %p_close.i, align 8
+  %call.i59 = call i32 %16(ptr noundef nonnull %loader_ctx.3) #9
   %.pr.i = load ptr, ptr %fetched_loader90, align 8
   %cmp5.i = icmp eq ptr %.pr.i, null
   br i1 %cmp5.i, label %if.end3.i.if.then6.i_crit_edge, label %ossl_store_close_it.exit
@@ -301,23 +312,23 @@ if.end3.i.if.then6.i_crit_edge:                   ; preds = %if.end3.i
   br label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end3.i.if.then6.i_crit_edge, %if.then89
-  %11 = phi ptr [ %.pre96, %if.end3.i.if.then6.i_crit_edge ], [ %loader_ctx.3, %if.then89 ]
-  %12 = phi ptr [ %.pre, %if.end3.i.if.then6.i_crit_edge ], [ %loader.1, %if.then89 ]
-  %closefn.i = getelementptr inbounds i8, ptr %12, i64 80
-  %13 = load ptr, ptr %closefn.i, align 8
-  %call9.i = call i32 %13(ptr noundef %11) #9
+  %17 = phi ptr [ %.pre96, %if.end3.i.if.then6.i_crit_edge ], [ %loader_ctx.3, %if.then89 ]
+  %18 = phi ptr [ %.pre, %if.end3.i.if.then6.i_crit_edge ], [ %loader.1, %if.then89 ]
+  %closefn.i = getelementptr inbounds i8, ptr %18, i64 80
+  %19 = load ptr, ptr %closefn.i, align 8
+  %call9.i = call i32 %19(ptr noundef %17) #9
   %.pre97 = load ptr, ptr %fetched_loader90, align 8
   br label %ossl_store_close_it.exit
 
 ossl_store_close_it.exit:                         ; preds = %if.end3.i, %if.then6.i
-  %14 = phi ptr [ %.pr.i, %if.end3.i ], [ %.pre97, %if.then6.i ]
+  %20 = phi ptr [ %.pr.i, %if.end3.i ], [ %.pre97, %if.then6.i ]
   %cached_info.i = getelementptr inbounds i8, ptr %tmpctx, i64 64
-  %15 = load ptr, ptr %cached_info.i, align 8
-  call void @OPENSSL_sk_pop_free(ptr noundef %15, ptr noundef nonnull @OSSL_STORE_INFO_free) #9
-  call void @OSSL_STORE_LOADER_free(ptr noundef %14) #9
+  %21 = load ptr, ptr %cached_info.i, align 8
+  call void @OPENSSL_sk_pop_free(ptr noundef %21, ptr noundef nonnull @OSSL_STORE_INFO_free) #9
+  call void @OSSL_STORE_LOADER_free(ptr noundef %20) #9
   %properties.i = getelementptr inbounds i8, ptr %tmpctx, i64 48
-  %16 = load ptr, ptr %properties.i, align 8
-  call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str.2, i32 noundef 587) #9
+  %22 = load ptr, ptr %properties.i, align 8
+  call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str.2, i32 noundef 587) #9
   %pwdata.i = getelementptr inbounds i8, ptr %tmpctx, i64 72
   call void @ossl_pw_clear_passphrase_data(ptr noundef nonnull %pwdata.i) #9
   br label %if.end94
@@ -344,9 +355,6 @@ declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 declare i32 @ERR_set_mark() local_unnamed_addr #2
 
@@ -997,7 +1005,7 @@ return:                                           ; preds = %if.end48, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_STORE_eof(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_STORE_eof(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %fetched_loader = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %fetched_loader, align 8
@@ -1287,7 +1295,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_STORE_INFO_set0_NAME_description(ptr nocapture noundef %info, ptr noundef %desc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_STORE_INFO_set0_NAME_description(ptr nocapture noundef %info, ptr noundef %desc) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp.not = icmp eq i32 %0, 1

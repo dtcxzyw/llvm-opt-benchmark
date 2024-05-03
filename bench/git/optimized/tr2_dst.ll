@@ -8,9 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %struct.sockaddr_un = type { i16, [108 x i8] }
 
-@.str.1 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.2 = private unnamed_addr constant [6 x i8] c"false\00", align 1
-@.str.3 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @.str.4 = private unnamed_addr constant [5 x i8] c"true\00", align 1
 @sane_ctype = external local_unnamed_addr constant [256 x i8], align 16
 @.str.5 = private unnamed_addr constant [9 x i8] c"af_unix:\00", align 1
@@ -85,35 +83,48 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %strcmpload = load i8, ptr %call, align 1
-  %tobool6.not = icmp eq i8 %strcmpload, 0
-  br i1 %tobool6.not, label %if.then13, label %lor.lhs.false7
+  switch i8 %strcmpload, label %lor.lhs.false10 [
+    i8 0, label %if.then13
+    i8 48, label %lor.lhs.false7.tail
+  ]
 
-lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %call8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(2) @.str.1) #13
-  %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %if.then13, label %lor.lhs.false10
+lor.lhs.false7.tail:                              ; preds = %lor.lhs.false
+  %2 = getelementptr inbounds i8, ptr %call, i64 1
+  %3 = load i8, ptr %2, align 1
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %if.then13, label %lor.lhs.false10.thread
 
-lor.lhs.false10:                                  ; preds = %lor.lhs.false7
+lor.lhs.false10:                                  ; preds = %lor.lhs.false
   %call11 = tail call i32 @strcasecmp(ptr noundef nonnull %call, ptr noundef nonnull @.str.2) #13
   %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %if.then13, label %if.end16
+  br i1 %tobool12.not, label %if.then13, label %sub_030
 
-if.then13:                                        ; preds = %lor.lhs.false10, %lor.lhs.false7, %lor.lhs.false, %if.end
+lor.lhs.false10.thread:                           ; preds = %lor.lhs.false7.tail
+  %call1135 = tail call i32 @strcasecmp(ptr noundef nonnull %call, ptr noundef nonnull @.str.2) #13
+  %tobool12.not36 = icmp eq i32 %call1135, 0
+  br i1 %tobool12.not36, label %if.then13, label %lor.lhs.false19
+
+if.then13:                                        ; preds = %lor.lhs.false, %lor.lhs.false10.thread, %lor.lhs.false10, %lor.lhs.false7.tail, %if.end
   %fd14 = getelementptr inbounds i8, ptr %dst, i64 4
   store i32 0, ptr %fd14, align 4
   br label %return
 
-if.end16:                                         ; preds = %lor.lhs.false10
-  %call17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(2) @.str.3) #13
-  %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %if.then22, label %lor.lhs.false19
+sub_030:                                          ; preds = %lor.lhs.false10
+  %.not33 = icmp eq i8 %strcmpload, 49
+  br i1 %.not33, label %if.end16.tail, label %lor.lhs.false19
 
-lor.lhs.false19:                                  ; preds = %if.end16
+if.end16.tail:                                    ; preds = %sub_030
+  %5 = getelementptr inbounds i8, ptr %call, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %if.then22, label %lor.lhs.false19
+
+lor.lhs.false19:                                  ; preds = %lor.lhs.false10.thread, %sub_030, %if.end16.tail
   %call20 = tail call i32 @strcasecmp(ptr noundef nonnull %call, ptr noundef nonnull @.str.4) #13
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %if.then22, label %if.end25
 
-if.then22:                                        ; preds = %lor.lhs.false19, %if.end16
+if.then22:                                        ; preds = %lor.lhs.false19, %if.end16.tail
   %fd23 = getelementptr inbounds i8, ptr %dst, i64 4
   store i32 2, ptr %fd23, align 4
   br label %return
@@ -126,9 +137,9 @@ if.end25:                                         ; preds = %lor.lhs.false19
 land.lhs.true:                                    ; preds = %if.end25
   %idxprom = zext i8 %strcmpload to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
-  %2 = load i8, ptr %arrayidx, align 1
-  %3 = and i8 %2, 2
-  %cmp27.not = icmp eq i8 %3, 0
+  %8 = load i8, ptr %arrayidx, align 1
+  %9 = and i8 %8, 2
+  %cmp27.not = icmp eq i8 %9, 0
   br i1 %cmp27.not, label %if.end33, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true
@@ -177,17 +188,14 @@ return:                                           ; preds = %if.end47, %if.then4
 
 declare ptr @tr2_sysenv_get(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
 
 declare i32 @is_directory(ptr noundef) local_unnamed_addr #1
 
@@ -1008,7 +1016,7 @@ return:                                           ; preds = %connected, %tr2_dst
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tr2_dst_trace_want(ptr nocapture noundef %dst) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tr2_dst_trace_want(ptr nocapture noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @tr2_dst_get_trace_fd(ptr noundef %dst)
   %tobool = icmp ne i32 %call, 0
@@ -1159,7 +1167,7 @@ declare ptr @tr2_sid_get() local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1206,8 +1214,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

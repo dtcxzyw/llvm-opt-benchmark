@@ -46,14 +46,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.40 = private unnamed_addr constant [51 x i8] c"The %s couldn't be closed for some unknown reason.\00", align 1
 @.str.41 = private unnamed_addr constant [55 x i8] c"An internal error occurred closing the file \22%s\22.\0A(%s)\00", align 1
 @.str.42 = private unnamed_addr constant [49 x i8] c"An error occurred while closing the file %s: %s.\00", align 1
-@.str.43 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.44 = private unnamed_addr constant [15 x i8] c"standard input\00", align 1
 @.str.45 = private unnamed_addr constant [10 x i8] c"file \22%s\22\00", align 1
 @.str.46 = private unnamed_addr constant [16 x i8] c"standard output\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @failure_message(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  tail call void @vcmdarg_err(ptr noundef %0, ptr noundef %1) #4
+  tail call void @vcmdarg_err(ptr noundef %0, ptr noundef %1) #3
   ret void
 }
 
@@ -62,8 +61,8 @@ declare void @vcmdarg_err(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @open_failure_message(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne i32 %2, 0
-  %5 = tail call ptr @file_open_error_message(i32 noundef %1, i1 noundef zeroext %4) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef %5, ptr noundef %0) #4
+  %5 = tail call ptr @file_open_error_message(i32 noundef %1, i1 noundef zeroext %4) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef %5, ptr noundef %0) #3
   ret void
 }
 
@@ -73,8 +72,8 @@ declare ptr @file_open_error_message(i32 noundef, i1 noundef zeroext) local_unna
 
 ; Function Attrs: nounwind uwtable
 define hidden void @read_failure_message(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @g_strerror(i32 noundef %1) #5
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %3) #4
+  %3 = tail call ptr @g_strerror(i32 noundef %1) #4
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %3) #3
   ret void
 }
 
@@ -83,123 +82,129 @@ declare ptr @g_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @write_failure_message(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @g_strerror(i32 noundef %1) #5
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef %3) #4
+  %3 = tail call ptr @g_strerror(i32 noundef %1) #4
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef %3) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cfile_open_failure_message(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 0
-  br i1 %4, label %5, label %35
+  br i1 %4, label %5, label %36
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.43) #6
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %10
+  %6 = load i8, ptr %0, align 1
+  %.not.i = icmp eq i8 %6, 45
+  br i1 %.not.i, label %.tail.i, label %.tail.thread.i
 
-8:                                                ; preds = %5
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.44) #4
+.tail.i:                                          ; preds = %5
+  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %10, label %.tail.thread.i
+
+10:                                               ; preds = %.tail.i
+  %11 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.44) #3
   br label %input_file_description.exit
 
-10:                                               ; preds = %5
-  %11 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef %0) #4
+.tail.thread.i:                                   ; preds = %.tail.i, %5
+  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %0) #3
   br label %input_file_description.exit
 
-input_file_description.exit:                      ; preds = %8, %10
-  %.0.i = phi ptr [ %9, %8 ], [ %11, %10 ]
-  switch i32 %1, label %32 [
-    i32 -1, label %12
-    i32 -2, label %13
-    i32 -3, label %15
-    i32 -4, label %17
-    i32 -9, label %20
-    i32 -13, label %22
-    i32 -6, label %24
-    i32 -12, label %25
-    i32 -20, label %26
-    i32 -21, label %28
-    i32 -26, label %30
+input_file_description.exit:                      ; preds = %10, %.tail.thread.i
+  %.0.i = phi ptr [ %11, %10 ], [ %12, %.tail.thread.i ]
+  switch i32 %1, label %33 [
+    i32 -1, label %13
+    i32 -2, label %14
+    i32 -3, label %16
+    i32 -4, label %18
+    i32 -9, label %21
+    i32 -13, label %23
+    i32 -6, label %25
+    i32 -12, label %26
+    i32 -20, label %27
+    i32 -21, label %29
+    i32 -26, label %31
   ]
 
-12:                                               ; preds = %input_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.2, ptr noundef %.0.i) #4
-  br label %34
-
 13:                                               ; preds = %input_file_description.exit
-  %14 = tail call ptr @get_friendly_program_name() #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.3, ptr noundef %.0.i, ptr noundef %14) #4
-  br label %34
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.2, ptr noundef %.0.i) #3
+  br label %35
 
-15:                                               ; preds = %input_file_description.exit
-  %16 = tail call ptr @get_friendly_program_name() #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.4, ptr noundef %.0.i, ptr noundef %16) #4
-  br label %34
+14:                                               ; preds = %input_file_description.exit
+  %15 = tail call ptr @get_friendly_program_name() #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.3, ptr noundef %.0.i, ptr noundef %15) #3
+  br label %35
 
-17:                                               ; preds = %input_file_description.exit
-  %18 = tail call ptr @get_friendly_program_name() #4
+16:                                               ; preds = %input_file_description.exit
+  %17 = tail call ptr @get_friendly_program_name() #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.4, ptr noundef %.0.i, ptr noundef %17) #3
+  br label %35
+
+18:                                               ; preds = %input_file_description.exit
+  %19 = tail call ptr @get_friendly_program_name() #3
   %.not36 = icmp eq ptr %2, null
-  %19 = select i1 %.not36, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.5, ptr noundef %.0.i, ptr noundef %18, ptr noundef nonnull %19) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %34
+  %20 = select i1 %.not36, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.5, ptr noundef %.0.i, ptr noundef %19, ptr noundef nonnull %20) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %35
 
-20:                                               ; preds = %input_file_description.exit
-  %21 = tail call ptr @get_friendly_program_name() #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.7, ptr noundef %.0.i, ptr noundef %21) #4
-  br label %34
+21:                                               ; preds = %input_file_description.exit
+  %22 = tail call ptr @get_friendly_program_name() #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.7, ptr noundef %.0.i, ptr noundef %22) #3
+  br label %35
 
-22:                                               ; preds = %input_file_description.exit
+23:                                               ; preds = %input_file_description.exit
   %.not35 = icmp eq ptr %2, null
-  %23 = select i1 %.not35, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.8, ptr noundef %.0.i, ptr noundef nonnull %23) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %34
-
-24:                                               ; preds = %input_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.9, ptr noundef %.0.i) #4
-  br label %34
+  %24 = select i1 %.not35, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.8, ptr noundef %.0.i, ptr noundef nonnull %24) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %35
 
 25:                                               ; preds = %input_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.10, ptr noundef %.0.i) #4
-  br label %34
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.9, ptr noundef %.0.i) #3
+  br label %35
 
 26:                                               ; preds = %input_file_description.exit
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.10, ptr noundef %.0.i) #3
+  br label %35
+
+27:                                               ; preds = %input_file_description.exit
   %.not34 = icmp eq ptr %2, null
-  %27 = select i1 %.not34, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.11, ptr noundef %.0.i, ptr noundef nonnull %27) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %34
+  %28 = select i1 %.not34, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.11, ptr noundef %.0.i, ptr noundef nonnull %28) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %35
 
-28:                                               ; preds = %input_file_description.exit
+29:                                               ; preds = %input_file_description.exit
   %.not33 = icmp eq ptr %2, null
-  %29 = select i1 %.not33, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.12, ptr noundef %.0.i, ptr noundef nonnull %29) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %34
+  %30 = select i1 %.not33, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.12, ptr noundef %.0.i, ptr noundef nonnull %30) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %35
 
-30:                                               ; preds = %input_file_description.exit
+31:                                               ; preds = %input_file_description.exit
   %.not = icmp eq ptr %2, null
-  %31 = select i1 %.not, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.13, ptr noundef %.0.i, ptr noundef nonnull %31) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %34
+  %32 = select i1 %.not, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.13, ptr noundef %.0.i, ptr noundef nonnull %32) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %35
 
-32:                                               ; preds = %input_file_description.exit
-  %33 = tail call ptr @wtap_strerror(i32 noundef %1) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.14, ptr noundef %.0.i, ptr noundef %33) #4
-  br label %34
+33:                                               ; preds = %input_file_description.exit
+  %34 = tail call ptr @wtap_strerror(i32 noundef %1) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.14, ptr noundef %.0.i, ptr noundef %34) #3
+  br label %35
 
-34:                                               ; preds = %32, %30, %28, %26, %25, %24, %22, %20, %17, %15, %13, %12
-  tail call void @g_free(ptr noundef %.0.i) #4
-  br label %37
+35:                                               ; preds = %33, %31, %29, %27, %26, %25, %23, %21, %18, %16, %14, %13
+  tail call void @g_free(ptr noundef %.0.i) #3
+  br label %38
 
-35:                                               ; preds = %3
-  %36 = tail call ptr @file_open_error_message(i32 noundef %1, i1 noundef zeroext false) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef %36, ptr noundef %0) #4
-  br label %37
+36:                                               ; preds = %3
+  %37 = tail call ptr @file_open_error_message(i32 noundef %1, i1 noundef zeroext false) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef %37, ptr noundef %0) #3
+  br label %38
 
-37:                                               ; preds = %35, %34
+38:                                               ; preds = %36, %35
   ret void
 }
 
@@ -212,93 +217,99 @@ declare ptr @wtap_strerror(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @cfile_dump_open_failure_message(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %1, 0
-  br i1 %5, label %6, label %30
+  br i1 %5, label %6, label %31
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.43) #6
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %11
+  %7 = load i8, ptr %0, align 1
+  %.not.i = icmp eq i8 %7, 45
+  br i1 %.not.i, label %.tail.i, label %.tail.thread.i
 
-9:                                                ; preds = %6
-  %10 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #4
+.tail.i:                                          ; preds = %6
+  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %11, label %.tail.thread.i
+
+11:                                               ; preds = %.tail.i
+  %12 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #3
   br label %output_file_description.exit
 
-11:                                               ; preds = %6
-  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef %0) #4
+.tail.thread.i:                                   ; preds = %.tail.i, %6
+  %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %0) #3
   br label %output_file_description.exit
 
-output_file_description.exit:                     ; preds = %9, %11
-  %.0.i = phi ptr [ %10, %9 ], [ %12, %11 ]
-  switch i32 %1, label %27 [
-    i32 -1, label %13
-    i32 -5, label %14
-    i32 -7, label %16
-    i32 -8, label %18
-    i32 -9, label %20
-    i32 -6, label %22
-    i32 -14, label %23
-    i32 -17, label %24
-    i32 -21, label %25
+output_file_description.exit:                     ; preds = %11, %.tail.thread.i
+  %.0.i = phi ptr [ %12, %11 ], [ %13, %.tail.thread.i ]
+  switch i32 %1, label %28 [
+    i32 -1, label %14
+    i32 -5, label %15
+    i32 -7, label %17
+    i32 -8, label %19
+    i32 -9, label %21
+    i32 -6, label %23
+    i32 -14, label %24
+    i32 -17, label %25
+    i32 -21, label %26
   ]
 
-13:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.2, ptr noundef %.0.i) #4
-  br label %29
-
 14:                                               ; preds = %output_file_description.exit
-  %15 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %3) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.15, ptr noundef %.0.i, ptr noundef %15) #4
-  br label %29
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.2, ptr noundef %.0.i) #3
+  br label %30
 
-16:                                               ; preds = %output_file_description.exit
-  %17 = tail call ptr @get_friendly_program_name() #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.16, ptr noundef %17) #4
-  br label %29
+15:                                               ; preds = %output_file_description.exit
+  %16 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %3) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.15, ptr noundef %.0.i, ptr noundef %16) #3
+  br label %30
 
-18:                                               ; preds = %output_file_description.exit
-  %19 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %3) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.17, ptr noundef %19) #4
-  br label %29
+17:                                               ; preds = %output_file_description.exit
+  %18 = tail call ptr @get_friendly_program_name() #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.16, ptr noundef %18) #3
+  br label %30
 
-20:                                               ; preds = %output_file_description.exit
-  %21 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %3) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.17, ptr noundef %21) #4
-  br label %29
+19:                                               ; preds = %output_file_description.exit
+  %20 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %3) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.17, ptr noundef %20) #3
+  br label %30
 
-22:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.18, ptr noundef %.0.i) #4
-  br label %29
+21:                                               ; preds = %output_file_description.exit
+  %22 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %3) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.17, ptr noundef %22) #3
+  br label %30
 
 23:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.19, ptr noundef %.0.i) #4
-  br label %29
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.18, ptr noundef %.0.i) #3
+  br label %30
 
 24:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.20) #4
-  br label %29
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.19, ptr noundef %.0.i) #3
+  br label %30
 
 25:                                               ; preds = %output_file_description.exit
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.20) #3
+  br label %30
+
+26:                                               ; preds = %output_file_description.exit
   %.not = icmp eq ptr %2, null
-  %26 = select i1 %.not, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, ptr noundef %.0.i, ptr noundef nonnull %26) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %29
+  %27 = select i1 %.not, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, ptr noundef %.0.i, ptr noundef nonnull %27) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %30
 
-27:                                               ; preds = %output_file_description.exit
-  %28 = tail call ptr @wtap_strerror(i32 noundef %1) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.22, ptr noundef %.0.i, ptr noundef %28) #4
-  br label %29
+28:                                               ; preds = %output_file_description.exit
+  %29 = tail call ptr @wtap_strerror(i32 noundef %1) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.22, ptr noundef %.0.i, ptr noundef %29) #3
+  br label %30
 
-29:                                               ; preds = %27, %25, %24, %23, %22, %20, %18, %16, %14, %13
-  tail call void @g_free(ptr noundef %.0.i) #4
-  br label %32
+30:                                               ; preds = %28, %26, %25, %24, %23, %21, %19, %17, %15, %14
+  tail call void @g_free(ptr noundef %.0.i) #3
+  br label %33
 
-30:                                               ; preds = %4
-  %31 = tail call ptr @file_open_error_message(i32 noundef %1, i1 noundef zeroext true) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef %31, ptr noundef %0) #4
-  br label %32
+31:                                               ; preds = %4
+  %32 = tail call ptr @file_open_error_message(i32 noundef %1, i1 noundef zeroext true) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef %32, ptr noundef %0) #3
+  br label %33
 
-32:                                               ; preds = %30, %29
+33:                                               ; preds = %31, %30
   ret void
 }
 
@@ -306,76 +317,82 @@ declare ptr @wtap_file_type_subtype_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cfile_read_failure_message(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.43) #6
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %8
+  %4 = load i8, ptr %0, align 1
+  %.not.i = icmp eq i8 %4, 45
+  br i1 %.not.i, label %.tail.i, label %.tail.thread.i
 
-6:                                                ; preds = %3
-  %7 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.44) #4
+.tail.i:                                          ; preds = %3
+  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %8, label %.tail.thread.i
+
+8:                                                ; preds = %.tail.i
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.44) #3
   br label %input_file_description.exit
 
-8:                                                ; preds = %3
-  %9 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef %0) #4
+.tail.thread.i:                                   ; preds = %.tail.i, %3
+  %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %0) #3
   br label %input_file_description.exit
 
-input_file_description.exit:                      ; preds = %6, %8
-  %.0.i = phi ptr [ %7, %6 ], [ %9, %8 ]
-  switch i32 %1, label %22 [
-    i32 -4, label %10
-    i32 -12, label %13
-    i32 -13, label %14
-    i32 -20, label %16
-    i32 -21, label %18
-    i32 -26, label %20
+input_file_description.exit:                      ; preds = %8, %.tail.thread.i
+  %.0.i = phi ptr [ %9, %8 ], [ %10, %.tail.thread.i ]
+  switch i32 %1, label %23 [
+    i32 -4, label %11
+    i32 -12, label %14
+    i32 -13, label %15
+    i32 -20, label %17
+    i32 -21, label %19
+    i32 -26, label %21
   ]
 
-10:                                               ; preds = %input_file_description.exit
-  %11 = tail call ptr @get_friendly_program_name() #4
+11:                                               ; preds = %input_file_description.exit
+  %12 = tail call ptr @get_friendly_program_name() #3
   %.not28 = icmp eq ptr %2, null
-  %12 = select i1 %.not28, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.5, ptr noundef %.0.i, ptr noundef %11, ptr noundef nonnull %12) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %24
-
-13:                                               ; preds = %input_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %.0.i) #4
-  br label %24
+  %13 = select i1 %.not28, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.5, ptr noundef %.0.i, ptr noundef %12, ptr noundef nonnull %13) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %25
 
 14:                                               ; preds = %input_file_description.exit
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %.0.i) #3
+  br label %25
+
+15:                                               ; preds = %input_file_description.exit
   %.not27 = icmp eq ptr %2, null
-  %15 = select i1 %.not27, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.8, ptr noundef %.0.i, ptr noundef nonnull %15) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %24
+  %16 = select i1 %.not27, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.8, ptr noundef %.0.i, ptr noundef nonnull %16) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %25
 
-16:                                               ; preds = %input_file_description.exit
+17:                                               ; preds = %input_file_description.exit
   %.not26 = icmp eq ptr %2, null
-  %17 = select i1 %.not26, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.24, ptr noundef %.0.i, ptr noundef nonnull %17) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %24
+  %18 = select i1 %.not26, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.24, ptr noundef %.0.i, ptr noundef nonnull %18) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %25
 
-18:                                               ; preds = %input_file_description.exit
+19:                                               ; preds = %input_file_description.exit
   %.not25 = icmp eq ptr %2, null
-  %19 = select i1 %.not25, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.25, ptr noundef %.0.i, ptr noundef nonnull %19) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %24
+  %20 = select i1 %.not25, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.25, ptr noundef %.0.i, ptr noundef nonnull %20) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %25
 
-20:                                               ; preds = %input_file_description.exit
+21:                                               ; preds = %input_file_description.exit
   %.not = icmp eq ptr %2, null
-  %21 = select i1 %.not, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.26, ptr noundef %.0.i, ptr noundef nonnull %21) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %24
+  %22 = select i1 %.not, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.26, ptr noundef %.0.i, ptr noundef nonnull %22) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %25
 
-22:                                               ; preds = %input_file_description.exit
-  %23 = tail call ptr @wtap_strerror(i32 noundef %1) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.27, ptr noundef %.0.i, ptr noundef %23) #4
-  br label %24
+23:                                               ; preds = %input_file_description.exit
+  %24 = tail call ptr @wtap_strerror(i32 noundef %1) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.27, ptr noundef %.0.i, ptr noundef %24) #3
+  br label %25
 
-24:                                               ; preds = %22, %20, %18, %16, %14, %13, %10
-  tail call void @g_free(ptr noundef %.0.i) #4
+25:                                               ; preds = %23, %21, %19, %17, %15, %14, %11
+  tail call void @g_free(ptr noundef %.0.i) #3
   ret void
 }
 
@@ -385,112 +402,124 @@ define hidden void @cfile_write_failure_message(ptr noundef %0, ptr noundef %1, 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.28) #4
-  br label %18
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.28) #3
+  br label %19
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.43) #6
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %15
+  %11 = load i8, ptr %0, align 1
+  %.not.i = icmp eq i8 %11, 45
+  br i1 %.not.i, label %.tail.i, label %.tail.thread.i
 
-13:                                               ; preds = %10
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.44) #4
+.tail.i:                                          ; preds = %10
+  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %15, label %.tail.thread.i
+
+15:                                               ; preds = %.tail.i
+  %16 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.44) #3
   br label %input_file_description.exit
 
-15:                                               ; preds = %10
-  %16 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %0) #4
+.tail.thread.i:                                   ; preds = %.tail.i, %10
+  %17 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %0) #3
   br label %input_file_description.exit
 
-input_file_description.exit:                      ; preds = %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ]
-  %17 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef %4, ptr noundef %.0.i) #4
-  tail call void @g_free(ptr noundef %.0.i) #4
-  br label %18
+input_file_description.exit:                      ; preds = %15, %.tail.thread.i
+  %.0.i = phi ptr [ %16, %15 ], [ %17, %.tail.thread.i ]
+  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef %4, ptr noundef %.0.i) #3
+  tail call void @g_free(ptr noundef %.0.i) #3
+  br label %19
 
-18:                                               ; preds = %input_file_description.exit, %8
-  %.0 = phi ptr [ %9, %8 ], [ %17, %input_file_description.exit ]
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.43) #6
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+19:                                               ; preds = %input_file_description.exit, %8
+  %.0 = phi ptr [ %9, %8 ], [ %18, %input_file_description.exit ]
+  %20 = load i8, ptr %1, align 1
+  %.not.i33 = icmp eq i8 %20, 45
+  br i1 %.not.i33, label %.tail.i36, label %.tail.thread.i34
 
-21:                                               ; preds = %18
-  %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #4
+.tail.i36:                                        ; preds = %19
+  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %22 = load i8, ptr %21, align 1
+  %23 = icmp eq i8 %22, 0
+  br i1 %23, label %24, label %.tail.thread.i34
+
+24:                                               ; preds = %.tail.i36
+  %25 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #3
   br label %output_file_description.exit
 
-23:                                               ; preds = %18
-  %24 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef %1) #4
+.tail.thread.i34:                                 ; preds = %.tail.i36, %19
+  %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %1) #3
   br label %output_file_description.exit
 
-output_file_description.exit:                     ; preds = %21, %23
-  %.0.i33 = phi ptr [ %22, %21 ], [ %24, %23 ]
-  switch i32 %2, label %42 [
-    i32 -8, label %25
-    i32 -9, label %27
-    i32 -22, label %29
-    i32 -24, label %32
-    i32 -25, label %34
-    i32 -21, label %37
-    i32 28, label %39
-    i32 122, label %40
-    i32 -14, label %41
+output_file_description.exit:                     ; preds = %24, %.tail.thread.i34
+  %.0.i35 = phi ptr [ %25, %24 ], [ %26, %.tail.thread.i34 ]
+  switch i32 %2, label %44 [
+    i32 -8, label %27
+    i32 -9, label %29
+    i32 -22, label %31
+    i32 -24, label %34
+    i32 -25, label %36
+    i32 -21, label %39
+    i32 28, label %41
+    i32 122, label %42
+    i32 -14, label %43
   ]
 
-25:                                               ; preds = %output_file_description.exit
-  %26 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %5) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.30, ptr noundef %.0, ptr noundef %26) #4
-  br label %44
-
 27:                                               ; preds = %output_file_description.exit
-  %28 = tail call ptr @wtap_file_type_subtype_description(i32 noundef %5) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.31, ptr noundef %.0, ptr noundef %28) #4
-  br label %44
+  %28 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %5) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.30, ptr noundef %.0, ptr noundef %28) #3
+  br label %46
 
 29:                                               ; preds = %output_file_description.exit
-  %30 = tail call ptr @get_friendly_program_name() #4
-  %31 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %5) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.32, ptr noundef %.0, ptr noundef %30, ptr noundef %31) #4
-  br label %44
+  %30 = tail call ptr @wtap_file_type_subtype_description(i32 noundef %5) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.31, ptr noundef %.0, ptr noundef %30) #3
+  br label %46
 
-32:                                               ; preds = %output_file_description.exit
-  %33 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %5) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.33, ptr noundef %.0, ptr noundef %33) #4
-  br label %44
+31:                                               ; preds = %output_file_description.exit
+  %32 = tail call ptr @get_friendly_program_name() #3
+  %33 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %5) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.32, ptr noundef %.0, ptr noundef %32, ptr noundef %33) #3
+  br label %46
 
 34:                                               ; preds = %output_file_description.exit
-  %35 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %5) #4
-  %.not32 = icmp eq ptr %3, null
-  %36 = select i1 %.not32, ptr @.str.6, ptr %3
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.34, ptr noundef %.0, ptr noundef %35, ptr noundef nonnull %36) #4
-  tail call void @g_free(ptr noundef %3) #4
-  br label %44
+  %35 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %5) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.33, ptr noundef %.0, ptr noundef %35) #3
+  br label %46
 
-37:                                               ; preds = %output_file_description.exit
-  %.not = icmp eq ptr %3, null
-  %38 = select i1 %.not, ptr @.str.6, ptr %3
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.35, ptr noundef %.0, ptr noundef %.0.i33, ptr noundef nonnull %38) #4
-  tail call void @g_free(ptr noundef %3) #4
-  br label %44
+36:                                               ; preds = %output_file_description.exit
+  %37 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %5) #3
+  %.not32 = icmp eq ptr %3, null
+  %38 = select i1 %.not32, ptr @.str.6, ptr %3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.34, ptr noundef %.0, ptr noundef %37, ptr noundef nonnull %38) #3
+  tail call void @g_free(ptr noundef %3) #3
+  br label %46
 
 39:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.36, ptr noundef %.0.i33) #4
-  br label %44
-
-40:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.37, ptr noundef %.0.i33) #4
-  br label %44
+  %.not = icmp eq ptr %3, null
+  %40 = select i1 %.not, ptr @.str.6, ptr %3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.35, ptr noundef %.0, ptr noundef %.0.i35, ptr noundef nonnull %40) #3
+  tail call void @g_free(ptr noundef %3) #3
+  br label %46
 
 41:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.38, ptr noundef %.0.i33) #4
-  br label %44
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.36, ptr noundef %.0.i35) #3
+  br label %46
 
 42:                                               ; preds = %output_file_description.exit
-  %43 = tail call ptr @wtap_strerror(i32 noundef %2) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.39, ptr noundef %.0.i33, ptr noundef %43) #4
-  br label %44
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.37, ptr noundef %.0.i35) #3
+  br label %46
 
-44:                                               ; preds = %42, %41, %40, %39, %37, %34, %32, %29, %27, %25
-  tail call void @g_free(ptr noundef %.0) #4
-  tail call void @g_free(ptr noundef %.0.i33) #4
+43:                                               ; preds = %output_file_description.exit
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.38, ptr noundef %.0.i35) #3
+  br label %46
+
+44:                                               ; preds = %output_file_description.exit
+  %45 = tail call ptr @wtap_strerror(i32 noundef %2) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.39, ptr noundef %.0.i35, ptr noundef %45) #3
+  br label %46
+
+46:                                               ; preds = %44, %43, %42, %41, %39, %36, %34, %31, %29, %27
+  tail call void @g_free(ptr noundef %.0) #3
+  tail call void @g_free(ptr noundef %.0.i35) #3
   ret void
 }
 
@@ -502,71 +531,72 @@ declare ptr @wtap_file_type_subtype_description(i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cfile_close_failure_message(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.43) #6
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %8
+  %4 = load i8, ptr %0, align 1
+  %.not.i = icmp eq i8 %4, 45
+  br i1 %.not.i, label %.tail.i, label %.tail.thread.i
 
-6:                                                ; preds = %3
-  %7 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #4
+.tail.i:                                          ; preds = %3
+  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %8, label %.tail.thread.i
+
+8:                                                ; preds = %.tail.i
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #3
   br label %output_file_description.exit
 
-8:                                                ; preds = %3
-  %9 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef %0) #4
+.tail.thread.i:                                   ; preds = %.tail.i, %3
+  %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %0) #3
   br label %output_file_description.exit
 
-output_file_description.exit:                     ; preds = %6, %8
-  %.0.i = phi ptr [ %7, %6 ], [ %9, %8 ]
-  switch i32 %1, label %16 [
-    i32 28, label %10
-    i32 122, label %11
-    i32 -11, label %12
-    i32 -14, label %13
-    i32 -21, label %14
+output_file_description.exit:                     ; preds = %8, %.tail.thread.i
+  %.0.i = phi ptr [ %9, %8 ], [ %10, %.tail.thread.i ]
+  switch i32 %1, label %17 [
+    i32 28, label %11
+    i32 122, label %12
+    i32 -11, label %13
+    i32 -14, label %14
+    i32 -21, label %15
   ]
 
-10:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.36, ptr noundef %.0.i) #4
-  br label %18
-
 11:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.37, ptr noundef %.0.i) #4
-  br label %18
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.36, ptr noundef %.0.i) #3
+  br label %19
 
 12:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.40, ptr noundef %.0.i) #4
-  br label %18
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.37, ptr noundef %.0.i) #3
+  br label %19
 
 13:                                               ; preds = %output_file_description.exit
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.38, ptr noundef %.0.i) #4
-  br label %18
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.40, ptr noundef %.0.i) #3
+  br label %19
 
 14:                                               ; preds = %output_file_description.exit
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.38, ptr noundef %.0.i) #3
+  br label %19
+
+15:                                               ; preds = %output_file_description.exit
   %.not = icmp eq ptr %2, null
-  %15 = select i1 %.not, ptr @.str.6, ptr %2
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.41, ptr noundef %.0.i, ptr noundef nonnull %15) #4
-  tail call void @g_free(ptr noundef %2) #4
-  br label %18
+  %16 = select i1 %.not, ptr @.str.6, ptr %2
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.41, ptr noundef %.0.i, ptr noundef nonnull %16) #3
+  tail call void @g_free(ptr noundef %2) #3
+  br label %19
 
-16:                                               ; preds = %output_file_description.exit
-  %17 = tail call ptr @wtap_strerror(i32 noundef %1) #4
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.42, ptr noundef %.0.i, ptr noundef %17) #4
-  br label %18
+17:                                               ; preds = %output_file_description.exit
+  %18 = tail call ptr @wtap_strerror(i32 noundef %1) #3
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.42, ptr noundef %.0.i, ptr noundef %18) #3
+  br label %19
 
-18:                                               ; preds = %16, %14, %13, %12, %11, %10
-  tail call void @g_free(ptr noundef %.0.i) #4
+19:                                               ; preds = %17, %15, %14, %13, %12, %11
+  tail call void @g_free(ptr noundef %.0.i) #3
   ret void
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(none) }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #3 = { nounwind }
+attributes #4 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

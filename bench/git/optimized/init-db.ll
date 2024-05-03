@@ -55,7 +55,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 @.str.41 = private unnamed_addr constant [11 x i8] c"./strbuf.h\00", align 1
 @.str.42 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
-@.str.43 = private unnamed_addr constant [2 x i8] c".\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cmd_init_db(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
@@ -393,7 +392,7 @@ xstrdup_or_null.exit:                             ; preds = %if.end184, %cond.tr
   br i1 %tobool.not.i36, label %xstrdup_or_null.exit40.thread, label %xstrdup_or_null.exit40
 
 xstrdup_or_null.exit40.thread:                    ; preds = %xstrdup_or_null.exit
-  %tobool18946 = icmp eq ptr %cond.i, null
+  %tobool18945 = icmp eq ptr %cond.i, null
   br label %if.end196
 
 xstrdup_or_null.exit40:                           ; preds = %xstrdup_or_null.exit
@@ -412,10 +411,10 @@ if.then194:                                       ; preds = %xstrdup_or_null.exi
   unreachable
 
 if.end196:                                        ; preds = %xstrdup_or_null.exit40.thread, %xstrdup_or_null.exit40
-  %tobool19353 = phi i1 [ false, %xstrdup_or_null.exit40.thread ], [ %tobool193, %xstrdup_or_null.exit40 ]
-  %tobool18952 = phi i1 [ %tobool18946, %xstrdup_or_null.exit40.thread ], [ %tobool189, %xstrdup_or_null.exit40 ]
-  %cond.i3951 = phi ptr [ null, %xstrdup_or_null.exit40.thread ], [ %call.i38, %xstrdup_or_null.exit40 ]
-  %spec.store.select = select i1 %tobool18952, ptr @.str.32, ptr %cond.i
+  %tobool19352 = phi i1 [ false, %xstrdup_or_null.exit40.thread ], [ %tobool193, %xstrdup_or_null.exit40 ]
+  %tobool18951 = phi i1 [ %tobool18945, %xstrdup_or_null.exit40.thread ], [ %tobool189, %xstrdup_or_null.exit40 ]
+  %cond.i3950 = phi ptr [ null, %xstrdup_or_null.exit40.thread ], [ %call.i38, %xstrdup_or_null.exit40 ]
+  %spec.store.select = select i1 %tobool18951, ptr @.str.32, ptr %cond.i
   %17 = load ptr, ptr %real_git_dir, align 8
   %tobool200.not = icmp eq ptr %17, null
   br i1 %tobool200.not, label %if.end218, label %if.then201
@@ -497,11 +496,25 @@ if.end218:                                        ; preds = %if.end217, %if.end1
   br i1 %cmp219, label %if.then221, label %if.end223
 
 if.then221:                                       ; preds = %if.end218
-  %call.i42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @.str.43, ptr noundef nonnull dereferenceable(1) %git_dir.1) #16
-  %tobool.not.i43 = icmp eq i32 %call.i42, 0
-  br i1 %tobool.not.i43, label %guess_repository_type.exit, label %if.end.i
+  %24 = load i8, ptr %git_dir.1, align 1
+  %25 = zext i8 %24 to i32
+  %26 = sub nsw i32 46, %25
+  %.not.i = icmp eq i8 %24, 46
+  br i1 %.not.i, label %sub_1.i, label %entry.tail.i
 
-if.end.i:                                         ; preds = %if.then221
+sub_1.i:                                          ; preds = %if.then221
+  %27 = getelementptr inbounds i8, ptr %git_dir.1, i64 1
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i32
+  %30 = sub nsw i32 0, %29
+  br label %entry.tail.i
+
+entry.tail.i:                                     ; preds = %sub_1.i, %if.then221
+  %31 = phi i32 [ %26, %if.then221 ], [ %30, %sub_1.i ]
+  %tobool.not.i42 = icmp eq i32 %31, 0
+  br i1 %tobool.not.i42, label %guess_repository_type.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %entry.tail.i
   %call1.i = call ptr @xgetcwd() #13
   %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %git_dir.1, ptr noundef nonnull dereferenceable(1) %call1.i) #16
   %tobool3.not.i = icmp eq i32 %call2.i, 0
@@ -526,14 +539,14 @@ land.lhs.true.i:                                  ; preds = %if.end10.i
 if.end16.i:                                       ; preds = %land.lhs.true.i, %if.end10.i
   br label %guess_repository_type.exit
 
-guess_repository_type.exit:                       ; preds = %if.then221, %if.end.i, %if.end6.i, %land.lhs.true.i, %if.end16.i
-  %retval.0.i44 = phi i32 [ 1, %if.end16.i ], [ 1, %if.then221 ], [ 1, %if.end.i ], [ 0, %if.end6.i ], [ 0, %land.lhs.true.i ]
-  store i32 %retval.0.i44, ptr @is_bare_repository_cfg, align 4
+guess_repository_type.exit:                       ; preds = %entry.tail.i, %if.end.i, %if.end6.i, %land.lhs.true.i, %if.end16.i
+  %retval.0.i43 = phi i32 [ 1, %if.end16.i ], [ 1, %entry.tail.i ], [ 1, %if.end.i ], [ 0, %if.end6.i ], [ 0, %land.lhs.true.i ]
+  store i32 %retval.0.i43, ptr @is_bare_repository_cfg, align 4
   br label %if.end223
 
 if.end223:                                        ; preds = %guess_repository_type.exit, %if.end218
-  %24 = phi i32 [ %retval.0.i44, %guess_repository_type.exit ], [ %23, %if.end218 ]
-  %tobool224.not = icmp eq i32 %24, 0
+  %32 = phi i32 [ %retval.0.i43, %guess_repository_type.exit ], [ %23, %if.end218 ]
+  %tobool224.not = icmp eq i32 %32, 0
   br i1 %tobool224.not, label %if.then225, label %if.else247
 
 if.then225:                                       ; preds = %if.end223
@@ -552,8 +565,8 @@ if.then228:                                       ; preds = %if.then225
   br label %if.end231
 
 if.end231:                                        ; preds = %if.then228, %if.then225
-  %25 = load ptr, ptr @git_work_tree_cfg, align 8
-  %tobool232.not = icmp eq ptr %25, null
+  %33 = load ptr, ptr @git_work_tree_cfg, align 8
+  %tobool232.not = icmp eq ptr %33, null
   br i1 %tobool232.not, label %if.then233, label %if.end235
 
 if.then233:                                       ; preds = %if.end231
@@ -562,15 +575,15 @@ if.then233:                                       ; preds = %if.end231
   br label %if.end235
 
 if.end235:                                        ; preds = %if.then233, %if.end231
-  %26 = phi ptr [ %call234, %if.then233 ], [ %25, %if.end231 ]
-  br i1 %tobool19353, label %if.then237, label %if.else238
+  %34 = phi ptr [ %call234, %if.then233 ], [ %33, %if.end231 ]
+  br i1 %tobool19352, label %if.then237, label %if.else238
 
 if.then237:                                       ; preds = %if.end235
-  call void @set_git_work_tree(ptr noundef nonnull %cond.i3951) #13
+  call void @set_git_work_tree(ptr noundef nonnull %cond.i3950) #13
   br label %if.end239
 
 if.else238:                                       ; preds = %if.end235
-  call void @set_git_work_tree(ptr noundef %26) #13
+  call void @set_git_work_tree(ptr noundef %34) #13
   br label %if.end239
 
 if.end239:                                        ; preds = %if.else238, %if.then237
@@ -586,8 +599,8 @@ if.then243:                                       ; preds = %if.end239
   unreachable
 
 if.else247:                                       ; preds = %if.end223
-  %27 = load ptr, ptr %real_git_dir, align 8
-  %tobool248.not = icmp eq ptr %27, null
+  %35 = load ptr, ptr %real_git_dir, align 8
+  %tobool248.not = icmp eq ptr %35, null
   br i1 %tobool248.not, label %if.end251, label %if.then249
 
 if.then249:                                       ; preds = %if.else247
@@ -596,21 +609,21 @@ if.then249:                                       ; preds = %if.else247
   unreachable
 
 if.end251:                                        ; preds = %if.else247
-  br i1 %tobool19353, label %if.then253, label %do.end261
+  br i1 %tobool19352, label %if.then253, label %do.end261
 
 if.then253:                                       ; preds = %if.end251
-  call void @set_git_work_tree(ptr noundef nonnull %cond.i3951) #13
+  call void @set_git_work_tree(ptr noundef nonnull %cond.i3950) #13
   br label %do.end261
 
 do.end261:                                        ; preds = %if.end251, %if.then253, %if.end239
-  %28 = load i32, ptr %flags, align 4
-  %or = or i32 %28, 2
+  %36 = load i32, ptr %flags, align 4
+  %or = or i32 %36, 2
   store i32 %or, ptr %flags, align 4
-  %29 = load ptr, ptr %real_git_dir, align 8
-  %30 = load ptr, ptr %template_dir, align 8
-  %31 = load ptr, ptr %initial_branch, align 8
-  %32 = load i32, ptr %init_shared_repository, align 4
-  %call262 = call i32 @init_db(ptr noundef %git_dir.1, ptr noundef %29, ptr noundef %30, i32 noundef %hash_algo.0, i32 noundef %ref_storage_format.0, ptr noundef %31, i32 noundef %32, i32 noundef %or) #13
+  %37 = load ptr, ptr %real_git_dir, align 8
+  %38 = load ptr, ptr %template_dir, align 8
+  %39 = load ptr, ptr %initial_branch, align 8
+  %40 = load i32, ptr %init_shared_repository, align 4
+  %call262 = call i32 @init_db(ptr noundef %git_dir.1, ptr noundef %37, ptr noundef %38, i32 noundef %hash_algo.0, i32 noundef %ref_storage_format.0, ptr noundef %39, i32 noundef %40, i32 noundef %or) #13
   ret i32 %call262
 }
 

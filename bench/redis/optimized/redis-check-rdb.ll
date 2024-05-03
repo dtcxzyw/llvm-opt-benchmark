@@ -88,7 +88,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.54 = private unnamed_addr constant [32 x i8] c"Unexpected EOF reading RDB file\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.55 = private unnamed_addr constant [27 x i8] c"Usage: %s <rdb-file-name>\0A\00", align 1
-@.str.56 = private unnamed_addr constant [3 x i8] c"-v\00", align 1
 @.str.57 = private unnamed_addr constant [10 x i8] c"--version\00", align 1
 @.str.58 = private unnamed_addr constant [20 x i8] c"redis-check-rdb %s\0A\00", align 1
 @shared = external local_unnamed_addr global %struct.sharedObjectsStruct, align 8
@@ -260,7 +259,7 @@ declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #6
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @redis_check_rdb(ptr noundef %rdbfilename, ptr noundef %fp) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @redis_check_rdb(ptr noundef %rdbfilename, ptr noundef %fp) local_unnamed_addr #5 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %sb = alloca %struct.stat, align 8
@@ -707,7 +706,7 @@ declare void @rioInitWithFile(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @rdbLoadProgressCallback(ptr noundef, ptr noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @rioRead(ptr noundef %buf, i64 noundef %len) unnamed_addr #5 {
+define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %buf, i64 noundef %len) unnamed_addr #5 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (%struct._rio, ptr @redis_check_rdb.rdb, i64 0, i32 6), align 8
   %and = and i64 %0, 1
@@ -790,7 +789,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 declare void @stopLoading(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @redis_check_rdb_main(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %fp) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 1) i32 @redis_check_rdb_main(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %fp) local_unnamed_addr #5 {
 entry:
   %act.i = alloca %struct.sigaction, align 8
   %tv = alloca %struct.timeval, align 8
@@ -809,16 +808,28 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %arrayidx2 = getelementptr inbounds i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx2, align 8
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(3) @.str.56) #17
-  %tobool.not = icmp eq i32 %call3, 0
-  br i1 %tobool.not, label %if.then7, label %lor.lhs.false
+  %3 = load i8, ptr %2, align 1
+  %.not = icmp eq i8 %3, 45
+  br i1 %.not, label %sub_1, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %if.else
+sub_1:                                            ; preds = %if.else
+  %4 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = load i8, ptr %4, align 1
+  %.not13 = icmp eq i8 %5, 118
+  br i1 %.not13, label %if.else.tail, label %lor.lhs.false
+
+if.else.tail:                                     ; preds = %sub_1
+  %6 = getelementptr inbounds i8, ptr %2, i64 2
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %if.then7, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %sub_1, %if.else, %if.else.tail
   %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.57) #17
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.then7, label %if.end10
 
-if.then7:                                         ; preds = %lor.lhs.false, %if.else
+if.then7:                                         ; preds = %lor.lhs.false, %if.else.tail
   %call8 = tail call fastcc ptr @checkRdbVersion()
   %call9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef %call8)
   tail call void @sdsfree(ptr noundef %call8) #15
@@ -827,17 +838,17 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
 
 if.end10:                                         ; preds = %lor.lhs.false
   %call11 = call i32 @gettimeofday(ptr noundef nonnull %tv, ptr noundef null) #15
-  %3 = load i64, ptr %tv, align 8
-  %mul = mul nsw i64 %3, 1000000
+  %9 = load i64, ptr %tv, align 8
+  %mul = mul nsw i64 %9, 1000000
   %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
-  %4 = load i64, ptr %tv_usec, align 8
-  %add = add nsw i64 %mul, %4
+  %10 = load i64, ptr %tv_usec, align 8
+  %add = add nsw i64 %mul, %10
   %call12 = tail call i32 @getpid() #15
   %conv = sext i32 %call12 to i64
   %xor = xor i64 %add, %conv
   tail call void @init_genrand64(i64 noundef %xor) #15
-  %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 86), align 8
-  %cmp13 = icmp eq ptr %5, null
+  %11 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 86), align 8
+  %cmp13 = icmp eq ptr %11, null
   br i1 %cmp13, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end10
@@ -848,8 +859,8 @@ if.end16:                                         ; preds = %if.then15, %if.end1
   store i64 0, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 87), align 8
   store i32 1, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 163), align 4
   store i32 1, ptr @rdbCheckMode, align 4
-  %6 = load ptr, ptr %arrayidx2, align 8
-  tail call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.59, ptr noundef %6)
+  %12 = load ptr, ptr %arrayidx2, align 8
+  tail call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.59, ptr noundef %12)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %act.i)
   %sa_mask.i = getelementptr inbounds i8, ptr %act.i, i64 8
   %call.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #15
@@ -862,19 +873,19 @@ if.end16:                                         ; preds = %if.then15, %if.end1
   %call4.i = call i32 @sigaction(i32 noundef 4, ptr noundef nonnull %act.i, ptr noundef null) #15
   %call5.i = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %act.i, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %act.i)
-  %7 = load ptr, ptr %arrayidx2, align 8
-  %call20 = call i32 @redis_check_rdb(ptr noundef %7, ptr noundef %fp), !range !7
+  %13 = load ptr, ptr %arrayidx2, align 8
+  %call20 = call i32 @redis_check_rdb(ptr noundef %13, ptr noundef %fp)
   %cmp21 = icmp ne i32 %call20, 0
   br i1 %cmp21, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.end16
   call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.60)
-  %8 = load i64, ptr getelementptr inbounds (%struct.anon, ptr @rdbstate, i64 0, i32 3), align 8
-  %call.i10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i64 noundef %8)
-  %9 = load i64, ptr getelementptr inbounds (%struct.anon, ptr @rdbstate, i64 0, i32 4), align 8
-  %call1.i11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i64 noundef %9)
-  %10 = load i64, ptr getelementptr inbounds (%struct.anon, ptr @rdbstate, i64 0, i32 5), align 8
-  %call2.i12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %10)
+  %14 = load i64, ptr getelementptr inbounds (%struct.anon, ptr @rdbstate, i64 0, i32 3), align 8
+  %call.i10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i64 noundef %14)
+  %15 = load i64, ptr getelementptr inbounds (%struct.anon, ptr @rdbstate, i64 0, i32 4), align 8
+  %call1.i11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i64 noundef %15)
+  %16 = load i64, ptr getelementptr inbounds (%struct.anon, ptr @rdbstate, i64 0, i32 5), align 8
+  %call2.i12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %16)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %if.end16
@@ -994,4 +1005,3 @@ attributes #18 = { cold nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}

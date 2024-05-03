@@ -11,9 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [19 x i8] c"git-shell-commands\00", align 1
 @.str.2 = private unnamed_addr constant [112 x i8] c"Interactive git shell is not enabled.\0Ahint: ~/git-shell-commands should exist and have read and execute access.\00", align 1
 @.str.3 = private unnamed_addr constant [8 x i8] c"shell.c\00", align 1
-@.str.4 = private unnamed_addr constant [3 x i8] c"-c\00", align 1
 @.str.5 = private unnamed_addr constant [37 x i8] c"Run with no arguments or with -c cmd\00", align 1
-@.str.6 = private unnamed_addr constant [4 x i8] c"git\00", align 1
 @sane_ctype = external local_unnamed_addr constant [256 x i8], align 16
 @cmd_list = internal unnamed_addr constant [4 x %struct.commands] [%struct.commands { ptr @.str.25, ptr @do_generic_cmd }, %struct.commands { ptr @.str.26, ptr @do_generic_cmd }, %struct.commands { ptr @.str.27, ptr @do_generic_cmd }, %struct.commands zeroinitializer], align 16
 @.str.7 = private unnamed_addr constant [26 x i8] c"unrecognized command '%s'\00", align 1
@@ -86,54 +84,78 @@ if.end:                                           ; preds = %if.then2
 lor.lhs.false:                                    ; preds = %entry
   %arrayidx9 = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx9, align 8
-  %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.4) #12
-  %tobool11.not = icmp eq i32 %call10, 0
-  br i1 %tobool11.not, label %if.end15, label %if.then12
+  %2 = load i8, ptr %1, align 1
+  %.not = icmp eq i8 %2, 45
+  br i1 %.not, label %sub_1, label %if.then12
 
-if.then12:                                        ; preds = %land.lhs.true, %entry, %lor.lhs.false
+sub_1:                                            ; preds = %lor.lhs.false
+  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %4 = load i8, ptr %3, align 1
+  %.not37 = icmp eq i8 %4, 99
+  br i1 %.not37, label %lor.lhs.false.tail, label %if.then12
+
+lor.lhs.false.tail:                               ; preds = %sub_1
+  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %if.end15, label %if.then12
+
+if.then12:                                        ; preds = %sub_1, %lor.lhs.false, %land.lhs.true, %entry, %lor.lhs.false.tail
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5) #14
   unreachable
 
-if.end15:                                         ; preds = %lor.lhs.false, %if.then
-  %argv.addr.0 = phi ptr [ %argv, %lor.lhs.false ], [ %incdec.ptr, %if.then ]
+if.end15:                                         ; preds = %lor.lhs.false.tail, %if.then
+  %argv.addr.0 = phi ptr [ %argv, %lor.lhs.false.tail ], [ %incdec.ptr, %if.then ]
   %arrayidx16 = getelementptr inbounds i8, ptr %argv.addr.0, i64 16
-  %2 = load ptr, ptr %arrayidx16, align 8
-  %call17 = tail call ptr @xstrdup(ptr noundef %2) #13
-  %call18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call17, ptr noundef nonnull dereferenceable(4) @.str.6, i64 noundef 3) #12
-  %tobool19.not = icmp eq i32 %call18, 0
-  br i1 %tobool19.not, label %land.lhs.true20, label %for.body.preheader
+  %8 = load ptr, ptr %arrayidx16, align 8
+  %call17 = tail call ptr @xstrdup(ptr noundef %8) #13
+  %9 = load i8, ptr %call17, align 1
+  %.not38 = icmp eq i8 %9, 103
+  br i1 %.not38, label %sub_127, label %for.body.preheader
 
-land.lhs.true20:                                  ; preds = %if.end15
+sub_127:                                          ; preds = %if.end15
+  %10 = getelementptr inbounds i8, ptr %call17, i64 1
+  %11 = load i8, ptr %10, align 1
+  %.not39 = icmp eq i8 %11, 105
+  br i1 %.not39, label %if.end15.tail, label %for.body.preheader
+
+if.end15.tail:                                    ; preds = %sub_127
+  %12 = getelementptr inbounds i8, ptr %call17, i64 2
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 116
+  br i1 %14, label %land.lhs.true20, label %for.body.preheader
+
+land.lhs.true20:                                  ; preds = %if.end15.tail
   %arrayidx21 = getelementptr inbounds i8, ptr %call17, i64 3
-  %3 = load i8, ptr %arrayidx21, align 1
-  %idxprom = zext i8 %3 to i64
+  %15 = load i8, ptr %arrayidx21, align 1
+  %idxprom = zext i8 %15 to i64
   %arrayidx22 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
-  %4 = load i8, ptr %arrayidx22, align 1
-  %5 = and i8 %4, 1
-  %cmp23.not = icmp eq i8 %5, 0
+  %16 = load i8, ptr %arrayidx22, align 1
+  %17 = and i8 %16, 1
+  %cmp23.not = icmp eq i8 %17, 0
   br i1 %cmp23.not, label %for.body.preheader, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true20
   store i8 45, ptr %arrayidx21, align 1
   br label %for.body.preheader
 
-for.body.preheader:                               ; preds = %if.then25, %land.lhs.true20, %if.end15
+for.body.preheader:                               ; preds = %sub_127, %if.end15, %if.then25, %land.lhs.true20, %if.end15.tail
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %6 = phi ptr [ %9, %for.inc ], [ @.str.25, %for.body.preheader ]
-  %cmd.032 = phi ptr [ %incdec.ptr45, %for.inc ], [ @cmd_list, %for.body.preheader ]
-  %call30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
+  %18 = phi ptr [ %21, %for.inc ], [ @.str.25, %for.body.preheader ]
+  %cmd.036 = phi ptr [ %incdec.ptr45, %for.inc ], [ @cmd_list, %for.body.preheader ]
+  %call30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #12
   %sext = shl i64 %call30, 32
   %conv33 = ashr exact i64 %sext, 32
-  %call34 = tail call i32 @strncmp(ptr noundef nonnull %6, ptr noundef %call17, i64 noundef %conv33) #12
+  %call34 = tail call i32 @strncmp(ptr noundef nonnull %18, ptr noundef nonnull %call17, i64 noundef %conv33) #12
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.end37, label %for.inc
 
 if.end37:                                         ; preds = %for.body
   %arrayidx39 = getelementptr inbounds i8, ptr %call17, i64 %conv33
-  %7 = load i8, ptr %arrayidx39, align 1
-  switch i8 %7, label %for.inc [
+  %19 = load i8, ptr %arrayidx39, align 1
+  switch i8 %19, label %for.inc [
     i8 0, label %sw.epilog
     i8 32, label %sw.bb41
   ]
@@ -145,55 +167,55 @@ sw.bb41:                                          ; preds = %if.end37
 
 sw.epilog:                                        ; preds = %if.end37, %sw.bb41
   %arg.0 = phi ptr [ %add.ptr42, %sw.bb41 ], [ null, %if.end37 ]
-  %exec = getelementptr inbounds i8, ptr %cmd.032, i64 8
-  %8 = load ptr, ptr %exec, align 8
-  %call44 = tail call i32 %8(ptr noundef nonnull %6, ptr noundef %arg.0) #13
+  %exec = getelementptr inbounds i8, ptr %cmd.036, i64 8
+  %20 = load ptr, ptr %exec, align 8
+  %call44 = tail call i32 %20(ptr noundef nonnull %18, ptr noundef %arg.0) #13
   ret i32 %call44
 
 for.inc:                                          ; preds = %if.end37, %for.body
-  %incdec.ptr45 = getelementptr inbounds i8, ptr %cmd.032, i64 16
-  %9 = load ptr, ptr %incdec.ptr45, align 8
-  %tobool28.not = icmp eq ptr %9, null
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %cmd.036, i64 16
+  %21 = load ptr, ptr %incdec.ptr45, align 8
+  %tobool28.not = icmp eq ptr %21, null
   br i1 %tobool28.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
   tail call fastcc void @cd_to_homedir()
-  %call46 = call i32 @split_cmdline(ptr noundef %call17, ptr noundef nonnull %user_argv) #13
+  %call46 = call i32 @split_cmdline(ptr noundef nonnull %call17, ptr noundef nonnull %user_argv) #13
   %cmp47 = icmp sgt i32 %call46, -1
   br i1 %cmp47, label %if.then49, label %if.else61
 
 if.then49:                                        ; preds = %for.end
-  %10 = load ptr, ptr %user_argv, align 8
-  %11 = load ptr, ptr %10, align 8
-  %call.i = call i64 @strcspn(ptr noundef %11, ptr noundef nonnull @.str.31) #12
-  %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %call.i
-  %12 = load i8, ptr %arrayidx.i, align 1
-  %cmp.i.not = icmp eq i8 %12, 0
+  %22 = load ptr, ptr %user_argv, align 8
+  %23 = load ptr, ptr %22, align 8
+  %call.i = call i64 @strcspn(ptr noundef %23, ptr noundef nonnull @.str.31) #12
+  %arrayidx.i = getelementptr inbounds i8, ptr %23, i64 %call.i
+  %24 = load i8, ptr %arrayidx.i, align 1
+  %cmp.i.not = icmp eq i8 %24, 0
   br i1 %cmp.i.not, label %if.then53, label %if.end59
 
 if.then53:                                        ; preds = %if.then49
-  %call.i25 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, ptr noundef nonnull %11) #13
-  %13 = load ptr, ptr %user_argv, align 8
-  store ptr %call.i25, ptr %13, align 8
-  %14 = load ptr, ptr %user_argv, align 8
-  %15 = load ptr, ptr %14, align 8
-  %call58 = call i32 @execv(ptr noundef %15, ptr noundef nonnull %14) #13
+  %call.i25 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, ptr noundef nonnull %23) #13
+  %25 = load ptr, ptr %user_argv, align 8
+  store ptr %call.i25, ptr %25, align 8
+  %26 = load ptr, ptr %user_argv, align 8
+  %27 = load ptr, ptr %26, align 8
+  %call58 = call i32 @execv(ptr noundef %27, ptr noundef nonnull %26) #13
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then53, %if.then49
   %prog.0 = phi ptr [ %call.i25, %if.then53 ], [ %call17, %if.then49 ]
   call void @free(ptr noundef %prog.0) #13
-  %16 = load ptr, ptr %user_argv, align 8
-  call void @free(ptr noundef %16) #13
-  %17 = load ptr, ptr %arrayidx16, align 8
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.7, ptr noundef %17) #14
+  %28 = load ptr, ptr %user_argv, align 8
+  call void @free(ptr noundef %28) #13
+  %29 = load ptr, ptr %arrayidx16, align 8
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.7, ptr noundef %29) #14
   unreachable
 
 if.else61:                                        ; preds = %for.end
   call void @free(ptr noundef %call17) #13
-  %18 = load ptr, ptr %arrayidx16, align 8
+  %30 = load ptr, ptr %arrayidx16, align 8
   %call63 = call ptr @split_cmdline_strerror(i32 noundef %call46) #13
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.8, ptr noundef %18, ptr noundef %call63) #14
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.8, ptr noundef %30, ptr noundef %call63) #14
   unreachable
 }
 

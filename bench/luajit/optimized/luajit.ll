@@ -32,8 +32,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [54 x i8] c"unknown luaJIT command or jit.* modules not installed\00", align 1
 @.str.19 = private unnamed_addr constant [8 x i8] c"jit.opt\00", align 1
 @.str.20 = private unnamed_addr constant [7 x i8] c"bcsave\00", align 1
-@.str.21 = private unnamed_addr constant [2 x i8] c"-\00", align 1
-@.str.22 = private unnamed_addr constant [3 x i8] c"--\00", align 1
 @.str.23 = private unnamed_addr constant [7 x i8] c"status\00", align 1
 @.str.24 = private unnamed_addr constant [8 x i8] c"JIT: ON\00", align 1
 @.str.25 = private unnamed_addr constant [9 x i8] c"JIT: OFF\00", align 1
@@ -51,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [31 x i8] c"(error object is not a string)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %argv, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -249,15 +247,15 @@ if.then2:                                         ; preds = %if.end
   br label %if.end3
 
 if.end3:                                          ; preds = %entry, %if.then2, %if.end
-  %tobool.not89 = phi i1 [ false, %if.then2 ], [ true, %if.end ], [ true, %entry ]
-  %flags.58188 = phi i32 [ %flags.5, %if.then2 ], [ %flags.5, %if.end ], [ 0, %entry ]
-  %retval.0.i8287 = phi i32 [ %retval.0.i, %if.then2 ], [ %retval.0.i, %if.end ], [ 1, %entry ]
+  %tobool.not86 = phi i1 [ false, %if.then2 ], [ true, %if.end ], [ true, %entry ]
+  %flags.57885 = phi i32 [ %flags.5, %if.then2 ], [ %flags.5, %if.end ], [ 0, %entry ]
+  %retval.0.i7984 = phi i32 [ %retval.0.i, %if.then2 ], [ %retval.0.i, %if.end ], [ 1, %entry ]
   %call4 = tail call i32 @lua_gc(ptr noundef %L, i32 noundef 0, i32 noundef 0) #8
   tail call void @luaL_openlibs(ptr noundef %L) #8
   %call5 = tail call i32 @lua_gc(ptr noundef %L, i32 noundef 1, i32 noundef -1) #8
   %16 = load i32, ptr @smain.1, align 8
-  %sub.i = sub nsw i32 %16, %retval.0.i8287
-  tail call void @lua_createtable(ptr noundef %L, i32 noundef %sub.i, i32 noundef %retval.0.i8287) #8
+  %sub.i = sub nsw i32 %16, %retval.0.i7984
+  tail call void @lua_createtable(ptr noundef %L, i32 noundef %sub.i, i32 noundef %retval.0.i7984) #8
   %cmp10.i = icmp sgt i32 %16, 0
   br i1 %cmp10.i, label %for.body.preheader.i, label %createargtable.exit
 
@@ -271,7 +269,7 @@ for.body.i33:                                     ; preds = %for.body.i33, %for.
   %17 = load ptr, ptr %arrayidx.i34, align 8
   tail call void @lua_pushstring(ptr noundef %L, ptr noundef %17) #8
   %18 = trunc i64 %indvars.iv.i to i32
-  %19 = sub i32 %18, %retval.0.i8287
+  %19 = sub i32 %18, %retval.0.i7984
   tail call void @lua_rawseti(ptr noundef %L, i32 noundef -2, i32 noundef %19) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -279,7 +277,7 @@ for.body.i33:                                     ; preds = %for.body.i33, %for.
 
 createargtable.exit:                              ; preds = %for.body.i33, %if.end3
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -10002, ptr noundef nonnull @.str.5) #8
-  br i1 %tobool.not89, label %if.then8, label %if.end15
+  br i1 %tobool.not86, label %if.then8, label %if.end15
 
 if.then8:                                         ; preds = %createargtable.exit
   %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.6) #8
@@ -299,16 +297,16 @@ if.then3.i:                                       ; preds = %if.else.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
   %call.i.i = tail call i32 @luaL_loadfile(ptr noundef %L, ptr noundef nonnull %add.ptr.i) #8
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %handle_luainit.exit, label %handle_luainit.exit.thread92
+  br i1 %tobool.not.i.i, label %handle_luainit.exit, label %handle_luainit.exit.thread89
 
 if.else5.i:                                       ; preds = %if.else.i
   %call.i5.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i) #10
   %call1.i6.i = tail call i32 @luaL_loadbuffer(ptr noundef %L, ptr noundef nonnull %call.i, i64 noundef %call.i5.i, ptr noundef nonnull @.str.7) #8
   %tobool.not.i7.i = icmp eq i32 %call1.i6.i, 0
-  br i1 %tobool.not.i7.i, label %handle_luainit.exit, label %handle_luainit.exit.thread92
+  br i1 %tobool.not.i7.i, label %handle_luainit.exit, label %handle_luainit.exit.thread89
 
-handle_luainit.exit.thread92:                     ; preds = %if.then3.i, %if.else5.i
-  %call4.i.i94 = tail call fastcc i32 @report(ptr noundef %L, i32 noundef 1)
+handle_luainit.exit.thread89:                     ; preds = %if.then3.i, %if.else5.i
+  %call4.i.i91 = tail call fastcc i32 @report(ptr noundef %L, i32 noundef 1)
   store i32 1, ptr @smain.2, align 8
   br label %return
 
@@ -321,7 +319,7 @@ handle_luainit.exit:                              ; preds = %if.then3.i, %if.els
   br i1 %tobool3.i.i, label %return, label %if.end15
 
 if.end15:                                         ; preds = %handle_luainit.exit.thread, %handle_luainit.exit, %createargtable.exit
-  %and16 = and i32 %flags.58188, 2
+  %and16 = and i32 %flags.57885, 2
   %tobool17.not = icmp eq i32 %and16, 0
   br i1 %tobool17.not, label %if.end19, label %if.then18
 
@@ -331,7 +329,7 @@ if.then18:                                        ; preds = %if.end15
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end15
-  %cmp45.i = icmp sgt i32 %retval.0.i8287, 1
+  %cmp45.i = icmp sgt i32 %retval.0.i7984, 1
   br i1 %cmp45.i, label %for.body.i37, label %if.end25
 
 for.body.i37:                                     ; preds = %if.end19, %for.inc.i44
@@ -523,7 +521,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
 for.inc.i44:                                      ; preds = %sw.bb49.i, %dojitcmd.exit.i, %if.end29.i, %dostring.exit.i, %if.end.i41, %for.body.i37
   %i.4.i = phi i32 [ %i.046.i, %for.body.i37 ], [ %i.046.i, %if.end.i41 ], [ %i.046.i, %sw.bb49.i ], [ %i.3.i, %dojitcmd.exit.i ], [ %i.2.i, %if.end29.i ], [ %i.1.i49, %dostring.exit.i ]
   %inc60.i = add nsw i32 %i.4.i, 1
-  %cmp.i45 = icmp slt i32 %inc60.i, %retval.0.i8287
+  %cmp.i45 = icmp slt i32 %inc60.i, %retval.0.i7984
   br i1 %cmp.i45, label %for.body.i37, label %if.end25, !llvm.loop !8
 
 return.sink.split.i43:                            ; preds = %if.end13.i, %for.end.i.i
@@ -540,62 +538,80 @@ runargs.exit.thread:                              ; preds = %dostring.exit.i, %i
 if.end25:                                         ; preds = %for.inc.i44, %if.end19
   store i32 0, ptr @smain.2, align 8
   %39 = load i32, ptr @smain.1, align 8
-  %cmp27 = icmp sgt i32 %39, %retval.0.i8287
+  %cmp27 = icmp sgt i32 %39, %retval.0.i7984
   br i1 %cmp27, label %if.then28, label %if.end35
 
 if.then28:                                        ; preds = %if.end25
-  %idx.ext = zext nneg i32 %retval.0.i8287 to i64
+  %idx.ext = zext nneg i32 %retval.0.i7984 to i64
   %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
   %40 = load ptr, ptr %add.ptr, align 8
-  %call.i57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(2) @.str.21) #10
-  %cmp.i58 = icmp eq i32 %call.i57, 0
-  br i1 %cmp.i58, label %land.lhs.true.i, label %if.end.i59
+  %41 = load i8, ptr %40, align 1
+  %.not.i = icmp eq i8 %41, 45
+  br i1 %.not.i, label %entry.tail.i, label %if.end.i57
 
-land.lhs.true.i:                                  ; preds = %if.then28
+entry.tail.i:                                     ; preds = %if.then28
+  %42 = getelementptr inbounds i8, ptr %40, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %land.lhs.true.i, label %if.end.i57
+
+land.lhs.true.i:                                  ; preds = %entry.tail.i
   %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr, i64 -8
-  %41 = load ptr, ptr %arrayidx1.i, align 8
-  %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(3) @.str.22) #10
-  %cmp3.not.i = icmp eq i32 %call2.i, 0
-  %spec.select.i65 = select i1 %cmp3.not.i, ptr %40, ptr null
-  br label %if.end.i59
+  %45 = load ptr, ptr %arrayidx1.i, align 8
+  %46 = load i8, ptr %45, align 1
+  %.not21.i = icmp eq i8 %46, 45
+  br i1 %.not21.i, label %sub_119.i, label %if.end.i57
 
-if.end.i59:                                       ; preds = %land.lhs.true.i, %if.then28
-  %fname.0.i = phi ptr [ %40, %if.then28 ], [ %spec.select.i65, %land.lhs.true.i ]
+sub_119.i:                                        ; preds = %land.lhs.true.i
+  %47 = getelementptr inbounds i8, ptr %45, i64 1
+  %48 = load i8, ptr %47, align 1
+  %.not22.i = icmp eq i8 %48, 45
+  br i1 %.not22.i, label %sub_2.i, label %if.end.i57
+
+sub_2.i:                                          ; preds = %sub_119.i
+  %49 = getelementptr inbounds i8, ptr %45, i64 2
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp eq i8 %50, 0
+  %52 = select i1 %51, ptr %40, ptr null
+  br label %if.end.i57
+
+if.end.i57:                                       ; preds = %sub_2.i, %sub_119.i, %land.lhs.true.i, %entry.tail.i, %if.then28
+  %fname.0.i = phi ptr [ %40, %entry.tail.i ], [ null, %land.lhs.true.i ], [ null, %sub_119.i ], [ %52, %sub_2.i ], [ %40, %if.then28 ]
   %call4.i = tail call i32 @luaL_loadfile(ptr noundef %L, ptr noundef %fname.0.i) #8
   %cmp5.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.i, label %if.then6.i, label %handle_script.exit.thread
 
-handle_script.exit.thread:                        ; preds = %if.end.i59
-  %call16.i99 = tail call fastcc i32 @report(ptr noundef %L, i32 noundef %call4.i)
+handle_script.exit.thread:                        ; preds = %if.end.i57
+  %call16.i96 = tail call fastcc i32 @report(ptr noundef %L, i32 noundef %call4.i)
   store i32 %call4.i, ptr @smain.2, align 8
   br label %return
 
-if.then6.i:                                       ; preds = %if.end.i59
+if.then6.i:                                       ; preds = %if.end.i57
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -10002, ptr noundef nonnull @.str.5) #8
   %call7.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef -1) #8
-  %cmp8.i60 = icmp eq i32 %call7.i, 5
-  br i1 %cmp8.i60, label %do.body.i, label %if.else.i61
+  %cmp8.i58 = icmp eq i32 %call7.i, 5
+  br i1 %cmp8.i58, label %do.body.i, label %if.else.i59
 
 do.body.i:                                        ; preds = %if.then6.i, %do.body.i
-  %narg.0.i = phi i32 [ %inc.i63, %do.body.i ], [ 0, %if.then6.i ]
-  %inc.i63 = add nuw nsw i32 %narg.0.i, 1
-  %sub.i64 = xor i32 %narg.0.i, -1
-  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef %sub.i64, i32 noundef %inc.i63) #8
+  %narg.0.i = phi i32 [ %inc.i61, %do.body.i ], [ 0, %if.then6.i ]
+  %inc.i61 = add nuw nsw i32 %narg.0.i, 1
+  %sub.i62 = xor i32 %narg.0.i, -1
+  tail call void @lua_rawgeti(ptr noundef %L, i32 noundef %sub.i62, i32 noundef %inc.i61) #8
   %call10.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef -1) #8
   %cmp11.not.i = icmp eq i32 %call10.i, 0
   br i1 %cmp11.not.i, label %do.end.i, label %do.body.i, !llvm.loop !9
 
 do.end.i:                                         ; preds = %do.body.i
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #8
-  tail call void @lua_remove(ptr noundef %L, i32 noundef %sub.i64) #8
+  tail call void @lua_remove(ptr noundef %L, i32 noundef %sub.i62) #8
   br label %handle_script.exit
 
-if.else.i61:                                      ; preds = %if.then6.i
+if.else.i59:                                      ; preds = %if.then6.i
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #8
   br label %handle_script.exit
 
-handle_script.exit:                               ; preds = %do.end.i, %if.else.i61
-  %narg.1.i = phi i32 [ %narg.0.i, %do.end.i ], [ 0, %if.else.i61 ]
+handle_script.exit:                               ; preds = %do.end.i, %if.else.i59
+  %narg.1.i = phi i32 [ %narg.0.i, %do.end.i ], [ 0, %if.else.i59 ]
   %call14.i = tail call fastcc i32 @docall(ptr noundef %L, i32 noundef %narg.1.i, i32 noundef 0)
   %call16.i = tail call fastcc i32 @report(ptr noundef %L, i32 noundef %call14.i)
   store i32 %call14.i, ptr @smain.2, align 8
@@ -603,7 +619,7 @@ handle_script.exit:                               ; preds = %do.end.i, %if.else.
   br i1 %cmp32.not, label %if.end35, label %return
 
 if.end35:                                         ; preds = %handle_script.exit, %if.end25
-  %and36 = and i32 %flags.58188, 1
+  %and36 = and i32 %flags.57885, 1
   %tobool37.not = icmp eq i32 %and36, 0
   br i1 %tobool37.not, label %if.else, label %if.then38
 
@@ -613,9 +629,9 @@ if.then38:                                        ; preds = %if.end35
   br label %return
 
 if.else:                                          ; preds = %if.end35
-  %42 = load i32, ptr @smain.1, align 8
-  %cmp40 = icmp eq i32 %42, %retval.0.i8287
-  %and41 = and i32 %flags.58188, 6
+  %53 = load i32, ptr @smain.1, align 8
+  %cmp40 = icmp eq i32 %53, %retval.0.i7984
+  %and41 = and i32 %flags.57885, 6
   %tobool42.not = icmp eq i32 %and41, 0
   %or.cond = and i1 %tobool42.not, %cmp40
   br i1 %or.cond, label %if.then43, label %return
@@ -626,8 +642,8 @@ if.then43:                                        ; preds = %if.else
   br i1 %tobool45.not, label %if.else47, label %if.then46
 
 if.then46:                                        ; preds = %if.then43
-  %43 = load ptr, ptr @stdout, align 8
-  %44 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 80, i64 1, ptr %43)
+  %54 = load ptr, ptr @stdout, align 8
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 80, i64 1, ptr %54)
   tail call fastcc void @print_jit_status(ptr noundef %L)
   tail call fastcc void @dotty(ptr noundef %L)
   br label %return
@@ -636,7 +652,7 @@ if.else47:                                        ; preds = %if.then43
   tail call fastcc void @dofile(ptr noundef %L, ptr noundef null)
   br label %return
 
-return:                                           ; preds = %handle_script.exit.thread, %runargs.exit.thread, %handle_luainit.exit.thread92, %if.then38, %if.then46, %if.else47, %if.else, %handle_script.exit, %handle_luainit.exit, %if.then
+return:                                           ; preds = %handle_script.exit.thread, %runargs.exit.thread, %handle_luainit.exit.thread89, %if.then38, %if.then46, %if.else47, %if.else, %handle_script.exit, %handle_luainit.exit, %if.then
   ret i32 0
 }
 
@@ -1266,9 +1282,6 @@ declare void @lua_concat(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 declare void @lua_pushnil(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 declare i32 @luaL_loadfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 

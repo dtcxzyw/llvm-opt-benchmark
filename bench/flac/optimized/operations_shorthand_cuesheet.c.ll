@@ -15,7 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [49 x i8] c"%s: ERROR: adding new CUESHEET block to metadata\00", align 1
 @.str.6 = private unnamed_addr constant [44 x i8] c"%s: ERROR: FLAC file has no CUESHEET block\0A\00", align 1
 @.str.7 = private unnamed_addr constant [35 x i8] c"%s: ERROR: empty import file name\0A\00", align 1
-@.str.8 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @stdin = external local_unnamed_addr global ptr, align 8
 @.str.9 = private unnamed_addr constant [2 x i8] c"r\00", align 1
 @.str.10 = private unnamed_addr constant [42 x i8] c"%s: ERROR: can't open import file %s: %s\0A\00", align 1
@@ -32,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [10 x i8] c"\22%s\22 FLAC\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @do_shorthand_operation__cuesheet(ptr noundef %filename, ptr noundef %chain, ptr nocapture noundef readonly %operation, ptr nocapture noundef writeonly %needs_write) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @do_shorthand_operation__cuesheet(ptr noundef %filename, ptr noundef %chain, ptr nocapture noundef readonly %operation, ptr nocapture noundef writeonly %needs_write) local_unnamed_addr #0 {
 entry:
   %error_message.i = alloca ptr, align 8
   %last_line_read.i = alloca i32, align 4
@@ -157,44 +156,47 @@ if.else36:                                        ; preds = %sw.bb
 
 lor.lhs.false.i:                                  ; preds = %if.else36
   %char0.i = load i8, ptr %11, align 1
-  %cmp1.i = icmp eq i8 %char0.i, 0
-  br i1 %cmp1.i, label %if.then.i, label %if.end.i
+  switch i8 %char0.i, label %if.else.i [
+    i8 0, label %if.then.i
+    i8 45, label %if.end.tail.i
+  ]
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.else36
   %13 = load ptr, ptr @stderr, align 8
   %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.7, ptr noundef %filename) #10
   br label %import_cs_from.exit.thread
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(2) @.str.8) #11
-  %cmp4.i = icmp eq i32 %call3.i, 0
-  br i1 %cmp4.i, label %if.then5.i, label %if.else.i
+if.end.tail.i:                                    ; preds = %lor.lhs.false.i
+  %14 = getelementptr inbounds i8, ptr %11, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %if.then5.i, label %if.else.i
 
-if.then5.i:                                       ; preds = %if.end.i
-  %14 = load ptr, ptr @stdin, align 8
+if.then5.i:                                       ; preds = %if.end.tail.i
+  %17 = load ptr, ptr @stdin, align 8
   br label %if.end7.i
 
-if.else.i:                                        ; preds = %if.end.i
+if.else.i:                                        ; preds = %if.end.tail.i, %lor.lhs.false.i
   %call6.i = tail call noalias ptr @fopen64(ptr noundef nonnull %11, ptr noundef nonnull @.str.9)
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.else.i, %if.then5.i
-  %f.0.i = phi ptr [ %14, %if.then5.i ], [ %call6.i, %if.else.i ]
+  %f.0.i = phi ptr [ %17, %if.then5.i ], [ %call6.i, %if.else.i ]
   %cmp8.i = icmp eq ptr %f.0.i, null
   br i1 %cmp8.i, label %if.then9.i, label %if.end13.i
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %15 = load ptr, ptr @stderr, align 8
-  %call10.i = tail call ptr @__errno_location() #12
-  %16 = load i32, ptr %call10.i, align 4
-  %call11.i = tail call ptr @strerror(i32 noundef %16) #9
-  %call12.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.10, ptr noundef %filename, ptr noundef nonnull %11, ptr noundef %call11.i) #10
+  %18 = load ptr, ptr @stderr, align 8
+  %call10.i = tail call ptr @__errno_location() #11
+  %19 = load i32, ptr %call10.i, align 4
+  %call11.i = tail call ptr @strerror(i32 noundef %19) #9
+  %call12.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.10, ptr noundef %filename, ptr noundef nonnull %11, ptr noundef %call11.i) #10
   br label %import_cs_from.exit.thread
 
 if.end13.i:                                       ; preds = %if.end7.i
   %call14.i = call ptr @grabbag__cuesheet_parse(ptr noundef nonnull %f.0.i, ptr noundef nonnull %error_message.i, ptr noundef nonnull %last_line_read.i, i32 noundef %sample_rate.1, i32 noundef %is_cdda.1, i64 noundef %lead_out_offset.1) #9
-  %17 = load ptr, ptr @stdin, align 8
-  %cmp15.not.i = icmp eq ptr %f.0.i, %17
+  %20 = load ptr, ptr @stdin, align 8
+  %cmp15.not.i = icmp eq ptr %f.0.i, %20
   br i1 %cmp15.not.i, label %if.end18.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end13.i
@@ -206,10 +208,10 @@ if.end18.i:                                       ; preds = %if.then16.i, %if.en
   br i1 %cmp19.i, label %if.then20.i, label %if.end22.i
 
 if.then20.i:                                      ; preds = %if.end18.i
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = load i32, ptr %last_line_read.i, align 4
-  %20 = load ptr, ptr %error_message.i, align 8
-  %call21.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.11, ptr noundef %filename, ptr noundef nonnull %11, i32 noundef %19, ptr noundef %20) #10
+  %21 = load ptr, ptr @stderr, align 8
+  %22 = load i32, ptr %last_line_read.i, align 4
+  %23 = load ptr, ptr %error_message.i, align 8
+  %call21.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.11, ptr noundef %filename, ptr noundef nonnull %11, i32 noundef %22, ptr noundef %23) #10
   br label %import_cs_from.exit.thread
 
 if.end22.i:                                       ; preds = %if.end18.i
@@ -219,9 +221,9 @@ if.end22.i:                                       ; preds = %if.end18.i
   br i1 %tobool24.not.i, label %if.then25.i, label %if.end27.i
 
 if.then25.i:                                      ; preds = %if.end22.i
-  %21 = load ptr, ptr @stderr, align 8
-  %22 = load ptr, ptr %error_message.i, align 8
-  %call26.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.12, ptr noundef %filename, ptr noundef nonnull %11, ptr noundef %22) #10
+  %24 = load ptr, ptr @stderr, align 8
+  %25 = load ptr, ptr %error_message.i, align 8
+  %call26.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.12, ptr noundef %filename, ptr noundef nonnull %11, ptr noundef %25) #10
   call void @FLAC__metadata_object_delete(ptr noundef nonnull %call14.i) #9
   br label %import_cs_from.exit.thread
 
@@ -235,9 +237,9 @@ land.lhs.true.i:                                  ; preds = %if.end27.i
   br i1 %tobool31.not.i, label %if.then32.i, label %if.end35.i
 
 if.then32.i:                                      ; preds = %land.lhs.true.i
-  %23 = load ptr, ptr @stderr, align 8
-  %24 = load ptr, ptr %error_message.i, align 8
-  %call33.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.13, ptr noundef %filename, ptr noundef nonnull %11, ptr noundef %24) #10
+  %26 = load ptr, ptr @stderr, align 8
+  %27 = load ptr, ptr %error_message.i, align 8
+  %call33.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.13, ptr noundef %filename, ptr noundef nonnull %11, ptr noundef %27) #10
   %is_cd.i = getelementptr inbounds i8, ptr %call14.i, i64 160
   store i32 0, ptr %is_cd.i, align 8
   br label %if.end35.i
@@ -246,8 +248,8 @@ if.end35.i:                                       ; preds = %if.then32.i, %land.
   br i1 %tobool.not.i, label %import_cs_from.exit, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.end35.i
-  %25 = load ptr, ptr %12, align 8
-  %cmp39.i = icmp eq ptr %25, null
+  %28 = load ptr, ptr %12, align 8
+  %cmp39.i = icmp eq ptr %28, null
   br i1 %cmp39.i, label %if.then40.i, label %if.end42.i
 
 if.then40.i:                                      ; preds = %if.then37.i
@@ -257,8 +259,8 @@ if.then40.i:                                      ; preds = %if.then37.i
 
 if.end42.i:                                       ; preds = %if.then40.i, %if.then37.i
   %num_tracks.i = getelementptr inbounds i8, ptr %call14.i, i64 164
-  %26 = load i32, ptr %num_tracks.i, align 4
-  %cmp4336.not.i = icmp eq i32 %26, 0
+  %29 = load i32, ptr %num_tracks.i, align 4
+  %cmp4336.not.i = icmp eq i32 %29, 0
   br i1 %cmp4336.not.i, label %import_cs_from.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end42.i
@@ -266,13 +268,13 @@ for.body.lr.ph.i:                                 ; preds = %if.end42.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc51.i, %for.body.lr.ph.i
-  %27 = phi i32 [ %26, %for.body.lr.ph.i ], [ %35, %for.inc51.i ]
+  %30 = phi i32 [ %29, %for.body.lr.ph.i ], [ %38, %for.inc51.i ]
   %indvars.iv39.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next40.i, %for.inc51.i ]
-  %28 = load ptr, ptr %tracks.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %28, i64 %indvars.iv39.i
+  %31 = load ptr, ptr %tracks.i, align 8
+  %add.ptr.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %31, i64 %indvars.iv39.i
   %num_indices.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 23
-  %29 = load i8, ptr %num_indices.i, align 1
-  %cmp4534.not.i = icmp eq i8 %29, 0
+  %32 = load i8, ptr %num_indices.i, align 1
+  %cmp4534.not.i = icmp eq i8 %32, 0
   br i1 %cmp4534.not.i, label %for.inc51.i, label %for.body47.lr.ph.i
 
 for.body47.lr.ph.i:                               ; preds = %for.body.i
@@ -281,17 +283,17 @@ for.body47.lr.ph.i:                               ; preds = %for.body.i
 
 for.body47.i:                                     ; preds = %for.body47.i, %for.body47.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body47.lr.ph.i ], [ %indvars.iv.next.i, %for.body47.i ]
-  %30 = load i64, ptr %add.ptr.i, align 8
-  %31 = load ptr, ptr %indices.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %31, i64 %indvars.iv.i
-  %32 = load i64, ptr %arrayidx.i, align 8
-  %add.i = add i64 %32, %30
+  %33 = load i64, ptr %add.ptr.i, align 8
+  %34 = load ptr, ptr %indices.i, align 8
+  %arrayidx.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %34, i64 %indvars.iv.i
+  %35 = load i64, ptr %arrayidx.i, align 8
+  %add.i = add i64 %35, %33
   %call49.i = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %spec.i, i64 noundef 128, ptr noundef nonnull @.str.15, i64 noundef %add.i) #9
   call void @local_strcat(ptr noundef nonnull %12, ptr noundef nonnull %spec.i) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = load i8, ptr %num_indices.i, align 1
-  %34 = zext i8 %33 to i64
-  %cmp45.i = icmp ult i64 %indvars.iv.next.i, %34
+  %36 = load i8, ptr %num_indices.i, align 1
+  %37 = zext i8 %36 to i64
+  %cmp45.i = icmp ult i64 %indvars.iv.next.i, %37
   br i1 %cmp45.i, label %for.body47.i, label %for.inc51.loopexit.i, !llvm.loop !7
 
 for.inc51.loopexit.i:                             ; preds = %for.body47.i
@@ -299,10 +301,10 @@ for.inc51.loopexit.i:                             ; preds = %for.body47.i
   br label %for.inc51.i
 
 for.inc51.i:                                      ; preds = %for.inc51.loopexit.i, %for.body.i
-  %35 = phi i32 [ %.pre.i, %for.inc51.loopexit.i ], [ %27, %for.body.i ]
+  %38 = phi i32 [ %.pre.i, %for.inc51.loopexit.i ], [ %30, %for.body.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %36 = zext i32 %35 to i64
-  %cmp43.i = icmp ult i64 %indvars.iv.next40.i, %36
+  %39 = zext i32 %38 to i64
+  %cmp43.i = icmp ult i64 %indvars.iv.next40.i, %39
   br i1 %cmp43.i, label %for.body.i, label %import_cs_from.exit, !llvm.loop !8
 
 import_cs_from.exit.thread:                       ; preds = %if.then.i, %if.then9.i, %if.then20.i, %if.then25.i
@@ -338,84 +340,87 @@ sw.bb50:                                          ; preds = %if.end31
   br i1 %cmp51, label %if.then52, label %if.else54
 
 if.then52:                                        ; preds = %sw.bb50
-  %37 = load ptr, ptr @stderr, align 8
-  %call53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.6, ptr noundef %filename) #10
+  %40 = load ptr, ptr @stderr, align 8
+  %call53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.6, ptr noundef %filename) #10
   br label %sw.epilog
 
 if.else54:                                        ; preds = %sw.bb50
   %argument55 = getelementptr inbounds i8, ptr %operation, i64 8
-  %38 = load ptr, ptr %argument55, align 8
-  %cmp.i36 = icmp eq ptr %38, null
-  br i1 %cmp.i36, label %if.then.i56, label %lor.lhs.false.i37
+  %41 = load ptr, ptr %argument55, align 8
+  %cmp.i36 = icmp eq ptr %41, null
+  br i1 %cmp.i36, label %if.then.i53, label %lor.lhs.false.i37
 
 lor.lhs.false.i37:                                ; preds = %if.else54
-  %char0.i38 = load i8, ptr %38, align 1
-  %cmp1.i39 = icmp eq i8 %char0.i38, 0
-  br i1 %cmp1.i39, label %if.then.i56, label %if.end.i40
+  %char0.i38 = load i8, ptr %41, align 1
+  switch i8 %char0.i38, label %if.else.i40 [
+    i8 0, label %if.then.i53
+    i8 45, label %if.end.tail.i39
+  ]
 
-if.then.i56:                                      ; preds = %lor.lhs.false.i37, %if.else54
-  %39 = load ptr, ptr @stderr, align 8
-  %call2.i57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.16, ptr noundef %filename) #10
+if.then.i53:                                      ; preds = %lor.lhs.false.i37, %if.else54
+  %42 = load ptr, ptr @stderr, align 8
+  %call2.i54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.16, ptr noundef %filename) #10
   br label %sw.epilog
 
-if.end.i40:                                       ; preds = %lor.lhs.false.i37
-  %call3.i41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(2) @.str.8) #11
-  %cmp4.i42 = icmp eq i32 %call3.i41, 0
-  br i1 %cmp4.i42, label %if.then5.i55, label %if.else.i43
+if.end.tail.i39:                                  ; preds = %lor.lhs.false.i37
+  %43 = getelementptr inbounds i8, ptr %41, i64 1
+  %44 = load i8, ptr %43, align 1
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %if.then5.i52, label %if.else.i40
 
-if.then5.i55:                                     ; preds = %if.end.i40
-  %40 = load ptr, ptr @stdout, align 8
-  br label %if.end7.i45
+if.then5.i52:                                     ; preds = %if.end.tail.i39
+  %46 = load ptr, ptr @stdout, align 8
+  br label %if.end7.i42
 
-if.else.i43:                                      ; preds = %if.end.i40
-  %call6.i44 = tail call noalias ptr @fopen64(ptr noundef nonnull %38, ptr noundef nonnull @.str.17)
-  br label %if.end7.i45
+if.else.i40:                                      ; preds = %if.end.tail.i39, %lor.lhs.false.i37
+  %call6.i41 = tail call noalias ptr @fopen64(ptr noundef nonnull %41, ptr noundef nonnull @.str.17)
+  br label %if.end7.i42
 
-if.end7.i45:                                      ; preds = %if.else.i43, %if.then5.i55
-  %f.0.i46 = phi ptr [ %40, %if.then5.i55 ], [ %call6.i44, %if.else.i43 ]
-  %cmp8.i47 = icmp eq ptr %f.0.i46, null
-  br i1 %cmp8.i47, label %if.then9.i51, label %if.end13.i48
+if.end7.i42:                                      ; preds = %if.else.i40, %if.then5.i52
+  %f.0.i43 = phi ptr [ %46, %if.then5.i52 ], [ %call6.i41, %if.else.i40 ]
+  %cmp8.i44 = icmp eq ptr %f.0.i43, null
+  br i1 %cmp8.i44, label %if.then9.i48, label %if.end13.i45
 
-if.then9.i51:                                     ; preds = %if.end7.i45
-  %41 = load ptr, ptr @stderr, align 8
-  %call10.i52 = tail call ptr @__errno_location() #12
-  %42 = load i32, ptr %call10.i52, align 4
-  %call11.i53 = tail call ptr @strerror(i32 noundef %42) #9
-  %call12.i54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.18, ptr noundef %filename, ptr noundef nonnull %38, ptr noundef %call11.i53) #10
+if.then9.i48:                                     ; preds = %if.end7.i42
+  %47 = load ptr, ptr @stderr, align 8
+  %call10.i49 = tail call ptr @__errno_location() #11
+  %48 = load i32, ptr %call10.i49, align 4
+  %call11.i50 = tail call ptr @strerror(i32 noundef %48) #9
+  %call12.i51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.18, ptr noundef %filename, ptr noundef nonnull %41, ptr noundef %call11.i50) #10
   br label %sw.epilog
 
-if.end13.i48:                                     ; preds = %if.end7.i45
-  %call14.i49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #11
-  %add15.i = add i64 %call14.i49, 8
+if.end13.i45:                                     ; preds = %if.end7.i42
+  %call14.i46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #12
+  %add15.i = add i64 %call14.i46, 8
   %call16.i = tail call noalias ptr @malloc(i64 noundef %add15.i) #13
   %cmp17.i = icmp eq ptr %call16.i, null
   br i1 %cmp17.i, label %if.then18.i, label %if.end24.i
 
-if.then18.i:                                      ; preds = %if.end13.i48
-  %43 = load ptr, ptr @stderr, align 8
-  %call19.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.19, ptr noundef %filename) #10
-  %44 = load ptr, ptr @stdout, align 8
-  %cmp20.not.i = icmp eq ptr %f.0.i46, %44
+if.then18.i:                                      ; preds = %if.end13.i45
+  %49 = load ptr, ptr @stderr, align 8
+  %call19.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.19, ptr noundef %filename) #10
+  %50 = load ptr, ptr @stdout, align 8
+  %cmp20.not.i = icmp eq ptr %f.0.i43, %50
   br i1 %cmp20.not.i, label %sw.epilog, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.then18.i
-  %call22.i = tail call i32 @fclose(ptr noundef nonnull %f.0.i46)
+  %call22.i = tail call i32 @fclose(ptr noundef nonnull %f.0.i43)
   br label %sw.epilog
 
-if.end24.i:                                       ; preds = %if.end13.i48
+if.end24.i:                                       ; preds = %if.end13.i45
   %call25.i = tail call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %call16.i, i64 noundef %add15.i, ptr noundef nonnull @.str.20, ptr noundef %filename) #9
-  tail call void @grabbag__cuesheet_emit(ptr noundef nonnull %f.0.i46, ptr noundef nonnull %cuesheet.1, ptr noundef nonnull %call16.i) #9
+  tail call void @grabbag__cuesheet_emit(ptr noundef nonnull %f.0.i43, ptr noundef nonnull %cuesheet.1, ptr noundef nonnull %call16.i) #9
   tail call void @free(ptr noundef nonnull %call16.i) #9
-  %45 = load ptr, ptr @stdout, align 8
-  %cmp26.not.i = icmp eq ptr %f.0.i46, %45
+  %51 = load ptr, ptr @stdout, align 8
+  %cmp26.not.i = icmp eq ptr %f.0.i43, %51
   br i1 %cmp26.not.i, label %sw.epilog, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.end24.i
-  %call28.i = tail call i32 @fclose(ptr noundef nonnull %f.0.i46)
+  %call28.i = tail call i32 @fclose(ptr noundef nonnull %f.0.i43)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then27.i, %if.end24.i, %if.then21.i, %if.then18.i, %if.then9.i51, %if.then.i56, %import_cs_from.exit.thread, %if.end31, %if.then52, %if.then34, %while.end, %if.then46
-  %ok.0 = phi i32 [ 0, %if.then52 ], [ 0, %if.then34 ], [ 1, %while.end ], [ 0, %if.then46 ], [ 0, %if.end31 ], [ 0, %import_cs_from.exit.thread ], [ 0, %if.then.i56 ], [ 0, %if.then9.i51 ], [ 0, %if.then21.i ], [ 0, %if.then18.i ], [ 1, %if.then27.i ], [ 1, %if.end24.i ]
+sw.epilog:                                        ; preds = %if.then27.i, %if.end24.i, %if.then21.i, %if.then18.i, %if.then9.i48, %if.then.i53, %import_cs_from.exit.thread, %if.end31, %if.then52, %if.then34, %while.end, %if.then46
+  %ok.0 = phi i32 [ 0, %if.then52 ], [ 0, %if.then34 ], [ 1, %while.end ], [ 0, %if.then46 ], [ 0, %if.end31 ], [ 0, %import_cs_from.exit.thread ], [ 0, %if.then.i53 ], [ 0, %if.then9.i48 ], [ 0, %if.then21.i ], [ 0, %if.then18.i ], [ 1, %if.then27.i ], [ 1, %if.end24.i ]
   call void @FLAC__metadata_iterator_delete(ptr noundef %call) #9
   br label %return
 
@@ -447,9 +452,6 @@ declare void @FLAC__metadata_object_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
@@ -498,8 +500,8 @@ attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { cold }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

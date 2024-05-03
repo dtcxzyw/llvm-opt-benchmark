@@ -492,7 +492,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #6 {
   switch i32 %2, label %23 [
     i32 1, label %7
     i32 2, label %14
@@ -6439,7 +6439,7 @@ declare ptr @dt_ioppr_get_pipe_input_profile_info(ptr noundef) local_unnamed_add
 declare i32 @dt_iop_have_required_input_format(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef i32 @find_temperature_from_raw_coeffs(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @find_temperature_from_raw_coeffs(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #10 {
   %5 = alloca [4 x [3 x float]], align 16
   %6 = alloca [4 x [3 x float]], align 16
   %7 = icmp eq ptr %0, null
@@ -6740,7 +6740,7 @@ define internal fastcc void @convert_any_XYZ_to_LMS(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #3 {
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 672
@@ -7018,7 +7018,7 @@ declare ptr @dt_ui_main_window(ptr noundef) local_unnamed_addr #5
 declare void @g_object_unref(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @button_pressed(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) local_unnamed_addr #3 {
   %9 = alloca float, align 4
   %10 = alloca float, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 672
@@ -7144,7 +7144,7 @@ define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_released(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @button_released(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #3 {
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 672
@@ -15193,7 +15193,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #18 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !332
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
@@ -15429,40 +15429,49 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 103:                                              ; preds = %98
   %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.93) #32
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %108
+  br i1 %105, label %106, label %sub_0
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds i8, ptr %0, i64 132
   br label %138
 
-108:                                              ; preds = %103
-  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.89) #32
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %113
+sub_0:                                            ; preds = %103
+  %108 = load i8, ptr %1, align 1
+  switch i8 %108, label %.tail1.thread [
+    i8 120, label %.tail
+    i8 121, label %.tail1
+  ]
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %0, i64 136
+.tail:                                            ; preds = %sub_0
+  %109 = getelementptr inbounds i8, ptr %1, i64 1
+  %110 = load i8, ptr %109, align 1
+  %111 = icmp eq i8 %110, 0
+  br i1 %111, label %112, label %.tail1.thread
+
+112:                                              ; preds = %.tail
+  %113 = getelementptr inbounds i8, ptr %0, i64 136
   br label %138
 
-113:                                              ; preds = %108
-  %114 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.90) #32
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %118
+.tail1:                                           ; preds = %sub_0
+  %114 = getelementptr inbounds i8, ptr %1, i64 1
+  %115 = load i8, ptr %114, align 1
+  %116 = icmp eq i8 %115, 0
+  br i1 %116, label %117, label %.tail1.thread
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %0, i64 140
+117:                                              ; preds = %.tail1
+  %118 = getelementptr inbounds i8, ptr %0, i64 140
   br label %138
 
-118:                                              ; preds = %113
+.tail1.thread:                                    ; preds = %sub_0, %.tail, %.tail1
   %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.91) #32
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %123
 
-121:                                              ; preds = %118
+121:                                              ; preds = %.tail1.thread
   %122 = getelementptr inbounds i8, ptr %0, i64 144
   br label %138
 
-123:                                              ; preds = %118
+123:                                              ; preds = %.tail1.thread
   %124 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.121) #32
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %126, label %128
@@ -15487,8 +15496,8 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   %137 = select i1 %135, ptr %136, ptr null
   br label %138
 
-138:                                              ; preds = %133, %131, %126, %121, %116, %111, %106, %101, %96, %91, %86, %81, %76, %71, %66, %61, %56, %51, %46, %41, %36, %31, %26, %21, %16, %11, %5, %2
-  %139 = phi ptr [ %132, %131 ], [ %127, %126 ], [ %122, %121 ], [ %117, %116 ], [ %112, %111 ], [ %107, %106 ], [ %102, %101 ], [ %97, %96 ], [ %92, %91 ], [ %87, %86 ], [ %82, %81 ], [ %77, %76 ], [ %72, %71 ], [ %67, %66 ], [ %62, %61 ], [ %57, %56 ], [ %52, %51 ], [ %47, %46 ], [ %42, %41 ], [ %37, %36 ], [ %32, %31 ], [ %27, %26 ], [ %22, %21 ], [ %17, %16 ], [ %12, %11 ], [ %0, %2 ], [ %0, %5 ], [ %137, %133 ]
+138:                                              ; preds = %133, %131, %126, %121, %117, %112, %106, %101, %96, %91, %86, %81, %76, %71, %66, %61, %56, %51, %46, %41, %36, %31, %26, %21, %16, %11, %5, %2
+  %139 = phi ptr [ %132, %131 ], [ %127, %126 ], [ %122, %121 ], [ %118, %117 ], [ %113, %112 ], [ %107, %106 ], [ %102, %101 ], [ %97, %96 ], [ %92, %91 ], [ %87, %86 ], [ %82, %81 ], [ %77, %76 ], [ %72, %71 ], [ %67, %66 ], [ %62, %61 ], [ %57, %56 ], [ %52, %51 ], [ %47, %46 ], [ %42, %41 ], [ %37, %36 ], [ %32, %31 ], [ %27, %26 ], [ %22, %21 ], [ %17, %16 ], [ %12, %11 ], [ %0, %2 ], [ %0, %5 ], [ %137, %133 ]
   ret ptr %139
 }
 

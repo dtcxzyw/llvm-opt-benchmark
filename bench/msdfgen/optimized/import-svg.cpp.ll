@@ -38,7 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [8 x i8] c"viewBox\00", align 1
 @.str.5 = private unnamed_addr constant [5 x i8] c"path\00", align 1
 @.str.6 = private unnamed_addr constant [10 x i8] c"transform\00", align 1
-@.str.7 = private unnamed_addr constant [2 x i8] c"g\00", align 1
 @.str.8 = private unnamed_addr constant [5 x i8] c"rect\00", align 1
 @.str.9 = private unnamed_addr constant [7 x i8] c"circle\00", align 1
 @.str.10 = private unnamed_addr constant [8 x i8] c"ellipse\00", align 1
@@ -2001,11 +2000,24 @@ if.then13:                                        ; preds = %if.else
 
 if.else17:                                        ; preds = %for.body
   %call.i25 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
-  %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i25, ptr noundef nonnull dereferenceable(2) @.str.7) #18
-  %tobool20.not = icmp eq i32 %call19, 0
+  %5 = load i8, ptr %call.i25, align 1
+  %6 = zext i8 %5 to i32
+  %7 = add nsw i32 %6, -103
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %sub_1, label %if.else17.tail
+
+sub_1:                                            ; preds = %if.else17
+  %8 = getelementptr inbounds i8, ptr %call.i25, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = zext i8 %9 to i32
+  br label %if.else17.tail
+
+if.else17.tail:                                   ; preds = %if.else17, %sub_1
+  %11 = phi i32 [ %7, %if.else17 ], [ %10, %sub_1 ]
+  %tobool20.not = icmp eq i32 %11, 0
   br i1 %tobool20.not, label %if.then21, label %if.else25
 
-if.then21:                                        ; preds = %if.else17
+if.then21:                                        ; preds = %if.else17.tail
   br i1 %hasTransformation, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.then21
@@ -2014,11 +2026,11 @@ lor.rhs:                                          ; preds = %if.then21
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.then21
-  %5 = phi i1 [ true, %if.then21 ], [ %tobool24, %lor.rhs ]
-  tail call fastcc void @_ZN7msdfgenL22findPathByForwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skips, ptr noundef nonnull %cur.034, i1 noundef zeroext %5)
+  %12 = phi i1 [ true, %if.then21 ], [ %tobool24, %lor.rhs ]
+  tail call fastcc void @_ZN7msdfgenL22findPathByForwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skips, ptr noundef nonnull %cur.034, i1 noundef zeroext %12)
   br label %for.inc
 
-if.else25:                                        ; preds = %if.else17
+if.else25:                                        ; preds = %if.else17.tail
   %call.i26 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
   %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i26, ptr noundef nonnull dereferenceable(5) @.str.8) #18
   %tobool28.not = icmp eq i32 %call27, 0
@@ -2043,8 +2055,8 @@ lor.lhs.false37:                                  ; preds = %lor.lhs.false33
   br i1 %tobool40.not, label %if.then41, label %if.else43
 
 if.then41:                                        ; preds = %lor.lhs.false37, %lor.lhs.false33, %lor.lhs.false29, %if.else25
-  %6 = load i32, ptr %flags, align 4
-  %or42 = or i32 %6, 4
+  %13 = load i32, ptr %flags, align 4
+  %or42 = or i32 %13, 4
   store i32 %or42, ptr %flags, align 4
   br label %for.inc
 
@@ -2061,8 +2073,8 @@ lor.lhs.false47:                                  ; preds = %if.else43
   br i1 %tobool50.not, label %if.then51, label %for.inc
 
 if.then51:                                        ; preds = %lor.lhs.false47, %if.else43
-  %7 = load i32, ptr %flags, align 4
-  %or52 = or i32 %7, 8
+  %14 = load i32, ptr %flags, align 4
+  %or52 = or i32 %14, 8
   store i32 %or52, ptr %flags, align 4
   br label %for.inc
 
@@ -2137,11 +2149,24 @@ if.then13:                                        ; preds = %if.else
 
 if.else17:                                        ; preds = %for.body
   %call.i25 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
-  %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i25, ptr noundef nonnull dereferenceable(2) @.str.7) #18
-  %tobool20.not = icmp eq i32 %call19, 0
+  %5 = load i8, ptr %call.i25, align 1
+  %6 = zext i8 %5 to i32
+  %7 = add nsw i32 %6, -103
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %sub_1, label %if.else17.tail
+
+sub_1:                                            ; preds = %if.else17
+  %8 = getelementptr inbounds i8, ptr %call.i25, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = zext i8 %9 to i32
+  br label %if.else17.tail
+
+if.else17.tail:                                   ; preds = %if.else17, %sub_1
+  %11 = phi i32 [ %7, %if.else17 ], [ %10, %sub_1 ]
+  %tobool20.not = icmp eq i32 %11, 0
   br i1 %tobool20.not, label %if.then21, label %if.else25
 
-if.then21:                                        ; preds = %if.else17
+if.then21:                                        ; preds = %if.else17.tail
   br i1 %hasTransformation, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.then21
@@ -2150,11 +2175,11 @@ lor.rhs:                                          ; preds = %if.then21
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.then21
-  %5 = phi i1 [ true, %if.then21 ], [ %tobool24, %lor.rhs ]
-  tail call fastcc void @_ZN7msdfgenL23findPathByBackwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skips, ptr noundef nonnull %cur.034, i1 noundef zeroext %5)
+  %12 = phi i1 [ true, %if.then21 ], [ %tobool24, %lor.rhs ]
+  tail call fastcc void @_ZN7msdfgenL23findPathByBackwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull align 8 dereferenceable(8) %path, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(4) %skips, ptr noundef nonnull %cur.034, i1 noundef zeroext %12)
   br label %for.inc
 
-if.else25:                                        ; preds = %if.else17
+if.else25:                                        ; preds = %if.else17.tail
   %call.i26 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
   %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i26, ptr noundef nonnull dereferenceable(5) @.str.8) #18
   %tobool28.not = icmp eq i32 %call27, 0
@@ -2179,8 +2204,8 @@ lor.lhs.false37:                                  ; preds = %lor.lhs.false33
   br i1 %tobool40.not, label %if.then41, label %if.else43
 
 if.then41:                                        ; preds = %lor.lhs.false37, %lor.lhs.false33, %lor.lhs.false29, %if.else25
-  %6 = load i32, ptr %flags, align 4
-  %or42 = or i32 %6, 4
+  %13 = load i32, ptr %flags, align 4
+  %or42 = or i32 %13, 4
   store i32 %or42, ptr %flags, align 4
   br label %for.inc
 
@@ -2197,8 +2222,8 @@ lor.lhs.false47:                                  ; preds = %if.else43
   br i1 %tobool50.not, label %if.then51, label %for.inc
 
 if.then51:                                        ; preds = %lor.lhs.false47, %if.else43
-  %7 = load i32, ptr %flags, align 4
-  %or52 = or i32 %7, 8
+  %14 = load i32, ptr %flags, align 4
+  %or52 = or i32 %14, 8
   store i32 %or52, ptr %flags, align 4
   br label %for.inc
 
@@ -2427,18 +2452,31 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
 
 for.body:                                         ; preds = %land.rhs
   %call.i65 = call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157)
-  %call2 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i65, ptr noundef nonnull dereferenceable(2) @.str.7) #18
-  %tobool3.not = icmp eq i32 %call2, 0
+  %3 = load i8, ptr %call.i65, align 1
+  %4 = zext i8 %3 to i32
+  %5 = add nsw i32 %4, -103
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %sub_1, label %for.body.tail
+
+sub_1:                                            ; preds = %for.body
+  %6 = getelementptr inbounds i8, ptr %call.i65, i64 1
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  br label %for.body.tail
+
+for.body.tail:                                    ; preds = %for.body, %sub_1
+  %9 = phi i32 [ %5, %for.body ], [ %8, %sub_1 ]
+  %tobool3.not = icmp eq i32 %9, 0
   br i1 %tobool3.not, label %if.then, label %if.else
 
-if.then:                                          ; preds = %for.body
+if.then:                                          ; preds = %for.body.tail
   %call4 = call noundef ptr @_ZNK8tinyxml210XMLElement9AttributeEPKcS2_(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157, ptr noundef nonnull @.str.6, ptr noundef null)
   %call5 = call noundef ptr @_ZNK8tinyxml210XMLElement9AttributeEPKcS2_(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157, ptr noundef nonnull @.str.14, ptr noundef null)
   call fastcc void @_ZN7msdfgenL21combineTransformationERiRK8SkMatrixPKcS5_(ptr noalias nonnull align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(40) %transformation, ptr noundef %call4, ptr noundef %call5)
   call fastcc void @_ZN7msdfgenL11gatherPathsER6SkPathRiPN8tinyxml210XMLElementERK8SkMatrix(ptr noundef nonnull align 8 dereferenceable(15) %fullPath, ptr noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull %cur.0157, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp)
   br label %for.inc
 
-if.else:                                          ; preds = %for.body
+if.else:                                          ; preds = %for.body.tail
   %call.i66 = call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157)
   %call7 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i66, ptr noundef nonnull dereferenceable(5) @.str.12) #18
   %tobool8.not = icmp eq i32 %call7, 0
@@ -2451,8 +2489,8 @@ lor.lhs.false:                                    ; preds = %if.else
   br i1 %tobool11.not, label %if.then12, label %if.else13
 
 if.then12:                                        ; preds = %lor.lhs.false, %if.else
-  %3 = load i32, ptr %flags, align 4
-  %or = or i32 %3, 8
+  %10 = load i32, ptr %flags, align 4
+  %or = or i32 %10, 8
   store i32 %or, ptr %flags, align 4
   br label %for.inc
 
@@ -2482,8 +2520,8 @@ invoke.cont21:                                    ; preds = %land.lhs.true
   br i1 %call22, label %if.end170, label %if.then23
 
 if.then23:                                        ; preds = %invoke.cont21, %invoke.cont18
-  %4 = load i32, ptr %flags, align 4
-  %or24 = or i32 %4, 2
+  %11 = load i32, ptr %flags, align 4
+  %or24 = or i32 %11, 2
   br label %cleanup.sink.split
 
 lpad.loopexit:                                    ; preds = %do.body
@@ -2547,15 +2585,15 @@ invoke.cont45:                                    ; preds = %invoke.cont42
   br i1 %or.cond, label %if.end52, label %cleanup
 
 if.end52:                                         ; preds = %invoke.cont45
-  %5 = insertelement <2 x float> poison, float %conv, i64 0
-  %6 = insertelement <2 x float> %5, float %conv35, i64 1
-  %7 = insertelement <2 x float> poison, float %conv38, i64 0
-  %8 = insertelement <2 x float> %7, float %conv41, i64 1
-  %9 = fadd <2 x float> %6, %8
+  %12 = insertelement <2 x float> poison, float %conv, i64 0
+  %13 = insertelement <2 x float> %12, float %conv35, i64 1
+  %14 = insertelement <2 x float> poison, float %conv38, i64 0
+  %15 = insertelement <2 x float> %14, float %conv41, i64 1
+  %16 = fadd <2 x float> %13, %15
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %conv, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %conv35, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %rect, align 8
-  store <2 x float> %9, ptr %1, align 8
+  store <2 x float> %16, ptr %1, align 8
   %tobool56 = fcmp une float %conv44, 0.000000e+00
   %tobool58 = fcmp une float %conv47, 0.000000e+00
   %or.cond1 = or i1 %tobool56, %tobool58
@@ -2645,14 +2683,14 @@ invoke.cont111:                                   ; preds = %invoke.cont107
   br i1 %or.cond2, label %if.end118, label %cleanup
 
 if.end118:                                        ; preds = %invoke.cont111
-  %10 = insertelement <2 x float> poison, float %conv101, i64 0
-  %11 = insertelement <2 x float> %10, float %conv105, i64 1
-  %12 = insertelement <2 x float> poison, float %conv109, i64 0
-  %13 = insertelement <2 x float> %12, float %conv113, i64 1
-  %14 = fsub <2 x float> %11, %13
-  %15 = fadd <2 x float> %11, %13
-  store <2 x float> %14, ptr %ref.tmp119, align 8
-  store <2 x float> %15, ptr %0, align 8
+  %17 = insertelement <2 x float> poison, float %conv101, i64 0
+  %18 = insertelement <2 x float> %17, float %conv105, i64 1
+  %19 = insertelement <2 x float> poison, float %conv109, i64 0
+  %20 = insertelement <2 x float> %19, float %conv113, i64 1
+  %21 = fsub <2 x float> %18, %20
+  %22 = fadd <2 x float> %18, %20
+  store <2 x float> %21, ptr %ref.tmp119, align 8
+  store <2 x float> %22, ptr %0, align 8
   %call126 = invoke noundef nonnull align 8 dereferenceable(15) ptr @_ZN6SkPath7addOvalERK6SkRect15SkPathDirection(ptr noundef nonnull align 8 dereferenceable(15) %curPath, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp119, i32 noundef 0)
           to label %if.end170 unwind label %lpad.loopexit.split-lp
 
@@ -2674,8 +2712,8 @@ invoke.cont134:                                   ; preds = %if.then132
   br i1 %tobool136.not, label %if.then137, label %if.end139
 
 if.then137:                                       ; preds = %invoke.cont134
-  %16 = load i32, ptr %flags, align 4
-  %or138 = or i32 %16, 2
+  %23 = load i32, ptr %flags, align 4
+  %or138 = or i32 %23, 2
   br label %cleanup.sink.split
 
 if.end139:                                        ; preds = %invoke.cont134
@@ -2684,8 +2722,8 @@ if.end139:                                        ; preds = %invoke.cont134
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end139
   %pd133.0 = phi ptr [ %call135, %if.end139 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %17 = load i8, ptr %pd133.0, align 1
-  switch i8 %17, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i [
+  %24 = load i8, ptr %pd133.0, align 1
+  switch i8 %24, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i [
     i8 44, label %while.body.i.i.i
     i8 32, label %while.body.i.i.i
     i8 9, label %while.body.i.i.i
@@ -2700,8 +2738,8 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   store ptr null, ptr %end.i.i, align 8
   %call.i.i = call double @strtod(ptr noundef nonnull %pd133.0, ptr noundef nonnull %end.i.i) #16
-  %18 = load ptr, ptr %end.i.i, align 8
-  %cmp.i.i = icmp ugt ptr %18, %pd133.0
+  %25 = load ptr, ptr %end.i.i, align 8
+  %cmp.i.i = icmp ugt ptr %25, %pd133.0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
   br i1 %cmp.i.i, label %land.rhs.i, label %cleanup
 
@@ -2710,9 +2748,9 @@ land.rhs.i:                                       ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i
 
 while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, %land.rhs.i
-  %pd133.1 = phi ptr [ %18, %land.rhs.i ], [ %incdec.ptr.i.i7.i, %while.body.i.i6.i ]
-  %19 = load i8, ptr %pd133.1, align 1
-  switch i8 %19, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i [
+  %pd133.1 = phi ptr [ %25, %land.rhs.i ], [ %incdec.ptr.i.i7.i, %while.body.i.i6.i ]
+  %26 = load i8, ptr %pd133.1, align 1
+  switch i8 %26, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i [
     i8 44, label %while.body.i.i6.i
     i8 32, label %while.body.i.i6.i
     i8 9, label %while.body.i.i6.i
@@ -2727,8 +2765,8 @@ while.body.i.i6.i:                                ; preds = %while.cond.i.i5.i, 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   store ptr null, ptr %end.i3.i, align 8
   %call.i9.i = call double @strtod(ptr noundef nonnull %pd133.1, ptr noundef nonnull %end.i3.i) #16
-  %20 = load ptr, ptr %end.i3.i, align 8
-  %cmp.i10.i = icmp ugt ptr %20, %pd133.1
+  %27 = load ptr, ptr %end.i3.i, align 8
+  %cmp.i10.i = icmp ugt ptr %27, %pd133.1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i)
   br i1 %cmp.i10.i, label %if.end144, label %cleanup
 
@@ -2743,9 +2781,9 @@ invoke.cont149:                                   ; preds = %if.end144
   br label %while.cond.i.i.i94
 
 while.cond.i.i.i94:                               ; preds = %while.body.i.i.i95, %invoke.cont149
-  %pd133.4 = phi ptr [ %20, %invoke.cont149 ], [ %incdec.ptr.i.i.i96, %while.body.i.i.i95 ]
-  %21 = load i8, ptr %pd133.4, align 1
-  switch i8 %21, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i97 [
+  %pd133.4 = phi ptr [ %27, %invoke.cont149 ], [ %incdec.ptr.i.i.i96, %while.body.i.i.i95 ]
+  %28 = load i8, ptr %pd133.4, align 1
+  switch i8 %28, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i97 [
     i8 44, label %while.body.i.i.i95
     i8 32, label %while.body.i.i.i95
     i8 9, label %while.body.i.i.i95
@@ -2760,8 +2798,8 @@ while.body.i.i.i95:                               ; preds = %while.cond.i.i.i94,
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i97:     ; preds = %while.cond.i.i.i94
   store ptr null, ptr %end.i.i92, align 8
   %call.i.i98 = call double @strtod(ptr noundef nonnull %pd133.4, ptr noundef nonnull %end.i.i92) #16
-  %22 = load ptr, ptr %end.i.i92, align 8
-  %cmp.i.i99 = icmp ugt ptr %22, %pd133.4
+  %29 = load ptr, ptr %end.i.i92, align 8
+  %cmp.i.i99 = icmp ugt ptr %29, %pd133.4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i92)
   br i1 %cmp.i.i99, label %land.rhs.i101, label %cleanup
 
@@ -2770,9 +2808,9 @@ land.rhs.i101:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i102
 
 while.cond.i.i5.i102:                             ; preds = %while.body.i.i6.i103, %land.rhs.i101
-  %pd133.5 = phi ptr [ %22, %land.rhs.i101 ], [ %incdec.ptr.i.i7.i104, %while.body.i.i6.i103 ]
-  %23 = load i8, ptr %pd133.5, align 1
-  switch i8 %23, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 [
+  %pd133.5 = phi ptr [ %29, %land.rhs.i101 ], [ %incdec.ptr.i.i7.i104, %while.body.i.i6.i103 ]
+  %30 = load i8, ptr %pd133.5, align 1
+  switch i8 %30, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 [
     i8 44, label %while.body.i.i6.i103
     i8 32, label %while.body.i.i6.i103
     i8 9, label %while.body.i.i6.i103
@@ -2787,13 +2825,13 @@ while.body.i.i6.i103:                             ; preds = %while.cond.i.i5.i10
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105:   ; preds = %while.cond.i.i5.i102
   store ptr null, ptr %end.i3.i91, align 8
   %call.i9.i107 = call double @strtod(ptr noundef nonnull %pd133.5, ptr noundef nonnull %end.i3.i91) #16
-  %24 = load ptr, ptr %end.i3.i91, align 8
-  %cmp.i10.i108 = icmp ugt ptr %24, %pd133.5
+  %31 = load ptr, ptr %end.i3.i91, align 8
+  %cmp.i10.i108 = icmp ugt ptr %31, %pd133.5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i91)
   br i1 %cmp.i10.i108, label %do.body, label %cleanup
 
 do.body:                                          ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126
-  %pd133.8 = phi ptr [ %28, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 ], [ %24, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 ]
+  %pd133.8 = phi ptr [ %35, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 ], [ %31, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 ]
   %point.sroa.6.2 = phi double [ %call.i9.i128, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 ], [ %call.i9.i107, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 ]
   %point.sroa.0.0 = phi double [ %call.i.i119, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 ], [ %call.i.i98, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 ]
   %conv156 = fptrunc double %point.sroa.0.0 to float
@@ -2807,8 +2845,8 @@ do.cond:                                          ; preds = %do.body
 
 while.cond.i.i.i115:                              ; preds = %while.body.i.i.i116, %do.cond
   %pd133.9 = phi ptr [ %pd133.8, %do.cond ], [ %incdec.ptr.i.i.i117, %while.body.i.i.i116 ]
-  %25 = load i8, ptr %pd133.9, align 1
-  switch i8 %25, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i118 [
+  %32 = load i8, ptr %pd133.9, align 1
+  switch i8 %32, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i118 [
     i8 44, label %while.body.i.i.i116
     i8 32, label %while.body.i.i.i116
     i8 9, label %while.body.i.i.i116
@@ -2823,8 +2861,8 @@ while.body.i.i.i116:                              ; preds = %while.cond.i.i.i115
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i118:    ; preds = %while.cond.i.i.i115
   store ptr null, ptr %end.i.i113, align 8
   %call.i.i119 = call double @strtod(ptr noundef nonnull %pd133.9, ptr noundef nonnull %end.i.i113) #16
-  %26 = load ptr, ptr %end.i.i113, align 8
-  %cmp.i.i120 = icmp ugt ptr %26, %pd133.9
+  %33 = load ptr, ptr %end.i.i113, align 8
+  %cmp.i.i120 = icmp ugt ptr %33, %pd133.9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i113)
   br i1 %cmp.i.i120, label %land.rhs.i122, label %do.end
 
@@ -2833,9 +2871,9 @@ land.rhs.i122:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i123
 
 while.cond.i.i5.i123:                             ; preds = %while.body.i.i6.i124, %land.rhs.i122
-  %pd133.10 = phi ptr [ %26, %land.rhs.i122 ], [ %incdec.ptr.i.i7.i125, %while.body.i.i6.i124 ]
-  %27 = load i8, ptr %pd133.10, align 1
-  switch i8 %27, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 [
+  %pd133.10 = phi ptr [ %33, %land.rhs.i122 ], [ %incdec.ptr.i.i7.i125, %while.body.i.i6.i124 ]
+  %34 = load i8, ptr %pd133.10, align 1
+  switch i8 %34, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 [
     i8 44, label %while.body.i.i6.i124
     i8 32, label %while.body.i.i6.i124
     i8 9, label %while.body.i.i6.i124
@@ -2850,8 +2888,8 @@ while.body.i.i6.i124:                             ; preds = %while.cond.i.i5.i12
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126:   ; preds = %while.cond.i.i5.i123
   store ptr null, ptr %end.i3.i112, align 8
   %call.i9.i128 = call double @strtod(ptr noundef nonnull %pd133.10, ptr noundef nonnull %end.i3.i112) #16
-  %28 = load ptr, ptr %end.i3.i112, align 8
-  %cmp.i10.i129 = icmp ugt ptr %28, %pd133.10
+  %35 = load ptr, ptr %end.i3.i112, align 8
+  %cmp.i10.i129 = icmp ugt ptr %35, %pd133.10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i112)
   br i1 %cmp.i10.i129, label %do.body, label %do.end
 
@@ -2900,9 +2938,9 @@ invoke.cont186:                                   ; preds = %invoke.cont185
           to label %invoke.cont187 unwind label %lpad.loopexit.split-lp
 
 invoke.cont187:                                   ; preds = %invoke.cont186
-  %29 = load i32, ptr %flags, align 4
+  %36 = load i32, ptr %flags, align 4
   %storemerge.v = select i1 %call188, i32 1, i32 2
-  %storemerge = or i32 %29, %storemerge.v
+  %storemerge = or i32 %36, %storemerge.v
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %if.then23, %if.then137, %invoke.cont187

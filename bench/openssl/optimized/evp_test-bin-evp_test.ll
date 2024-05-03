@@ -157,7 +157,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.117 = private unnamed_addr constant [4 x i8] c"RC5\00", align 1
 @.str.118 = private unnamed_addr constant [4 x i8] c"Key\00", align 1
 @.str.119 = private unnamed_addr constant [7 x i8] c"Rounds\00", align 1
-@.str.120 = private unnamed_addr constant [3 x i8] c"IV\00", align 1
 @.str.121 = private unnamed_addr constant [7 x i8] c"NextIV\00", align 1
 @.str.122 = private unnamed_addr constant [10 x i8] c"Plaintext\00", align 1
 @.str.123 = private unnamed_addr constant [11 x i8] c"Ciphertext\00", align 1
@@ -304,7 +303,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.262 = private unnamed_addr constant [4 x i8] c"KDF\00", align 1
 @.str.263 = private unnamed_addr constant [39 x i8] c"kdata = OPENSSL_zalloc(sizeof(*kdata))\00", align 1
 @.str.264 = private unnamed_addr constant [29 x i8] c"name = OPENSSL_strdup(value)\00", align 1
-@.str.265 = private unnamed_addr constant [2 x i8] c"r\00", align 1
 @.str.266 = private unnamed_addr constant [37 x i8] c"skipping, setting 'r' is unsupported\00", align 1
 @.str.267 = private unnamed_addr constant [6 x i8] c"lanes\00", align 1
 @.str.268 = private unnamed_addr constant [41 x i8] c"skipping, setting 'lanes' is unsupported\00", align 1
@@ -315,7 +313,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.273 = private unnamed_addr constant [42 x i8] c"skipping, setting 'secret' is unsupported\00", align 1
 @.str.274 = private unnamed_addr constant [5 x i8] c"pass\00", align 1
 @.str.275 = private unnamed_addr constant [40 x i8] c"skipping, setting 'pass' is unsupported\00", align 1
-@.str.276 = private unnamed_addr constant [3 x i8] c"ad\00", align 1
 @.str.277 = private unnamed_addr constant [38 x i8] c"skipping, setting 'ad' is unsupported\00", align 1
 @.str.278 = private unnamed_addr constant [16 x i8] c"KDF_PARAM_ERROR\00", align 1
 @.str.279 = private unnamed_addr constant [7 x i8] c"cekalg\00", align 1
@@ -409,10 +406,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.366 = private unnamed_addr constant [25 x i8] c"Unknown pbe algorithm %s\00", align 1
 @.str.367 = private unnamed_addr constant [37 x i8] c"pdat = OPENSSL_zalloc(sizeof(*pdat))\00", align 1
 @.str.368 = private unnamed_addr constant [9 x i8] c"Password\00", align 1
-@.str.369 = private unnamed_addr constant [3 x i8] c"MD\00", align 1
-@.str.370 = private unnamed_addr constant [3 x i8] c"id\00", align 1
-@.str.371 = private unnamed_addr constant [2 x i8] c"N\00", align 1
-@.str.372 = private unnamed_addr constant [2 x i8] c"p\00", align 1
 @.str.373 = private unnamed_addr constant [7 x i8] c"maxmem\00", align 1
 @.str.374 = private unnamed_addr constant [3 x i8] c"*p\00", align 1
 @.str.375 = private unnamed_addr constant [28 x i8] c"Invalid empty integer value\00", align 1
@@ -467,7 +460,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -559,7 +552,7 @@ declare i64 @test_get_argument_count() local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @run_file_tests(i32 noundef %i) #1 {
+define internal range(i32 0, 2) i32 @run_file_tests(i32 noundef %i) #1 {
 entry:
   %keybin.i = alloca ptr, align 8
   %keylen.i = alloca i64, align 8
@@ -828,7 +821,7 @@ if.then76.i:                                      ; preds = %if.end72.i
 
 if.end77.i:                                       ; preds = %if.end72.i
   %incdec.ptr65.i = getelementptr inbounds i8, ptr %call61.i, i64 1
-  %call78.i = call fastcc i32 @parse_bin(ptr noundef nonnull %incdec.ptr65.i, ptr noundef nonnull %keybin.i, ptr noundef nonnull %keylen.i), !range !8
+  %call78.i = call fastcc i32 @parse_bin(ptr noundef nonnull %incdec.ptr65.i, ptr noundef nonnull %keybin.i, ptr noundef nonnull %keylen.i)
   %tobool79.not.i = icmp eq i32 %call78.i, 0
   br i1 %tobool79.not.i, label %if.then80.i, label %if.end81.i
 
@@ -931,7 +924,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %for.
   %36 = and i16 %35, 8192
   %tobool2.not.i.i = icmp eq i16 %36, 0
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %providers.addr.1.i.i, i64 1
-  br i1 %tobool2.not.i.i, label %for.end.i.i, label %for.cond.i.i, !llvm.loop !9
+  br i1 %tobool2.not.i.i, label %for.end.i.i, label %for.cond.i.i, !llvm.loop !8
 
 for.end.i.i:                                      ; preds = %for.cond.i.i
   %cmp.i146.i = icmp eq i8 %34, 0
@@ -951,7 +944,7 @@ for.inc17.i.i:                                    ; preds = %land.rhs.i.i
   %incdec.ptr18.i.i = getelementptr inbounds i8, ptr %p.012.i.i, i64 1
   %40 = load i8, ptr %incdec.ptr18.i.i, align 1
   %cmp7.not.i.i = icmp eq i8 %40, 0
-  br i1 %cmp7.not.i.i, label %if.end24.i.i, label %land.rhs.i.i, !llvm.loop !10
+  br i1 %cmp7.not.i.i, label %if.end24.i.i, label %land.rhs.i.i, !llvm.loop !9
 
 if.else.i.i:                                      ; preds = %land.rhs.i.i
   store i8 0, ptr %p.012.i.i, align 1
@@ -962,7 +955,7 @@ if.end24.i.i:                                     ; preds = %for.inc17.i.i, %if.
   %41 = load ptr, ptr @libctx, align 8
   %call25.i.i = tail call i32 @OSSL_PROVIDER_available(ptr noundef %41, ptr noundef nonnull %providers.addr.1.i.i) #11
   %tobool26.not.i.i = icmp eq i32 %call25.i.i, 0
-  br i1 %tobool26.not.i.i, label %while.cond.i.i, label %start.backedge.i, !llvm.loop !11
+  br i1 %tobool26.not.i.i, label %while.cond.i.i, label %start.backedge.i, !llvm.loop !10
 
 if.then106.i:                                     ; preds = %for.end.i.i, %while.cond.i.i
   %value103.i.le = getelementptr inbounds i8, ptr %pp.0256.i, i64 8
@@ -1005,7 +998,7 @@ for.cond.i154.i:                                  ; preds = %for.cond.i154.i, %f
   %49 = and i16 %48, 8192
   %tobool2.not.i158.i = icmp eq i16 %49, 0
   %incdec.ptr.i159.i = getelementptr inbounds i8, ptr %providers.addr.1.i155.i, i64 1
-  br i1 %tobool2.not.i158.i, label %for.end.i160.i, label %for.cond.i154.i, !llvm.loop !9
+  br i1 %tobool2.not.i158.i, label %for.end.i160.i, label %for.cond.i154.i, !llvm.loop !8
 
 for.end.i160.i:                                   ; preds = %for.cond.i154.i
   %cmp.i161.i = icmp eq i8 %47, 0
@@ -1025,14 +1018,14 @@ for.inc17.i173.i:                                 ; preds = %land.rhs.i162.i
   %incdec.ptr18.i174.i = getelementptr inbounds i8, ptr %p.012.i163.i, i64 1
   %53 = load i8, ptr %incdec.ptr18.i174.i, align 1
   %cmp7.not.i175.i = icmp eq i8 %53, 0
-  br i1 %cmp7.not.i175.i, label %if.end24.i168.i, label %land.rhs.i162.i, !llvm.loop !10
+  br i1 %cmp7.not.i175.i, label %if.end24.i168.i, label %land.rhs.i162.i, !llvm.loop !9
 
 if.end24.i168.i:                                  ; preds = %for.inc17.i173.i, %land.rhs.i162.i
   %more.1.i169.i = phi i32 [ 0, %for.inc17.i173.i ], [ %more.0.i150.i, %land.rhs.i162.i ]
   %54 = load ptr, ptr @libctx, align 8
   %call25.i170.i = tail call i32 @OSSL_PROVIDER_available(ptr noundef %54, ptr noundef nonnull %providers.addr.1.i155.i) #11
   %tobool26.not.i171.i = icmp eq i32 %call25.i170.i, 0
-  br i1 %tobool26.not.i171.i, label %while.cond.i148.i, label %if.then121.i, !llvm.loop !11
+  br i1 %tobool26.not.i171.i, label %while.cond.i148.i, label %if.then121.i, !llvm.loop !10
 
 if.then121.i:                                     ; preds = %if.end24.i168.i
   %55 = load ptr, ptr @libctx, align 8
@@ -1079,7 +1072,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %lst.addr.07.i.i, i64 16
   %63 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %63, null
-  br i1 %cmp.not.i.i, label %if.end155.i, label %for.body.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %if.end155.i, label %for.body.i.i, !llvm.loop !11
 
 if.then153.i:                                     ; preds = %for.body.i.i
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.27, i32 noundef 4031, ptr noundef nonnull @.str.45, ptr noundef %60) #11
@@ -1118,7 +1111,7 @@ for.cond.i182.i:                                  ; preds = %for.body.i179.i
   %incdec.ptr.i183.i = getelementptr inbounds i8, ptr %tt.04.i.i, i64 8
   %68 = load ptr, ptr %incdec.ptr.i183.i, align 8
   %tobool.not.i184.i = icmp eq ptr %68, null
-  br i1 %tobool.not.i184.i, label %find_test.exit.i, label %for.body.i179.i, !llvm.loop !13
+  br i1 %tobool.not.i184.i, label %find_test.exit.i, label %for.body.i179.i, !llvm.loop !12
 
 for.body.i179.i:                                  ; preds = %if.else113.i, %for.cond.i182.i
   %69 = phi ptr [ %68, %for.cond.i182.i ], [ @rand_test_method, %if.else113.i ]
@@ -1297,7 +1290,7 @@ for.inc.i:                                        ; preds = %if.end288.i, %if.th
   %102 = load i32, ptr %numpairs.i, align 4
   %sub194.i = sub nsw i32 %102, %skipped.1257.i
   %cmp195.i = icmp slt i32 %inc300.i, %sub194.i
-  br i1 %cmp195.i, label %for.body.i, label %parse.exit, !llvm.loop !14
+  br i1 %cmp195.i, label %for.body.i, label %parse.exit, !llvm.loop !13
 
 parse.exit.thread.sink.split:                     ; preds = %if.then201.i, %if.then131.i, %if.then106.i
   store i32 1, ptr %skip.i40, align 8
@@ -1327,7 +1320,7 @@ while.cond.backedge:                              ; preds = %if.then14.i, %if.en
   %call8 = tail call i64 @BIO_ctrl(ptr noundef %104, i32 noundef 2, i64 noundef 0, ptr noundef null) #11
   %105 = and i64 %call8, 4294967295
   %tobool10.not = icmp eq i64 %105, 0
-  br i1 %tobool10.not, label %while.body, label %while.end, !llvm.loop !15
+  br i1 %tobool10.not, label %while.body, label %while.end, !llvm.loop !14
 
 if.end15:                                         ; preds = %parse.exit
   br i1 %cmp.ph, label %if.then19, label %lor.lhs.false
@@ -1485,7 +1478,7 @@ while.body.i:                                     ; preds = %while.end, %while.b
   tail call void @CRYPTO_free(ptr noundef %141, ptr noundef nonnull @.str.27, i32 noundef 3812) #11
   tail call void @CRYPTO_free(ptr noundef nonnull %lst.addr.06.i, ptr noundef nonnull @.str.27, i32 noundef 3813) #11
   %cmp.not.i = icmp eq ptr %139, null
-  br i1 %cmp.not.i, label %free_key_list.exit, label %while.body.i, !llvm.loop !16
+  br i1 %cmp.not.i, label %free_key_list.exit, label %while.body.i, !llvm.loop !15
 
 free_key_list.exit:                               ; preds = %while.body.i, %while.end
   %142 = load ptr, ptr @private_keys, align 8
@@ -1503,7 +1496,7 @@ while.body.i28:                                   ; preds = %free_key_list.exit,
   tail call void @CRYPTO_free(ptr noundef %145, ptr noundef nonnull @.str.27, i32 noundef 3812) #11
   tail call void @CRYPTO_free(ptr noundef nonnull %lst.addr.06.i29, ptr noundef nonnull @.str.27, i32 noundef 3813) #11
   %cmp.not.i32 = icmp eq ptr %143, null
-  br i1 %cmp.not.i32, label %free_key_list.exit33, label %while.body.i28, !llvm.loop !16
+  br i1 %cmp.not.i32, label %free_key_list.exit33, label %while.body.i28, !llvm.loop !15
 
 free_key_list.exit33:                             ; preds = %while.body.i28, %free_key_list.exit
   %key = getelementptr inbounds i8, ptr %call1, i64 2440
@@ -1621,7 +1614,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @OBJ_txt2nid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_bin(ptr noundef %value, ptr nocapture noundef writeonly %buf, ptr nocapture noundef writeonly %buflen) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @parse_bin(ptr noundef %value, ptr nocapture noundef writeonly %buf, ptr nocapture noundef writeonly %buflen) unnamed_addr #1 {
 entry:
   %len = alloca i64, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value, ptr noundef nonnull dereferenceable(5) @.str.62) #12
@@ -1658,7 +1651,7 @@ if.then13:                                        ; preds = %if.end
   br i1 %cmp15, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then13
-  %arrayidx17 = getelementptr inbounds i8, ptr %value, i64 %call14
+  %arrayidx17 = getelementptr i8, ptr %value, i64 %call14
   %1 = load i8, ptr %arrayidx17, align 1
   %cmp19.not = icmp eq i8 %1, 34
   br i1 %cmp19.not, label %if.end22, label %return
@@ -1723,7 +1716,7 @@ for.inc.i:                                        ; preds = %if.else.i, %if.end1
   %p.1.i = getelementptr inbounds i8, ptr %p.017.i, i64 1
   %inc21.i = add i64 %i.1.i, 1
   %cmp5.i = icmp ult i64 %inc21.i, %dec
-  br i1 %cmp5.i, label %for.body.i, label %for.end.i, !llvm.loop !17
+  br i1 %cmp5.i, label %for.body.i, label %for.end.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %for.inc.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p.1.i to i64
@@ -1791,7 +1784,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #5
 declare i32 @OSSL_PROVIDER_available(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rand_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
+define internal range(i32 0, 2) i32 @rand_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %strength = alloca i32, align 4
@@ -1917,7 +1910,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %14 = load i32, ptr %n, align 8
   %15 = sext i32 %14 to i64
   %cmp.not.not = icmp slt i64 %indvars.iv, %15
-  br i1 %cmp.not.not, label %for.body, label %for.end, !llvm.loop !18
+  br i1 %cmp.not.not, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
   %16 = load ptr, ptr %0, align 8
@@ -1963,7 +1956,7 @@ if.end8:                                          ; preds = %if.then6, %if.end
 
 if.then12:                                        ; preds = %if.end8
   %entropy_len = getelementptr inbounds i8, ptr %add.ptr, i64 80
-  %call13 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %add.ptr, ptr noundef nonnull %entropy_len), !range !8
+  %call13 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %add.ptr, ptr noundef nonnull %entropy_len)
   br label %return
 
 if.end14:                                         ; preds = %if.end8
@@ -1974,7 +1967,7 @@ if.end14:                                         ; preds = %if.end8
 if.then17:                                        ; preds = %if.end14
   %reseed_entropy = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %reseed_entropy_len = getelementptr inbounds i8, ptr %add.ptr, i64 144
-  %call18 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %reseed_entropy, ptr noundef nonnull %reseed_entropy_len), !range !8
+  %call18 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %reseed_entropy, ptr noundef nonnull %reseed_entropy_len)
   br label %return
 
 if.end19:                                         ; preds = %if.end14
@@ -1985,7 +1978,7 @@ if.end19:                                         ; preds = %if.end14
 if.then22:                                        ; preds = %if.end19
   %nonce = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %nonce_len = getelementptr inbounds i8, ptr %add.ptr, i64 88
-  %call23 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %nonce, ptr noundef nonnull %nonce_len), !range !8
+  %call23 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %nonce, ptr noundef nonnull %nonce_len)
   br label %return
 
 if.end24:                                         ; preds = %if.end19
@@ -1996,7 +1989,7 @@ if.end24:                                         ; preds = %if.end19
 if.then27:                                        ; preds = %if.end24
   %pers = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %pers_len = getelementptr inbounds i8, ptr %add.ptr, i64 96
-  %call28 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %pers, ptr noundef nonnull %pers_len), !range !8
+  %call28 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %pers, ptr noundef nonnull %pers_len)
   br label %return
 
 if.end29:                                         ; preds = %if.end24
@@ -2007,7 +2000,7 @@ if.end29:                                         ; preds = %if.end24
 if.then32:                                        ; preds = %if.end29
   %reseed_addin = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %reseed_addin_len = getelementptr inbounds i8, ptr %add.ptr, i64 152
-  %call33 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %reseed_addin, ptr noundef nonnull %reseed_addin_len), !range !8
+  %call33 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %reseed_addin, ptr noundef nonnull %reseed_addin_len)
   br label %return
 
 if.end34:                                         ; preds = %if.end29
@@ -2018,7 +2011,7 @@ if.end34:                                         ; preds = %if.end29
 if.then37:                                        ; preds = %if.end34
   %addinA = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %addinA_len = getelementptr inbounds i8, ptr %add.ptr, i64 104
-  %call38 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %addinA, ptr noundef nonnull %addinA_len), !range !8
+  %call38 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %addinA, ptr noundef nonnull %addinA_len)
   br label %return
 
 if.end39:                                         ; preds = %if.end34
@@ -2029,7 +2022,7 @@ if.end39:                                         ; preds = %if.end34
 if.then42:                                        ; preds = %if.end39
   %addinB = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %addinB_len = getelementptr inbounds i8, ptr %add.ptr, i64 112
-  %call43 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %addinB, ptr noundef nonnull %addinB_len), !range !8
+  %call43 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %addinB, ptr noundef nonnull %addinB_len)
   br label %return
 
 if.end44:                                         ; preds = %if.end39
@@ -2040,7 +2033,7 @@ if.end44:                                         ; preds = %if.end39
 if.then47:                                        ; preds = %if.end44
   %pr_entropyA = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %pr_entropyA_len = getelementptr inbounds i8, ptr %add.ptr, i64 120
-  %call48 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %pr_entropyA, ptr noundef nonnull %pr_entropyA_len), !range !8
+  %call48 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %pr_entropyA, ptr noundef nonnull %pr_entropyA_len)
   br label %return
 
 if.end49:                                         ; preds = %if.end44
@@ -2051,7 +2044,7 @@ if.end49:                                         ; preds = %if.end44
 if.then52:                                        ; preds = %if.end49
   %pr_entropyB = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %pr_entropyB_len = getelementptr inbounds i8, ptr %add.ptr, i64 128
-  %call53 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %pr_entropyB, ptr noundef nonnull %pr_entropyB_len), !range !8
+  %call53 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %pr_entropyB, ptr noundef nonnull %pr_entropyB_len)
   br label %return
 
 if.end54:                                         ; preds = %if.end49
@@ -2062,7 +2055,7 @@ if.end54:                                         ; preds = %if.end49
 if.then57:                                        ; preds = %if.end54
   %output = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %output_len = getelementptr inbounds i8, ptr %add.ptr, i64 136
-  %call58 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len), !range !8
+  %call58 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -2139,7 +2132,7 @@ return:                                           ; preds = %if.end54, %if.end89
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rand_test_run(ptr nocapture noundef %t) #1 {
+define internal range(i32 0, 2) i32 @rand_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %params = alloca [5 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -2423,7 +2416,7 @@ for.inc:                                          ; preds = %lor.lhs.false174
   %43 = load i32, ptr %n, align 8
   %44 = sext i32 %43 to i64
   %cmp28.not.not = icmp slt i64 %indvars.iv, %44
-  br i1 %cmp28.not.not, label %for.body, label %for.end, !llvm.loop !19
+  br i1 %cmp28.not.not, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %if.end25
   %err = getelementptr inbounds i8, ptr %t, i64 6568
@@ -2499,7 +2492,7 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @EVP_RAND_get_state(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
+define internal range(i32 0, 2) i32 @cipher_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
 entry:
   %call.i = tail call i32 @OPENSSL_strncasecmp(ptr noundef %alg, ptr noundef nonnull @.str.117, i64 noundef 3) #11
   %cmp.i.not = icmp eq i32 %call.i, 0
@@ -2606,7 +2599,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.27, i32 noundef 659) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body
   %tag = getelementptr inbounds i8, ptr %0, i64 184
@@ -2622,7 +2615,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cipher_test_parse(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
+define internal range(i32 -1, 2) i32 @cipher_test_parse(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
 entry:
   %endptr = alloca ptr, align 8
   %data = getelementptr inbounds i8, ptr %t, i64 6600
@@ -2634,13 +2627,13 @@ entry:
 if.then:                                          ; preds = %entry
   %key = getelementptr inbounds i8, ptr %0, i64 24
   %key_len = getelementptr inbounds i8, ptr %0, i64 32
-  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %key, ptr noundef nonnull %key_len), !range !8
+  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %key, ptr noundef nonnull %key_len)
   br label %return
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(7) @.str.119) #12
   %cmp3 = icmp eq i32 %call2, 0
-  br i1 %cmp3, label %if.then4, label %if.end9
+  br i1 %cmp3, label %if.then4, label %sub_0
 
 if.then4:                                         ; preds = %if.end
   %call5 = tail call i32 @atoi(ptr nocapture noundef %value) #12
@@ -2652,18 +2645,39 @@ if.end8:                                          ; preds = %if.then4
   store i32 %call5, ptr %rounds, align 8
   br label %return
 
-if.end9:                                          ; preds = %if.end
-  %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(3) @.str.120) #12
-  %cmp11 = icmp eq i32 %call10, 0
+sub_0:                                            ; preds = %if.end
+  %1 = load i8, ptr %keyword, align 1
+  %2 = zext i8 %1 to i32
+  %3 = add nsw i32 %2, -73
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %sub_1, label %if.end9.tail
+
+sub_1:                                            ; preds = %sub_0
+  %4 = getelementptr inbounds i8, ptr %keyword, i64 1
+  %5 = load i8, ptr %4, align 1
+  %6 = zext i8 %5 to i32
+  %7 = add nsw i32 %6, -86
+  %.not70 = icmp eq i32 %7, 0
+  br i1 %.not70, label %sub_2, label %if.end9.tail
+
+sub_2:                                            ; preds = %sub_1
+  %8 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %9 = load i8, ptr %8, align 1
+  %10 = zext i8 %9 to i32
+  br label %if.end9.tail
+
+if.end9.tail:                                     ; preds = %sub_0, %sub_1, %sub_2
+  %11 = phi i32 [ %3, %sub_0 ], [ %7, %sub_1 ], [ %10, %sub_2 ]
+  %cmp11 = icmp eq i32 %11, 0
   br i1 %cmp11, label %if.then12, label %if.end14
 
-if.then12:                                        ; preds = %if.end9
+if.then12:                                        ; preds = %if.end9.tail
   %iv = getelementptr inbounds i8, ptr %0, i64 48
   %iv_len = getelementptr inbounds i8, ptr %0, i64 72
-  %call13 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %iv, ptr noundef nonnull %iv_len), !range !8
+  %call13 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %iv, ptr noundef nonnull %iv_len)
   br label %return
 
-if.end14:                                         ; preds = %if.end9
+if.end14:                                         ; preds = %if.end9.tail
   %call15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(7) @.str.121) #12
   %cmp16 = icmp eq i32 %call15, 0
   br i1 %cmp16, label %if.then17, label %if.end20
@@ -2671,7 +2685,7 @@ if.end14:                                         ; preds = %if.end9
 if.then17:                                        ; preds = %if.end14
   %next_iv = getelementptr inbounds i8, ptr %0, i64 56
   %iv_len18 = getelementptr inbounds i8, ptr %0, i64 72
-  %call19 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %next_iv, ptr noundef nonnull %iv_len18), !range !8
+  %call19 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %next_iv, ptr noundef nonnull %iv_len18)
   br label %return
 
 if.end20:                                         ; preds = %if.end14
@@ -2682,7 +2696,7 @@ if.end20:                                         ; preds = %if.end14
 if.then23:                                        ; preds = %if.end20
   %plaintext = getelementptr inbounds i8, ptr %0, i64 80
   %plaintext_len = getelementptr inbounds i8, ptr %0, i64 88
-  %call24 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %plaintext, ptr noundef nonnull %plaintext_len), !range !8
+  %call24 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %plaintext, ptr noundef nonnull %plaintext_len)
   br label %return
 
 if.end25:                                         ; preds = %if.end20
@@ -2693,7 +2707,7 @@ if.end25:                                         ; preds = %if.end20
 if.then28:                                        ; preds = %if.end25
   %ciphertext = getelementptr inbounds i8, ptr %0, i64 96
   %ciphertext_len = getelementptr inbounds i8, ptr %0, i64 104
-  %call29 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %ciphertext, ptr noundef nonnull %ciphertext_len), !range !8
+  %call29 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %ciphertext, ptr noundef nonnull %ciphertext_len)
   br label %return
 
 if.end30:                                         ; preds = %if.end25
@@ -2714,8 +2728,8 @@ if.end37:                                         ; preds = %if.then33
 
 if.end38:                                         ; preds = %if.end30
   %aead = getelementptr inbounds i8, ptr %0, i64 20
-  %1 = load i32, ptr %aead, align 4
-  %tobool.not = icmp eq i32 %1, 0
+  %12 = load i32, ptr %aead, align 4
+  %tobool.not = icmp eq i32 %12, 0
   br i1 %tobool.not, label %if.end108, label %if.then39
 
 if.then39:                                        ; preds = %if.end38
@@ -2741,20 +2755,20 @@ for.cond.preheader:                               ; preds = %if.end45.thread, %i
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !20
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds [4 x ptr], ptr %aad, i64 0, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx, align 8
-  %cmp53 = icmp eq ptr %2, null
+  %13 = load ptr, ptr %arrayidx, align 8
+  %cmp53 = icmp eq ptr %13, null
   br i1 %cmp53, label %if.then55, label %for.cond
 
 if.then55:                                        ; preds = %for.body
   %arrayidx.le = getelementptr inbounds [4 x ptr], ptr %aad, i64 0, i64 %indvars.iv
   %aad_len = getelementptr inbounds i8, ptr %0, i64 144
   %arrayidx60 = getelementptr inbounds [4 x i64], ptr %aad_len, i64 0, i64 %indvars.iv
-  %call61 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %arrayidx.le, ptr noundef nonnull %arrayidx60), !range !8
+  %call61 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %arrayidx.le, ptr noundef nonnull %arrayidx60)
   br label %return
 
 if.end63:                                         ; preds = %if.end45
@@ -2765,7 +2779,7 @@ if.end63:                                         ; preds = %if.end45
 if.then67:                                        ; preds = %if.end63
   %tag = getelementptr inbounds i8, ptr %0, i64 184
   %tag_len = getelementptr inbounds i8, ptr %0, i64 200
-  %call68 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %tag, ptr noundef nonnull %tag_len), !range !8
+  %call68 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %tag, ptr noundef nonnull %tag_len)
   br label %return
 
 if.end69:                                         ; preds = %if.end63
@@ -2801,7 +2815,7 @@ if.end86:                                         ; preds = %if.end69
 if.then90:                                        ; preds = %if.end86
   %mac_key = getelementptr inbounds i8, ptr %0, i64 216
   %mac_key_len = getelementptr inbounds i8, ptr %0, i64 224
-  %call91 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %mac_key, ptr noundef nonnull %mac_key_len), !range !8
+  %call91 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %mac_key, ptr noundef nonnull %mac_key_len)
   br label %return
 
 if.end92:                                         ; preds = %if.end86
@@ -2814,15 +2828,15 @@ if.then96:                                        ; preds = %if.end92
   %conv98 = trunc i64 %call97 to i32
   %tls_version = getelementptr inbounds i8, ptr %0, i64 180
   store i32 %conv98, ptr %tls_version, align 4
-  %3 = load i8, ptr %value, align 1
-  %cmp101.not = icmp eq i8 %3, 0
+  %14 = load i8, ptr %value, align 1
+  %cmp101.not = icmp eq i8 %14, 0
   br i1 %cmp101.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then96
-  %4 = load ptr, ptr %endptr, align 8
-  %5 = load i8, ptr %4, align 1
-  %cmp105 = icmp eq i8 %5, 0
-  %6 = zext i1 %cmp105 to i32
+  %15 = load ptr, ptr %endptr, align 8
+  %16 = load i8, ptr %15, align 1
+  %cmp105 = icmp eq i8 %16, 0
+  %17 = zext i1 %cmp105 to i32
   br label %return
 
 if.end108:                                        ; preds = %if.end92, %if.end38
@@ -2871,12 +2885,12 @@ if.then135:                                       ; preds = %if.end131
   br label %return
 
 return:                                           ; preds = %for.cond, %if.end131, %if.then116, %if.then121, %if.else117, %if.then96, %land.rhs, %if.then77, %if.then81, %if.else, %if.then33, %if.then4, %if.then135, %if.then130, %if.then90, %if.then67, %if.then55, %if.end37, %if.then28, %if.then23, %if.then17, %if.then12, %if.end8, %if.then
-  %retval.0 = phi i32 [ %call1, %if.then ], [ 1, %if.end8 ], [ %call13, %if.then12 ], [ %call19, %if.then17 ], [ %call24, %if.then23 ], [ %call29, %if.then28 ], [ 1, %if.end37 ], [ %call61, %if.then55 ], [ %call68, %if.then67 ], [ %call91, %if.then90 ], [ 1, %if.then130 ], [ 1, %if.then135 ], [ -1, %if.then4 ], [ -1, %if.then33 ], [ -1, %if.else ], [ 1, %if.then81 ], [ 1, %if.then77 ], [ 0, %if.then96 ], [ %6, %land.rhs ], [ -1, %if.else117 ], [ 1, %if.then121 ], [ 1, %if.then116 ], [ 0, %if.end131 ], [ -1, %for.cond ]
+  %retval.0 = phi i32 [ %call1, %if.then ], [ 1, %if.end8 ], [ %call13, %if.then12 ], [ %call19, %if.then17 ], [ %call24, %if.then23 ], [ %call29, %if.then28 ], [ 1, %if.end37 ], [ %call61, %if.then55 ], [ %call68, %if.then67 ], [ %call91, %if.then90 ], [ 1, %if.then130 ], [ 1, %if.then135 ], [ -1, %if.then4 ], [ -1, %if.then33 ], [ -1, %if.else ], [ 1, %if.then81 ], [ 1, %if.then77 ], [ 0, %if.then96 ], [ %17, %land.rhs ], [ -1, %if.else117 ], [ 1, %if.then121 ], [ 1, %if.then116 ], [ 0, %if.end131 ], [ -1, %for.cond ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_test_run(ptr nocapture noundef %t) #1 {
+define internal range(i32 0, 2) i32 @cipher_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %t, i64 6600
   %0 = load ptr, ptr %data, align 8
@@ -3019,7 +3033,7 @@ if.end41.us.us.us:                                ; preds = %for.cond31.preheade
   br i1 %tobool57.not.us.us.us, label %if.then69.us.us.us, label %if.then58.us.us.us
 
 if.then58.us.us.us:                               ; preds = %if.end41.us.us.us
-  %call59.us.us.us = tail call fastcc i32 @cipher_test_enc(ptr noundef %t, i32 noundef 1, i64 noundef %out_misalign.045.us.us, i64 noundef 0, i32 noundef %frag.047.us, i32 noundef 1), !range !22
+  %call59.us.us.us = tail call fastcc i32 @cipher_test_enc(ptr noundef %t, i32 noundef 1, i64 noundef %out_misalign.045.us.us, i64 noundef 0, i32 noundef %frag.047.us, i32 noundef 1)
   %cmp60.not.not.us.us.us = icmp eq i32 %call59.us.us.us, 0
   br i1 %cmp60.not.not.us.us.us, label %return, label %if.end66.us.us.us
 
@@ -3029,17 +3043,17 @@ if.end66.us.us.us:                                ; preds = %if.then58.us.us.us
   br i1 %cmp68.not.us.us.us, label %for.inc78.split.us.us.us, label %if.then69.us.us.us
 
 if.then69.us.us.us:                               ; preds = %if.end66.us.us.us, %if.end41.us.us.us
-  %call70.us.us.us = tail call fastcc i32 @cipher_test_enc(ptr noundef %t, i32 noundef 0, i64 noundef %out_misalign.045.us.us, i64 noundef 0, i32 noundef %frag.047.us, i32 noundef 1), !range !22
+  %call70.us.us.us = tail call fastcc i32 @cipher_test_enc(ptr noundef %t, i32 noundef 0, i64 noundef %out_misalign.045.us.us, i64 noundef 0, i32 noundef %frag.047.us, i32 noundef 1)
   %cmp71.not.not.us.us.us = icmp eq i32 %call70.us.us.us, 0
   br i1 %cmp71.not.not.us.us.us, label %return, label %for.inc78.split.us.us.us
 
 for.inc78.split.us.us.us:                         ; preds = %if.end66.us.us.us, %if.then69.us.us.us
-  br i1 %tobool44.not.us.us, label %if.end41.us.us.us, label %for.inc81.split.us.us, !llvm.loop !23
+  br i1 %tobool44.not.us.us, label %if.end41.us.us.us, label %for.inc81.split.us.us, !llvm.loop !21
 
 for.inc81.split.us.us:                            ; preds = %for.inc78.split.us.us.us
   %inc82.us = add nuw nsw i32 %frag.047.us, 1
   %exitcond51.not = icmp eq i32 %frag.047.us, %not..i
-  br i1 %exitcond51.not, label %for.inc84, label %for.cond31.preheader.us, !llvm.loop !24
+  br i1 %exitcond51.not, label %for.inc84, label %for.cond31.preheader.us, !llvm.loop !22
 
 for.cond31.preheader:                             ; preds = %for.cond28.preheader, %for.inc81.split
   %frag.047 = phi i32 [ %inc82, %for.inc81.split ], [ 0, %for.cond28.preheader ]
@@ -3063,7 +3077,7 @@ for.body36:                                       ; preds = %for.cond34.preheade
   br i1 %tobool57.not, label %if.then69, label %if.then58
 
 if.then58:                                        ; preds = %for.body36
-  %call59 = tail call fastcc i32 @cipher_test_enc(ptr noundef %t, i32 noundef 1, i64 noundef %out_misalign.045, i64 noundef %inp_misalign.044, i32 noundef %frag.047, i32 noundef %in_place.048), !range !22
+  %call59 = tail call fastcc i32 @cipher_test_enc(ptr noundef %t, i32 noundef 1, i64 noundef %out_misalign.045, i64 noundef %inp_misalign.044, i32 noundef %frag.047, i32 noundef %in_place.048)
   %cmp60.not.not = icmp eq i32 %call59, 0
   br i1 %cmp60.not.not, label %return, label %if.end66
 
@@ -3073,25 +3087,25 @@ if.end66:                                         ; preds = %if.then58
   br i1 %cmp68.not, label %for.inc, label %if.then69
 
 if.then69:                                        ; preds = %for.body36, %if.end66
-  %call70 = tail call fastcc i32 @cipher_test_enc(ptr noundef %t, i32 noundef 0, i64 noundef %out_misalign.045, i64 noundef %inp_misalign.044, i32 noundef %frag.047, i32 noundef %in_place.048), !range !22
+  %call70 = tail call fastcc i32 @cipher_test_enc(ptr noundef %t, i32 noundef 0, i64 noundef %out_misalign.045, i64 noundef %inp_misalign.044, i32 noundef %frag.047, i32 noundef %in_place.048)
   %cmp71.not.not = icmp eq i32 %call70, 0
   br i1 %cmp71.not.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.end66, %if.then69
-  br i1 %tobool51.not, label %for.body36, label %for.inc78.split, !llvm.loop !25
+  br i1 %tobool51.not, label %for.body36, label %for.inc78.split, !llvm.loop !23
 
 for.inc78.split:                                  ; preds = %for.inc
-  br i1 %tobool49.not, label %for.cond34.preheader, label %for.inc81.split, !llvm.loop !23
+  br i1 %tobool49.not, label %for.cond34.preheader, label %for.inc81.split, !llvm.loop !21
 
 for.inc81.split:                                  ; preds = %for.inc78.split
   %inc82 = add nuw nsw i32 %frag.047, 1
   %exitcond.not = icmp eq i32 %frag.047, %not..i
-  br i1 %exitcond.not, label %for.inc84, label %for.cond31.preheader, !llvm.loop !24
+  br i1 %exitcond.not, label %for.inc84, label %for.cond31.preheader, !llvm.loop !22
 
 for.inc84:                                        ; preds = %for.inc81.split, %for.inc81.split.us.us
   %dec = add nsw i32 %in_place.048, -1
   %cmp22 = icmp sgt i32 %in_place.048, 0
-  br i1 %cmp22, label %for.body, label %for.end85, !llvm.loop !26
+  br i1 %cmp22, label %for.body, label %for.end85, !llvm.loop !24
 
 for.end85:                                        ; preds = %for.body, %for.inc84
   store ptr null, ptr %aux_err, align 8
@@ -3133,7 +3147,7 @@ declare i32 @EVP_CIPHER_get_iv_length(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cipher_test_enc(ptr nocapture noundef %t, i32 noundef %enc, i64 noundef %out_misalign, i64 noundef %inp_misalign, i32 noundef %frag, i32 noundef %in_place) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr nocapture noundef %t, i32 noundef %enc, i64 noundef %out_misalign, i64 noundef %inp_misalign, i32 noundef %frag, i32 noundef %in_place) unnamed_addr #1 {
 entry:
   %tmplen = alloca i32, align 4
   %chunklen = alloca i32, align 4
@@ -3570,7 +3584,7 @@ for.cond:                                         ; preds = %for.body
   %arrayidx242 = getelementptr inbounds [4 x ptr], ptr %aad, i64 0, i64 %indvars.iv.next280
   %33 = load ptr, ptr %arrayidx242, align 8
   %cmp243.not = icmp eq ptr %33, null
-  br i1 %cmp243.not, label %if.end321, label %for.body, !llvm.loop !27
+  br i1 %cmp243.not, label %if.end321, label %for.body, !llvm.loop !25
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv279 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next280, %for.cond ]
@@ -3637,7 +3651,7 @@ for.inc317:                                       ; preds = %for.body262, %if.en
   %arrayidx259 = getelementptr inbounds [4 x ptr], ptr %aad, i64 0, i64 %indvars.iv.next
   %43 = load ptr, ptr %arrayidx259, align 8
   %cmp260.not = icmp eq ptr %43, null
-  br i1 %cmp260.not, label %if.end321, label %for.body262, !llvm.loop !28
+  br i1 %cmp260.not, label %if.end321, label %for.body262, !llvm.loop !26
 
 if.end321:                                        ; preds = %for.inc317, %for.cond, %for.cond256.preheader, %for.cond.preheader, %land.lhs.true234, %if.end230
   %tls_aad322 = getelementptr inbounds i8, ptr %0, i64 176
@@ -4046,7 +4060,7 @@ declare i32 @test_size_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_mem_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @digest_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
+define internal range(i32 0, 2) i32 @digest_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
 entry:
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %alg, ptr noundef nonnull @.str.192) #11
   %cmp.i.not = icmp eq i32 %call.i, 0
@@ -4116,7 +4130,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @digest_test_parse(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
+define internal range(i32 -1, 2) i32 @digest_test_parse(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %t, i64 6600
   %0 = load ptr, ptr %data, align 8
@@ -4126,7 +4140,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %input = getelementptr inbounds i8, ptr %0, i64 16
-  %call1 = tail call fastcc i32 @evp_test_buffer_append(ptr noundef %value, ptr noundef nonnull %input), !range !22
+  %call1 = tail call fastcc i32 @evp_test_buffer_append(ptr noundef %value, ptr noundef nonnull %input)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4137,7 +4151,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %output = getelementptr inbounds i8, ptr %0, i64 24
   %output_len = getelementptr inbounds i8, ptr %0, i64 32
-  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len), !range !8
+  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -4183,7 +4197,7 @@ if.end12:                                         ; preds = %if.end6
 if.then15:                                        ; preds = %if.end12
   %input16 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %input16, align 8
-  %call17 = tail call fastcc i32 @evp_test_buffer_ncopy(ptr noundef %value, ptr noundef %3), !range !22
+  %call17 = tail call fastcc i32 @evp_test_buffer_ncopy(ptr noundef %value, ptr noundef %3)
   br label %return
 
 if.end18:                                         ; preds = %if.end12
@@ -4339,7 +4353,7 @@ for.cond2.i:                                      ; preds = %for.body4.i
   %inc.i = add nuw i64 %j.010.i, 1
   %8 = load i64, ptr %count.i, align 8
   %cmp3.i = icmp ult i64 %inc.i, %8
-  br i1 %cmp3.i, label %for.body4.i, label %for.inc7.i, !llvm.loop !29
+  br i1 %cmp3.i, label %for.body4.i, label %for.inc7.i, !llvm.loop !27
 
 for.body4.i:                                      ; preds = %for.cond2.i, %for.body4.lr.ph.i
   %j.010.i = phi i64 [ 0, %for.body4.lr.ph.i ], [ %inc.i, %for.cond2.i ]
@@ -4353,7 +4367,7 @@ for.inc7.i:                                       ; preds = %for.cond2.i, %for.b
   %inc8.i = add nuw nsw i32 %i.013.i, 1
   %call.i.i = call i32 @OPENSSL_sk_num(ptr noundef %6) #11
   %cmp.i = icmp slt i32 %inc8.i, %call.i.i
-  br i1 %cmp.i, label %for.body.i, label %if.end36, !llvm.loop !30
+  br i1 %cmp.i, label %for.body.i, label %if.end36, !llvm.loop !28
 
 if.then34:                                        ; preds = %for.body4.i
   store ptr @.str.208, ptr %err, align 8
@@ -4608,7 +4622,7 @@ declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @evp_test_buffer_append(ptr noundef %value, ptr nocapture noundef %sk) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @evp_test_buffer_append(ptr noundef %value, ptr nocapture noundef %sk) unnamed_addr #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str.27, i32 noundef 156) #11
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.27, i32 noundef 156, ptr noundef nonnull @.str.200, ptr noundef %call) #11
@@ -4617,7 +4631,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %buflen = getelementptr inbounds i8, ptr %call, i64 8
-  %call2 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef %call, ptr noundef nonnull %buflen), !range !8
+  %call2 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef %call, ptr noundef nonnull %buflen)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %err, label %if.end5
 
@@ -4663,7 +4677,7 @@ return:                                           ; preds = %if.then.i, %err, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @evp_test_buffer_ncopy(ptr nocapture noundef readonly %value, ptr noundef %sk) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @evp_test_buffer_ncopy(ptr nocapture noundef readonly %value, ptr noundef %sk) unnamed_addr #1 {
 entry:
   %call = tail call i32 @atoi(ptr nocapture noundef %value) #12
   %cmp = icmp slt i32 %call, 1
@@ -4701,7 +4715,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %inc = add nuw nsw i32 %i.020, 1
   %add.ptr = getelementptr inbounds i8, ptr %p.019, i64 %.pre21
   %exitcond.not = icmp eq i32 %inc, %call
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %for.body
   tail call void @CRYPTO_free(ptr noundef %.pre22, ptr noundef nonnull @.str.27, i32 noundef 198) #11
@@ -4751,9 +4765,9 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @digestsign_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
+define internal range(i32 0, 2) i32 @digestsign_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
 entry:
-  %call = tail call fastcc i32 @digestsigver_test_init(ptr noundef %t, ptr noundef %alg, i32 noundef 0, i32 noundef 0), !range !22
+  %call = tail call fastcc i32 @digestsigver_test_init(ptr noundef %t, ptr noundef %alg, i32 noundef 0, i32 noundef 0)
   ret i32 %call
 }
 
@@ -4780,7 +4794,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @digestsigver_test_parse(ptr nocapture noundef %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
+define internal range(i32 -1, 2) i32 @digestsigver_test_parse(ptr nocapture noundef %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %nonce_type = alloca i32, align 4
@@ -4822,7 +4836,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %lst.addr.07.i, i64 16
   %5 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i, label %if.then7, label %for.body.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %if.then7, label %for.body.i, !llvm.loop !11
 
 if.then7:                                         ; preds = %for.inc.i, %cond.end
   %6 = load ptr, ptr @private_keys, align 8
@@ -4840,7 +4854,7 @@ for.inc.i52:                                      ; preds = %for.body.i48
   %next.i53 = getelementptr inbounds i8, ptr %lst.addr.07.i49, i64 16
   %8 = load ptr, ptr %next.i53, align 8
   %cmp.not.i54 = icmp eq ptr %8, null
-  br i1 %cmp.not.i54, label %if.then12, label %for.body.i48, !llvm.loop !12
+  br i1 %cmp.not.i54, label %if.then12, label %for.body.i48, !llvm.loop !11
 
 if.end9:                                          ; preds = %for.body.i, %for.body.i48
   %lst.addr.07.i49.lcssa.sink = phi ptr [ %lst.addr.07.i49, %for.body.i48 ], [ %lst.addr.07.i, %for.body.i ]
@@ -4895,12 +4909,12 @@ if.then32:                                        ; preds = %if.end29
 if.then34:                                        ; preds = %if.then32
   %osin = getelementptr inbounds i8, ptr %0, i64 40
   %osin_len = getelementptr inbounds i8, ptr %0, i64 48
-  %call35 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %osin, ptr noundef nonnull %osin_len), !range !8
+  %call35 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %osin, ptr noundef nonnull %osin_len)
   br label %return
 
 if.end36:                                         ; preds = %if.then32
   %input = getelementptr inbounds i8, ptr %0, i64 32
-  %call37 = tail call fastcc i32 @evp_test_buffer_append(ptr noundef %value, ptr noundef nonnull %input), !range !22
+  %call37 = tail call fastcc i32 @evp_test_buffer_append(ptr noundef %value, ptr noundef nonnull %input)
   br label %return
 
 if.end38:                                         ; preds = %if.end29
@@ -4911,7 +4925,7 @@ if.end38:                                         ; preds = %if.end29
 if.then41:                                        ; preds = %if.end38
   %output = getelementptr inbounds i8, ptr %0, i64 56
   %output_len = getelementptr inbounds i8, ptr %0, i64 64
-  %call42 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len), !range !8
+  %call42 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len)
   br label %return
 
 if.end43:                                         ; preds = %if.end38
@@ -4963,7 +4977,7 @@ if.end52:                                         ; preds = %if.then46
 if.then55:                                        ; preds = %if.end52
   %input56 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load ptr, ptr %input56, align 8
-  %call57 = tail call fastcc i32 @evp_test_buffer_ncopy(ptr noundef %value, ptr noundef %16), !range !22
+  %call57 = tail call fastcc i32 @evp_test_buffer_ncopy(ptr noundef %value, ptr noundef %16)
   br label %return
 
 if.end59:                                         ; preds = %if.end52, %if.end43
@@ -4978,7 +4992,7 @@ if.then62:                                        ; preds = %if.end59
   br i1 %cmp64, label %return, label %if.end66
 
 if.end66:                                         ; preds = %if.then62
-  %call68 = tail call fastcc i32 @pkey_test_ctrl(ptr noundef nonnull %t, ptr noundef nonnull %17, ptr noundef %value), !range !22
+  %call68 = tail call fastcc i32 @pkey_test_ctrl(ptr noundef nonnull %t, ptr noundef nonnull %17, ptr noundef %value)
   br label %return
 
 if.end69:                                         ; preds = %if.end59
@@ -5075,7 +5089,7 @@ for.cond2.i:                                      ; preds = %for.body4.i
   %inc.i = add nuw i64 %j.010.i, 1
   %4 = load i64, ptr %count.i, align 8
   %cmp3.i = icmp ult i64 %inc.i, %4
-  br i1 %cmp3.i, label %for.body4.i, label %for.inc7.i, !llvm.loop !29
+  br i1 %cmp3.i, label %for.body4.i, label %for.inc7.i, !llvm.loop !27
 
 for.body4.i:                                      ; preds = %for.cond2.i, %for.body4.lr.ph.i
   %j.010.i = phi i64 [ 0, %for.body4.lr.ph.i ], [ %inc.i, %for.cond2.i ]
@@ -5089,7 +5103,7 @@ for.inc7.i:                                       ; preds = %for.cond2.i, %for.b
   %inc8.i = add nuw nsw i32 %i.013.i, 1
   %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #11
   %cmp.i = icmp slt i32 %inc8.i, %call.i.i
-  br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !30
+  br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !28
 
 if.then:                                          ; preds = %for.body4.i
   %err = getelementptr inbounds i8, ptr %t, i64 6568
@@ -5180,7 +5194,7 @@ err24:                                            ; preds = %memory_err_compare.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @digestsigver_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg, i32 noundef %is_verify, i32 noundef %is_oneshot) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @digestsigver_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg, i32 noundef %is_verify, i32 noundef %is_oneshot) unnamed_addr #1 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %alg, ptr noundef nonnull dereferenceable(5) @.str.62) #12
   %cmp.not = icmp eq i32 %call, 0
@@ -5240,7 +5254,7 @@ declare i32 @EVP_DigestVerifyInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @EVP_DigestSignInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pkey_test_ctrl(ptr nocapture noundef writeonly %t, ptr noundef %pctx, ptr noundef %value) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @pkey_test_ctrl(ptr nocapture noundef writeonly %t, ptr noundef %pctx, ptr noundef %value) unnamed_addr #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef %value, ptr noundef nonnull @.str.27, i32 noundef 1860) #11
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.27, i32 noundef 1860, ptr noundef nonnull @.str.237, ptr noundef %call) #11
@@ -5312,9 +5326,9 @@ declare i32 @EVP_DigestSignFinal(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @EVP_DigestSignUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @digestverify_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
+define internal range(i32 0, 2) i32 @digestverify_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
 entry:
-  %call = tail call fastcc i32 @digestsigver_test_init(ptr noundef %t, ptr noundef %alg, i32 noundef 1, i32 noundef 0), !range !22
+  %call = tail call fastcc i32 @digestsigver_test_init(ptr noundef %t, ptr noundef %alg, i32 noundef 1, i32 noundef 0)
   ret i32 %call
 }
 
@@ -5347,7 +5361,7 @@ for.cond2.i:                                      ; preds = %for.body4.i
   %inc.i = add nuw i64 %j.010.i, 1
   %4 = load i64, ptr %count.i, align 8
   %cmp3.i = icmp ult i64 %inc.i, %4
-  br i1 %cmp3.i, label %for.body4.i, label %for.inc7.i, !llvm.loop !29
+  br i1 %cmp3.i, label %for.body4.i, label %for.inc7.i, !llvm.loop !27
 
 for.body4.i:                                      ; preds = %for.cond2.i, %for.body4.lr.ph.i
   %j.010.i = phi i64 [ 0, %for.body4.lr.ph.i ], [ %inc.i, %for.cond2.i ]
@@ -5361,7 +5375,7 @@ for.inc7.i:                                       ; preds = %for.cond2.i, %for.b
   %inc8.i = add nuw nsw i32 %i.013.i, 1
   %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #11
   %cmp.i = icmp slt i32 %inc8.i, %call.i.i
-  br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !30
+  br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !28
 
 if.end:                                           ; preds = %for.inc7.i, %entry
   %7 = load ptr, ptr %ctx, align 8
@@ -5388,7 +5402,7 @@ declare i32 @EVP_DigestVerifyFinal(ptr noundef, ptr noundef, i64 noundef) local_
 declare i32 @EVP_DigestVerifyUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_test_init(ptr nocapture noundef writeonly %t, ptr noundef %encoding) #1 {
+define internal range(i32 0, 2) i32 @encode_test_init(ptr nocapture noundef writeonly %t, ptr noundef %encoding) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.27, i32 noundef 2391) #11
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.27, i32 noundef 2391, ptr noundef nonnull @.str.247, ptr noundef %call) #11
@@ -5469,7 +5483,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %input_len = getelementptr inbounds i8, ptr %0, i64 8
-  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef %0, ptr noundef nonnull %input_len), !range !8
+  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef %0, ptr noundef nonnull %input_len)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -5480,7 +5494,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %output = getelementptr inbounds i8, ptr %0, i64 16
   %output_len = getelementptr inbounds i8, ptr %0, i64 24
-  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len), !range !8
+  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then4, %if.then
@@ -5684,7 +5698,7 @@ declare i32 @EVP_DecodeFinal(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @EVP_ENCODE_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
+define internal range(i32 0, 2) i32 @kdf_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %call1 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 832, ptr noundef nonnull @.str.27, i32 noundef 2820) #11
@@ -5748,7 +5762,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %p.06, i64 40
   %3 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %3, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.body, %entry
   %output = getelementptr inbounds i8, ptr %0, i64 8
@@ -5760,7 +5774,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kdf_test_parse(ptr nocapture noundef %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
+define internal range(i32 -1, 2) i32 @kdf_test_parse(ptr nocapture noundef %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
 entry:
   %tmp.i = alloca %struct.ossl_param_st, align 8
   %data = getelementptr inbounds i8, ptr %t, i64 6600
@@ -5772,7 +5786,7 @@ entry:
 if.then:                                          ; preds = %entry
   %output = getelementptr inbounds i8, ptr %0, i64 8
   %output_len = getelementptr inbounds i8, ptr %0, i64 16
-  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len), !range !8
+  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -5793,21 +5807,34 @@ if.then4:                                         ; preds = %if.end
 if.end.i:                                         ; preds = %if.then4
   %call4.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call2.i, i32 noundef 58) #12
   %cmp.not.i = icmp eq ptr %call4.i, null
-  br i1 %cmp.not.i, label %if.end6.i, label %if.then5.i
+  br i1 %cmp.not.i, label %sub_0.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call4.i, i64 1
   store i8 0, ptr %call4.i, align 1
-  br label %if.end6.i
+  br label %sub_0.i
 
-if.end6.i:                                        ; preds = %if.then5.i, %if.end.i
+sub_0.i:                                          ; preds = %if.then5.i, %if.end.i
   %p.0.i = phi ptr [ %incdec.ptr.i, %if.then5.i ], [ null, %if.end.i ]
-  %call7.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2.i, ptr noundef nonnull dereferenceable(2) @.str.265) #12
-  %cmp8.i = icmp eq i32 %call7.i, 0
+  %2 = load i8, ptr %call2.i, align 1
+  %3 = zext i8 %2 to i32
+  %4 = add nsw i32 %3, -114
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %sub_1.i, label %if.end6.tail.i
+
+sub_1.i:                                          ; preds = %sub_0.i
+  %5 = getelementptr inbounds i8, ptr %call2.i, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = zext i8 %6 to i32
+  br label %if.end6.tail.i
+
+if.end6.tail.i:                                   ; preds = %sub_1.i, %sub_0.i
+  %8 = phi i32 [ %4, %sub_0.i ], [ %7, %sub_1.i ]
+  %cmp8.i = icmp eq i32 %8, 0
   br i1 %cmp8.i, label %land.lhs.true.i, label %if.end12.i
 
-land.lhs.true.i:                                  ; preds = %if.end6.i
-  %call9.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef %call2.i) #11
+land.lhs.true.i:                                  ; preds = %if.end6.tail.i
+  %call9.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef nonnull %call2.i) #11
   %cmp10.i = icmp eq ptr %call9.i, null
   br i1 %cmp10.i, label %if.then11.i, label %if.end12.i
 
@@ -5815,13 +5842,13 @@ if.then11.i:                                      ; preds = %land.lhs.true.i
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.27, i32 noundef 2867, ptr noundef nonnull @.str.266) #11
   br label %end.sink.split.i
 
-if.end12.i:                                       ; preds = %land.lhs.true.i, %if.end6.i
+if.end12.i:                                       ; preds = %land.lhs.true.i, %if.end6.tail.i
   %call13.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2.i, ptr noundef nonnull dereferenceable(6) @.str.267) #12
   %cmp14.i = icmp eq i32 %call13.i, 0
   br i1 %cmp14.i, label %land.lhs.true15.i, label %if.end20.i
 
 land.lhs.true15.i:                                ; preds = %if.end12.i
-  %call16.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef %call2.i) #11
+  %call16.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef nonnull %call2.i) #11
   %cmp17.i = icmp eq ptr %call16.i, null
   br i1 %cmp17.i, label %if.then18.i, label %if.end20.i
 
@@ -5835,7 +5862,7 @@ if.end20.i:                                       ; preds = %land.lhs.true15.i, 
   br i1 %cmp22.i, label %land.lhs.true23.i, label %if.end28.i
 
 land.lhs.true23.i:                                ; preds = %if.end20.i
-  %call24.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef %call2.i) #11
+  %call24.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef nonnull %call2.i) #11
   %cmp25.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.i, label %if.then26.i, label %if.end28.i
 
@@ -5849,7 +5876,7 @@ if.end28.i:                                       ; preds = %land.lhs.true23.i, 
   br i1 %cmp30.i, label %land.lhs.true31.i, label %if.end36.i
 
 land.lhs.true31.i:                                ; preds = %if.end28.i
-  %call32.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef %call2.i) #11
+  %call32.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef nonnull %call2.i) #11
   %cmp33.i = icmp eq ptr %call32.i, null
   br i1 %cmp33.i, label %if.then34.i, label %if.end36.i
 
@@ -5863,7 +5890,7 @@ if.end36.i:                                       ; preds = %land.lhs.true31.i, 
   br i1 %cmp38.i, label %land.lhs.true39.i, label %if.end44.i
 
 land.lhs.true39.i:                                ; preds = %if.end36.i
-  %call40.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef %call2.i) #11
+  %call40.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef nonnull %call2.i) #11
   %cmp41.i = icmp eq ptr %call40.i, null
   br i1 %cmp41.i, label %if.then42.i, label %if.end44.i
 
@@ -5874,24 +5901,36 @@ if.then42.i:                                      ; preds = %land.lhs.true39.i
 if.end44.i:                                       ; preds = %land.lhs.true39.i, %if.end36.i
   %call45.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2.i, ptr noundef nonnull dereferenceable(5) @.str.274) #12
   %cmp46.i = icmp eq i32 %call45.i, 0
-  br i1 %cmp46.i, label %land.lhs.true47.i, label %if.end52.i
+  br i1 %cmp46.i, label %land.lhs.true47.i, label %sub_057.i
 
 land.lhs.true47.i:                                ; preds = %if.end44.i
-  %call48.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef %call2.i) #11
+  %call48.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef nonnull %call2.i) #11
   %cmp49.i = icmp eq ptr %call48.i, null
-  br i1 %cmp49.i, label %if.then50.i, label %if.end52.i
+  br i1 %cmp49.i, label %if.then50.i, label %sub_057.i
 
 if.then50.i:                                      ; preds = %land.lhs.true47.i
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.27, i32 noundef 2902, ptr noundef nonnull @.str.275) #11
   br label %end.sink.split.i
 
-if.end52.i:                                       ; preds = %land.lhs.true47.i, %if.end44.i
-  %call53.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2.i, ptr noundef nonnull dereferenceable(3) @.str.276) #12
-  %cmp54.i = icmp eq i32 %call53.i, 0
-  br i1 %cmp54.i, label %land.lhs.true55.i, label %if.end60.i
+sub_057.i:                                        ; preds = %land.lhs.true47.i, %if.end44.i
+  %9 = load i8, ptr %call2.i, align 1
+  %.not60.i = icmp eq i8 %9, 97
+  br i1 %.not60.i, label %sub_158.i, label %if.end60.i
 
-land.lhs.true55.i:                                ; preds = %if.end52.i
-  %call56.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef %call2.i) #11
+sub_158.i:                                        ; preds = %sub_057.i
+  %10 = getelementptr inbounds i8, ptr %call2.i, i64 1
+  %11 = load i8, ptr %10, align 1
+  %.not61.i = icmp eq i8 %11, 100
+  br i1 %.not61.i, label %if.end52.tail.i, label %if.end60.i
+
+if.end52.tail.i:                                  ; preds = %sub_158.i
+  %12 = getelementptr inbounds i8, ptr %call2.i, i64 2
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %land.lhs.true55.i, label %if.end60.i
+
+land.lhs.true55.i:                                ; preds = %if.end52.tail.i
+  %call56.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %call1.i, ptr noundef nonnull %call2.i) #11
   %cmp57.i = icmp eq ptr %call56.i, null
   br i1 %cmp57.i, label %if.then58.i, label %if.end60.i
 
@@ -5899,9 +5938,9 @@ if.then58.i:                                      ; preds = %land.lhs.true55.i
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.27, i32 noundef 2909, ptr noundef nonnull @.str.277) #11
   br label %end.sink.split.i
 
-if.end60.i:                                       ; preds = %land.lhs.true55.i, %if.end52.i
+if.end60.i:                                       ; preds = %land.lhs.true55.i, %if.end52.tail.i, %sub_158.i, %sub_057.i
   %p61.i = getelementptr inbounds i8, ptr %0, i64 824
-  %2 = load ptr, ptr %p61.i, align 8
+  %15 = load ptr, ptr %p61.i, align 8
   %cmp62.not.i = icmp eq ptr %p.0.i, null
   br i1 %cmp62.not.i, label %cond.end.i, label %cond.true.i
 
@@ -5911,9 +5950,9 @@ cond.true.i:                                      ; preds = %if.end60.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end60.i
   %cond.i = phi i64 [ %call63.i, %cond.true.i ], [ 0, %if.end60.i ]
-  %call64.i = tail call i32 @OSSL_PARAM_allocate_from_text(ptr noundef %2, ptr noundef %call1.i, ptr noundef %call2.i, ptr noundef %p.0.i, i64 noundef %cond.i, ptr noundef null) #11
-  %3 = load ptr, ptr %p61.i, align 8
-  %incdec.ptr66.i = getelementptr inbounds i8, ptr %3, i64 40
+  %call64.i = tail call i32 @OSSL_PARAM_allocate_from_text(ptr noundef %15, ptr noundef %call1.i, ptr noundef nonnull %call2.i, ptr noundef %p.0.i, i64 noundef %cond.i, ptr noundef null) #11
+  %16 = load ptr, ptr %p61.i, align 8
+  %incdec.ptr66.i = getelementptr inbounds i8, ptr %16, i64 40
   store ptr %incdec.ptr66.i, ptr %p61.i, align 8
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr66.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
@@ -5969,7 +6008,7 @@ end.sink.split.i:                                 ; preds = %if.then90.i, %if.th
 return.sink.split.i:                              ; preds = %end.sink.split.i, %land.lhs.true87.i, %lor.lhs.false.i, %if.then74.i, %if.end69.i, %if.then68.i
   %.sink.i = phi i32 [ 2919, %if.then68.i ], [ 2944, %end.sink.split.i ], [ 2944, %land.lhs.true87.i ], [ 2944, %lor.lhs.false.i ], [ 2944, %if.end69.i ], [ 2944, %if.then74.i ]
   %retval.0.ph.i = phi i32 [ 0, %if.then68.i ], [ 1, %end.sink.split.i ], [ 1, %land.lhs.true87.i ], [ 1, %lor.lhs.false.i ], [ 1, %if.end69.i ], [ 1, %if.then74.i ]
-  call void @CRYPTO_free(ptr noundef %call2.i, ptr noundef nonnull @.str.27, i32 noundef %.sink.i) #11
+  call void @CRYPTO_free(ptr noundef nonnull %call2.i, ptr noundef nonnull @.str.27, i32 noundef %.sink.i) #11
   br label %kdf_test_ctrl.exit
 
 kdf_test_ctrl.exit:                               ; preds = %if.then4, %return.sink.split.i
@@ -6112,7 +6151,7 @@ declare ptr @EVP_KDF_CTX_dup(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_KDF_derive(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_kdf_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
+define internal range(i32 0, 2) i32 @pkey_kdf_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
 entry:
   %call1 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.27, i32 noundef 3031) #11
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.27, i32 noundef 3031, ptr noundef nonnull @.str.263, ptr noundef %call1) #11
@@ -6166,7 +6205,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_kdf_test_parse(ptr nocapture noundef %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
+define internal range(i32 -1, 2) i32 @pkey_kdf_test_parse(ptr nocapture noundef %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %t, i64 6600
   %0 = load ptr, ptr %data, align 8
@@ -6177,7 +6216,7 @@ entry:
 if.then:                                          ; preds = %entry
   %output = getelementptr inbounds i8, ptr %0, i64 8
   %output_len = getelementptr inbounds i8, ptr %0, i64 16
-  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len), !range !8
+  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6187,7 +6226,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %1 = load ptr, ptr %0, align 8
-  %call5 = tail call fastcc i32 @pkey_test_ctrl(ptr noundef nonnull %t, ptr noundef %1, ptr noundef %value), !range !22
+  %call5 = tail call fastcc i32 @pkey_test_ctrl(ptr noundef nonnull %t, ptr noundef %1, ptr noundef %value)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then4, %if.then
@@ -6301,7 +6340,7 @@ declare i32 @fips_provider_version_eq(ptr noundef, i32 noundef, i32 noundef, i32
 declare i32 @EVP_PKEY_derive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @keypair_test_init(ptr nocapture noundef writeonly %t, ptr noundef %pair) #1 {
+define internal range(i32 0, 2) i32 @keypair_test_init(ptr nocapture noundef writeonly %t, ptr noundef %pair) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef %pair, ptr noundef nonnull @.str.27, i32 noundef 3138) #11
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.27, i32 noundef 3138, ptr noundef nonnull @.str.286, ptr noundef %call) #11
@@ -6342,7 +6381,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %lst.addr.07.i, i64 16
   %3 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %find_key.exit, label %for.body.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %find_key.exit, label %for.body.i, !llvm.loop !11
 
 find_key.exit:                                    ; preds = %for.inc.i, %if.end, %if.then.i
   %pk.0 = phi ptr [ null, %if.end ], [ %2, %if.then.i ], [ null, %for.inc.i ]
@@ -6378,7 +6417,7 @@ for.inc.i18:                                      ; preds = %for.body.i14
   %next.i19 = getelementptr inbounds i8, ptr %lst.addr.07.i15, i64 16
   %7 = load ptr, ptr %next.i19, align 8
   %cmp.not.i20 = icmp eq ptr %7, null
-  br i1 %cmp.not.i20, label %find_key.exit24, label %for.body.i14, !llvm.loop !12
+  br i1 %cmp.not.i20, label %find_key.exit24, label %for.body.i14, !llvm.loop !11
 
 find_key.exit24:                                  ; preds = %for.inc.i18, %if.end10, %if.then.i22
   %pubk.0 = phi ptr [ null, %if.end10 ], [ %6, %if.then.i22 ], [ null, %for.inc.i18 ]
@@ -6443,7 +6482,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @keypair_test_run(ptr nocapture noundef %t) #1 {
+define internal range(i32 0, 2) i32 @keypair_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %t, i64 6600
   %0 = load ptr, ptr %data, align 8
@@ -6503,7 +6542,7 @@ end:                                              ; preds = %if.then7, %if.then1
 declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @keygen_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
+define internal range(i32 0, 2) i32 @keygen_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
 entry:
   %call = tail call i32 @OBJ_sn2nid(ptr noundef %alg) #11
   %cmp = icmp eq i32 %call, 0
@@ -6596,7 +6635,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %1 = load ptr, ptr %0, align 8
-  %call6 = tail call fastcc i32 @pkey_test_ctrl(ptr noundef nonnull %t, ptr noundef %1, ptr noundef %value), !range !22
+  %call6 = tail call fastcc i32 @pkey_test_ctrl(ptr noundef nonnull %t, ptr noundef %1, ptr noundef %value)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then5, %if.then
@@ -6605,7 +6644,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @keygen_test_run(ptr nocapture noundef %t) #1 {
+define internal range(i32 0, 2) i32 @keygen_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %pkey = alloca ptr, align 8
   %data = getelementptr inbounds i8, ptr %t, i64 6600
@@ -6654,7 +6693,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %lst.addr.07.i, i64 16
   %7 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i, label %if.end11, label %for.body.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %if.end11, label %for.body.i, !llvm.loop !11
 
 if.then9:                                         ; preds = %for.body.i
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.27, i32 noundef 3325, ptr noundef nonnull @.str.45, ptr noundef nonnull %4) #11
@@ -6702,7 +6741,7 @@ declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mac_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
+define internal range(i32 0, 2) i32 @mac_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %1 = load ptr, ptr @propquery, align 8
@@ -6833,32 +6872,44 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_test_parse(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
+define internal range(i32 -1, 2) i32 @mac_test_parse(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %t, i64 6600
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(4) @.str.118) #12
   %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+  br i1 %cmp, label %if.then, label %sub_0
 
 if.then:                                          ; preds = %entry
   %key = getelementptr inbounds i8, ptr %0, i64 32
   %key_len = getelementptr inbounds i8, ptr %0, i64 40
-  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %key, ptr noundef nonnull %key_len), !range !8
+  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %key, ptr noundef nonnull %key_len)
   br label %return
 
-if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(3) @.str.120) #12
-  %cmp3 = icmp eq i32 %call2, 0
-  br i1 %cmp3, label %if.then4, label %if.end6
+sub_0:                                            ; preds = %entry
+  %1 = load i8, ptr %keyword, align 1
+  %.not = icmp eq i8 %1, 73
+  br i1 %.not, label %sub_1, label %if.end6
 
-if.then4:                                         ; preds = %if.end
+sub_1:                                            ; preds = %sub_0
+  %2 = getelementptr inbounds i8, ptr %keyword, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not44 = icmp eq i8 %3, 86
+  br i1 %.not44, label %if.end.tail, label %if.end6
+
+if.end.tail:                                      ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.then4, label %if.end6
+
+if.then4:                                         ; preds = %if.end.tail
   %iv = getelementptr inbounds i8, ptr %0, i64 48
   %iv_len = getelementptr inbounds i8, ptr %0, i64 56
-  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %iv, ptr noundef nonnull %iv_len), !range !8
+  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %iv, ptr noundef nonnull %iv_len)
   br label %return
 
-if.end6:                                          ; preds = %if.end
+if.end6:                                          ; preds = %sub_1, %sub_0, %if.end.tail
   %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(7) @.str.313) #12
   %cmp8 = icmp eq i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.end11
@@ -6866,7 +6917,7 @@ if.end6:                                          ; preds = %if.end
 if.then9:                                         ; preds = %if.end6
   %custom = getelementptr inbounds i8, ptr %0, i64 96
   %custom_len = getelementptr inbounds i8, ptr %0, i64 104
-  %call10 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %custom, ptr noundef nonnull %custom_len), !range !8
+  %call10 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %custom, ptr noundef nonnull %custom_len)
   br label %return
 
 if.end11:                                         ; preds = %if.end6
@@ -6877,7 +6928,7 @@ if.end11:                                         ; preds = %if.end6
 if.then14:                                        ; preds = %if.end11
   %salt = getelementptr inbounds i8, ptr %0, i64 112
   %salt_len = getelementptr inbounds i8, ptr %0, i64 120
-  %call15 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %salt, ptr noundef nonnull %salt_len), !range !8
+  %call15 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %salt, ptr noundef nonnull %salt_len)
   br label %return
 
 if.end16:                                         ; preds = %if.end11
@@ -6901,7 +6952,7 @@ if.end25:                                         ; preds = %if.end16
 if.then28:                                        ; preds = %if.end25
   %input = getelementptr inbounds i8, ptr %0, i64 64
   %input_len = getelementptr inbounds i8, ptr %0, i64 72
-  %call29 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %input, ptr noundef nonnull %input_len), !range !8
+  %call29 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %input, ptr noundef nonnull %input_len)
   br label %return
 
 if.end30:                                         ; preds = %if.end25
@@ -6912,7 +6963,7 @@ if.end30:                                         ; preds = %if.end25
 if.then33:                                        ; preds = %if.end30
   %output = getelementptr inbounds i8, ptr %0, i64 80
   %output_len = getelementptr inbounds i8, ptr %0, i64 88
-  %call34 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len), !range !8
+  %call34 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len)
   br label %return
 
 if.end35:                                         ; preds = %if.end30
@@ -6947,8 +6998,8 @@ if.then46:                                        ; preds = %if.end43
 
 if.end51:                                         ; preds = %if.then46
   %controls = getelementptr inbounds i8, ptr %0, i64 136
-  %1 = load ptr, ptr %controls, align 8
-  %call54 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call48) #11
+  %7 = load ptr, ptr %controls, align 8
+  %call54 = tail call i32 @OPENSSL_sk_push(ptr noundef %7, ptr noundef nonnull %call48) #11
   %cmp55 = icmp ne i32 %call54, 0
   %conv = zext i1 %cmp55 to i32
   br label %return
@@ -7224,7 +7275,7 @@ if.end101.i:                                      ; preds = %if.then99.i, %if.en
   %19 = load ptr, ptr %controls.i, align 8
   %call69.i = call i32 @OPENSSL_sk_num(ptr noundef %19) #11
   %cmp70.i = icmp slt i32 %inc102.i, %call69.i
-  br i1 %cmp70.i, label %for.body.i, label %for.end.i, !llvm.loop !33
+  br i1 %cmp70.i, label %for.body.i, label %for.end.i, !llvm.loop !31
 
 for.end.i:                                        ; preds = %if.end101.i, %for.cond.preheader.i
   %params_n.5.lcssa.i = phi i64 [ %params_n.4.i, %for.cond.preheader.i ], [ %inc95.i, %if.end101.i ]
@@ -7621,7 +7672,7 @@ while.body.i:                                     ; preds = %err311.i, %while.bo
   %62 = load ptr, ptr %data316.i, align 8
   call void @CRYPTO_free(ptr noundef %62, ptr noundef nonnull @.str.27, i32 noundef 1758) #11
   %cmp313.i = icmp ugt i64 %dec312.i, %params_n_allocstart.0.i
-  br i1 %cmp313.i, label %while.body.i, label %mac_test_run_mac.exit, !llvm.loop !34
+  br i1 %cmp313.i, label %while.body.i, label %mac_test_run_mac.exit, !llvm.loop !32
 
 while.end.sink.split.i:                           ; preds = %if.then33.i, %if.else15.i
   %.str.320.sink.i = phi ptr [ null, %if.then33.i ], [ @.str.320, %if.else15.i ]
@@ -7820,7 +7871,7 @@ for.inc.i:                                        ; preds = %if.else.i.i25
   %85 = load ptr, ptr %controls.i13, align 8
   %call67.i = call i32 @OPENSSL_sk_num(ptr noundef %85) #11
   %cmp68.i = icmp slt i32 %inc.i, %call67.i
-  br i1 %cmp68.i, label %for.body.i20, label %for.end.i14, !llvm.loop !35
+  br i1 %cmp68.i, label %for.body.i20, label %for.end.i14, !llvm.loop !33
 
 for.end.i14:                                      ; preds = %for.inc.i, %for.cond.preheader.i12
   %input.i15 = getelementptr inbounds i8, ptr %0, i64 64
@@ -7928,9 +7979,9 @@ declare ptr @OSSL_LIB_CTX_set0_default(ptr noundef) local_unnamed_addr #2
 declare ptr @EVP_PKEY_new_CMAC_key(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @oneshot_digestsign_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
+define internal range(i32 0, 2) i32 @oneshot_digestsign_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
 entry:
-  %call = tail call fastcc i32 @digestsigver_test_init(ptr noundef %t, ptr noundef %alg, i32 noundef 0, i32 noundef 1), !range !22
+  %call = tail call fastcc i32 @digestsigver_test_init(ptr noundef %t, ptr noundef %alg, i32 noundef 0, i32 noundef 1)
   ret i32 %call
 }
 
@@ -8032,9 +8083,9 @@ err20:                                            ; preds = %memory_err_compare.
 declare i32 @EVP_DigestSign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @oneshot_digestverify_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
+define internal range(i32 0, 2) i32 @oneshot_digestverify_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
 entry:
-  %call = tail call fastcc i32 @digestsigver_test_init(ptr noundef %t, ptr noundef %alg, i32 noundef 1, i32 noundef 1), !range !22
+  %call = tail call fastcc i32 @digestsigver_test_init(ptr noundef %t, ptr noundef %alg, i32 noundef 1, i32 noundef 1)
   ret i32 %call
 }
 
@@ -8069,7 +8120,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @EVP_DigestVerify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pbe_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
+define internal range(i32 0, 2) i32 @pbe_test_init(ptr nocapture noundef writeonly %t, ptr noundef %alg) #1 {
 entry:
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %alg, ptr noundef nonnull dereferenceable(7) @.str.363) #12
   %cmp = icmp eq i32 %call1, 0
@@ -8136,7 +8187,7 @@ entry:
 if.then:                                          ; preds = %entry
   %pass = getelementptr inbounds i8, ptr %0, i64 56
   %pass_len = getelementptr inbounds i8, ptr %0, i64 64
-  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %pass, ptr noundef nonnull %pass_len), !range !8
+  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %pass, ptr noundef nonnull %pass_len)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -8147,7 +8198,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %salt = getelementptr inbounds i8, ptr %0, i64 72
   %salt_len = getelementptr inbounds i8, ptr %0, i64 80
-  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %salt, ptr noundef nonnull %salt_len), !range !8
+  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %salt, ptr noundef nonnull %salt_len)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -8158,7 +8209,7 @@ if.end6:                                          ; preds = %if.end
 if.then9:                                         ; preds = %if.end6
   %key = getelementptr inbounds i8, ptr %0, i64 88
   %key_len = getelementptr inbounds i8, ptr %0, i64 96
-  %call10 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %key, ptr noundef nonnull %key_len), !range !8
+  %call10 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %key, ptr noundef nonnull %key_len)
   br label %return
 
 if.end11:                                         ; preds = %if.end6
@@ -8172,7 +8223,7 @@ if.end11:                                         ; preds = %if.end6
 if.then13:                                        ; preds = %if.end11
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(5) @.str.8) #12
   %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end5.i
+  br i1 %cmp.i, label %if.then.i, label %sub_0.i
 
 if.then.i:                                        ; preds = %if.then13
   %call1.i = tail call i32 @atoi(ptr nocapture noundef %value) #12
@@ -8182,12 +8233,24 @@ if.then.i:                                        ; preds = %if.then13
   %..i = select i1 %cmp3.i, i32 -1, i32 1
   br label %return
 
-if.end5.i:                                        ; preds = %if.then13
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(3) @.str.369) #12
-  %cmp7.i = icmp eq i32 %call6.i, 0
-  br i1 %cmp7.i, label %if.then8.i, label %return
+sub_0.i:                                          ; preds = %if.then13
+  %2 = load i8, ptr %keyword, align 1
+  %.not.i = icmp eq i8 %2, 77
+  br i1 %.not.i, label %sub_1.i, label %return
 
-if.then8.i:                                       ; preds = %if.end5.i
+sub_1.i:                                          ; preds = %sub_0.i
+  %3 = getelementptr inbounds i8, ptr %keyword, i64 1
+  %4 = load i8, ptr %3, align 1
+  %.not1.i = icmp eq i8 %4, 68
+  br i1 %.not1.i, label %if.end5.tail.i, label %return
+
+if.end5.tail.i:                                   ; preds = %sub_1.i
+  %5 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %if.then8.i, label %return
+
+if.then8.i:                                       ; preds = %if.end5.tail.i
   %call9.i = tail call ptr @EVP_get_digestbyname(ptr noundef %value) #11
   %md.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %call9.i, ptr %md.i, align 8
@@ -8196,24 +8259,36 @@ if.then8.i:                                       ; preds = %if.end5.i
   br label %return
 
 if.then17:                                        ; preds = %if.end11
-  %call.i23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(3) @.str.370) #12
-  %cmp.i24 = icmp eq i32 %call.i23, 0
-  br i1 %cmp.i24, label %if.then.i27, label %if.end5.i25
+  %8 = load i8, ptr %keyword, align 1
+  %.not.i23 = icmp eq i8 %8, 105
+  br i1 %.not.i23, label %sub_1.i25, label %if.end5.i
 
-if.then.i27:                                      ; preds = %if.then17
-  %call1.i28 = tail call i32 @atoi(ptr nocapture noundef %value) #12
+sub_1.i25:                                        ; preds = %if.then17
+  %9 = getelementptr inbounds i8, ptr %keyword, i64 1
+  %10 = load i8, ptr %9, align 1
+  %.not5.i = icmp eq i8 %10, 100
+  br i1 %.not5.i, label %entry.tail.i, label %if.end5.i
+
+entry.tail.i:                                     ; preds = %sub_1.i25
+  %11 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %if.then.i26, label %if.end5.i
+
+if.then.i26:                                      ; preds = %entry.tail.i
+  %call1.i27 = tail call i32 @atoi(ptr nocapture noundef %value) #12
   %id.i = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %call1.i28, ptr %id.i, align 8
-  %cmp3.i29 = icmp slt i32 %call1.i28, 1
-  %..i30 = select i1 %cmp3.i29, i32 -1, i32 1
+  store i32 %call1.i27, ptr %id.i, align 8
+  %cmp3.i28 = icmp slt i32 %call1.i27, 1
+  %..i29 = select i1 %cmp3.i28, i32 -1, i32 1
   br label %return
 
-if.end5.i25:                                      ; preds = %if.then17
+if.end5.i:                                        ; preds = %entry.tail.i, %sub_1.i25, %if.then17
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(5) @.str.8) #12
   %cmp.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end5.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %sub_0.i.i
 
-if.then.i.i:                                      ; preds = %if.end5.i25
+if.then.i.i:                                      ; preds = %if.end5.i
   %call1.i.i = tail call i32 @atoi(ptr nocapture noundef %value) #12
   %iter.i.i = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %call1.i.i, ptr %iter.i.i, align 4
@@ -8221,12 +8296,23 @@ if.then.i.i:                                      ; preds = %if.end5.i25
   %..i.i = select i1 %cmp3.i.i, i32 -1, i32 1
   br label %return
 
-if.end5.i.i:                                      ; preds = %if.end5.i25
-  %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(3) @.str.369) #12
-  %cmp7.i.i = icmp eq i32 %call6.i.i, 0
-  br i1 %cmp7.i.i, label %if.then8.i.i, label %return
+sub_0.i.i:                                        ; preds = %if.end5.i
+  %.not.i.i = icmp eq i8 %8, 77
+  br i1 %.not.i.i, label %sub_1.i.i, label %return
 
-if.then8.i.i:                                     ; preds = %if.end5.i.i
+sub_1.i.i:                                        ; preds = %sub_0.i.i
+  %14 = getelementptr inbounds i8, ptr %keyword, i64 1
+  %15 = load i8, ptr %14, align 1
+  %.not1.i.i = icmp eq i8 %15, 68
+  br i1 %.not1.i.i, label %if.end5.tail.i.i, label %return
+
+if.end5.tail.i.i:                                 ; preds = %sub_1.i.i
+  %16 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %if.then8.i.i, label %return
+
+if.then8.i.i:                                     ; preds = %if.end5.tail.i.i
   %call9.i.i = tail call ptr @EVP_get_digestbyname(ptr noundef %value) #11
   %md.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %call9.i.i, ptr %md.i.i, align 8
@@ -8235,92 +8321,103 @@ if.then8.i.i:                                     ; preds = %if.end5.i.i
   br label %return
 
 if.then22:                                        ; preds = %if.end11
-  %call.i31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(2) @.str.371) #12
-  %cmp.i32 = icmp eq i32 %call.i31, 0
-  br i1 %cmp.i32, label %return.sink.split.i, label %if.end.i
+  %19 = load i8, ptr %keyword, align 1
+  switch i8 %19, label %if.end11.i [
+    i8 78, label %entry.tail.i31
+    i8 112, label %if.end.tail.i
+    i8 114, label %if.end6.tail.i
+  ]
 
-if.end.i:                                         ; preds = %if.then22
-  %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(2) @.str.372) #12
-  %cmp3.i33 = icmp eq i32 %call2.i, 0
-  br i1 %cmp3.i33, label %return.sink.split.i, label %if.end6.i
+entry.tail.i31:                                   ; preds = %if.then22
+  %20 = getelementptr inbounds i8, ptr %keyword, i64 1
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %return.sink.split.i, label %if.end11.i
 
-if.end6.i:                                        ; preds = %if.end.i
-  %call7.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(2) @.str.265) #12
-  %cmp8.i = icmp eq i32 %call7.i, 0
-  br i1 %cmp8.i, label %return.sink.split.i, label %if.end11.i
+if.end.tail.i:                                    ; preds = %if.then22
+  %23 = getelementptr inbounds i8, ptr %keyword, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %return.sink.split.i, label %if.end11.i
 
-if.end11.i:                                       ; preds = %if.end6.i
+if.end6.tail.i:                                   ; preds = %if.then22
+  %26 = getelementptr inbounds i8, ptr %keyword, i64 1
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %return.sink.split.i, label %if.end11.i
+
+if.end11.i:                                       ; preds = %if.end6.tail.i, %if.end.tail.i, %entry.tail.i31, %if.then22
   %call12.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(7) @.str.373) #12
   %cmp13.i = icmp eq i32 %call12.i, 0
   br i1 %cmp13.i, label %return.sink.split.i, label %return
 
-return.sink.split.i:                              ; preds = %if.end11.i, %if.end6.i, %if.end.i, %if.then22
-  %.sink.i = phi i64 [ 8, %if.then22 ], [ 24, %if.end.i ], [ 16, %if.end6.i ], [ 32, %if.end11.i ]
+return.sink.split.i:                              ; preds = %if.end11.i, %if.end6.tail.i, %if.end.tail.i, %entry.tail.i31
+  %.sink.i = phi i64 [ 8, %entry.tail.i31 ], [ 24, %if.end.tail.i ], [ 16, %if.end6.tail.i ], [ 32, %if.end11.i ]
   %maxmem.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i
-  %2 = load i8, ptr %value, align 1
-  %cmp.i35 = icmp ne i8 %2, 0
-  %conv1.i = zext i1 %cmp.i35 to i32
-  %call.i36 = tail call i32 @test_true(ptr noundef nonnull @.str.27, i32 noundef 2171, ptr noundef nonnull @.str.374, i32 noundef %conv1.i) #11
-  %tobool.not.i = icmp eq i32 %call.i36, 0
-  br i1 %tobool.not.i, label %if.then.i43, label %if.end.i37
+  %29 = load i8, ptr %value, align 1
+  %cmp.i32 = icmp ne i8 %29, 0
+  %conv1.i = zext i1 %cmp.i32 to i32
+  %call.i33 = tail call i32 @test_true(ptr noundef nonnull @.str.27, i32 noundef 2171, ptr noundef nonnull @.str.374, i32 noundef %conv1.i) #11
+  %tobool.not.i = icmp eq i32 %call.i33, 0
+  br i1 %tobool.not.i, label %if.then.i37, label %if.end.i
 
-if.then.i43:                                      ; preds = %return.sink.split.i
+if.then.i37:                                      ; preds = %return.sink.split.i
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.27, i32 noundef 2172, ptr noundef nonnull @.str.375) #11
   br label %return
 
-if.end.i37:                                       ; preds = %return.sink.split.i
+if.end.i:                                         ; preds = %return.sink.split.i
   store i64 0, ptr %maxmem.i, align 8
-  %3 = load i8, ptr %value, align 1
-  %tobool2.not10.i = icmp eq i8 %3, 0
+  %30 = load i8, ptr %value, align 1
+  %tobool2.not10.i = icmp eq i8 %30, 0
   br i1 %tobool2.not10.i, label %return, label %for.body.preheader.i
 
-for.body.preheader.i:                             ; preds = %if.end.i37
-  %call7.i38 = tail call ptr @__ctype_b_loc() #13
+for.body.preheader.i:                             ; preds = %if.end.i
+  %call7.i = tail call ptr @__ctype_b_loc() #13
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end15.i, %for.body.preheader.i
-  %4 = phi i64 [ %add.i, %if.end15.i ], [ 0, %for.body.preheader.i ]
+  %31 = phi i64 [ %add.i, %if.end15.i ], [ 0, %for.body.preheader.i ]
   %p.011.i = phi ptr [ %incdec.ptr.i, %if.end15.i ], [ %value, %for.body.preheader.i ]
-  %cmp3.i39 = icmp ugt i64 %4, 1844674407370955161
-  br i1 %cmp3.i39, label %if.then5.i, label %if.end6.i40
+  %cmp3.i34 = icmp ugt i64 %31, 1844674407370955161
+  br i1 %cmp3.i34, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %for.body.i
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.27, i32 noundef 2177, ptr noundef nonnull @.str.376, ptr noundef nonnull %value) #11
   br label %return
 
-if.end6.i40:                                      ; preds = %for.body.i
-  %mul.i = mul nuw i64 %4, 10
+if.end6.i:                                        ; preds = %for.body.i
+  %mul.i = mul nuw i64 %31, 10
   store i64 %mul.i, ptr %maxmem.i, align 8
-  %5 = load ptr, ptr %call7.i38, align 8
-  %6 = load i8, ptr %p.011.i, align 1
-  %idxprom.i = zext i8 %6 to i64
-  %arrayidx.i = getelementptr inbounds i16, ptr %5, i64 %idxprom.i
-  %7 = load i16, ptr %arrayidx.i, align 2
-  %8 = lshr i16 %7, 11
-  %.lobit.i = and i16 %8, 1
+  %32 = load ptr, ptr %call7.i, align 8
+  %33 = load i8, ptr %p.011.i, align 1
+  %idxprom.i = zext i8 %33 to i64
+  %arrayidx.i = getelementptr inbounds i16, ptr %32, i64 %idxprom.i
+  %34 = load i16, ptr %arrayidx.i, align 2
+  %35 = lshr i16 %34, 11
+  %.lobit.i = and i16 %35, 1
   %conv11.i = zext nneg i16 %.lobit.i to i32
-  %call12.i41 = tail call i32 @test_true(ptr noundef nonnull @.str.27, i32 noundef 2181, ptr noundef nonnull @.str.377, i32 noundef %conv11.i) #11
-  %tobool13.not.i = icmp eq i32 %call12.i41, 0
+  %call12.i35 = tail call i32 @test_true(ptr noundef nonnull @.str.27, i32 noundef 2181, ptr noundef nonnull @.str.377, i32 noundef %conv11.i) #11
+  %tobool13.not.i = icmp eq i32 %call12.i35, 0
   br i1 %tobool13.not.i, label %if.then14.i, label %if.end15.i
 
-if.then14.i:                                      ; preds = %if.end6.i40
+if.then14.i:                                      ; preds = %if.end6.i
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.27, i32 noundef 2182, ptr noundef nonnull @.str.378, ptr noundef nonnull %value) #11
   br label %return
 
-if.end15.i:                                       ; preds = %if.end6.i40
-  %9 = load i8, ptr %p.011.i, align 1
-  %conv16.i = sext i8 %9 to i64
+if.end15.i:                                       ; preds = %if.end6.i
+  %36 = load i8, ptr %p.011.i, align 1
+  %conv16.i = sext i8 %36 to i64
   %sub.i = add nsw i64 %conv16.i, -48
-  %10 = load i64, ptr %maxmem.i, align 8
-  %add.i = add i64 %sub.i, %10
+  %37 = load i64, ptr %maxmem.i, align 8
+  %add.i = add i64 %sub.i, %37
   store i64 %add.i, ptr %maxmem.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.011.i, i64 1
-  %11 = load i8, ptr %incdec.ptr.i, align 1
-  %tobool2.not.i = icmp eq i8 %11, 0
-  br i1 %tobool2.not.i, label %return, label %for.body.i, !llvm.loop !36
+  %38 = load i8, ptr %incdec.ptr.i, align 1
+  %tobool2.not.i = icmp eq i8 %38, 0
+  br i1 %tobool2.not.i, label %return, label %for.body.i, !llvm.loop !34
 
-return:                                           ; preds = %if.end15.i, %if.end11.i, %if.then.i43, %if.end.i37, %if.then5.i, %if.then14.i, %if.then8.i.i, %if.end5.i.i, %if.then.i.i, %if.then.i27, %if.then8.i, %if.end5.i, %if.then.i, %if.end11, %if.then9, %if.then4, %if.then
-  %retval.0 = phi i32 [ %call1, %if.then ], [ %call5, %if.then4 ], [ %call10, %if.then9 ], [ 0, %if.end11 ], [ %..i, %if.then.i ], [ %.6.i, %if.then8.i ], [ 0, %if.end5.i ], [ %..i30, %if.then.i27 ], [ %..i.i, %if.then.i.i ], [ %.6.i.i, %if.then8.i.i ], [ 0, %if.end5.i.i ], [ 0, %if.end11.i ], [ -1, %if.then5.i ], [ -1, %if.then14.i ], [ -1, %if.then.i43 ], [ 1, %if.end.i37 ], [ 1, %if.end15.i ]
+return:                                           ; preds = %if.end15.i, %if.end11.i, %if.then.i37, %if.end.i, %if.then5.i, %if.then14.i, %if.then8.i.i, %if.end5.tail.i.i, %sub_1.i.i, %sub_0.i.i, %if.then.i.i, %if.then.i26, %if.then8.i, %if.end5.tail.i, %sub_1.i, %sub_0.i, %if.then.i, %if.end11, %if.then9, %if.then4, %if.then
+  %retval.0 = phi i32 [ %call1, %if.then ], [ %call5, %if.then4 ], [ %call10, %if.then9 ], [ 0, %if.end11 ], [ %..i, %if.then.i ], [ %.6.i, %if.then8.i ], [ 0, %if.end5.tail.i ], [ 0, %sub_0.i ], [ 0, %sub_1.i ], [ %..i29, %if.then.i26 ], [ %..i.i, %if.then.i.i ], [ %.6.i.i, %if.then8.i.i ], [ 0, %if.end5.tail.i.i ], [ 0, %sub_0.i.i ], [ 0, %sub_1.i.i ], [ 0, %if.end11.i ], [ -1, %if.then5.i ], [ -1, %if.then14.i ], [ -1, %if.then.i37 ], [ 1, %if.end.i ], [ 1, %if.end15.i ]
   ret i32 %retval.0
 }
 
@@ -8499,7 +8596,7 @@ declare i32 @EVP_PBE_scrypt(ptr noundef, i64 noundef, ptr noundef, i64 noundef, 
 declare i32 @PKCS12_key_gen_uni(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @decrypt_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
+define internal range(i32 0, 2) i32 @decrypt_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
 entry:
   %0 = load ptr, ptr @private_keys, align 8
   %cmp.not6.i10.i = icmp eq ptr %0, null
@@ -8516,7 +8613,7 @@ for.inc.i15.i:                                    ; preds = %for.body.i11.i
   %next.i16.i = getelementptr inbounds i8, ptr %lst.addr.07.i12.i, i64 16
   %2 = load ptr, ptr %next.i16.i, align 8
   %cmp.not.i17.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i17.i, label %if.then6.i, label %for.body.i11.i, !llvm.loop !12
+  br i1 %cmp.not.i17.i, label %if.then6.i, label %for.body.i11.i, !llvm.loop !11
 
 if.end3.i:                                        ; preds = %for.body.i11.i
   %key.i20.i = getelementptr inbounds i8, ptr %lst.addr.07.i12.i, i64 8
@@ -8594,7 +8691,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_test_parse(ptr nocapture noundef %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
+define internal range(i32 -1, 2) i32 @pkey_test_parse(ptr nocapture noundef %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %t, i64 6600
   %0 = load ptr, ptr %data, align 8
@@ -8605,7 +8702,7 @@ entry:
 if.then:                                          ; preds = %entry
   %input = getelementptr inbounds i8, ptr %0, i64 16
   %input_len = getelementptr inbounds i8, ptr %0, i64 24
-  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %input, ptr noundef nonnull %input_len), !range !8
+  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %input, ptr noundef nonnull %input_len)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -8616,7 +8713,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %output = getelementptr inbounds i8, ptr %0, i64 32
   %output_len = getelementptr inbounds i8, ptr %0, i64 40
-  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len), !range !8
+  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -8626,7 +8723,7 @@ if.end6:                                          ; preds = %if.end
 
 if.then9:                                         ; preds = %if.end6
   %1 = load ptr, ptr %0, align 8
-  %call10 = tail call fastcc i32 @pkey_test_ctrl(ptr noundef nonnull %t, ptr noundef %1, ptr noundef %value), !range !22
+  %call10 = tail call fastcc i32 @pkey_test_ctrl(ptr noundef nonnull %t, ptr noundef %1, ptr noundef %value)
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then9, %if.then4, %if.then
@@ -8808,7 +8905,7 @@ declare ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef, ptr noundef, ptr noundef) l
 declare ptr @EVP_PKEY_CTX_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pderive_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
+define internal range(i32 0, 2) i32 @pderive_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
 entry:
   %0 = load ptr, ptr @private_keys, align 8
   %cmp.not6.i10.i = icmp eq ptr %0, null
@@ -8825,7 +8922,7 @@ for.inc.i15.i:                                    ; preds = %for.body.i11.i
   %next.i16.i = getelementptr inbounds i8, ptr %lst.addr.07.i12.i, i64 16
   %2 = load ptr, ptr %next.i16.i, align 8
   %cmp.not.i17.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i17.i, label %if.then6.i, label %for.body.i11.i, !llvm.loop !12
+  br i1 %cmp.not.i17.i, label %if.then6.i, label %for.body.i11.i, !llvm.loop !11
 
 if.end3.i:                                        ; preds = %for.body.i11.i
   %key.i20.i = getelementptr inbounds i8, ptr %lst.addr.07.i12.i, i64 8
@@ -8887,7 +8984,7 @@ pkey_test_init.exit:                              ; preds = %if.then6.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pderive_test_parse(ptr nocapture noundef %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
+define internal range(i32 -1, 2) i32 @pderive_test_parse(ptr nocapture noundef %t, ptr nocapture noundef readonly %keyword, ptr noundef %value) #1 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -8931,7 +9028,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %lst.addr.07.i, i64 16
   %3 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !11
 
 if.end7:                                          ; preds = %for.body.i
   %key.i = getelementptr inbounds i8, ptr %lst.addr.07.i, i64 8
@@ -8958,7 +9055,7 @@ if.end13:                                         ; preds = %lor.lhs.false
 if.then16:                                        ; preds = %if.end13
   %output = getelementptr inbounds i8, ptr %0, i64 32
   %output_len = getelementptr inbounds i8, ptr %0, i64 40
-  %call17 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len), !range !8
+  %call17 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len)
   br label %return
 
 if.end18:                                         ; preds = %if.end13
@@ -8968,7 +9065,7 @@ if.end18:                                         ; preds = %if.end13
 
 if.then21:                                        ; preds = %if.end18
   %6 = load ptr, ptr %0, align 8
-  %call23 = tail call fastcc i32 @pkey_test_ctrl(ptr noundef nonnull %t, ptr noundef %6, ptr noundef %value), !range !22
+  %call23 = tail call fastcc i32 @pkey_test_ctrl(ptr noundef nonnull %t, ptr noundef %6, ptr noundef %value)
   br label %return
 
 if.end24:                                         ; preds = %if.end18
@@ -9159,7 +9256,7 @@ declare i32 @EVP_PKEY_derive_set_peer_ex(ptr noundef, ptr noundef, i32 noundef) 
 declare i32 @test_size_t_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sign_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
+define internal range(i32 0, 2) i32 @sign_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
 entry:
   %0 = load ptr, ptr @private_keys, align 8
   %cmp.not6.i10.i = icmp eq ptr %0, null
@@ -9176,7 +9273,7 @@ for.inc.i15.i:                                    ; preds = %for.body.i11.i
   %next.i16.i = getelementptr inbounds i8, ptr %lst.addr.07.i12.i, i64 16
   %2 = load ptr, ptr %next.i16.i, align 8
   %cmp.not.i17.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i17.i, label %if.then6.i, label %for.body.i11.i, !llvm.loop !12
+  br i1 %cmp.not.i17.i, label %if.then6.i, label %for.body.i11.i, !llvm.loop !11
 
 if.end3.i:                                        ; preds = %for.body.i11.i
   %key.i20.i = getelementptr inbounds i8, ptr %lst.addr.07.i12.i, i64 8
@@ -9242,7 +9339,7 @@ declare i32 @EVP_PKEY_sign_init(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @verify_recover_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
+define internal range(i32 0, 2) i32 @verify_recover_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
 entry:
   %0 = load ptr, ptr @public_keys, align 8
   %cmp.not6.i.i = icmp eq ptr %0, null
@@ -9259,7 +9356,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %lst.addr.07.i.i, i64 16
   %2 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i, label %if.then1.i, label %for.body.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %if.then1.i, label %for.body.i.i, !llvm.loop !11
 
 if.then1.i:                                       ; preds = %for.inc.i.i, %entry
   %3 = load ptr, ptr @private_keys, align 8
@@ -9277,7 +9374,7 @@ for.inc.i15.i:                                    ; preds = %for.body.i11.i
   %next.i16.i = getelementptr inbounds i8, ptr %lst.addr.07.i12.i, i64 16
   %5 = load ptr, ptr %next.i16.i, align 8
   %cmp.not.i17.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i17.i, label %if.then6.i, label %for.body.i11.i, !llvm.loop !12
+  br i1 %cmp.not.i17.i, label %if.then6.i, label %for.body.i11.i, !llvm.loop !11
 
 if.end3.i:                                        ; preds = %for.body.i.i, %for.body.i11.i
   %lst.addr.07.i12.lcssa.sink.i = phi ptr [ %lst.addr.07.i12.i, %for.body.i11.i ], [ %lst.addr.07.i.i, %for.body.i.i ]
@@ -9344,7 +9441,7 @@ declare i32 @EVP_PKEY_verify_recover_init(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_verify_recover(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @verify_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
+define internal range(i32 0, 2) i32 @verify_test_init(ptr nocapture noundef writeonly %t, ptr noundef %name) #1 {
 entry:
   %0 = load ptr, ptr @public_keys, align 8
   %cmp.not6.i.i = icmp eq ptr %0, null
@@ -9361,7 +9458,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %lst.addr.07.i.i, i64 16
   %2 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i, label %if.then1.i, label %for.body.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %if.then1.i, label %for.body.i.i, !llvm.loop !11
 
 if.then1.i:                                       ; preds = %for.inc.i.i, %entry
   %3 = load ptr, ptr @private_keys, align 8
@@ -9379,7 +9476,7 @@ for.inc.i15.i:                                    ; preds = %for.body.i11.i
   %next.i16.i = getelementptr inbounds i8, ptr %lst.addr.07.i12.i, i64 16
   %5 = load ptr, ptr %next.i16.i, align 8
   %cmp.not.i17.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i17.i, label %if.then6.i, label %for.body.i11.i, !llvm.loop !12
+  br i1 %cmp.not.i17.i, label %if.then6.i, label %for.body.i11.i, !llvm.loop !11
 
 if.end3.i:                                        ; preds = %for.body.i.i, %for.body.i11.i
   %lst.addr.07.i12.lcssa.sink.i = phi ptr [ %lst.addr.07.i12.i, %for.body.i11.i ], [ %lst.addr.07.i.i, %for.body.i.i ]
@@ -9512,7 +9609,7 @@ attributes #13 = { nounwind willreturn memory(none) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
@@ -9526,7 +9623,7 @@ attributes #13 = { nounwind willreturn memory(none) }
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
-!22 = !{i32 0, i32 2}
+!22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
@@ -9539,5 +9636,3 @@ attributes #13 = { nounwind willreturn memory(none) }
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}

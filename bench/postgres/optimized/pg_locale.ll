@@ -906,7 +906,7 @@ define dso_local zeroext i1 @lc_collate_is_c(i32 noundef %0) local_unnamed_addr 
 10:                                               ; preds = %5
   %11 = tail call ptr @setlocale(i32 noundef 3, ptr noundef null) #22
   %.not12 = icmp eq ptr %11, null
-  br i1 %.not12, label %12, label %15
+  br i1 %.not12, label %12, label %sub_0
 
 12:                                               ; preds = %10
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
@@ -915,25 +915,31 @@ define dso_local zeroext i1 @lc_collate_is_c(i32 noundef %0) local_unnamed_addr 
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1332, ptr noundef nonnull @__func__.lc_collate_is_c) #22
   unreachable
 
-15:                                               ; preds = %10
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(2) @.str.21) #26
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %19
+sub_0:                                            ; preds = %10
+  %15 = load i8, ptr %11, align 1
+  %.not = icmp eq i8 %15, 67
+  br i1 %.not, label %.tail, label %.tail.thread
 
-18:                                               ; preds = %15
+.tail:                                            ; preds = %sub_0
+  %16 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %19, label %.tail.thread
+
+19:                                               ; preds = %.tail
   store i32 1, ptr @lc_collate_is_c.result, align 4
   br label %31
 
-19:                                               ; preds = %15
+.tail.thread:                                     ; preds = %sub_0, %.tail
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(6) @.str.22) #26
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %23
 
-22:                                               ; preds = %19
+22:                                               ; preds = %.tail.thread
   store i32 1, ptr @lc_collate_is_c.result, align 4
   br label %31
 
-23:                                               ; preds = %19
+23:                                               ; preds = %.tail.thread
   store i32 0, ptr @lc_collate_is_c.result, align 4
   br label %31
 
@@ -949,8 +955,8 @@ define dso_local zeroext i1 @lc_collate_is_c(i32 noundef %0) local_unnamed_addr 
   %30 = trunc i8 %29 to i1
   br label %31
 
-31:                                               ; preds = %18, %23, %22, %24, %2, %1, %26, %8
-  %.0 = phi i1 [ %9, %8 ], [ %30, %26 ], [ false, %1 ], [ false, %2 ], [ true, %24 ], [ true, %22 ], [ false, %23 ], [ true, %18 ]
+31:                                               ; preds = %19, %23, %22, %24, %2, %1, %26, %8
+  %.0 = phi i1 [ %9, %8 ], [ %30, %26 ], [ false, %1 ], [ false, %2 ], [ true, %24 ], [ true, %22 ], [ false, %23 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -1024,35 +1030,47 @@ define internal fastcc ptr @lookup_collation_cache(i32 noundef %0, i1 noundef ze
   %40 = getelementptr inbounds i8, ptr %39, i64 76
   %41 = load i8, ptr %40, align 4
   %42 = icmp eq i8 %41, 99
-  br i1 %42, label %43, label %65
+  br i1 %42, label %sub_0, label %65
 
-43:                                               ; preds = %33
-  %44 = call i64 @SysCacheGetAttrNotNull(i32 noundef 16, ptr noundef nonnull %28, i16 noundef signext 8) #22
-  %45 = inttoptr i64 %44 to ptr
-  %46 = call ptr @text_to_cstring(ptr noundef %45) #22
-  %47 = call i64 @SysCacheGetAttrNotNull(i32 noundef 16, ptr noundef nonnull %28, i16 noundef signext 9) #22
-  %48 = inttoptr i64 %47 to ptr
-  %49 = call ptr @text_to_cstring(ptr noundef %48) #22
-  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(2) @.str.21) #26
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %56, label %52
+sub_0:                                            ; preds = %33
+  %43 = call i64 @SysCacheGetAttrNotNull(i32 noundef 16, ptr noundef nonnull %28, i16 noundef signext 8) #22
+  %44 = inttoptr i64 %43 to ptr
+  %45 = call ptr @text_to_cstring(ptr noundef %44) #22
+  %46 = call i64 @SysCacheGetAttrNotNull(i32 noundef 16, ptr noundef nonnull %28, i16 noundef signext 9) #22
+  %47 = inttoptr i64 %46 to ptr
+  %48 = call ptr @text_to_cstring(ptr noundef %47) #22
+  %49 = load i8, ptr %45, align 1
+  %.not26 = icmp eq i8 %49, 67
+  br i1 %.not26, label %.tail, label %.tail.thread
 
-52:                                               ; preds = %43
-  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(6) @.str.22) #26
+.tail:                                            ; preds = %sub_0
+  %50 = getelementptr inbounds i8, ptr %45, i64 1
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %sub_023, label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_0, %.tail
+  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(6) @.str.22) #26
   %54 = icmp eq i32 %53, 0
   %55 = zext i1 %54 to i8
-  br label %56
+  br label %sub_023
 
-56:                                               ; preds = %52, %43
-  %57 = phi i8 [ 1, %43 ], [ %55, %52 ]
-  %58 = getelementptr inbounds i8, ptr %14, i64 4
-  store i8 %57, ptr %58, align 4
-  %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(2) @.str.21) #26
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %67, label %61
+sub_023:                                          ; preds = %.tail.thread, %.tail
+  %56 = phi i8 [ 1, %.tail ], [ %55, %.tail.thread ]
+  %57 = getelementptr inbounds i8, ptr %14, i64 4
+  store i8 %56, ptr %57, align 4
+  %58 = load i8, ptr %48, align 1
+  %.not27 = icmp eq i8 %58, 67
+  br i1 %.not27, label %.tail22, label %.tail22.thread
 
-61:                                               ; preds = %56
-  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(6) @.str.22) #26
+.tail22:                                          ; preds = %sub_023
+  %59 = getelementptr inbounds i8, ptr %48, i64 1
+  %60 = load i8, ptr %59, align 1
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %67, label %.tail22.thread
+
+.tail22.thread:                                   ; preds = %sub_023, %.tail22
+  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(6) @.str.22) #26
   %63 = icmp eq i32 %62, 0
   %64 = zext i1 %63 to i8
   br label %67
@@ -1062,8 +1080,8 @@ define internal fastcc ptr @lookup_collation_cache(i32 noundef %0, i1 noundef ze
   store i8 0, ptr %66, align 4
   br label %67
 
-67:                                               ; preds = %56, %61, %65
-  %.sink = phi i8 [ 0, %65 ], [ 1, %56 ], [ %64, %61 ]
+67:                                               ; preds = %.tail22, %.tail22.thread, %65
+  %.sink = phi i8 [ 0, %65 ], [ 1, %.tail22 ], [ %64, %.tail22.thread ]
   %68 = getelementptr inbounds i8, ptr %14, i64 5
   store i8 %.sink, ptr %68, align 1
   store i8 1, ptr %22, align 2
@@ -1098,7 +1116,7 @@ define dso_local zeroext i1 @lc_ctype_is_c(i32 noundef %0) local_unnamed_addr #0
 10:                                               ; preds = %5
   %11 = tail call ptr @setlocale(i32 noundef 0, ptr noundef null) #22
   %.not12 = icmp eq ptr %11, null
-  br i1 %.not12, label %12, label %15
+  br i1 %.not12, label %12, label %sub_0
 
 12:                                               ; preds = %10
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
@@ -1107,25 +1125,31 @@ define dso_local zeroext i1 @lc_ctype_is_c(i32 noundef %0) local_unnamed_addr #0
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1385, ptr noundef nonnull @__func__.lc_ctype_is_c) #22
   unreachable
 
-15:                                               ; preds = %10
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(2) @.str.21) #26
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %19
+sub_0:                                            ; preds = %10
+  %15 = load i8, ptr %11, align 1
+  %.not = icmp eq i8 %15, 67
+  br i1 %.not, label %.tail, label %.tail.thread
 
-18:                                               ; preds = %15
+.tail:                                            ; preds = %sub_0
+  %16 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %19, label %.tail.thread
+
+19:                                               ; preds = %.tail
   store i32 1, ptr @lc_ctype_is_c.result, align 4
   br label %31
 
-19:                                               ; preds = %15
+.tail.thread:                                     ; preds = %sub_0, %.tail
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(6) @.str.22) #26
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %23
 
-22:                                               ; preds = %19
+22:                                               ; preds = %.tail.thread
   store i32 1, ptr @lc_ctype_is_c.result, align 4
   br label %31
 
-23:                                               ; preds = %19
+23:                                               ; preds = %.tail.thread
   store i32 0, ptr @lc_ctype_is_c.result, align 4
   br label %31
 
@@ -1141,8 +1165,8 @@ define dso_local zeroext i1 @lc_ctype_is_c(i32 noundef %0) local_unnamed_addr #0
   %30 = trunc i8 %29 to i1
   br label %31
 
-31:                                               ; preds = %18, %23, %22, %24, %2, %1, %26, %8
-  %.0 = phi i1 [ %9, %8 ], [ %30, %26 ], [ false, %1 ], [ false, %2 ], [ true, %24 ], [ true, %22 ], [ false, %23 ], [ true, %18 ]
+31:                                               ; preds = %19, %23, %22, %24, %2, %1, %26, %8
+  %.0 = phi i1 [ %9, %8 ], [ %30, %26 ], [ false, %1 ], [ false, %2 ], [ true, %24 ], [ true, %22 ], [ false, %23 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -1992,7 +2016,7 @@ define dso_local i64 @pg_strxfrm(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 12:                                               ; preds = %6
   %13 = trunc i64 %2 to i32
-  %14 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef -1, i32 noundef %13, ptr noundef nonnull %3), !range !10
+  %14 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef -1, i32 noundef %13, ptr noundef nonnull %3)
   ret i64 %14
 
 15:                                               ; preds = %6
@@ -2006,7 +2030,7 @@ define dso_local i64 @pg_strxfrm(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [1024 x i8], align 16
@@ -2137,7 +2161,7 @@ define dso_local i64 @pg_strnxfrm(ptr noundef %0, i64 noundef %1, ptr noundef %2
 27:                                               ; preds = %15
   %28 = trunc i64 %3 to i32
   %29 = trunc i64 %1 to i32
-  %30 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %2, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %4), !range !10
+  %30 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %2, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %4)
   ret i64 %30
 
 31:                                               ; preds = %15
@@ -2180,7 +2204,7 @@ define dso_local noundef zeroext i1 @pg_strxfrm_prefix_enabled(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_strxfrm_prefix(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strxfrm_prefix(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %8
 
@@ -2212,7 +2236,7 @@ define dso_local i64 @pg_strxfrm_prefix(ptr noundef %0, ptr noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [1024 x i8], align 16
@@ -2341,7 +2365,7 @@ pg_strnxfrm_prefix_icu_no_utf8.exit:              ; preds = %uchar_convert.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_strnxfrm_prefix(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %9
 
@@ -2492,7 +2516,7 @@ define dso_local noundef ptr @icu_language_tag(ptr noundef %0, i32 noundef %1) l
   %8 = call i64 @llvm.umin.i64(i64 %7, i64 1073741823)
   %9 = call ptr @repalloc(ptr noundef %.02730, i64 noundef %8) #22
   store i32 0, ptr %3, align 4
-  %10 = trunc i64 %8 to i32
+  %10 = trunc nuw nsw i64 %8 to i32
   %11 = call i32 @uloc_toLanguageTag_70(ptr noundef %0, ptr noundef %9, i32 noundef %10, i8 noundef signext 1, ptr noundef nonnull %3) #22
   %12 = load i32, ptr %3, align 4
   %13 = icmp eq i32 %12, 15
@@ -2607,7 +2631,7 @@ define dso_local void @icu_validate_locale(ptr noundef %0) local_unnamed_addr #0
   %.03741.be = add nuw nsw i32 %.0374144, 1
   %38 = call i32 @uloc_countAvailable_70() #22
   %39 = icmp slt i32 %.03741.be, %38
-  br i1 %39, label %.lr.ph45, label %.critedge, !llvm.loop !11
+  br i1 %39, label %.lr.ph45, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph.backedge, %.lr.ph.preheader
   %40 = call zeroext i1 @errstart(i32 noundef %spec.store.select, ptr noundef null) #22
@@ -2664,7 +2688,7 @@ define dso_local i64 @wchar2char(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 declare i64 @wcstombs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @char2wchar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define dso_local range(i64 0, -1) i64 @char2wchar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %6 = icmp eq i64 %1, 0
   br i1 %6, label %27, label %7
 
@@ -2816,5 +2840,4 @@ attributes #27 = { nounwind willreturn memory(none) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 -2147483649, i64 2147483647}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6}

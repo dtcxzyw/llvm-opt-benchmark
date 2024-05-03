@@ -175,7 +175,7 @@ declare dso_local void @console_unlock() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vga_get(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @vga_get(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !5
@@ -775,7 +775,7 @@ define internal fastcc void @__vga_set_legacy_decoding(ptr noundef readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vga_client_register(ptr noundef readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @vga_client_register(ptr noundef readnone %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
   br label %4
 
@@ -1599,7 +1599,7 @@ define internal i64 @vga_arb_read(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @vga_arb_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca [64 x i8], align 16
   %7 = alloca i32, align 4
@@ -1876,7 +1876,7 @@ define internal noundef i64 @vga_arb_write(ptr nocapture noundef readonly %0, pt
   br label %180
 
 171:                                              ; preds = %164
-  %172 = call fastcc i32 @vga_pci_str_to_vars(ptr noundef %165, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9), !range !31
+  %172 = call fastcc i32 @vga_pci_str_to_vars(ptr noundef %165, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %213, label %174
 
@@ -1944,7 +1944,7 @@ define internal noundef i64 @vga_arb_write(ptr nocapture noundef readonly %0, pt
 207:                                              ; preds = %202
   %208 = add nuw nsw i64 %198, 1
   %209 = icmp eq i64 %208, 16
-  br i1 %209, label %.thread15, label %197, !llvm.loop !32
+  br i1 %209, label %.thread15, label %197, !llvm.loop !31
 
 .thread15:                                        ; preds = %207
   call void @pci_dev_put(ptr noundef %181) #14
@@ -1973,7 +1973,7 @@ define internal noundef i64 @vga_arb_write(ptr nocapture noundef readonly %0, pt
 217:                                              ; preds = %215
   store i32 0, ptr %5, align 4, !annotation !5
   %218 = getelementptr inbounds i8, ptr %6, i64 8
-  %219 = call fastcc i32 @vga_str_to_iostate(ptr noundef %218, ptr noundef nonnull %5), !range !31
+  %219 = call fastcc i32 @vga_str_to_iostate(ptr noundef %218, ptr noundef nonnull %5)
   %220 = icmp eq i32 %219, 0
   br i1 %220, label %.loopexit, label %221
 
@@ -2014,7 +2014,7 @@ define internal noundef i32 @vga_arb_fpoll(ptr noundef %0, ptr noundef %1) #1 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vga_arb_open(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @vga_arb_open(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 288) #17
   %5 = icmp eq ptr %4, null
@@ -2178,7 +2178,7 @@ define internal noundef i32 @vga_arb_release(ptr nocapture readnone %0, ptr noca
   %68 = add i32 %66, -1
   store i32 %68, ptr %17, align 4
   %69 = icmp eq i32 %66, 0
-  br i1 %69, label %.loopexit12, label %.preheader11, !llvm.loop !33
+  br i1 %69, label %.loopexit12, label %.preheader11, !llvm.loop !32
 
 .preheader:                                       ; preds = %.preheader.preheader, %110
   %70 = phi i32 [ %23, %.preheader.preheader ], [ %113, %110 ]
@@ -2259,12 +2259,12 @@ define internal noundef i32 @vga_arb_release(ptr nocapture readnone %0, ptr noca
   %113 = add i32 %111, -1
   store i32 %113, ptr %21, align 8
   %114 = icmp eq i32 %111, 0
-  br i1 %114, label %.loopexit, label %.preheader, !llvm.loop !34
+  br i1 %114, label %.loopexit, label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %110, %.loopexit12, %11
   %115 = add nuw nsw i64 %12, 1
   %116 = icmp eq i64 %115, 16
-  br i1 %116, label %117, label %11, !llvm.loop !35
+  br i1 %116, label %117, label %11, !llvm.loop !34
 
 117:                                              ; preds = %.loopexit
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_user_lock, i64 noundef %5) #14
@@ -2291,38 +2291,53 @@ declare dso_local void @__copy_overflow(i32 noundef, i64 noundef) local_unnamed_
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef i32 @vga_str_to_iostate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @vga_str_to_iostate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #10 align 16 {
   %3 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #14
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %14, label %5
+  br i1 %4, label %17, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str.2, i64 noundef 6) #14
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %14, label %8
+  br i1 %7, label %17, label %sub_0
 
-8:                                                ; preds = %5
-  %9 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(3) @.str.3, i64 noundef 2) #14
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %14, label %11
+sub_0:                                            ; preds = %5
+  %8 = load i8, ptr %0, align 1
+  switch i8 %8, label %.tail1.thread [
+    i8 105, label %.tail
+    i8 109, label %sub_13
+  ]
 
-11:                                               ; preds = %8
-  %12 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.4, i64 noundef 3) #14
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %16
+.tail:                                            ; preds = %sub_0
+  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp eq i8 %10, 111
+  br i1 %11, label %17, label %.tail1.thread
 
-14:                                               ; preds = %11, %8, %5, %2
-  %15 = phi i32 [ 0, %2 ], [ 3, %11 ], [ 3, %8 ], [ 3, %5 ]
-  store i32 %15, ptr %1, align 4
-  br label %16
+sub_13:                                           ; preds = %sub_0
+  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %13 = load i8, ptr %12, align 1
+  %.not6 = icmp eq i8 %13, 101
+  br i1 %.not6, label %.tail1, label %.tail1.thread
 
-16:                                               ; preds = %14, %11
-  %17 = phi i32 [ 0, %11 ], [ 1, %14 ]
-  ret i32 %17
+.tail1:                                           ; preds = %sub_13
+  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 109
+  br i1 %16, label %17, label %.tail1.thread
+
+17:                                               ; preds = %.tail1, %.tail, %5, %2
+  %18 = phi i32 [ 0, %2 ], [ 3, %.tail1 ], [ 3, %.tail ], [ 3, %5 ]
+  store i32 %18, ptr %1, align 4
+  br label %.tail1.thread
+
+.tail1.thread:                                    ; preds = %sub_0, %.tail, %sub_13, %17, %.tail1
+  %19 = phi i32 [ 0, %.tail1 ], [ 1, %17 ], [ 0, %sub_13 ], [ 0, %.tail ], [ 0, %sub_0 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vga_tryget(ptr noundef readnone %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @vga_tryget(ptr noundef readnone %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = load i1, ptr @vga_arbiter_used, align 1
   br i1 %3, label %21, label %4
 
@@ -2391,7 +2406,7 @@ define internal fastcc i32 @vga_tryget(ptr noundef readnone %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @vga_pci_str_to_vars(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #11 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @vga_pci_str_to_vars(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #11 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
@@ -2629,8 +2644,7 @@ attributes #17 = { nounwind allocsize(2) }
 !28 = distinct !{!28, !7, !8}
 !29 = !{i32 -19, i32 1}
 !30 = distinct !{!30, !7, !8}
-!31 = !{i32 0, i32 2}
+!31 = distinct !{!31, !7, !8}
 !32 = distinct !{!32, !7, !8}
 !33 = distinct !{!33, !7, !8}
 !34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}

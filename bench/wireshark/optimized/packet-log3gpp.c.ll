@@ -214,10 +214,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.183 = private unnamed_addr constant [6 x i8] c"SN_7b\00", align 1
 @.str.184 = private unnamed_addr constant [7 x i8] c"SN_12b\00", align 1
 @lte_rlc_pseudo_hdr.proto_rlc_lte = internal unnamed_addr global i32 0, align 4
-@.str.185 = private unnamed_addr constant [3 x i8] c"TM\00", align 1
-@.str.186 = private unnamed_addr constant [3 x i8] c"UM\00", align 1
-@.str.187 = private unnamed_addr constant [3 x i8] c"AM\00", align 1
-@.str.188 = private unnamed_addr constant [3 x i8] c"NA\00", align 1
 @.str.189 = private unnamed_addr constant [6 x i8] c"SN_5b\00", align 1
 @.str.190 = private unnamed_addr constant [7 x i8] c"SN_10b\00", align 1
 @.str.191 = private unnamed_addr constant [7 x i8] c"Uplink\00", align 1
@@ -742,7 +738,7 @@ define internal i32 @dissector_element_compare(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lte_mac_pseudo_hdr(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) #0 {
+define internal range(i32 0, 2) i32 @lte_mac_pseudo_hdr(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) #0 {
   %5 = alloca [30 x i8], align 16
   %6 = load i32, ptr @lte_mac_pseudo_hdr.proto_mac_lte, align 4
   %7 = icmp eq i32 %6, 0
@@ -860,7 +856,7 @@ define internal noundef i32 @lte_mac_pseudo_hdr(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lte_pdcp_pseudo_hdr(ptr noundef %0, ptr noundef %1, i16 zeroext %2, i32 noundef %3) #0 {
+define internal range(i32 0, 2) i32 @lte_pdcp_pseudo_hdr(ptr noundef %0, ptr noundef %1, i16 zeroext %2, i32 noundef %3) #0 {
   %5 = alloca [30 x i8], align 16
   %6 = load i32, ptr @lte_pdcp_pseudo_hdr.proto_pdcp_lte, align 4
   %7 = icmp eq i32 %6, 0
@@ -937,7 +933,7 @@ define internal noundef i32 @lte_pdcp_pseudo_hdr(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lte_rlc_pseudo_hdr(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) #0 {
+define internal range(i32 0, 2) i32 @lte_rlc_pseudo_hdr(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) #0 {
   %5 = alloca [30 x i8], align 16
   %6 = load i32, ptr @lte_rlc_pseudo_hdr.proto_rlc_lte, align 4
   %7 = icmp eq i32 %6, 0
@@ -954,7 +950,7 @@ define internal noundef i32 @lte_rlc_pseudo_hdr(ptr noundef %0, ptr noundef %1, 
   %13 = load i32, ptr @lte_rlc_pseudo_hdr.proto_rlc_lte, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %1, i32 noundef %13, i32 noundef 0) #5
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %15, label %66
+  br i1 %.not, label %15, label %.tail49.thread
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %1, i64 408
@@ -962,7 +958,7 @@ define internal noundef i32 @lte_rlc_pseudo_hdr(ptr noundef %0, ptr noundef %1, 
   %18 = call noalias ptr @wmem_alloc0(ptr noundef %17, i64 noundef 20) #5
   %19 = call ptr @strtok(ptr noundef nonnull %5, ptr noundef nonnull @.str.172) #5
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %66, label %21
+  br i1 %20, label %.tail49.thread, label %21
 
 21:                                               ; preds = %15
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(4) @.str.181) #6
@@ -972,7 +968,7 @@ define internal noundef i32 @lte_rlc_pseudo_hdr(ptr noundef %0, ptr noundef %1, 
 24:                                               ; preds = %21
   %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(4) @.str.182) #6
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %66
+  br i1 %26, label %27, label %.tail49.thread
 
 27:                                               ; preds = %24, %21
   %.sink = phi i16 [ 4, %21 ], [ 5, %24 ]
@@ -980,76 +976,113 @@ define internal noundef i32 @lte_rlc_pseudo_hdr(ptr noundef %0, ptr noundef %1, 
   store i16 %.sink, ptr %28, align 2
   %29 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.172) #5
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %66, label %31
+  br i1 %30, label %.tail49.thread, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %18, i64 8
   %33 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %29, ptr noundef null, ptr noundef nonnull %32) #5
   %34 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.172) #5
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %66, label %36
+  br i1 %35, label %.tail49.thread, label %sub_0
 
-36:                                               ; preds = %31
-  %37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(3) @.str.185) #6
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %48, label %39
+sub_0:                                            ; preds = %31
+  %36 = load i8, ptr %34, align 1
+  switch i8 %36, label %.tail49.thread [
+    i8 84, label %sub_1
+    i8 85, label %sub_141
+    i8 65, label %sub_146
+    i8 78, label %sub_151
+  ]
 
-39:                                               ; preds = %36
-  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(3) @.str.186) #6
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %48, label %42
+sub_1:                                            ; preds = %sub_0
+  %37 = getelementptr inbounds i8, ptr %34, i64 1
+  %38 = load i8, ptr %37, align 1
+  %.not55 = icmp eq i8 %38, 77
+  br i1 %.not55, label %.tail, label %.tail49.thread
 
-42:                                               ; preds = %39
-  %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(3) @.str.187) #6
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %48, label %45
+.tail:                                            ; preds = %sub_1
+  %39 = getelementptr inbounds i8, ptr %34, i64 2
+  %40 = load i8, ptr %39, align 1
+  %41 = icmp eq i8 %40, 0
+  br i1 %41, label %57, label %.tail49.thread
 
-45:                                               ; preds = %42
-  %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(3) @.str.188) #6
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %66
+sub_141:                                          ; preds = %sub_0
+  %42 = getelementptr inbounds i8, ptr %34, i64 1
+  %43 = load i8, ptr %42, align 1
+  %.not57 = icmp eq i8 %43, 77
+  br i1 %.not57, label %.tail39, label %.tail49.thread
 
-48:                                               ; preds = %45, %42, %39, %36
-  %.sink40 = phi i8 [ 1, %36 ], [ 2, %39 ], [ 4, %42 ], [ 8, %45 ]
-  store i8 %.sink40, ptr %18, align 4
-  %49 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.172) #5
-  %.not38 = icmp eq ptr %49, null
-  br i1 %.not38, label %57, label %50
+.tail39:                                          ; preds = %sub_141
+  %44 = getelementptr inbounds i8, ptr %34, i64 2
+  %45 = load i8, ptr %44, align 1
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %57, label %.tail49.thread
 
-50:                                               ; preds = %48
-  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(6) @.str.189) #6
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %.sink.split, label %53
+sub_146:                                          ; preds = %sub_0
+  %47 = getelementptr inbounds i8, ptr %34, i64 1
+  %48 = load i8, ptr %47, align 1
+  %.not59 = icmp eq i8 %48, 77
+  br i1 %.not59, label %.tail44, label %.tail49.thread
 
-53:                                               ; preds = %50
-  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(7) @.str.190) #6
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.sink.split, label %57
+.tail44:                                          ; preds = %sub_146
+  %49 = getelementptr inbounds i8, ptr %34, i64 2
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp eq i8 %50, 0
+  br i1 %51, label %57, label %.tail49.thread
 
-.sink.split:                                      ; preds = %53, %50
-  %.sink41 = phi i8 [ 5, %50 ], [ 10, %53 ]
-  %56 = getelementptr inbounds i8, ptr %18, i64 3
-  store i8 %.sink41, ptr %56, align 1
-  br label %57
+sub_151:                                          ; preds = %sub_0
+  %52 = getelementptr inbounds i8, ptr %34, i64 1
+  %53 = load i8, ptr %52, align 1
+  %.not61 = icmp eq i8 %53, 65
+  br i1 %.not61, label %.tail49, label %.tail49.thread
 
-57:                                               ; preds = %.sink.split, %53, %48
-  %58 = icmp ne i32 %3, 0
-  %59 = zext i1 %58 to i8
-  %60 = getelementptr inbounds i8, ptr %18, i64 1
-  store i8 %59, ptr %60, align 1
-  %61 = getelementptr inbounds i8, ptr %18, i64 2
-  store i8 0, ptr %61, align 2
-  %62 = getelementptr inbounds i8, ptr %18, i64 4
-  store i16 0, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %18, i64 10
-  store i16 %2, ptr %63, align 2
-  %64 = call ptr @wmem_file_scope() #5
-  %65 = load i32, ptr @lte_rlc_pseudo_hdr.proto_rlc_lte, align 4
-  call void @p_add_proto_data(ptr noundef %64, ptr noundef nonnull %1, i32 noundef %65, i32 noundef 0, ptr noundef nonnull %18) #5
+.tail49:                                          ; preds = %sub_151
+  %54 = getelementptr inbounds i8, ptr %34, i64 2
+  %55 = load i8, ptr %54, align 1
+  %56 = icmp eq i8 %55, 0
+  br i1 %56, label %57, label %.tail49.thread
+
+57:                                               ; preds = %.tail49, %.tail44, %.tail39, %.tail
+  %.sink72 = phi i8 [ 1, %.tail ], [ 2, %.tail39 ], [ 4, %.tail44 ], [ 8, %.tail49 ]
+  store i8 %.sink72, ptr %18, align 4
+  %58 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.172) #5
+  %.not38 = icmp eq ptr %58, null
+  br i1 %.not38, label %66, label %59
+
+59:                                               ; preds = %57
+  %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(6) @.str.189) #6
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %.sink.split, label %62
+
+62:                                               ; preds = %59
+  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(7) @.str.190) #6
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %.sink.split, label %66
+
+.sink.split:                                      ; preds = %62, %59
+  %.sink73 = phi i8 [ 5, %59 ], [ 10, %62 ]
+  %65 = getelementptr inbounds i8, ptr %18, i64 3
+  store i8 %.sink73, ptr %65, align 1
   br label %66
 
-66:                                               ; preds = %45, %31, %27, %24, %15, %10, %57
-  %.0 = phi i32 [ 1, %57 ], [ 1, %10 ], [ 0, %15 ], [ 0, %24 ], [ 0, %27 ], [ 0, %31 ], [ 0, %45 ]
+66:                                               ; preds = %.sink.split, %62, %57
+  %67 = icmp ne i32 %3, 0
+  %68 = zext i1 %67 to i8
+  %69 = getelementptr inbounds i8, ptr %18, i64 1
+  store i8 %68, ptr %69, align 1
+  %70 = getelementptr inbounds i8, ptr %18, i64 2
+  store i8 0, ptr %70, align 2
+  %71 = getelementptr inbounds i8, ptr %18, i64 4
+  store i16 0, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %18, i64 10
+  store i16 %2, ptr %72, align 2
+  %73 = call ptr @wmem_file_scope() #5
+  %74 = load i32, ptr @lte_rlc_pseudo_hdr.proto_rlc_lte, align 4
+  call void @p_add_proto_data(ptr noundef %73, ptr noundef nonnull %1, i32 noundef %74, i32 noundef 0, ptr noundef nonnull %18) #5
+  br label %.tail49.thread
+
+.tail49.thread:                                   ; preds = %sub_0, %.tail, %sub_1, %sub_141, %.tail39, %sub_146, %.tail44, %sub_151, %.tail49, %31, %27, %24, %15, %10, %66
+  %.0 = phi i32 [ 1, %66 ], [ 1, %10 ], [ 0, %15 ], [ 0, %24 ], [ 0, %27 ], [ 0, %31 ], [ 0, %.tail49 ], [ 0, %sub_151 ], [ 0, %.tail44 ], [ 0, %sub_146 ], [ 0, %.tail39 ], [ 0, %sub_141 ], [ 0, %sub_1 ], [ 0, %.tail ], [ 0, %sub_0 ]
   ret i32 %.0
 }
 

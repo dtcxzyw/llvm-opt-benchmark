@@ -40,7 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._cwd_state = type { ptr, i64 }
 
 @core_globals = external local_unnamed_addr global %struct._php_core_globals, align 8
-@.str = private unnamed_addr constant [2 x i8] c".\00", align 1
 @.str.1 = private unnamed_addr constant [83 x i8] c"File name is longer than the maximum allowed path length on this platform (%d): %s\00", align 1
 @.str.2 = private unnamed_addr constant [85 x i8] c"open_basedir restriction in effect. File(%s) is not within the allowed path(s): (%s)\00", align 1
 @sapi_globals = external local_unnamed_addr global %struct._sapi_globals_struct, align 8
@@ -54,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zend_empty_string = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.smart_str, align 8
   %8 = alloca [4097 x i8], align 16
   %9 = ptrtoint ptr %2 to i64
@@ -153,7 +152,7 @@ define noundef i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, ptr nound
   br label %163
 
 47:                                               ; preds = %32
-  %48 = call i32 @php_check_open_basedir_ex(ptr noundef nonnull %8, i32 noundef 0), !range !4
+  %48 = call i32 @php_check_open_basedir_ex(ptr noundef nonnull %8, i32 noundef 0)
   %.not245 = icmp eq i32 %48, 0
   br i1 %.not245, label %61, label %49
 
@@ -411,7 +410,7 @@ define ptr @expand_filepath(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 18), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %28, label %4
@@ -458,7 +457,7 @@ define noundef i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef %1) lo
 
 20:                                               ; preds = %18, %16
   %.0 = phi ptr [ %19, %18 ], [ null, %16 ]
-  %21 = tail call i32 @php_check_specific_open_basedir(ptr noundef nonnull %.016, ptr noundef %0), !range !4
+  %21 = tail call i32 @php_check_specific_open_basedir(ptr noundef nonnull %.016, ptr noundef %0)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %13
 
@@ -487,181 +486,185 @@ define noundef i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_check_specific_open_basedir(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_check_specific_open_basedir(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+sub_0:
+  %2 = alloca [4097 x i8], align 16
   %3 = alloca [4097 x i8], align 16
-  %4 = alloca [4097 x i8], align 16
-  %5 = alloca [4096 x i8], align 16
-  %6 = alloca [4097 x i8], align 16
-  %7 = alloca [4096 x i8], align 16
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str) #17
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %11
+  %4 = alloca [4096 x i8], align 16
+  %5 = alloca [4097 x i8], align 16
+  %6 = alloca [4096 x i8], align 16
+  %7 = load i8, ptr %0, align 1
+  %.not49 = icmp eq i8 %7, 46
+  br i1 %.not49, label %.tail, label %.tail.thread
 
-9:                                                ; preds = %2
-  %10 = call ptr @getcwd(ptr noundef nonnull %5, i64 noundef 4096) #16
-  %.not40 = icmp eq ptr %10, null
-  br i1 %.not40, label %11, label %13
+.tail:                                            ; preds = %sub_0
+  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %11, label %.tail.thread
 
-11:                                               ; preds = %9, %2
-  %12 = call i64 @php_strlcpy(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 4096) #16
-  br label %13
+11:                                               ; preds = %.tail
+  %12 = call ptr @getcwd(ptr noundef nonnull %4, i64 noundef 4096) #16
+  %.not40 = icmp eq ptr %12, null
+  br i1 %.not40, label %.tail.thread, label %14
 
-13:                                               ; preds = %11, %9
-  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  %15 = icmp ugt i64 %14, 4095
-  br i1 %15, label %.loopexit, label %16
+.tail.thread:                                     ; preds = %sub_0, %11, %.tail
+  %13 = call i64 @php_strlcpy(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef 4096) #16
+  br label %14
 
-16:                                               ; preds = %13
-  %17 = call ptr @expand_filepath_with_mode(ptr noundef %1, ptr noundef nonnull %3, ptr noundef null, i64 noundef 0, i32 noundef 1)
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %.loopexit, label %19
+14:                                               ; preds = %.tail.thread, %11
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %16 = icmp ugt i64 %15, 4095
+  br i1 %16, label %.loopexit, label %17
 
-19:                                               ; preds = %16
-  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
-  %21 = add i64 %20, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 16 %3, i64 %21, i1 false)
-  %22 = call ptr @tsrm_realpath(ptr noundef nonnull %6, ptr noundef nonnull %3) #16
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %.lr.ph, label %._crit_edge
+17:                                               ; preds = %14
+  %18 = call ptr @expand_filepath_with_mode(ptr noundef %1, ptr noundef nonnull %2, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %.loopexit, label %20
 
-.lr.ph:                                           ; preds = %19
-  %24 = ptrtoint ptr %6 to i64
-  br label %29
+20:                                               ; preds = %17
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %22 = add i64 %21, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 16 %2, i64 %22, i1 false)
+  %23 = call ptr @tsrm_realpath(ptr noundef nonnull %5, ptr noundef nonnull %2) #16
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %.lr.ph, label %._crit_edge
 
-25:                                               ; preds = %38
-  %26 = add nuw nsw i32 %.03546, 1
-  %27 = call ptr @tsrm_realpath(ptr noundef nonnull %6, ptr noundef nonnull %3) #16
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %._crit_edge.loopexit
+.lr.ph:                                           ; preds = %20
+  %25 = ptrtoint ptr %5 to i64
+  br label %30
 
-29:                                               ; preds = %.lr.ph, %25
-  %.03546 = phi i32 [ 0, %.lr.ph ], [ %26, %25 ]
-  %30 = icmp eq i32 %.03546, 0
-  br i1 %30, label %31, label %36
+26:                                               ; preds = %39
+  %27 = add nuw nsw i32 %.03546, 1
+  %28 = call ptr @tsrm_realpath(ptr noundef nonnull %5, ptr noundef nonnull %2) #16
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %._crit_edge.loopexit
 
-31:                                               ; preds = %29
-  %32 = call i64 @readlink(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef 4095) #16
-  %33 = icmp eq i64 %32, -1
-  br i1 %33, label %36, label %34
+30:                                               ; preds = %.lr.ph, %26
+  %.03546 = phi i32 [ 0, %.lr.ph ], [ %27, %26 ]
+  %31 = icmp eq i32 %.03546, 0
+  br i1 %31, label %32, label %37
 
-34:                                               ; preds = %31
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 16 %7, i64 %32, i1 false)
-  %35 = getelementptr inbounds [4097 x i8], ptr %6, i64 0, i64 %32
-  store i8 0, ptr %35, align 1
-  br label %36
+32:                                               ; preds = %30
+  %33 = call i64 @readlink(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 4095) #16
+  %34 = icmp eq i64 %33, -1
+  br i1 %34, label %37, label %35
 
-36:                                               ; preds = %34, %31, %29
-  %37 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 47) #17
-  %.not41 = icmp eq ptr %37, null
-  br i1 %.not41, label %.loopexit, label %38
+35:                                               ; preds = %32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 16 %6, i64 %33, i1 false)
+  %36 = getelementptr inbounds [4097 x i8], ptr %5, i64 0, i64 %33
+  store i8 0, ptr %36, align 1
+  br label %37
 
-38:                                               ; preds = %36
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %39, %24
-  %41 = getelementptr inbounds [4097 x i8], ptr %6, i64 0, i64 %40
-  store i8 0, ptr %41, align 1
-  %42 = load i8, ptr %6, align 16
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %._crit_edge.loopexit, label %25
+37:                                               ; preds = %35, %32, %30
+  %38 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 47) #17
+  %.not41 = icmp eq ptr %38, null
+  br i1 %.not41, label %.loopexit, label %39
 
-._crit_edge.loopexit:                             ; preds = %38, %25
-  %44 = add nsw i64 %40, 1
+39:                                               ; preds = %37
+  %40 = ptrtoint ptr %38 to i64
+  %41 = sub i64 %40, %25
+  %42 = getelementptr inbounds [4097 x i8], ptr %5, i64 0, i64 %41
+  store i8 0, ptr %42, align 1
+  %43 = load i8, ptr %5, align 16
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %._crit_edge.loopexit, label %26
+
+._crit_edge.loopexit:                             ; preds = %39, %26
+  %45 = add nsw i64 %41, 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %.1 = phi i64 [ %20, %19 ], [ %44, %._crit_edge.loopexit ]
-  %45 = call ptr @expand_filepath_with_mode(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef null, i64 noundef 0, i32 noundef 1)
-  %.not42 = icmp eq ptr %45, null
-  br i1 %.not42, label %.loopexit, label %46
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %20
+  %.1 = phi i64 [ %21, %20 ], [ %45, %._crit_edge.loopexit ]
+  %46 = call ptr @expand_filepath_with_mode(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  %.not42 = icmp eq ptr %46, null
+  br i1 %.not42, label %.loopexit, label %47
 
-46:                                               ; preds = %._crit_edge
-  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
-  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
-  %49 = getelementptr i8, ptr %0, i64 %47
-  %50 = getelementptr i8, ptr %49, i64 -1
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 47
-  br i1 %52, label %53, label %.sink.split
+47:                                               ; preds = %._crit_edge
+  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
+  %50 = getelementptr i8, ptr %0, i64 %48
+  %51 = getelementptr i8, ptr %50, i64 -1
+  %52 = load i8, ptr %51, align 1
+  %53 = icmp eq i8 %52, 47
+  br i1 %53, label %54, label %.sink.split
 
-53:                                               ; preds = %46
-  %54 = add i64 %48, -1
-  %55 = getelementptr inbounds [4097 x i8], ptr %4, i64 0, i64 %54
-  %56 = load i8, ptr %55, align 1
-  %.not43 = icmp eq i8 %56, 47
-  br i1 %.not43, label %59, label %.sink.split
+54:                                               ; preds = %47
+  %55 = add i64 %49, -1
+  %56 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %55
+  %57 = load i8, ptr %56, align 1
+  %.not43 = icmp eq i8 %57, 47
+  br i1 %.not43, label %60, label %.sink.split
 
-.sink.split:                                      ; preds = %46, %53
-  %57 = getelementptr inbounds [4097 x i8], ptr %4, i64 0, i64 %48
-  store i8 47, ptr %57, align 1
-  %.sink51 = add i64 %48, 1
-  %58 = getelementptr inbounds [4097 x i8], ptr %4, i64 0, i64 %.sink51
-  store i8 0, ptr %58, align 1
-  br label %59
+.sink.split:                                      ; preds = %47, %54
+  %58 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %49
+  store i8 47, ptr %58, align 1
+  %.sink53 = add i64 %49, 1
+  %59 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %.sink53
+  store i8 0, ptr %59, align 1
+  br label %60
 
-59:                                               ; preds = %.sink.split, %53
-  %.034 = phi i64 [ %48, %53 ], [ %.sink51, %.sink.split ]
-  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
-  %61 = add i64 %.1, -1
-  %62 = getelementptr inbounds [4097 x i8], ptr %6, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %64 = icmp eq i8 %63, 47
-  br i1 %64, label %65, label %73
+60:                                               ; preds = %.sink.split, %54
+  %.034 = phi i64 [ %49, %54 ], [ %.sink53, %.sink.split ]
+  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %62 = add i64 %.1, -1
+  %63 = getelementptr inbounds [4097 x i8], ptr %5, i64 0, i64 %62
+  %64 = load i8, ptr %63, align 1
+  %65 = icmp eq i8 %64, 47
+  br i1 %65, label %66, label %74
 
-65:                                               ; preds = %59
-  %66 = add i64 %60, -1
-  %67 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %.not44 = icmp eq i8 %68, 47
-  br i1 %.not44, label %73, label %69
+66:                                               ; preds = %60
+  %67 = add i64 %61, -1
+  %68 = getelementptr inbounds [4097 x i8], ptr %2, i64 0, i64 %67
+  %69 = load i8, ptr %68, align 1
+  %.not44 = icmp eq i8 %69, 47
+  br i1 %.not44, label %74, label %70
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %60
-  store i8 47, ptr %70, align 1
-  %71 = add i64 %60, 1
-  %72 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %71
-  store i8 0, ptr %72, align 1
-  br label %73
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds [4097 x i8], ptr %2, i64 0, i64 %61
+  store i8 47, ptr %71, align 1
+  %72 = add i64 %61, 1
+  %73 = getelementptr inbounds [4097 x i8], ptr %2, i64 0, i64 %72
+  store i8 0, ptr %73, align 1
+  br label %74
 
-73:                                               ; preds = %65, %69, %59
-  %.037 = phi i64 [ %71, %69 ], [ %60, %65 ], [ %60, %59 ]
-  %74 = call i32 @strncmp(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %.034) #17
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %83
+74:                                               ; preds = %66, %70, %60
+  %.037 = phi i64 [ %72, %70 ], [ %61, %66 ], [ %61, %60 ]
+  %75 = call i32 @strncmp(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef %.034) #17
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %84
 
-76:                                               ; preds = %73
-  %77 = icmp ugt i64 %.037, %.034
-  br i1 %77, label %78, label %82
+77:                                               ; preds = %74
+  %78 = icmp ugt i64 %.037, %.034
+  br i1 %78, label %79, label %83
 
-78:                                               ; preds = %76
-  %79 = add i64 %.034, -1
-  %80 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %79
-  %81 = load i8, ptr %80, align 1
-  %.not45 = icmp eq i8 %81, 47
-  br i1 %.not45, label %82, label %.loopexit
+79:                                               ; preds = %77
+  %80 = add i64 %.034, -1
+  %81 = getelementptr inbounds [4097 x i8], ptr %2, i64 0, i64 %80
+  %82 = load i8, ptr %81, align 1
+  %.not45 = icmp eq i8 %82, 47
+  br i1 %.not45, label %83, label %.loopexit
 
-82:                                               ; preds = %78, %76
+83:                                               ; preds = %79, %77
   br label %.loopexit
 
-83:                                               ; preds = %73
-  %84 = add i64 %.037, 1
-  %85 = icmp eq i64 %.034, %84
-  br i1 %85, label %86, label %89
+84:                                               ; preds = %74
+  %85 = add i64 %.037, 1
+  %86 = icmp eq i64 %.034, %85
+  br i1 %86, label %87, label %90
 
-86:                                               ; preds = %83
-  %87 = call i32 @strncmp(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %.037) #17
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.loopexit, label %89
+87:                                               ; preds = %84
+  %88 = call i32 @strncmp(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef %.037) #17
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %.loopexit, label %90
 
-89:                                               ; preds = %86, %83
+90:                                               ; preds = %87, %84
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %._crit_edge, %86, %78, %16, %13, %89, %82
-  %.0 = phi i32 [ 0, %82 ], [ -1, %89 ], [ -1, %13 ], [ -1, %16 ], [ -1, %78 ], [ 0, %86 ], [ -1, %._crit_edge ], [ -1, %36 ]
+.loopexit:                                        ; preds = %37, %._crit_edge, %87, %79, %17, %14, %90, %83
+  %.0 = phi i32 [ 0, %83 ], [ -1, %90 ], [ -1, %14 ], [ -1, %17 ], [ -1, %79 ], [ 0, %87 ], [ -1, %._crit_edge ], [ -1, %37 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #4
@@ -686,8 +689,8 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_check_open_basedir(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef 1), !range !4
+define range(i32 -1, 1) i32 @php_check_open_basedir(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef 1)
   ret i32 %2
 }
 
@@ -697,7 +700,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_fopen_primary_script(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %3 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 5), align 8
@@ -1643,7 +1646,7 @@ define noalias noundef ptr @php_fopen_with_path(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @php_fopen_and_set_opened_path(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
-  %4 = tail call noundef i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef 1), !range !4
+  %4 = tail call i32 @php_check_open_basedir_ex(ptr noundef %0, i32 noundef 1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %21
 
@@ -1989,4 +1992,3 @@ attributes #20 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

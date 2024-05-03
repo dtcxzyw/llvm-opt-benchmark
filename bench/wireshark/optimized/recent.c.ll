@@ -244,8 +244,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.219 = private unnamed_addr constant [27 x i8] c"gui.interface_toolbar_show\00", align 1
 @.str.220 = private unnamed_addr constant [5 x i8] c"true\00", align 1
 @.str.221 = private unnamed_addr constant [9 x i8] c"splitter\00", align 1
-@.str.222 = private unnamed_addr constant [2 x i8] c"x\00", align 1
-@.str.223 = private unnamed_addr constant [2 x i8] c"y\00", align 1
 @.str.224 = private unnamed_addr constant [6 x i8] c"width\00", align 1
 @.str.225 = private unnamed_addr constant [7 x i8] c"height\00", align 1
 @.str.226 = private unnamed_addr constant [10 x i8] c"maximized\00", align 1
@@ -331,7 +329,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_replace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @window_geom_load(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @window_geom_load(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @window_geom_hash, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -505,7 +503,7 @@ declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @write_recent() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @write_recent() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = call i32 @create_persconffile_dir(ptr noundef nonnull %1) #13
   %3 = icmp eq i32 %2, -1
@@ -760,7 +758,7 @@ declare ptr @join_string_list(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @write_profile_recent() local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 {
   %1 = alloca %struct._GHashTableIter, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -1076,7 +1074,7 @@ declare void @packet_list_recent_write_all(ptr noundef) local_unnamed_addr #1
 declare ptr @get_last_open_dir() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @recent_set_arg(ptr noundef %0) local_unnamed_addr #0 {
+define hidden i32 @recent_set_arg(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %16, label %4
@@ -1102,7 +1100,7 @@ define hidden noundef i32 @recent_set_arg(ptr noundef %0) local_unnamed_addr #0 
   br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @read_set_recent_pair_static(ptr noundef %0, ptr noundef nonnull %.012, ptr poison, i32 poison), !range !11
+  %15 = tail call i32 @read_set_recent_pair_static(ptr noundef %0, ptr noundef nonnull %.012, ptr poison, i32 poison)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %14
@@ -1119,7 +1117,7 @@ define hidden noundef i32 @recent_set_arg(ptr noundef %0) local_unnamed_addr #0 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
+define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.44) #15
@@ -1611,7 +1609,7 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
   %251 = tail call ptr @g_list_append(ptr noundef %250, ptr noundef nonnull %231) #13
   store ptr %251, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 41), align 8
   %.not118 = icmp eq ptr %249, null
-  br i1 %.not118, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not118, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %246, %228
   tail call void @prefs_clear_string_list(ptr noundef nonnull %222) #13
@@ -1655,7 +1653,7 @@ define internal noundef i32 @read_set_recent_pair_static(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @recent_read_static(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recent_read_static(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store <4 x i32> <i32 20, i32 20, i32 750, i32 550>, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 28), align 8
   store i32 0, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 32), align 8
   store i32 0, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 33), align 4
@@ -1698,7 +1696,7 @@ define hidden noundef i32 @recent_read_static(ptr nocapture noundef writeonly %0
 declare i32 @read_prefs_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @read_set_recent_common_pair_static(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(28) @.str.14) #15
   %7 = icmp eq i32 %6, 0
@@ -1964,7 +1962,7 @@ define internal noundef i32 @read_set_recent_common_pair_static(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @recent_read_profile_static(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store <4 x i32> <i32 1, i32 1, i32 0, i32 1>, ptr @recent, align 16
   store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 4), align 16
   store <4 x i32> <i32 1, i32 1, i32 0, i32 -1>, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 8), align 16
@@ -2089,7 +2087,7 @@ define hidden noundef i32 @recent_read_profile_static(ptr nocapture noundef writ
 declare zeroext i1 @file_exists(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @recent_read_dynamic(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recent_read_dynamic(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._GHashTableIter, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2133,7 +2131,7 @@ define hidden noundef i32 @recent_read_dynamic(ptr nocapture noundef writeonly %
   call void @g_hash_table_iter_replace(ptr noundef nonnull %3, ptr noundef %20) #13
   %21 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %.not2.i = icmp eq i32 %21, 0
-  br i1 %.not2.i, label %cfilter_recent_reverse_all.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not2.i, label %cfilter_recent_reverse_all.exit, label %.lr.ph.i, !llvm.loop !12
 
 cfilter_recent_reverse_all.exit:                  ; preds = %.lr.ph.i, %12, %17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -2163,7 +2161,7 @@ cfilter_recent_reverse_all.exit:                  ; preds = %.lr.ph.i, %12, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @read_set_recent_pair_dynamic(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @read_set_recent_pair_dynamic(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
   %5 = tail call i32 @g_utf8_validate(ptr noundef %1, i64 noundef -1, ptr noundef null) #13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %recent_add_cfilter.exit, label %6
@@ -2558,7 +2556,7 @@ window_splitter_save.exit:                        ; preds = %6, %8
   %19 = phi ptr [ %17, %16 ], [ %15, %14 ]
   %20 = tail call ptr @g_hash_table_lookup(ptr noundef %19, ptr noundef %0) #13
   %.not5.i = icmp eq ptr %20, null
-  br i1 %.not5.i, label %21, label %window_geom_load.exit
+  br i1 %.not5.i, label %sub_0, label %window_geom_load.exit
 
 window_geom_load.exit:                            ; preds = %18
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
@@ -2579,9 +2577,9 @@ window_geom_load.exit:                            ; preds = %18
   %.sroa.18.0.copyload = load i32, ptr %.sroa.18.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 40
   %.sroa.19.0.copyload = load ptr, ptr %.sroa.19.0..sroa_idx, align 8
-  br label %21
+  br label %sub_0
 
-21:                                               ; preds = %18, %window_geom_load.exit
+sub_0:                                            ; preds = %window_geom_load.exit, %18
   %.sroa.17.052 = phi i32 [ %.sroa.17.0.copyload, %window_geom_load.exit ], [ undef, %18 ]
   %.sroa.18.050 = phi i32 [ %.sroa.18.0.copyload, %window_geom_load.exit ], [ undef, %18 ]
   %.sroa.19.1 = phi ptr [ %.sroa.19.0.copyload, %window_geom_load.exit ], [ null, %18 ]
@@ -2591,36 +2589,45 @@ window_geom_load.exit:                            ; preds = %18
   %.sroa.8.1 = phi i32 [ %.sroa.8.0.copyload, %window_geom_load.exit ], [ -1, %18 ]
   %.sroa.6.1 = phi i32 [ %.sroa.6.0.copyload, %window_geom_load.exit ], [ -1, %18 ]
   %.sroa.3.1 = phi i32 [ %.sroa.3.0.copyload, %window_geom_load.exit ], [ 0, %18 ]
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.222) #15
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %27
+  %21 = load i8, ptr %1, align 1
+  switch i8 %21, label %.tail54.thread [
+    i8 120, label %.tail
+    i8 121, label %.tail54
+  ]
 
-24:                                               ; preds = %21
-  %25 = tail call i64 @strtol(ptr nocapture noundef %2, ptr noundef null, i32 noundef 10) #13
-  %26 = trunc i64 %25 to i32
+.tail:                                            ; preds = %sub_0
+  %22 = getelementptr inbounds i8, ptr %1, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %.tail54.thread
+
+25:                                               ; preds = %.tail
+  %26 = tail call i64 @strtol(ptr nocapture noundef %2, ptr noundef null, i32 noundef 10) #13
+  %27 = trunc i64 %26 to i32
   br label %56
 
-27:                                               ; preds = %21
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.223) #15
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %33
+.tail54:                                          ; preds = %sub_0
+  %28 = getelementptr inbounds i8, ptr %1, i64 1
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %31, label %.tail54.thread
 
-30:                                               ; preds = %27
-  %31 = tail call i64 @strtol(ptr nocapture noundef %2, ptr noundef null, i32 noundef 10) #13
-  %32 = trunc i64 %31 to i32
+31:                                               ; preds = %.tail54
+  %32 = tail call i64 @strtol(ptr nocapture noundef %2, ptr noundef null, i32 noundef 10) #13
+  %33 = trunc i64 %32 to i32
   br label %56
 
-33:                                               ; preds = %27
+.tail54.thread:                                   ; preds = %sub_0, %.tail, %.tail54
   %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.224) #15
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %39
 
-36:                                               ; preds = %33
+36:                                               ; preds = %.tail54.thread
   %37 = tail call i64 @strtol(ptr nocapture noundef %2, ptr noundef null, i32 noundef 10) #13
   %38 = trunc i64 %37 to i32
   br label %56
 
-39:                                               ; preds = %33
+39:                                               ; preds = %.tail54.thread
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.225) #15
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %45
@@ -2650,16 +2657,16 @@ window_geom_load.exit:                            ; preds = %18
   %55 = tail call noalias ptr @g_strdup(ptr noundef %2) #13
   br label %56
 
-56:                                               ; preds = %30, %42, %54, %48, %36, %24
-  %.sroa.19.2 = phi ptr [ %.sroa.19.1, %24 ], [ %.sroa.19.1, %30 ], [ %.sroa.19.1, %36 ], [ %.sroa.19.1, %42 ], [ %.sroa.19.1, %48 ], [ %55, %54 ]
-  %.sroa.18.1 = phi i32 [ %.sroa.18.050, %24 ], [ %.sroa.18.050, %30 ], [ %.sroa.18.050, %36 ], [ %.sroa.18.050, %42 ], [ %..i, %48 ], [ %.sroa.18.050, %54 ]
-  %.sroa.17.1 = phi i32 [ %.sroa.17.052, %24 ], [ %.sroa.17.052, %30 ], [ %.sroa.17.052, %36 ], [ %.sroa.17.052, %42 ], [ 1, %48 ], [ %.sroa.17.052, %54 ]
-  %.sroa.15.2 = phi i32 [ %.sroa.15.1, %24 ], [ %.sroa.15.1, %30 ], [ %.sroa.15.1, %36 ], [ %44, %42 ], [ %.sroa.15.1, %48 ], [ %.sroa.15.1, %54 ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %24 ], [ %.sroa.13.1, %30 ], [ %38, %36 ], [ %.sroa.13.1, %42 ], [ %.sroa.13.1, %48 ], [ %.sroa.13.1, %54 ]
-  %.sroa.10.2 = phi i32 [ %.sroa.10.1, %24 ], [ %.sroa.10.1, %30 ], [ 1, %36 ], [ 1, %42 ], [ %.sroa.10.1, %48 ], [ %.sroa.10.1, %54 ]
-  %.sroa.8.2 = phi i32 [ %.sroa.8.1, %24 ], [ %32, %30 ], [ %.sroa.8.1, %36 ], [ %.sroa.8.1, %42 ], [ %.sroa.8.1, %48 ], [ %.sroa.8.1, %54 ]
-  %.sroa.6.2 = phi i32 [ %26, %24 ], [ %.sroa.6.1, %30 ], [ %.sroa.6.1, %36 ], [ %.sroa.6.1, %42 ], [ %.sroa.6.1, %48 ], [ %.sroa.6.1, %54 ]
-  %.sroa.3.2 = phi i32 [ 1, %24 ], [ 1, %30 ], [ %.sroa.3.1, %36 ], [ %.sroa.3.1, %42 ], [ %.sroa.3.1, %48 ], [ %.sroa.3.1, %54 ]
+56:                                               ; preds = %31, %42, %54, %48, %36, %25
+  %.sroa.19.2 = phi ptr [ %.sroa.19.1, %25 ], [ %.sroa.19.1, %31 ], [ %.sroa.19.1, %36 ], [ %.sroa.19.1, %42 ], [ %.sroa.19.1, %48 ], [ %55, %54 ]
+  %.sroa.18.1 = phi i32 [ %.sroa.18.050, %25 ], [ %.sroa.18.050, %31 ], [ %.sroa.18.050, %36 ], [ %.sroa.18.050, %42 ], [ %..i, %48 ], [ %.sroa.18.050, %54 ]
+  %.sroa.17.1 = phi i32 [ %.sroa.17.052, %25 ], [ %.sroa.17.052, %31 ], [ %.sroa.17.052, %36 ], [ %.sroa.17.052, %42 ], [ 1, %48 ], [ %.sroa.17.052, %54 ]
+  %.sroa.15.2 = phi i32 [ %.sroa.15.1, %25 ], [ %.sroa.15.1, %31 ], [ %.sroa.15.1, %36 ], [ %44, %42 ], [ %.sroa.15.1, %48 ], [ %.sroa.15.1, %54 ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %25 ], [ %.sroa.13.1, %31 ], [ %38, %36 ], [ %.sroa.13.1, %42 ], [ %.sroa.13.1, %48 ], [ %.sroa.13.1, %54 ]
+  %.sroa.10.2 = phi i32 [ %.sroa.10.1, %25 ], [ %.sroa.10.1, %31 ], [ 1, %36 ], [ 1, %42 ], [ %.sroa.10.1, %48 ], [ %.sroa.10.1, %54 ]
+  %.sroa.8.2 = phi i32 [ %.sroa.8.1, %25 ], [ %33, %31 ], [ %.sroa.8.1, %36 ], [ %.sroa.8.1, %42 ], [ %.sroa.8.1, %48 ], [ %.sroa.8.1, %54 ]
+  %.sroa.6.2 = phi i32 [ %27, %25 ], [ %.sroa.6.1, %31 ], [ %.sroa.6.1, %36 ], [ %.sroa.6.1, %42 ], [ %.sroa.6.1, %48 ], [ %.sroa.6.1, %54 ]
+  %.sroa.3.2 = phi i32 [ 1, %25 ], [ 1, %31 ], [ %.sroa.3.1, %36 ], [ %.sroa.3.1, %42 ], [ %.sroa.3.1, %48 ], [ %.sroa.3.1, %54 ]
   %57 = load ptr, ptr @window_geom_hash, align 8
   %.not.i18 = icmp eq ptr %57, null
   br i1 %.not.i18, label %58, label %window_geom_save.exit
@@ -2769,6 +2776,5 @@ attributes #16 = { nounwind willreturn memory(none) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 3}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

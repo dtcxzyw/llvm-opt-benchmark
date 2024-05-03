@@ -202,7 +202,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.182 = private unnamed_addr constant [4 x i8] c"uri\00", align 1
 @.str.183 = private unnamed_addr constant [67 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.~\00", align 1
 @.str.184 = private unnamed_addr constant [7 x i8] c"%%%02X\00", align 1
-@.str.185 = private unnamed_addr constant [3 x i8] c"sh\00", align 1
 @.str.186 = private unnamed_addr constant [2 x i8] c" \00", align 1
 @.str.187 = private unnamed_addr constant [2 x i8] c"'\00", align 1
 @.str.188 = private unnamed_addr constant [7 x i8] c"''\\''\00\00", align 1
@@ -4864,8 +4863,8 @@ define internal { i64, ptr } @f_format(ptr nocapture readnone %0, i64 %1, ptr %2
   %.sroa.0194.3 = phi i64 [ %104, %93 ], [ %.sroa.0194.2, %85 ], [ %91, %86 ], [ %79, %74 ], [ %.sroa.0194.2, %73 ]
   %.sroa.15.3 = phi ptr [ %105, %93 ], [ %.sroa.15.2, %85 ], [ %92, %86 ], [ %80, %74 ], [ %.sroa.15.2, %73 ]
   %117 = add nuw nsw i32 %.1329456, 1
-  %exitcond497.not = icmp eq i32 %117, %60
-  br i1 %exitcond497.not, label %.loopexit, label %.lr.ph459, !llvm.loop !10
+  %exitcond499.not = icmp eq i32 %117, %60
+  br i1 %exitcond499.not, label %.loopexit, label %.lr.ph459, !llvm.loop !10
 
 .loopexit:                                        ; preds = %116, %.preheader
   %.sroa.0194.0.lcssa = phi i64 [ %55, %.preheader ], [ %.sroa.0194.3, %116 ]
@@ -4901,7 +4900,7 @@ f_tostring.exit380:                               ; preds = %120, %123
 130:                                              ; preds = %118
   %131 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(4) @.str.182) #17
   %.not357 = icmp eq i32 %131, 0
-  br i1 %.not357, label %132, label %171
+  br i1 %.not357, label %132, label %sub_0
 
 132:                                              ; preds = %130
   tail call void @jv_free(i64 %3, ptr %4) #14
@@ -4919,8 +4918,8 @@ f_tostring.exit380:                               ; preds = %120, %123
   %138 = getelementptr inbounds [128 x i32], ptr %9, i64 0, i64 %137
   store i32 1, ptr %138, align 4
   %139 = load i8, ptr %.ptr, align 1
-  %exitcond496 = icmp eq i64 %.0333443.add, 66
-  br i1 %exitcond496, label %140, label %135, !llvm.loop !11
+  %exitcond498 = icmp eq i64 %.0333443.add, 66
+  br i1 %exitcond498, label %140, label %135, !llvm.loop !11
 
 140:                                              ; preds = %135
   %141 = extractvalue { i64, ptr } %133, 1
@@ -4982,360 +4981,372 @@ f_tostring.exit380:                               ; preds = %120, %123
   tail call void @jv_free(i64 %134, ptr %141) #14
   br label %f_tostring.exit
 
-171:                                              ; preds = %130
-  %172 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(3) @.str.185) #17
-  %.not363 = icmp eq i32 %172, 0
-  br i1 %.not363, label %173, label %223
+sub_0:                                            ; preds = %130
+  %171 = load i8, ptr %23, align 1
+  %.not466 = icmp eq i8 %171, 115
+  br i1 %.not466, label %sub_1, label %.tail.thread
 
-173:                                              ; preds = %171
+sub_1:                                            ; preds = %sub_0
+  %172 = getelementptr inbounds i8, ptr %23, i64 1
+  %173 = load i8, ptr %172, align 1
+  %.not467 = icmp eq i8 %173, 104
+  br i1 %.not467, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %174 = getelementptr inbounds i8, ptr %23, i64 2
+  %175 = load i8, ptr %174, align 1
+  %176 = icmp eq i8 %175, 0
+  br i1 %176, label %177, label %.tail.thread
+
+177:                                              ; preds = %.tail
   tail call void @jv_free(i64 %3, ptr %4) #14
-  %174 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %.not364 = icmp eq i32 %174, 6
-  br i1 %.not364, label %.preheader392, label %175
+  %178 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %.not364 = icmp eq i32 %178, 6
+  br i1 %.not364, label %.preheader392, label %179
 
-175:                                              ; preds = %173
-  %176 = tail call { i64, ptr } @jv_array() #14
-  %177 = extractvalue { i64, ptr } %176, 0
-  %178 = extractvalue { i64, ptr } %176, 1
-  %179 = tail call { i64, ptr } @jv_array_set(i64 %177, ptr %178, i32 noundef 0, i64 %1, ptr %2) #14
-  %180 = extractvalue { i64, ptr } %179, 0
-  %181 = extractvalue { i64, ptr } %179, 1
+179:                                              ; preds = %177
+  %180 = tail call { i64, ptr } @jv_array() #14
+  %181 = extractvalue { i64, ptr } %180, 0
+  %182 = extractvalue { i64, ptr } %180, 1
+  %183 = tail call { i64, ptr } @jv_array_set(i64 %181, ptr %182, i32 noundef 0, i64 %1, ptr %2) #14
+  %184 = extractvalue { i64, ptr } %183, 0
+  %185 = extractvalue { i64, ptr } %183, 1
   br label %.preheader392
 
-.preheader392:                                    ; preds = %175, %173
-  %.sroa.0251.0 = phi i64 [ %180, %175 ], [ %1, %173 ]
-  %.sroa.36.0 = phi ptr [ %181, %175 ], [ %2, %173 ]
-  %182 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.176) #14
-  %183 = extractvalue { i64, ptr } %182, 0
-  %184 = extractvalue { i64, ptr } %182, 1
-  %185 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0251.0, ptr %.sroa.36.0) #14
-  %186 = extractvalue { i64, ptr } %185, 0
-  %187 = extractvalue { i64, ptr } %185, 1
-  %188 = tail call i32 @jv_array_length(i64 %186, ptr %187) #14
-  %.not367432 = icmp sgt i32 %188, 0
-  br i1 %.not367432, label %.lr.ph436, label %.loopexit393
-
-.lr.ph436:                                        ; preds = %.preheader392, %221
-  %.sroa.13.1435 = phi ptr [ %.sroa.13.3, %221 ], [ %184, %.preheader392 ]
-  %.sroa.0110.1434 = phi i64 [ %.sroa.0110.3, %221 ], [ %183, %.preheader392 ]
-  %.1339433 = phi i32 [ %222, %221 ], [ 0, %.preheader392 ]
+.preheader392:                                    ; preds = %179, %177
+  %.sroa.0251.0 = phi i64 [ %184, %179 ], [ %1, %177 ]
+  %.sroa.36.0 = phi ptr [ %185, %179 ], [ %2, %177 ]
+  %186 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.176) #14
+  %187 = extractvalue { i64, ptr } %186, 0
+  %188 = extractvalue { i64, ptr } %186, 1
   %189 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0251.0, ptr %.sroa.36.0) #14
   %190 = extractvalue { i64, ptr } %189, 0
   %191 = extractvalue { i64, ptr } %189, 1
-  %192 = tail call { i64, ptr } @jv_array_get(i64 %190, ptr %191, i32 noundef %.1339433) #14
-  %193 = extractvalue { i64, ptr } %192, 0
-  %194 = extractvalue { i64, ptr } %192, 1
-  %.not368 = icmp eq i32 %.1339433, 0
-  br i1 %.not368, label %199, label %195
+  %192 = tail call i32 @jv_array_length(i64 %190, ptr %191) #14
+  %.not367432 = icmp sgt i32 %192, 0
+  br i1 %.not367432, label %.lr.ph436, label %.loopexit393
 
-195:                                              ; preds = %.lr.ph436
-  %196 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0110.1434, ptr %.sroa.13.1435, ptr noundef nonnull @.str.186) #14
+.lr.ph436:                                        ; preds = %.preheader392, %225
+  %.sroa.13.1435 = phi ptr [ %.sroa.13.3, %225 ], [ %188, %.preheader392 ]
+  %.sroa.0110.1434 = phi i64 [ %.sroa.0110.3, %225 ], [ %187, %.preheader392 ]
+  %.1339433 = phi i32 [ %226, %225 ], [ 0, %.preheader392 ]
+  %193 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0251.0, ptr %.sroa.36.0) #14
+  %194 = extractvalue { i64, ptr } %193, 0
+  %195 = extractvalue { i64, ptr } %193, 1
+  %196 = tail call { i64, ptr } @jv_array_get(i64 %194, ptr %195, i32 noundef %.1339433) #14
   %197 = extractvalue { i64, ptr } %196, 0
   %198 = extractvalue { i64, ptr } %196, 1
-  br label %199
+  %.not368 = icmp eq i32 %.1339433, 0
+  br i1 %.not368, label %203, label %199
 
-199:                                              ; preds = %195, %.lr.ph436
-  %.sroa.0110.2 = phi i64 [ %197, %195 ], [ %.sroa.0110.1434, %.lr.ph436 ]
-  %.sroa.13.2 = phi ptr [ %198, %195 ], [ %.sroa.13.1435, %.lr.ph436 ]
-  %200 = tail call i32 @jv_get_kind(i64 %193, ptr %194) #14
-  switch i32 %200, label %217 [
-    i32 1, label %201
-    i32 3, label %201
-    i32 2, label %201
-    i32 4, label %201
-    i32 5, label %206
+199:                                              ; preds = %.lr.ph436
+  %200 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0110.1434, ptr %.sroa.13.1435, ptr noundef nonnull @.str.186) #14
+  %201 = extractvalue { i64, ptr } %200, 0
+  %202 = extractvalue { i64, ptr } %200, 1
+  br label %203
+
+203:                                              ; preds = %199, %.lr.ph436
+  %.sroa.0110.2 = phi i64 [ %201, %199 ], [ %.sroa.0110.1434, %.lr.ph436 ]
+  %.sroa.13.2 = phi ptr [ %202, %199 ], [ %.sroa.13.1435, %.lr.ph436 ]
+  %204 = tail call i32 @jv_get_kind(i64 %197, ptr %198) #14
+  switch i32 %204, label %221 [
+    i32 1, label %205
+    i32 3, label %205
+    i32 2, label %205
+    i32 4, label %205
+    i32 5, label %210
   ]
 
-201:                                              ; preds = %199, %199, %199, %199
-  %202 = tail call { i64, ptr } @jv_dump_string(i64 %193, ptr %194, i32 noundef 0) #14
-  %203 = extractvalue { i64, ptr } %202, 0
-  %204 = extractvalue { i64, ptr } %202, 1
-  %205 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0110.2, ptr %.sroa.13.2, i64 %203, ptr %204) #14
-  br label %221
+205:                                              ; preds = %203, %203, %203, %203
+  %206 = tail call { i64, ptr } @jv_dump_string(i64 %197, ptr %198, i32 noundef 0) #14
+  %207 = extractvalue { i64, ptr } %206, 0
+  %208 = extractvalue { i64, ptr } %206, 1
+  %209 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0110.2, ptr %.sroa.13.2, i64 %207, ptr %208) #14
+  br label %225
 
-206:                                              ; preds = %199
-  %207 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0110.2, ptr %.sroa.13.2, ptr noundef nonnull @.str.187) #14
-  %208 = extractvalue { i64, ptr } %207, 0
-  %209 = extractvalue { i64, ptr } %207, 1
-  %210 = tail call fastcc { i64, ptr } @escape_string(i64 %193, ptr %194, ptr noundef nonnull @.str.188)
-  %211 = extractvalue { i64, ptr } %210, 0
-  %212 = extractvalue { i64, ptr } %210, 1
-  %213 = tail call { i64, ptr } @jv_string_concat(i64 %208, ptr %209, i64 %211, ptr %212) #14
-  %214 = extractvalue { i64, ptr } %213, 0
-  %215 = extractvalue { i64, ptr } %213, 1
-  %216 = tail call { i64, ptr } @jv_string_append_str(i64 %214, ptr %215, ptr noundef nonnull @.str.187) #14
-  br label %221
+210:                                              ; preds = %203
+  %211 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0110.2, ptr %.sroa.13.2, ptr noundef nonnull @.str.187) #14
+  %212 = extractvalue { i64, ptr } %211, 0
+  %213 = extractvalue { i64, ptr } %211, 1
+  %214 = tail call fastcc { i64, ptr } @escape_string(i64 %197, ptr %198, ptr noundef nonnull @.str.188)
+  %215 = extractvalue { i64, ptr } %214, 0
+  %216 = extractvalue { i64, ptr } %214, 1
+  %217 = tail call { i64, ptr } @jv_string_concat(i64 %212, ptr %213, i64 %215, ptr %216) #14
+  %218 = extractvalue { i64, ptr } %217, 0
+  %219 = extractvalue { i64, ptr } %217, 1
+  %220 = tail call { i64, ptr } @jv_string_append_str(i64 %218, ptr %219, ptr noundef nonnull @.str.187) #14
+  br label %225
 
-217:                                              ; preds = %199
+221:                                              ; preds = %203
   tail call void @jv_free(i64 %.sroa.0251.0, ptr %.sroa.36.0) #14
   tail call void @jv_free(i64 %.sroa.0110.2, ptr %.sroa.13.2) #14
-  %218 = tail call fastcc { i64, ptr } @type_error(i64 %193, ptr %194, ptr noundef nonnull @.str.189)
-  %219 = extractvalue { i64, ptr } %218, 0
-  %220 = extractvalue { i64, ptr } %218, 1
+  %222 = tail call fastcc { i64, ptr } @type_error(i64 %197, ptr %198, ptr noundef nonnull @.str.189)
+  %223 = extractvalue { i64, ptr } %222, 0
+  %224 = extractvalue { i64, ptr } %222, 1
   br label %f_tostring.exit
 
-221:                                              ; preds = %201, %206
-  %.pn369 = phi { i64, ptr } [ %216, %206 ], [ %205, %201 ]
+225:                                              ; preds = %205, %210
+  %.pn369 = phi { i64, ptr } [ %220, %210 ], [ %209, %205 ]
   %.sroa.13.3 = extractvalue { i64, ptr } %.pn369, 1
   %.sroa.0110.3 = extractvalue { i64, ptr } %.pn369, 0
-  %222 = add nuw nsw i32 %.1339433, 1
-  %exitcond495.not = icmp eq i32 %222, %188
-  br i1 %exitcond495.not, label %.loopexit393, label %.lr.ph436, !llvm.loop !13
+  %226 = add nuw nsw i32 %.1339433, 1
+  %exitcond497.not = icmp eq i32 %226, %192
+  br i1 %exitcond497.not, label %.loopexit393, label %.lr.ph436, !llvm.loop !13
 
-.loopexit393:                                     ; preds = %221, %.preheader392
-  %.sroa.0110.0.lcssa = phi i64 [ %183, %.preheader392 ], [ %.sroa.0110.3, %221 ]
-  %.sroa.13.0.lcssa = phi ptr [ %184, %.preheader392 ], [ %.sroa.13.3, %221 ]
+.loopexit393:                                     ; preds = %225, %.preheader392
+  %.sroa.0110.0.lcssa = phi i64 [ %187, %.preheader392 ], [ %.sroa.0110.3, %225 ]
+  %.sroa.13.0.lcssa = phi ptr [ %188, %.preheader392 ], [ %.sroa.13.3, %225 ]
   tail call void @jv_free(i64 %.sroa.0251.0, ptr %.sroa.36.0) #14
   br label %f_tostring.exit
 
-223:                                              ; preds = %171
-  %224 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(7) @.str.190) #17
-  %.not371 = icmp eq i32 %224, 0
-  br i1 %.not371, label %225, label %266
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %227 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(7) @.str.190) #17
+  %.not371 = icmp eq i32 %227, 0
+  br i1 %.not371, label %228, label %269
 
-225:                                              ; preds = %223
+228:                                              ; preds = %.tail.thread
   tail call void @jv_free(i64 %3, ptr %4) #14
-  %226 = tail call { i64, ptr } @f_tostring(ptr poison, i64 %1, ptr %2)
-  %227 = extractvalue { i64, ptr } %226, 0
-  %228 = extractvalue { i64, ptr } %226, 1
-  %229 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.176) #14
-  %230 = tail call ptr @jv_string_value(i64 %227, ptr %228) #14
-  %231 = tail call { i64, ptr } @jv_copy(i64 %227, ptr %228) #14
-  %232 = extractvalue { i64, ptr } %231, 0
-  %233 = extractvalue { i64, ptr } %231, 1
-  %234 = tail call i32 @jv_string_length_bytes(i64 %232, ptr %233) #14
-  %.sroa.22316.2424 = extractvalue { i64, ptr } %229, 1
-  %.sroa.0312.2425 = extractvalue { i64, ptr } %229, 0
-  %235 = icmp sgt i32 %234, 0
-  br i1 %235, label %.lr.ph429, label %._crit_edge
+  %229 = tail call { i64, ptr } @f_tostring(ptr poison, i64 %1, ptr %2)
+  %230 = extractvalue { i64, ptr } %229, 0
+  %231 = extractvalue { i64, ptr } %229, 1
+  %232 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.176) #14
+  %233 = tail call ptr @jv_string_value(i64 %230, ptr %231) #14
+  %234 = tail call { i64, ptr } @jv_copy(i64 %230, ptr %231) #14
+  %235 = extractvalue { i64, ptr } %234, 0
+  %236 = extractvalue { i64, ptr } %234, 1
+  %237 = tail call i32 @jv_string_length_bytes(i64 %235, ptr %236) #14
+  %.sroa.22316.2424 = extractvalue { i64, ptr } %232, 1
+  %.sroa.0312.2425 = extractvalue { i64, ptr } %232, 0
+  %238 = icmp sgt i32 %237, 0
+  br i1 %238, label %.lr.ph429, label %._crit_edge
 
-.lr.ph429:                                        ; preds = %225
-  %236 = getelementptr inbounds i8, ptr %10, i64 3
-  %237 = getelementptr inbounds i8, ptr %10, i64 2
-  %238 = zext nneg i32 %234 to i64
-  br label %239
+.lr.ph429:                                        ; preds = %228
+  %239 = getelementptr inbounds i8, ptr %10, i64 3
+  %240 = getelementptr inbounds i8, ptr %10, i64 2
+  %241 = zext nneg i32 %237 to i64
+  br label %242
 
-239:                                              ; preds = %.lr.ph429, %.thread390
-  %indvars.iv492 = phi i64 [ 0, %.lr.ph429 ], [ %indvars.iv.next493, %.thread390 ]
+242:                                              ; preds = %.lr.ph429, %.thread390
+  %indvars.iv494 = phi i64 [ 0, %.lr.ph429 ], [ %indvars.iv.next495, %.thread390 ]
   %.sroa.0312.2428 = phi i64 [ %.sroa.0312.2425, %.lr.ph429 ], [ %.sroa.0312.2, %.thread390 ]
   %.sroa.22316.2427 = phi ptr [ %.sroa.22316.2424, %.lr.ph429 ], [ %.sroa.22316.2, %.thread390 ]
-  %240 = sub nsw i64 %238, %indvars.iv492
-  %invariant.gep = getelementptr i8, ptr %230, i64 %indvars.iv492
-  br label %241
+  %243 = sub nsw i64 %241, %indvars.iv494
+  %invariant.gep = getelementptr inbounds i8, ptr %233, i64 %indvars.iv494
+  br label %244
 
-241:                                              ; preds = %239, %247
-  %indvars.iv483 = phi i64 [ 0, %239 ], [ %indvars.iv.next484, %247 ]
-  %.0334421 = phi i32 [ 0, %239 ], [ %249, %247 ]
-  %242 = shl i32 %.0334421, 8
-  %243 = icmp sgt i64 %240, %indvars.iv483
-  br i1 %243, label %244, label %247
+244:                                              ; preds = %242, %250
+  %indvars.iv485 = phi i64 [ 0, %242 ], [ %indvars.iv.next486, %250 ]
+  %.0334421 = phi i32 [ 0, %242 ], [ %252, %250 ]
+  %245 = shl i32 %.0334421, 8
+  %246 = icmp sgt i64 %243, %indvars.iv485
+  br i1 %246, label %247, label %250
 
-244:                                              ; preds = %241
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv483
-  %245 = load i8, ptr %gep, align 1
-  %246 = zext i8 %245 to i32
-  br label %247
+247:                                              ; preds = %244
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv485
+  %248 = load i8, ptr %gep, align 1
+  %249 = zext i8 %248 to i32
+  br label %250
 
-247:                                              ; preds = %241, %244
-  %248 = phi i32 [ %246, %244 ], [ 0, %241 ]
-  %249 = or disjoint i32 %248, %242
-  %indvars.iv.next484 = add nuw nsw i64 %indvars.iv483, 1
-  %exitcond486.not = icmp eq i64 %indvars.iv.next484, 3
-  br i1 %exitcond486.not, label %.preheader394, label %241, !llvm.loop !14
+250:                                              ; preds = %244, %247
+  %251 = phi i32 [ %249, %247 ], [ 0, %244 ]
+  %252 = or disjoint i32 %251, %245
+  %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
+  %exitcond488.not = icmp eq i64 %indvars.iv.next486, 3
+  br i1 %exitcond488.not, label %.preheader394, label %244, !llvm.loop !14
 
-.preheader394:                                    ; preds = %247, %.preheader394
-  %indvars.iv487 = phi i64 [ %indvars.iv.next488, %.preheader394 ], [ 0, %247 ]
-  %250 = trunc i64 %indvars.iv487 to i32
-  %251 = mul i32 %250, -6
-  %252 = add i32 %251, 18
-  %253 = lshr i32 %249, %252
-  %254 = and i32 %253, 63
-  %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds [65 x i8], ptr @BASE64_ENCODE_TABLE, i64 0, i64 %255
-  %257 = load i8, ptr %256, align 1
-  %258 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 %indvars.iv487
-  store i8 %257, ptr %258, align 1
-  %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
-  %exitcond491.not = icmp eq i64 %indvars.iv.next488, 4
-  br i1 %exitcond491.not, label %259, label %.preheader394, !llvm.loop !15
+.preheader394:                                    ; preds = %250, %.preheader394
+  %indvars.iv489 = phi i64 [ %indvars.iv.next490, %.preheader394 ], [ 0, %250 ]
+  %253 = trunc i64 %indvars.iv489 to i32
+  %254 = mul i32 %253, -6
+  %255 = add i32 %254, 18
+  %256 = lshr i32 %252, %255
+  %257 = and i32 %256, 63
+  %258 = zext nneg i32 %257 to i64
+  %259 = getelementptr inbounds [65 x i8], ptr @BASE64_ENCODE_TABLE, i64 0, i64 %258
+  %260 = load i8, ptr %259, align 1
+  %261 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 %indvars.iv489
+  store i8 %260, ptr %261, align 1
+  %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
+  %exitcond493.not = icmp eq i64 %indvars.iv.next490, 4
+  br i1 %exitcond493.not, label %262, label %.preheader394, !llvm.loop !15
 
-259:                                              ; preds = %.preheader394
-  %260 = icmp slt i64 %240, 3
-  br i1 %260, label %261, label %.thread390
+262:                                              ; preds = %.preheader394
+  %263 = icmp slt i64 %243, 3
+  br i1 %263, label %264, label %.thread390
 
-261:                                              ; preds = %259
-  store i8 61, ptr %236, align 1
-  %262 = icmp eq i64 %240, 2
-  br i1 %262, label %.thread390, label %263
+264:                                              ; preds = %262
+  store i8 61, ptr %239, align 1
+  %265 = icmp eq i64 %243, 2
+  br i1 %265, label %.thread390, label %266
 
-263:                                              ; preds = %261
-  store i8 61, ptr %237, align 1
+266:                                              ; preds = %264
+  store i8 61, ptr %240, align 1
   br label %.thread390
 
-.thread390:                                       ; preds = %259, %263, %261
-  %264 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0312.2428, ptr %.sroa.22316.2427, ptr noundef nonnull %10, i32 noundef 4) #14
-  %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 3
-  %.sroa.22316.2 = extractvalue { i64, ptr } %264, 1
-  %.sroa.0312.2 = extractvalue { i64, ptr } %264, 0
-  %265 = icmp ult i64 %indvars.iv.next493, %238
-  br i1 %265, label %239, label %._crit_edge, !llvm.loop !16
+.thread390:                                       ; preds = %262, %266, %264
+  %267 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0312.2428, ptr %.sroa.22316.2427, ptr noundef nonnull %10, i32 noundef 4) #14
+  %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 3
+  %.sroa.22316.2 = extractvalue { i64, ptr } %267, 1
+  %.sroa.0312.2 = extractvalue { i64, ptr } %267, 0
+  %268 = icmp ult i64 %indvars.iv.next495, %241
+  br i1 %268, label %242, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %.thread390, %225
-  %.sroa.22316.2.lcssa = phi ptr [ %.sroa.22316.2424, %225 ], [ %.sroa.22316.2, %.thread390 ]
-  %.sroa.0312.2.lcssa = phi i64 [ %.sroa.0312.2425, %225 ], [ %.sroa.0312.2, %.thread390 ]
-  call void @jv_free(i64 %227, ptr %228) #14
+._crit_edge:                                      ; preds = %.thread390, %228
+  %.sroa.22316.2.lcssa = phi ptr [ %.sroa.22316.2424, %228 ], [ %.sroa.22316.2, %.thread390 ]
+  %.sroa.0312.2.lcssa = phi i64 [ %.sroa.0312.2425, %228 ], [ %.sroa.0312.2, %.thread390 ]
+  call void @jv_free(i64 %230, ptr %231) #14
   br label %f_tostring.exit
 
-266:                                              ; preds = %223
-  %267 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(8) @.str.191) #17
-  %.not374 = icmp eq i32 %267, 0
-  br i1 %.not374, label %268, label %333
+269:                                              ; preds = %.tail.thread
+  %270 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(8) @.str.191) #17
+  %.not374 = icmp eq i32 %270, 0
+  br i1 %.not374, label %271, label %336
 
-268:                                              ; preds = %266
+271:                                              ; preds = %269
   tail call void @jv_free(i64 %3, ptr %4) #14
-  %269 = tail call { i64, ptr } @f_tostring(ptr poison, i64 %1, ptr %2)
-  %270 = extractvalue { i64, ptr } %269, 0
-  %271 = extractvalue { i64, ptr } %269, 1
-  %272 = tail call ptr @jv_string_value(i64 %270, ptr %271) #14
-  %273 = tail call { i64, ptr } @jv_copy(i64 %270, ptr %271) #14
-  %274 = extractvalue { i64, ptr } %273, 0
-  %275 = extractvalue { i64, ptr } %273, 1
-  %276 = tail call i32 @jv_string_length_bytes(i64 %274, ptr %275) #14
-  %277 = mul nsw i32 %276, 3
-  %278 = sdiv i32 %277, 4
-  %279 = sext i32 %278 to i64
-  %280 = tail call ptr @jv_mem_calloc(i64 noundef %279, i64 noundef 1) #14
-  tail call void @llvm.memset.p0.i64(ptr align 1 %280, i8 0, i64 %279, i1 false)
-  %281 = icmp sgt i32 %276, 0
-  br i1 %281, label %.lr.ph.preheader, label %.critedge.thread
+  %272 = tail call { i64, ptr } @f_tostring(ptr poison, i64 %1, ptr %2)
+  %273 = extractvalue { i64, ptr } %272, 0
+  %274 = extractvalue { i64, ptr } %272, 1
+  %275 = tail call ptr @jv_string_value(i64 %273, ptr %274) #14
+  %276 = tail call { i64, ptr } @jv_copy(i64 %273, ptr %274) #14
+  %277 = extractvalue { i64, ptr } %276, 0
+  %278 = extractvalue { i64, ptr } %276, 1
+  %279 = tail call i32 @jv_string_length_bytes(i64 %277, ptr %278) #14
+  %280 = mul nsw i32 %279, 3
+  %281 = sdiv i32 %280, 4
+  %282 = sext i32 %281 to i64
+  %283 = tail call ptr @jv_mem_calloc(i64 noundef %282, i64 noundef 1) #14
+  tail call void @llvm.memset.p0.i64(ptr align 1 %283, i8 0, i64 %282, i1 false)
+  %284 = icmp sgt i32 %279, 0
+  br i1 %284, label %.lr.ph.preheader, label %.critedge.thread
 
-.lr.ph.preheader:                                 ; preds = %268
-  %wide.trip.count = zext nneg i32 %276 to i64
+.lr.ph.preheader:                                 ; preds = %271
+  %wide.trip.count = zext nneg i32 %279 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %314
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %314 ]
-  %.0319413 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %314 ]
-  %.0320412 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1321, %314 ]
-  %.0322411 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1323, %314 ]
-  %282 = getelementptr inbounds i8, ptr %272, i64 %indvars.iv
-  %283 = load i8, ptr %282, align 1
-  %.not375 = icmp eq i8 %283, 61
-  br i1 %.not375, label %.critedge, label %284
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %317
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %317 ]
+  %.0319413 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %317 ]
+  %.0320412 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1321, %317 ]
+  %.0322411 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1323, %317 ]
+  %285 = getelementptr inbounds i8, ptr %275, i64 %indvars.iv
+  %286 = load i8, ptr %285, align 1
+  %.not375 = icmp eq i8 %286, 61
+  br i1 %.not375, label %.critedge, label %287
 
-284:                                              ; preds = %.lr.ph
-  %285 = zext i8 %283 to i64
-  %286 = getelementptr inbounds [255 x i8], ptr @BASE64_DECODE_TABLE, i64 0, i64 %285
-  %287 = load i8, ptr %286, align 1
-  %288 = icmp eq i8 %287, -1
-  br i1 %288, label %289, label %293
+287:                                              ; preds = %.lr.ph
+  %288 = zext i8 %286 to i64
+  %289 = getelementptr inbounds [255 x i8], ptr @BASE64_DECODE_TABLE, i64 0, i64 %288
+  %290 = load i8, ptr %289, align 1
+  %291 = icmp eq i8 %290, -1
+  br i1 %291, label %292, label %296
 
-289:                                              ; preds = %284
-  tail call void @free(ptr noundef %280) #14
-  %290 = tail call fastcc { i64, ptr } @type_error(i64 %270, ptr %271, ptr noundef nonnull @.str.192)
-  %291 = extractvalue { i64, ptr } %290, 0
-  %292 = extractvalue { i64, ptr } %290, 1
+292:                                              ; preds = %287
+  tail call void @free(ptr noundef %283) #14
+  %293 = tail call fastcc { i64, ptr } @type_error(i64 %273, ptr %274, ptr noundef nonnull @.str.192)
+  %294 = extractvalue { i64, ptr } %293, 0
+  %295 = extractvalue { i64, ptr } %293, 1
   br label %f_tostring.exit
 
-293:                                              ; preds = %284
-  %294 = zext i8 %287 to i32
-  %295 = shl i32 %.0319413, 6
-  %296 = or i32 %295, %294
-  %297 = add nsw i32 %.0320412, 1
-  %298 = icmp eq i32 %297, 4
-  br i1 %298, label %299, label %314
+296:                                              ; preds = %287
+  %297 = zext i8 %290 to i32
+  %298 = shl i32 %.0319413, 6
+  %299 = or i32 %298, %297
+  %300 = add nsw i32 %.0320412, 1
+  %301 = icmp eq i32 %300, 4
+  br i1 %301, label %302, label %317
 
-299:                                              ; preds = %293
-  %300 = lshr i32 %295, 16
-  %301 = trunc i32 %300 to i8
-  %302 = add i32 %.0322411, 1
-  %303 = zext i32 %.0322411 to i64
-  %304 = getelementptr inbounds i8, ptr %280, i64 %303
-  store i8 %301, ptr %304, align 1
-  %305 = lshr i32 %295, 8
-  %306 = trunc i32 %305 to i8
-  %307 = add i32 %.0322411, 2
-  %308 = zext i32 %302 to i64
-  %309 = getelementptr inbounds i8, ptr %280, i64 %308
-  store i8 %306, ptr %309, align 1
-  %310 = trunc i32 %296 to i8
-  %311 = add i32 %.0322411, 3
-  %312 = zext i32 %307 to i64
-  %313 = getelementptr inbounds i8, ptr %280, i64 %312
-  store i8 %310, ptr %313, align 1
-  br label %314
+302:                                              ; preds = %296
+  %303 = lshr i32 %298, 16
+  %304 = trunc i32 %303 to i8
+  %305 = add i32 %.0322411, 1
+  %306 = zext i32 %.0322411 to i64
+  %307 = getelementptr inbounds i8, ptr %283, i64 %306
+  store i8 %304, ptr %307, align 1
+  %308 = lshr i32 %298, 8
+  %309 = trunc i32 %308 to i8
+  %310 = add i32 %.0322411, 2
+  %311 = zext i32 %305 to i64
+  %312 = getelementptr inbounds i8, ptr %283, i64 %311
+  store i8 %309, ptr %312, align 1
+  %313 = trunc i32 %299 to i8
+  %314 = add i32 %.0322411, 3
+  %315 = zext i32 %310 to i64
+  %316 = getelementptr inbounds i8, ptr %283, i64 %315
+  store i8 %313, ptr %316, align 1
+  br label %317
 
-314:                                              ; preds = %293, %299
-  %.1323 = phi i32 [ %311, %299 ], [ %.0322411, %293 ]
-  %.1321 = phi i32 [ 0, %299 ], [ %297, %293 ]
-  %.1 = phi i32 [ 0, %299 ], [ %296, %293 ]
+317:                                              ; preds = %296, %302
+  %.1323 = phi i32 [ %314, %302 ], [ %.0322411, %296 ]
+  %.1321 = phi i32 [ 0, %302 ], [ %300, %296 ]
+  %.1 = phi i32 [ 0, %302 ], [ %299, %296 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !17
 
-.critedge:                                        ; preds = %.lr.ph, %314
-  %.0322.lcssa = phi i32 [ %.0322411, %.lr.ph ], [ %.1323, %314 ]
-  %.0320.lcssa = phi i32 [ %.0320412, %.lr.ph ], [ %.1321, %314 ]
-  %.0319.lcssa = phi i32 [ %.0319413, %.lr.ph ], [ %.1, %314 ]
+.critedge:                                        ; preds = %.lr.ph, %317
+  %.0322.lcssa = phi i32 [ %.0322411, %.lr.ph ], [ %.1323, %317 ]
+  %.0320.lcssa = phi i32 [ %.0320412, %.lr.ph ], [ %.1321, %317 ]
+  %.0319.lcssa = phi i32 [ %.0319413, %.lr.ph ], [ %.1, %317 ]
   switch i32 %.0320.lcssa, label %.critedge.thread [
-    i32 3, label %315
+    i32 3, label %318
     i32 2, label %.critedge.thread.sink.split
-    i32 1, label %321
+    i32 1, label %324
   ]
 
-315:                                              ; preds = %.critedge
-  %316 = lshr i32 %.0319.lcssa, 10
-  %317 = trunc i32 %316 to i8
-  %318 = add i32 %.0322.lcssa, 1
-  %319 = zext i32 %.0322.lcssa to i64
-  %320 = getelementptr inbounds i8, ptr %280, i64 %319
-  store i8 %317, ptr %320, align 1
+318:                                              ; preds = %.critedge
+  %319 = lshr i32 %.0319.lcssa, 10
+  %320 = trunc i32 %319 to i8
+  %321 = add i32 %.0322.lcssa, 1
+  %322 = zext i32 %.0322.lcssa to i64
+  %323 = getelementptr inbounds i8, ptr %283, i64 %322
+  store i8 %320, ptr %323, align 1
   br label %.critedge.thread.sink.split
 
-321:                                              ; preds = %.critedge
-  tail call void @free(ptr noundef %280) #14
-  %322 = tail call fastcc { i64, ptr } @type_error(i64 %270, ptr %271, ptr noundef nonnull @.str.193)
-  %323 = extractvalue { i64, ptr } %322, 0
-  %324 = extractvalue { i64, ptr } %322, 1
+324:                                              ; preds = %.critedge
+  tail call void @free(ptr noundef %283) #14
+  %325 = tail call fastcc { i64, ptr } @type_error(i64 %273, ptr %274, ptr noundef nonnull @.str.193)
+  %326 = extractvalue { i64, ptr } %325, 0
+  %327 = extractvalue { i64, ptr } %325, 1
   br label %f_tostring.exit
 
-.critedge.thread.sink.split:                      ; preds = %.critedge, %315
-  %.sink = phi i32 [ 2, %315 ], [ 4, %.critedge ]
-  %.sink519 = phi i32 [ 2, %315 ], [ 1, %.critedge ]
-  %.0322.lcssa.sink = phi i32 [ %318, %315 ], [ %.0322.lcssa, %.critedge ]
-  %325 = lshr i32 %.0319.lcssa, %.sink
-  %326 = trunc i32 %325 to i8
-  %327 = add i32 %.0322.lcssa, %.sink519
-  %328 = zext i32 %.0322.lcssa.sink to i64
-  %329 = getelementptr inbounds i8, ptr %280, i64 %328
-  store i8 %326, ptr %329, align 1
+.critedge.thread.sink.split:                      ; preds = %.critedge, %318
+  %.sink = phi i32 [ 2, %318 ], [ 4, %.critedge ]
+  %.sink522 = phi i32 [ 2, %318 ], [ 1, %.critedge ]
+  %.0322.lcssa.sink = phi i32 [ %321, %318 ], [ %.0322.lcssa, %.critedge ]
+  %328 = lshr i32 %.0319.lcssa, %.sink
+  %329 = trunc i32 %328 to i8
+  %330 = add i32 %.0322.lcssa, %.sink522
+  %331 = zext i32 %.0322.lcssa.sink to i64
+  %332 = getelementptr inbounds i8, ptr %283, i64 %331
+  store i8 %329, ptr %332, align 1
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %268, %.critedge
-  %.2 = phi i32 [ %.0322.lcssa, %.critedge ], [ 0, %268 ], [ %327, %.critedge.thread.sink.split ]
-  %330 = tail call { i64, ptr } @jv_string_sized(ptr noundef %280, i32 noundef %.2) #14
-  %331 = extractvalue { i64, ptr } %330, 0
-  %332 = extractvalue { i64, ptr } %330, 1
-  tail call void @jv_free(i64 %270, ptr %271) #14
-  tail call void @free(ptr noundef %280) #14
+.critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %271, %.critedge
+  %.2 = phi i32 [ %.0322.lcssa, %.critedge ], [ 0, %271 ], [ %330, %.critedge.thread.sink.split ]
+  %333 = tail call { i64, ptr } @jv_string_sized(ptr noundef %283, i32 noundef %.2) #14
+  %334 = extractvalue { i64, ptr } %333, 0
+  %335 = extractvalue { i64, ptr } %333, 1
+  tail call void @jv_free(i64 %273, ptr %274) #14
+  tail call void @free(ptr noundef %283) #14
   br label %f_tostring.exit
 
-333:                                              ; preds = %266
+336:                                              ; preds = %269
   tail call void @jv_free(i64 %1, ptr %2) #14
-  %334 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.194) #14
-  %335 = extractvalue { i64, ptr } %334, 0
-  %336 = extractvalue { i64, ptr } %334, 1
-  %337 = tail call { i64, ptr } @jv_string_concat(i64 %3, ptr %4, i64 %335, ptr %336) #14
+  %337 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.194) #14
   %338 = extractvalue { i64, ptr } %337, 0
   %339 = extractvalue { i64, ptr } %337, 1
-  %340 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %338, ptr %339) #14
+  %340 = tail call { i64, ptr } @jv_string_concat(i64 %3, ptr %4, i64 %338, ptr %339) #14
   %341 = extractvalue { i64, ptr } %340, 0
   %342 = extractvalue { i64, ptr } %340, 1
+  %343 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %341, ptr %342) #14
+  %344 = extractvalue { i64, ptr } %343, 0
+  %345 = extractvalue { i64, ptr } %343, 1
   br label %f_tostring.exit
 
-f_tostring.exit:                                  ; preds = %34, %31, %333, %.critedge.thread, %321, %289, %._crit_edge, %.loopexit393, %217, %._crit_edge452, %f_tostring.exit380, %.loopexit, %106, %44, %25, %12
-  %.sroa.0312.3 = phi i64 [ %20, %12 ], [ %341, %333 ], [ %291, %289 ], [ %331, %.critedge.thread ], [ %323, %321 ], [ %.sroa.0312.2.lcssa, %._crit_edge ], [ %219, %217 ], [ %.sroa.0110.0.lcssa, %.loopexit393 ], [ %.sroa.0312.0.lcssa, %._crit_edge452 ], [ %128, %f_tostring.exit380 ], [ %52, %44 ], [ %114, %106 ], [ %.sroa.0194.0.lcssa, %.loopexit ], [ %27, %25 ], [ %36, %34 ], [ %1, %31 ]
-  %.sroa.22316.3 = phi ptr [ %21, %12 ], [ %342, %333 ], [ %292, %289 ], [ %332, %.critedge.thread ], [ %324, %321 ], [ %.sroa.22316.2.lcssa, %._crit_edge ], [ %220, %217 ], [ %.sroa.13.0.lcssa, %.loopexit393 ], [ %.sroa.22316.0.lcssa, %._crit_edge452 ], [ %129, %f_tostring.exit380 ], [ %53, %44 ], [ %115, %106 ], [ %.sroa.15.0.lcssa, %.loopexit ], [ %28, %25 ], [ %37, %34 ], [ %2, %31 ]
+f_tostring.exit:                                  ; preds = %34, %31, %336, %.critedge.thread, %324, %292, %._crit_edge, %.loopexit393, %221, %._crit_edge452, %f_tostring.exit380, %.loopexit, %106, %44, %25, %12
+  %.sroa.0312.3 = phi i64 [ %20, %12 ], [ %344, %336 ], [ %294, %292 ], [ %334, %.critedge.thread ], [ %326, %324 ], [ %.sroa.0312.2.lcssa, %._crit_edge ], [ %223, %221 ], [ %.sroa.0110.0.lcssa, %.loopexit393 ], [ %.sroa.0312.0.lcssa, %._crit_edge452 ], [ %128, %f_tostring.exit380 ], [ %52, %44 ], [ %114, %106 ], [ %.sroa.0194.0.lcssa, %.loopexit ], [ %27, %25 ], [ %36, %34 ], [ %1, %31 ]
+  %.sroa.22316.3 = phi ptr [ %21, %12 ], [ %345, %336 ], [ %295, %292 ], [ %335, %.critedge.thread ], [ %327, %324 ], [ %.sroa.22316.2.lcssa, %._crit_edge ], [ %224, %221 ], [ %.sroa.13.0.lcssa, %.loopexit393 ], [ %.sroa.22316.0.lcssa, %._crit_edge452 ], [ %129, %f_tostring.exit380 ], [ %53, %44 ], [ %115, %106 ], [ %.sroa.15.0.lcssa, %.loopexit ], [ %28, %25 ], [ %37, %34 ], [ %2, %31 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0312.3, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.22316.3, 1
   ret { i64, ptr } %.fca.1.insert
@@ -6600,7 +6611,7 @@ define internal { i64, ptr } @f_strftime(ptr nocapture noundef readnone %0, i64 
 29:                                               ; preds = %22, %9
   %.sroa.030.0 = phi i64 [ %11, %9 ], [ %1, %22 ]
   %.sroa.10.0 = phi ptr [ %12, %9 ], [ %2, %22 ]
-  %30 = call fastcc i32 @jv2tm(i64 %.sroa.030.0, ptr %.sroa.10.0, ptr noundef nonnull %6), !range !27
+  %30 = call fastcc i32 @jv2tm(i64 %.sroa.030.0, ptr %.sroa.10.0, ptr noundef nonnull %6)
   %.not46 = icmp eq i32 %30, 0
   br i1 %.not46, label %31, label %36
 
@@ -6683,7 +6694,7 @@ define internal { i64, ptr } @f_strflocaltime(ptr nocapture noundef readnone %0,
 27:                                               ; preds = %20, %9
   %.sroa.028.0 = phi i64 [ %11, %9 ], [ %1, %20 ]
   %.sroa.8.0 = phi ptr [ %12, %9 ], [ %2, %20 ]
-  %28 = call fastcc i32 @jv2tm(i64 %.sroa.028.0, ptr %.sroa.8.0, ptr noundef nonnull %6), !range !27
+  %28 = call fastcc i32 @jv2tm(i64 %.sroa.028.0, ptr %.sroa.8.0, ptr noundef nonnull %6)
   %.not41 = icmp eq i32 %28, 0
   br i1 %.not41, label %29, label %34
 
@@ -6754,7 +6765,7 @@ define internal { i64, ptr } @f_mktime(ptr nocapture readnone %0, i64 %1, ptr %2
   br label %44
 
 22:                                               ; preds = %11
-  %23 = call fastcc i32 @jv2tm(i64 %1, ptr %2, ptr noundef nonnull %4), !range !27
+  %23 = call fastcc i32 @jv2tm(i64 %1, ptr %2, ptr noundef nonnull %4)
   %.not23 = icmp eq i32 %23, 0
   br i1 %.not23, label %24, label %29
 
@@ -7379,7 +7390,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %120 = extractvalue { i64, ptr } %118, 1
   %121 = tail call i32 @jv_array_length(i64 %119, ptr %120) #14
   %122 = icmp slt i32 %117, %121
-  br i1 %122, label %92, label %._crit_edge, !llvm.loop !28
+  br i1 %122, label %92, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %116, %73
   %.sroa.020.0.lcssa = phi i64 [ %84, %73 ], [ %.sroa.020.1, %116 ]
@@ -7426,7 +7437,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %13 = getelementptr inbounds i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %15 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.176) #14
@@ -7475,7 +7486,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %.pn = phi { i64, ptr } [ %32, %31 ], [ %38, %33 ]
   %40 = call ptr @jvp_utf8_next(ptr noundef nonnull %24, ptr noundef %22, ptr noundef nonnull %5) #14
   %.not32 = icmp eq ptr %40, null
-  br i1 %.not32, label %._crit_edge47, label %.lr.ph46, !llvm.loop !30
+  br i1 %.not32, label %._crit_edge47, label %.lr.ph46, !llvm.loop !29
 
 ._crit_edge47:                                    ; preds = %39, %._crit_edge
   %.pn34.lcssa = phi { i64, ptr } [ %15, %._crit_edge ], [ %.pn, %39 ]
@@ -7588,7 +7599,7 @@ define internal noundef i32 @f_match_name_iter(ptr noundef %0, ptr noundef %1, i
   %.sroa.5.1 = phi ptr [ %38, %24 ], [ %.sroa.5.034, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %40, %6
   %.sroa.019.0.lcssa = phi i64 [ %.sroa.019.0.copyload, %6 ], [ %.sroa.019.1, %40 ]
@@ -7700,7 +7711,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr nocapture noundef readonly %0) un
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @jv2tm(i64 %0, ptr %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr nocapture noundef %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   %4 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
   %5 = extractvalue { i64, ptr } %4, 0
@@ -7953,8 +7964,7 @@ attributes #17 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = !{i32 0, i32 2}
+!27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}

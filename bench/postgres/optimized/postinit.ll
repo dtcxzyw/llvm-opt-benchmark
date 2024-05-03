@@ -82,7 +82,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [92 x i8] c"The database was initialized with LC_COLLATE \22%s\22,  which is not recognized by setlocale().\00", align 1
 @.str.39 = private unnamed_addr constant [73 x i8] c"Recreate the database with another locale or install the missing locale.\00", align 1
 @.str.40 = private unnamed_addr constant [90 x i8] c"The database was initialized with LC_CTYPE \22%s\22,  which is not recognized by setlocale().\00", align 1
-@.str.41 = private unnamed_addr constant [2 x i8] c"C\00", align 1
 @.str.42 = private unnamed_addr constant [6 x i8] c"POSIX\00", align 1
 @database_ctype_is_c = external local_unnamed_addr global i8, align 1
 @default_locale = external global %struct.pg_locale_struct, align 8
@@ -918,7 +917,7 @@ GetDatabaseTupleByOid.exit:                       ; preds = %161, %168
 304:                                              ; preds = %.thread.i
   %305 = call ptr @pg_perm_setlocale(i32 noundef 0, ptr noundef %296) #12
   %306 = icmp eq ptr %305, null
-  br i1 %306, label %307, label %312
+  br i1 %306, label %307, label %sub_0.i
 
 307:                                              ; preds = %304
   %308 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
@@ -929,21 +928,27 @@ GetDatabaseTupleByOid.exit:                       ; preds = %161, %168
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 422, ptr noundef nonnull @__func__.CheckMyDatabase) #12
   unreachable
 
-312:                                              ; preds = %304
-  %313 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %296, ptr noundef nonnull dereferenceable(2) @.str.41) #15
-  %314 = icmp eq i32 %313, 0
-  br i1 %314, label %318, label %315
+sub_0.i:                                          ; preds = %304
+  %312 = load i8, ptr %296, align 1
+  %.not60.i = icmp eq i8 %312, 67
+  br i1 %.not60.i, label %.tail.i, label %.tail.thread.i
 
-315:                                              ; preds = %312
+.tail.i:                                          ; preds = %sub_0.i
+  %313 = getelementptr inbounds i8, ptr %296, i64 1
+  %314 = load i8, ptr %313, align 1
+  %315 = icmp eq i8 %314, 0
+  br i1 %315, label %318, label %.tail.thread.i
+
+.tail.thread.i:                                   ; preds = %.tail.i, %sub_0.i
   %316 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %296, ptr noundef nonnull dereferenceable(6) @.str.42) #15
   %317 = icmp eq i32 %316, 0
   br i1 %317, label %318, label %319
 
-318:                                              ; preds = %315, %312
+318:                                              ; preds = %.tail.thread.i, %.tail.i
   store i8 1, ptr @database_ctype_is_c, align 1
   br label %319
 
-319:                                              ; preds = %318, %315
+319:                                              ; preds = %318, %.tail.thread.i
   %320 = getelementptr inbounds i8, ptr %242, i64 76
   %321 = load i8, ptr %320, align 4
   %322 = icmp eq i8 %321, 105

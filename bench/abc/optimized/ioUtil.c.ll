@@ -16,10 +16,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [4 x i8] c"eqn\00", align 1
 @.str.9 = private unnamed_addr constant [4 x i8] c"gml\00", align 1
 @.str.10 = private unnamed_addr constant [5 x i8] c"list\00", align 1
-@.str.11 = private unnamed_addr constant [3 x i8] c"mv\00", align 1
 @.str.12 = private unnamed_addr constant [4 x i8] c"pla\00", align 1
 @.str.13 = private unnamed_addr constant [4 x i8] c"smv\00", align 1
-@.str.14 = private unnamed_addr constant [2 x i8] c"v\00", align 1
 @stdout = external local_unnamed_addr global ptr, align 8
 @.str.15 = private unnamed_addr constant [67 x i8] c"Generic file reader requires a known file extension to open \22%s\22.\0A\00", align 1
 @.str.16 = private unnamed_addr constant [2 x i8] c"r\00", align 1
@@ -76,93 +74,110 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [19 x i8] c"Wrong file format.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Io_ReadFileType(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 20) i32 @Io_ReadFileType(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %36, label %3
+  br i1 %2, label %.tail34, label %3
 
 3:                                                ; preds = %1
   %4 = tail call ptr @Extra_FileNameExtension(ptr noundef nonnull %0) #14
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %36, label %6
+  br i1 %5, label %.tail34, label %6
 
 6:                                                ; preds = %3
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str) #15
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %36, label %8
+  br i1 %.not, label %.tail34, label %8
 
 8:                                                ; preds = %6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.1) #15
   %.not20 = icmp eq i32 %9, 0
-  br i1 %.not20, label %36, label %10
+  br i1 %.not20, label %.tail34, label %10
 
 10:                                               ; preds = %8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(6) @.str.2) #15
   %.not21 = icmp eq i32 %11, 0
-  br i1 %.not21, label %36, label %12
+  br i1 %.not21, label %.tail34, label %12
 
 12:                                               ; preds = %10
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.3) #15
   %.not22 = icmp eq i32 %13, 0
-  br i1 %.not22, label %36, label %14
+  br i1 %.not22, label %.tail34, label %14
 
 14:                                               ; preds = %12
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(6) @.str.4) #15
   %.not23 = icmp eq i32 %15, 0
-  br i1 %.not23, label %36, label %16
+  br i1 %.not23, label %.tail34, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.5) #15
   %.not24 = icmp eq i32 %17, 0
-  br i1 %.not24, label %36, label %18
+  br i1 %.not24, label %.tail34, label %18
 
 18:                                               ; preds = %16
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.6) #15
   %.not25 = icmp eq i32 %19, 0
-  br i1 %.not25, label %36, label %20
+  br i1 %.not25, label %.tail34, label %20
 
 20:                                               ; preds = %18
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.7) #15
   %.not26 = icmp eq i32 %21, 0
-  br i1 %.not26, label %36, label %22
+  br i1 %.not26, label %.tail34, label %22
 
 22:                                               ; preds = %20
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.8) #15
   %.not27 = icmp eq i32 %23, 0
-  br i1 %.not27, label %36, label %24
+  br i1 %.not27, label %.tail34, label %24
 
 24:                                               ; preds = %22
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.9) #15
   %.not28 = icmp eq i32 %25, 0
-  br i1 %.not28, label %36, label %26
+  br i1 %.not28, label %.tail34, label %26
 
 26:                                               ; preds = %24
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.10) #15
   %.not29 = icmp eq i32 %27, 0
-  br i1 %.not29, label %36, label %28
+  br i1 %.not29, label %.tail34, label %sub_0
 
-28:                                               ; preds = %26
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(3) @.str.11) #15
-  %.not30 = icmp eq i32 %29, 0
-  br i1 %.not30, label %36, label %30
+sub_0:                                            ; preds = %26
+  %28 = load i8, ptr %4, align 1
+  %.not38 = icmp eq i8 %28, 109
+  br i1 %.not38, label %sub_1, label %.tail.thread
 
-30:                                               ; preds = %28
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.12) #15
-  %.not31 = icmp eq i32 %31, 0
-  br i1 %.not31, label %36, label %32
+sub_1:                                            ; preds = %sub_0
+  %29 = getelementptr inbounds i8, ptr %4, i64 1
+  %30 = load i8, ptr %29, align 1
+  %.not39 = icmp eq i8 %30, 118
+  br i1 %.not39, label %.tail, label %.tail.thread
 
-32:                                               ; preds = %30
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.13) #15
-  %.not32 = icmp eq i32 %33, 0
-  br i1 %.not32, label %36, label %34
+.tail:                                            ; preds = %sub_1
+  %31 = getelementptr inbounds i8, ptr %4, i64 2
+  %32 = load i8, ptr %31, align 1
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %.tail34, label %.tail.thread
 
-34:                                               ; preds = %32
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(2) @.str.14) #15
-  %.not33 = icmp eq i32 %35, 0
-  %. = select i1 %.not33, i32 18, i32 19
-  br label %36
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.12) #15
+  %.not31 = icmp eq i32 %34, 0
+  br i1 %.not31, label %.tail34, label %35
 
-36:                                               ; preds = %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %3, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %3 ], [ 1, %6 ], [ 2, %8 ], [ 3, %10 ], [ 4, %12 ], [ 6, %14 ], [ 8, %16 ], [ 9, %18 ], [ 10, %20 ], [ 11, %22 ], [ 12, %24 ], [ 14, %26 ], [ 5, %28 ], [ 15, %30 ], [ 17, %32 ], [ %., %34 ]
+35:                                               ; preds = %.tail.thread
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(4) @.str.13) #15
+  %.not32 = icmp eq i32 %36, 0
+  br i1 %.not32, label %.tail34, label %sub_035
+
+sub_035:                                          ; preds = %35
+  %.not40 = icmp eq i8 %28, 118
+  br i1 %.not40, label %sub_136, label %.tail34
+
+sub_136:                                          ; preds = %sub_035
+  %37 = getelementptr inbounds i8, ptr %4, i64 1
+  %38 = load i8, ptr %37, align 1
+  %39 = icmp eq i8 %38, 0
+  %40 = select i1 %39, i32 18, i32 19
+  br label %.tail34
+
+.tail34:                                          ; preds = %sub_136, %sub_035, %35, %.tail.thread, %.tail, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %3, %1
+  %.0 = phi i32 [ 0, %1 ], [ 0, %3 ], [ 1, %6 ], [ 2, %8 ], [ 3, %10 ], [ 4, %12 ], [ 6, %14 ], [ 8, %16 ], [ 9, %18 ], [ 10, %20 ], [ 11, %22 ], [ 12, %24 ], [ 14, %26 ], [ 5, %.tail ], [ 15, %.tail.thread ], [ 17, %35 ], [ 19, %sub_035 ], [ %40, %sub_136 ]
   ret i32 %.0
 }
 
@@ -248,7 +263,7 @@ define ptr @Io_ReadNetlist(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   br label %57
 
 38:                                               ; preds = %34
-  %39 = tail call i32 @Io_ReadFileType(ptr noundef %0), !range !4
+  %39 = tail call i32 @Io_ReadFileType(ptr noundef %0)
   %40 = icmp eq i32 %39, 5
   br i1 %40, label %41, label %43
 
@@ -349,7 +364,7 @@ define ptr @Io_ReadNetlist(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   %.val = load i32, ptr %82, align 4
   %83 = sext i32 %.val to i64
   %84 = icmp slt i64 %indvars.iv.next, %83
-  br i1 %84, label %.lr.ph, label %.critedge, !llvm.loop !5
+  br i1 %84, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph
   %85 = icmp eq i32 %spec.select, 0
@@ -497,7 +512,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %45, align 4
   %46 = sext i32 %.val to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %.critedge, !llvm.loop !7
+  br i1 %47, label %.lr.ph, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %Vec_PtrPush.exit, %1, %2
   %.011 = phi ptr [ null, %2 ], [ null, %1 ], [ %7, %Vec_PtrPush.exit ]
@@ -592,7 +607,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %3, align 4
   %42 = sext i32 %.val to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %7, label %.critedge, !llvm.loop !8
+  br i1 %43, label %7, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %Vec_PtrPush.exit, %2
   ret void
@@ -657,7 +672,7 @@ define ptr @Io_Read(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 
 
 31:                                               ; preds = %24, %21
   %.1 = phi ptr [ %26, %24 ], [ %.032, %21 ]
-  %32 = tail call i32 @Io_ReadFileType(ptr noundef %0), !range !4
+  %32 = tail call i32 @Io_ReadFileType(ptr noundef %0)
   %33 = icmp eq i32 %32, 5
   br i1 %33, label %34, label %40
 
@@ -1058,7 +1073,7 @@ define void @Io_WriteHie(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br label %136
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @Io_ReadFileType(ptr noundef %1), !range !4
+  %9 = tail call i32 @Io_ReadFileType(ptr noundef %1)
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %11, label %13
 
@@ -1067,7 +1082,7 @@ define void @Io_WriteHie(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br label %25
 
 13:                                               ; preds = %8
-  %14 = tail call i32 @Io_ReadFileType(ptr noundef %1), !range !4
+  %14 = tail call i32 @Io_ReadFileType(ptr noundef %1)
   %15 = icmp eq i32 %14, 5
   br i1 %15, label %16, label %18
 
@@ -1076,7 +1091,7 @@ define void @Io_WriteHie(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br label %25
 
 18:                                               ; preds = %13
-  %19 = tail call i32 @Io_ReadFileType(ptr noundef %1), !range !4
+  %19 = tail call i32 @Io_ReadFileType(ptr noundef %1)
   %20 = icmp eq i32 %19, 18
   br i1 %20, label %21, label %.thread
 
@@ -1132,7 +1147,7 @@ define void @Io_WriteHie(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br label %.thread112
 
 47:                                               ; preds = %37
-  %48 = tail call i32 @Io_ReadFileType(ptr noundef %1), !range !4
+  %48 = tail call i32 @Io_ReadFileType(ptr noundef %1)
   %49 = icmp eq i32 %48, 5
   %50 = getelementptr i8, ptr %.175, i64 136
   %.175.val97 = load i32, ptr %50, align 8
@@ -1199,7 +1214,7 @@ define void @Io_WriteHie(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 
 70:                                               ; preds = %.thread112, %68
   %.076114 = phi ptr [ %.076.ph, %.thread112 ], [ %.076, %68 ]
-  %71 = tail call i32 @Io_ReadFileType(ptr noundef %2), !range !4
+  %71 = tail call i32 @Io_ReadFileType(ptr noundef %2)
   %72 = icmp eq i32 %71, 4
   br i1 %72, label %73, label %99
 
@@ -1246,7 +1261,7 @@ define void @Io_WriteHie(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   %.val98 = load i32, ptr %92, align 4
   %93 = sext i32 %.val98 to i64
   %94 = icmp slt i64 %indvars.iv.next132, %93
-  br i1 %94, label %.lr.ph129, label %.critedge, !llvm.loop !9
+  br i1 %94, label %.lr.ph129, label %.critedge, !llvm.loop !8
 
 95:                                               ; preds = %73
   %96 = getelementptr i8, ptr %.076114, i64 4
@@ -1265,7 +1280,7 @@ define void @Io_WriteHie(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br label %135
 
 99:                                               ; preds = %70
-  %100 = tail call i32 @Io_ReadFileType(ptr noundef %2), !range !4
+  %100 = tail call i32 @Io_ReadFileType(ptr noundef %2)
   %101 = icmp eq i32 %100, 18
   br i1 %101, label %102, label %128
 
@@ -1311,7 +1326,7 @@ define void @Io_WriteHie(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   %.val = load i32, ptr %121, align 4
   %122 = sext i32 %.val to i64
   %123 = icmp slt i64 %indvars.iv.next, %122
-  br i1 %123, label %.lr.ph, label %.critedge2, !llvm.loop !10
+  br i1 %123, label %.lr.ph, label %.critedge2, !llvm.loop !9
 
 124:                                              ; preds = %102
   %125 = getelementptr i8, ptr %.076114, i64 4
@@ -1329,7 +1344,7 @@ define void @Io_WriteHie(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br label %135
 
 128:                                              ; preds = %99
-  %129 = tail call i32 @Io_ReadFileType(ptr noundef %2), !range !4
+  %129 = tail call i32 @Io_ReadFileType(ptr noundef %2)
   %130 = icmp eq i32 %129, 5
   br i1 %130, label %131, label %132
 
@@ -1490,7 +1505,7 @@ define ptr @Io_ReadCreateNode(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %9) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %10 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %0, ptr noundef %1) #14
@@ -1590,7 +1605,7 @@ define noalias noundef ptr @Io_FileOpen(ptr noundef %0, ptr noundef %1, ptr noca
 22:                                               ; preds = %.lr.ph
   %23 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.51) #14
   %.not23 = icmp eq ptr %23, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %22, %11
   %.not24 = icmp eq ptr %12, null
@@ -1710,7 +1725,7 @@ define void @Io_TransformSF2PLA(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %.1 = phi i32 [ 1, %39 ], [ 0, %38 ], [ 1, %35 ], [ 1, %33 ]
   %41 = tail call ptr @fgets(ptr noundef %16, i32 noundef 1000000, ptr noundef nonnull %3)
   %.not = icmp eq ptr %41, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %40, %.lr.ph, %15
   %42 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 3, i64 1, ptr nonnull %4)
@@ -1797,7 +1812,7 @@ define noalias noundef ptr @Io_ConvertNumsToSop(ptr nocapture noundef readonly %
   store i8 %31, ptr %34, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = icmp ult i64 %indvars.iv.next, %25
-  br i1 %35, label %26, label %.critedge2, !llvm.loop !14
+  br i1 %35, label %26, label %.critedge2, !llvm.loop !13
 
 .critedge2:                                       ; preds = %26, %18
   %36 = getelementptr inbounds i8, ptr %21, i64 %16
@@ -1808,7 +1823,7 @@ define noalias noundef ptr @Io_ConvertNumsToSop(ptr nocapture noundef readonly %
   store i8 10, ptr %38, align 1
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
-  br i1 %exitcond.not, label %Vec_PtrPush.exit, label %18, !llvm.loop !15
+  br i1 %exitcond.not, label %Vec_PtrPush.exit, label %18, !llvm.loop !14
 
 Vec_PtrPush.exit:                                 ; preds = %.critedge2, %2
   %39 = getelementptr inbounds i8, ptr %3, i64 4
@@ -1885,7 +1900,7 @@ Vec_PtrAlloc.exit:                                ; preds = %2, %7
   %.val32 = load i32, ptr %21, align 4
   %33 = sext i32 %.val32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %24, label %.critedge2, !llvm.loop !16
+  br i1 %34, label %24, label %.critedge2, !llvm.loop !15
 
 .critedge2:                                       ; preds = %24, %18
   %35 = getelementptr inbounds i8, ptr %20, i64 %17
@@ -1955,7 +1970,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %3, align 4
   %63 = sext i32 %.val to i64
   %64 = icmp slt i64 %indvars.iv.next41, %63
-  br i1 %64, label %18, label %.critedge, !llvm.loop !17
+  br i1 %64, label %18, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %Vec_PtrPush.exit, %Vec_PtrAlloc.exit
   ret ptr %4
@@ -2036,7 +2051,7 @@ Vec_PtrFree.exit:                                 ; preds = %19, %21
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %24
-  br i1 %exitcond.not, label %._crit_edge.i.i.thread, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.i.i.thread, label %.lr.ph.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %Vec_PtrFree.exit
   %.not.i.i = icmp eq ptr %.pre, null
@@ -2059,7 +2074,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %.
   %33 = call i32 @atoi(ptr nocapture noundef %32) #15
   %34 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 10000, ptr noundef nonnull %8)
   %.not60 = icmp eq ptr %34, null
-  br i1 %.not60, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not60, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.036.ph66 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %33, %.outer ]
@@ -2224,12 +2239,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %83, ptr %111, align 4
   %112 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.66) #14
   %.not44 = icmp eq ptr %112, null
-  br i1 %.not44, label %.backedge, label %76, !llvm.loop !20
+  br i1 %.not44, label %.backedge, label %76, !llvm.loop !19
 
 .backedge:                                        ; preds = %Vec_IntPush.exit, %76, %35, %14
   %113 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 10000, ptr noundef nonnull %8)
   %.not = icmp eq ptr %113, null
-  br i1 %.not, label %.outer._crit_edge, label %14, !llvm.loop !19
+  br i1 %.not, label %.outer._crit_edge, label %14, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
   %.037.ph.lcssa58 = phi i32 [ -1, %.preheader ], [ %.037.ph65, %.backedge ], [ %31, %.outer ]
@@ -2281,7 +2296,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 129:                                              ; preds = %128, %.lr.ph.i.i51
   %indvars.iv.next.i.i55 = add nuw nsw i64 %indvars.iv.i.i52, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next.i.i55, %125
-  br i1 %exitcond75.not, label %._crit_edge.i.i49.thread, label %.lr.ph.i.i51, !llvm.loop !18
+  br i1 %exitcond75.not, label %._crit_edge.i.i49.thread, label %.lr.ph.i.i51, !llvm.loop !17
 
 ._crit_edge.i.i49:                                ; preds = %122
   %.not.i.i50 = icmp eq ptr %.pre76, null
@@ -2353,20 +2368,19 @@ attributes #19 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 20}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}

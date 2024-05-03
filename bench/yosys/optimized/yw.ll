@@ -120,7 +120,6 @@ $_ZGVZN5Yosys7hashlib14hashtable_sizeEiE20zero_and_some_primes = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@.str = private unnamed_addr constant [3 x i8] c"\\[\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"\\[0]\00", align 1
 @.str.2 = private unnamed_addr constant [23 x i8] c"Cannot open file `%s`\0A\00", align 1
 @.str.3 = private unnamed_addr constant [26 x i8] c"Failed to parse `%s`: %s\0A\00", align 1
@@ -470,46 +469,52 @@ _ZNK5Yosys5RTLIL8IdString4sizeEv.exit.i:          ; preds = %8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #21
   %22 = icmp ult i64 %21, 2
-  br i1 %22, label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread, label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit
+  br i1 %22, label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread, label %sub_0
 
-_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit:  ; preds = %_ZNK5Yosys5RTLIL8IdString4sizeEv.exit.i
-  %23 = tail call noundef i32 @strncmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(3) @.str, i64 noundef 2) #21
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %_ZNK5Yosys5RTLIL8IdStringeqEPKc.exit, label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread
+sub_0:                                            ; preds = %_ZNK5Yosys5RTLIL8IdString4sizeEv.exit.i
+  %23 = load i8, ptr %20, align 1
+  %.not = icmp eq i8 %23, 92
+  br i1 %.not, label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.tail, label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread
 
-_ZNK5Yosys5RTLIL8IdStringeqEPKc.exit:             ; preds = %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(5) @.str.1) #21
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit
+_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.tail: ; preds = %sub_0
+  %24 = getelementptr inbounds i8, ptr %20, i64 1
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 91
+  br i1 %26, label %_ZNK5Yosys5RTLIL8IdStringeqEPKc.exit, label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread
 
-27:                                               ; preds = %_ZNK5Yosys5RTLIL8IdStringeqEPKc.exit
+_ZNK5Yosys5RTLIL8IdStringeqEPKc.exit:             ; preds = %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.tail
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(5) @.str.1) #21
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit
+
+29:                                               ; preds = %_ZNK5Yosys5RTLIL8IdStringeqEPKc.exit
   store i32 0, ptr %1, align 4
   br label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread
 
 _ZNK5Yosys5RTLIL8IdString5c_strEv.exit:           ; preds = %_ZNK5Yosys5RTLIL8IdStringeqEPKc.exit
-  %28 = getelementptr inbounds i8, ptr %20, i64 2
-  %29 = load i8, ptr %28, align 1
-  %30 = add i8 %29, -58
-  %or.cond = icmp ult i8 %30, -9
+  %30 = getelementptr inbounds i8, ptr %20, i64 2
+  %31 = load i8, ptr %30, align 1
+  %32 = add i8 %31, -58
+  %or.cond = icmp ult i8 %32, -9
   br i1 %or.cond, label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread, label %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit12
 
 _ZNK5Yosys5RTLIL8IdString5c_strEv.exit12:         ; preds = %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit
-  %31 = call i64 @strtol(ptr noundef nonnull %28, ptr noundef nonnull %3, i32 noundef 10) #18
-  %32 = trunc i64 %31 to i32
-  store i32 %32, ptr %1, align 4
-  %33 = load ptr, ptr %3, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = icmp eq i8 %34, 93
-  br i1 %35, label %36, label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread
+  %33 = call i64 @strtol(ptr noundef nonnull %30, ptr noundef nonnull %3, i32 noundef 10) #18
+  %34 = trunc i64 %33 to i32
+  store i32 %34, ptr %1, align 4
+  %35 = load ptr, ptr %3, align 8
+  %36 = load i8, ptr %35, align 1
+  %37 = icmp eq i8 %36, 93
+  br i1 %37, label %38, label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread
 
-36:                                               ; preds = %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit12
-  %37 = getelementptr inbounds i8, ptr %33, i64 1
-  %38 = load i8, ptr %37, align 1
-  %39 = icmp eq i8 %38, 0
+38:                                               ; preds = %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit12
+  %39 = getelementptr inbounds i8, ptr %35, i64 1
+  %40 = load i8, ptr %39, align 1
+  %41 = icmp eq i8 %40, 0
   br label %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread
 
-_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread: ; preds = %_ZNK5Yosys5RTLIL8IdString4sizeEv.exit.i, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit12, %36, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit, %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit, %2, %27
-  %.0 = phi i1 [ true, %27 ], [ false, %2 ], [ false, %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit ], [ false, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit ], [ false, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit12 ], [ %39, %36 ], [ false, %_ZNK5Yosys5RTLIL8IdString4sizeEv.exit.i ]
+_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread: ; preds = %sub_0, %_ZNK5Yosys5RTLIL8IdString4sizeEv.exit.i, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit12, %38, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit, %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.tail, %2, %29
+  %.0 = phi i1 [ true, %29 ], [ false, %2 ], [ false, %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.tail ], [ false, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit ], [ false, %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit12 ], [ %41, %38 ], [ false, %_ZNK5Yosys5RTLIL8IdString4sizeEv.exit.i ], [ false, %sub_0 ]
   ret i1 %.0
 }
 
@@ -4043,9 +4048,6 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12

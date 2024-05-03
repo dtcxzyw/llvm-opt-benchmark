@@ -101,7 +101,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qemu_net_client_setup = private unnamed_addr constant [138 x i8] c"void qemu_net_client_setup(NetClientState *, NetClientInfo *, NetClientState *, const char *, const char *, NetClientDestructor *, _Bool)\00", align 1
 @.str.55 = private unnamed_addr constant [6 x i8] c"%s.%d\00", align 1
 @qemu_macaddr_set_free.base = internal constant %struct.MACAddr { [6 x i8] c"RT\00\124\00" }, align 1
-@.str.56 = private unnamed_addr constant [2 x i8] c"?\00", align 1
 @.str.57 = private unnamed_addr constant [5 x i8] c"help\00", align 1
 @.str.58 = private unnamed_addr constant [9 x i8] c"ipv6-net\00", align 1
 @.str.59 = private unnamed_addr constant [2 x i8] c"/\00", align 1
@@ -143,7 +142,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [22 x i8] c"Available NIC models:\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @convert_host_port(ptr noundef %saddr, ptr noundef %host, ptr noundef %port, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @convert_host_port(ptr noundef %saddr, ptr noundef %host, ptr noundef %port, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %r = alloca ptr, align 8
   %p = alloca i64, align 8
@@ -235,7 +234,7 @@ declare i32 @qemu_strtol(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @parse_host_port(ptr noundef %saddr, ptr noundef %str, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_host_port(ptr noundef %saddr, ptr noundef %str, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_strsplit(ptr noundef %str, ptr noundef nonnull @.str.4, i32 noundef 2) #26
   %tobool.not = icmp eq ptr %call, null
@@ -257,7 +256,7 @@ if.then:                                          ; preds = %lor.lhs.false2, %lo
   br label %out
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %call7 = tail call i32 @convert_host_port(ptr noundef %saddr, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %errp), !range !5
+  %call7 = tail call i32 @convert_host_port(ptr noundef %saddr, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %errp)
   br label %out
 
 out:                                              ; preds = %if.end, %if.then
@@ -369,7 +368,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 255
-  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !5
 
 if.end:                                           ; preds = %entry
   store <4 x i8> <i8 82, i8 84, i8 0, i8 18>, ptr %macaddr, align 1
@@ -387,7 +386,7 @@ for.body.i11:                                     ; preds = %for.inc.i15, %if.en
 for.inc.i15:                                      ; preds = %for.body.i11
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i17 = icmp eq i64 %indvars.iv.next.i16, 255
-  br i1 %exitcond.not.i17, label %qemu_macaddr_get_free.exit, label %for.body.i11, !llvm.loop !8
+  br i1 %exitcond.not.i17, label %qemu_macaddr_get_free.exit, label %for.body.i11, !llvm.loop !7
 
 return.split.loop.exit6.i:                        ; preds = %for.body.i11
   %4 = trunc i64 %indvars.iv.i12 to i8
@@ -415,7 +414,7 @@ if.then.i26:                                      ; preds = %for.body.i20
 for.inc.i23:                                      ; preds = %if.then.i26, %for.body.i20
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, 255
-  br i1 %exitcond.not.i25, label %return, label %for.body.i20, !llvm.loop !6
+  br i1 %exitcond.not.i25, label %return, label %for.body.i20, !llvm.loop !5
 
 return:                                           ; preds = %for.inc.i, %for.inc.i23, %if.then
   ret void
@@ -484,7 +483,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   %next.i = getelementptr inbounds i8, ptr %nc.09.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nc.0.i, null
-  br i1 %tobool.not.i, label %assign_name.exit, label %for.body.i, !llvm.loop !9
+  br i1 %tobool.not.i, label %assign_name.exit, label %for.body.i, !llvm.loop !8
 
 assign_name.exit:                                 ; preds = %for.inc.i, %if.else
   %id.0.lcssa.i = phi i32 [ 0, %if.else ], [ %id.1.i, %for.inc.i ]
@@ -616,7 +615,7 @@ for.body:                                         ; preds = %if.end8, %for.body
   store i32 %7, ptr %queue_index, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
   ret ptr %call
@@ -740,7 +739,7 @@ for.inc.us.i:                                     ; preds = %if.end7.us.i, %for.
   %next.us.i = getelementptr inbounds i8, ptr %nc.012.us.i, i64 16
   %nc.0.us.i = load ptr, ptr %next.us.i, align 8
   %tobool.not.us.i = icmp eq ptr %nc.0.us.i, null
-  br i1 %tobool.not.us.i, label %qemu_find_net_clients_except.exit, label %for.body.us.i, !llvm.loop !11
+  br i1 %tobool.not.us.i, label %qemu_find_net_clients_except.exit, label %for.body.us.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %nc.012.i = phi ptr [ %nc.0.i, %for.inc.i ], [ %nc.09.i, %for.body.lr.ph.i ]
@@ -776,7 +775,7 @@ for.inc.i:                                        ; preds = %if.end7.i, %if.end.
   %next.i = getelementptr inbounds i8, ptr %nc.012.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nc.0.i, null
-  br i1 %tobool.not.i, label %qemu_find_net_clients_except.exit, label %for.body.i, !llvm.loop !11
+  br i1 %tobool.not.i, label %qemu_find_net_clients_except.exit, label %for.body.i, !llvm.loop !10
 
 qemu_find_net_clients_except.exit:                ; preds = %for.inc.i, %for.inc.us.i
   %ret.0.lcssa.i = phi i32 [ %ret.1.us.i, %for.inc.us.i ], [ %ret.1.i, %for.inc.i ]
@@ -799,7 +798,7 @@ land.rhs:                                         ; preds = %if.end4, %land.rhs
   %9 = load ptr, ptr %next5, align 8
   tail call void @object_unparent(ptr noundef nonnull %nf.050) #26
   %tobool.not = icmp eq ptr %9, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !12
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !11
 
 for.end:                                          ; preds = %land.rhs, %if.end4
   %peer = getelementptr inbounds i8, ptr %nc, i64 32
@@ -847,7 +846,7 @@ for.body20:                                       ; preds = %for.body20.preheade
   store i32 1, ptr %link_down, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end23, label %for.body20, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end23, label %for.body20, !llvm.loop !12
 
 for.end23:                                        ; preds = %for.body20, %if.end16
   %18 = load ptr, ptr %peer, align 8
@@ -906,7 +905,7 @@ if.then15.i:                                      ; preds = %if.end.i26
 qemu_cleanup_net_client.exit:                     ; preds = %if.end.i26, %if.then15.i
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %for.end51, label %for.body35, !llvm.loop !14
+  br i1 %exitcond64.not, label %for.end51, label %for.body35, !llvm.loop !13
 
 if.end41:                                         ; preds = %land.lhs.true, %for.end
   %cmp4355 = icmp sgt i32 %ret.0.lcssa.i, 0
@@ -991,7 +990,7 @@ if.then8.i:                                       ; preds = %if.end6.i
 qemu_free_net_client.exit:                        ; preds = %if.end6.i, %if.then8.i
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %for.end51, label %for.body44, !llvm.loop !15
+  br i1 %exitcond69.not, label %for.end51, label %for.body44, !llvm.loop !14
 
 for.end51:                                        ; preds = %qemu_cleanup_net_client.exit, %qemu_free_net_client.exit, %if.end32, %if.end41, %if.then11
   ret void
@@ -1035,7 +1034,7 @@ for.inc.us:                                       ; preds = %if.end7.us, %for.bo
   %next.us = getelementptr inbounds i8, ptr %nc.012.us, i64 16
   %nc.0.us = load ptr, ptr %next.us, align 8
   %tobool.not.us = icmp eq ptr %nc.0.us, null
-  br i1 %tobool.not.us, label %for.end, label %for.body.us, !llvm.loop !11
+  br i1 %tobool.not.us, label %for.end, label %for.body.us, !llvm.loop !10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %nc.012 = phi ptr [ %nc.0, %for.inc ], [ %nc.09, %for.body.lr.ph ]
@@ -1071,7 +1070,7 @@ for.inc:                                          ; preds = %if.end, %if.end7, %
   %next = getelementptr inbounds i8, ptr %nc.012, i64 16
   %nc.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nc.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
   %ret.0.lcssa = phi i32 [ 0, %entry ], [ %ret.1.us, %for.inc.us ], [ %ret.1, %for.inc ]
@@ -1112,7 +1111,7 @@ if.then5.i:                                       ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then5.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 255
-  br i1 %exitcond.not.i, label %qemu_macaddr_set_free.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %qemu_macaddr_set_free.exit, label %for.body.i, !llvm.loop !15
 
 qemu_macaddr_set_free.exit:                       ; preds = %for.inc.i, %entry
   %peer_deleted = getelementptr inbounds i8, ptr %nic, i64 32
@@ -1185,7 +1184,7 @@ if.end.i19:                                       ; preds = %if.then6
 for.inc:                                          ; preds = %if.end.i19, %if.then6, %if.then8.i, %if.end6.i, %if.else
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.body11, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.body11, label %for.body, !llvm.loop !16
 
 for.body11:                                       ; preds = %for.inc, %qemu_free_net_client.exit41
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %qemu_free_net_client.exit41 ], [ %wide.trip.count, %for.inc ]
@@ -1262,7 +1261,7 @@ if.then8.i40:                                     ; preds = %if.end6.i35
 
 qemu_free_net_client.exit41:                      ; preds = %if.end6.i35, %if.then8.i40
   %cmp10 = icmp sgt i64 %indvars.iv45, 1
-  br i1 %cmp10, label %for.body11, label %for.end15, !llvm.loop !18
+  br i1 %cmp10, label %for.body11, label %for.end15, !llvm.loop !17
 
 for.end15:                                        ; preds = %qemu_free_net_client.exit41
   tail call void @g_free(ptr noundef nonnull %nic) #26
@@ -1321,7 +1320,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   %next = getelementptr inbounds i8, ptr %nc.07, i64 16
   %nc.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nc.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -1554,7 +1553,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_can_receive_packet(ptr noundef %nc) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qemu_can_receive_packet(ptr noundef %nc) local_unnamed_addr #0 {
 entry:
   %receive_disabled = getelementptr inbounds i8, ptr %nc, i64 320
   %bf.load = load i8, ptr %receive_disabled, align 8
@@ -1582,7 +1581,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_can_send_packet(ptr nocapture noundef readonly %sender) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qemu_can_send_packet(ptr nocapture noundef readonly %sender) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @runstate_is_running() #26
   br i1 %call, label %if.end, label %return
@@ -1760,7 +1759,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %nf.029.i.i, i64 80
   %nf.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %nf.0.i.i, null
-  br i1 %tobool.not.i.i, label %filter_receive.exit.thread, label %for.body.i.i, !llvm.loop !20
+  br i1 %tobool.not.i.i, label %filter_receive.exit.thread, label %for.body.i.i, !llvm.loop !19
 
 for.body.i.i:                                     ; preds = %if.end, %for.cond.i.i
   %nf.029.i.i = phi ptr [ %nf.0.i.i, %for.cond.i.i ], [ %nf.027.i.i, %if.end ]
@@ -1804,7 +1803,7 @@ for.cond5.i.i:                                    ; preds = %for.body7.i.i
   %nf.1.in.i.i = load ptr, ptr %nf.1.in.in.i.i, align 8
   %nf.1.i.i = load ptr, ptr %nf.1.in.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %nf.1.i.i, null
-  br i1 %tobool6.not.i.i, label %filter_receive.exit24.thread, label %for.body7.i.i, !llvm.loop !21
+  br i1 %tobool6.not.i.i, label %filter_receive.exit24.thread, label %for.body7.i.i, !llvm.loop !20
 
 for.body7.i.i:                                    ; preds = %if.end7, %for.cond5.i.i
   %nf.125.i.i = phi ptr [ %nf.1.i.i, %for.cond5.i.i ], [ %nf.123.i.i, %if.end7 ]
@@ -1949,7 +1948,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %nf.029.i, i64 80
   %nf.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nf.0.i, null
-  br i1 %tobool.not.i, label %if.end8, label %for.body.i, !llvm.loop !20
+  br i1 %tobool.not.i, label %if.end8, label %for.body.i, !llvm.loop !19
 
 for.body.i:                                       ; preds = %if.end3, %for.cond.i
   %nf.029.i = phi ptr [ %nf.0.i, %for.cond.i ], [ %nf.027.i, %if.end3 ]
@@ -1984,7 +1983,7 @@ for.cond5.i:                                      ; preds = %for.body7.i
   %nf.1.in.i = load ptr, ptr %nf.1.in.in.i, align 8
   %nf.1.i = load ptr, ptr %nf.1.in.i, align 8
   %tobool6.not.i = icmp eq ptr %nf.1.i, null
-  br i1 %tobool6.not.i, label %if.end15, label %for.body7.i, !llvm.loop !21
+  br i1 %tobool6.not.i, label %if.end15, label %for.body7.i, !llvm.loop !20
 
 for.body7.i:                                      ; preds = %if.end8, %for.cond5.i
   %nf.125.i = phi ptr [ %nf.1.i, %for.cond5.i ], [ %nf.123.i, %if.end8 ]
@@ -2050,7 +2049,7 @@ for.inc:                                          ; preds = %if.end, %for.body
   %next = getelementptr inbounds i8, ptr %nc.07, i64 16
   %nc.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nc.0, null
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !22
+  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !21
 
 return:                                           ; preds = %if.end, %for.inc, %entry
   %nc.0.lcssa = phi ptr [ null, %entry ], [ null, %for.inc ], [ %nc.07, %if.end ]
@@ -2105,7 +2104,7 @@ if.end12:                                         ; preds = %if.end, %land.lhs.t
   %4 = load ptr, ptr %next13, align 8
   tail call void @g_slist_free_1(ptr noundef nonnull %list.011) #26
   %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !23
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !22
 
 while.end:                                        ; preds = %if.end12, %entry
   tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef null) #26
@@ -2131,37 +2130,43 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #4
 declare void @g_slist_free_1(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_show_nic_models(ptr noundef readonly %arg, ptr nocapture noundef readonly %models) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qemu_show_nic_models(ptr noundef readonly %arg, ptr nocapture noundef readonly %models) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(2) @.str.56) #29
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.end, label %is_help_option.exit
+  %0 = load i8, ptr %arg, align 1
+  %.not.i = icmp eq i8 %0, 63
+  br i1 %.not.i, label %entry.tail.i, label %is_help_option.exit
 
-is_help_option.exit:                              ; preds = %lor.lhs.false
+entry.tail.i:                                     ; preds = %lor.lhs.false
+  %1 = getelementptr inbounds i8, ptr %arg, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.end, label %is_help_option.exit
+
+is_help_option.exit:                              ; preds = %lor.lhs.false, %entry.tail.i
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(5) @.str.57) #29
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end, label %return
 
-if.end:                                           ; preds = %lor.lhs.false, %is_help_option.exit
+if.end:                                           ; preds = %entry.tail.i, %is_help_option.exit
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %0 = load ptr, ptr %models, align 8
-  %tobool2.not6 = icmp eq ptr %0, null
+  %4 = load ptr, ptr %models, align 8
+  %tobool2.not6 = icmp eq ptr %4, null
   br i1 %tobool2.not6, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
-  %1 = phi ptr [ %2, %for.body ], [ %0, %if.end ]
+  %5 = phi ptr [ %6, %for.body ], [ %4, %if.end ]
   %i.07 = phi i32 [ %inc, %for.body ], [ 0, %if.end ]
-  %puts5 = tail call i32 @puts(ptr nonnull dereferenceable(1) %1)
+  %puts5 = tail call i32 @puts(ptr nonnull dereferenceable(1) %5)
   %inc = add i32 %i.07, 1
   %idxprom = sext i32 %inc to i64
   %arrayidx = getelementptr ptr, ptr %models, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx, align 8
-  %tobool2.not = icmp eq ptr %2, null
-  br i1 %tobool2.not, label %return, label %for.body, !llvm.loop !24
+  %6 = load ptr, ptr %arrayidx, align 8
+  %tobool2.not = icmp eq ptr %6, null
+  br i1 %tobool2.not, label %return, label %for.body, !llvm.loop !23
 
 return:                                           ; preds = %for.body, %if.end, %entry, %is_help_option.exit
   %retval.0 = phi i32 [ 0, %is_help_option.exit ], [ 0, %entry ], [ 1, %if.end ], [ 1, %for.body ]
@@ -2181,30 +2186,36 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.56) #29
-  %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i, label %is_help_option.exit.i
+  %1 = load i8, ptr %0, align 1
+  %.not.i.i = icmp eq i8 %1, 63
+  br i1 %.not.i.i, label %entry.tail.i.i, label %is_help_option.exit.i
 
-is_help_option.exit.i:                            ; preds = %lor.lhs.false.i
+entry.tail.i.i:                                   ; preds = %lor.lhs.false.i
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = load i8, ptr %2, align 1
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %if.end.i, label %is_help_option.exit.i
+
+is_help_option.exit.i:                            ; preds = %entry.tail.i.i, %lor.lhs.false.i
   %call1.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.57) #29
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %if.end.i, label %if.end.i4
 
-if.end.i:                                         ; preds = %is_help_option.exit.i, %lor.lhs.false.i
+if.end.i:                                         ; preds = %is_help_option.exit.i, %entry.tail.i.i
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %tobool2.not6.i = icmp eq ptr %model, null
   br i1 %tobool2.not6.i, label %if.then, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
-  %1 = phi ptr [ %2, %for.body.i ], [ %model, %if.end.i ]
+  %5 = phi ptr [ %6, %for.body.i ], [ %model, %if.end.i ]
   %i.07.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end.i ]
-  %puts5.i = tail call i32 @puts(ptr nonnull dereferenceable(1) %1)
+  %puts5.i = tail call i32 @puts(ptr nonnull dereferenceable(1) %5)
   %inc.i = add i32 %i.07.i, 1
   %idxprom.i = sext i32 %inc.i to i64
   %arrayidx.i = getelementptr ptr, ptr %models, i64 %idxprom.i
-  %2 = load ptr, ptr %arrayidx.i, align 8
-  %tobool2.not.i = icmp eq ptr %2, null
-  br i1 %tobool2.not.i, label %if.then, label %for.body.i, !llvm.loop !24
+  %6 = load ptr, ptr %arrayidx.i, align 8
+  %tobool2.not.i = icmp eq ptr %6, null
+  br i1 %tobool2.not.i, label %if.then, label %for.body.i, !llvm.loop !23
 
 if.then:                                          ; preds = %for.body.i, %if.end.i
   tail call void @exit(i32 noundef 0) #27
@@ -2216,14 +2227,14 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i4
 
 if.end.i4:                                        ; preds = %is_help_option.exit.i, %if.then.i
-  %3 = phi ptr [ %call.i, %if.then.i ], [ %0, %is_help_option.exit.i ]
+  %7 = phi ptr [ %call.i, %if.then.i ], [ %0, %is_help_option.exit.i ]
   %tobool2.not9.i = icmp eq ptr %model, null
   br i1 %tobool2.not9.i, label %qemu_find_nic_model.exit.thread, label %for.body.i5
 
 for.body.i5:                                      ; preds = %if.end.i4, %for.inc.i
-  %4 = phi ptr [ %5, %for.inc.i ], [ %model, %if.end.i4 ]
+  %8 = phi ptr [ %9, %for.inc.i ], [ %model, %if.end.i4 ]
   %i.010.i = phi i32 [ %inc.i6, %for.inc.i ], [ 0, %if.end.i4 ]
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #29
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %8) #29
   %cmp.i = icmp eq i32 %call6.i, 0
   br i1 %cmp.i, label %qemu_find_nic_model.exit, label %for.inc.i
 
@@ -2231,12 +2242,12 @@ for.inc.i:                                        ; preds = %for.body.i5
   %inc.i6 = add i32 %i.010.i, 1
   %idxprom.i7 = sext i32 %inc.i6 to i64
   %arrayidx.i8 = getelementptr ptr, ptr %models, i64 %idxprom.i7
-  %5 = load ptr, ptr %arrayidx.i8, align 8
-  %tobool2.not.i9 = icmp eq ptr %5, null
-  br i1 %tobool2.not.i9, label %qemu_find_nic_model.exit.thread, label %for.body.i5, !llvm.loop !25
+  %9 = load ptr, ptr %arrayidx.i8, align 8
+  %tobool2.not.i9 = icmp eq ptr %9, null
+  br i1 %tobool2.not.i9, label %qemu_find_nic_model.exit.thread, label %for.body.i5, !llvm.loop !24
 
 qemu_find_nic_model.exit.thread:                  ; preds = %for.inc.i, %if.end.i4
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %3) #26
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %7) #26
   br label %if.then5
 
 qemu_find_nic_model.exit:                         ; preds = %for.body.i5
@@ -2286,7 +2297,7 @@ for.inc:                                          ; preds = %for.body
   %arrayidx = getelementptr ptr, ptr %models, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %tobool2.not = icmp eq ptr %4, null
-  br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !25
+  br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %if.end
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %1) #26
@@ -2314,7 +2325,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call2 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.17, ptr noundef %0) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -2325,12 +2336,12 @@ declare i32 @qemu_printf(ptr noundef, ...) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @netdev_add(ptr noundef %opts, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext true, ptr noundef %errp), !range !5
+  %call = tail call fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext true, ptr noundef %errp)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext %is_netdev, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext %is_netdev, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %object = alloca ptr, align 8
   %prefix_len = alloca i64, align 8
@@ -2397,7 +2408,7 @@ if.end24:                                         ; preds = %if.then22, %land.lh
 
 if.then26:                                        ; preds = %if.end24
   %3 = load ptr, ptr %object, align 8
-  %call28 = call fastcc i32 @net_client_init1(ptr noundef %3, i1 noundef zeroext %is_netdev, ptr noundef %errp), !range !5
+  %call28 = call fastcc i32 @net_client_init1(ptr noundef %3, i1 noundef zeroext %is_netdev, ptr noundef %errp)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then26, %if.end24
@@ -2426,7 +2437,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @net_client_init1(ptr noundef nonnull %netdev, i1 noundef zeroext true, ptr noundef %errp), !range !5
+  %call1 = tail call fastcc i32 @net_client_init1(ptr noundef nonnull %netdev, i1 noundef zeroext true, ptr noundef %errp)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -2436,7 +2447,7 @@ return:                                           ; preds = %if.end, %if.then
 declare zeroext i1 @id_wellformed(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @net_client_init1(ptr noundef %netdev, i1 noundef zeroext %is_netdev, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @net_client_init1(ptr noundef %netdev, i1 noundef zeroext %is_netdev, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
@@ -2520,7 +2531,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   %next.i = getelementptr inbounds i8, ptr %nc.07.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nc.0.i, null
-  br i1 %tobool.not.i, label %if.end36, label %for.body.i, !llvm.loop !22
+  br i1 %tobool.not.i, label %if.end36, label %for.body.i, !llvm.loop !21
 
 if.then34:                                        ; preds = %if.end.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1170, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.66, ptr noundef %6) #26
@@ -2578,7 +2589,7 @@ for.inc.i37:                                      ; preds = %if.end.i33, %for.bo
   %next.i38 = getelementptr inbounds i8, ptr %nc.07.i31, i64 16
   %nc.0.i39 = load ptr, ptr %next.i38, align 8
   %tobool.not.i40 = icmp eq ptr %nc.0.i39, null
-  br i1 %tobool.not.i40, label %if.else57, label %for.body.i30, !llvm.loop !22
+  br i1 %tobool.not.i40, label %if.else57, label %for.body.i30, !llvm.loop !21
 
 if.else57:                                        ; preds = %for.inc.i37, %if.then52
   tail call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str, i32 noundef 1185, ptr noundef nonnull @__PRETTY_FUNCTION__.net_client_init1) #27
@@ -2619,7 +2630,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   %next.i = getelementptr inbounds i8, ptr %nc.07.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nc.0.i, null
-  br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !22
+  br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !21
 
 if.then:                                          ; preds = %for.inc.i, %entry
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1316, ptr noundef nonnull @__func__.qmp_netdev_del, i32 noundef 3, ptr noundef nonnull @.str.32, ptr noundef %id) #26
@@ -2718,7 +2729,7 @@ if.end.i:                                         ; preds = %while.body.i
 while.cond.backedge.i:                            ; preds = %if.end.i, %while.body.i
   %call.i = call ptr @object_property_iter_next(ptr noundef nonnull %iter.i) #26
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %netfilter_print_info.exit, label %while.body.i, !llvm.loop !27
+  br i1 %tobool.not.i, label %netfilter_print_info.exit, label %while.body.i, !llvm.loop !26
 
 netfilter_print_info.exit:                        ; preds = %while.cond.backedge.i, %for.body
   %call8.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.77) #26
@@ -2727,7 +2738,7 @@ netfilter_print_info.exit:                        ; preds = %while.cond.backedge
   %next = getelementptr inbounds i8, ptr %nf.015, i64 80
   %nf.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nf.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !28
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %netfilter_print_info.exit, %entry, %if.end
   ret void
@@ -2788,7 +2799,7 @@ for.inc.us:                                       ; preds = %if.end15.us, %if.en
   %next35.us = getelementptr inbounds i8, ptr %nc.028.us, i64 16
   %nc.0.us = load ptr, ptr %next35.us, align 8
   %tobool.not.us = icmp eq ptr %nc.0.us, null
-  br i1 %tobool.not.us, label %for.end.loopexit, label %for.body.us, !llvm.loop !29
+  br i1 %tobool.not.us, label %for.end.loopexit, label %for.body.us, !llvm.loop !28
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %nc.028 = phi ptr [ %nc.0, %for.inc ], [ %nc.025, %for.body.lr.ph ]
@@ -2835,7 +2846,7 @@ for.inc:                                          ; preds = %if.end12, %for.body
   %next35 = getelementptr inbounds i8, ptr %nc.028, i64 16
   %nc.0 = load ptr, ptr %next35, align 8
   %tobool.not = icmp eq ptr %nc.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.end.loopexit:                                 ; preds = %for.inc.us
   %filter_list.0.filter_list.0.filter_list.0.filter_list.0.21.pre = load ptr, ptr %filter_list, align 8
@@ -2877,7 +2888,7 @@ for.cond1:                                        ; preds = %for.body3
   %next = getelementptr inbounds i8, ptr %nf.08, i64 80
   %nf.0 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %nf.0, null
-  br i1 %tobool2.not, label %for.inc5, label %for.body3, !llvm.loop !30
+  br i1 %tobool2.not, label %for.inc5, label %for.body3, !llvm.loop !29
 
 for.body3:                                        ; preds = %for.body, %for.cond1
   %nf.08 = phi ptr [ %nf.0, %for.cond1 ], [ %nf.06, %for.body ]
@@ -2898,7 +2909,7 @@ for.inc5:                                         ; preds = %for.cond1, %for.bod
   %next6 = getelementptr inbounds i8, ptr %nc.011, i64 16
   %nc.0 = load ptr, ptr %next6, align 8
   %tobool.not = icmp eq ptr %nc.0, null
-  br i1 %tobool.not, label %for.end7, label %for.body, !llvm.loop !31
+  br i1 %tobool.not, label %for.end7, label %for.body, !llvm.loop !30
 
 for.end7:                                         ; preds = %for.inc5, %entry, %if.then
   ret void
@@ -2945,7 +2956,7 @@ for.inc.us.i:                                     ; preds = %if.end7.us.i, %for.
   %next.us.i = getelementptr inbounds i8, ptr %nc.012.us.i, i64 16
   %nc.0.us.i = load ptr, ptr %next.us.i, align 8
   %tobool.not.us.i = icmp eq ptr %nc.0.us.i, null
-  br i1 %tobool.not.us.i, label %qemu_find_net_clients_except.exit, label %for.body.us.i, !llvm.loop !11
+  br i1 %tobool.not.us.i, label %qemu_find_net_clients_except.exit, label %for.body.us.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %nc.012.i = phi ptr [ %nc.0.i, %for.inc.i ], [ %nc.09.i, %for.body.lr.ph.i ]
@@ -2981,7 +2992,7 @@ for.inc.i:                                        ; preds = %if.end7.i, %if.end.
   %next.i = getelementptr inbounds i8, ptr %nc.012.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %nc.0.i, null
-  br i1 %tobool.not.i, label %qemu_find_net_clients_except.exit, label %for.body.i, !llvm.loop !11
+  br i1 %tobool.not.i, label %qemu_find_net_clients_except.exit, label %for.body.i, !llvm.loop !10
 
 qemu_find_net_clients_except.exit:                ; preds = %for.inc.i, %for.inc.us.i
   %ret.0.lcssa.i = phi i32 [ %ret.1.us.i, %for.inc.us.i ], [ %ret.1.i, %for.inc.i ]
@@ -3011,7 +3022,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %lnot.ext, ptr %link_down, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body, %if.end
   %7 = load ptr, ptr %5, align 8
@@ -3053,7 +3064,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   store i32 %lnot.ext19, ptr %link_down23, align 8
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
-  br i1 %exitcond32.not, label %if.end27.loopexit, label %for.body16, !llvm.loop !33
+  br i1 %exitcond32.not, label %if.end27.loopexit, label %for.body16, !llvm.loop !32
 
 if.end27.loopexit:                                ; preds = %for.body16
   %.pre = load ptr, ptr %peer, align 8
@@ -3104,7 +3115,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %p.1 = phi ptr [ %next, %if.then ], [ %p.05, %if.else ]
   %4 = load ptr, ptr %p.1, align 8
   %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !34
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !33
 
 while.end:                                        ; preds = %if.end, %entry
   %5 = load ptr, ptr @net_change_state_entry, align 8
@@ -3145,7 +3156,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %next = getelementptr inbounds i8, ptr %nc.015, i64 16
   %nc.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nc.0, null
-  br i1 %tobool.not, label %for.body4.preheader, label %for.body, !llvm.loop !35
+  br i1 %tobool.not, label %for.body4.preheader, label %for.body, !llvm.loop !34
 
 for.body4.preheader:                              ; preds = %for.inc, %entry
   br label %for.body4
@@ -3179,7 +3190,7 @@ if.then7:                                         ; preds = %land.lhs.true
 for.inc19:                                        ; preds = %for.body4, %land.lhs.true, %if.then7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end20, label %for.body4, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end20, label %for.body4, !llvm.loop !35
 
 for.end20:                                        ; preds = %for.inc19
   ret void
@@ -3217,14 +3228,14 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   %loc.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.i = tail call ptr @loc_push_restore(ptr noundef nonnull %loc.i) #26
   %3 = load ptr, ptr %1, align 8
-  %call6.i = tail call fastcc i32 @net_client_init1(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull @error_fatal), !range !5
+  %call6.i = tail call fastcc i32 @net_client_init1(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull @error_fatal)
   %call8.i = tail call ptr @loc_pop(ptr noundef nonnull %loc.i) #26
   %4 = load ptr, ptr %1, align 8
   tail call void @qapi_free_Netdev(ptr noundef %4) #26
   tail call void @g_free(ptr noundef nonnull %1) #26
   %5 = load ptr, ptr @nd_queue, align 8
   %cmp.not.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i, label %netdev_init_modern.exit, label %while.body.i, !llvm.loop !37
+  br i1 %cmp.not.i, label %netdev_init_modern.exit, label %while.body.i, !llvm.loop !36
 
 netdev_init_modern.exit:                          ; preds = %if.end.i, %entry
   %call1 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.15) #26
@@ -3262,7 +3273,7 @@ land.lhs.true.us:                                 ; preds = %land.rhs.us
   br i1 %call.i.us, label %if.end.i.us, label %for.inc.us
 
 if.end.i.us:                                      ; preds = %land.lhs.true.us
-  %3 = load ptr, ptr %peer.us, align 8, !nonnull !38, !noundef !38
+  %3 = load ptr, ptr %peer.us, align 8, !nonnull !37, !noundef !37
   %receive_disabled.i.i.us = getelementptr inbounds i8, ptr %3, i64 320
   %bf.load.i.i.us = load i8, ptr %receive_disabled.i.i.us, align 8
   %bf.clear.i.i.us = and i8 %bf.load.i.i.us, 1
@@ -3321,7 +3332,7 @@ if.then6.i.i.us:                                  ; preds = %if.end4.i.i.us
 
 for.inc.us:                                       ; preds = %if.then6.i.i.us, %if.end4.i.i.us, %land.lhs.true.i.i.us, %if.end.i.us, %land.lhs.true.us, %land.rhs.us
   %tobool.not.us = icmp eq ptr %1, null
-  br i1 %tobool.not.us, label %for.end, label %land.rhs.us, !llvm.loop !39
+  br i1 %tobool.not.us, label %for.end, label %land.rhs.us, !llvm.loop !38
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %nc.017 = phi ptr [ %11, %for.inc ], [ %0, %land.rhs.lr.ph ]
@@ -3368,7 +3379,7 @@ if.else.i:                                        ; preds = %if.end4.i
 
 for.inc:                                          ; preds = %if.else.i, %if.then6.i
   %tobool.not = icmp eq ptr %11, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !39
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !38
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
   ret void
@@ -3377,29 +3388,35 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 declare i32 @qemu_opts_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @net_init_netdev(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @net_init_netdev(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.47) #26
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(2) @.str.56) #29
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then, label %is_help_option.exit
+  %0 = load i8, ptr %call, align 1
+  %.not.i = icmp eq i8 %0, 63
+  br i1 %.not.i, label %entry.tail.i, label %is_help_option.exit
 
-is_help_option.exit:                              ; preds = %land.lhs.true
+entry.tail.i:                                     ; preds = %land.lhs.true
+  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.then, label %is_help_option.exit
+
+is_help_option.exit:                              ; preds = %land.lhs.true, %entry.tail.i
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.57) #29
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true, %is_help_option.exit
+if.then:                                          ; preds = %entry.tail.i, %is_help_option.exit
   tail call void @show_netdevs()
   tail call void @exit(i32 noundef 0) #27
   unreachable
 
 if.end:                                           ; preds = %is_help_option.exit, %entry
-  %call2 = tail call fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext true, ptr noundef %errp), !range !5
+  %call2 = tail call fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext true, ptr noundef %errp)
   ret i32 %call2
 }
 
@@ -3419,21 +3436,27 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(2) @.str.56) #29
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then5, label %is_help_option.exit
+  %0 = load i8, ptr %call, align 1
+  %.not.i = icmp eq i8 %0, 63
+  br i1 %.not.i, label %entry.tail.i, label %is_help_option.exit
 
-is_help_option.exit:                              ; preds = %if.end
+entry.tail.i:                                     ; preds = %if.end
+  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.then5, label %is_help_option.exit
+
+is_help_option.exit:                              ; preds = %if.end, %entry.tail.i
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.57) #29
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then5, label %for.body.i.preheader
 
-if.then5:                                         ; preds = %if.end, %is_help_option.exit
+if.then5:                                         ; preds = %entry.tail.i, %is_help_option.exit
   %call6 = tail call ptr @qemu_get_nic_models(ptr noundef nonnull @.str.14)
   tail call void @show_netdevs()
   %putchar = tail call i32 @putchar(i32 10)
-  %0 = load ptr, ptr %call6, align 8
-  %call8 = tail call i32 @qemu_show_nic_models(ptr noundef nonnull %call, ptr noundef %0), !range !40
+  %4 = load ptr, ptr %call6, align 8
+  %call8 = tail call i32 @qemu_show_nic_models(ptr noundef nonnull %call, ptr noundef %4)
   %call9 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %call6, i32 noundef 1) #26
   tail call void @exit(i32 noundef 0) #27
   unreachable
@@ -3441,20 +3464,20 @@ if.then5:                                         ; preds = %if.end, %is_help_op
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %used.i = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %indvars.iv.i, i32 5
-  %1 = load i32, ptr %used.i, align 8
-  %tobool.not.i29 = icmp eq i32 %1, 0
-  br i1 %tobool.not.i29, label %nic_get_free_idx.exit, label %for.inc.i
+  %5 = load i32, ptr %used.i, align 8
+  %tobool.not.i = icmp eq i32 %5, 0
+  br i1 %tobool.not.i, label %nic_get_free_idx.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %if.then14, label %for.body.i, !llvm.loop !41
+  br i1 %exitcond.not.i, label %if.then14, label %for.body.i, !llvm.loop !39
 
 nic_get_free_idx.exit:                            ; preds = %for.body.i
-  %2 = and i64 %indvars.iv.i, 4294967295
-  %cmp = icmp eq i64 %2, 4294967295
-  %3 = load i32, ptr @nb_nics, align 4
-  %cmp13 = icmp sgt i32 %3, 7
+  %6 = and i64 %indvars.iv.i, 4294967295
+  %cmp = icmp eq i64 %6, 4294967295
+  %7 = load i32, ptr @nb_nics, align 4
+  %cmp13 = icmp sgt i32 %7, 7
   %or.cond = select i1 %cmp, i1 true, i1 %cmp13
   br i1 %or.cond, label %if.then14, label %if.end15
 
@@ -3505,8 +3528,8 @@ if.then32:                                        ; preds = %if.then29
 
 if.end33:                                         ; preds = %if.then29
   %arrayidx.val = load i8, ptr %arrayidx, align 8
-  %4 = and i8 %arrayidx.val, 1
-  %tobool38.not = icmp eq i8 %4, 0
+  %8 = and i8 %arrayidx.val, 1
+  %tobool38.not = icmp eq i8 %8, 0
   br i1 %tobool38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %if.end33
@@ -3525,26 +3548,26 @@ if.then.i:                                        ; preds = %if.end41
 
 if.else.i:                                        ; preds = %if.then.i
   %arrayidx.i.i = getelementptr i8, ptr %arrayidx, i64 5
-  %5 = load i8, ptr %arrayidx.i.i, align 1
-  %6 = zext i8 %5 to i64
-  %arrayidx3.i.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %6
+  %9 = load i8, ptr %arrayidx.i.i, align 1
+  %10 = zext i8 %9 to i64
+  %arrayidx3.i.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %10
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.else.i
   %indvars.iv.i.i = phi i64 [ 86, %if.else.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %cmp1.i.i = icmp eq i64 %indvars.iv.i.i, %6
+  %cmp1.i.i = icmp eq i64 %indvars.iv.i.i, %10
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %7 = load i32, ptr %arrayidx3.i.i, align 4
-  %inc.i.i = add i32 %7, 1
+  %11 = load i32, ptr %arrayidx3.i.i, align 4
+  %inc.i.i = add i32 %11, 1
   store i32 %inc.i.i, ptr %arrayidx3.i.i, align 4
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 255
-  br i1 %exitcond.not.i.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %if.end41
   store <4 x i8> <i8 82, i8 84, i8 0, i8 18>, ptr %arrayidx, align 8
@@ -3555,81 +3578,81 @@ if.end.i:                                         ; preds = %if.end41
 for.body.i11.i:                                   ; preds = %for.inc.i15.i, %if.end.i
   %indvars.iv.i12.i = phi i64 [ 86, %if.end.i ], [ %indvars.iv.next.i16.i, %for.inc.i15.i ]
   %arrayidx.i13.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %indvars.iv.i12.i
-  %8 = load i32, ptr %arrayidx.i13.i, align 4
-  %cmp1.i14.i = icmp eq i32 %8, 0
+  %12 = load i32, ptr %arrayidx.i13.i, align 4
+  %cmp1.i14.i = icmp eq i32 %12, 0
   br i1 %cmp1.i14.i, label %return.split.loop.exit6.i.i, label %for.inc.i15.i
 
 for.inc.i15.i:                                    ; preds = %for.body.i11.i
   %indvars.iv.next.i16.i = add nuw nsw i64 %indvars.iv.i12.i, 1
   %exitcond.not.i17.i = icmp eq i64 %indvars.iv.next.i16.i, 255
-  br i1 %exitcond.not.i17.i, label %qemu_macaddr_get_free.exit.i, label %for.body.i11.i, !llvm.loop !8
+  br i1 %exitcond.not.i17.i, label %qemu_macaddr_get_free.exit.i, label %for.body.i11.i, !llvm.loop !7
 
 return.split.loop.exit6.i.i:                      ; preds = %for.body.i11.i
-  %9 = trunc i64 %indvars.iv.i12.i to i8
+  %13 = trunc i64 %indvars.iv.i12.i to i8
   br label %qemu_macaddr_get_free.exit.i
 
 qemu_macaddr_get_free.exit.i:                     ; preds = %for.inc.i15.i, %return.split.loop.exit6.i.i
-  %retval.0.i.i = phi i8 [ %9, %return.split.loop.exit6.i.i ], [ -1, %for.inc.i15.i ]
+  %retval.0.i.i = phi i8 [ %13, %return.split.loop.exit6.i.i ], [ -1, %for.inc.i15.i ]
   %arrayidx15.i = getelementptr i8, ptr %arrayidx, i64 5
   store i8 %retval.0.i.i, ptr %arrayidx15.i, align 1
-  %10 = zext i8 %retval.0.i.i to i64
-  %arrayidx3.i19.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %10
+  %14 = zext i8 %retval.0.i.i to i64
+  %arrayidx3.i19.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %14
   br label %for.body.i20.i
 
 for.body.i20.i:                                   ; preds = %for.inc.i23.i, %qemu_macaddr_get_free.exit.i
   %indvars.iv.i21.i = phi i64 [ 86, %qemu_macaddr_get_free.exit.i ], [ %indvars.iv.next.i24.i, %for.inc.i23.i ]
-  %cmp1.i22.i = icmp eq i64 %indvars.iv.i21.i, %10
+  %cmp1.i22.i = icmp eq i64 %indvars.iv.i21.i, %14
   br i1 %cmp1.i22.i, label %if.then.i26.i, label %for.inc.i23.i
 
 if.then.i26.i:                                    ; preds = %for.body.i20.i
-  %11 = load i32, ptr %arrayidx3.i19.i, align 4
-  %inc.i27.i = add i32 %11, 1
+  %15 = load i32, ptr %arrayidx3.i19.i, align 4
+  %inc.i27.i = add i32 %15, 1
   store i32 %inc.i27.i, ptr %arrayidx3.i19.i, align 4
   br label %for.inc.i23.i
 
 for.inc.i23.i:                                    ; preds = %if.then.i26.i, %for.body.i20.i
   %indvars.iv.next.i24.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i25.i = icmp eq i64 %indvars.iv.next.i24.i, 255
-  br i1 %exitcond.not.i25.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i20.i, !llvm.loop !6
+  br i1 %exitcond.not.i25.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i20.i, !llvm.loop !5
 
 qemu_macaddr_default_if_unset.exit:               ; preds = %for.inc.i.i, %for.inc.i23.i, %if.then.i
-  %call43 = tail call fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext true, ptr noundef %errp), !range !5
+  %call43 = tail call fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext true, ptr noundef %errp)
   %cmp44 = icmp eq i32 %call43, 0
   br i1 %cmp44, label %if.then45, label %out
 
 if.then45:                                        ; preds = %qemu_macaddr_default_if_unset.exit
   %nc.05.i = load ptr, ptr @net_clients, align 8
   %tobool.not6.i = icmp eq ptr %nc.05.i, null
-  br i1 %tobool.not6.i, label %qemu_find_netdev.exit, label %for.body.i30
+  br i1 %tobool.not6.i, label %qemu_find_netdev.exit, label %for.body.i29
 
-for.body.i30:                                     ; preds = %if.then45, %for.inc.i33
-  %nc.07.i = phi ptr [ %nc.0.i, %for.inc.i33 ], [ %nc.05.i, %if.then45 ]
-  %12 = load ptr, ptr %nc.07.i, align 8
-  %13 = load i32, ptr %12, align 8
-  %cmp.i = icmp eq i32 %13, 1
-  br i1 %cmp.i, label %for.inc.i33, label %if.end.i31
+for.body.i29:                                     ; preds = %if.then45, %for.inc.i31
+  %nc.07.i = phi ptr [ %nc.0.i, %for.inc.i31 ], [ %nc.05.i, %if.then45 ]
+  %16 = load ptr, ptr %nc.07.i, align 8
+  %17 = load i32, ptr %16, align 8
+  %cmp.i = icmp eq i32 %17, 1
+  br i1 %cmp.i, label %for.inc.i31, label %if.end.i30
 
-if.end.i31:                                       ; preds = %for.body.i30
+if.end.i30:                                       ; preds = %for.body.i29
   %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
-  %14 = load ptr, ptr %name.i, align 8
-  %call.i32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %nd_id.0) #29
-  %tobool1.not.i = icmp eq i32 %call.i32, 0
-  br i1 %tobool1.not.i, label %qemu_find_netdev.exit, label %for.inc.i33
+  %18 = load ptr, ptr %name.i, align 8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %nd_id.0) #29
+  %tobool1.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool1.not.i, label %qemu_find_netdev.exit, label %for.inc.i31
 
-for.inc.i33:                                      ; preds = %if.end.i31, %for.body.i30
+for.inc.i31:                                      ; preds = %if.end.i30, %for.body.i29
   %next.i = getelementptr inbounds i8, ptr %nc.07.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
-  %tobool.not.i34 = icmp eq ptr %nc.0.i, null
-  br i1 %tobool.not.i34, label %qemu_find_netdev.exit, label %for.body.i30, !llvm.loop !22
+  %tobool.not.i32 = icmp eq ptr %nc.0.i, null
+  br i1 %tobool.not.i32, label %qemu_find_netdev.exit, label %for.body.i29, !llvm.loop !21
 
-qemu_find_netdev.exit:                            ; preds = %if.end.i31, %for.inc.i33, %if.then45
-  %nc.0.lcssa.i = phi ptr [ null, %if.then45 ], [ %nc.07.i, %if.end.i31 ], [ null, %for.inc.i33 ]
+qemu_find_netdev.exit:                            ; preds = %if.end.i30, %for.inc.i31, %if.then45
+  %nc.0.lcssa.i = phi ptr [ null, %if.then45 ], [ %nc.07.i, %if.end.i30 ], [ null, %for.inc.i31 ]
   %netdev = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store ptr %nc.0.lcssa.i, ptr %netdev, align 8
   %used = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store i32 1, ptr %used, align 8
-  %15 = load i32, ptr @nb_nics, align 4
-  %inc = add i32 %15, 1
+  %19 = load i32, ptr @nb_nics, align 4
+  %inc = add i32 %19, 1
   store i32 %inc, ptr @nb_nics, align 4
   br label %out
 
@@ -3644,9 +3667,9 @@ return:                                           ; preds = %if.then, %out, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @net_init_client(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @net_init_client(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
-  %call = tail call fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext false, ptr noundef %errp), !range !5
+  %call = tail call fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext false, ptr noundef %errp)
   ret i32 %call
 }
 
@@ -3763,13 +3786,13 @@ for.body3:                                        ; preds = %for.body, %for.body
   %spec.select = select i1 %tobool8.not, i32 %shl, i32 %or
   %inc = add nuw nsw i32 %j.09, 1
   %exitcond.not = icmp eq i32 %inc, 8
-  br i1 %exitcond.not, label %for.inc10, label %for.body3, !llvm.loop !42
+  br i1 %exitcond.not, label %for.inc10, label %for.body3, !llvm.loop !40
 
 for.inc10:                                        ; preds = %for.body3
   %incdec.ptr = getelementptr i8, ptr %p.addr.013, i64 1
   %inc11 = add nuw nsw i32 %i.014, 1
   %exitcond15.not = icmp eq i32 %inc11, %len
-  br i1 %exitcond15.not, label %for.end12, label %for.body, !llvm.loop !43
+  br i1 %exitcond15.not, label %for.end12, label %for.body, !llvm.loop !41
 
 for.end12:                                        ; preds = %for.inc10, %entry
   %crc.0.lcssa = phi i32 [ -1, %entry ], [ %spec.select, %for.inc10 ]
@@ -3803,13 +3826,13 @@ for.body3:                                        ; preds = %for.body, %for.body
   %spec.select = select i1 %tobool.not, i32 %shr, i32 %xor8
   %inc = add nuw nsw i32 %j.09, 1
   %exitcond.not = icmp eq i32 %inc, 8
-  br i1 %exitcond.not, label %for.inc9, label %for.body3, !llvm.loop !44
+  br i1 %exitcond.not, label %for.inc9, label %for.body3, !llvm.loop !42
 
 for.inc9:                                         ; preds = %for.body3
   %incdec.ptr = getelementptr i8, ptr %p.addr.013, i64 1
   %inc10 = add nuw nsw i32 %i.014, 1
   %exitcond15.not = icmp eq i32 %inc10, %len
-  br i1 %exitcond15.not, label %for.end11, label %for.body, !llvm.loop !45
+  br i1 %exitcond15.not, label %for.end11, label %for.body, !llvm.loop !43
 
 for.end11:                                        ; preds = %for.inc9, %entry
   %crc.0.lcssa = phi i32 [ -1, %entry ], [ %spec.select, %for.inc9 ]
@@ -3831,7 +3854,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @net_fill_rstate(ptr noundef %rs, ptr nocapture noundef readonly %buf, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_fill_rstate(ptr noundef %rs, ptr nocapture noundef readonly %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp72 = icmp sgt i32 %size, 0
   br i1 %cmp72, label %while.body.lr.ph, label %while.end
@@ -3962,7 +3985,7 @@ sw.epilog:                                        ; preds = %if.then62, %if.end8
   %buf.addr.1 = phi ptr [ %buf.addr.073, %while.body ], [ %add.ptr77, %if.end89 ], [ %add.ptr77, %if.then62 ], [ %add.ptr34, %if.then41 ], [ %add.ptr34, %sw.bb20 ], [ %add.ptr5, %if.then15 ], [ %add.ptr5, %if.else ], [ %add.ptr5, %sw.bb ]
   %size.addr.1 = phi i32 [ %size.addr.074, %while.body ], [ %sub78, %if.end89 ], [ %sub78, %if.then62 ], [ %sub35, %if.then41 ], [ %sub35, %sw.bb20 ], [ %sub6, %if.then15 ], [ %sub6, %if.else ], [ %sub6, %sw.bb ]
   %cmp = icmp sgt i32 %size.addr.1, 0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !46
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !44
 
 while.end:                                        ; preds = %sw.epilog, %entry
   %size.addr.0.lcssa = phi i32 [ %size, %entry ], [ %size.addr.1, %sw.epilog ]
@@ -4175,7 +4198,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %if.then3, label %for.body.i, !llvm.loop !41
+  br i1 %exitcond.not.i, label %if.then3, label %for.body.i, !llvm.loop !39
 
 nic_get_free_idx.exit:                            ; preds = %for.body.i
   %2 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -4221,7 +4244,7 @@ for.inc.i39:                                      ; preds = %if.end.i, %for.body
   %next.i = getelementptr inbounds i8, ptr %nc.07.i, i64 16
   %nc.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i40 = icmp eq ptr %nc.0.i, null
-  br i1 %tobool.not.i40, label %if.then12, label %for.body.i38, !llvm.loop !22
+  br i1 %tobool.not.i40, label %if.then12, label %for.body.i38, !llvm.loop !21
 
 if.then12:                                        ; preds = %for.inc.i39, %if.then6
   %8 = load ptr, ptr %u, align 8
@@ -4327,7 +4350,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 255
-  br i1 %exitcond.not.i.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i.i, !llvm.loop !5
 
 if.end.i41:                                       ; preds = %if.end51
   store <4 x i8> <i8 82, i8 84, i8 0, i8 18>, ptr %arrayidx, align 8
@@ -4345,7 +4368,7 @@ for.body.i11.i:                                   ; preds = %for.inc.i15.i, %if.
 for.inc.i15.i:                                    ; preds = %for.body.i11.i
   %indvars.iv.next.i16.i = add nuw nsw i64 %indvars.iv.i12.i, 1
   %exitcond.not.i17.i = icmp eq i64 %indvars.iv.next.i16.i, 255
-  br i1 %exitcond.not.i17.i, label %qemu_macaddr_get_free.exit.i, label %for.body.i11.i, !llvm.loop !8
+  br i1 %exitcond.not.i17.i, label %qemu_macaddr_get_free.exit.i, label %for.body.i11.i, !llvm.loop !7
 
 return.split.loop.exit6.i.i:                      ; preds = %for.body.i11.i
   %17 = trunc i64 %indvars.iv.i12.i to i8
@@ -4373,7 +4396,7 @@ if.then.i26.i:                                    ; preds = %for.body.i20.i
 for.inc.i23.i:                                    ; preds = %if.then.i26.i, %for.body.i20.i
   %indvars.iv.next.i24.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i25.i = icmp eq i64 %indvars.iv.next.i24.i, 255
-  br i1 %exitcond.not.i25.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i20.i, !llvm.loop !6
+  br i1 %exitcond.not.i25.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i20.i, !llvm.loop !5
 
 qemu_macaddr_default_if_unset.exit:               ; preds = %for.inc.i.i, %for.inc.i23.i, %if.then.i
   %has_vectors = getelementptr inbounds i8, ptr %netdev, i64 48
@@ -4519,45 +4542,43 @@ attributes #31 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = !{}
-!39 = distinct !{!39, !7}
-!40 = !{i32 0, i32 2}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = !{}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
+!43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}

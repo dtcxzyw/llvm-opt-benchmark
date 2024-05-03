@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [14 x i8] c"relative-path\00", align 1
 @.str.3 = private unnamed_addr constant [10 x i8] c"file://%s\00", align 1
 @.str.4 = private unnamed_addr constant [12 x i8] c"file://%s%s\00", align 1
-@.str.5 = private unnamed_addr constant [4 x i8] c"///\00", align 1
-@.str.6 = private unnamed_addr constant [3 x i8] c"//\00", align 1
 @.str.7 = private unnamed_addr constant [15 x i8] c"!$&'()*+,;=:@ \00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -169,65 +167,75 @@ define noalias ptr @prte_filename_from_uri(ptr noundef %0, ptr noundef writeonly
 5:                                                ; preds = %4, %2
   %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 58) #7
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %10
+  br i1 %7, label %8, label %sub_0
 
 8:                                                ; preds = %5
   %9 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef %0) #6
-  br label %32
+  br label %35
 
-10:                                               ; preds = %5
+sub_0:                                            ; preds = %5
   store i8 0, ptr %6, align 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 1
-  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(4) @.str.5, i64 noundef 3) #7
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %17
+  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %11 = load i8, ptr %10, align 1
+  %.not34 = icmp eq i8 %11, 47
+  br i1 %.not34, label %sub_1, label %.tail30.thread
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 3
-  %16 = tail call noalias ptr @strdup(ptr noundef nonnull %15) #6
-  br label %32
+sub_1:                                            ; preds = %sub_0
+  %12 = getelementptr inbounds i8, ptr %6, i64 2
+  %13 = load i8, ptr %12, align 1
+  %.not35 = icmp eq i8 %13, 47
+  br i1 %.not35, label %.tail, label %.tail30
 
-17:                                               ; preds = %10
-  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(3) @.str.6, i64 noundef 2) #7
-  %.not29 = icmp eq i32 %18, 0
-  br i1 %.not29, label %21, label %19
+.tail:                                            ; preds = %sub_1
+  %14 = getelementptr inbounds i8, ptr %6, i64 3
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 47
+  br i1 %16, label %17, label %.tail30
 
-19:                                               ; preds = %17
-  %20 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef %0) #6
-  br label %32
+17:                                               ; preds = %.tail
+  %18 = getelementptr inbounds i8, ptr %6, i64 3
+  %19 = tail call noalias ptr @strdup(ptr noundef nonnull %18) #6
+  br label %35
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %6, i64 3
-  %23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 47) #7
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %27
+.tail30:                                          ; preds = %.tail, %sub_1
+  %20 = getelementptr inbounds i8, ptr %6, i64 2
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 47
+  br i1 %22, label %24, label %.tail30.thread
 
-25:                                               ; preds = %21
-  %26 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef %0) #6
-  br label %32
+.tail30.thread:                                   ; preds = %sub_0, %.tail30
+  %23 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef %0) #6
+  br label %35
 
-27:                                               ; preds = %21
-  store i8 0, ptr %23, align 1
-  br i1 %.not, label %30, label %28
+24:                                               ; preds = %.tail30
+  %25 = getelementptr inbounds i8, ptr %6, i64 3
+  %26 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 47) #7
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-28:                                               ; preds = %27
-  %29 = tail call noalias ptr @strdup(ptr noundef nonnull %22) #6
-  store ptr %29, ptr %1, align 8
-  br label %30
+28:                                               ; preds = %24
+  %29 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef %0) #6
+  br label %35
 
-30:                                               ; preds = %28, %27
-  store i8 47, ptr %23, align 1
-  %31 = tail call noalias ptr @strdup(ptr noundef nonnull %23) #6
-  br label %32
+30:                                               ; preds = %24
+  store i8 0, ptr %26, align 1
+  br i1 %.not, label %33, label %31
 
-32:                                               ; preds = %14, %25, %30, %19, %8
-  %.0 = phi ptr [ null, %8 ], [ %16, %14 ], [ null, %19 ], [ null, %25 ], [ %31, %30 ]
+31:                                               ; preds = %30
+  %32 = tail call noalias ptr @strdup(ptr noundef nonnull %25) #6
+  store ptr %32, ptr %1, align 8
+  br label %33
+
+33:                                               ; preds = %31, %30
+  store i8 47, ptr %26, align 1
+  %34 = tail call noalias ptr @strdup(ptr noundef nonnull %26) #6
+  br label %35
+
+35:                                               ; preds = %17, %28, %33, %.tail30.thread, %8
+  %.0 = phi ptr [ null, %8 ], [ %19, %17 ], [ null, %.tail30.thread ], [ null, %28 ], [ %34, %33 ]
   tail call void @free(ptr noundef %3) #6
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

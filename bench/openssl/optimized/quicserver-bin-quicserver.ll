@@ -16,7 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.main.alpn = private unnamed_addr constant [9 x i8] c"\08http/1.0", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @bio_err = internal unnamed_addr global ptr null, align 8
-@.str.4 = private unnamed_addr constant [3 x i8] c"-6\00", align 1
 @.str.5 = private unnamed_addr constant [7 x i8] c"-trace\00", align 1
 @.str.6 = private unnamed_addr constant [26 x i8] c"Unrecognised argument %s\0A\00", align 1
 @.str.7 = private unnamed_addr constant [32 x i8] c"Unable to create server socket\0A\00", align 1
@@ -31,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [56 x i8] c"quicserver [-6][-trace] hostname port certfile keyfile\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %res.i = alloca ptr, align 8
   %tserver_args = alloca %struct.quic_tserver_args_st, align 8
@@ -65,48 +64,53 @@ while.body:                                       ; preds = %while.body.preheade
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load i8, ptr %1, align 1
   %cmp4.not = icmp eq i8 %2, 45
-  br i1 %cmp4.not, label %if.end7, label %while.end.loopexit.split.loop.exit
+  br i1 %cmp4.not, label %sub_1, label %while.end.loopexit.split.loop.exit
 
-if.end7:                                          ; preds = %while.body
-  %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.4) #10
-  %cmp11 = icmp eq i32 %call10, 0
+sub_1:                                            ; preds = %while.body
+  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = zext i8 %4 to i32
+  %6 = add nsw i32 %5, -54
+  %.not74 = icmp eq i32 %6, 0
+  br i1 %.not74, label %sub_2, label %if.end7.tail
+
+sub_2:                                            ; preds = %sub_1
+  %7 = getelementptr inbounds i8, ptr %1, i64 2
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  br label %if.end7.tail
+
+if.end7.tail:                                     ; preds = %sub_1, %sub_2
+  %10 = phi i32 [ %6, %sub_1 ], [ %9, %sub_2 ]
+  %cmp11 = icmp eq i32 %10, 0
   br i1 %cmp11, label %if.end25, label %if.else
 
-if.else:                                          ; preds = %if.end7
+if.else:                                          ; preds = %if.end7.tail
   %call16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.5) #10
   %cmp17 = icmp eq i32 %call16, 0
   br i1 %cmp17, label %if.end25, label %if.else20
 
 if.else20:                                        ; preds = %if.else
   %call23 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call, ptr noundef nonnull @.str.6, ptr noundef nonnull %1) #9
-  %3 = load ptr, ptr @bio_err, align 8
-  %call.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.15) #9
+  %11 = load ptr, ptr @bio_err, align 8
+  %call.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %11, ptr noundef nonnull @.str.15) #9
   br label %end2
 
-if.end25:                                         ; preds = %if.else, %if.end7
-  %trace.1 = phi i32 [ %trace.064, %if.end7 ], [ 1, %if.else ]
-  %ipv6.1 = phi i32 [ 1, %if.end7 ], [ %ipv6.065, %if.else ]
+if.end25:                                         ; preds = %if.else, %if.end7.tail
+  %trace.1 = phi i32 [ %trace.064, %if.end7.tail ], [ 1, %if.else ]
+  %ipv6.1 = phi i32 [ 1, %if.end7.tail ], [ %ipv6.065, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %while.end.loopexit, label %while.body, !llvm.loop !5
+  br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end.loopexit.split.loop.exit:               ; preds = %while.body
-  %4 = trunc i64 %indvars.iv to i32
-  br label %while.end.loopexit
-
-while.end.loopexit:                               ; preds = %if.end25, %while.end.loopexit.split.loop.exit
-  %argnext.0.lcssa.ph = phi i32 [ %4, %while.end.loopexit.split.loop.exit ], [ %argc, %if.end25 ]
-  %trace.0.lcssa.ph = phi i32 [ %trace.064, %while.end.loopexit.split.loop.exit ], [ %trace.1, %if.end25 ]
-  %ipv6.0.lcssa.ph = phi i32 [ %ipv6.065, %while.end.loopexit.split.loop.exit ], [ %ipv6.1, %if.end25 ]
-  %5 = icmp eq i32 %ipv6.0.lcssa.ph, 0
-  %6 = select i1 %5, i32 2, i32 10
-  %7 = icmp eq i32 %trace.0.lcssa.ph, 0
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
-while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
-  %argnext.0.lcssa = phi i32 [ 1, %while.cond.preheader ], [ %argnext.0.lcssa.ph, %while.end.loopexit ]
-  %trace.0.lcssa = phi i1 [ true, %while.cond.preheader ], [ %7, %while.end.loopexit ]
-  %ipv6.0.lcssa = phi i32 [ 2, %while.cond.preheader ], [ %6, %while.end.loopexit ]
+while.end:                                        ; preds = %if.end25, %while.end.loopexit.split.loop.exit, %while.cond.preheader
+  %argnext.0.lcssa = phi i32 [ 1, %while.cond.preheader ], [ %12, %while.end.loopexit.split.loop.exit ], [ %argc, %if.end25 ]
+  %trace.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %trace.064, %while.end.loopexit.split.loop.exit ], [ %trace.1, %if.end25 ]
+  %ipv6.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %ipv6.065, %while.end.loopexit.split.loop.exit ], [ %ipv6.1, %if.end25 ]
   %sub = sub nsw i32 %argc, %argnext.0.lcssa
   %cmp26.not = icmp eq i32 %sub, 4
   br i1 %cmp26.not, label %if.end29, label %if.then28
@@ -118,26 +122,28 @@ if.then28:                                        ; preds = %while.end
 if.end29:                                         ; preds = %while.end
   %idxprom31 = zext nneg i32 %argnext.0.lcssa to i64
   %arrayidx32 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom31
-  %8 = load ptr, ptr %arrayidx32, align 8
-  %arrayidx35 = getelementptr i8, ptr %arrayidx32, i64 8
-  %9 = load ptr, ptr %arrayidx35, align 8
-  %arrayidx38 = getelementptr i8, ptr %arrayidx32, i64 16
-  %10 = load ptr, ptr %arrayidx38, align 8
-  %arrayidx41 = getelementptr i8, ptr %arrayidx32, i64 24
-  %11 = load ptr, ptr %arrayidx41, align 8
+  %13 = load ptr, ptr %arrayidx32, align 8
+  %arrayidx35 = getelementptr inbounds i8, ptr %arrayidx32, i64 8
+  %14 = load ptr, ptr %arrayidx35, align 8
+  %arrayidx38 = getelementptr inbounds i8, ptr %arrayidx32, i64 16
+  %15 = load ptr, ptr %arrayidx38, align 8
+  %arrayidx41 = getelementptr inbounds i8, ptr %arrayidx32, i64 24
+  %16 = load ptr, ptr %arrayidx41, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
   %call.i53 = tail call i32 @BIO_sock_init() #9
   %cmp.not.i = icmp eq i32 %call.i53, 1
   br i1 %cmp.not.i, label %if.end.i, label %create_dgram_bio.exit.thread
 
 if.end.i:                                         ; preds = %if.end29
-  %call1.i = call i32 @BIO_lookup_ex(ptr noundef %8, ptr noundef %9, i32 noundef 1, i32 noundef %ipv6.0.lcssa, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %res.i) #9
+  %tobool.not = icmp eq i32 %ipv6.0.lcssa, 0
+  %cond = select i1 %tobool.not, i32 2, i32 10
+  %call1.i = call i32 @BIO_lookup_ex(ptr noundef %13, ptr noundef %14, i32 noundef 1, i32 noundef %cond, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %res.i) #9
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %create_dgram_bio.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %12 = load ptr, ptr %res.i, align 8
-  %cmp4.not14.i = icmp eq ptr %12, null
+  %17 = load ptr, ptr %res.i, align 8
+  %cmp4.not14.i = icmp eq ptr %17, null
   br i1 %cmp4.not14.i, label %for.end.thread.i, label %for.body.i
 
 for.end.thread.loopexit.i:                        ; preds = %for.inc.i
@@ -145,12 +151,12 @@ for.end.thread.loopexit.i:                        ; preds = %for.inc.i
   br label %for.end.thread.i
 
 for.end.thread.i:                                 ; preds = %for.end.thread.loopexit.i, %if.end3.i
-  %13 = phi ptr [ %.pre.i, %for.end.thread.loopexit.i ], [ null, %if.end3.i ]
-  call void @BIO_ADDRINFO_free(ptr noundef %13) #9
+  %18 = phi ptr [ %.pre.i, %for.end.thread.loopexit.i ], [ null, %if.end3.i ]
+  call void @BIO_ADDRINFO_free(ptr noundef %18) #9
   br label %create_dgram_bio.exit.thread
 
 for.body.i:                                       ; preds = %if.end3.i, %for.inc.i
-  %ai.015.i = phi ptr [ %call21.i, %for.inc.i ], [ %12, %if.end3.i ]
+  %ai.015.i = phi ptr [ %call21.i, %for.inc.i ], [ %17, %if.end3.i ]
   %call5.i = call i32 @BIO_ADDRINFO_family(ptr noundef nonnull %ai.015.i) #9
   %call6.i = call i32 @BIO_socket(i32 noundef %call5.i, i32 noundef 2, i32 noundef 0, i32 noundef 0) #9
   %cmp7.i = icmp eq i32 %call6.i, -1
@@ -177,8 +183,8 @@ for.inc.i:                                        ; preds = %for.inc.sink.split.
   br i1 %cmp4.not.i, label %for.end.thread.loopexit.i, label %for.body.i, !llvm.loop !7
 
 if.end24.i:                                       ; preds = %if.end15.i
-  %14 = load ptr, ptr %res.i, align 8
-  call void @BIO_ADDRINFO_free(ptr noundef %14) #9
+  %19 = load ptr, ptr %res.i, align 8
+  call void @BIO_ADDRINFO_free(ptr noundef %19) #9
   %call25.i = call ptr @BIO_s_datagram() #9
   %call26.i = call ptr @BIO_new(ptr noundef %call25.i) #9
   %cmp27.i = icmp eq ptr %call26.i, null
@@ -201,8 +207,8 @@ lor.lhs.false45:                                  ; preds = %if.end24.i
 
 if.then48:                                        ; preds = %create_dgram_bio.exit.thread, %lor.lhs.false45
   %retval.0.i56 = phi ptr [ null, %create_dgram_bio.exit.thread ], [ %call26.i, %lor.lhs.false45 ]
-  %15 = load ptr, ptr @bio_err, align 8
-  %call49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %15, ptr noundef nonnull @.str.7) #9
+  %20 = load ptr, ptr @bio_err, align 8
+  %call49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %20, ptr noundef nonnull @.str.7) #9
   br label %end2
 
 if.end50:                                         ; preds = %lor.lhs.false45
@@ -217,26 +223,27 @@ if.end50:                                         ; preds = %lor.lhs.false45
   store i64 9, ptr %alpnlen, align 8
   %ctx = getelementptr inbounds i8, ptr %tserver_args, i64 16
   store ptr null, ptr %ctx, align 8
-  %call52 = call ptr @ossl_quic_tserver_new(ptr noundef nonnull %tserver_args, ptr noundef %10, ptr noundef %11) #9
+  %call52 = call ptr @ossl_quic_tserver_new(ptr noundef nonnull %tserver_args, ptr noundef %15, ptr noundef %16) #9
   %cmp53 = icmp eq ptr %call52, null
-  %16 = load ptr, ptr @bio_err, align 8
+  %21 = load ptr, ptr @bio_err, align 8
   br i1 %cmp53, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end50
-  %call56 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.8) #9
+  %call56 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %21, ptr noundef nonnull @.str.8) #9
   br label %end
 
 if.end57:                                         ; preds = %if.end50
-  %call58 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.9) #9
-  %17 = load ptr, ptr @bio_err, align 8
-  %call59 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef nonnull @.str.10) #9
-  %18 = load ptr, ptr @bio_err, align 8
-  %call60 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef nonnull @.str.11) #9
-  br i1 %trace.0.lcssa, label %if.end63, label %if.then62
+  %call58 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %21, ptr noundef nonnull @.str.9) #9
+  %22 = load ptr, ptr @bio_err, align 8
+  %call59 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.10) #9
+  %23 = load ptr, ptr @bio_err, align 8
+  %call60 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef nonnull @.str.11) #9
+  %tobool61.not = icmp eq i32 %trace.0.lcssa, 0
+  br i1 %tobool61.not, label %if.end63, label %if.then62
 
 if.then62:                                        ; preds = %if.end57
-  %19 = load ptr, ptr @bio_err, align 8
-  call void @ossl_quic_tserver_set_msg_callback(ptr noundef nonnull %call52, ptr noundef nonnull @SSL_trace, ptr noundef %19) #9
+  %24 = load ptr, ptr @bio_err, align 8
+  call void @ossl_quic_tserver_set_msg_callback(ptr noundef nonnull %call52, ptr noundef nonnull @SSL_trace, ptr noundef %24) #9
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then62, %if.end57
@@ -260,8 +267,8 @@ while.body68:                                     ; preds = %while.cond65
   br i1 %tobool71.not, label %while.cond65, label %if.then72, !llvm.loop !8
 
 if.then72:                                        ; preds = %while.body68
-  %20 = load ptr, ptr @bio_err, align 8
-  %call73 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %20, ptr noundef nonnull @.str.12) #9
+  %25 = load ptr, ptr @bio_err, align 8
+  %call73 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.12) #9
   br label %end
 
 do.body.preheader:                                ; preds = %if.end143, %for.cond.preheader
@@ -287,8 +294,8 @@ if.end84:                                         ; preds = %if.then83, %do.body
   br i1 %tobool87.not, label %do.cond, label %end
 
 do.cond:                                          ; preds = %if.end84
-  %21 = load i64, ptr %streamid, align 8
-  %cmp90 = icmp eq i64 %21, -1
+  %26 = load i64, ptr %streamid, align 8
+  %cmp90 = icmp eq i64 %26, -1
   br i1 %cmp90, label %do.body, label %do.body92, !llvm.loop !9
 
 do.body92:                                        ; preds = %do.cond, %do.body92.backedge
@@ -308,32 +315,32 @@ if.end96:                                         ; preds = %do.body92, %if.else
   br i1 %tobool99.not, label %if.end102, label %if.then100
 
 if.then100:                                       ; preds = %if.end96
-  %22 = load ptr, ptr @bio_err, align 8
-  %call101 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.13) #9
+  %27 = load ptr, ptr @bio_err, align 8
+  %call101 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %27, ptr noundef nonnull @.str.13) #9
   br label %end
 
 if.end102:                                        ; preds = %if.end96
-  %23 = load i64, ptr %streamid, align 8
+  %28 = load i64, ptr %streamid, align 8
   %add.ptr = getelementptr inbounds i8, ptr %reqbuf, i64 %reqbytes.1
   %sub104 = sub i64 1024, %reqbytes.1
-  %call105 = call i32 @ossl_quic_tserver_read(ptr noundef nonnull %call52, i64 noundef %23, ptr noundef nonnull %add.ptr, i64 noundef %sub104, ptr noundef nonnull %numbytes) #9
+  %call105 = call i32 @ossl_quic_tserver_read(ptr noundef nonnull %call52, i64 noundef %28, ptr noundef nonnull %add.ptr, i64 noundef %sub104, ptr noundef nonnull %numbytes) #9
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %do.cond116, label %if.then107
 
 if.then107:                                       ; preds = %if.end102
-  %24 = load i64, ptr %numbytes, align 8
-  %cmp108.not = icmp eq i64 %24, 0
+  %29 = load i64, ptr %numbytes, align 8
+  %cmp108.not = icmp eq i64 %29, 0
   br i1 %cmp108.not, label %if.end114, label %if.then110
 
 if.then110:                                       ; preds = %if.then107
-  %25 = load ptr, ptr @stdout, align 8
-  %call113 = call i64 @fwrite(ptr noundef nonnull %add.ptr, i64 noundef 1, i64 noundef %24, ptr noundef %25)
+  %30 = load ptr, ptr @stdout, align 8
+  %call113 = call i64 @fwrite(ptr noundef nonnull %add.ptr, i64 noundef 1, i64 noundef %29, ptr noundef %30)
   %.pre = load i64, ptr %numbytes, align 8
   br label %if.end114
 
 if.end114:                                        ; preds = %if.then110, %if.then107
-  %26 = phi i64 [ %.pre, %if.then110 ], [ 0, %if.then107 ]
-  %add = add i64 %26, %reqbytes.1
+  %31 = phi i64 [ %.pre, %if.then110 ], [ 0, %if.then107 ]
+  %add = add i64 %31, %reqbytes.1
   br label %do.cond116
 
 do.cond116:                                       ; preds = %if.end102, %if.end114
@@ -351,8 +358,8 @@ do.body92.backedge:                               ; preds = %lor.rhs, %do.cond11
   br label %do.body92, !llvm.loop !10
 
 do.end126:                                        ; preds = %lor.rhs
-  %27 = load i64, ptr %streamid, align 8
-  %and = and i64 %27, 2
+  %32 = load i64, ptr %streamid, align 8
+  %and = and i64 %32, 2
   %cmp127.not = icmp eq i64 %and, 0
   br i1 %cmp127.not, label %if.end135, label %if.then129
 
@@ -362,28 +369,28 @@ if.then129:                                       ; preds = %do.end126
   br i1 %tobool131.not, label %if.then132, label %if.end135
 
 if.then132:                                       ; preds = %if.then129
-  %28 = load ptr, ptr @bio_err, align 8
-  %call133 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.14) #9
+  %33 = load ptr, ptr @bio_err, align 8
+  %call133 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %33, ptr noundef nonnull @.str.14) #9
   br label %end
 
 if.end135:                                        ; preds = %if.then129, %do.end126
   %call136 = call i32 @ossl_quic_tserver_tick(ptr noundef nonnull %call52) #9
-  %29 = load i64, ptr %streamid, align 8
+  %34 = load i64, ptr %streamid, align 8
   %arrayidx137 = getelementptr inbounds [4 x ptr], ptr @__const.main.response, i64 0, i64 %respnum.073
-  %30 = load ptr, ptr %arrayidx137, align 8
-  %call139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #10
-  %call140 = call i32 @ossl_quic_tserver_write(ptr noundef nonnull %call52, i64 noundef %29, ptr noundef %30, i64 noundef %call139, ptr noundef nonnull %numbytes) #9
+  %35 = load ptr, ptr %arrayidx137, align 8
+  %call139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #10
+  %call140 = call i32 @ossl_quic_tserver_write(ptr noundef nonnull %call52, i64 noundef %34, ptr noundef %35, i64 noundef %call139, ptr noundef nonnull %numbytes) #9
   %tobool141.not = icmp eq i32 %call140, 0
   br i1 %tobool141.not, label %end, label %if.end143
 
 if.end143:                                        ; preds = %if.end135
-  %31 = load i64, ptr %streamid, align 8
-  %call144 = call i32 @ossl_quic_tserver_conclude(ptr noundef nonnull %call52, i64 noundef %31) #9
+  %36 = load i64, ptr %streamid, align 8
+  %call144 = call i32 @ossl_quic_tserver_conclude(ptr noundef nonnull %call52, i64 noundef %36) #9
   %tobool145.not = icmp eq i32 %call144, 0
   %inc148 = add nuw nsw i64 %respnum.073, 1
-  %exitcond78 = icmp eq i64 %inc148, 4
-  %or.cond86 = select i1 %tobool145.not, i1 true, i1 %exitcond78
-  br i1 %or.cond86, label %end, label %do.body.preheader
+  %exitcond79 = icmp eq i64 %inc148, 4
+  %or.cond87 = select i1 %tobool145.not, i1 true, i1 %exitcond79
+  br i1 %or.cond87, label %end, label %do.body.preheader
 
 end:                                              ; preds = %if.end143, %if.end135, %if.end84, %if.then132, %if.then100, %if.then72, %if.then55
   %bio.0 = phi ptr [ %call26.i, %if.then55 ], [ null, %if.then72 ], [ null, %if.then100 ], [ null, %if.then132 ], [ null, %if.end84 ], [ null, %if.end135 ], [ null, %if.end143 ]
@@ -397,8 +404,8 @@ end2:                                             ; preds = %entry, %end, %if.th
   %ret.1 = phi i32 [ 1, %entry ], [ 1, %if.then28 ], [ 1, %if.then48 ], [ %ret.0, %end ], [ 1, %if.else20 ]
   %call150 = call i32 @BIO_free(ptr noundef %bio.1) #9
   call void @ossl_quic_tserver_free(ptr noundef %qtserv.0) #9
-  %32 = load ptr, ptr @bio_err, align 8
-  %call151 = call i32 @BIO_free(ptr noundef %32) #9
+  %37 = load ptr, ptr @bio_err, align 8
+  %call151 = call i32 @BIO_free(ptr noundef %37) #9
   ret i32 %ret.1
 }
 
@@ -486,7 +493,7 @@ if.end49.thread:                                  ; preds = %if.end33
   %t.sroa.0.0.i = call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i, i64 999)
   %div.i = udiv i64 %t.sroa.0.0.i, 1000000000
   %rem.i = urem i64 %t.sroa.0.0.i, 1000000000
-  %div7.lhs.trunc.i = trunc i64 %rem.i to i32
+  %div7.lhs.trunc.i = trunc nuw nsw i64 %rem.i to i32
   %div77.i = udiv i32 %div7.lhs.trunc.i, 1000
   %div7.zext.i = zext nneg i32 %div77.i to i64
   store i64 %div.i, ptr %timeout, align 8

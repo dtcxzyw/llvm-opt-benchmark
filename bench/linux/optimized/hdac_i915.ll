@@ -24,7 +24,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hdac_i91
 @__UNIQUE_ID___addressable_snd_hdac_i915_init358 = internal global ptr @snd_hdac_i915_init, section ".discard.addressable", align 8
 @pci_bus_type = external dso_local global %struct.bus_type, align 8
 @.str.1 = private unnamed_addr constant [5 x i8] c"i915\00", align 1
-@.str.2 = private unnamed_addr constant [3 x i8] c"xe\00", align 1
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_snd_hdac_i915_init358, ptr @__UNIQUE_ID___addressable_snd_hdac_i915_set_bclk357, ptr @__UNIQUE_ID_gpu_bind356, ptr @__UNIQUE_ID_gpu_bindtype355, ptr @__param_gpu_bind], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -207,11 +206,11 @@ define dso_local i32 @snd_hdac_i915_init(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @snd_hdac_acomp_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef i32 @i915_component_master_match(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal noundef range(i32 0, 2) i32 @i915_component_master_match(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @pci_bus_type
-  br i1 %6, label %7, label %46
+  br i1 %6, label %7, label %.tail.thread
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %2, align 8
@@ -220,59 +219,71 @@ define internal noundef i32 @i915_component_master_match(ptr nocapture noundef r
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @strcmp(ptr noundef %11, ptr noundef nonnull dereferenceable(5) @.str.1) #5
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %19, label %14
+  br i1 %13, label %22, label %sub_0
 
-14:                                               ; preds = %7
-  %15 = tail call i32 @strcmp(ptr noundef %11, ptr noundef nonnull dereferenceable(3) @.str.2) #5
-  %16 = icmp eq i32 %15, 0
-  %17 = icmp eq i32 %1, 1
-  %18 = and i1 %17, %16
-  br i1 %18, label %21, label %46
+sub_0:                                            ; preds = %7
+  %14 = load i8, ptr %11, align 1
+  %.not = icmp eq i8 %14, 120
+  br i1 %.not, label %sub_1, label %.tail.thread
 
-19:                                               ; preds = %7
+sub_1:                                            ; preds = %sub_0
+  %15 = getelementptr inbounds i8, ptr %11, i64 1
+  %16 = load i8, ptr %15, align 1
+  %.not5 = icmp eq i8 %16, 101
+  br i1 %.not5, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %17 = getelementptr inbounds i8, ptr %11, i64 2
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
   %20 = icmp eq i32 %1, 1
-  br i1 %20, label %21, label %46
+  %21 = and i1 %20, %19
+  br i1 %21, label %24, label %.tail.thread
 
-21:                                               ; preds = %19, %14
-  %22 = getelementptr i8, ptr %0, i64 -168
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr i8, ptr %8, i64 -168
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %23, %25
-  br i1 %26, label %46, label %27
+22:                                               ; preds = %7
+  %23 = icmp eq i32 %1, 1
+  br i1 %23, label %24, label %.tail.thread
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %23, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %29, %31
-  br i1 %32, label %46, label %33
+24:                                               ; preds = %22, %.tail
+  %25 = getelementptr i8, ptr %0, i64 -168
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr i8, ptr %8, i64 -168
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %26, %28
+  br i1 %29, label %.tail.thread, label %30
 
-33:                                               ; preds = %27
-  %34 = icmp ne ptr %29, null
-  %35 = icmp ne ptr %31, null
-  %36 = and i1 %34, %35
-  br i1 %36, label %37, label %45
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %32, %34
+  br i1 %35, label %.tail.thread, label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %29, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %45, label %41
+36:                                               ; preds = %30
+  %37 = icmp ne ptr %32, null
+  %38 = icmp ne ptr %34, null
+  %39 = and i1 %37, %38
+  br i1 %39, label %40, label %48
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %31, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %39, %43
-  br i1 %44, label %46, label %45
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds i8, ptr %32, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %48, label %44
 
-45:                                               ; preds = %41, %37, %33
-  br label %46
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %34, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %42, %46
+  br i1 %47, label %.tail.thread, label %48
 
-46:                                               ; preds = %45, %41, %27, %21, %19, %14, %3
-  %47 = phi i32 [ 0, %3 ], [ 1, %21 ], [ 1, %27 ], [ 1, %41 ], [ 0, %45 ], [ 0, %19 ], [ 0, %14 ]
-  ret i32 %47
+48:                                               ; preds = %44, %40, %36
+  br label %.tail.thread
+
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %48, %44, %30, %24, %22, %.tail, %3
+  %49 = phi i32 [ 0, %3 ], [ 1, %24 ], [ 1, %30 ], [ 1, %44 ], [ 0, %48 ], [ 0, %22 ], [ 0, %.tail ], [ 0, %sub_0 ], [ 0, %sub_1 ]
+  ret i32 %49
 }
 
 ; Function Attrs: null_pointer_is_valid

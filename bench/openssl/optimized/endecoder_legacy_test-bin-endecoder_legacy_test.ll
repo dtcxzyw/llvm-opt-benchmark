@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %template.i = alloca ptr, align 8
   %pkey.i = alloca ptr, align 8
@@ -137,11 +137,32 @@ for.body:                                         ; preds = %if.end3, %for.inc
   %i.010 = phi i64 [ 0, %if.end3 ], [ %inc, %for.inc ]
   %arrayidx = getelementptr inbounds [5 x %struct.key_st], ptr @keys, i64 0, i64 %i.010
   %0 = load ptr, ptr %arrayidx, align 16
-  %call5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.19) #6
-  %cmp6 = icmp eq i32 %call5, 0
+  %1 = load i8, ptr %0, align 1
+  %2 = zext i8 %1 to i32
+  %3 = add nsw i32 %2, -68
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %sub_1, label %for.body.tail
+
+sub_1:                                            ; preds = %for.body
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = load i8, ptr %4, align 1
+  %6 = zext i8 %5 to i32
+  %7 = add nsw i32 %6, -72
+  %.not11 = icmp eq i32 %7, 0
+  br i1 %.not11, label %sub_2, label %for.body.tail
+
+sub_2:                                            ; preds = %sub_1
+  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = load i8, ptr %8, align 1
+  %10 = zext i8 %9 to i32
+  br label %for.body.tail
+
+for.body.tail:                                    ; preds = %for.body, %sub_1, %sub_2
+  %11 = phi i32 [ %3, %for.body ], [ %7, %sub_1 ], [ %10, %sub_2 ]
+  %cmp6 = icmp eq i32 %11, 0
   br i1 %cmp6, label %if.then7, label %if.end15
 
-if.then7:                                         ; preds = %for.body
+if.then7:                                         ; preds = %for.body.tail
   %call8 = call ptr @test_get_argument(i64 noundef 1) #5
   %call9 = call ptr @load_pkey_pem(ptr noundef %call8, ptr noundef null) #5
   %key = getelementptr inbounds i8, ptr %arrayidx, i64 24
@@ -150,7 +171,7 @@ if.then7:                                         ; preds = %for.body
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %for.inc
 
-if.end15:                                         ; preds = %for.body
+if.end15:                                         ; preds = %for.body.tail
   %call18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.21) #6
   %cmp19 = icmp eq i32 %call18, 0
   br i1 %cmp19, label %if.then20, label %if.end29
@@ -165,19 +186,19 @@ if.then20:                                        ; preds = %if.end15
   br i1 %tobool26.not, label %return, label %for.inc
 
 if.end29:                                         ; preds = %if.end15
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 713, ptr noundef nonnull @.str.23, ptr noundef %0) #5
-  %1 = load ptr, ptr %arrayidx, align 16
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 713, ptr noundef nonnull @.str.23, ptr noundef nonnull %0) #5
+  %12 = load ptr, ptr %arrayidx, align 16
   %template_params = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %2 = load ptr, ptr %template_params, align 16
+  %13 = load ptr, ptr %template_params, align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %template.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i)
   store ptr null, ptr %template.i, align 8
   store ptr null, ptr %pkey.i, align 8
-  %cmp.not.i = icmp eq ptr %2, null
+  %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end29
-  %call.i = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef %1, ptr noundef null) #5
+  %call.i = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef %12, ptr noundef null) #5
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %make_key.exit, label %lor.lhs.false.i
 
@@ -187,12 +208,12 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp3.i, label %make_key.exit, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
-  %3 = load ptr, ptr %2, align 8
-  %cmp5.not.i = icmp eq ptr %3, null
+  %14 = load ptr, ptr %13, align 8
+  %cmp5.not.i = icmp eq ptr %14, null
   br i1 %cmp5.not.i, label %lor.lhs.false9.i, label %land.lhs.true6.i
 
 land.lhs.true6.i:                                 ; preds = %lor.lhs.false4.i
-  %call7.i = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %call.i, ptr noundef nonnull %2) #5
+  %call7.i = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %call.i, ptr noundef nonnull %13) #5
   %cmp8.i = icmp slt i32 %call7.i, 1
   br i1 %cmp8.i, label %make_key.exit, label %lor.lhs.false9.i
 
@@ -204,16 +225,16 @@ lor.lhs.false9.i:                                 ; preds = %land.lhs.true6.i, %
 if.end.i:                                         ; preds = %lor.lhs.false9.i, %if.end29
   %ctx.0.i = phi ptr [ %call.i, %lor.lhs.false9.i ], [ null, %if.end29 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0.i) #5
-  %4 = load ptr, ptr %template.i, align 8
-  %cmp12.not.i = icmp eq ptr %4, null
+  %15 = load ptr, ptr %template.i, align 8
+  %cmp12.not.i = icmp eq ptr %15, null
   br i1 %cmp12.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %call13.i = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %4, ptr noundef null) #5
+  %call13.i = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %15, ptr noundef null) #5
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
-  %call14.i = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef %1, ptr noundef null) #5
+  %call14.i = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef %12, ptr noundef null) #5
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
@@ -232,15 +253,15 @@ land.rhs.i:                                       ; preds = %land.lhs.true16.i
 
 make_key.exit:                                    ; preds = %land.lhs.true.i, %lor.lhs.false.i, %land.lhs.true6.i, %lor.lhs.false9.i, %cond.end.i, %land.lhs.true16.i, %land.rhs.i
   %ctx.1.i = phi ptr [ null, %land.lhs.true.i ], [ %call.i, %lor.lhs.false.i ], [ %call.i, %land.lhs.true6.i ], [ %call.i, %lor.lhs.false9.i ], [ %cond.i, %land.rhs.i ], [ %cond.i, %land.lhs.true16.i ], [ null, %cond.end.i ]
-  %5 = load ptr, ptr %template.i, align 8
-  call void @EVP_PKEY_free(ptr noundef %5) #5
+  %16 = load ptr, ptr %template.i, align 8
+  call void @EVP_PKEY_free(ptr noundef %16) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %ctx.1.i) #5
-  %6 = load ptr, ptr %pkey.i, align 8
+  %17 = load ptr, ptr %pkey.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %template.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)
   %key37 = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  store ptr %6, ptr %key37, align 8
-  %call38 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 715, ptr noundef nonnull @.str.24, ptr noundef %6) #5
+  store ptr %17, ptr %key37, align 8
+  %call38 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 715, ptr noundef nonnull @.str.24, ptr noundef %17) #5
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %return, label %for.inc
 
@@ -279,7 +300,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_key(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_key(i32 noundef %idx) #1 {
 entry:
   %decoded_provided_pkey.i = alloca ptr, align 8
   %downgraded_pkey = alloca ptr, align 8
@@ -411,7 +432,7 @@ lor.lhs.false14.i:                                ; preds = %lor.lhs.false10.i
   br i1 %tobool19.not.i, label %test_protected_PEM.exit, label %lor.lhs.false20.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false14.i
-  %call21.i = call fastcc i32 @test_membio_str_eq(ptr noundef %call4.i, ptr noundef %call1.i), !range !8
+  %call21.i = call fastcc i32 @test_membio_str_eq(ptr noundef %call4.i, ptr noundef %call1.i)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %test_protected_PEM.exit, label %if.end24.i
 
@@ -484,7 +505,7 @@ test_protected_PEM.exit:                          ; preds = %for.body, %lor.lhs.
   %call61.i = call i32 @BIO_free(ptr noundef %membio_provided.0.i) #5
   %call62.i = call i32 @BIO_free(ptr noundef %call1.i) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %decoded_provided_pkey.i)
-  br i1 %cmp27, label %for.body, label %if.end39, !llvm.loop !9
+  br i1 %cmp27, label %for.body, label %if.end39, !llvm.loop !8
 
 if.end39:                                         ; preds = %test_protected_PEM.exit, %if.end23
   %ok.2 = phi i32 [ 1, %if.end23 ], [ %tobool36.not, %test_protected_PEM.exit ]
@@ -510,10 +531,10 @@ for.body47:                                       ; preds = %for.cond44.preheade
   %23 = load i32, ptr %evp_type, align 8
   %24 = load ptr, ptr %pem_write_bio_PublicKey, align 8
   %25 = load ptr, ptr %pem_read_bio_PublicKey, align 8
-  %call55 = call fastcc i32 @test_unprotected_PEM(ptr noundef %22, i32 noundef %23, ptr noundef %call19, ptr noundef %24, ptr noundef %25, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef %20), !range !8
+  %call55 = call fastcc i32 @test_unprotected_PEM(ptr noundef %22, i32 noundef %23, ptr noundef %call19, ptr noundef %24, ptr noundef %25, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef %20)
   %tobool56.not = icmp eq i32 %call55, 0
   %spec.select96 = select i1 %tobool56.not, i32 0, i32 %ok.3107
-  br i1 %cmp45, label %for.body47, label %if.end62, !llvm.loop !10
+  br i1 %cmp45, label %for.body47, label %if.end62, !llvm.loop !9
 
 if.end62:                                         ; preds = %for.body47, %if.end39
   %ok.5 = phi i32 [ %ok.2, %if.end39 ], [ %spec.select96, %for.body47 ]
@@ -539,10 +560,10 @@ for.body70:                                       ; preds = %for.cond67.preheade
   %30 = load i32, ptr %evp_type, align 8
   %31 = load ptr, ptr %pem_write_bio_params, align 16
   %32 = load ptr, ptr %pem_read_bio_params, align 16
-  %call78 = call fastcc i32 @test_unprotected_PEM(ptr noundef %29, i32 noundef %30, ptr noundef %call19, ptr noundef %31, ptr noundef %32, ptr noundef nonnull @EVP_PKEY_parameters_eq, ptr noundef nonnull @EVP_PKEY_print_params, ptr noundef %2, i32 noundef 132, ptr noundef %27), !range !8
+  %call78 = call fastcc i32 @test_unprotected_PEM(ptr noundef %29, i32 noundef %30, ptr noundef %call19, ptr noundef %31, ptr noundef %32, ptr noundef nonnull @EVP_PKEY_parameters_eq, ptr noundef nonnull @EVP_PKEY_print_params, ptr noundef %2, i32 noundef 132, ptr noundef %27)
   %tobool79.not = icmp eq i32 %call78, 0
   %spec.select97 = select i1 %tobool79.not, i32 0, i32 %ok.6109
-  br i1 %cmp68, label %for.body70, label %if.end85, !llvm.loop !11
+  br i1 %cmp68, label %for.body70, label %if.end85, !llvm.loop !10
 
 if.end85:                                         ; preds = %for.body70, %if.end62
   %ok.8 = phi i32 [ %ok.5, %if.end62 ], [ %spec.select97, %for.body70 ]
@@ -559,7 +580,7 @@ if.then88:                                        ; preds = %if.end85
   %37 = load ptr, ptr %pem_write_bio_PUBKEY, align 8
   %pem_read_bio_PUBKEY = getelementptr inbounds i8, ptr %arrayidx, i64 152
   %38 = load ptr, ptr %pem_read_bio_PUBKEY, align 8
-  %call95 = call fastcc i32 @test_unprotected_PEM(ptr noundef %35, i32 noundef %36, ptr noundef %call19, ptr noundef %37, ptr noundef %38, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef nonnull @.str.44), !range !8
+  %call95 = call fastcc i32 @test_unprotected_PEM(ptr noundef %35, i32 noundef %36, ptr noundef %call19, ptr noundef %37, ptr noundef %38, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef nonnull @.str.44)
   %tobool96.not = icmp eq i32 %call95, 0
   %spec.select98 = select i1 %tobool96.not, i32 0, i32 %ok.8
   br label %if.end99
@@ -588,10 +609,10 @@ for.body107:                                      ; preds = %for.cond104.prehead
   %43 = load i32, ptr %evp_type, align 8
   %44 = load ptr, ptr %i2d_PrivateKey, align 16
   %45 = load ptr, ptr %d2i_PrivateKey, align 16
-  %call115 = call fastcc i32 @test_DER(ptr noundef %42, i32 noundef %43, ptr noundef %call19, ptr noundef %44, ptr noundef %45, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_private, ptr noundef %2, i32 noundef 135, ptr noundef %40), !range !8
+  %call115 = call fastcc i32 @test_DER(ptr noundef %42, i32 noundef %43, ptr noundef %call19, ptr noundef %44, ptr noundef %45, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_private, ptr noundef %2, i32 noundef 135, ptr noundef %40)
   %tobool116.not = icmp eq i32 %call115, 0
   %spec.select99 = select i1 %tobool116.not, i32 0, i32 %ok.10111
-  br i1 %cmp105, label %for.body107, label %if.end122, !llvm.loop !12
+  br i1 %cmp105, label %for.body107, label %if.end122, !llvm.loop !11
 
 if.end122:                                        ; preds = %for.body107, %if.end99
   %ok.12 = phi i32 [ %ok.9, %if.end99 ], [ %spec.select99, %for.body107 ]
@@ -617,10 +638,10 @@ for.body130:                                      ; preds = %for.cond127.prehead
   %50 = load i32, ptr %evp_type, align 8
   %51 = load ptr, ptr %i2d_PublicKey, align 8
   %52 = load ptr, ptr %d2i_PublicKey, align 8
-  %call138 = call fastcc i32 @test_DER(ptr noundef %49, i32 noundef %50, ptr noundef %call19, ptr noundef %51, ptr noundef %52, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef %47), !range !8
+  %call138 = call fastcc i32 @test_DER(ptr noundef %49, i32 noundef %50, ptr noundef %call19, ptr noundef %51, ptr noundef %52, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef %47)
   %tobool139.not = icmp eq i32 %call138, 0
   %spec.select100 = select i1 %tobool139.not, i32 0, i32 %ok.13113
-  br i1 %cmp128, label %for.body130, label %if.end145, !llvm.loop !13
+  br i1 %cmp128, label %for.body130, label %if.end145, !llvm.loop !12
 
 if.end145:                                        ; preds = %for.body130, %if.end122
   %ok.15 = phi i32 [ %ok.12, %if.end122 ], [ %spec.select100, %for.body130 ]
@@ -646,10 +667,10 @@ for.body153:                                      ; preds = %for.cond150.prehead
   %57 = load i32, ptr %evp_type, align 8
   %58 = load ptr, ptr %i2d_params, align 16
   %59 = load ptr, ptr %d2i_params, align 16
-  %call161 = call fastcc i32 @test_DER(ptr noundef %56, i32 noundef %57, ptr noundef %call19, ptr noundef %58, ptr noundef %59, ptr noundef nonnull @EVP_PKEY_parameters_eq, ptr noundef nonnull @EVP_PKEY_print_params, ptr noundef %2, i32 noundef 132, ptr noundef %54), !range !8
+  %call161 = call fastcc i32 @test_DER(ptr noundef %56, i32 noundef %57, ptr noundef %call19, ptr noundef %58, ptr noundef %59, ptr noundef nonnull @EVP_PKEY_parameters_eq, ptr noundef nonnull @EVP_PKEY_print_params, ptr noundef %2, i32 noundef 132, ptr noundef %54)
   %tobool162.not = icmp eq i32 %call161, 0
   %spec.select101 = select i1 %tobool162.not, i32 0, i32 %ok.16115
-  br i1 %cmp151, label %for.body153, label %if.end168, !llvm.loop !14
+  br i1 %cmp151, label %for.body153, label %if.end168, !llvm.loop !13
 
 if.end168:                                        ; preds = %for.body153, %if.end145
   %ok.18 = phi i32 [ %ok.15, %if.end145 ], [ %spec.select101, %for.body153 ]
@@ -666,7 +687,7 @@ if.then171:                                       ; preds = %if.end168
   %64 = load ptr, ptr %i2d_PUBKEY, align 8
   %d2i_PUBKEY = getelementptr inbounds i8, ptr %arrayidx, i64 120
   %65 = load ptr, ptr %d2i_PUBKEY, align 8
-  %call178 = call fastcc i32 @test_DER(ptr noundef %62, i32 noundef %63, ptr noundef %call19, ptr noundef %64, ptr noundef %65, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef nonnull @.str.44), !range !8
+  %call178 = call fastcc i32 @test_DER(ptr noundef %62, i32 noundef %63, ptr noundef %call19, ptr noundef %64, ptr noundef %65, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef nonnull @.str.44)
   %tobool179.not = icmp eq i32 %call178, 0
   %spec.select102 = select i1 %tobool179.not, i32 0, i32 %ok.18
   br label %end
@@ -690,7 +711,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @EVP_PKEY_free(ptr noundef %0) #5
   %inc = add nuw nsw i64 %i.03, 1
   %exitcond.not = icmp eq i64 %inc, 5
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -729,7 +750,7 @@ declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) #2
 declare i32 @EVP_PKEY_print_private(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_unprotected_PEM(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr nocapture noundef readonly %pem_write_bio, ptr noundef readonly %pem_read_bio, ptr nocapture noundef readonly %evp_pkey_eq, ptr nocapture noundef readonly %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef %selection, ptr noundef %structure) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_unprotected_PEM(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr nocapture noundef readonly %pem_write_bio, ptr noundef readonly %pem_read_bio, ptr nocapture noundef readonly %evp_pkey_eq, ptr nocapture noundef readonly %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef %selection, ptr noundef %structure) unnamed_addr #1 {
 entry:
   %decoded_provided_pkey = alloca ptr, align 8
   store ptr null, ptr %decoded_provided_pkey, align 8
@@ -769,7 +790,7 @@ lor.lhs.false14:                                  ; preds = %lor.lhs.false10
   br i1 %tobool19.not, label %end, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false14
-  %call21 = tail call fastcc i32 @test_membio_str_eq(ptr noundef %call4, ptr noundef %call1), !range !8
+  %call21 = tail call fastcc i32 @test_membio_str_eq(ptr noundef %call4, ptr noundef %call1)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %end, label %if.end24
 
@@ -813,7 +834,7 @@ lor.lhs.false45:                                  ; preds = %lor.lhs.false41
 
 if.end52:                                         ; preds = %lor.lhs.false45
   %0 = load ptr, ptr %decoded_provided_pkey, align 8
-  %call53 = call i32 %evp_pkey_eq(ptr noundef %0, ptr noundef %call28) #5, !callees !16
+  %call53 = call i32 %evp_pkey_eq(ptr noundef %0, ptr noundef %call28) #5, !callees !15
   %call54 = call i32 @test_int_gt(ptr noundef nonnull @.str.14, i32 noundef 415, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %call53, i32 noundef 0) #5
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %if.then56, label %end
@@ -822,10 +843,10 @@ if.then56:                                        ; preds = %if.end52
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 416, ptr noundef nonnull @.str.64) #5
   %1 = load ptr, ptr @bio_out, align 8
   %2 = load ptr, ptr %decoded_provided_pkey, align 8
-  %call57 = call i32 %evp_pkey_print(ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #5, !callees !17
+  %call57 = call i32 %evp_pkey_print(ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #5, !callees !16
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 418, ptr noundef nonnull @.str.65) #5
   %3 = load ptr, ptr @bio_out, align 8
-  %call58 = call i32 %evp_pkey_print(ptr noundef %3, ptr noundef %call28, i32 noundef 0, ptr noundef null) #5, !callees !17
+  %call58 = call i32 %evp_pkey_print(ptr noundef %3, ptr noundef %call28, i32 noundef 0, ptr noundef null) #5, !callees !16
   br label %end
 
 end:                                              ; preds = %if.end24, %if.then56, %if.end52, %if.then27, %lor.lhs.false31, %lor.lhs.false35, %lor.lhs.false41, %lor.lhs.false45, %if.end, %lor.lhs.false10, %lor.lhs.false14, %lor.lhs.false20, %entry, %lor.lhs.false
@@ -851,7 +872,7 @@ declare i32 @EVP_PKEY_parameters_eq(ptr noundef, ptr noundef) #2
 declare i32 @EVP_PKEY_print_params(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_DER(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr nocapture noundef readonly %i2d, ptr noundef readonly %d2i, ptr nocapture noundef readonly %evp_pkey_eq, ptr nocapture noundef readonly %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef %selection, ptr noundef %structure) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_DER(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr nocapture noundef readonly %i2d, ptr noundef readonly %d2i, ptr nocapture noundef readonly %evp_pkey_eq, ptr nocapture noundef readonly %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef %selection, ptr noundef %structure) unnamed_addr #1 {
 entry:
   %der_legacy = alloca ptr, align 8
   %pder_legacy = alloca ptr, align 8
@@ -940,7 +961,7 @@ lor.lhs.false33:                                  ; preds = %lor.lhs.false29
 
 if.end40:                                         ; preds = %lor.lhs.false33
   %6 = load ptr, ptr %decoded_provided_pkey, align 8
-  %call41 = call i32 %evp_pkey_eq(ptr noundef %6, ptr noundef %call16) #5, !callees !16
+  %call41 = call i32 %evp_pkey_eq(ptr noundef %6, ptr noundef %call16) #5, !callees !15
   %call42 = call i32 @test_int_gt(ptr noundef nonnull @.str.14, i32 noundef 486, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %call41, i32 noundef 0) #5
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %end
@@ -949,10 +970,10 @@ if.then44:                                        ; preds = %if.end40
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 487, ptr noundef nonnull @.str.64) #5
   %7 = load ptr, ptr @bio_out, align 8
   %8 = load ptr, ptr %decoded_provided_pkey, align 8
-  %call45 = call i32 %evp_pkey_print(ptr noundef %7, ptr noundef %8, i32 noundef 0, ptr noundef null) #5, !callees !18
+  %call45 = call i32 %evp_pkey_print(ptr noundef %7, ptr noundef %8, i32 noundef 0, ptr noundef null) #5, !callees !17
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 489, ptr noundef nonnull @.str.65) #5
   %9 = load ptr, ptr @bio_out, align 8
-  %call46 = call i32 %evp_pkey_print(ptr noundef %9, ptr noundef %call16, i32 noundef 0, ptr noundef null) #5, !callees !18
+  %call46 = call i32 %evp_pkey_print(ptr noundef %9, ptr noundef %call16, i32 noundef 0, ptr noundef null) #5, !callees !17
   br label %end
 
 end:                                              ; preds = %if.end, %if.then44, %if.end40, %if.then15, %lor.lhs.false19, %lor.lhs.false23, %lor.lhs.false29, %lor.lhs.false33, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10
@@ -1066,7 +1087,7 @@ declare ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef, i32 noundef, ptr noundef
 declare i32 @OSSL_ENCODER_to_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_membio_str_eq(ptr noundef %bio_provided, ptr noundef %bio_legacy) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_membio_str_eq(ptr noundef %bio_provided, ptr noundef %bio_legacy) unnamed_addr #1 {
 entry:
   %str_provided = alloca ptr, align 8
   %str_legacy = alloca ptr, align 8
@@ -1152,14 +1173,13 @@ attributes #6 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = !{ptr @EVP_PKEY_eq, ptr @EVP_PKEY_parameters_eq}
-!17 = !{ptr @EVP_PKEY_print_params, ptr @EVP_PKEY_print_public}
-!18 = !{ptr @EVP_PKEY_print_params, ptr @EVP_PKEY_print_private, ptr @EVP_PKEY_print_public}
+!15 = !{ptr @EVP_PKEY_eq, ptr @EVP_PKEY_parameters_eq}
+!16 = !{ptr @EVP_PKEY_print_params, ptr @EVP_PKEY_print_public}
+!17 = !{ptr @EVP_PKEY_print_params, ptr @EVP_PKEY_print_private, ptr @EVP_PKEY_print_public}

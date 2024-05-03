@@ -13,10 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__setup_str_control_va_addr_alignment = internal constant [15 x i8] c"align_va_addr=\00", section ".init.rodata", align 1
 @__setup_control_va_addr_alignment = internal global %struct.obs_kernel_param { ptr @__setup_str_control_va_addr_alignment, ptr @control_va_addr_alignment, i32 0 }, section ".init.setup", align 8
 @va_align = external dso_local local_unnamed_addr global %struct.va_alignment, align 64
-@.str = private unnamed_addr constant [3 x i8] c"32\00", align 1
-@.str.1 = private unnamed_addr constant [3 x i8] c"64\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"off\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.4 = private unnamed_addr constant [44 x i8] c"\014invalid option value: 'align_va_addr=%s'\0A\00", align 1
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
 @stack_guard_gap = external dso_local local_unnamed_addr global i64, align 8
@@ -96,54 +93,87 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define internal noundef i32 @control_va_addr_alignment(ptr noundef %0) #2 section ".init.text" align 16 {
   %2 = load i32, ptr @va_align, align 64
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %25, label %4
+  br i1 %3, label %30, label %4
 
 4:                                                ; preds = %1
   %5 = load i8, ptr %0, align 1
-  %6 = icmp eq i8 %5, 0
-  br i1 %6, label %25, label %7
+  switch i8 %5, label %.tail1.thread [
+    i8 0, label %30
+    i8 51, label %sub_1
+    i8 54, label %sub_13
+  ]
 
-7:                                                ; preds = %4
-  %8 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(3) @.str) #9
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %11
+sub_1:                                            ; preds = %4
+  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = load i8, ptr %6, align 1
+  %.not11 = icmp eq i8 %7, 50
+  br i1 %.not11, label %.tail, label %.tail1.thread
 
-10:                                               ; preds = %7
+.tail:                                            ; preds = %sub_1
+  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %11, label %.tail1.thread
+
+11:                                               ; preds = %.tail
   store i32 1, ptr @va_align, align 64
-  br label %25
+  br label %30
 
-11:                                               ; preds = %7
-  %12 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(3) @.str.1) #9
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %15
+sub_13:                                           ; preds = %4
+  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %13 = load i8, ptr %12, align 1
+  %.not13 = icmp eq i8 %13, 52
+  br i1 %.not13, label %.tail1, label %.tail1.thread
 
-14:                                               ; preds = %11
+.tail1:                                           ; preds = %sub_13
+  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %17, label %.thread
+
+17:                                               ; preds = %.tail1
   store i32 2, ptr @va_align, align 64
-  br label %25
+  br label %30
 
-15:                                               ; preds = %11
-  %16 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.2) #9
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %19
+.tail1.thread:                                    ; preds = %4, %.tail, %sub_1, %sub_13
+  %18 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.2) #9
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %22, label %sub_07
 
-18:                                               ; preds = %15
-  store i32 0, ptr @va_align, align 64
-  br label %25
-
-19:                                               ; preds = %15
-  %20 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(3) @.str.3) #9
+.thread:                                          ; preds = %.tail1
+  %20 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.2) #9
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+  br i1 %21, label %22, label %.tail6.thread
 
-22:                                               ; preds = %19
+22:                                               ; preds = %.thread, %.tail1.thread
+  store i32 0, ptr @va_align, align 64
+  br label %30
+
+sub_07:                                           ; preds = %.tail1.thread
+  %.not14 = icmp eq i8 %5, 111
+  br i1 %.not14, label %sub_18, label %.tail6.thread
+
+sub_18:                                           ; preds = %sub_07
+  %23 = getelementptr inbounds i8, ptr %0, i64 1
+  %24 = load i8, ptr %23, align 1
+  %.not15 = icmp eq i8 %24, 110
+  br i1 %.not15, label %.tail6, label %.tail6.thread
+
+.tail6:                                           ; preds = %sub_18
+  %25 = getelementptr inbounds i8, ptr %0, i64 2
+  %26 = load i8, ptr %25, align 1
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %28, label %.tail6.thread
+
+28:                                               ; preds = %.tail6
   store i32 3, ptr @va_align, align 64
-  br label %25
+  br label %30
 
-23:                                               ; preds = %19
-  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef %0) #10
-  br label %25
+.tail6.thread:                                    ; preds = %.thread, %sub_18, %sub_07, %.tail6
+  %29 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef %0) #10
+  br label %30
 
-25:                                               ; preds = %23, %22, %18, %14, %10, %4, %1
+30:                                               ; preds = %4, %.tail6.thread, %28, %22, %17, %11, %1
   ret i32 1
 }
 

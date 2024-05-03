@@ -29,7 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [9 x i8] c"bind: %s\00", align 1
 @.str.16 = private unnamed_addr constant [20 x i8] c"creating socket: %s\00", align 1
 @.str.17 = private unnamed_addr constant [28 x i8] c"setsockopt SO_REUSEADDR: %s\00", align 1
-@.str.18 = private unnamed_addr constant [2 x i8] c"*\00", align 1
 @.str.19 = private unnamed_addr constant [4 x i8] c"::*\00", align 1
 @.str.20 = private unnamed_addr constant [33 x i8] c"unable to bind socket, errno: %d\00", align 1
 @.str.21 = private unnamed_addr constant [11 x i8] c"listen: %s\00", align 1
@@ -63,7 +62,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetSetBlock(ptr noundef %err, i32 noundef %fd, i32 noundef %non_block) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetSetBlock(ptr noundef %err, i32 noundef %fd, i32 noundef %non_block) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %fd, i32 noundef 3) #10
   %cmp = icmp eq i32 %call, -1
@@ -120,7 +119,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetNonBlock(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetNonBlock(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %fd, i32 noundef 3) #10
   %cmp.i = icmp eq i32 %call.i, -1
@@ -151,7 +150,7 @@ anetSetBlock.exit:                                ; preds = %if.end.i, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetBlock(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetBlock(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %fd, i32 noundef 3) #10
   %cmp.i = icmp eq i32 %call.i, -1
@@ -223,7 +222,7 @@ return:                                           ; preds = %land.rhs, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetKeepAlive(ptr noundef %err, i32 noundef %fd, i32 noundef %interval) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetKeepAlive(ptr noundef %err, i32 noundef %fd, i32 noundef %interval) local_unnamed_addr #0 {
 entry:
   %val = alloca i32, align 4
   store i32 1, ptr %val, align 4
@@ -270,7 +269,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetEnableTcpNoDelay(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetEnableTcpNoDelay(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i)
@@ -293,7 +292,7 @@ anetSetTcpNoDelay.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetDisableTcpNoDelay(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetDisableTcpNoDelay(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i)
@@ -316,7 +315,7 @@ anetSetTcpNoDelay.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetSendTimeout(ptr noundef %err, i32 noundef %fd, i64 noundef %ms) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetSendTimeout(ptr noundef %err, i32 noundef %fd, i64 noundef %ms) local_unnamed_addr #0 {
 entry:
   %tv = alloca %struct.timeval, align 8
   %div = sdiv i64 %ms, 1000
@@ -342,7 +341,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetRecvTimeout(ptr noundef %err, i32 noundef %fd, i64 noundef %ms) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetRecvTimeout(ptr noundef %err, i32 noundef %fd, i64 noundef %ms) local_unnamed_addr #0 {
 entry:
   %tv = alloca %struct.timeval, align 8
   %div = sdiv i64 %ms, 1000
@@ -368,7 +367,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetResolve(ptr noundef %err, ptr noundef %host, ptr noundef %ipbuf, i64 noundef %ipbuf_len, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetResolve(ptr noundef %err, ptr noundef %host, ptr noundef %ipbuf, i64 noundef %ipbuf_len, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %info = alloca ptr, align 8
@@ -774,30 +773,44 @@ entry:
   store i32 1, ptr %ai_socktype, align 8
   store i32 1, ptr %hints, align 8
   %tobool.not = icmp eq ptr %bindaddr, null
-  br i1 %tobool.not, label %if.end.thread, label %if.end
+  br i1 %tobool.not, label %if.end.thread, label %sub_0
 
 if.end.thread:                                    ; preds = %entry
   %cmp35 = icmp eq i32 %af, 10
   br label %if.end9
 
-if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @.str.18, ptr noundef nonnull dereferenceable(1) %bindaddr) #12
-  %tobool2.not = icmp eq i32 %call1, 0
+sub_0:                                            ; preds = %entry
+  %1 = load i8, ptr %bindaddr, align 1
+  %2 = zext i8 %1 to i32
+  %3 = sub nsw i32 42, %2
+  %.not = icmp eq i8 %1, 42
+  br i1 %.not, label %sub_1, label %if.end.tail
+
+sub_1:                                            ; preds = %sub_0
+  %4 = getelementptr inbounds i8, ptr %bindaddr, i64 1
+  %5 = load i8, ptr %4, align 1
+  %6 = zext i8 %5 to i32
+  %7 = sub nsw i32 0, %6
+  br label %if.end.tail
+
+if.end.tail:                                      ; preds = %sub_0, %sub_1
+  %8 = phi i32 [ %3, %sub_0 ], [ %7, %sub_1 ]
+  %tobool2.not = icmp eq i32 %8, 0
   %spec.store.select = select i1 %tobool2.not, ptr null, ptr %bindaddr
   %cmp = icmp eq i32 %af, 10
   %tobool4 = icmp ne ptr %spec.store.select, null
   %or.cond = select i1 %cmp, i1 %tobool4, i1 false
   br i1 %or.cond, label %land.lhs.true5, label %if.end9
 
-land.lhs.true5:                                   ; preds = %if.end
+land.lhs.true5:                                   ; preds = %if.end.tail
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.19, ptr noundef nonnull dereferenceable(1) %spec.store.select) #12
   %tobool7.not = icmp eq i32 %call6, 0
   %spec.store.select1 = select i1 %tobool7.not, ptr null, ptr %spec.store.select
   br label %if.end9
 
-if.end9:                                          ; preds = %if.end.thread, %land.lhs.true5, %if.end
-  %cmp38 = phi i1 [ true, %land.lhs.true5 ], [ %cmp, %if.end ], [ %cmp35, %if.end.thread ]
-  %bindaddr.addr.1 = phi ptr [ %spec.store.select1, %land.lhs.true5 ], [ %spec.store.select, %if.end ], [ null, %if.end.thread ]
+if.end9:                                          ; preds = %if.end.thread, %land.lhs.true5, %if.end.tail
+  %cmp38 = phi i1 [ true, %land.lhs.true5 ], [ %cmp, %if.end.tail ], [ %cmp35, %if.end.thread ]
+  %bindaddr.addr.1 = phi ptr [ %spec.store.select1, %land.lhs.true5 ], [ %spec.store.select, %if.end.tail ], [ null, %if.end.thread ]
   %call11 = call i32 @getaddrinfo(ptr noundef %bindaddr.addr.1, ptr noundef nonnull %_port, ptr noundef nonnull %hints, ptr noundef nonnull %servinfo) #10
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %for.cond.preheader, label %if.then13
@@ -815,12 +828,12 @@ if.then13:                                        ; preds = %if.end9
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %p.051 = phi ptr [ %p.0, %for.inc ], [ %p.049, %for.cond.preheader ]
   %ai_family17 = getelementptr inbounds i8, ptr %p.051, i64 4
-  %1 = load i32, ptr %ai_family17, align 4
+  %9 = load i32, ptr %ai_family17, align 4
   %ai_socktype18 = getelementptr inbounds i8, ptr %p.051, i64 8
-  %2 = load i32, ptr %ai_socktype18, align 8
+  %10 = load i32, ptr %ai_socktype18, align 8
   %ai_protocol = getelementptr inbounds i8, ptr %p.051, i64 12
-  %3 = load i32, ptr %ai_protocol, align 4
-  %call19 = call i32 @socket(i32 noundef %1, i32 noundef %2, i32 noundef %3) #10
+  %11 = load i32, ptr %ai_protocol, align 4
+  %call19 = call i32 @socket(i32 noundef %9, i32 noundef %10, i32 noundef %11) #10
   %cmp20 = icmp eq i32 %call19, -1
   br i1 %cmp20, label %for.inc, label %if.end22
 
@@ -836,8 +849,8 @@ land.lhs.true24:                                  ; preds = %if.end22
 
 anetV6Only.exit.thread:                           ; preds = %land.lhs.true24
   %call1.i = tail call ptr @__errno_location() #11
-  %4 = load i32, ptr %call1.i, align 4
-  %call2.i = call ptr @strerror(i32 noundef %4) #10
+  %12 = load i32, ptr %call1.i, align 4
+  %call2.i = call ptr @strerror(i32 noundef %12) #10
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %err, ptr noundef nonnull @.str.12, ptr noundef %call2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i)
   br label %if.then42
@@ -855,8 +868,8 @@ if.end28:                                         ; preds = %anetV6Only.exit, %i
 
 anetSetReuseAddr.exit.thread:                     ; preds = %if.end28
   %call1.i29 = tail call ptr @__errno_location() #11
-  %5 = load i32, ptr %call1.i29, align 4
-  %call2.i30 = call ptr @strerror(i32 noundef %5) #10
+  %13 = load i32, ptr %call1.i29, align 4
+  %call2.i30 = call ptr @strerror(i32 noundef %13) #10
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %err, ptr noundef nonnull @.str.17, ptr noundef %call2.i30)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i24)
   br label %if.then42
@@ -864,23 +877,23 @@ anetSetReuseAddr.exit.thread:                     ; preds = %if.end28
 if.end32:                                         ; preds = %if.end28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i24)
   %ai_addr = getelementptr inbounds i8, ptr %p.051, i64 24
-  %6 = load ptr, ptr %ai_addr, align 8
+  %14 = load ptr, ptr %ai_addr, align 8
   %ai_addrlen = getelementptr inbounds i8, ptr %p.051, i64 16
-  %7 = load i32, ptr %ai_addrlen, align 8
-  %call.i31 = call i32 @bind(i32 noundef %call19, ptr %6, i32 noundef %7) #10
+  %15 = load i32, ptr %ai_addrlen, align 8
+  %call.i31 = call i32 @bind(i32 noundef %call19, ptr %14, i32 noundef %15) #10
   %cmp.i32 = icmp eq i32 %call.i31, -1
-  br i1 %cmp.i32, label %8, label %if.end.i
+  br i1 %cmp.i32, label %16, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end32
   %call9.i = call i32 @listen(i32 noundef %call19, i32 noundef %backlog) #10
   %cmp10.i = icmp eq i32 %call9.i, -1
-  br i1 %cmp10.i, label %8, label %end
+  br i1 %cmp10.i, label %16, label %end
 
-8:                                                ; preds = %if.end32, %if.end.i
+16:                                               ; preds = %if.end32, %if.end.i
   %.str.21.sink.i = phi ptr [ @.str.15, %if.end32 ], [ @.str.21, %if.end.i ]
   %call13.i = tail call ptr @__errno_location() #11
-  %9 = load i32, ptr %call13.i, align 4
-  %call14.i = call ptr @strerror(i32 noundef %9) #10
+  %17 = load i32, ptr %call13.i, align 4
+  %call14.i = call ptr @strerror(i32 noundef %17) #10
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %err, ptr noundef nonnull %.str.21.sink.i, ptr noundef %call14.i)
   %call15.i = call i32 @close(i32 noundef %call19) #10
   br label %end
@@ -893,18 +906,18 @@ for.inc:                                          ; preds = %for.body
 
 error:                                            ; preds = %for.inc, %for.cond.preheader
   %call39 = tail call ptr @__errno_location() #11
-  %10 = load i32, ptr %call39, align 4
-  call void (ptr, ptr, ...) @anetSetError(ptr noundef %err, ptr noundef nonnull @.str.20, i32 noundef %10)
+  %18 = load i32, ptr %call39, align 4
+  call void (ptr, ptr, ...) @anetSetError(ptr noundef %err, ptr noundef nonnull @.str.20, i32 noundef %18)
   br label %end
 
 if.then42:                                        ; preds = %anetV6Only.exit.thread, %anetSetReuseAddr.exit.thread
   %call43 = call i32 @close(i32 noundef %call19) #10
   br label %end
 
-end:                                              ; preds = %error, %8, %if.end.i, %if.then42
-  %s.2 = phi i32 [ -1, %if.then42 ], [ -1, %error ], [ -1, %8 ], [ %call19, %if.end.i ]
-  %11 = load ptr, ptr %servinfo, align 8
-  call void @freeaddrinfo(ptr noundef %11) #10
+end:                                              ; preds = %error, %16, %if.end.i, %if.then42
+  %s.2 = phi i32 [ -1, %if.then42 ], [ -1, %error ], [ -1, %16 ], [ %call19, %if.end.i ]
+  %19 = load ptr, ptr %servinfo, align 8
+  call void @freeaddrinfo(ptr noundef %19) #10
   br label %return
 
 return:                                           ; preds = %end, %if.then13
@@ -1087,7 +1100,7 @@ anetGenericAccept.exit:                           ; preds = %do.body.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetFdToString(i32 noundef %fd, ptr noundef %ip, i64 noundef %ip_len, ptr noundef writeonly %port, i32 noundef %remote) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %fd, ptr noundef %ip, i64 noundef %ip_len, ptr noundef writeonly %port, i32 noundef %remote) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sockaddr_storage, align 8
   %salen = alloca i32, align 4
@@ -1213,7 +1226,7 @@ declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetPipe(ptr noundef %fds, i32 noundef %read_flags, i32 noundef %write_flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetPipe(ptr noundef %fds, i32 noundef %read_flags, i32 noundef %write_flags) local_unnamed_addr #0 {
 entry:
   %and = and i32 %write_flags, %read_flags
   %or = or i32 %and, 524288
@@ -1314,7 +1327,7 @@ declare i32 @pipe2(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @pipe(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @anetSetSockMarkId(ptr noundef %err, i32 noundef %fd, i32 noundef %id) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetSetSockMarkId(ptr noundef %err, i32 noundef %fd, i32 noundef %id) local_unnamed_addr #0 {
 entry:
   %id.addr = alloca i32, align 4
   store i32 %id, ptr %id.addr, align 4
@@ -1335,7 +1348,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @anetIsFifo(ptr nocapture noundef readonly %filepath) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @anetIsFifo(ptr nocapture noundef readonly %filepath) local_unnamed_addr #4 {
 entry:
   %sb = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %filepath, ptr noundef nonnull %sb) #10

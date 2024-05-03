@@ -99,8 +99,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.53 = private unnamed_addr constant [95 x i8] c"a non-read-only serializable transaction cannot import a snapshot from a read-only transaction\00", align 1
 @.str.54 = private unnamed_addr constant [51 x i8] c"cannot import a snapshot from a different database\00", align 1
 @.str.55 = private unnamed_addr constant [13 x i8] c"pg_snapshots\00", align 1
-@.str.56 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.57 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.58 = private unnamed_addr constant [31 x i8] c"could not remove file \22%s\22: %m\00", align 1
 @__func__.DeleteAllExportedSnapshotFiles = private unnamed_addr constant [31 x i8] c"DeleteAllExportedSnapshotFiles\00", align 1
 @tuplecid_data = internal unnamed_addr global ptr null, align 8
@@ -2582,53 +2580,72 @@ define dso_local void @DeleteAllExportedSnapshotFiles() local_unnamed_addr #0 {
   %1 = alloca [1037 x i8], align 16
   %2 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.55) #16
   %3 = tail call ptr @ReadDirExtended(ptr noundef %2, ptr noundef nonnull @.str.55, i32 noundef 15) #16
-  %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq ptr %3, null
+  br i1 %.not10, label %._crit_edge, label %sub_0
 
-.lr.ph:                                           ; preds = %0, %.backedge
-  %4 = phi ptr [ %11, %.backedge ], [ %3, %0 ]
+sub_0:                                            ; preds = %0, %.backedge
+  %4 = phi ptr [ %21, %.backedge ], [ %3, %0 ]
   %5 = getelementptr inbounds i8, ptr %4, i64 19
-  %6 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(2) @.str.56) #18
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.backedge, label %8
+  %6 = load i8, ptr %5, align 1
+  %7 = zext i8 %6 to i32
+  %8 = add nsw i32 %7, -46
+  %.not11 = icmp eq i32 %8, 0
+  br i1 %.not11, label %.tail, label %.tail6
 
-8:                                                ; preds = %.lr.ph
-  %9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(3) @.str.57) #18
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.backedge, label %12
+.tail:                                            ; preds = %sub_0
+  %9 = getelementptr inbounds i8, ptr %4, i64 20
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %.backedge, label %sub_18
 
-.backedge:                                        ; preds = %12, %15, %17, %.lr.ph, %8
-  %11 = call ptr @ReadDirExtended(ptr noundef %2, ptr noundef nonnull @.str.55, i32 noundef 15) #16
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+sub_18:                                           ; preds = %.tail
+  %12 = getelementptr inbounds i8, ptr %4, i64 20
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i32
+  %15 = add nsw i32 %14, -46
+  %.not13 = icmp eq i32 %15, 0
+  br i1 %.not13, label %sub_2, label %.tail6
 
-12:                                               ; preds = %8
-  %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1037, ptr noundef nonnull @.str.32, ptr noundef nonnull %5) #16
-  %14 = call i32 @unlink(ptr noundef nonnull %1) #16
-  %.not5 = icmp eq i32 %14, 0
-  br i1 %.not5, label %.backedge, label %15
+sub_2:                                            ; preds = %sub_18
+  %16 = getelementptr inbounds i8, ptr %4, i64 21
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i32
+  br label %.tail6
 
-15:                                               ; preds = %12
-  %16 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
-  br i1 %16, label %17, label %.backedge
+.tail6:                                           ; preds = %sub_0, %sub_18, %sub_2
+  %19 = phi i32 [ %15, %sub_18 ], [ %18, %sub_2 ], [ %8, %sub_0 ]
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %.backedge, label %22
 
-17:                                               ; preds = %15
-  %18 = call i32 @errcode_for_file_access() #16
-  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58, ptr noundef nonnull %1) #16
+.backedge:                                        ; preds = %22, %25, %27, %.tail, %.tail6
+  %21 = call ptr @ReadDirExtended(ptr noundef %2, ptr noundef nonnull @.str.55, i32 noundef 15) #16
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !15
+
+22:                                               ; preds = %.tail6
+  %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1037, ptr noundef nonnull @.str.32, ptr noundef nonnull %5) #16
+  %24 = call i32 @unlink(ptr noundef nonnull %1) #16
+  %.not5 = icmp eq i32 %24, 0
+  br i1 %.not5, label %.backedge, label %25
+
+25:                                               ; preds = %22
+  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
+  br i1 %26, label %27, label %.backedge
+
+27:                                               ; preds = %25
+  %28 = call i32 @errcode_for_file_access() #16
+  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58, ptr noundef nonnull %1) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1598, ptr noundef nonnull @__func__.DeleteAllExportedSnapshotFiles) #16
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %0
-  %20 = call i32 @FreeDir(ptr noundef %2) #16
+  %30 = call i32 @FreeDir(ptr noundef %2) #16
   ret void
 }
 
 declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #2
 
 declare ptr @ReadDirExtended(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #2
 
@@ -3162,7 +3179,7 @@ declare zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef, i32 noundef) local
 declare i32 @SubTransGetTopmostTransaction(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xmin_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 -1, 2) i32 @xmin_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 -68
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr i8, ptr %1, i64 -68

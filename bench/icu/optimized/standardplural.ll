@@ -4,14 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 @_ZN6icu_75L9gKeywordsE = internal unnamed_addr constant [8 x ptr] [ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15], align 16
-@.str = private unnamed_addr constant [3 x i8] c"ew\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"any\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"ther\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"ne\00", align 1
-@.str.4 = private unnamed_addr constant [3 x i8] c"wo\00", align 1
 @.str.5 = private unnamed_addr constant [4 x i8] c"ero\00", align 1
-@.str.6 = private unnamed_addr constant [2 x i8] c"0\00", align 1
-@.str.7 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 @_ZN6icu_75L4gEq0E = internal constant [3 x i16] [i16 61, i16 48, i16 0], align 2
 @_ZN6icu_75L4gEq1E = internal constant [3 x i16] [i16 61, i16 49, i16 0], align 2
 @_ZN6icu_75L4gOneE = internal constant [4 x i16] [i16 111, i16 110, i16 101, i16 0], align 2
@@ -39,25 +34,37 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringEPKc(ptr nocapture noundef readonly %keyword) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 8) i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringEPKc(ptr nocapture noundef readonly %keyword) local_unnamed_addr #1 align 2 {
 entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %keyword, i64 1
   %0 = load i8, ptr %keyword, align 1
   switch i8 %0, label %sw.epilog [
-    i8 102, label %sw.bb
+    i8 102, label %sub_0
     i8 109, label %sw.bb1
     i8 111, label %sw.bb6
-    i8 116, label %sw.bb15
+    i8 116, label %sub_015
     i8 122, label %sw.bb20
-    i8 61, label %sw.bb25
+    i8 61, label %sub_019
     i8 48, label %sw.bb35
     i8 49, label %sw.bb40
   ]
 
-sw.bb:                                            ; preds = %entry
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(3) @.str) #6
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %return, label %sw.epilog
+sub_0:                                            ; preds = %entry
+  %1 = load i8, ptr %incdec.ptr, align 1
+  %.not30 = icmp eq i8 %1, 101
+  br i1 %.not30, label %sub_1, label %sw.epilog
+
+sub_1:                                            ; preds = %sub_0
+  %2 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %3 = load i8, ptr %2, align 1
+  %.not31 = icmp eq i8 %3, 119
+  br i1 %.not31, label %sw.bb.tail, label %sw.epilog
+
+sw.bb.tail:                                       ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %keyword, i64 3
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %return, label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(4) @.str.1) #6
@@ -67,48 +74,81 @@ sw.bb1:                                           ; preds = %entry
 sw.bb6:                                           ; preds = %entry
   %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(5) @.str.2) #6
   %cmp8 = icmp eq i32 %call7, 0
-  br i1 %cmp8, label %return, label %if.else
+  br i1 %cmp8, label %return, label %sub_011
 
-if.else:                                          ; preds = %sw.bb6
-  %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(3) @.str.3) #6
-  %cmp11 = icmp eq i32 %call10, 0
-  br i1 %cmp11, label %return, label %sw.epilog
+sub_011:                                          ; preds = %sw.bb6
+  %7 = load i8, ptr %incdec.ptr, align 1
+  %.not28 = icmp eq i8 %7, 110
+  br i1 %.not28, label %sub_112, label %sw.epilog
 
-sw.bb15:                                          ; preds = %entry
-  %call16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(3) @.str.4) #6
-  %cmp17 = icmp eq i32 %call16, 0
-  br i1 %cmp17, label %return, label %sw.epilog
+sub_112:                                          ; preds = %sub_011
+  %8 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %9 = load i8, ptr %8, align 1
+  %.not29 = icmp eq i8 %9, 101
+  br i1 %.not29, label %if.else.tail, label %sw.epilog
+
+if.else.tail:                                     ; preds = %sub_112
+  %10 = getelementptr inbounds i8, ptr %keyword, i64 3
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %return, label %sw.epilog
+
+sub_015:                                          ; preds = %entry
+  %13 = load i8, ptr %incdec.ptr, align 1
+  %.not26 = icmp eq i8 %13, 119
+  br i1 %.not26, label %sub_116, label %sw.epilog
+
+sub_116:                                          ; preds = %sub_015
+  %14 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %15 = load i8, ptr %14, align 1
+  %.not27 = icmp eq i8 %15, 111
+  br i1 %.not27, label %sw.bb15.tail, label %sw.epilog
+
+sw.bb15.tail:                                     ; preds = %sub_116
+  %16 = getelementptr inbounds i8, ptr %keyword, i64 3
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %return, label %sw.epilog
 
 sw.bb20:                                          ; preds = %entry
   %call21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(4) @.str.5) #6
   %cmp22 = icmp eq i32 %call21, 0
   br i1 %cmp22, label %return, label %sw.epilog
 
-sw.bb25:                                          ; preds = %entry
-  %call26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(2) @.str.6) #6
-  %cmp27 = icmp eq i32 %call26, 0
-  br i1 %cmp27, label %return, label %if.else29
+sub_019:                                          ; preds = %entry
+  %19 = load i8, ptr %incdec.ptr, align 1
+  switch i8 %19, label %sw.epilog [
+    i8 48, label %sw.bb25.tail
+    i8 49, label %if.else29.tail
+  ]
 
-if.else29:                                        ; preds = %sw.bb25
-  %call30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(2) @.str.7) #6
-  %cmp31 = icmp eq i32 %call30, 0
-  br i1 %cmp31, label %return, label %sw.epilog
+sw.bb25.tail:                                     ; preds = %sub_019
+  %20 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %return, label %sw.epilog
+
+if.else29.tail:                                   ; preds = %sub_019
+  %23 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %return, label %sw.epilog
 
 sw.bb35:                                          ; preds = %entry
-  %1 = load i8, ptr %incdec.ptr, align 1
-  %cmp37 = icmp eq i8 %1, 0
+  %26 = load i8, ptr %incdec.ptr, align 1
+  %cmp37 = icmp eq i8 %26, 0
   br i1 %cmp37, label %return, label %sw.epilog
 
 sw.bb40:                                          ; preds = %entry
-  %2 = load i8, ptr %incdec.ptr, align 1
-  %cmp42 = icmp eq i8 %2, 0
+  %27 = load i8, ptr %incdec.ptr, align 1
+  %cmp42 = icmp eq i8 %27, 0
   br i1 %cmp42, label %return, label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %sw.bb40, %sw.bb35, %if.else29, %sw.bb20, %sw.bb15, %if.else, %sw.bb1, %sw.bb
+sw.epilog:                                        ; preds = %sub_019, %sw.bb25.tail, %sub_116, %sub_015, %sub_112, %sub_011, %sub_1, %sub_0, %entry, %sw.bb40, %sw.bb35, %if.else29.tail, %sw.bb20, %sw.bb15.tail, %if.else.tail, %sw.bb1, %sw.bb.tail
   br label %return
 
-return:                                           ; preds = %sw.bb40, %sw.bb35, %if.else29, %sw.bb25, %sw.bb20, %sw.bb15, %if.else, %sw.bb6, %sw.bb1, %sw.bb, %sw.epilog
-  %retval.0 = phi i32 [ -1, %sw.epilog ], [ 3, %sw.bb ], [ 4, %sw.bb1 ], [ 5, %sw.bb6 ], [ 1, %if.else ], [ 2, %sw.bb15 ], [ 0, %sw.bb20 ], [ 6, %sw.bb25 ], [ 7, %if.else29 ], [ 6, %sw.bb35 ], [ 7, %sw.bb40 ]
+return:                                           ; preds = %sw.bb40, %sw.bb35, %if.else29.tail, %sw.bb25.tail, %sw.bb20, %sw.bb15.tail, %if.else.tail, %sw.bb6, %sw.bb1, %sw.bb.tail, %sw.epilog
+  %retval.0 = phi i32 [ -1, %sw.epilog ], [ 3, %sw.bb.tail ], [ 4, %sw.bb1 ], [ 5, %sw.bb6 ], [ 1, %if.else.tail ], [ 2, %sw.bb15.tail ], [ 0, %sw.bb20 ], [ 6, %sw.bb25.tail ], [ 7, %if.else29.tail ], [ 6, %sw.bb35 ], [ 7, %sw.bb40 ]
   ret i32 %retval.0
 }
 
@@ -116,7 +156,7 @@ return:                                           ; preds = %sw.bb40, %sw.bb35, 
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %keyword) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 8) i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %keyword) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %keyword, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -307,14 +347,14 @@ eh.resume:                                        ; preds = %lpad69, %lpad59, %l
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7514StandardPlural15indexFromStringEPKcR10UErrorCode(ptr nocapture noundef readonly %keyword, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 {
+define noundef range(i32 0, 8) i32 @_ZN6icu_7514StandardPlural15indexFromStringEPKcR10UErrorCode(ptr nocapture noundef readonly %keyword, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call noundef i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringEPKc(ptr noundef %keyword), !range !5
+  %call1 = tail call noundef i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringEPKc(ptr noundef %keyword)
   %cmp = icmp sgt i32 %call1, -1
   br i1 %cmp, label %return, label %if.else
 
@@ -328,14 +368,14 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7514StandardPlural15indexFromStringERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 8) i32 @_ZN6icu_7514StandardPlural15indexFromStringERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call noundef i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %keyword), !range !5
+  %call1 = tail call noundef i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %keyword)
   %cmp = icmp sgt i32 %call1, -1
   br i1 %cmp, label %return, label %if.else
 
@@ -366,4 +406,3 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{i64 2148175993}
-!5 = !{i32 -1, i32 8}

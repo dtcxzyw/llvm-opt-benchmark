@@ -41,7 +41,6 @@ module asm ".previous\09\09\09\09\09\09"
 @__UNIQUE_ID___addressable_via_no_dac369 = internal global ptr @via_no_dac, section ".discard.addressable", align 8
 @no_iommu = dso_local local_unnamed_addr global i32 0, section ".data..read_mostly", align 4
 @max_possible_pfn = external dso_local local_unnamed_addr global i64, align 8
-@.str = private unnamed_addr constant [4 x i8] c"off\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"force\00", align 1
 @.str.2 = private unnamed_addr constant [8 x i8] c"noforce\00", align 1
 @.str.3 = private unnamed_addr constant [9 x i8] c"biomerge\00", align 1
@@ -58,7 +57,6 @@ module asm ".previous\09\09\09\09\09\09"
 @.str.14 = private unnamed_addr constant [7 x i8] c"usedac\00", align 1
 @disable_dac_quirk = internal unnamed_addr global i1 false, section ".data..read_mostly", align 1
 @.str.15 = private unnamed_addr constant [5 x i8] c"soft\00", align 1
-@.str.16 = private unnamed_addr constant [3 x i8] c"pt\00", align 1
 @.str.17 = private unnamed_addr constant [5 x i8] c"nopt\00", align 1
 @.str.18 = private unnamed_addr constant [2 x i8] c",\00", align 1
 @x86_init = external dso_local local_unnamed_addr global %struct.x86_init_ops, align 8
@@ -98,7 +96,7 @@ declare dso_local void @detect_intel_iommu() local_unnamed_addr #1
 declare dso_local void @swiotlb_init(i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @iommu_setup(ptr noundef readonly %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 2) i32 @iommu_setup(ptr noundef readonly %0) #0 section ".init.text" align 16 {
   store i32 1, ptr @iommu_merge, align 4
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
@@ -106,161 +104,197 @@ define internal noundef i32 @iommu_setup(ptr noundef readonly %0) #0 section ".i
 3:                                                ; preds = %1
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %.loopexit, label %.preheader
+  br i1 %5, label %.loopexit, label %sub_0
 
-.preheader:                                       ; preds = %3, %69
-  %6 = phi ptr [ %75, %69 ], [ %0, %3 ]
-  %7 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(4) @.str, i64 noundef 3) #6
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %10
+sub_0:                                            ; preds = %3, %86
+  %6 = phi i8 [ %93, %86 ], [ %4, %3 ]
+  %7 = phi ptr [ %92, %86 ], [ %0, %3 ]
+  %8 = zext i8 %6 to i32
+  %9 = add nsw i32 %8, -111
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %sub_1, label %.tail
 
-9:                                                ; preds = %.preheader
+sub_1:                                            ; preds = %sub_0
+  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i32
+  %13 = add nsw i32 %12, -102
+  %.not5 = icmp eq i32 %13, 0
+  br i1 %.not5, label %sub_2, label %.tail
+
+sub_2:                                            ; preds = %sub_1
+  %14 = getelementptr inbounds i8, ptr %7, i64 2
+  %15 = load i8, ptr %14, align 1
+  %16 = zext i8 %15 to i32
+  %17 = add nsw i32 %16, -102
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
+  %18 = phi i32 [ %9, %sub_0 ], [ %13, %sub_1 ], [ %17, %sub_2 ]
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %.tail
   store i32 1, ptr @no_iommu, align 4
-  br label %10
+  br label %21
 
-10:                                               ; preds = %9, %.preheader
-  %11 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(6) @.str.1, i64 noundef 5) #6
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %14
+21:                                               ; preds = %20, %.tail
+  %22 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(6) @.str.1, i64 noundef 5) #6
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %25
 
-13:                                               ; preds = %10
+24:                                               ; preds = %21
   store i32 1, ptr @force_iommu, align 4
-  br label %14
+  br label %25
 
-14:                                               ; preds = %13, %10
-  %15 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(8) @.str.2, i64 noundef 7) #6
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %18
+25:                                               ; preds = %24, %21
+  %26 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(8) @.str.2, i64 noundef 7) #6
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %29
 
-17:                                               ; preds = %14
+28:                                               ; preds = %25
   store i32 0, ptr @iommu_merge, align 4
   store i32 0, ptr @force_iommu, align 4
-  br label %18
+  br label %29
 
-18:                                               ; preds = %17, %14
-  %19 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(9) @.str.3, i64 noundef 8) #6
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %22
+29:                                               ; preds = %28, %25
+  %30 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(9) @.str.3, i64 noundef 8) #6
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %33
 
-21:                                               ; preds = %18
+32:                                               ; preds = %29
   store i32 1, ptr @iommu_merge, align 4
   store i32 1, ptr @force_iommu, align 4
-  br label %22
+  br label %33
 
-22:                                               ; preds = %21, %18
-  %23 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #6
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %26
+33:                                               ; preds = %32, %29
+  %34 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #6
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %37
 
-25:                                               ; preds = %22
+36:                                               ; preds = %33
   store i32 1, ptr @panic_on_overflow, align 4
-  br label %26
+  br label %37
 
-26:                                               ; preds = %25, %22
-  %27 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(8) @.str.5, i64 noundef 7) #6
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %30
+37:                                               ; preds = %36, %33
+  %38 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(8) @.str.5, i64 noundef 7) #6
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %41
 
-29:                                               ; preds = %26
+40:                                               ; preds = %37
   store i32 0, ptr @panic_on_overflow, align 4
-  br label %30
+  br label %41
 
-30:                                               ; preds = %29, %26
-  %31 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(6) @.str.6, i64 noundef 5) #6
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %34
+41:                                               ; preds = %40, %37
+  %42 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(6) @.str.6, i64 noundef 5) #6
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %45
 
-33:                                               ; preds = %30
+44:                                               ; preds = %41
   store i32 1, ptr @iommu_merge, align 4
   store i32 1, ptr @force_iommu, align 4
-  br label %34
+  br label %45
 
-34:                                               ; preds = %33, %30
-  %35 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(8) @.str.7, i64 noundef 7) #6
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %38
+45:                                               ; preds = %44, %41
+  %46 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(8) @.str.7, i64 noundef 7) #6
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %49
 
-37:                                               ; preds = %34
+48:                                               ; preds = %45
   store i32 0, ptr @iommu_merge, align 4
-  br label %38
+  br label %49
 
-38:                                               ; preds = %37, %34
-  %39 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(9) @.str.8, i64 noundef 8) #6
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %43
+49:                                               ; preds = %48, %45
+  %50 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(9) @.str.8, i64 noundef 8) #6
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %54
 
-41:                                               ; preds = %38
-  %42 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #7
-  br label %43
+52:                                               ; preds = %49
+  %53 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #7
+  br label %54
 
-43:                                               ; preds = %41, %38
-  %44 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(9) @.str.10, i64 noundef 8) #6
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %48
+54:                                               ; preds = %52, %49
+  %55 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(9) @.str.10, i64 noundef 8) #6
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %59
 
-46:                                               ; preds = %43
-  %47 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #7
-  br label %48
+57:                                               ; preds = %54
+  %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #7
+  br label %59
 
-48:                                               ; preds = %46, %43
-  %49 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(6) @.str.12, i64 noundef 5) #6
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %53
+59:                                               ; preds = %57, %54
+  %60 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(6) @.str.12, i64 noundef 5) #6
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %64
 
-51:                                               ; preds = %48
-  %52 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #7
-  br label %53
+62:                                               ; preds = %59
+  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #7
+  br label %64
 
-53:                                               ; preds = %51, %48
-  %54 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(7) @.str.14, i64 noundef 6) #6
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %57
+64:                                               ; preds = %62, %59
+  %65 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(7) @.str.14, i64 noundef 6) #6
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %68
 
-56:                                               ; preds = %53
+67:                                               ; preds = %64
   store i1 true, ptr @disable_dac_quirk, align 1
   br label %.loopexit
 
-57:                                               ; preds = %53
-  %58 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(5) @.str.15, i64 noundef 4) #6
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %61
+68:                                               ; preds = %64
+  %69 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(5) @.str.15, i64 noundef 4) #6
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %sub_02
 
-60:                                               ; preds = %57
+71:                                               ; preds = %68
   store i8 1, ptr @x86_swiotlb_enable, align 1
-  br label %61
+  br label %sub_02
 
-61:                                               ; preds = %60, %57
-  %62 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(3) @.str.16, i64 noundef 2) #6
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %65
+sub_02:                                           ; preds = %68, %71
+  %72 = load i8, ptr %7, align 1
+  %73 = zext i8 %72 to i32
+  %74 = add nsw i32 %73, -112
+  %.not6 = icmp eq i32 %74, 0
+  br i1 %.not6, label %sub_13, label %.tail1
 
-64:                                               ; preds = %61
-  tail call void @iommu_set_default_passthrough(i1 noundef zeroext true) #6
-  br label %65
-
-65:                                               ; preds = %64, %61
-  %66 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #6
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %69
-
-68:                                               ; preds = %65
-  tail call void @iommu_set_default_translated(i1 noundef zeroext true) #6
-  br label %69
-
-69:                                               ; preds = %68, %65
-  %70 = tail call i64 @strcspn(ptr noundef %6, ptr noundef nonnull @.str.18)
-  %71 = getelementptr i8, ptr %6, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = icmp eq i8 %72, 44
-  %74 = zext i1 %73 to i64
-  %75 = getelementptr i8, ptr %71, i64 %74
+sub_13:                                           ; preds = %sub_02
+  %75 = getelementptr inbounds i8, ptr %7, i64 1
   %76 = load i8, ptr %75, align 1
-  %77 = icmp eq i8 %76, 0
-  br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !7
+  %77 = zext i8 %76 to i32
+  %78 = add nsw i32 %77, -116
+  br label %.tail1
 
-.loopexit:                                        ; preds = %69, %56, %3, %1
-  %78 = phi i32 [ 1, %56 ], [ -22, %1 ], [ 0, %3 ], [ 0, %69 ]
-  ret i32 %78
+.tail1:                                           ; preds = %sub_02, %sub_13
+  %79 = phi i32 [ %74, %sub_02 ], [ %78, %sub_13 ]
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %82
+
+81:                                               ; preds = %.tail1
+  tail call void @iommu_set_default_passthrough(i1 noundef zeroext true) #6
+  br label %82
+
+82:                                               ; preds = %81, %.tail1
+  %83 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #6
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %86
+
+85:                                               ; preds = %82
+  tail call void @iommu_set_default_translated(i1 noundef zeroext true) #6
+  br label %86
+
+86:                                               ; preds = %85, %82
+  %87 = tail call i64 @strcspn(ptr noundef %7, ptr noundef nonnull @.str.18)
+  %88 = getelementptr i8, ptr %7, i64 %87
+  %89 = load i8, ptr %88, align 1
+  %90 = icmp eq i8 %89, 44
+  %91 = zext i1 %90 to i64
+  %92 = getelementptr i8, ptr %88, i64 %91
+  %93 = load i8, ptr %92, align 1
+  %94 = icmp eq i8 %93, 0
+  br i1 %94, label %.loopexit, label %sub_0, !llvm.loop !7
+
+.loopexit:                                        ; preds = %86, %67, %3, %1
+  %95 = phi i32 [ 1, %67 ], [ -22, %1 ], [ 0, %3 ], [ 0, %86 ]
+  ret i32 %95
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

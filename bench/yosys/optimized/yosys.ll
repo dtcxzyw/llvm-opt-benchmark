@@ -877,8 +877,6 @@ $_ZTIN5Yosys13ScriptCmdPassE = comdat any
 @.str.15 = private unnamed_addr constant [7 x i8] c"TMPDIR\00", align 1
 @.str.16 = private unnamed_addr constant [5 x i8] c"/tmp\00", align 1
 @.str.17 = private unnamed_addr constant [7 x i8] c"XXXXXX\00", align 1
-@.str.18 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.19 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @.str.20 = private unnamed_addr constant [6 x i8] c"%s/%s\00", align 1
 @.str.21 = private unnamed_addr constant [3 x i8] c"\\ \00", align 1
 @_ZN5Yosys13already_setupE = local_unnamed_addr global i8 0, align 1
@@ -2214,7 +2212,7 @@ define void @_ZN5Yosys12yosys_bannerEv() local_unnamed_addr #4 {
 declare void @_ZN5Yosys3logEPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN5Yosys9ceil_log2Ei(i32 noundef %0) local_unnamed_addr #8 {
+define noundef range(i32 0, 32) i32 @_ZN5Yosys9ceil_log2Ei(i32 noundef %0) local_unnamed_addr #8 {
   %2 = icmp sgt i32 %0, 1
   %3 = add nsw i32 %0, -1
   %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
@@ -3091,98 +3089,120 @@ define void @_ZN5Yosys16remove_directoryENSt7__cxx1112basic_stringIcSt11char_tra
   %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #34
   %7 = call i32 @scandir(ptr noundef %6, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @alphasort)
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  br i1 %8, label %sub_0.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1
+sub_0.lr.ph:                                      ; preds = %1
   %9 = getelementptr inbounds i8, ptr %2, i64 24
   %wide.trip.count = zext nneg i32 %7 to i64
-  br label %10
+  br label %sub_0
 
-10:                                               ; preds = %.lr.ph, %42
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 19
-  %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(2) @.str.18) #38
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %42, label %16
+sub_0:                                            ; preds = %sub_0.lr.ph, %51
+  %indvars.iv = phi i64 [ 0, %sub_0.lr.ph ], [ %indvars.iv.next, %51 ]
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 19
+  %14 = load i8, ptr %13, align 1
+  %15 = zext i8 %14 to i32
+  %16 = add nsw i32 %15, -46
+  %.not18 = icmp eq i32 %16, 0
+  br i1 %.not18, label %.tail, label %.tail13
 
-16:                                               ; preds = %10
-  %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(3) @.str.19) #38
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %42, label %18
+.tail:                                            ; preds = %sub_0
+  %17 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = load i8, ptr %17, align 1
+  %.not = icmp eq i8 %18, 0
+  br i1 %.not, label %51, label %sub_115
 
-18:                                               ; preds = %16
-  %19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #34
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 19
-  call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.20, ptr noundef %19, ptr noundef nonnull %23)
-  %24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
-  %25 = call i32 @stat(ptr noundef %24, ptr noundef nonnull %2) #34
-  %.not11 = icmp eq i32 %25, 0
-  br i1 %.not11, label %26, label %33
+sub_115:                                          ; preds = %.tail
+  %19 = getelementptr inbounds i8, ptr %12, i64 20
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  %22 = add nsw i32 %21, -46
+  %.not20 = icmp eq i32 %22, 0
+  br i1 %.not20, label %sub_2, label %.tail13
 
-26:                                               ; preds = %18
-  %27 = load i32, ptr %9, align 8
-  %28 = and i32 %27, 61440
-  %29 = icmp eq i32 %28, 32768
-  br i1 %29, label %30, label %33
+sub_2:                                            ; preds = %sub_115
+  %23 = getelementptr inbounds i8, ptr %12, i64 21
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  br label %.tail13
 
-30:                                               ; preds = %26
-  %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
-  %32 = call i32 @remove(ptr noundef %31) #34
-  br label %40
+.tail13:                                          ; preds = %sub_0, %sub_115, %sub_2
+  %26 = phi i32 [ %22, %sub_115 ], [ %25, %sub_2 ], [ %16, %sub_0 ]
+  %.not10 = icmp eq i32 %26, 0
+  br i1 %.not10, label %51, label %27
 
-33:                                               ; preds = %26, %18
+27:                                               ; preds = %.tail13
+  %28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #34
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 19
+  call void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.20, ptr noundef %28, ptr noundef nonnull %32)
+  %33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
+  %34 = call i32 @stat(ptr noundef %33, ptr noundef nonnull %2) #34
+  %.not11 = icmp eq i32 %34, 0
+  br i1 %.not11, label %35, label %42
+
+35:                                               ; preds = %27
+  %36 = load i32, ptr %9, align 8
+  %37 = and i32 %36, 61440
+  %38 = icmp eq i32 %37, 32768
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %35
+  %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
+  %41 = call i32 @remove(ptr noundef %40) #34
+  br label %49
+
+42:                                               ; preds = %35, %27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %34 unwind label %36
+          to label %43 unwind label %45
 
-34:                                               ; preds = %33
+43:                                               ; preds = %42
   invoke void @_ZN5Yosys16remove_directoryENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %5)
-          to label %35 unwind label %38
+          to label %44 unwind label %47
 
-35:                                               ; preds = %34
+44:                                               ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #34
-  br label %40
+  br label %49
 
-36:                                               ; preds = %33
-  %37 = landingpad { ptr, i32 }
+45:                                               ; preds = %42
+  %46 = landingpad { ptr, i32 }
           cleanup
-  br label %41
+  br label %50
 
-38:                                               ; preds = %34
-  %39 = landingpad { ptr, i32 }
+47:                                               ; preds = %43
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #34
-  br label %41
+  br label %50
 
-40:                                               ; preds = %35, %30
+49:                                               ; preds = %44, %39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv
-  %.pre15 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %42
+  %.pre22 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %51
 
-41:                                               ; preds = %38, %36
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
+50:                                               ; preds = %47, %45
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
   resume { ptr, i32 } %.pn
 
-42:                                               ; preds = %40, %16, %10
-  %43 = phi ptr [ %.pre15, %40 ], [ %13, %16 ], [ %13, %10 ]
-  call void @free(ptr noundef %43) #34
+51:                                               ; preds = %49, %.tail13, %.tail
+  %52 = phi ptr [ %.pre22, %49 ], [ %12, %.tail13 ], [ %12, %.tail ]
+  call void @free(ptr noundef %52) #34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %sub_0, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %42, %1
-  %44 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %44) #34
-  %45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #34
-  %46 = call i32 @rmdir(ptr noundef %45) #34
+._crit_edge:                                      ; preds = %51, %1
+  %53 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %53) #34
+  %54 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #34
+  %55 = call i32 @rmdir(ptr noundef %54) #34
   ret void
 }
 
@@ -3190,9 +3210,6 @@ declare i32 @scandir(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @alphasort(ptr noundef, ptr noundef) #16
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ...) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -4924,7 +4941,7 @@ declare i32 @Tcl_GetErrno() local_unnamed_addr #0
 declare ptr @Tcl_CreateCommand(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN5YosysL13tcl_yosys_cmdEPvP10Tcl_InterpiPPKc(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZN5YosysL13tcl_yosys_cmdEPvP10Tcl_InterpiPPKc(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::vector.16", align 8

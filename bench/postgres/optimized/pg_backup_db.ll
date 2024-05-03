@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [35 x i8] c"server version: %s; %s version: %s\00", align 1
 @.str.29 = private unnamed_addr constant [8 x i8] c"17devel\00", align 1
 @.str.30 = private unnamed_addr constant [38 x i8] c"SELECT pg_catalog.pg_is_in_recovery()\00", align 1
-@.str.31 = private unnamed_addr constant [2 x i8] c"t\00", align 1
 @.str.32 = private unnamed_addr constant [17 x i8] c"query failed: %s\00", align 1
 @.str.33 = private unnamed_addr constant [14 x i8] c"Query was: %s\00", align 1
 @.str.34 = private unnamed_addr constant [22 x i8] c"%s: %sCommand was: %s\00", align 1
@@ -49,7 +48,7 @@ define dso_local void @ReconnectToServer(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @pg_strdup(ptr noundef nonnull %1) #8
+  %8 = tail call ptr @pg_strdup(ptr noundef nonnull %1) #7
   %9 = getelementptr inbounds i8, ptr %6, i64 320
   store ptr %8, ptr %9, align 8
   br label %10
@@ -58,7 +57,7 @@ define dso_local void @ReconnectToServer(ptr noundef %0, ptr noundef %1) local_u
   store ptr null, ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 280
   tail call void @ConnectDatabase(ptr noundef nonnull %0, ptr noundef nonnull %11, i1 noundef zeroext true)
-  tail call void @PQfinish(ptr noundef %4) #8
+  tail call void @PQfinish(ptr noundef %4) #7
   ret void
 }
 
@@ -74,8 +73,8 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str) #8
-  tail call void @exit_nicely(i32 noundef 1) #9
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str) #7
+  tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
 9:                                                ; preds = %3
@@ -112,7 +111,7 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
   br i1 %or.cond, label %.thread85, label %48
 
 .thread85:                                        ; preds = %26
-  %33 = tail call ptr @simple_prompt(ptr noundef nonnull @.str.1, i1 noundef zeroext false) #8
+  %33 = tail call ptr @simple_prompt(ptr noundef nonnull @.str.1, i1 noundef zeroext false) #7
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = getelementptr inbounds i8, ptr %4, i64 8
   %36 = getelementptr inbounds i8, ptr %1, i64 8
@@ -219,19 +218,19 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
   store ptr null, ptr %105, align 8
   %106 = getelementptr [8 x ptr], ptr %5, i64 0, i64 %104
   store ptr null, ptr %106, align 8
-  %107 = call ptr @PQconnectdbParams(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1) #8
+  %107 = call ptr @PQconnectdbParams(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1) #7
   store ptr %107, ptr %6, align 8
   %.not63.us = icmp eq ptr %107, null
   br i1 %.not63.us, label %.split74.us, label %108
 
 108:                                              ; preds = %98
-  %109 = call i32 @PQstatus(ptr noundef nonnull %107) #8
+  %109 = call i32 @PQstatus(ptr noundef nonnull %107) #7
   %110 = icmp eq i32 %109, 1
   br i1 %110, label %111, label %.split76
 
 111:                                              ; preds = %108
   %112 = load ptr, ptr %6, align 8
-  %113 = call i32 @PQconnectionNeedsPassword(ptr noundef %112) #8
+  %113 = call i32 @PQconnectionNeedsPassword(ptr noundef %112) #7
   br label %.split76
 
 .split:                                           ; preds = %.split.preheader, %138
@@ -273,24 +272,24 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
   store ptr null, ptr %127, align 8
   %128 = getelementptr [8 x ptr], ptr %5, i64 0, i64 %126
   store ptr null, ptr %128, align 8
-  %129 = call ptr @PQconnectdbParams(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1) #8
+  %129 = call ptr @PQconnectdbParams(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1) #7
   store ptr %129, ptr %6, align 8
   %.not63 = icmp eq ptr %129, null
   br i1 %.not63, label %.split74.us, label %130
 
 .split74.us:                                      ; preds = %120, %98
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8) #8
-  call void @exit_nicely(i32 noundef 1) #9
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8) #7
+  call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
 130:                                              ; preds = %120
-  %131 = call i32 @PQstatus(ptr noundef nonnull %129) #8
+  %131 = call i32 @PQstatus(ptr noundef nonnull %129) #7
   %132 = icmp eq i32 %131, 1
   br i1 %132, label %133, label %.split76
 
 133:                                              ; preds = %130
   %134 = load ptr, ptr %6, align 8
-  %135 = call i32 @PQconnectionNeedsPassword(ptr noundef %134) #8
+  %135 = call i32 @PQconnectionNeedsPassword(ptr noundef %134) #7
   %136 = icmp ne i32 %135, 0
   %137 = icmp eq ptr %.1, null
   %or.cond3 = select i1 %136, i1 %137, i1 false
@@ -298,36 +297,36 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
 
 138:                                              ; preds = %133
   %139 = load ptr, ptr %6, align 8
-  call void @PQfinish(ptr noundef %139) #8
-  %140 = call ptr @simple_prompt(ptr noundef nonnull @.str.1, i1 noundef zeroext false) #8
+  call void @PQfinish(ptr noundef %139) #7
+  %140 = call ptr @simple_prompt(ptr noundef nonnull @.str.1, i1 noundef zeroext false) #7
   br label %.split, !llvm.loop !5
 
 .split76:                                         ; preds = %130, %133, %108, %111
   %141 = phi ptr [ %91, %111 ], [ %91, %108 ], [ %29, %133 ], [ %29, %130 ]
   %.us-phi = phi ptr [ %.06084, %111 ], [ %.06084, %108 ], [ %.1, %133 ], [ %.1, %130 ]
   %142 = load ptr, ptr %6, align 8
-  %143 = call i32 @PQstatus(ptr noundef %142) #8
+  %143 = call i32 @PQstatus(ptr noundef %142) #7
   %144 = icmp eq i32 %143, 1
   br i1 %144, label %145, label %150
 
 145:                                              ; preds = %.split76
   %146 = load ptr, ptr %6, align 8
-  %147 = call ptr @PQerrorMessage(ptr noundef %146) #8
+  %147 = call ptr @PQerrorMessage(ptr noundef %146) #7
   br i1 %2, label %148, label %149
 
 148:                                              ; preds = %145
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %147) #8
-  call void @exit_nicely(i32 noundef 1) #9
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %147) #7
+  call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
 149:                                              ; preds = %145
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %147) #8
-  call void @exit_nicely(i32 noundef 1) #9
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %147) #7
+  call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
 150:                                              ; preds = %.split76
   %151 = call ptr @ExecuteSqlQueryForSingleRow(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
-  call void @PQclear(ptr noundef %151) #8
+  call void @PQclear(ptr noundef %151) #7
   %.not64 = icmp eq ptr %.us-phi, null
   br i1 %.not64, label %155, label %152
 
@@ -337,41 +336,41 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
   br i1 %.not65, label %155, label %154
 
 154:                                              ; preds = %152
-  call void @free(ptr noundef nonnull %.us-phi) #8
+  call void @free(ptr noundef nonnull %.us-phi) #7
   br label %155
 
 155:                                              ; preds = %154, %152, %150
   %156 = load ptr, ptr %6, align 8
-  %157 = call i32 @PQconnectionUsedPassword(ptr noundef %156) #8
+  %157 = call i32 @PQconnectionUsedPassword(ptr noundef %156) #7
   %.not66 = icmp eq i32 %157, 0
   br i1 %.not66, label %163, label %158
 
 158:                                              ; preds = %155
   %159 = load ptr, ptr %141, align 8
-  call void @free(ptr noundef %159) #8
+  call void @free(ptr noundef %159) #7
   %160 = load ptr, ptr %6, align 8
-  %161 = call ptr @PQpass(ptr noundef %160) #8
-  %162 = call ptr @pg_strdup(ptr noundef %161) #8
+  %161 = call ptr @PQpass(ptr noundef %160) #7
+  %162 = call ptr @pg_strdup(ptr noundef %161) #7
   store ptr %162, ptr %141, align 8
   br label %163
 
 163:                                              ; preds = %158, %155
   %164 = load ptr, ptr %6, align 8
-  %165 = call ptr @PQparameterStatus(ptr noundef %164, ptr noundef nonnull @.str.25) #8
+  %165 = call ptr @PQparameterStatus(ptr noundef %164, ptr noundef nonnull @.str.25) #7
   %166 = load ptr, ptr %6, align 8
-  %167 = call i32 @PQserverVersion(ptr noundef %166) #8
+  %167 = call i32 @PQserverVersion(ptr noundef %166) #7
   %168 = icmp ne i32 %167, 0
   %169 = icmp ne ptr %165, null
   %or.cond.i = select i1 %168, i1 %169, i1 false
   br i1 %or.cond.i, label %171, label %170
 
 170:                                              ; preds = %163
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.26) #8
-  call void @exit_nicely(i32 noundef 1) #9
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.26) #7
+  call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
 171:                                              ; preds = %163
-  %172 = call ptr @pg_strdup(ptr noundef nonnull %165) #8
+  %172 = call ptr @pg_strdup(ptr noundef nonnull %165) #7
   %173 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %172, ptr %173, align 8
   %174 = getelementptr inbounds i8, ptr %0, i64 32
@@ -387,7 +386,7 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
 
 178:                                              ; preds = %177, %171
   %.not22.i = icmp eq i32 %167, 170000
-  br i1 %.not22.i, label %_check_database_version.exit, label %179
+  br i1 %.not22.i, label %sub_0.i, label %179
 
 179:                                              ; preds = %178
   %180 = getelementptr inbounds i8, ptr %0, i64 40
@@ -399,28 +398,38 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
   %184 = getelementptr inbounds i8, ptr %0, i64 44
   %185 = load i32, ptr %184, align 4
   %186 = icmp sgt i32 %167, %185
-  br i1 %186, label %187, label %_check_database_version.exit
+  br i1 %186, label %187, label %sub_0.i
 
 187:                                              ; preds = %183, %179
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.27) #8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.27) #7
   %188 = load ptr, ptr @progname, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.28, ptr noundef nonnull %165, ptr noundef %188, ptr noundef nonnull @.str.29) #8
-  call void @exit(i32 noundef 1) #9
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.28, ptr noundef nonnull %165, ptr noundef %188, ptr noundef nonnull @.str.29) #7
+  call void @exit(i32 noundef 1) #8
   unreachable
 
-_check_database_version.exit:                     ; preds = %178, %183
+sub_0.i:                                          ; preds = %183, %178
   %189 = call ptr @ExecuteSqlQueryForSingleRow(ptr noundef nonnull %0, ptr noundef nonnull @.str.30)
-  %190 = call ptr @PQgetvalue(ptr noundef %189, i32 noundef 0, i32 noundef 0) #8
-  %191 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %190, ptr noundef nonnull dereferenceable(2) @.str.31) #10
-  %192 = icmp eq i32 %191, 0
-  %193 = getelementptr inbounds i8, ptr %0, i64 36
-  %194 = zext i1 %192 to i8
-  store i8 %194, ptr %193, align 4
-  call void @PQclear(ptr noundef %189) #8
-  %195 = load ptr, ptr %6, align 8
-  %196 = call ptr @PQsetNoticeProcessor(ptr noundef %195, ptr noundef nonnull @notice_processor, ptr noundef null) #8
-  %197 = load ptr, ptr %6, align 8
-  call void @set_archive_cancel_info(ptr noundef nonnull %0, ptr noundef %197) #8
+  %190 = call ptr @PQgetvalue(ptr noundef %189, i32 noundef 0, i32 noundef 0) #7
+  %191 = load i8, ptr %190, align 1
+  %.not23.i = icmp eq i8 %191, 116
+  br i1 %.not23.i, label %sub_1.i, label %_check_database_version.exit
+
+sub_1.i:                                          ; preds = %sub_0.i
+  %192 = getelementptr inbounds i8, ptr %190, i64 1
+  %193 = load i8, ptr %192, align 1
+  %194 = icmp eq i8 %193, 0
+  %195 = zext i1 %194 to i8
+  br label %_check_database_version.exit
+
+_check_database_version.exit:                     ; preds = %sub_0.i, %sub_1.i
+  %196 = phi i8 [ 0, %sub_0.i ], [ %195, %sub_1.i ]
+  %197 = getelementptr inbounds i8, ptr %0, i64 36
+  store i8 %196, ptr %197, align 4
+  call void @PQclear(ptr noundef %189) #7
+  %198 = load ptr, ptr %6, align 8
+  %199 = call ptr @PQsetNoticeProcessor(ptr noundef %198, ptr noundef nonnull @notice_processor, ptr noundef null) #7
+  %200 = load ptr, ptr %6, align 8
+  call void @set_archive_cancel_info(ptr noundef nonnull %0, ptr noundef %200) #7
   ret void
 }
 
@@ -447,27 +456,27 @@ declare void @PQclear(ptr noundef) local_unnamed_addr #1
 define dso_local noundef ptr @ExecuteSqlQueryForSingleRow(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @PQexec(ptr noundef %4, ptr noundef %1) #8
-  %6 = tail call i32 @PQresultStatus(ptr noundef %5) #8
+  %5 = tail call ptr @PQexec(ptr noundef %4, ptr noundef %1) #7
+  %6 = tail call i32 @PQresultStatus(ptr noundef %5) #7
   %.not.i = icmp eq i32 %6, 2
   br i1 %.not.i, label %ExecuteSqlQuery.exit, label %7
 
 7:                                                ; preds = %2
   %.val.i = load ptr, ptr %3, align 8
-  %8 = tail call ptr @PQerrorMessage(ptr noundef %.val.i) #8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef %8) #8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef %1) #8
-  tail call void @exit(i32 noundef 1) #9
+  %8 = tail call ptr @PQerrorMessage(ptr noundef %.val.i) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef %8) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef %1) #7
+  tail call void @exit(i32 noundef 1) #8
   unreachable
 
 ExecuteSqlQuery.exit:                             ; preds = %2
-  %9 = tail call i32 @PQntuples(ptr noundef %5) #8
+  %9 = tail call i32 @PQntuples(ptr noundef %5) #7
   %.not = icmp eq i32 %9, 1
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %ExecuteSqlQuery.exit
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13, i32 noundef %9, ptr noundef %1) #8
-  tail call void @exit_nicely(i32 noundef 1) #9
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13, i32 noundef %9, ptr noundef %1) #7
+  tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
 11:                                               ; preds = %ExecuteSqlQuery.exit
@@ -485,7 +494,7 @@ declare ptr @PQsetNoticeProcessor(ptr noundef, ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define internal void @notice_processor(ptr nocapture readnone %0, ptr noundef %1) #0 {
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %1) #8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %1) #7
   ret void
 }
 
@@ -506,23 +515,23 @@ define dso_local void @DisconnectDatabase(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not8, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @PQtransactionStatus(ptr noundef nonnull %4) #8
+  %9 = tail call i32 @PQtransactionStatus(ptr noundef nonnull %4) #7
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
   %12 = load volatile ptr, ptr %6, align 8
-  %13 = call i32 @PQcancel(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 1) #8
+  %13 = call i32 @PQcancel(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 1) #7
   br label %14
 
 14:                                               ; preds = %11, %8
-  call void @set_archive_cancel_info(ptr noundef nonnull %0, ptr noundef null) #8
+  call void @set_archive_cancel_info(ptr noundef nonnull %0, ptr noundef null) #7
   %.pre = load ptr, ptr %3, align 8
   br label %15
 
 15:                                               ; preds = %14, %5
   %16 = phi ptr [ %.pre, %14 ], [ %4, %5 ]
-  call void @PQfinish(ptr noundef %16) #8
+  call void @PQfinish(ptr noundef %16) #7
   store ptr null, ptr %3, align 8
   br label %17
 
@@ -545,21 +554,21 @@ define dso_local ptr @GetConnection(ptr nocapture noundef readonly %0) local_unn
 define dso_local void @ExecuteSqlStatement(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @PQexec(ptr noundef %4, ptr noundef %1) #8
-  %6 = tail call i32 @PQresultStatus(ptr noundef %5) #8
+  %5 = tail call ptr @PQexec(ptr noundef %4, ptr noundef %1) #7
+  %6 = tail call i32 @PQresultStatus(ptr noundef %5) #7
   %.not = icmp eq i32 %6, 1
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
   %.val = load ptr, ptr %3, align 8
-  %8 = tail call ptr @PQerrorMessage(ptr noundef %.val) #8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef %8) #8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef %1) #8
-  tail call void @exit(i32 noundef 1) #9
+  %8 = tail call ptr @PQerrorMessage(ptr noundef %.val) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef %8) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef %1) #7
+  tail call void @exit(i32 noundef 1) #8
   unreachable
 
 9:                                                ; preds = %2
-  tail call void @PQclear(ptr noundef %5) #8
+  tail call void @PQclear(ptr noundef %5) #7
   ret void
 }
 
@@ -571,17 +580,17 @@ declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #1
 define dso_local noundef ptr @ExecuteSqlQuery(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 440
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @PQexec(ptr noundef %5, ptr noundef %1) #8
-  %7 = tail call i32 @PQresultStatus(ptr noundef %6) #8
+  %6 = tail call ptr @PQexec(ptr noundef %5, ptr noundef %1) #7
+  %7 = tail call i32 @PQresultStatus(ptr noundef %6) #7
   %.not = icmp eq i32 %7, %2
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %3
   %.val = load ptr, ptr %4, align 8
-  %9 = tail call ptr @PQerrorMessage(ptr noundef %.val) #8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef %9) #8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef %1) #8
-  tail call void @exit(i32 noundef 1) #9
+  %9 = tail call ptr @PQerrorMessage(ptr noundef %.val) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef %9) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef %1) #7
+  tail call void @exit(i32 noundef 1) #8
   unreachable
 
 10:                                               ; preds = %3
@@ -609,15 +618,15 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
   %11 = getelementptr inbounds i8, ptr %0, i64 440
   %12 = load ptr, ptr %11, align 8
   %13 = trunc i64 %2 to i32
-  %14 = tail call i32 @PQputCopyData(ptr noundef %12, ptr noundef %1, i32 noundef %13) #8
+  %14 = tail call i32 @PQputCopyData(ptr noundef %12, ptr noundef %1, i32 noundef %13) #7
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %16, label %ExecuteSimpleCommands.exit
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %11, align 8
-  %18 = tail call ptr @PQerrorMessage(ptr noundef %17) #8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %18) #8
-  tail call void @exit_nicely(i32 noundef 1) #9
+  %18 = tail call ptr @PQerrorMessage(ptr noundef %17) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %18) #7
+  tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
 19:                                               ; preds = %3
@@ -629,7 +638,7 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %19
-  %26 = tail call ptr @createPQExpBuffer() #8
+  %26 = tail call ptr @createPQExpBuffer() #7
   store ptr %26, ptr %22, align 8
   br label %27
 
@@ -658,7 +667,7 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %36, %33
-  tail call void @appendPQExpBufferChar(ptr noundef %.pre.i, i8 noundef signext %34) #8
+  tail call void @appendPQExpBufferChar(ptr noundef %.pre.i, i8 noundef signext %34) #7
   br label %41
 
 41:                                               ; preds = %40, %36
@@ -680,8 +689,8 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
   %45 = load ptr, ptr %22, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %31, align 8
-  %48 = tail call ptr @PQexec(ptr noundef %47, ptr noundef %46) #8
-  %49 = tail call i32 @PQresultStatus(ptr noundef %48) #8
+  %48 = tail call ptr @PQexec(ptr noundef %47, ptr noundef %46) #7
+  %49 = tail call i32 @PQresultStatus(ptr noundef %48) #7
   switch i32 %49, label %51 [
     i32 1, label %ExecuteSqlCommand.exit.i
     i32 2, label %ExecuteSqlCommand.exit.i
@@ -694,14 +703,14 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
   br label %ExecuteSqlCommand.exit.i
 
 51:                                               ; preds = %44
-  %52 = tail call ptr @PQerrorMessage(ptr noundef %47) #8
-  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.15, ptr noundef %52, ptr noundef %46) #8
+  %52 = tail call ptr @PQerrorMessage(ptr noundef %47) #7
+  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.15, ptr noundef %52, ptr noundef %46) #7
   br label %ExecuteSqlCommand.exit.i
 
 ExecuteSqlCommand.exit.i:                         ; preds = %51, %50, %44, %44, %44
-  tail call void @PQclear(ptr noundef %48) #8
+  tail call void @PQclear(ptr noundef %48) #7
   %53 = load ptr, ptr %22, align 8
-  tail call void @resetPQExpBuffer(ptr noundef %53) #8
+  tail call void @resetPQExpBuffer(ptr noundef %53) #7
   br label %72
 
 54:                                               ; preds = %43
@@ -766,8 +775,8 @@ ExecuteSqlCommand.exit.i:                         ; preds = %51, %50, %44, %44, 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 440
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call ptr @PQexec(ptr noundef %80, ptr noundef nonnull %1) #8
-  %82 = tail call i32 @PQresultStatus(ptr noundef %81) #8
+  %81 = tail call ptr @PQexec(ptr noundef %80, ptr noundef nonnull %1) #7
+  %82 = tail call i32 @PQresultStatus(ptr noundef %81) #7
   switch i32 %82, label %85 [
     i32 1, label %ExecuteSqlCommand.exit
     i32 2, label %ExecuteSqlCommand.exit
@@ -781,24 +790,24 @@ ExecuteSqlCommand.exit.i:                         ; preds = %51, %50, %44, %44, 
   br label %ExecuteSqlCommand.exit
 
 85:                                               ; preds = %78
-  %86 = tail call ptr @PQerrorMessage(ptr noundef %80) #8
-  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.15, ptr noundef %86, ptr noundef nonnull %1) #8
+  %86 = tail call ptr @PQerrorMessage(ptr noundef %80) #7
+  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.15, ptr noundef %86, ptr noundef nonnull %1) #7
   br label %ExecuteSqlCommand.exit
 
 ExecuteSqlCommand.exit:                           ; preds = %78, %78, %78, %83, %85
-  tail call void @PQclear(ptr noundef %81) #8
+  tail call void @PQclear(ptr noundef %81) #7
   br label %ExecuteSimpleCommands.exit
 
 87:                                               ; preds = %74
   %88 = add i64 %2, 1
-  %89 = tail call ptr @pg_malloc(i64 noundef %88) #8
+  %89 = tail call ptr @pg_malloc(i64 noundef %88) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr nonnull align 1 %1, i64 %2, i1 false)
   %90 = getelementptr i8, ptr %89, i64 %2
   store i8 0, ptr %90, align 1
   %91 = getelementptr inbounds i8, ptr %0, i64 440
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call ptr @PQexec(ptr noundef %92, ptr noundef %89) #8
-  %94 = tail call i32 @PQresultStatus(ptr noundef %93) #8
+  %93 = tail call ptr @PQexec(ptr noundef %92, ptr noundef %89) #7
+  %94 = tail call i32 @PQresultStatus(ptr noundef %93) #7
   switch i32 %94, label %97 [
     i32 1, label %ExecuteSqlCommand.exit24
     i32 2, label %ExecuteSqlCommand.exit24
@@ -812,13 +821,13 @@ ExecuteSqlCommand.exit:                           ; preds = %78, %78, %78, %83, 
   br label %ExecuteSqlCommand.exit24
 
 97:                                               ; preds = %87
-  %98 = tail call ptr @PQerrorMessage(ptr noundef %92) #8
-  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.15, ptr noundef %98, ptr noundef nonnull %89) #8
+  %98 = tail call ptr @PQerrorMessage(ptr noundef %92) #7
+  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.15, ptr noundef %98, ptr noundef nonnull %89) #7
   br label %ExecuteSqlCommand.exit24
 
 ExecuteSqlCommand.exit24:                         ; preds = %87, %87, %87, %95, %97
-  tail call void @PQclear(ptr noundef %93) #8
-  tail call void @free(ptr noundef nonnull %89) #8
+  tail call void @PQclear(ptr noundef %93) #7
+  tail call void @free(ptr noundef nonnull %89) #7
   br label %ExecuteSimpleCommands.exit
 
 ExecuteSimpleCommands.exit:                       ; preds = %72, %27, %ExecuteSqlCommand.exit24, %ExecuteSqlCommand.exit, %6, %10
@@ -843,38 +852,38 @@ define dso_local void @EndDBCopyMode(ptr noundef %0, ptr noundef %1) local_unnam
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 440
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @PQputCopyEnd(ptr noundef %8, ptr noundef null) #8
+  %9 = tail call i32 @PQputCopyEnd(ptr noundef %8, ptr noundef null) #7
   %10 = icmp slt i32 %9, 1
   %11 = load ptr, ptr %7, align 8
   br i1 %10, label %12, label %14
 
 12:                                               ; preds = %6
-  %13 = tail call ptr @PQerrorMessage(ptr noundef %11) #8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %13) #8
-  tail call void @exit_nicely(i32 noundef 1) #9
+  %13 = tail call ptr @PQerrorMessage(ptr noundef %11) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %13) #7
+  tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
 14:                                               ; preds = %6
-  %15 = tail call ptr @PQgetResult(ptr noundef %11) #8
-  %16 = tail call i32 @PQresultStatus(ptr noundef %15) #8
+  %15 = tail call ptr @PQgetResult(ptr noundef %11) #7
+  %16 = tail call i32 @PQresultStatus(ptr noundef %15) #7
   %.not = icmp eq i32 %16, 1
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %7, align 8
-  %19 = tail call ptr @PQerrorMessage(ptr noundef %18) #8
-  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef %19) #8
+  %19 = tail call ptr @PQerrorMessage(ptr noundef %18) #7
+  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef %19) #7
   br label %20
 
 20:                                               ; preds = %17, %14
-  tail call void @PQclear(ptr noundef %15) #8
+  tail call void @PQclear(ptr noundef %15) #7
   %21 = load ptr, ptr %7, align 8
-  %22 = tail call ptr @PQgetResult(ptr noundef %21) #8
+  %22 = tail call ptr @PQgetResult(ptr noundef %21) #7
   %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %1) #8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %1) #7
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -895,8 +904,8 @@ declare void @warn_or_exit_horribly(ptr noundef, ptr noundef, ...) local_unnamed
 define dso_local void @StartTransaction(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @PQexec(ptr noundef %3, ptr noundef nonnull @.str.19) #8
-  %5 = tail call i32 @PQresultStatus(ptr noundef %4) #8
+  %4 = tail call ptr @PQexec(ptr noundef %3, ptr noundef nonnull @.str.19) #7
+  %5 = tail call i32 @PQresultStatus(ptr noundef %4) #7
   switch i32 %5, label %8 [
     i32 1, label %ExecuteSqlCommand.exit
     i32 2, label %ExecuteSqlCommand.exit
@@ -910,12 +919,12 @@ define dso_local void @StartTransaction(ptr noundef %0) local_unnamed_addr #0 {
   br label %ExecuteSqlCommand.exit
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @PQerrorMessage(ptr noundef %3) #8
-  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, ptr noundef %9, ptr noundef nonnull @.str.19) #8
+  %9 = tail call ptr @PQerrorMessage(ptr noundef %3) #7
+  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.20, ptr noundef %9, ptr noundef nonnull @.str.19) #7
   br label %ExecuteSqlCommand.exit
 
 ExecuteSqlCommand.exit:                           ; preds = %1, %1, %1, %6, %8
-  tail call void @PQclear(ptr noundef %4) #8
+  tail call void @PQclear(ptr noundef %4) #7
   ret void
 }
 
@@ -923,8 +932,8 @@ ExecuteSqlCommand.exit:                           ; preds = %1, %1, %1, %6, %8
 define dso_local void @CommitTransaction(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @PQexec(ptr noundef %3, ptr noundef nonnull @.str.21) #8
-  %5 = tail call i32 @PQresultStatus(ptr noundef %4) #8
+  %4 = tail call ptr @PQexec(ptr noundef %3, ptr noundef nonnull @.str.21) #7
+  %5 = tail call i32 @PQresultStatus(ptr noundef %4) #7
   switch i32 %5, label %8 [
     i32 1, label %ExecuteSqlCommand.exit
     i32 2, label %ExecuteSqlCommand.exit
@@ -938,12 +947,12 @@ define dso_local void @CommitTransaction(ptr noundef %0) local_unnamed_addr #0 {
   br label %ExecuteSqlCommand.exit
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @PQerrorMessage(ptr noundef %3) #8
-  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.22, ptr noundef %9, ptr noundef nonnull @.str.21) #8
+  %9 = tail call ptr @PQerrorMessage(ptr noundef %3) #7
+  tail call void (ptr, ptr, ...) @warn_or_exit_horribly(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.22, ptr noundef %9, ptr noundef nonnull @.str.21) #7
   br label %ExecuteSqlCommand.exit
 
 ExecuteSqlCommand.exit:                           ; preds = %1, %1, %1, %6, %8
-  tail call void @PQclear(ptr noundef %4) #8
+  tail call void @PQclear(ptr noundef %4) #7
   ret void
 }
 
@@ -955,16 +964,16 @@ define dso_local void @DropLOIfExists(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @PQserverVersion(ptr noundef nonnull %4) #8
+  %7 = tail call i32 @PQserverVersion(ptr noundef nonnull %4) #7
   %8 = icmp sgt i32 %7, 89999
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6, %2
-  %10 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %1) #8
+  %10 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %1) #7
   br label %13
 
 11:                                               ; preds = %6
-  %12 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %1, i32 noundef %1) #8
+  %12 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %1, i32 noundef %1) #7
   br label %13
 
 13:                                               ; preds = %11, %9
@@ -979,9 +988,6 @@ declare ptr @PQparameterStatus(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -998,10 +1004,8 @@ attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -14,7 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [7 x i8] c"option\00", align 1
 @.str.6 = private unnamed_addr constant [16 x i8] c"one-insn-per-tb\00", align 1
 @.str.7 = private unnamed_addr constant [59 x i8] c"This accelerator does not support setting one-insn-per-tb\0A\00", align 1
-@.str.8 = private unnamed_addr constant [3 x i8] c"on\00", align 1
 @.str.9 = private unnamed_addr constant [4 x i8] c"off\00", align 1
 @.str.10 = private unnamed_addr constant [22 x i8] c"unexpected option %s\0A\00", align 1
 @error_abort = external global ptr, align 8
@@ -73,14 +72,26 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %tobool4.not = icmp eq ptr %call, null
-  br i1 %tobool4.not, label %if.end14, label %lor.lhs.false
+  br i1 %tobool4.not, label %if.end14, label %sub_0
 
-lor.lhs.false:                                    ; preds = %if.end
-  %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(3) @.str.8) #4
-  %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %if.end14, label %if.else
+sub_0:                                            ; preds = %if.end
+  %0 = load i8, ptr %call, align 1
+  %.not = icmp eq i8 %0, 111
+  br i1 %.not, label %sub_1, label %if.else
 
-if.else:                                          ; preds = %lor.lhs.false
+sub_1:                                            ; preds = %sub_0
+  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %2 = load i8, ptr %1, align 1
+  %.not6 = icmp eq i8 %2, 110
+  br i1 %.not6, label %lor.lhs.false.tail, label %if.else
+
+lor.lhs.false.tail:                               ; preds = %sub_1
+  %3 = getelementptr inbounds i8, ptr %call, i64 2
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %if.end14, label %if.else
+
+if.else:                                          ; preds = %sub_1, %sub_0, %lor.lhs.false.tail
   %call8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(4) @.str.9) #4
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.end14, label %if.else11
@@ -89,8 +100,8 @@ if.else11:                                        ; preds = %if.else
   %call12 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.10, ptr noundef nonnull %call) #3
   br label %return
 
-if.end14:                                         ; preds = %if.else, %if.end, %lor.lhs.false
-  %newval.0 = phi i1 [ true, %lor.lhs.false ], [ true, %if.end ], [ false, %if.else ]
+if.end14:                                         ; preds = %if.else, %if.end, %lor.lhs.false.tail
+  %newval.0 = phi i1 [ true, %lor.lhs.false.tail ], [ true, %if.end ], [ false, %if.else ]
   %call16 = tail call zeroext i1 @object_property_set_bool(ptr noundef %call1, ptr noundef nonnull @.str.6, i1 noundef zeroext %newval.0, ptr noundef nonnull @error_abort) #3
   br label %return
 

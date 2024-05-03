@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [35 x i8] c"%s: could not open file %s for %s\0A\00", align 1
 @.str.9 = private unnamed_addr constant [153 x i8] c"Usage: %s [-gd?] [-o<file>] [<graphs>]\0A -g        : convert to GXL\0A -d        : convert to GV\0A -o<file>  : output to <file> (stdout)\0A -?        : usage\0A\00", align 1
 @.str.10 = private unnamed_addr constant [34 x i8] c"Cannot determine conversion type\0A\00", align 1
-@.str.11 = private unnamed_addr constant [3 x i8] c"gv\00", align 1
 @.str.12 = private unnamed_addr constant [4 x i8] c"dot\00", align 1
 @.str.13 = private unnamed_addr constant [4 x i8] c"gxl\00", align 1
 @getFile.savef = internal unnamed_addr global ptr null, align 8
@@ -179,170 +178,182 @@ openFile.exit.i:                                  ; preds = %15
   %67 = load ptr, ptr %65, align 8
   %68 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %67, i32 noundef 46) #8
   %.not.i.i.i = icmp eq ptr %68, null
-  br i1 %.not.i.i.i, label %checkInput.exit.i.i, label %69
+  br i1 %.not.i.i.i, label %checkInput.exit.i.i, label %sub_0.i.i.i
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %68, i64 1
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(3) @.str.11) #8
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %setAction.exit.i, label %73
+sub_0.i.i.i:                                      ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %68, i64 1
+  %70 = load i8, ptr %69, align 1
+  %.not5.i.i.i = icmp eq i8 %70, 103
+  br i1 %.not5.i.i.i, label %sub_1.i.i.i, label %.tail.thread.i.i.i
 
-73:                                               ; preds = %69
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(4) @.str.12) #8
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %setAction.exit.i, label %76
+sub_1.i.i.i:                                      ; preds = %sub_0.i.i.i
+  %71 = getelementptr inbounds i8, ptr %68, i64 2
+  %72 = load i8, ptr %71, align 1
+  %.not6.i.i.i = icmp eq i8 %72, 118
+  br i1 %.not6.i.i.i, label %.tail.i.i.i, label %.tail.thread.i.i.i
 
-76:                                               ; preds = %73
-  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(4) @.str.13) #8
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %setAction.exit.i, label %checkInput.exit.i.i
+.tail.i.i.i:                                      ; preds = %sub_1.i.i.i
+  %73 = getelementptr inbounds i8, ptr %68, i64 3
+  %74 = load i8, ptr %73, align 1
+  %75 = icmp eq i8 %74, 0
+  br i1 %75, label %setAction.exit.i, label %.tail.thread.i.i.i
 
-checkInput.exit.i.i:                              ; preds = %76, %66, %64
-  %79 = load ptr, ptr @stderr, align 8
-  %80 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 33, i64 1, ptr %79) #11
+.tail.thread.i.i.i:                               ; preds = %.tail.i.i.i, %sub_1.i.i.i, %sub_0.i.i.i
+  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(4) @.str.12) #8
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %setAction.exit.i, label %78
+
+78:                                               ; preds = %.tail.thread.i.i.i
+  %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(4) @.str.13) #8
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %setAction.exit.i, label %checkInput.exit.i.i
+
+checkInput.exit.i.i:                              ; preds = %78, %66, %64
   %81 = load ptr, ptr @stderr, align 8
-  %82 = load ptr, ptr @CmdName, align 8
-  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.9, ptr noundef %82) #10
+  %82 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 33, i64 1, ptr %81) #11
+  %83 = load ptr, ptr @stderr, align 8
+  %84 = load ptr, ptr @CmdName, align 8
+  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.9, ptr noundef %84) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #12
   unreachable
 
-setAction.exit.i:                                 ; preds = %76, %73, %69, %58, %53
-  %.sink.i.i = phi i32 [ 2, %53 ], [ %..i.i, %58 ], [ 2, %69 ], [ 2, %73 ], [ 1, %76 ]
+setAction.exit.i:                                 ; preds = %78, %.tail.thread.i.i.i, %.tail.i.i.i, %58, %53
+  %.sink.i.i = phi i32 [ 2, %53 ], [ %..i.i, %58 ], [ 2, %.tail.i.i.i ], [ 2, %.tail.thread.i.i.i ], [ 1, %78 ]
   store i32 %.sink.i.i, ptr @act, align 4
   br label %initargs.exit
 
 initargs.exit:                                    ; preds = %50, %setAction.exit.i
-  %84 = phi i32 [ %51, %50 ], [ %.sink.i.i, %setAction.exit.i ]
-  %85 = icmp eq i32 %84, 2
-  br i1 %85, label %86, label %.preheader19.outer
+  %86 = phi i32 [ %51, %50 ], [ %.sink.i.i, %setAction.exit.i ]
+  %87 = icmp eq i32 %86, 2
+  br i1 %87, label %88, label %.preheader19.outer
 
-86:                                               ; preds = %initargs.exit
-  %87 = load ptr, ptr @Files, align 8
-  %88 = call ptr @newIngraph(ptr noundef nonnull %3, ptr noundef %87) #9
-  %89 = call ptr @nextGraph(ptr noundef nonnull %3) #9
-  %.not1427 = icmp eq ptr %89, null
+88:                                               ; preds = %initargs.exit
+  %89 = load ptr, ptr @Files, align 8
+  %90 = call ptr @newIngraph(ptr noundef nonnull %3, ptr noundef %89) #9
+  %91 = call ptr @nextGraph(ptr noundef nonnull %3) #9
+  %.not1427 = icmp eq ptr %91, null
   br i1 %.not1427, label %.loopexit, label %.lr.ph29
 
-.lr.ph29:                                         ; preds = %86, %93
-  %90 = phi ptr [ %97, %93 ], [ %89, %86 ]
-  %.028 = phi ptr [ %90, %93 ], [ null, %86 ]
+.lr.ph29:                                         ; preds = %88, %95
+  %92 = phi ptr [ %99, %95 ], [ %91, %88 ]
+  %.028 = phi ptr [ %92, %95 ], [ null, %88 ]
   %.not15 = icmp eq ptr %.028, null
-  br i1 %.not15, label %93, label %91
+  br i1 %.not15, label %95, label %93
 
-91:                                               ; preds = %.lr.ph29
-  %92 = call i32 @agclose(ptr noundef nonnull %.028) #9
-  br label %93
+93:                                               ; preds = %.lr.ph29
+  %94 = call i32 @agclose(ptr noundef nonnull %.028) #9
+  br label %95
 
-93:                                               ; preds = %91, %.lr.ph29
-  %94 = load ptr, ptr @outFile, align 8
-  call void @gv_to_gxl(ptr noundef nonnull %90, ptr noundef %94) #9
-  %95 = load ptr, ptr @outFile, align 8
-  %96 = call i32 @fflush(ptr noundef %95)
-  %97 = call ptr @nextGraph(ptr noundef nonnull %3) #9
-  %.not14 = icmp eq ptr %97, null
+95:                                               ; preds = %93, %.lr.ph29
+  %96 = load ptr, ptr @outFile, align 8
+  call void @gv_to_gxl(ptr noundef nonnull %92, ptr noundef %96) #9
+  %97 = load ptr, ptr @outFile, align 8
+  %98 = call i32 @fflush(ptr noundef %97)
+  %99 = call ptr @nextGraph(ptr noundef nonnull %3) #9
+  %.not14 = icmp eq ptr %99, null
   br i1 %.not14, label %.loopexit, label %.lr.ph29
 
-.preheader19.outer:                               ; preds = %137, %initargs.exit
-  %.1.ph = phi ptr [ null, %initargs.exit ], [ %134, %137 ]
+.preheader19.outer:                               ; preds = %139, %initargs.exit
+  %.1.ph = phi ptr [ null, %initargs.exit ], [ %136, %139 ]
   br label %.preheader19
 
 .preheader19:                                     ; preds = %.preheader19.outer, %.preheader
-  %98 = load ptr, ptr @Files, align 8
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %104
+  %100 = load ptr, ptr @Files, align 8
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %106
 
-100:                                              ; preds = %.preheader19
-  %101 = load i32, ptr @getFile.cnt, align 4
-  %102 = add nsw i32 %101, 1
-  store i32 %102, ptr @getFile.cnt, align 4
-  %103 = icmp eq i32 %101, 0
-  br i1 %103, label %getFile.exit, label %getFile.exit.thread
+102:                                              ; preds = %.preheader19
+  %103 = load i32, ptr @getFile.cnt, align 4
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr @getFile.cnt, align 4
+  %105 = icmp eq i32 %103, 0
+  br i1 %105, label %getFile.exit, label %getFile.exit.thread
 
-104:                                              ; preds = %.preheader19
-  %105 = load ptr, ptr @getFile.savef, align 8
-  %.not.i = icmp eq ptr %105, null
-  br i1 %.not.i, label %108, label %106
+106:                                              ; preds = %.preheader19
+  %107 = load ptr, ptr @getFile.savef, align 8
+  %.not.i = icmp eq ptr %107, null
+  br i1 %.not.i, label %110, label %108
 
-106:                                              ; preds = %104
-  %107 = tail call i32 @fclose(ptr noundef nonnull %105)
+108:                                              ; preds = %106
+  %109 = tail call i32 @fclose(ptr noundef nonnull %107)
   %.pre.i = load ptr, ptr @Files, align 8
-  br label %108
+  br label %110
 
-108:                                              ; preds = %106, %104
-  %109 = phi ptr [ %.pre.i, %106 ], [ %98, %104 ]
-  %110 = load i32, ptr @getFile.cnt, align 4
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds ptr, ptr %109, i64 %111
-  %113 = load ptr, ptr %112, align 8
-  %.not57.i = icmp eq ptr %113, null
+110:                                              ; preds = %108, %106
+  %111 = phi ptr [ %.pre.i, %108 ], [ %100, %106 ]
+  %112 = load i32, ptr @getFile.cnt, align 4
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds ptr, ptr %111, i64 %113
+  %115 = load ptr, ptr %114, align 8
+  %.not57.i = icmp eq ptr %115, null
   br i1 %.not57.i, label %getFile.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %108, %118
-  %114 = phi ptr [ %131, %118 ], [ %113, %108 ]
-  %115 = phi i32 [ %128, %118 ], [ %110, %108 ]
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr @getFile.cnt, align 4
-  %117 = tail call noalias ptr @fopen(ptr noundef nonnull %114, ptr noundef nonnull @.str.5)
-  %.not6.i = icmp eq ptr %117, null
-  br i1 %.not6.i, label %118, label %getFile.exit.thread36
+.lr.ph.i:                                         ; preds = %110, %120
+  %116 = phi ptr [ %133, %120 ], [ %115, %110 ]
+  %117 = phi i32 [ %130, %120 ], [ %112, %110 ]
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr @getFile.cnt, align 4
+  %119 = tail call noalias ptr @fopen(ptr noundef nonnull %116, ptr noundef nonnull @.str.5)
+  %.not6.i = icmp eq ptr %119, null
+  br i1 %.not6.i, label %120, label %getFile.exit.thread36
 
 getFile.exit.thread36:                            ; preds = %.lr.ph.i
-  store ptr %117, ptr @getFile.savef, align 8
+  store ptr %119, ptr @getFile.savef, align 8
   br label %.preheader
 
-118:                                              ; preds = %.lr.ph.i
-  %119 = load ptr, ptr @stderr, align 8
-  %120 = load ptr, ptr @Files, align 8
-  %121 = load i32, ptr @getFile.cnt, align 4
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr ptr, ptr %120, i64 %122
-  %124 = getelementptr i8, ptr %123, i64 -8
-  %125 = load ptr, ptr %124, align 8
-  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.14, ptr noundef %125) #10
-  %127 = load ptr, ptr @Files, align 8
-  %128 = load i32, ptr @getFile.cnt, align 4
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds ptr, ptr %127, i64 %129
-  %131 = load ptr, ptr %130, align 8
-  %.not5.i = icmp eq ptr %131, null
+120:                                              ; preds = %.lr.ph.i
+  %121 = load ptr, ptr @stderr, align 8
+  %122 = load ptr, ptr @Files, align 8
+  %123 = load i32, ptr @getFile.cnt, align 4
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr ptr, ptr %122, i64 %124
+  %126 = getelementptr i8, ptr %125, i64 -8
+  %127 = load ptr, ptr %126, align 8
+  %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.14, ptr noundef %127) #10
+  %129 = load ptr, ptr @Files, align 8
+  %130 = load i32, ptr @getFile.cnt, align 4
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds ptr, ptr %129, i64 %131
+  %133 = load ptr, ptr %132, align 8
+  %.not5.i = icmp eq ptr %133, null
   br i1 %.not5.i, label %getFile.exit.thread, label %.lr.ph.i
 
-getFile.exit.thread:                              ; preds = %100, %108, %118
+getFile.exit.thread:                              ; preds = %102, %110, %120
   store ptr null, ptr @getFile.savef, align 8
   br label %.loopexit
 
-getFile.exit:                                     ; preds = %100
-  %132 = load ptr, ptr @stdin, align 8
-  store ptr %132, ptr @getFile.savef, align 8
-  %.not = icmp eq ptr %132, null
+getFile.exit:                                     ; preds = %102
+  %134 = load ptr, ptr @stdin, align 8
+  store ptr %134, ptr @getFile.savef, align 8
+  %.not = icmp eq ptr %134, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %getFile.exit.thread36, %getFile.exit
-  %.1.i39 = phi ptr [ %117, %getFile.exit.thread36 ], [ %132, %getFile.exit ]
-  %133 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.1.i39) #9
-  %.not1225 = icmp eq ptr %133, null
+  %.1.i39 = phi ptr [ %119, %getFile.exit.thread36 ], [ %134, %getFile.exit ]
+  %135 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.1.i39) #9
+  %.not1225 = icmp eq ptr %135, null
   br i1 %.not1225, label %.preheader19, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %137
-  %134 = phi ptr [ %142, %137 ], [ %133, %.preheader ]
-  %.226 = phi ptr [ %134, %137 ], [ %.1.ph, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %139
+  %136 = phi ptr [ %144, %139 ], [ %135, %.preheader ]
+  %.226 = phi ptr [ %136, %139 ], [ %.1.ph, %.preheader ]
   %.not13 = icmp eq ptr %.226, null
-  br i1 %.not13, label %137, label %135
+  br i1 %.not13, label %139, label %137
 
-135:                                              ; preds = %.lr.ph
-  %136 = tail call i32 @agclose(ptr noundef nonnull %.226) #9
-  br label %137
+137:                                              ; preds = %.lr.ph
+  %138 = tail call i32 @agclose(ptr noundef nonnull %.226) #9
+  br label %139
 
-137:                                              ; preds = %135, %.lr.ph
-  %138 = load ptr, ptr @outFile, align 8
-  %139 = tail call i32 @agwrite(ptr noundef nonnull %134, ptr noundef %138) #9
+139:                                              ; preds = %137, %.lr.ph
   %140 = load ptr, ptr @outFile, align 8
-  %141 = tail call i32 @fflush(ptr noundef %140)
-  %142 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.1.i39) #9
-  %.not12 = icmp eq ptr %142, null
+  %141 = tail call i32 @agwrite(ptr noundef nonnull %136, ptr noundef %140) #9
+  %142 = load ptr, ptr @outFile, align 8
+  %143 = tail call i32 @fflush(ptr noundef %142)
+  %144 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.1.i39) #9
+  %.not12 = icmp eq ptr %144, null
   br i1 %.not12, label %.preheader19.outer, label %.lr.ph
 
-.loopexit:                                        ; preds = %getFile.exit, %93, %86, %getFile.exit.thread
+.loopexit:                                        ; preds = %getFile.exit, %95, %88, %getFile.exit.thread
   call fastcc void @graphviz_exit(i32 noundef 0) #12
   unreachable
 }

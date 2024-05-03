@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.opal_hwloc_base_get_location = private unnamed_addr constant [13 x ptr] [ptr @.str.21, ptr @.str.25, ptr @.str.26, ptr @.str.24, ptr @.str.23, ptr @.str.22, ptr @.str.20, ptr @.str.20, ptr @.str.20, ptr @.str.20, ptr @.str.20, ptr @.str.20, ptr @.str.20], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_hwloc_base_get_topology() local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
@@ -1224,7 +1224,7 @@ define noalias ptr @opal_hwloc_base_get_location(ptr noundef %0, i32 noundef %1,
   br i1 %6, label %switch.hole_check, label %20
 
 switch.hole_check:                                ; preds = %5
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4159, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %20
@@ -1282,7 +1282,7 @@ define zeroext i16 @opal_hwloc_compute_relative_locality(ptr noundef %0, ptr nou
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %69, label %5
+  br i1 %or.cond, label %91, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noalias ptr @opal_argv_split(ptr noundef nonnull %0, i32 noundef 58) #9
@@ -1290,26 +1290,26 @@ define zeroext i16 @opal_hwloc_compute_relative_locality(ptr noundef %0, ptr nou
   %8 = tail call noalias ptr @hwloc_bitmap_alloc() #9
   %9 = tail call noalias ptr @hwloc_bitmap_alloc() #9
   %10 = load ptr, ptr %6, align 8
-  %.not64 = icmp eq ptr %10, null
-  br i1 %.not64, label %._crit_edge, label %.lr.ph67
+  %.not88 = icmp eq ptr %10, null
+  br i1 %.not88, label %._crit_edge, label %.lr.ph91
 
-.lr.ph67:                                         ; preds = %5, %.loopexit
-  %11 = phi ptr [ %68, %.loopexit ], [ %10, %5 ]
-  %.05266 = phi i64 [ %66, %.loopexit ], [ 0, %5 ]
-  %.05465 = phi i16 [ %.1, %.loopexit ], [ 15, %5 ]
-  %12 = getelementptr inbounds ptr, ptr %6, i64 %.05266
+.lr.ph91:                                         ; preds = %5, %.loopexit
+  %11 = phi ptr [ %90, %.loopexit ], [ %10, %5 ]
+  %.05290 = phi i64 [ %88, %.loopexit ], [ 0, %5 ]
+  %.05489 = phi i16 [ %.1, %.loopexit ], [ 15, %5 ]
+  %12 = getelementptr inbounds ptr, ptr %6, i64 %.05290
   %13 = getelementptr inbounds i8, ptr %11, i64 2
   %14 = tail call i32 @hwloc_bitmap_list_sscanf(ptr noundef %8, ptr noundef nonnull %13) #9
   %15 = load ptr, ptr %7, align 8
-  %.not5962 = icmp eq ptr %15, null
-  br i1 %.not5962, label %.loopexit, label %.lr.ph
+  %.not5986 = icmp eq ptr %15, null
+  br i1 %.not5986, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph67
+.lr.ph:                                           ; preds = %.lr.ph91
   %16 = load ptr, ptr %12, align 8
   br label %21
 
 17:                                               ; preds = %21
-  %18 = add i64 %.063, 1
+  %18 = add i64 %.087, 1
   %19 = getelementptr inbounds ptr, ptr %7, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not59 = icmp eq ptr %20, null
@@ -1317,7 +1317,7 @@ define zeroext i16 @opal_hwloc_compute_relative_locality(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %.lr.ph, %17
   %22 = phi ptr [ %15, %.lr.ph ], [ %20, %17 ]
-  %.063 = phi i64 [ 0, %.lr.ph ], [ %18, %17 ]
+  %.087 = phi i64 [ 0, %.lr.ph ], [ %18, %17 ]
   %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %22, i64 noundef 2) #10
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %17
@@ -1327,83 +1327,147 @@ define zeroext i16 @opal_hwloc_compute_relative_locality(ptr noundef %0, ptr nou
   %27 = tail call i32 @hwloc_bitmap_list_sscanf(ptr noundef %9, ptr noundef nonnull %26) #9
   %28 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %8, ptr noundef %9) #10
   %.not60 = icmp eq i32 %28, 0
-  br i1 %.not60, label %.loopexit, label %29
+  br i1 %.not60, label %.loopexit, label %sub_0
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %12, align 8
-  %31 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(3) @.str.20, i64 noundef 2) #10
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %35
+sub_0:                                            ; preds = %25
+  %29 = load ptr, ptr %12, align 8
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = add nsw i32 %31, -78
+  %.not92 = icmp eq i32 %32, 0
+  br i1 %.not92, label %sub_1, label %.tail
 
-33:                                               ; preds = %29
-  %34 = or i16 %.05465, 16
+sub_1:                                            ; preds = %sub_0
+  %33 = getelementptr inbounds i8, ptr %29, i64 1
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = add nsw i32 %35, -77
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1
+  %37 = phi i32 [ %32, %sub_0 ], [ %36, %sub_1 ]
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %sub_062
+
+39:                                               ; preds = %.tail
+  %40 = or i16 %.05489, 16
   br label %.loopexit
 
-35:                                               ; preds = %29
-  %36 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(3) @.str.21, i64 noundef 2) #10
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %40
+sub_062:                                          ; preds = %.tail
+  %41 = add nsw i32 %31, -83
+  %.not93 = icmp eq i32 %41, 0
+  br i1 %.not93, label %sub_163, label %.tail61
 
-38:                                               ; preds = %35
-  %39 = or i16 %.05465, 32
-  br label %.loopexit
+sub_163:                                          ; preds = %sub_062
+  %42 = getelementptr inbounds i8, ptr %29, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = add nsw i32 %44, -75
+  br label %.tail61
 
-40:                                               ; preds = %35
-  %41 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(3) @.str.22, i64 noundef 2) #10
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %45
-
-43:                                               ; preds = %40
-  %44 = or i16 %.05465, 64
-  br label %.loopexit
-
-45:                                               ; preds = %40
-  %46 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(3) @.str.23, i64 noundef 2) #10
+.tail61:                                          ; preds = %sub_062, %sub_163
+  %46 = phi i32 [ %41, %sub_062 ], [ %45, %sub_163 ]
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %50
+  br i1 %47, label %48, label %sub_066
 
-48:                                               ; preds = %45
-  %49 = or i16 %.05465, 128
+48:                                               ; preds = %.tail61
+  %49 = or i16 %.05489, 32
   br label %.loopexit
 
-50:                                               ; preds = %45
-  %51 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(3) @.str.24, i64 noundef 2) #10
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %55
+sub_066:                                          ; preds = %.tail61
+  %50 = add nsw i32 %31, -76
+  %.not94 = icmp eq i32 %50, 0
+  br i1 %.not94, label %.tail65, label %.tail73
 
-53:                                               ; preds = %50
-  %54 = or i16 %.05465, 256
+.tail65:                                          ; preds = %sub_066
+  %51 = getelementptr inbounds i8, ptr %29, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = icmp eq i8 %52, 51
+  br i1 %53, label %54, label %.tail69.thread
+
+54:                                               ; preds = %.tail65
+  %55 = or i16 %.05489, 64
   br label %.loopexit
 
-55:                                               ; preds = %50
-  %56 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(3) @.str.25, i64 noundef 2) #10
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %60
+.tail69.thread:                                   ; preds = %.tail65
+  %56 = getelementptr inbounds i8, ptr %29, i64 1
+  %57 = load i8, ptr %56, align 1
+  %58 = icmp eq i8 %57, 50
+  br i1 %58, label %59, label %sub_175
 
-58:                                               ; preds = %55
-  %59 = or i16 %.05465, 512
+59:                                               ; preds = %.tail69.thread
+  %60 = or i16 %.05489, 128
   br label %.loopexit
 
-60:                                               ; preds = %55
-  %61 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(3) @.str.26, i64 noundef 2) #10
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %65
+sub_175:                                          ; preds = %.tail69.thread
+  %61 = getelementptr inbounds i8, ptr %29, i64 1
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i32
+  %64 = add nsw i32 %63, -49
+  br label %.tail73
 
-63:                                               ; preds = %60
-  %64 = or i16 %.05465, 1024
+.tail73:                                          ; preds = %sub_066, %sub_175
+  %65 = phi i32 [ %64, %sub_175 ], [ %50, %sub_066 ]
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %sub_078
+
+67:                                               ; preds = %.tail73
+  %68 = or i16 %.05489, 256
   br label %.loopexit
 
-65:                                               ; preds = %60
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.27, ptr noundef %30) #9
+sub_078:                                          ; preds = %.tail73
+  %69 = add nsw i32 %31, -67
+  %.not97 = icmp eq i32 %69, 0
+  br i1 %.not97, label %sub_179, label %.tail77
+
+sub_179:                                          ; preds = %sub_078
+  %70 = getelementptr inbounds i8, ptr %29, i64 1
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i32
+  %73 = add nsw i32 %72, -82
+  br label %.tail77
+
+.tail77:                                          ; preds = %sub_078, %sub_179
+  %74 = phi i32 [ %69, %sub_078 ], [ %73, %sub_179 ]
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %sub_082
+
+76:                                               ; preds = %.tail77
+  %77 = or i16 %.05489, 512
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %.lr.ph67, %33, %43, %53, %63, %65, %58, %48, %38, %25
-  %.1 = phi i16 [ %34, %33 ], [ %39, %38 ], [ %44, %43 ], [ %49, %48 ], [ %54, %53 ], [ %59, %58 ], [ %64, %63 ], [ %.05465, %65 ], [ %.05465, %25 ], [ %.05465, %.lr.ph67 ], [ %.05465, %17 ]
-  %66 = add i64 %.05266, 1
-  %67 = getelementptr inbounds ptr, ptr %6, i64 %66
-  %68 = load ptr, ptr %67, align 8
-  %.not = icmp eq ptr %68, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph67, !llvm.loop !16
+sub_082:                                          ; preds = %.tail77
+  %78 = add nsw i32 %31, -72
+  %.not98 = icmp eq i32 %78, 0
+  br i1 %.not98, label %sub_183, label %.tail81
+
+sub_183:                                          ; preds = %sub_082
+  %79 = getelementptr inbounds i8, ptr %29, i64 1
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = add nsw i32 %81, -84
+  br label %.tail81
+
+.tail81:                                          ; preds = %sub_082, %sub_183
+  %83 = phi i32 [ %78, %sub_082 ], [ %82, %sub_183 ]
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %87
+
+85:                                               ; preds = %.tail81
+  %86 = or i16 %.05489, 1024
+  br label %.loopexit
+
+87:                                               ; preds = %.tail81
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.27, ptr noundef nonnull %29) #9
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %17, %.lr.ph91, %39, %54, %67, %85, %87, %76, %59, %48, %25
+  %.1 = phi i16 [ %40, %39 ], [ %49, %48 ], [ %55, %54 ], [ %60, %59 ], [ %68, %67 ], [ %77, %76 ], [ %86, %85 ], [ %.05489, %87 ], [ %.05489, %25 ], [ %.05489, %.lr.ph91 ], [ %.05489, %17 ]
+  %88 = add i64 %.05290, 1
+  %89 = getelementptr inbounds ptr, ptr %6, i64 %88
+  %90 = load ptr, ptr %89, align 8
+  %.not = icmp eq ptr %90, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph91, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit, %5
   %.054.lcssa = phi i16 [ 15, %5 ], [ %.1, %.loopexit ]
@@ -1411,9 +1475,9 @@ define zeroext i16 @opal_hwloc_compute_relative_locality(ptr noundef %0, ptr nou
   tail call void @opal_argv_free(ptr noundef %7) #9
   tail call void @hwloc_bitmap_free(ptr noundef %8) #9
   tail call void @hwloc_bitmap_free(ptr noundef %9) #9
-  br label %69
+  br label %91
 
-69:                                               ; preds = %2, %._crit_edge
+91:                                               ; preds = %2, %._crit_edge
   %.053 = phi i16 [ %.054.lcssa, %._crit_edge ], [ 15, %2 ]
   ret i16 %.053
 }

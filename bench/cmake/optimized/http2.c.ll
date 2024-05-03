@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.curl_pushheaders = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"nghttp2/%s\00", align 1
-@.str.1 = private unnamed_addr constant [2 x i8] c":\00", align 1
 @.str.2 = private unnamed_addr constant [53 x i8] c"nghttp2 unexpectedly failed on pack_settings_payload\00", align 1
 @.str.3 = private unnamed_addr constant [71 x i8] c"Connection: Upgrade, HTTP2-Settings\0D\0AUpgrade: %s\0D\0AHTTP2-Settings: %s\0D\0A\00", align 1
 @.str.4 = private unnamed_addr constant [4 x i8] c"h2c\00", align 1
@@ -215,21 +214,24 @@ define dso_local ptr @curl_pushheader_byname(ptr noundef readonly %0, ptr nounde
 
 9:                                                ; preds = %5
   %10 = load i8, ptr %1, align 1
-  %.not33 = icmp eq i8 %10, 0
-  br i1 %.not33, label %.thread, label %11
+  switch i8 %10, label %.tail.thread [
+    i8 0, label %.thread
+    i8 58, label %.tail
+  ]
 
-11:                                               ; preds = %9
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.1) #12
-  %.not34 = icmp eq i32 %12, 0
-  br i1 %.not34, label %.thread, label %13
+.tail:                                            ; preds = %9
+  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %.thread, label %.tail.thread
 
-13:                                               ; preds = %11
+.tail.thread:                                     ; preds = %9, %.tail
   %14 = getelementptr inbounds i8, ptr %1, i64 1
   %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 58) #12
   %.not35 = icmp eq ptr %15, null
   br i1 %.not35, label %16, label %.thread
 
-16:                                               ; preds = %13
+16:                                               ; preds = %.tail.thread
   %17 = getelementptr inbounds i8, ptr %4, i64 384
   %18 = load ptr, ptr %17, align 8
   %.not36 = icmp eq ptr %18, null
@@ -245,8 +247,8 @@ define dso_local ptr @curl_pushheader_byname(ptr noundef readonly %0, ptr nounde
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %24 = getelementptr inbounds i8, ptr %21, i64 304
   %25 = load i64, ptr %24, align 8
-  %.not43 = icmp eq i64 %25, 0
-  br i1 %.not43, label %.thread, label %.lr.ph
+  %.not44 = icmp eq i64 %25, 0
+  br i1 %.not44, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
   %26 = getelementptr inbounds i8, ptr %21, i64 296
@@ -277,8 +279,8 @@ define dso_local ptr @curl_pushheader_byname(ptr noundef readonly %0, ptr nounde
   %exitcond.not = icmp eq i64 %39, %25
   br i1 %exitcond.not, label %.thread, label %28, !llvm.loop !5
 
-.thread:                                          ; preds = %38, %22, %16, %19, %2, %3, %5, %9, %11, %13, %35
-  %.026 = phi ptr [ %37, %35 ], [ null, %13 ], [ null, %11 ], [ null, %9 ], [ null, %5 ], [ null, %3 ], [ null, %2 ], [ null, %19 ], [ null, %16 ], [ null, %22 ], [ null, %38 ]
+.thread:                                          ; preds = %38, %9, %22, %16, %19, %2, %3, %5, %.tail, %.tail.thread, %35
+  %.026 = phi ptr [ %37, %35 ], [ null, %.tail.thread ], [ null, %.tail ], [ null, %9 ], [ null, %5 ], [ null, %3 ], [ null, %2 ], [ null, %19 ], [ null, %16 ], [ null, %22 ], [ null, %38 ]
   ret ptr %.026
 }
 
@@ -442,7 +444,7 @@ define internal i32 @cf_h2_connect(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br i1 %.not48, label %26, label %28
 
 26:                                               ; preds = %22
-  %27 = tail call fastcc i32 @cf_h2_ctx_init(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext false), !range !7
+  %27 = tail call fastcc i32 @cf_h2_ctx_init(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext false)
   %.not49 = icmp eq i32 %27, 0
   br i1 %.not49, label %28, label %35
 
@@ -1057,7 +1059,7 @@ h2_pri_spec.exit.i:                               ; preds = %91, %88, %85, %82
   %165 = phi i64 [ %.pre.i, %158 ], [ %148, %.lr.ph.i ]
   %166 = add nuw i64 %.0116151.i, 1
   %167 = icmp ult i64 %166, %165
-  br i1 %167, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %167, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %164
   %168 = icmp ugt i64 %155, 60000
@@ -1306,7 +1308,7 @@ should_close_session.exit:                        ; preds = %272
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %277
-  %282 = call fastcc i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0163180, ptr noundef %4), !range !9
+  %282 = call fastcc i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0163180, ptr noundef %4)
   br label %.thread207
 
 283:                                              ; preds = %277
@@ -1698,7 +1700,7 @@ drain_stream.exit115:                             ; preds = %111, %drain_stream.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cf_h2_cntrl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 17) i32 @cf_h2_cntrl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
@@ -2075,7 +2077,7 @@ define internal zeroext i1 @cf_h2_is_alive(ptr noundef %0, ptr noundef %1, ptr n
   br label %35
 
 35:                                               ; preds = %34, %29, %25, %24
-  %36 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4), !range !10
+  %36 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %http2_connisalive.exit, label %38
 
@@ -2142,7 +2144,7 @@ http2_connisalive.exit:                           ; preds = %9, %13, %18, %35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cf_h2_keep_alive(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 56) i32 @cf_h2_keep_alive(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2265,7 +2267,7 @@ define dso_local noundef zeroext i1 @Curl_conn_is_http2(ptr nocapture noundef re
   %16 = getelementptr inbounds i8, ptr %.052.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %Curl_cf_is_http2.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %Curl_cf_is_http2.exit, label %.lr.ph.i, !llvm.loop !8
 
 Curl_cf_is_http2.exit:                            ; preds = %15, %11, %.lr.ph.i, %4, %3
   %18 = phi i1 [ false, %3 ], [ false, %4 ], [ %10, %.lr.ph.i ], [ %10, %11 ], [ %10, %15 ]
@@ -2302,7 +2304,7 @@ define dso_local noundef zeroext i1 @Curl_http2_may_switch(ptr noundef %0, ptr n
   %16 = getelementptr inbounds i8, ptr %.052.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !8
 
 .loopexit:                                        ; preds = %15, %11, %3, %4
   %18 = getelementptr inbounds i8, ptr %0, i64 4936
@@ -2345,7 +2347,7 @@ define dso_local i32 @Curl_http2_switch(ptr noundef %0, ptr noundef %1, i32 noun
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8
-  %9 = tail call fastcc i32 @cf_h2_ctx_init(ptr noundef %8, ptr noundef %0, i1 noundef zeroext false), !range !7
+  %9 = tail call fastcc i32 @cf_h2_ctx_init(ptr noundef %8, ptr noundef %0, i1 noundef zeroext false)
   %.not15 = icmp eq i32 %9, 0
   br i1 %.not15, label %10, label %23
 
@@ -2428,7 +2430,7 @@ cf_h2_ctx_free.exit.thread:                       ; preds = %4, %cf_h2_ctx_clear
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cf_h2_ctx_init(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @cf_h2_ctx_init(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca [3 x %struct.nghttp2_settings_entry], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2723,7 +2725,7 @@ http2_cfilter_insert_after.exit.thread:           ; preds = %cf_h2_ctx_clear.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = call fastcc i32 @cf_h2_ctx_init(ptr noundef %20, ptr noundef %1, i1 noundef zeroext false), !range !7
+  %21 = call fastcc i32 @cf_h2_ctx_init(ptr noundef %20, ptr noundef %1, i1 noundef zeroext false)
   %.not18 = icmp eq i32 %21, 0
   br i1 %.not18, label %22, label %39
 
@@ -2771,7 +2773,7 @@ define dso_local i32 @Curl_http2_upgrade(ptr noundef %0, ptr noundef %1, i32 nou
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call fastcc i32 @cf_h2_ctx_init(ptr noundef %11, ptr noundef %0, i1 noundef zeroext true), !range !7
+  %14 = tail call fastcc i32 @cf_h2_ctx_init(ptr noundef %11, ptr noundef %0, i1 noundef zeroext true)
   store i32 %14, ptr %7, align 4
   %.not29 = icmp eq i32 %14, 0
   br i1 %.not29, label %15, label %44
@@ -2921,7 +2923,7 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
   br label %20
 
 20:                                               ; preds = %8, %9, %13, %18
-  %21 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3), !range !10
+  %21 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -2957,9 +2959,9 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
   br i1 %37, label %.split79.us, label %38
 
 38:                                               ; preds = %36
-  %39 = call fastcc i32 @h2_process_pending_input(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3), !range !10
+  %39 = call fastcc i32 @h2_process_pending_input(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   %.not66.us = icmp eq i32 %39, 0
-  br i1 %.not66.us, label %.split.us, label %.split81.us, !llvm.loop !12
+  br i1 %.not66.us, label %.split.us, label %.split81.us, !llvm.loop !9
 
 .split.split:                                     ; preds = %25, %93
   %40 = load i8, ptr %26, align 8
@@ -3071,9 +3073,9 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
   br label %93
 
 93:                                               ; preds = %84, %87, %92
-  %94 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3), !range !10
+  %94 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3)
   %.not66 = icmp eq i32 %94, 0
-  br i1 %.not66, label %.split.split, label %.split81.us, !llvm.loop !12
+  br i1 %.not66, label %.split.split, label %.split81.us, !llvm.loop !9
 
 .split81.us:                                      ; preds = %93, %38
   %95 = load i32, ptr %3, align 4
@@ -3235,7 +3237,7 @@ define internal fastcc i32 @h2_progress_egress(ptr noundef %0, ptr noundef %1) u
   %73 = load ptr, ptr %6, align 8
   %74 = call i32 @nghttp2_session_send(ptr noundef %73) #11
   %.not58 = icmp eq i32 %74, 0
-  br i1 %.not58, label %66, label %.critedge, !llvm.loop !13
+  br i1 %.not58, label %66, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %69, %72, %66
   %.1.lcssa = phi i32 [ 0, %69 ], [ %74, %72 ], [ 0, %66 ]
@@ -3343,7 +3345,7 @@ declare zeroext i1 @Curl_bufq_is_empty(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_bufq_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3372,7 +3374,7 @@ define internal fastcc noundef i32 @h2_process_pending_input(ptr noundef %0, ptr
 
 18:                                               ; preds = %16
   %19 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
-  br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
+  br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %39
   %20 = load ptr, ptr %7, align 8
@@ -3415,7 +3417,7 @@ define internal fastcc noundef i32 @h2_process_pending_input(ptr noundef %0, ptr
 
 39:                                               ; preds = %37, %32, %29
   %40 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
-  br i1 %40, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !14
+  br i1 %40, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %39, %27, %18, %16, %3
   %41 = load ptr, ptr %7, align 8
@@ -3544,7 +3546,7 @@ declare void @Curl_pollset_set(ptr noundef, ptr noundef, i32 noundef, i1 noundef
 declare i32 @nghttp2_session_resume_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.dynbuf, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 324
   %7 = load i32, ptr %6, align 4
@@ -3642,7 +3644,7 @@ define internal fastcc noundef i64 @http2_handle_stream_close(ptr noundef %0, pt
   %54 = add nuw i64 %.073, 1
   %55 = call i64 @Curl_dynhds_count(ptr noundef nonnull %49) #11
   %56 = icmp ult i64 %54, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %51, %53
   %.073 = phi i64 [ %54, %53 ], [ 0, %51 ]
@@ -3722,7 +3724,7 @@ define internal fastcc noundef i64 @http2_handle_stream_close(ptr noundef %0, pt
 declare void @Curl_dynhds_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @http2_data_setup(ptr %.16.val, ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @http2_data_setup(ptr %.16.val, ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3795,7 +3797,7 @@ declare void @Curl_h1_req_parse_free(ptr noundef) local_unnamed_addr #1
 declare ptr @Curl_dynhds_to_nva(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @req_body_read_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5, ptr noundef %6) #0 {
+define internal range(i64 -902, -9223372036854775808) i64 @req_body_read_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5, ptr noundef %6) #0 {
   %8 = alloca i32, align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.thread, label %9
@@ -4034,7 +4036,7 @@ define internal fastcc i64 @stream_recv(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %67, label %.thread69.sink.split, label %.thread73
 
 68:                                               ; preds = %28, %23, %19, %18
-  %69 = tail call fastcc i64 @http2_handle_stream_close(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %5), !range !9
+  %69 = tail call fastcc i64 @http2_handle_stream_close(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %5)
   %70 = icmp slt i64 %69, 0
   br i1 %70, label %.thread69, label %.thread73
 
@@ -4264,7 +4266,7 @@ define internal fastcc void @http2_data_done(ptr noundef %0, ptr noundef %1) unn
   %65 = add i64 %64, -1
   store i64 %65, ptr %56, align 8
   %.not53 = icmp eq i64 %65, 0
-  br i1 %.not53, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not53, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre62 = load ptr, ptr %54, align 8
@@ -4308,7 +4310,7 @@ declare i32 @nghttp2_session_callbacks_new(ptr noundef) local_unnamed_addr #1
 declare void @nghttp2_session_callbacks_set_send_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @send_callback(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef %4) #0 {
+define internal range(i64 -902, -9223372036854775808) i64 @send_callback(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -4355,7 +4357,7 @@ define internal i64 @send_callback(ptr nocapture readnone %0, ptr noundef %1, i6
 declare void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @on_frame_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -902, 1) i32 @on_frame_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5106,7 +5108,7 @@ discard_newhandle.exit116.i.i:                    ; preds = %345, %342
   %363 = add nuw i64 %.088125.i.i, 1
   %364 = load i64, ptr %351, align 8
   %365 = icmp ult i64 %363, %364
-  br i1 %365, label %358, label %._crit_edge.i.i, !llvm.loop !17
+  br i1 %365, label %358, label %._crit_edge.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %358, %347
   %366 = load ptr, ptr @Curl_cfree, align 8
@@ -5405,7 +5407,7 @@ define internal noundef i32 @on_frame_send(ptr nocapture readnone %0, ptr nocapt
 declare void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @on_data_chunk_recv(ptr noundef %0, i8 zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -902, 1) i32 @on_data_chunk_recv(ptr noundef %0, i8 zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %0, i32 noundef %2) #11
   %.not = icmp eq ptr %8, null
@@ -5529,7 +5531,7 @@ drain_stream.exit:                                ; preds = %27, %66, %49, %33, 
 declare void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @on_stream_close(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -902, 1) i32 @on_stream_close(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = icmp ne ptr %3, null
   br i1 %5, label %6, label %11
 
@@ -5775,7 +5777,7 @@ define internal noundef i32 @on_begin_headers(ptr noundef %0, ptr nocapture noun
 declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @on_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i8 zeroext %6, ptr noundef %7) #0 {
+define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i8 zeroext %6, ptr noundef %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -6495,14 +6497,11 @@ attributes #12 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 28}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i64 -1, i64 1}
-!10 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
