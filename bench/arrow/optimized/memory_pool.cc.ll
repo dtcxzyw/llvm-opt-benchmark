@@ -454,10 +454,10 @@ lpad.i:                                           ; preds = %init.i
 
 _ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit:   ; preds = %sw.bb, %init.check.i, %invoke.cont.i
   %3 = load i8, ptr @_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvE10is_enabled, align 1
-  %tobool1.i = trunc i8 %3 to i1
+  %tobool1.i = trunc nuw i8 %3 to i1
   %call2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %stats_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %stats_.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %stats_.i.i, i8 0, i64 32, i1 false)
   br i1 %tobool1.i, label %invoke.cont, label %invoke.cont7
 
 invoke.cont:                                      ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit
@@ -496,17 +496,18 @@ lpad.i11:                                         ; preds = %init.i9
 
 _ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit14: ; preds = %sw.bb11, %init.check.i7, %invoke.cont.i12
   %7 = load i8, ptr @_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvE10is_enabled, align 1
-  %tobool1.i6 = trunc i8 %7 to i1
+  %tobool1.i6 = trunc nuw i8 %7 to i1
   %call14 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %stats_.i.i15 = getelementptr inbounds i8, ptr %call14, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %stats_.i.i15, i8 0, i64 32, i1 false)
   br i1 %tobool1.i6, label %invoke.cont18, label %invoke.cont27
 
 invoke.cont18:                                    ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %stats_.i.i15, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow23JemallocDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr %call14, align 8
   br label %return
 
 invoke.cont27:                                    ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %stats_.i.i15, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow18JemallocMemoryPoolE, i64 0, i32 0, i64 2), ptr %call14, align 8
   br label %return
 
@@ -604,7 +605,7 @@ invoke.cont.i7:                                   ; preds = %init.i5
   store ptr %call5.i.i.i.i5.i1.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 32
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
@@ -676,7 +677,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 
 _ZN5arrow11GlobalState18system_memory_poolEv.exit: ; preds = %entry, %init.check.i.i, %invoke.cont.i.i
   %3 = load i8, ptr @_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvE10is_enabled, align 1
-  %tobool1.i.i = trunc i8 %3 to i1
+  %tobool1.i.i = trunc nuw i8 %3 to i1
   %retval.0.v.i = select i1 %tobool1.i.i, i64 48, i64 8
   %retval.0.i = getelementptr inbounds i8, ptr @_ZN5arrowL12global_stateE, i64 %retval.0.v.i
   ret ptr %retval.0.i
@@ -712,7 +713,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 
 _ZN5arrow11GlobalState20jemalloc_memory_poolEv.exit: ; preds = %entry, %init.check.i.i, %invoke.cont.i.i
   %3 = load i8, ptr @_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvE10is_enabled, align 1
-  %tobool1.i.i = trunc i8 %3 to i1
+  %tobool1.i.i = trunc nuw i8 %3 to i1
   %retval.0.v.i = select i1 %tobool1.i.i, i64 128, i64 88
   %retval.0.i = getelementptr inbounds i8, ptr @_ZN5arrowL12global_stateE, i64 %retval.0.v.i
   store ptr %retval.0.i, ptr %out, align 8
@@ -769,7 +770,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 
 _ZN5arrow11GlobalState18system_memory_poolEv.exit: ; preds = %sw.bb, %init.check.i.i, %invoke.cont.i.i
   %3 = load i8, ptr @_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvE10is_enabled, align 1
-  %tobool1.i.i = trunc i8 %3 to i1
+  %tobool1.i.i = trunc nuw i8 %3 to i1
   %retval.0.v.i = select i1 %tobool1.i.i, i64 48, i64 8
   %retval.0.i = getelementptr inbounds i8, ptr @_ZN5arrowL12global_stateE, i64 %retval.0.v.i
   br label %return
@@ -802,7 +803,7 @@ lpad.i.i9:                                        ; preds = %init.i.i7
 
 _ZN5arrow11GlobalState20jemalloc_memory_poolEv.exit: ; preds = %sw.bb2, %init.check.i.i5, %invoke.cont.i.i10
   %7 = load i8, ptr @_ZZN5arrow12_GLOBAL__N_114IsDebugEnabledEvE10is_enabled, align 1
-  %tobool1.i.i2 = trunc i8 %7 to i1
+  %tobool1.i.i2 = trunc nuw i8 %7 to i1
   %retval.0.v.i3 = select i1 %tobool1.i.i2, i64 128, i64 88
   %retval.0.i4 = getelementptr inbounds i8, ptr @_ZN5arrowL12global_stateE, i64 %retval.0.v.i3
   br label %return
@@ -1395,7 +1396,7 @@ invoke.cont.i:                                    ; preds = %init.i
   store ptr %call5.i.i.i.i5.i1.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 32
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
@@ -2516,7 +2517,7 @@ invoke.cont.i:                                    ; preds = %init.i
   store ptr %call5.i.i.i.i5.i1.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i, i64 32
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
   %3 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
@@ -2548,7 +2549,7 @@ invoke.cont.i10:                                  ; preds = %init.i7
   store ptr %call5.i.i.i.i5.i1.i8, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i11 = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i8, i64 32
   store ptr %add.ptr.i4.i.i11, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i8, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i8, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i11, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
   %7 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
@@ -2680,7 +2681,7 @@ invoke.cont.i21:                                  ; preds = %init.i18
   store ptr %call5.i.i.i.i5.i1.i19, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i19, i64 32
   store ptr %add.ptr.i4.i.i22, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i19, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i19, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i22, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
   %11 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
@@ -2730,7 +2731,7 @@ invoke.cont.i.i:                                  ; preds = %init.i.i
   store ptr %call5.i.i.i.i5.i1.i.i, ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, align 8
   %add.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i5.i1.i.i, i64 32
   store ptr %add.ptr.i4.i.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 2), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %call5.i.i.i.i5.i1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) @constinit, i64 32, i1 false)
   store ptr %add.ptr.i4.i.i.i, ptr getelementptr inbounds (%"class.std::vector.18", ptr @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
   %16 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN5arrow12_GLOBAL__N_116SupportedBackendESaIS2_EED2Ev, ptr nonnull @_ZZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends, ptr nonnull @__dso_handle) #26
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5arrow12_GLOBAL__N_117SupportedBackendsEvE8backends) #26
@@ -3958,7 +3959,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE15AllocateAlignedEllPPh(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %new_size, i64 noundef %alignment, ptr noundef nonnull %ptr)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS0_15SystemAllocatorEE15AllocateAlignedEllPPh(ptr noalias nonnull writeonly align 8 %ref.tmp, i64 noundef %new_size, i64 noundef %alignment, ptr noundef nonnull %ptr)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 if.end.i:                                         ; preds = %do.body
@@ -5853,7 +5854,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE15AllocateAlignedEllPPh(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %new_size, i64 noundef %alignment, ptr noundef nonnull %ptr)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_114DebugAllocatorINS_11memory_pool8internal17JemallocAllocatorEE15AllocateAlignedEllPPh(ptr noalias nonnull writeonly align 8 %ref.tmp, i64 noundef %new_size, i64 noundef %alignment, ptr noundef nonnull %ptr)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 if.end.i:                                         ; preds = %do.body
@@ -8864,13 +8865,13 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
   store i8 0, ptr @_ZN5arrowL12global_stateE, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow16SystemMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 2, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 2, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow21SystemDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 3, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow18JemallocMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 4, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 4, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow23JemallocDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 4, i32 0, i32 0, i32 0), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5arrow11GlobalStateD2Ev, ptr nonnull @_ZN5arrowL12global_stateE, ptr nonnull @__dso_handle) #26
   ret void

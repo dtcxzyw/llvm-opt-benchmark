@@ -4520,7 +4520,7 @@ if.then.i.i.i.i23.i.i:                            ; preds = %if.then.i.i.i21.i.i
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i23.i.i, %if.then.i.i.i21.i.i
   %38 = getelementptr inbounds i8, ptr %taken.i, i64 8
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19.i.i, i64 24, i1 false), !noalias !94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19.i.i, i64 24, i1 false), !noalias !94
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
   %token_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 48
   store ptr %this, ptr %token_.i.i.i.i.i.i, align 8, !alias.scope !97, !noalias !94
@@ -6427,7 +6427,7 @@ if.then.i.i.i.i24.i.i:                            ; preds = %if.then.i.i.i22.i.i
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i24.i.i, %if.then.i.i.i22.i.i
   %32 = getelementptr inbounds i8, ptr %taken.i, i64 8
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19.i.i, i64 24, i1 false), !noalias !108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19.i.i, i64 24, i1 false), !noalias !108
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !108
   %token_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken.i, i64 48
   store ptr %this, ptr %token_.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !108

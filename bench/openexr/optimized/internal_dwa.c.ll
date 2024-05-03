@@ -250,7 +250,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %data_type = getelementptr inbounds i8, ptr %17, i64 26
   %18 = load i16, ptr %data_type, align 2
   %conv33 = zext i16 %18 to i32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(448) %arrayidx28, i8 0, i64 448, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 32 dereferenceable(448) %arrayidx28, i8 0, i64 448, i1 false)
   %_type.i = getelementptr inbounds i8, ptr %arrayidx28, i64 416
   store i32 %conv33, ptr %_type.i, align 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -489,7 +489,7 @@ for.body4.i:                                      ; preds = %for.inc.i, %for.bod
   %chan.i = getelementptr inbounds %struct._ChannelData, ptr %11, i64 %indvars.iv.i, i32 1
   %14 = load ptr, ptr %chan.i, align 32
   %15 = load ptr, ptr %14, align 8
-  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 46) #20
+  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %15, i32 noundef 46) #20
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1
   %suffix.0.i.i = select i1 %tobool.not.i.i, ptr %15, ptr %add.ptr.i.i
@@ -506,11 +506,11 @@ if.end.i.i:                                       ; preds = %for.body4.i
   br i1 %tobool.not.i22.i, label %if.end3.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %call.i23.i = tail call i32 @strcasecmp(ptr noundef %suffix.0.i.i, ptr noundef %18) #20
+  %call.i23.i = tail call i32 @strcasecmp(ptr noundef readonly %suffix.0.i.i, ptr noundef %18) #20
   br label %Classifier_match.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %18) #20
+  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %18) #20
   br label %Classifier_match.exit.i
 
 Classifier_match.exit.i:                          ; preds = %if.end3.i.i, %if.then1.i.i
@@ -519,14 +519,15 @@ Classifier_match.exit.i:                          ; preds = %if.end3.i.i, %if.th
   br i1 %retval.0.shrunk.i.not.i, label %if.then7.i, label %for.inc.i
 
 if.then7.i:                                       ; preds = %Classifier_match.exit.i
-  %call.i24.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #20
+  %call.i24.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #20
   %add1.i.i = add i64 %nOut.042.i, 3
-  %add8.i = add i64 %add1.i.i, %call.i24.i
-  %cmp13.i = icmp ugt i64 %add8.i, %2
+  %add12.i = add i64 %call.i24.i, %add1.i.i
+  %cmp13.i = icmp ugt i64 %add12.i, %2
   br i1 %cmp13.i, label %return, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then7.i
-  %add.i.i = add i64 %call.i24.i, 1
+  %call.i25.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #20
+  %add.i.i = add i64 %call.i25.i, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %curp.039.i, ptr align 1 %18, i64 %add.i.i, i1 false)
   %add.ptr.i26.i = getelementptr inbounds i8, ptr %curp.039.i, i64 %add.i.i
   %_cscIdx.i.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 16
@@ -549,6 +550,7 @@ if.end16.i:                                       ; preds = %if.then7.i
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %add.ptr.i26.i, i64 1
   store i8 %conv19.i.i, ptr %arrayidx20.i.i, align 1
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %add.ptr.i26.i, i64 2
+  %add20.i = add i64 %call.i25.i, %add1.i.i
   %.pre.i = load i64, ptr %_channelRuleCount, align 8
   br label %for.inc22.i
 
@@ -560,7 +562,7 @@ for.inc.i:                                        ; preds = %Classifier_match.ex
 for.inc22.i:                                      ; preds = %for.inc.i, %if.end16.i, %for.cond2.preheader.i
   %25 = phi i64 [ %.pre.i, %if.end16.i ], [ %10, %for.cond2.preheader.i ], [ %10, %for.inc.i ]
   %curp.1.i = phi ptr [ %add.ptr21.i.i, %if.end16.i ], [ %curp.039.i, %for.cond2.preheader.i ], [ %curp.039.i, %for.inc.i ]
-  %nOut.1.i = phi i64 [ %add8.i, %if.end16.i ], [ %nOut.042.i, %for.cond2.preheader.i ], [ %nOut.042.i, %for.inc.i ]
+  %nOut.1.i = phi i64 [ %add20.i, %if.end16.i ], [ %nOut.042.i, %for.cond2.preheader.i ], [ %nOut.042.i, %for.inc.i ]
   %inc23.i = add nuw i64 %i.040.i, 1
   %cmp1.i = icmp ult i64 %inc23.i, %25
   br i1 %cmp1.i, label %for.cond2.preheaderthread-pre-split.i, label %for.end24.i, !llvm.loop !11
@@ -917,7 +919,7 @@ for.body86:                                       ; preds = %for.body86.lr.ph, %
   %94 = shufflevector <2 x i32> %93, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %94, ptr %_width.i.i, align 4
   store ptr @dwaCompressorToNonlinear, ptr %enc, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_numAcComp.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %_numAcComp.i.i, i8 0, i64 16, i1 false)
   store ptr %packedAcEnd.1271, ptr %_packedAc.i.i, align 8
   store ptr %packedDcEnd.1270, ptr %_packedDc.i.i, align 8
   %cmp.i.i = fcmp olt float %div, 0.000000e+00
@@ -958,7 +960,7 @@ LossyDctEncoderCsc_construct.exit:                ; preds = %for.body.i.i
   store i32 3, ptr %_channel_encode_data_count.i, align 8
   %98 = load ptr, ptr %alloc_fn123, align 8
   %99 = load ptr, ptr %free_fn124, align 8
-  %call125 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %98, ptr noundef %99, ptr noundef nonnull %enc), !range !19
+  %call125 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %98, ptr noundef %99, ptr noundef nonnull %enc)
   %100 = load <2 x i64>, ptr %add.ptr20, align 8
   %101 = load <2 x i64>, ptr %_numAcComp.i.i, align 8
   %102 = add <2 x i64> %101, %100
@@ -992,7 +994,7 @@ for.inc157:                                       ; preds = %LossyDctEncoderCsc_
   %111 = load i32, ptr %_numCscChannelSets, align 4
   %112 = sext i32 %111 to i64
   %cmp84 = icmp slt i64 %indvars.iv.next302, %112
-  br i1 %cmp84, label %for.body86, label %for.cond161.preheader.loopexit, !llvm.loop !20
+  br i1 %cmp84, label %for.body86, label %for.cond161.preheader.loopexit, !llvm.loop !19
 
 for.body165:                                      ; preds = %for.body165.lr.ph, %for.inc267
   %113 = phi i32 [ %85, %for.body165.lr.ph ], [ %154, %for.inc267 ]
@@ -1044,7 +1046,7 @@ sw.bb:                                            ; preds = %if.end174
   call fastcc void @LossyDctEncoder_construct(ptr noundef nonnull %enc175, float noundef %div180, ptr noundef nonnull %arrayidx169, ptr noundef %packedAcEnd.2290, ptr noundef %packedDcEnd.2289, ptr noundef %spec.store.select, i32 noundef %121, i32 noundef %122)
   %123 = load ptr, ptr %alloc_fn188, align 8
   %124 = load ptr, ptr %free_fn189, align 8
-  %call190 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %123, ptr noundef %124, ptr noundef nonnull %enc175), !range !19
+  %call190 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %123, ptr noundef %124, ptr noundef nonnull %enc175)
   %125 = load <2 x i64>, ptr %add.ptr20, align 8
   %126 = load <2 x i64>, ptr %_numAcComp192, align 8
   %127 = add <2 x i64> %126, %125
@@ -1093,7 +1095,7 @@ for.body224:                                      ; preds = %for.cond219.prehead
   %137 = load i8, ptr %bytes_per_element220, align 1
   %138 = sext i8 %137 to i64
   %cmp222 = icmp slt i64 %indvars.iv.next305, %138
-  br i1 %cmp222, label %for.body224, label %for.inc231.loopexit, !llvm.loop !21
+  br i1 %cmp222, label %for.body224, label %for.inc231.loopexit, !llvm.loop !20
 
 for.inc231.loopexit:                              ; preds = %for.body224
   %.pre314 = load i32, ptr %width215, align 4
@@ -1105,7 +1107,7 @@ for.inc231:                                       ; preds = %for.inc231.loopexit
   %row.1.lcssa = phi ptr [ %row.0282, %for.cond219.preheader ], [ %incdec.ptr, %for.inc231.loopexit ]
   %inc232 = add nuw nsw i32 %x.0283, 1
   %cmp216 = icmp slt i32 %inc232, %139
-  br i1 %cmp216, label %for.cond219.preheader, label %for.end233, !llvm.loop !22
+  br i1 %cmp216, label %for.cond219.preheader, label %for.end233, !llvm.loop !21
 
 for.end233:                                       ; preds = %for.inc231, %for.body212
   %141 = phi i8 [ %.pre315, %for.body212 ], [ %140, %for.inc231 ]
@@ -1119,7 +1121,7 @@ for.end233:                                       ; preds = %for.inc231, %for.bo
   %inc241 = add nuw i64 %y208.0286, 1
   %143 = load i64, ptr %_size, align 8
   %cmp210 = icmp ult i64 %inc241, %143
-  br i1 %cmp210, label %for.body212, label %sw.epilog, !llvm.loop !23
+  br i1 %cmp210, label %for.body212, label %sw.epilog, !llvm.loop !22
 
 sw.bb243:                                         ; preds = %if.end174
   %width244 = getelementptr inbounds i8, ptr %115, i64 12
@@ -1153,7 +1155,7 @@ for.body256:                                      ; preds = %for.body256.lr.ph, 
   %inc262 = add nuw i64 %y251.0275, 1
   %151 = load i64, ptr %_size253, align 8
   %cmp254 = icmp ult i64 %inc262, %151
-  br i1 %cmp254, label %for.body256, label %for.end263, !llvm.loop !24
+  br i1 %cmp254, label %for.body256, label %for.end263, !llvm.loop !23
 
 for.end263:                                       ; preds = %for.body256, %sw.bb243
   %planarUncSize = getelementptr inbounds i8, ptr %arrayidx169, i64 536
@@ -1177,7 +1179,7 @@ for.inc267:                                       ; preds = %for.body165, %sw.ep
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %155 = sext i32 %154 to i64
   %cmp163 = icmp slt i64 %indvars.iv.next308, %155
-  br i1 %cmp163, label %for.body165, label %for.end269, !llvm.loop !25
+  br i1 %cmp163, label %for.body165, label %for.end269, !llvm.loop !24
 
 for.end269:                                       ; preds = %for.inc267, %for.cond161.preheader
   %156 = load i64, ptr %add.ptr13, align 8
@@ -1464,7 +1466,7 @@ DctCoderChannelData_destroy.exit:                 ; preds = %for.body, %if.then.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = sext i32 %12 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %13
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !26
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !25
 
 for.end.loopexit:                                 ; preds = %DctCoderChannelData_destroy.exit
   %.pre51 = load ptr, ptr %_channel_mem, align 8
@@ -1532,7 +1534,7 @@ Classifier_destroy.exit:                          ; preds = %for.body29, %land.l
   %25 = phi i64 [ %20, %for.body29 ], [ %20, %land.lhs.true.i ], [ %.pre52, %if.then.i41 ]
   %inc34 = add nuw i64 %i.045, 1
   %cmp28 = icmp ult i64 %inc34, %25
-  br i1 %cmp28, label %for.body29, label %for.end35.loopexit, !llvm.loop !27
+  br i1 %cmp28, label %for.body29, label %for.end35.loopexit, !llvm.loop !26
 
 for.end35.loopexit:                               ; preds = %Classifier_destroy.exit
   %.pre53 = load ptr, ptr %_channelRules, align 8
@@ -1565,7 +1567,7 @@ if.then46:                                        ; preds = %for.body42
 for.inc52:                                        ; preds = %for.body42, %if.then46
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next49, 3
-  br i1 %exitcond.not, label %for.end54, label %for.body42, !llvm.loop !28
+  br i1 %exitcond.not, label %for.end54, label %for.body42, !llvm.loop !27
 
 for.end54:                                        ; preds = %for.inc52
   ret void
@@ -1771,7 +1773,7 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
   store i8 %6, ptr %arrayidx10.i.i, align 1
   %inc.i.i = add nuw nsw i64 %len.040.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 129
-  br i1 %exitcond.not.i.i, label %while.end.thread128.i, label %for.body.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %while.end.thread128.i, label %for.body.i.i, !llvm.loop !28
 
 if.end14.i.i:                                     ; preds = %if.end4.i.i
   %.pre.i.i = add nuw nsw i64 %len.040.i.i, 1
@@ -1812,7 +1814,7 @@ Classifier_destroy.exit.i:                        ; preds = %if.end37.i.i, %if.e
   %cmp10.i = icmp eq i32 %retval.0.i.ph.i, 0
   %cmp12.i = icmp ne i64 %sub27.i.i, 0
   %11 = and i1 %cmp10.i, %cmp12.i
-  br i1 %11, label %while.body.i, label %while.end.i, !llvm.loop !30
+  br i1 %11, label %while.body.i, label %while.end.i, !llvm.loop !29
 
 while.end.i:                                      ; preds = %Classifier_destroy.exit.i
   br i1 %cmp10.i, label %if.then17.i, label %return
@@ -1867,7 +1869,7 @@ if.end8.i41.i:                                    ; preds = %if.end4.i38.i
   store i8 %15, ptr %arrayidx10.i42.i, align 1
   %inc.i43.i = add nuw nsw i64 %len.040.i36.i, 1
   %exitcond.not.i44.i = icmp eq i64 %inc.i43.i, 129
-  br i1 %exitcond.not.i44.i, label %Classifier_read.exit76.i, label %for.body.i35.i, !llvm.loop !29
+  br i1 %exitcond.not.i44.i, label %Classifier_read.exit76.i, label %for.body.i35.i, !llvm.loop !28
 
 if.end14.i46.i:                                   ; preds = %if.end4.i38.i
   %.pre.i47.i = add nuw nsw i64 %len.040.i36.i, 1
@@ -1922,7 +1924,7 @@ Classifier_read.exit76.i:                         ; preds = %if.end8.i41.i, %for
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %suffix.i31.i)
   %inc29.i = add nuw i64 %i.0111.i, 1
   %exitcond.not.i = icmp eq i64 %inc29.i, %nRules.0.lcssa127.i
-  br i1 %exitcond.not.i, label %if.end51, label %for.body.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %if.end51, label %for.body.i, !llvm.loop !30
 
 if.end51:                                         ; preds = %Classifier_read.exit76.i, %if.then46, %if.then21.i
   %dataPtr.1 = phi ptr [ %add.ptr14, %if.then46 ], [ %add.ptr8.i, %if.then21.i ], [ %add.ptr8.i, %Classifier_read.exit76.i ]
@@ -2133,7 +2135,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %55 = load i32, ptr %_numChannels, align 8
   %56 = sext i32 %55 to i64
   %cmp192 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %cmp192, label %for.body, label %for.end, !llvm.loop !32
+  br i1 %cmp192, label %for.body, label %for.end, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body, %if.end191
   %57 = phi i32 [ %53, %if.end191 ], [ %55, %for.body ]
@@ -2203,7 +2205,7 @@ for.body203:                                      ; preds = %for.cond200.prehead
 if.end210:                                        ; preds = %for.body203
   %70 = load ptr, ptr %alloc_fn, align 8
   %71 = load ptr, ptr %free_fn, align 8
-  %call211 = call fastcc i32 @DctCoderChannelData_push_row(ptr noundef %70, ptr noundef %71, ptr noundef nonnull %arrayidx206, ptr noundef %outBufferEnd.1301), !range !19
+  %call211 = call fastcc i32 @DctCoderChannelData_push_row(ptr noundef %70, ptr noundef %71, ptr noundef nonnull %arrayidx206, ptr noundef %outBufferEnd.1301)
   %cmp212.not = icmp eq i32 %call211, 0
   br i1 %cmp212.not, label %if.end214, label %return
 
@@ -2230,7 +2232,7 @@ for.inc219:                                       ; preds = %for.body203, %if.en
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %76 = sext i32 %75 to i64
   %cmp202 = icmp slt i64 %indvars.iv.next347, %76
-  br i1 %cmp202, label %for.body203, label %for.inc222.loopexit, !llvm.loop !33
+  br i1 %cmp202, label %for.body203, label %for.inc222.loopexit, !llvm.loop !32
 
 for.inc222.loopexit:                              ; preds = %for.inc219
   %.pre358 = load i32, ptr %arrayidx196, align 4
@@ -2243,7 +2245,7 @@ for.inc222:                                       ; preds = %for.inc222.loopexit
   %outBufferEnd.1.lcssa = phi ptr [ %outBufferEnd.0304, %for.cond200.preheader ], [ %outBufferEnd.2, %for.inc222.loopexit ]
   %inc223 = add nsw i32 %y.0303, 1
   %cmp197.not.not = icmp slt i32 %y.0303, %77
-  br i1 %cmp197.not.not, label %for.cond200.preheader, label %for.cond225.preheader, !llvm.loop !34
+  br i1 %cmp197.not.not, label %for.cond200.preheader, label %for.cond225.preheader, !llvm.loop !33
 
 for.cond314.preheader.loopexit:                   ; preds = %for.inc310
   %.pre359 = load i32, ptr %_numChannels, align 8
@@ -2317,7 +2319,7 @@ if.end256:                                        ; preds = %lor.lhs.false248
   %chan274 = getelementptr inbounds i8, ptr %arrayidx238, i64 448
   %90 = load ptr, ptr %chan274, align 32
   %height = getelementptr inbounds i8, ptr %90, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %decoder, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %decoder, i8 0, i64 16, i1 false)
   store ptr %packedAcBufferEnd.1308, ptr %_packedAc.i.i, align 8
   store ptr %add.ptr270, ptr %_packedAcEnd.i.i, align 8
   store ptr %packedDcBufferEnd.1307, ptr %_packedDc.i.i, align 8
@@ -2357,7 +2359,7 @@ for.inc310:                                       ; preds = %if.end256
   %100 = load i32, ptr %_numCscChannelSets, align 4
   %101 = sext i32 %100 to i64
   %cmp226 = icmp slt i64 %indvars.iv.next350, %101
-  br i1 %cmp226, label %for.body228, label %for.cond314.preheader.loopexit, !llvm.loop !35
+  br i1 %cmp226, label %for.body228, label %for.cond314.preheader.loopexit, !llvm.loop !34
 
 for.body318:                                      ; preds = %for.body318.lr.ph, %for.inc467
   %102 = phi i32 [ %80, %for.body318.lr.ph ], [ %150, %for.inc467 ]
@@ -2394,7 +2396,7 @@ sw.bb333:                                         ; preds = %if.end331
   %spec.store.select = select i1 %tobool335.not.not, ptr @dwaCompressorToLinear, ptr null
   %add.ptr339 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2329, i64 %mul338
   %height341 = getelementptr inbounds i8, ptr %104, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %decoder334, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %decoder334, i8 0, i64 16, i1 false)
   store ptr %packedAcBufferEnd.2329, ptr %_packedAc.i.i266, align 8
   store ptr %add.ptr339, ptr %_packedAcEnd.i.i267, align 8
   store ptr %packedDcBufferEnd.2327, ptr %_packedDc.i.i268, align 8
@@ -2410,7 +2412,7 @@ if.then.i.i:                                      ; preds = %sw.bb333
   br label %LossyDctDecoder_construct.exit
 
 LossyDctDecoder_construct.exit:                   ; preds = %sw.bb333, %if.then.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %81, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %81, i8 0, i64 16, i1 false)
   store ptr %arrayidx322, ptr %_channel_decode_data.i.i274, align 8
   store i32 1, ptr %_channel_decode_data_count.i275, align 8
   %111 = load ptr, ptr %alloc_fn346, align 8
@@ -2479,7 +2481,7 @@ for.inc419.us:                                    ; preds = %if.end377.us, %for.
   %row.1.us = phi i32 [ %row.0324.us, %for.body371.us ], [ %inc418.us, %if.end377.us ]
   %inc420.us = add nsw i32 %y363.0325.us, 1
   %cmp369.not.us.not = icmp slt i32 %y363.0325.us, %128
-  br i1 %cmp369.not.us.not, label %for.body371.us, label %sw.epilog465, !llvm.loop !36
+  br i1 %cmp369.not.us.not, label %for.body371.us, label %sw.epilog465, !llvm.loop !35
 
 for.body371:                                      ; preds = %for.body371.lr.ph, %for.inc419
   %.pre361364 = phi i32 [ %.pre361365, %for.inc419 ], [ %116, %for.body371.lr.ph ]
@@ -2521,13 +2523,13 @@ for.body406.us:                                   ; preds = %for.cond403.prehead
   store i8 %135, ptr %dst.1317.us, align 1
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next353, %conv327
-  br i1 %exitcond.not, label %for.cond403.for.inc414_crit_edge.us, label %for.body406.us, !llvm.loop !37
+  br i1 %exitcond.not, label %for.cond403.for.inc414_crit_edge.us, label %for.body406.us, !llvm.loop !36
 
 for.cond403.for.inc414_crit_edge.us:              ; preds = %for.body406.us
   %inc415.us = add nuw nsw i32 %x.0322.us, 1
   %136 = load i32, ptr %width399, align 4
   %cmp400.us = icmp slt i32 %inc415.us, %136
-  br i1 %cmp400.us, label %for.cond403.preheader.us, label %if.end417.loopexit.loopexit, !llvm.loop !38
+  br i1 %cmp400.us, label %for.cond403.preheader.us, label %if.end417.loopexit.loopexit, !llvm.loop !37
 
 if.end417.loopexit.loopexit:                      ; preds = %for.cond403.for.inc414_crit_edge.us
   %.pre361.pre = load i32, ptr %arrayidx196, align 4
@@ -2544,7 +2546,7 @@ for.inc419:                                       ; preds = %for.body371, %if.en
   %row.1 = phi i32 [ %row.0324, %for.body371 ], [ %inc418, %if.end417.loopexit ]
   %inc420 = add nsw i32 %y363.0325, 1
   %cmp369.not.not = icmp slt i32 %y363.0325, %137
-  br i1 %cmp369.not.not, label %for.body371, label %sw.epilog465, !llvm.loop !36
+  br i1 %cmp369.not.not, label %for.body371, label %sw.epilog465, !llvm.loop !35
 
 sw.bb422:                                         ; preds = %if.end331
   %width424 = getelementptr inbounds i8, ptr %104, i64 12
@@ -2599,7 +2601,7 @@ for.inc460:                                       ; preds = %for.body436, %if.en
   %row423.1 = phi i32 [ %row423.0314, %for.body436 ], [ %inc459, %if.end452 ]
   %inc461 = add nsw i32 %y428.0315, 1
   %cmp434.not.not = icmp slt i32 %y428.0315, %149
-  br i1 %cmp434.not.not, label %for.body436, label %sw.epilog465, !llvm.loop !39
+  br i1 %cmp434.not.not, label %for.body436, label %sw.epilog465, !llvm.loop !38
 
 sw.epilog465:                                     ; preds = %for.inc460, %for.inc419, %for.inc419.us, %sw.bb422, %sw.bb362, %LossyDctDecoder_construct.exit
   %packedDcBufferEnd.3 = phi ptr [ %add.ptr355, %LossyDctDecoder_construct.exit ], [ %packedDcBufferEnd.2327, %sw.bb362 ], [ %packedDcBufferEnd.2327, %sw.bb422 ], [ %packedDcBufferEnd.2327, %for.inc419.us ], [ %packedDcBufferEnd.2327, %for.inc419 ], [ %packedDcBufferEnd.2327, %for.inc460 ]
@@ -2617,7 +2619,7 @@ for.inc467:                                       ; preds = %for.body318, %sw.ep
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %151 = sext i32 %150 to i64
   %cmp316 = icmp slt i64 %indvars.iv.next356, %151
-  br i1 %cmp316, label %for.body318, label %return, !llvm.loop !40
+  br i1 %cmp316, label %for.body318, label %return, !llvm.loop !39
 
 return:                                           ; preds = %if.end210, %if.end256, %for.body228, %lor.lhs.false241, %lor.lhs.false248, %LossyDctDecoder_construct.exit, %if.end331, %for.inc467, %if.end442, %for.cond314.preheader, %while.end.thread128.i, %if.else, %if.then17.i, %while.end.i, %if.then.i, %if.end183, %if.end174, %if.then167, %lor.lhs.false169, %if.else161, %if.end147, %if.end138, %if.then133, %if.end109, %if.end126, %sw.bb118, %sw.bb, %if.then103, %lor.lhs.false106, %if.end94, %if.then90, %if.end84, %if.end55, %if.end51, %if.end25, %if.end, %entry
   %retval.0 = phi i32 [ 23, %entry ], [ 23, %if.end ], [ 23, %if.end25 ], [ %call52, %if.end51 ], [ 23, %if.end55 ], [ 22, %if.end84 ], [ 23, %if.then90 ], [ 23, %if.end94 ], [ 23, %lor.lhs.false106 ], [ 23, %if.then103 ], [ %call114, %sw.bb ], [ %call123, %sw.bb118 ], [ 23, %if.end126 ], [ 23, %if.end109 ], [ 23, %if.then133 ], [ %call144, %if.end138 ], [ 23, %if.end147 ], [ 23, %if.else161 ], [ 23, %lor.lhs.false169 ], [ 23, %if.then167 ], [ 23, %if.end174 ], [ 23, %if.end183 ], [ %retval.0.i.i, %while.end.thread128.i ], [ 23, %if.else ], [ 1, %if.then17.i ], [ %retval.0.i.ph.i, %while.end.i ], [ 23, %if.then.i ], [ 0, %for.cond314.preheader ], [ 23, %if.end442 ], [ %call348, %LossyDctDecoder_construct.exit ], [ 23, %if.end331 ], [ 0, %for.inc467 ], [ %call286, %if.end256 ], [ 23, %for.body228 ], [ 23, %lor.lhs.false241 ], [ 23, %lor.lhs.false248 ], [ 1, %if.end210 ]
@@ -2758,7 +2760,7 @@ float_to_half.exit:                               ; preds = %if.then6.i.i, %if.e
   store i16 %retval.0.i.i, ptr %arrayidx2, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !41
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40
 
 for.end:                                          ; preds = %float_to_half.exit
   ret void
@@ -2794,7 +2796,7 @@ if.else12.i.i:                                    ; preds = %entry
   br i1 %cmp13.not.i.i, label %half_to_float.exit, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %if.else12.i.i
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !42
+  %2 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %2, -8
   %shl17.i.i = shl i32 %shr.i.i, %sub.i.i
   %or16.i.i = or i32 %shl3.i.i, %shl17.i.i
@@ -2834,7 +2836,7 @@ if.else12.i.i132:                                 ; preds = %half_to_float.exit
   br i1 %cmp13.not.i.i133, label %half_to_float.exit149, label %if.then15.i.i134
 
 if.then15.i.i134:                                 ; preds = %if.else12.i.i132
-  %5 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i128, i1 true), !range !42
+  %5 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i128, i1 true)
   %sub.i.i135 = add nsw i32 %5, -8
   %shl17.i.i136 = shl i32 %shr.i.i128, %sub.i.i135
   %or16.i.i137 = or i32 %shl3.i.i130, %shl17.i.i136
@@ -2875,7 +2877,7 @@ if.else12.i.i155:                                 ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i156, label %half_to_float.exit172, label %if.then15.i.i157
 
 if.then15.i.i157:                                 ; preds = %if.else12.i.i155
-  %8 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i151, i1 true), !range !42
+  %8 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i151, i1 true)
   %sub.i.i158 = add nsw i32 %8, -8
   %shl17.i.i159 = shl i32 %shr.i.i151, %sub.i.i158
   %or16.i.i160 = or i32 %shl3.i.i153, %shl17.i.i159
@@ -2916,7 +2918,7 @@ if.else12.i.i178:                                 ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i179, label %half_to_float.exit195, label %if.then15.i.i180
 
 if.then15.i.i180:                                 ; preds = %if.else12.i.i178
-  %11 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i174, i1 true), !range !42
+  %11 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i174, i1 true)
   %sub.i.i181 = add nsw i32 %11, -8
   %shl17.i.i182 = shl i32 %shr.i.i174, %sub.i.i181
   %or16.i.i183 = or i32 %shl3.i.i176, %shl17.i.i182
@@ -2957,7 +2959,7 @@ if.else12.i.i201:                                 ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i202, label %half_to_float.exit218, label %if.then15.i.i203
 
 if.then15.i.i203:                                 ; preds = %if.else12.i.i201
-  %14 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i197, i1 true), !range !42
+  %14 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i197, i1 true)
   %sub.i.i204 = add nsw i32 %14, -8
   %shl17.i.i205 = shl i32 %shr.i.i197, %sub.i.i204
   %or16.i.i206 = or i32 %shl3.i.i199, %shl17.i.i205
@@ -2998,7 +3000,7 @@ if.else12.i.i224:                                 ; preds = %half_to_float.exit2
   br i1 %cmp13.not.i.i225, label %half_to_float.exit241, label %if.then15.i.i226
 
 if.then15.i.i226:                                 ; preds = %if.else12.i.i224
-  %17 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i220, i1 true), !range !42
+  %17 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i220, i1 true)
   %sub.i.i227 = add nsw i32 %17, -8
   %shl17.i.i228 = shl i32 %shr.i.i220, %sub.i.i227
   %or16.i.i229 = or i32 %shl3.i.i222, %shl17.i.i228
@@ -3039,7 +3041,7 @@ if.else12.i.i247:                                 ; preds = %half_to_float.exit2
   br i1 %cmp13.not.i.i248, label %half_to_float.exit264, label %if.then15.i.i249
 
 if.then15.i.i249:                                 ; preds = %if.else12.i.i247
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i243, i1 true), !range !42
+  %20 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i243, i1 true)
   %sub.i.i250 = add nsw i32 %20, -8
   %shl17.i.i251 = shl i32 %shr.i.i243, %sub.i.i250
   %or16.i.i252 = or i32 %shl3.i.i245, %shl17.i.i251
@@ -3080,7 +3082,7 @@ if.else12.i.i270:                                 ; preds = %half_to_float.exit2
   br i1 %cmp13.not.i.i271, label %half_to_float.exit287, label %if.then15.i.i272
 
 if.then15.i.i272:                                 ; preds = %if.else12.i.i270
-  %23 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i266, i1 true), !range !42
+  %23 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i266, i1 true)
   %sub.i.i273 = add nsw i32 %23, -8
   %shl17.i.i274 = shl i32 %shr.i.i266, %sub.i.i273
   %or16.i.i275 = or i32 %shl3.i.i268, %shl17.i.i274
@@ -3121,7 +3123,7 @@ if.else12.i.i293:                                 ; preds = %half_to_float.exit2
   br i1 %cmp13.not.i.i294, label %half_to_float.exit310, label %if.then15.i.i295
 
 if.then15.i.i295:                                 ; preds = %if.else12.i.i293
-  %26 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i289, i1 true), !range !42
+  %26 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i289, i1 true)
   %sub.i.i296 = add nsw i32 %26, -8
   %shl17.i.i297 = shl i32 %shr.i.i289, %sub.i.i296
   %or16.i.i298 = or i32 %shl3.i.i291, %shl17.i.i297
@@ -3162,7 +3164,7 @@ if.else12.i.i316:                                 ; preds = %half_to_float.exit3
   br i1 %cmp13.not.i.i317, label %half_to_float.exit333, label %if.then15.i.i318
 
 if.then15.i.i318:                                 ; preds = %if.else12.i.i316
-  %29 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i312, i1 true), !range !42
+  %29 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i312, i1 true)
   %sub.i.i319 = add nsw i32 %29, -8
   %shl17.i.i320 = shl i32 %shr.i.i312, %sub.i.i319
   %or16.i.i321 = or i32 %shl3.i.i314, %shl17.i.i320
@@ -3203,7 +3205,7 @@ if.else12.i.i339:                                 ; preds = %half_to_float.exit3
   br i1 %cmp13.not.i.i340, label %half_to_float.exit356, label %if.then15.i.i341
 
 if.then15.i.i341:                                 ; preds = %if.else12.i.i339
-  %32 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i335, i1 true), !range !42
+  %32 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i335, i1 true)
   %sub.i.i342 = add nsw i32 %32, -8
   %shl17.i.i343 = shl i32 %shr.i.i335, %sub.i.i342
   %or16.i.i344 = or i32 %shl3.i.i337, %shl17.i.i343
@@ -3244,7 +3246,7 @@ if.else12.i.i362:                                 ; preds = %half_to_float.exit3
   br i1 %cmp13.not.i.i363, label %half_to_float.exit379, label %if.then15.i.i364
 
 if.then15.i.i364:                                 ; preds = %if.else12.i.i362
-  %35 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i358, i1 true), !range !42
+  %35 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i358, i1 true)
   %sub.i.i365 = add nsw i32 %35, -8
   %shl17.i.i366 = shl i32 %shr.i.i358, %sub.i.i365
   %or16.i.i367 = or i32 %shl3.i.i360, %shl17.i.i366
@@ -3285,7 +3287,7 @@ if.else12.i.i385:                                 ; preds = %half_to_float.exit3
   br i1 %cmp13.not.i.i386, label %half_to_float.exit402, label %if.then15.i.i387
 
 if.then15.i.i387:                                 ; preds = %if.else12.i.i385
-  %38 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i381, i1 true), !range !42
+  %38 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i381, i1 true)
   %sub.i.i388 = add nsw i32 %38, -8
   %shl17.i.i389 = shl i32 %shr.i.i381, %sub.i.i388
   %or16.i.i390 = or i32 %shl3.i.i383, %shl17.i.i389
@@ -3326,7 +3328,7 @@ if.else12.i.i408:                                 ; preds = %half_to_float.exit4
   br i1 %cmp13.not.i.i409, label %half_to_float.exit425, label %if.then15.i.i410
 
 if.then15.i.i410:                                 ; preds = %if.else12.i.i408
-  %41 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i404, i1 true), !range !42
+  %41 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i404, i1 true)
   %sub.i.i411 = add nsw i32 %41, -8
   %shl17.i.i412 = shl i32 %shr.i.i404, %sub.i.i411
   %or16.i.i413 = or i32 %shl3.i.i406, %shl17.i.i412
@@ -3367,7 +3369,7 @@ if.else12.i.i431:                                 ; preds = %half_to_float.exit4
   br i1 %cmp13.not.i.i432, label %half_to_float.exit448, label %if.then15.i.i433
 
 if.then15.i.i433:                                 ; preds = %if.else12.i.i431
-  %44 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i427, i1 true), !range !42
+  %44 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i427, i1 true)
   %sub.i.i434 = add nsw i32 %44, -8
   %shl17.i.i435 = shl i32 %shr.i.i427, %sub.i.i434
   %or16.i.i436 = or i32 %shl3.i.i429, %shl17.i.i435
@@ -3408,7 +3410,7 @@ if.else12.i.i454:                                 ; preds = %half_to_float.exit4
   br i1 %cmp13.not.i.i455, label %half_to_float.exit471, label %if.then15.i.i456
 
 if.then15.i.i456:                                 ; preds = %if.else12.i.i454
-  %47 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i450, i1 true), !range !42
+  %47 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i450, i1 true)
   %sub.i.i457 = add nsw i32 %47, -8
   %shl17.i.i458 = shl i32 %shr.i.i450, %sub.i.i457
   %or16.i.i459 = or i32 %shl3.i.i452, %shl17.i.i458
@@ -3449,7 +3451,7 @@ if.else12.i.i477:                                 ; preds = %half_to_float.exit4
   br i1 %cmp13.not.i.i478, label %half_to_float.exit494, label %if.then15.i.i479
 
 if.then15.i.i479:                                 ; preds = %if.else12.i.i477
-  %50 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i473, i1 true), !range !42
+  %50 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i473, i1 true)
   %sub.i.i480 = add nsw i32 %50, -8
   %shl17.i.i481 = shl i32 %shr.i.i473, %sub.i.i480
   %or16.i.i482 = or i32 %shl3.i.i475, %shl17.i.i481
@@ -3490,7 +3492,7 @@ if.else12.i.i500:                                 ; preds = %half_to_float.exit4
   br i1 %cmp13.not.i.i501, label %half_to_float.exit517, label %if.then15.i.i502
 
 if.then15.i.i502:                                 ; preds = %if.else12.i.i500
-  %53 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i496, i1 true), !range !42
+  %53 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i496, i1 true)
   %sub.i.i503 = add nsw i32 %53, -8
   %shl17.i.i504 = shl i32 %shr.i.i496, %sub.i.i503
   %or16.i.i505 = or i32 %shl3.i.i498, %shl17.i.i504
@@ -3531,7 +3533,7 @@ if.else12.i.i523:                                 ; preds = %half_to_float.exit5
   br i1 %cmp13.not.i.i524, label %half_to_float.exit540, label %if.then15.i.i525
 
 if.then15.i.i525:                                 ; preds = %if.else12.i.i523
-  %56 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i519, i1 true), !range !42
+  %56 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i519, i1 true)
   %sub.i.i526 = add nsw i32 %56, -8
   %shl17.i.i527 = shl i32 %shr.i.i519, %sub.i.i526
   %or16.i.i528 = or i32 %shl3.i.i521, %shl17.i.i527
@@ -3572,7 +3574,7 @@ if.else12.i.i546:                                 ; preds = %half_to_float.exit5
   br i1 %cmp13.not.i.i547, label %half_to_float.exit563, label %if.then15.i.i548
 
 if.then15.i.i548:                                 ; preds = %if.else12.i.i546
-  %59 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i542, i1 true), !range !42
+  %59 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i542, i1 true)
   %sub.i.i549 = add nsw i32 %59, -8
   %shl17.i.i550 = shl i32 %shr.i.i542, %sub.i.i549
   %or16.i.i551 = or i32 %shl3.i.i544, %shl17.i.i550
@@ -3613,7 +3615,7 @@ if.else12.i.i569:                                 ; preds = %half_to_float.exit5
   br i1 %cmp13.not.i.i570, label %half_to_float.exit586, label %if.then15.i.i571
 
 if.then15.i.i571:                                 ; preds = %if.else12.i.i569
-  %62 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i565, i1 true), !range !42
+  %62 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i565, i1 true)
   %sub.i.i572 = add nsw i32 %62, -8
   %shl17.i.i573 = shl i32 %shr.i.i565, %sub.i.i572
   %or16.i.i574 = or i32 %shl3.i.i567, %shl17.i.i573
@@ -3654,7 +3656,7 @@ if.else12.i.i592:                                 ; preds = %half_to_float.exit5
   br i1 %cmp13.not.i.i593, label %half_to_float.exit609, label %if.then15.i.i594
 
 if.then15.i.i594:                                 ; preds = %if.else12.i.i592
-  %65 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i588, i1 true), !range !42
+  %65 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i588, i1 true)
   %sub.i.i595 = add nsw i32 %65, -8
   %shl17.i.i596 = shl i32 %shr.i.i588, %sub.i.i595
   %or16.i.i597 = or i32 %shl3.i.i590, %shl17.i.i596
@@ -3695,7 +3697,7 @@ if.else12.i.i615:                                 ; preds = %half_to_float.exit6
   br i1 %cmp13.not.i.i616, label %half_to_float.exit632, label %if.then15.i.i617
 
 if.then15.i.i617:                                 ; preds = %if.else12.i.i615
-  %68 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i611, i1 true), !range !42
+  %68 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i611, i1 true)
   %sub.i.i618 = add nsw i32 %68, -8
   %shl17.i.i619 = shl i32 %shr.i.i611, %sub.i.i618
   %or16.i.i620 = or i32 %shl3.i.i613, %shl17.i.i619
@@ -3736,7 +3738,7 @@ if.else12.i.i638:                                 ; preds = %half_to_float.exit6
   br i1 %cmp13.not.i.i639, label %half_to_float.exit655, label %if.then15.i.i640
 
 if.then15.i.i640:                                 ; preds = %if.else12.i.i638
-  %71 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i634, i1 true), !range !42
+  %71 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i634, i1 true)
   %sub.i.i641 = add nsw i32 %71, -8
   %shl17.i.i642 = shl i32 %shr.i.i634, %sub.i.i641
   %or16.i.i643 = or i32 %shl3.i.i636, %shl17.i.i642
@@ -3777,7 +3779,7 @@ if.else12.i.i661:                                 ; preds = %half_to_float.exit6
   br i1 %cmp13.not.i.i662, label %half_to_float.exit678, label %if.then15.i.i663
 
 if.then15.i.i663:                                 ; preds = %if.else12.i.i661
-  %74 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i657, i1 true), !range !42
+  %74 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i657, i1 true)
   %sub.i.i664 = add nsw i32 %74, -8
   %shl17.i.i665 = shl i32 %shr.i.i657, %sub.i.i664
   %or16.i.i666 = or i32 %shl3.i.i659, %shl17.i.i665
@@ -3818,7 +3820,7 @@ if.else12.i.i684:                                 ; preds = %half_to_float.exit6
   br i1 %cmp13.not.i.i685, label %half_to_float.exit701, label %if.then15.i.i686
 
 if.then15.i.i686:                                 ; preds = %if.else12.i.i684
-  %77 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i680, i1 true), !range !42
+  %77 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i680, i1 true)
   %sub.i.i687 = add nsw i32 %77, -8
   %shl17.i.i688 = shl i32 %shr.i.i680, %sub.i.i687
   %or16.i.i689 = or i32 %shl3.i.i682, %shl17.i.i688
@@ -3859,7 +3861,7 @@ if.else12.i.i707:                                 ; preds = %half_to_float.exit7
   br i1 %cmp13.not.i.i708, label %half_to_float.exit724, label %if.then15.i.i709
 
 if.then15.i.i709:                                 ; preds = %if.else12.i.i707
-  %80 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i703, i1 true), !range !42
+  %80 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i703, i1 true)
   %sub.i.i710 = add nsw i32 %80, -8
   %shl17.i.i711 = shl i32 %shr.i.i703, %sub.i.i710
   %or16.i.i712 = or i32 %shl3.i.i705, %shl17.i.i711
@@ -3900,7 +3902,7 @@ if.else12.i.i730:                                 ; preds = %half_to_float.exit7
   br i1 %cmp13.not.i.i731, label %half_to_float.exit747, label %if.then15.i.i732
 
 if.then15.i.i732:                                 ; preds = %if.else12.i.i730
-  %83 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i726, i1 true), !range !42
+  %83 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i726, i1 true)
   %sub.i.i733 = add nsw i32 %83, -8
   %shl17.i.i734 = shl i32 %shr.i.i726, %sub.i.i733
   %or16.i.i735 = or i32 %shl3.i.i728, %shl17.i.i734
@@ -3941,7 +3943,7 @@ if.else12.i.i753:                                 ; preds = %half_to_float.exit7
   br i1 %cmp13.not.i.i754, label %half_to_float.exit770, label %if.then15.i.i755
 
 if.then15.i.i755:                                 ; preds = %if.else12.i.i753
-  %86 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i749, i1 true), !range !42
+  %86 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i749, i1 true)
   %sub.i.i756 = add nsw i32 %86, -8
   %shl17.i.i757 = shl i32 %shr.i.i749, %sub.i.i756
   %or16.i.i758 = or i32 %shl3.i.i751, %shl17.i.i757
@@ -3982,7 +3984,7 @@ if.else12.i.i776:                                 ; preds = %half_to_float.exit7
   br i1 %cmp13.not.i.i777, label %half_to_float.exit793, label %if.then15.i.i778
 
 if.then15.i.i778:                                 ; preds = %if.else12.i.i776
-  %89 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i772, i1 true), !range !42
+  %89 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i772, i1 true)
   %sub.i.i779 = add nsw i32 %89, -8
   %shl17.i.i780 = shl i32 %shr.i.i772, %sub.i.i779
   %or16.i.i781 = or i32 %shl3.i.i774, %shl17.i.i780
@@ -4023,7 +4025,7 @@ if.else12.i.i799:                                 ; preds = %half_to_float.exit7
   br i1 %cmp13.not.i.i800, label %half_to_float.exit816, label %if.then15.i.i801
 
 if.then15.i.i801:                                 ; preds = %if.else12.i.i799
-  %92 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i795, i1 true), !range !42
+  %92 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i795, i1 true)
   %sub.i.i802 = add nsw i32 %92, -8
   %shl17.i.i803 = shl i32 %shr.i.i795, %sub.i.i802
   %or16.i.i804 = or i32 %shl3.i.i797, %shl17.i.i803
@@ -4064,7 +4066,7 @@ if.else12.i.i822:                                 ; preds = %half_to_float.exit8
   br i1 %cmp13.not.i.i823, label %half_to_float.exit839, label %if.then15.i.i824
 
 if.then15.i.i824:                                 ; preds = %if.else12.i.i822
-  %95 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i818, i1 true), !range !42
+  %95 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i818, i1 true)
   %sub.i.i825 = add nsw i32 %95, -8
   %shl17.i.i826 = shl i32 %shr.i.i818, %sub.i.i825
   %or16.i.i827 = or i32 %shl3.i.i820, %shl17.i.i826
@@ -4105,7 +4107,7 @@ if.else12.i.i845:                                 ; preds = %half_to_float.exit8
   br i1 %cmp13.not.i.i846, label %half_to_float.exit862, label %if.then15.i.i847
 
 if.then15.i.i847:                                 ; preds = %if.else12.i.i845
-  %98 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i841, i1 true), !range !42
+  %98 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i841, i1 true)
   %sub.i.i848 = add nsw i32 %98, -8
   %shl17.i.i849 = shl i32 %shr.i.i841, %sub.i.i848
   %or16.i.i850 = or i32 %shl3.i.i843, %shl17.i.i849
@@ -4146,7 +4148,7 @@ if.else12.i.i868:                                 ; preds = %half_to_float.exit8
   br i1 %cmp13.not.i.i869, label %half_to_float.exit885, label %if.then15.i.i870
 
 if.then15.i.i870:                                 ; preds = %if.else12.i.i868
-  %101 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i864, i1 true), !range !42
+  %101 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i864, i1 true)
   %sub.i.i871 = add nsw i32 %101, -8
   %shl17.i.i872 = shl i32 %shr.i.i864, %sub.i.i871
   %or16.i.i873 = or i32 %shl3.i.i866, %shl17.i.i872
@@ -4187,7 +4189,7 @@ if.else12.i.i891:                                 ; preds = %half_to_float.exit8
   br i1 %cmp13.not.i.i892, label %half_to_float.exit908, label %if.then15.i.i893
 
 if.then15.i.i893:                                 ; preds = %if.else12.i.i891
-  %104 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i887, i1 true), !range !42
+  %104 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i887, i1 true)
   %sub.i.i894 = add nsw i32 %104, -8
   %shl17.i.i895 = shl i32 %shr.i.i887, %sub.i.i894
   %or16.i.i896 = or i32 %shl3.i.i889, %shl17.i.i895
@@ -4228,7 +4230,7 @@ if.else12.i.i914:                                 ; preds = %half_to_float.exit9
   br i1 %cmp13.not.i.i915, label %half_to_float.exit931, label %if.then15.i.i916
 
 if.then15.i.i916:                                 ; preds = %if.else12.i.i914
-  %107 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i910, i1 true), !range !42
+  %107 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i910, i1 true)
   %sub.i.i917 = add nsw i32 %107, -8
   %shl17.i.i918 = shl i32 %shr.i.i910, %sub.i.i917
   %or16.i.i919 = or i32 %shl3.i.i912, %shl17.i.i918
@@ -4269,7 +4271,7 @@ if.else12.i.i937:                                 ; preds = %half_to_float.exit9
   br i1 %cmp13.not.i.i938, label %half_to_float.exit954, label %if.then15.i.i939
 
 if.then15.i.i939:                                 ; preds = %if.else12.i.i937
-  %110 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i933, i1 true), !range !42
+  %110 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i933, i1 true)
   %sub.i.i940 = add nsw i32 %110, -8
   %shl17.i.i941 = shl i32 %shr.i.i933, %sub.i.i940
   %or16.i.i942 = or i32 %shl3.i.i935, %shl17.i.i941
@@ -4310,7 +4312,7 @@ if.else12.i.i960:                                 ; preds = %half_to_float.exit9
   br i1 %cmp13.not.i.i961, label %half_to_float.exit977, label %if.then15.i.i962
 
 if.then15.i.i962:                                 ; preds = %if.else12.i.i960
-  %113 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i956, i1 true), !range !42
+  %113 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i956, i1 true)
   %sub.i.i963 = add nsw i32 %113, -8
   %shl17.i.i964 = shl i32 %shr.i.i956, %sub.i.i963
   %or16.i.i965 = or i32 %shl3.i.i958, %shl17.i.i964
@@ -4351,7 +4353,7 @@ if.else12.i.i983:                                 ; preds = %half_to_float.exit9
   br i1 %cmp13.not.i.i984, label %half_to_float.exit1000, label %if.then15.i.i985
 
 if.then15.i.i985:                                 ; preds = %if.else12.i.i983
-  %116 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i979, i1 true), !range !42
+  %116 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i979, i1 true)
   %sub.i.i986 = add nsw i32 %116, -8
   %shl17.i.i987 = shl i32 %shr.i.i979, %sub.i.i986
   %or16.i.i988 = or i32 %shl3.i.i981, %shl17.i.i987
@@ -4392,7 +4394,7 @@ if.else12.i.i1006:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1007, label %half_to_float.exit1023, label %if.then15.i.i1008
 
 if.then15.i.i1008:                                ; preds = %if.else12.i.i1006
-  %119 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1002, i1 true), !range !42
+  %119 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1002, i1 true)
   %sub.i.i1009 = add nsw i32 %119, -8
   %shl17.i.i1010 = shl i32 %shr.i.i1002, %sub.i.i1009
   %or16.i.i1011 = or i32 %shl3.i.i1004, %shl17.i.i1010
@@ -4433,7 +4435,7 @@ if.else12.i.i1029:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1030, label %half_to_float.exit1046, label %if.then15.i.i1031
 
 if.then15.i.i1031:                                ; preds = %if.else12.i.i1029
-  %122 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1025, i1 true), !range !42
+  %122 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1025, i1 true)
   %sub.i.i1032 = add nsw i32 %122, -8
   %shl17.i.i1033 = shl i32 %shr.i.i1025, %sub.i.i1032
   %or16.i.i1034 = or i32 %shl3.i.i1027, %shl17.i.i1033
@@ -4474,7 +4476,7 @@ if.else12.i.i1052:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1053, label %half_to_float.exit1069, label %if.then15.i.i1054
 
 if.then15.i.i1054:                                ; preds = %if.else12.i.i1052
-  %125 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1048, i1 true), !range !42
+  %125 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1048, i1 true)
   %sub.i.i1055 = add nsw i32 %125, -8
   %shl17.i.i1056 = shl i32 %shr.i.i1048, %sub.i.i1055
   %or16.i.i1057 = or i32 %shl3.i.i1050, %shl17.i.i1056
@@ -4515,7 +4517,7 @@ if.else12.i.i1075:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1076, label %half_to_float.exit1092, label %if.then15.i.i1077
 
 if.then15.i.i1077:                                ; preds = %if.else12.i.i1075
-  %128 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1071, i1 true), !range !42
+  %128 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1071, i1 true)
   %sub.i.i1078 = add nsw i32 %128, -8
   %shl17.i.i1079 = shl i32 %shr.i.i1071, %sub.i.i1078
   %or16.i.i1080 = or i32 %shl3.i.i1073, %shl17.i.i1079
@@ -4556,7 +4558,7 @@ if.else12.i.i1098:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1099, label %half_to_float.exit1115, label %if.then15.i.i1100
 
 if.then15.i.i1100:                                ; preds = %if.else12.i.i1098
-  %131 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1094, i1 true), !range !42
+  %131 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1094, i1 true)
   %sub.i.i1101 = add nsw i32 %131, -8
   %shl17.i.i1102 = shl i32 %shr.i.i1094, %sub.i.i1101
   %or16.i.i1103 = or i32 %shl3.i.i1096, %shl17.i.i1102
@@ -4597,7 +4599,7 @@ if.else12.i.i1121:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1122, label %half_to_float.exit1138, label %if.then15.i.i1123
 
 if.then15.i.i1123:                                ; preds = %if.else12.i.i1121
-  %134 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1117, i1 true), !range !42
+  %134 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1117, i1 true)
   %sub.i.i1124 = add nsw i32 %134, -8
   %shl17.i.i1125 = shl i32 %shr.i.i1117, %sub.i.i1124
   %or16.i.i1126 = or i32 %shl3.i.i1119, %shl17.i.i1125
@@ -4638,7 +4640,7 @@ if.else12.i.i1144:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1145, label %half_to_float.exit1161, label %if.then15.i.i1146
 
 if.then15.i.i1146:                                ; preds = %if.else12.i.i1144
-  %137 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1140, i1 true), !range !42
+  %137 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1140, i1 true)
   %sub.i.i1147 = add nsw i32 %137, -8
   %shl17.i.i1148 = shl i32 %shr.i.i1140, %sub.i.i1147
   %or16.i.i1149 = or i32 %shl3.i.i1142, %shl17.i.i1148
@@ -4679,7 +4681,7 @@ if.else12.i.i1167:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1168, label %half_to_float.exit1184, label %if.then15.i.i1169
 
 if.then15.i.i1169:                                ; preds = %if.else12.i.i1167
-  %140 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1163, i1 true), !range !42
+  %140 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1163, i1 true)
   %sub.i.i1170 = add nsw i32 %140, -8
   %shl17.i.i1171 = shl i32 %shr.i.i1163, %sub.i.i1170
   %or16.i.i1172 = or i32 %shl3.i.i1165, %shl17.i.i1171
@@ -4720,7 +4722,7 @@ if.else12.i.i1190:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1191, label %half_to_float.exit1207, label %if.then15.i.i1192
 
 if.then15.i.i1192:                                ; preds = %if.else12.i.i1190
-  %143 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1186, i1 true), !range !42
+  %143 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1186, i1 true)
   %sub.i.i1193 = add nsw i32 %143, -8
   %shl17.i.i1194 = shl i32 %shr.i.i1186, %sub.i.i1193
   %or16.i.i1195 = or i32 %shl3.i.i1188, %shl17.i.i1194
@@ -4761,7 +4763,7 @@ if.else12.i.i1213:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1214, label %half_to_float.exit1230, label %if.then15.i.i1215
 
 if.then15.i.i1215:                                ; preds = %if.else12.i.i1213
-  %146 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1209, i1 true), !range !42
+  %146 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1209, i1 true)
   %sub.i.i1216 = add nsw i32 %146, -8
   %shl17.i.i1217 = shl i32 %shr.i.i1209, %sub.i.i1216
   %or16.i.i1218 = or i32 %shl3.i.i1211, %shl17.i.i1217
@@ -4802,7 +4804,7 @@ if.else12.i.i1236:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1237, label %half_to_float.exit1253, label %if.then15.i.i1238
 
 if.then15.i.i1238:                                ; preds = %if.else12.i.i1236
-  %149 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1232, i1 true), !range !42
+  %149 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1232, i1 true)
   %sub.i.i1239 = add nsw i32 %149, -8
   %shl17.i.i1240 = shl i32 %shr.i.i1232, %sub.i.i1239
   %or16.i.i1241 = or i32 %shl3.i.i1234, %shl17.i.i1240
@@ -4843,7 +4845,7 @@ if.else12.i.i1259:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1260, label %half_to_float.exit1276, label %if.then15.i.i1261
 
 if.then15.i.i1261:                                ; preds = %if.else12.i.i1259
-  %152 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1255, i1 true), !range !42
+  %152 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1255, i1 true)
   %sub.i.i1262 = add nsw i32 %152, -8
   %shl17.i.i1263 = shl i32 %shr.i.i1255, %sub.i.i1262
   %or16.i.i1264 = or i32 %shl3.i.i1257, %shl17.i.i1263
@@ -4884,7 +4886,7 @@ if.else12.i.i1282:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1283, label %half_to_float.exit1299, label %if.then15.i.i1284
 
 if.then15.i.i1284:                                ; preds = %if.else12.i.i1282
-  %155 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1278, i1 true), !range !42
+  %155 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1278, i1 true)
   %sub.i.i1285 = add nsw i32 %155, -8
   %shl17.i.i1286 = shl i32 %shr.i.i1278, %sub.i.i1285
   %or16.i.i1287 = or i32 %shl3.i.i1280, %shl17.i.i1286
@@ -4925,7 +4927,7 @@ if.else12.i.i1305:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1306, label %half_to_float.exit1322, label %if.then15.i.i1307
 
 if.then15.i.i1307:                                ; preds = %if.else12.i.i1305
-  %158 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1301, i1 true), !range !42
+  %158 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1301, i1 true)
   %sub.i.i1308 = add nsw i32 %158, -8
   %shl17.i.i1309 = shl i32 %shr.i.i1301, %sub.i.i1308
   %or16.i.i1310 = or i32 %shl3.i.i1303, %shl17.i.i1309
@@ -4966,7 +4968,7 @@ if.else12.i.i1328:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1329, label %half_to_float.exit1345, label %if.then15.i.i1330
 
 if.then15.i.i1330:                                ; preds = %if.else12.i.i1328
-  %161 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1324, i1 true), !range !42
+  %161 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1324, i1 true)
   %sub.i.i1331 = add nsw i32 %161, -8
   %shl17.i.i1332 = shl i32 %shr.i.i1324, %sub.i.i1331
   %or16.i.i1333 = or i32 %shl3.i.i1326, %shl17.i.i1332
@@ -5007,7 +5009,7 @@ if.else12.i.i1351:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1352, label %half_to_float.exit1368, label %if.then15.i.i1353
 
 if.then15.i.i1353:                                ; preds = %if.else12.i.i1351
-  %164 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1347, i1 true), !range !42
+  %164 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1347, i1 true)
   %sub.i.i1354 = add nsw i32 %164, -8
   %shl17.i.i1355 = shl i32 %shr.i.i1347, %sub.i.i1354
   %or16.i.i1356 = or i32 %shl3.i.i1349, %shl17.i.i1355
@@ -5048,7 +5050,7 @@ if.else12.i.i1374:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1375, label %half_to_float.exit1391, label %if.then15.i.i1376
 
 if.then15.i.i1376:                                ; preds = %if.else12.i.i1374
-  %167 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1370, i1 true), !range !42
+  %167 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1370, i1 true)
   %sub.i.i1377 = add nsw i32 %167, -8
   %shl17.i.i1378 = shl i32 %shr.i.i1370, %sub.i.i1377
   %or16.i.i1379 = or i32 %shl3.i.i1372, %shl17.i.i1378
@@ -5089,7 +5091,7 @@ if.else12.i.i1397:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1398, label %half_to_float.exit1414, label %if.then15.i.i1399
 
 if.then15.i.i1399:                                ; preds = %if.else12.i.i1397
-  %170 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1393, i1 true), !range !42
+  %170 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1393, i1 true)
   %sub.i.i1400 = add nsw i32 %170, -8
   %shl17.i.i1401 = shl i32 %shr.i.i1393, %sub.i.i1400
   %or16.i.i1402 = or i32 %shl3.i.i1395, %shl17.i.i1401
@@ -5130,7 +5132,7 @@ if.else12.i.i1420:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1421, label %half_to_float.exit1437, label %if.then15.i.i1422
 
 if.then15.i.i1422:                                ; preds = %if.else12.i.i1420
-  %173 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1416, i1 true), !range !42
+  %173 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1416, i1 true)
   %sub.i.i1423 = add nsw i32 %173, -8
   %shl17.i.i1424 = shl i32 %shr.i.i1416, %sub.i.i1423
   %or16.i.i1425 = or i32 %shl3.i.i1418, %shl17.i.i1424
@@ -5171,7 +5173,7 @@ if.else12.i.i1443:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1444, label %half_to_float.exit1460, label %if.then15.i.i1445
 
 if.then15.i.i1445:                                ; preds = %if.else12.i.i1443
-  %176 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1439, i1 true), !range !42
+  %176 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1439, i1 true)
   %sub.i.i1446 = add nsw i32 %176, -8
   %shl17.i.i1447 = shl i32 %shr.i.i1439, %sub.i.i1446
   %or16.i.i1448 = or i32 %shl3.i.i1441, %shl17.i.i1447
@@ -5212,7 +5214,7 @@ if.else12.i.i1466:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1467, label %half_to_float.exit1483, label %if.then15.i.i1468
 
 if.then15.i.i1468:                                ; preds = %if.else12.i.i1466
-  %179 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1462, i1 true), !range !42
+  %179 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1462, i1 true)
   %sub.i.i1469 = add nsw i32 %179, -8
   %shl17.i.i1470 = shl i32 %shr.i.i1462, %sub.i.i1469
   %or16.i.i1471 = or i32 %shl3.i.i1464, %shl17.i.i1470
@@ -5253,7 +5255,7 @@ if.else12.i.i1489:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1490, label %half_to_float.exit1506, label %if.then15.i.i1491
 
 if.then15.i.i1491:                                ; preds = %if.else12.i.i1489
-  %182 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1485, i1 true), !range !42
+  %182 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1485, i1 true)
   %sub.i.i1492 = add nsw i32 %182, -8
   %shl17.i.i1493 = shl i32 %shr.i.i1485, %sub.i.i1492
   %or16.i.i1494 = or i32 %shl3.i.i1487, %shl17.i.i1493
@@ -5294,7 +5296,7 @@ if.else12.i.i1512:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1513, label %half_to_float.exit1529, label %if.then15.i.i1514
 
 if.then15.i.i1514:                                ; preds = %if.else12.i.i1512
-  %185 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1508, i1 true), !range !42
+  %185 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1508, i1 true)
   %sub.i.i1515 = add nsw i32 %185, -8
   %shl17.i.i1516 = shl i32 %shr.i.i1508, %sub.i.i1515
   %or16.i.i1517 = or i32 %shl3.i.i1510, %shl17.i.i1516
@@ -5335,7 +5337,7 @@ if.else12.i.i1535:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1536, label %half_to_float.exit1552, label %if.then15.i.i1537
 
 if.then15.i.i1537:                                ; preds = %if.else12.i.i1535
-  %188 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1531, i1 true), !range !42
+  %188 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1531, i1 true)
   %sub.i.i1538 = add nsw i32 %188, -8
   %shl17.i.i1539 = shl i32 %shr.i.i1531, %sub.i.i1538
   %or16.i.i1540 = or i32 %shl3.i.i1533, %shl17.i.i1539
@@ -5376,7 +5378,7 @@ if.else12.i.i1558:                                ; preds = %half_to_float.exit1
   br i1 %cmp13.not.i.i1559, label %half_to_float.exit1575, label %if.then15.i.i1560
 
 if.then15.i.i1560:                                ; preds = %if.else12.i.i1558
-  %191 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i1554, i1 true), !range !42
+  %191 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i1554, i1 true)
   %sub.i.i1561 = add nsw i32 %191, -8
   %shl17.i.i1562 = shl i32 %shr.i.i1554, %sub.i.i1561
   %or16.i.i1563 = or i32 %shl3.i.i1556, %shl17.i.i1562
@@ -5395,14 +5397,14 @@ half_to_float.exit1575:                           ; preds = %if.then10.i.i1573, 
 ; Function Attrs: nounwind uwtable
 define internal void @convertFloatToHalf64_f16c(ptr noundef %dst, ptr noundef %src) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps       ($0),     %ymm0         \0Avmovaps   0x20($0),     %ymm1         \0Avmovaps   0x40($0),     %ymm2         \0Avmovaps   0x60($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x00($1)       \0Avmovdqa   %xmm1,       0x10($1)       \0Avmovdqa   %xmm2,       0x20($1)       \0Avmovdqa   %xmm3,       0x30($1)       \0Avmovaps   0x80($0),     %ymm0         \0Avmovaps   0xa0($0),     %ymm1         \0Avmovaps   0xc0($0),     %ymm2         \0Avmovaps   0xe0($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x40($1)       \0Avmovdqa   %xmm1,       0x50($1)       \0Avmovdqa   %xmm2,       0x60($1)       \0Avmovdqa   %xmm3,       0x70($1)       \0Avzeroupper                             \0A", "r,r,~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %src, ptr %dst) #18, !srcloc !43
+  tail call void asm sideeffect "vmovaps       ($0),     %ymm0         \0Avmovaps   0x20($0),     %ymm1         \0Avmovaps   0x40($0),     %ymm2         \0Avmovaps   0x60($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x00($1)       \0Avmovdqa   %xmm1,       0x10($1)       \0Avmovdqa   %xmm2,       0x20($1)       \0Avmovdqa   %xmm3,       0x30($1)       \0Avmovaps   0x80($0),     %ymm0         \0Avmovaps   0xa0($0),     %ymm1         \0Avmovaps   0xc0($0),     %ymm2         \0Avmovaps   0xe0($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x40($1)       \0Avmovdqa   %xmm1,       0x50($1)       \0Avmovdqa   %xmm2,       0x60($1)       \0Avmovdqa   %xmm3,       0x70($1)       \0Avzeroupper                             \0A", "r,r,~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %src, ptr %dst) #18, !srcloc !41
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @fromHalfZigZag_f16c(ptr noundef %src, ptr noundef %dst) #0 {
 entry:
-  tail call void asm sideeffect "vpxor   %xmm3,  %xmm3, %xmm3   \0Avmovdqa    ($0), %xmm8           \0Avmovdqa 112($0), %xmm6           \0Avmovdqu  42($0), %xmm9           \0Avmovdqu  56($0), %xmm7           \0Avmovq    12($0), %xmm3           \0Avpsrldq      $$2, %xmm8, %xmm1   \0Avpslldq      $$4, %xmm8, %xmm2   \0Avpalignr     $$2, 70($0), %xmm8, %xmm0 \0Avpblendw  $$0xfc, 82($0), %xmm1, %xmm1 \0Avpblendw  $$0x1f, 98($0), %xmm2, %xmm2 \0Avpsrldq      $$4, %xmm6, %xmm4         \0Avpslldq      $$2, %xmm6, %xmm5         \0Avpalignr    $$14, %xmm6, %xmm9, %xmm6 \0Avpblendw  $$0xf8, 14($0), %xmm4, %xmm4 \0Avpblendw  $$0x3f, 30($0), %xmm5, %xmm5 \0Avpinsrq      $$1, 108($0), %xmm3, %xmm3\0Avpshuflw $$0x1b, %xmm0, %xmm0          \0Avpshuflw $$0x1b, %xmm2, %xmm2          \0Avpshuflw $$0x1b, %xmm4, %xmm4          \0Avpshuflw $$0x1b, %xmm6, %xmm6          \0Avpshufhw $$0x1b, %xmm0, %xmm0          \0Avpshufhw $$0x1b, %xmm2, %xmm2          \0Avpshufhw $$0x1b, %xmm4, %xmm4          \0Avpshufhw $$0x1b, %xmm6, %xmm6          \0Avpshufd $$0x4e, %xmm0, %xmm0          \0Avpshufd $$0x4e, %xmm2, %xmm2          \0Avpshufd $$0x4e, %xmm4, %xmm4          \0Avpshufd $$0x4e, %xmm6, %xmm6          \0Avpunpcklwd %xmm1, %xmm0, %xmm8       \0Avpunpcklwd %xmm3, %xmm2, %xmm9       \0Avpunpcklwd %xmm5, %xmm4, %xmm10      \0Avpunpcklwd %xmm7, %xmm6, %xmm11      \0Avpunpckhwd %xmm1, %xmm0, %xmm12      \0Avpunpckhwd %xmm3, %xmm2, %xmm13      \0Avpunpckhwd %xmm5, %xmm4, %xmm14      \0Avpunpckhwd %xmm7, %xmm6, %xmm15      \0Avpunpckldq  %xmm9,  %xmm8, %xmm0     \0Avpunpckldq %xmm11, %xmm10, %xmm1     \0Avpunpckhdq  %xmm9,  %xmm8, %xmm2     \0Avpunpckhdq %xmm11, %xmm10, %xmm3     \0Avpunpckldq %xmm13, %xmm12, %xmm4     \0Avpunpckldq %xmm15, %xmm14, %xmm5     \0Avpunpckhdq %xmm13, %xmm12, %xmm6     \0Avpunpckhdq %xmm15, %xmm14, %xmm7     \0Avpunpcklqdq %xmm1,  %xmm0, %xmm8     \0Avpunpckhqdq %xmm1,  %xmm0, %xmm9     \0Avpunpcklqdq %xmm3,  %xmm2, %xmm10    \0Avpunpckhqdq %xmm3,  %xmm2, %xmm11    \0Avpunpcklqdq %xmm4,  %xmm5, %xmm12    \0Avpunpckhqdq %xmm5,  %xmm4, %xmm13    \0Avpunpcklqdq %xmm7,  %xmm6, %xmm14    \0Avpunpckhqdq %xmm7,  %xmm6, %xmm15    \0Avpalignr  $$2,  %xmm9,  %xmm9,  %xmm9 \0Avpalignr  $$4, %xmm10, %xmm10, %xmm10 \0Avpalignr  $$6, %xmm11, %xmm11, %xmm11 \0Avpalignr $$10, %xmm13, %xmm13, %xmm13 \0Avpalignr $$12, %xmm14, %xmm14, %xmm14 \0Avpalignr $$14, %xmm15, %xmm15, %xmm15 \0Avcvtph2ps  %xmm8, %ymm8            \0Avcvtph2ps  %xmm9, %ymm9            \0Avcvtph2ps %xmm10, %ymm10           \0Avcvtph2ps %xmm11, %ymm11           \0Avcvtph2ps %xmm12, %ymm12           \0Avcvtph2ps %xmm13, %ymm13           \0Avcvtph2ps %xmm14, %ymm14           \0Avcvtph2ps %xmm15, %ymm15           \0Avmovaps    %ymm8,    ($1)           \0Avmovaps    %ymm9,  32($1)           \0Avmovaps   %ymm10,  64($1)           \0Avmovaps   %ymm11,  96($1)           \0Avmovaps   %ymm12, 128($1)           \0Avmovaps   %ymm13, 160($1)           \0Avmovaps   %ymm14, 192($1)           \0Avmovaps   %ymm15, 224($1)           \0Avzeroupper                          \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %src, ptr %dst) #18, !srcloc !44
+  tail call void asm sideeffect "vpxor   %xmm3,  %xmm3, %xmm3   \0Avmovdqa    ($0), %xmm8           \0Avmovdqa 112($0), %xmm6           \0Avmovdqu  42($0), %xmm9           \0Avmovdqu  56($0), %xmm7           \0Avmovq    12($0), %xmm3           \0Avpsrldq      $$2, %xmm8, %xmm1   \0Avpslldq      $$4, %xmm8, %xmm2   \0Avpalignr     $$2, 70($0), %xmm8, %xmm0 \0Avpblendw  $$0xfc, 82($0), %xmm1, %xmm1 \0Avpblendw  $$0x1f, 98($0), %xmm2, %xmm2 \0Avpsrldq      $$4, %xmm6, %xmm4         \0Avpslldq      $$2, %xmm6, %xmm5         \0Avpalignr    $$14, %xmm6, %xmm9, %xmm6 \0Avpblendw  $$0xf8, 14($0), %xmm4, %xmm4 \0Avpblendw  $$0x3f, 30($0), %xmm5, %xmm5 \0Avpinsrq      $$1, 108($0), %xmm3, %xmm3\0Avpshuflw $$0x1b, %xmm0, %xmm0          \0Avpshuflw $$0x1b, %xmm2, %xmm2          \0Avpshuflw $$0x1b, %xmm4, %xmm4          \0Avpshuflw $$0x1b, %xmm6, %xmm6          \0Avpshufhw $$0x1b, %xmm0, %xmm0          \0Avpshufhw $$0x1b, %xmm2, %xmm2          \0Avpshufhw $$0x1b, %xmm4, %xmm4          \0Avpshufhw $$0x1b, %xmm6, %xmm6          \0Avpshufd $$0x4e, %xmm0, %xmm0          \0Avpshufd $$0x4e, %xmm2, %xmm2          \0Avpshufd $$0x4e, %xmm4, %xmm4          \0Avpshufd $$0x4e, %xmm6, %xmm6          \0Avpunpcklwd %xmm1, %xmm0, %xmm8       \0Avpunpcklwd %xmm3, %xmm2, %xmm9       \0Avpunpcklwd %xmm5, %xmm4, %xmm10      \0Avpunpcklwd %xmm7, %xmm6, %xmm11      \0Avpunpckhwd %xmm1, %xmm0, %xmm12      \0Avpunpckhwd %xmm3, %xmm2, %xmm13      \0Avpunpckhwd %xmm5, %xmm4, %xmm14      \0Avpunpckhwd %xmm7, %xmm6, %xmm15      \0Avpunpckldq  %xmm9,  %xmm8, %xmm0     \0Avpunpckldq %xmm11, %xmm10, %xmm1     \0Avpunpckhdq  %xmm9,  %xmm8, %xmm2     \0Avpunpckhdq %xmm11, %xmm10, %xmm3     \0Avpunpckldq %xmm13, %xmm12, %xmm4     \0Avpunpckldq %xmm15, %xmm14, %xmm5     \0Avpunpckhdq %xmm13, %xmm12, %xmm6     \0Avpunpckhdq %xmm15, %xmm14, %xmm7     \0Avpunpcklqdq %xmm1,  %xmm0, %xmm8     \0Avpunpckhqdq %xmm1,  %xmm0, %xmm9     \0Avpunpcklqdq %xmm3,  %xmm2, %xmm10    \0Avpunpckhqdq %xmm3,  %xmm2, %xmm11    \0Avpunpcklqdq %xmm4,  %xmm5, %xmm12    \0Avpunpckhqdq %xmm5,  %xmm4, %xmm13    \0Avpunpcklqdq %xmm7,  %xmm6, %xmm14    \0Avpunpckhqdq %xmm7,  %xmm6, %xmm15    \0Avpalignr  $$2,  %xmm9,  %xmm9,  %xmm9 \0Avpalignr  $$4, %xmm10, %xmm10, %xmm10 \0Avpalignr  $$6, %xmm11, %xmm11, %xmm11 \0Avpalignr $$10, %xmm13, %xmm13, %xmm13 \0Avpalignr $$12, %xmm14, %xmm14, %xmm14 \0Avpalignr $$14, %xmm15, %xmm15, %xmm15 \0Avcvtph2ps  %xmm8, %ymm8            \0Avcvtph2ps  %xmm9, %ymm9            \0Avcvtph2ps %xmm10, %ymm10           \0Avcvtph2ps %xmm11, %ymm11           \0Avcvtph2ps %xmm12, %ymm12           \0Avcvtph2ps %xmm13, %ymm13           \0Avcvtph2ps %xmm14, %ymm14           \0Avcvtph2ps %xmm15, %ymm15           \0Avmovaps    %ymm8,    ($1)           \0Avmovaps    %ymm9,  32($1)           \0Avmovaps   %ymm10,  64($1)           \0Avmovaps   %ymm11,  96($1)           \0Avmovaps   %ymm12, 128($1)           \0Avmovaps   %ymm13, 160($1)           \0Avmovaps   %ymm14, 192($1)           \0Avmovaps   %ymm15, 224($1)           \0Avzeroupper                          \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %src, ptr %dst) #18, !srcloc !42
   ret void
 }
 
@@ -5465,56 +5467,56 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_0(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x13, %ymm3, %ymm15, %ymm7   \0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avmulps    %ymm7, %ymm11, %ymm15    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm14, %ymm15, %ymm14    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps    %ymm7,  %ymm10, %ymm15   \0Avsubps    %ymm15, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm7,   %ymm9, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avmulps    %ymm7,  %ymm8,  %ymm7    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avaddps    %ymm3,  %ymm7,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !45
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x13, %ymm3, %ymm15, %ymm7   \0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avmulps    %ymm7, %ymm11, %ymm15    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm14, %ymm15, %ymm14    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps    %ymm7,  %ymm10, %ymm15   \0Avsubps    %ymm15, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm7,   %ymm9, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avmulps    %ymm7,  %ymm8,  %ymm7    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avaddps    %ymm3,  %ymm7,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !43
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_1(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !46
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !44
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_2(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !47
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !45
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_3(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !48
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !46
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_4(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !49
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !47
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_5(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !50
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !48
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_6(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmovaps   %ymm11, %ymm8            \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !51
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmovaps   %ymm11, %ymm8            \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !49
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_7(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avinsertf128 $$1,  %xmm8,  %ymm8,  %ymm2 \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avmulps   %ymm2, %ymm0, %ymm0  \0Avmovaps %ymm0,    ($0)          \0Avmovaps %ymm0,  32($0)          \0Avmovaps %ymm0,  64($0)          \0Avmovaps %ymm0,  96($0)          \0Avmovaps %ymm0, 128($0)          \0Avmovaps %ymm0, 160($0)          \0Avmovaps %ymm0, 192($0)          \0Avmovaps %ymm0, 224($0)          \0Avzeroupper                   \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !52
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avinsertf128 $$1,  %xmm8,  %ymm8,  %ymm2 \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avmulps   %ymm2, %ymm0, %ymm0  \0Avmovaps %ymm0,    ($0)          \0Avmovaps %ymm0,  32($0)          \0Avmovaps %ymm0,  64($0)          \0Avmovaps %ymm0,  96($0)          \0Avmovaps %ymm0, 128($0)          \0Avmovaps %ymm0, 160($0)          \0Avmovaps %ymm0, 192($0)          \0Avmovaps %ymm0, 224($0)          \0Avzeroupper                   \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !50
   ret void
 }
 
@@ -5616,19 +5618,19 @@ entry:
 for.cond2957.preheader.i:                         ; preds = %for.end.i, %entry
   %cmp.i = phi i1 [ true, %entry ], [ false, %for.end.i ]
   %indvars.iv2088.i = phi i64 [ 0, %entry ], [ 1, %for.end.i ]
-  %invariant.gep.i = getelementptr <4 x float>, ptr %data, i64 %indvars.iv2088.i
+  %invariant.gep.i = getelementptr inbounds <4 x float>, ptr %data, i64 %indvars.iv2088.i
   br label %for.body2959.i
 
 for.body2959.i:                                   ; preds = %for.body2959.i, %for.cond2957.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond2957.preheader.i ], [ %indvars.iv.next.i, %for.body2959.i ]
   %4 = shl nuw nsw i64 %indvars.iv.i, 1
-  %gep.i = getelementptr <4 x float>, ptr %invariant.gep.i, i64 %4
+  %gep.i = getelementptr inbounds <4 x float>, ptr %invariant.gep.i, i64 %4
   %5 = load <4 x float>, ptr %gep.i, align 16
   %arrayidx2962.i = getelementptr inbounds [8 x <4 x float>], ptr %in.i, i64 0, i64 %indvars.iv.i
   store <4 x float> %5, ptr %arrayidx2962.i, align 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body2959.i, !llvm.loop !53
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body2959.i, !llvm.loop !51
 
 for.end.i:                                        ; preds = %for.body2959.i
   %6 = load <4 x float>, ptr %arrayidx2963.i, align 16
@@ -5711,7 +5713,7 @@ for.end.i:                                        ; preds = %for.body2959.i
   %20 = or disjoint i64 %indvars.iv2088.i, 14
   %arrayidx3103.i = getelementptr inbounds <4 x float>, ptr %data, i64 %20
   store <4 x float> %sub.i.i, ptr %arrayidx3103.i, align 16
-  br i1 %cmp.i, label %for.cond2957.preheader.i, label %dctInverse8x8_sse2.exit, !llvm.loop !54
+  br i1 %cmp.i, label %for.cond2957.preheader.i, label %dctInverse8x8_sse2.exit, !llvm.loop !52
 
 dctInverse8x8_sse2.exit:                          ; preds = %for.end.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %in.i)
@@ -5789,7 +5791,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store <4 x float> %40, ptr %arrayidx67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.body133.preheader, label %for.body, !llvm.loop !55
+  br i1 %exitcond.not, label %for.body133.preheader, label %for.body, !llvm.loop !53
 
 for.body133.preheader:                            ; preds = %for.body, %entry
   br label %for.body133
@@ -5867,7 +5869,7 @@ for.body133:                                      ; preds = %for.body133.prehead
   store float %sub310, ptr %arrayidx167, align 4
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next182, 8
-  br i1 %exitcond191.not, label %for.end316, label %for.body133, !llvm.loop !56
+  br i1 %exitcond191.not, label %for.end316, label %for.body133, !llvm.loop !54
 
 for.end316:                                       ; preds = %for.body133
   ret void
@@ -6873,19 +6875,19 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 for.cond2957.preheader:                           ; preds = %sw.epilog, %for.end
   %cmp = phi i1 [ true, %sw.epilog ], [ false, %for.end ]
   %indvars.iv2088 = phi i64 [ 0, %sw.epilog ], [ 1, %for.end ]
-  %invariant.gep = getelementptr <4 x float>, ptr %data, i64 %indvars.iv2088
+  %invariant.gep = getelementptr inbounds <4 x float>, ptr %data, i64 %indvars.iv2088
   br label %for.body2959
 
 for.body2959:                                     ; preds = %for.cond2957.preheader, %for.body2959
   %indvars.iv = phi i64 [ 0, %for.cond2957.preheader ], [ %indvars.iv.next, %for.body2959 ]
   %116 = shl nuw nsw i64 %indvars.iv, 1
-  %gep = getelementptr <4 x float>, ptr %invariant.gep, i64 %116
+  %gep = getelementptr inbounds <4 x float>, ptr %invariant.gep, i64 %116
   %117 = load <4 x float>, ptr %gep, align 16
   %arrayidx2962 = getelementptr inbounds [8 x <4 x float>], ptr %in, i64 0, i64 %indvars.iv
   store <4 x float> %117, ptr %arrayidx2962, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body2959, !llvm.loop !53
+  br i1 %exitcond.not, label %for.end, label %for.body2959, !llvm.loop !51
 
 for.end:                                          ; preds = %for.body2959
   %118 = load <4 x float>, ptr %arrayidx2963, align 16
@@ -6969,7 +6971,7 @@ for.end:                                          ; preds = %for.body2959
   %132 = or disjoint i64 %indvars.iv2088, 14
   %arrayidx3103 = getelementptr inbounds <4 x float>, ptr %data, i64 %132
   store <4 x float> %sub.i, ptr %arrayidx3103, align 16
-  br i1 %cmp, label %for.cond2957.preheader, label %for.end3106, !llvm.loop !54
+  br i1 %cmp, label %for.cond2957.preheader, label %for.end3106, !llvm.loop !52
 
 for.end3106:                                      ; preds = %for.end
   ret void
@@ -7017,12 +7019,12 @@ for.body39:                                       ; preds = %for.body39.lr.ph, %
   %maxOutBufferSize.0121 = phi i64 [ 0, %for.body39.lr.ph ], [ %add41, %for.body39 ]
   %arrayidx40 = getelementptr inbounds %struct._Classifier, ptr %6, i64 %i35.0122
   %arrayidx40.val = load ptr, ptr %arrayidx40, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx40.val) #20
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arrayidx40.val) #20
   %add1.i = add i64 %maxOutBufferSize.0121, 3
   %add41 = add i64 %add1.i, %call.i
   %inc43 = add nuw i64 %i35.0122, 1
   %exitcond.not = icmp eq i64 %inc43, %5
-  br i1 %exitcond.not, label %for.end44, label %for.body39, !llvm.loop !57
+  br i1 %exitcond.not, label %for.end44, label %for.body39, !llvm.loop !55
 
 for.end44:                                        ; preds = %for.body39, %entry
   %maxOutBufferSize.0.lcssa = phi i64 [ 0, %entry ], [ %add41, %for.body39 ]
@@ -7076,7 +7078,7 @@ for.body.i:                                       ; preds = %for.inc46.i, %for.b
   %chan.i = getelementptr inbounds %struct._ChannelData, ptr %14, i64 %indvars.iv.i, i32 1
   %15 = load ptr, ptr %chan.i, align 32
   %16 = load ptr, ptr %15, align 8
-  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 46) #20
+  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %16, i32 noundef 46) #20
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1
   %suffix.0.i.i = select i1 %tobool.not.i.i, ptr %16, ptr %add.ptr.i.i
@@ -7124,7 +7126,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %CscPrefixMap_find.exit.i, label %for.body.i.i, !llvm.loop !58
+  br i1 %exitcond.not.i.i, label %CscPrefixMap_find.exit.i, label %for.body.i.i, !llvm.loop !56
 
 for.end.loopexit.split.loop.exit.i.i:             ; preds = %land.lhs.true.i.i
   %20 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -7161,11 +7163,11 @@ if.end.i81.i:                                     ; preds = %for.body23.i
   br i1 %tobool.not.i82.i, label %if.end3.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i81.i
-  %call.i83.i = tail call i32 @strcasecmp(ptr noundef %suffix.0.i.i, ptr noundef %27) #20
+  %call.i83.i = tail call i32 @strcasecmp(ptr noundef readonly %suffix.0.i.i, ptr noundef %27) #20
   br label %Classifier_match.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i81.i
-  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %27) #20
+  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %27) #20
   br label %Classifier_match.exit.i
 
 Classifier_match.exit.i:                          ; preds = %if.end3.i.i, %if.then1.i.i
@@ -7195,14 +7197,14 @@ for.inc.i:                                        ; preds = %if.then38.i, %if.th
   %inc.i = add nuw i64 %i.092.i, 1
   %32 = load i64, ptr %_channelRuleCount, align 8
   %cmp21.i = icmp ult i64 %inc.i, %32
-  br i1 %cmp21.i, label %for.body23.i, label %for.inc46.i, !llvm.loop !59
+  br i1 %cmp21.i, label %for.body23.i, label %for.inc46.i, !llvm.loop !57
 
 for.inc46.i:                                      ; preds = %for.inc.i, %CscPrefixMap_find.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = load i32, ptr %_numChannels.i, align 8
   %34 = sext i32 %33 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %cmp.i, label %for.body.i, label %for.cond50.preheader.i, !llvm.loop !60
+  br i1 %cmp.i, label %for.body.i, label %for.cond50.preheader.i, !llvm.loop !58
 
 for.body54.i:                                     ; preds = %for.inc132.i, %for.body54.lr.ph.i
   %35 = phi i32 [ %33, %for.body54.lr.ph.i ], [ %53, %for.inc132.i ]
@@ -7285,7 +7287,7 @@ for.inc132.i:                                     ; preds = %if.end122.i, %lor.l
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %54 = sext i32 %53 to i64
   %cmp52.i = icmp slt i64 %indvars.iv.next103.i, %54
-  br i1 %cmp52.i, label %for.body54.i, label %DwaCompressor_classifyChannels.exit, !llvm.loop !61
+  br i1 %cmp52.i, label %for.body54.i, label %DwaCompressor_classifyChannels.exit, !llvm.loop !59
 
 DwaCompressor_classifyChannels.exit:              ; preds = %for.body54.i, %for.inc132.i, %if.end9.i, %for.cond50.preheader.i
   %free_fn.i = getelementptr inbounds i8, ptr %me, i64 192
@@ -7361,7 +7363,7 @@ for.inc85:                                        ; preds = %sw.bb, %sw.bb63, %s
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = sext i32 %65 to i64
   %cmp49 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %cmp49, label %for.body51, label %for.cond48.for.end87_crit_edge, !llvm.loop !62
+  br i1 %cmp49, label %for.body51, label %for.cond48.for.end87_crit_edge, !llvm.loop !60
 
 for.cond48.for.end87_crit_edge:                   ; preds = %for.inc85
   store i64 %66, ptr %arrayidx72, align 16
@@ -7521,7 +7523,7 @@ if.end198:                                        ; preds = %if.then177, %if.the
 for.inc213:                                       ; preds = %for.body170, %if.end198
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, 3
-  br i1 %exitcond154.not, label %return, label %for.body170, !llvm.loop !63
+  br i1 %exitcond154.not, label %return, label %for.body170, !llvm.loop !61
 
 return:                                           ; preds = %for.body51, %for.inc213, %if.end198, %if.end.i, %for.end44, %if.end148, %if.end127, %if.end106
   %retval.0 = phi i32 [ 1, %if.end106 ], [ 1, %if.end127 ], [ 1, %if.end148 ], [ 1, %for.end44 ], [ 1, %if.end.i ], [ 0, %for.inc213 ], [ 1, %if.end198 ], [ 3, %for.body51 ]
@@ -7553,7 +7555,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr %1, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !64
+  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !62
 
 for.body10:                                       ; preds = %for.body10.lr.ph, %for.inc60
   %indvars.iv52 = phi i64 [ 0, %for.body10.lr.ph ], [ %indvars.iv.next53, %for.inc60 ]
@@ -7647,7 +7649,7 @@ for.end62:                                        ; preds = %for.inc60, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @DctCoderChannelData_push_row(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %d, ptr noundef %r) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @DctCoderChannelData_push_row(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %d, ptr noundef %r) unnamed_addr #0 {
 entry:
   %_size = getelementptr inbounds i8, ptr %d, i64 408
   %0 = load i64, ptr %_size, align 8
@@ -7707,7 +7709,7 @@ return:                                           ; preds = %if.then, %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %e) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %e) unnamed_addr #10 {
 entry:
   %chanData = alloca [3 x ptr], align 16
   %halfZigCoef = alloca [64 x i16], align 16
@@ -7754,7 +7756,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %tmpHalfBufferElements.1 = add nsw i32 %add, %tmpHalfBufferElements.0119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !65
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !63
 
 for.end:                                          ; preds = %for.body
   %tobool.not = icmp eq i32 %tmpHalfBufferElements.1, 0
@@ -7906,7 +7908,7 @@ float_to_half.exit:                               ; preds = %if.then6.i.i, %if.e
   %24 = load i32, ptr %_width, align 4
   %25 = sext i32 %24 to i64
   %cmp44 = icmp slt i64 %indvars.iv.next151, %25
-  br i1 %cmp44, label %for.body46, label %for.end64.loopexit, !llvm.loop !66
+  br i1 %cmp44, label %for.body46, label %for.end64.loopexit, !llvm.loop !64
 
 for.end64.loopexit:                               ; preds = %float_to_half.exit
   %.pre205 = load ptr, ptr %arrayidx27, align 8
@@ -7926,13 +7928,13 @@ for.end64:                                        ; preds = %for.end64.loopexit,
   %29 = load i32, ptr %_height, align 8
   %30 = sext i32 %29 to i64
   %cmp35 = icmp slt i64 %indvars.iv.next154, %30
-  br i1 %cmp35, label %for.body37, label %for.inc74, !llvm.loop !67
+  br i1 %cmp35, label %for.body37, label %for.inc74, !llvm.loop !65
 
 for.inc74:                                        ; preds = %for.end64, %for.cond33.preheader, %for.body25
   %tmpHalfBufferPtr.3 = phi ptr [ %tmpHalfBufferPtr.1128, %for.body25 ], [ %tmpHalfBufferPtr.1128, %for.cond33.preheader ], [ %add.ptr, %for.end64 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
-  br i1 %exitcond160.not, label %for.end76, label %for.body25, !llvm.loop !68
+  br i1 %exitcond160.not, label %for.end76, label %for.body25, !llvm.loop !66
 
 for.end76.thread:                                 ; preds = %if.end20, %entry
   %tmpHalfBufferPtr.0210.ph = phi ptr [ %tmpHalfBufferPtr.0, %if.end20 ], [ null, %entry ]
@@ -8014,7 +8016,7 @@ for.body.i.us:                                    ; preds = %for.body.i.us, %if.
   store float %47, ptr %arrayidx6.i.us, align 4
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 64
-  br i1 %exitcond.not.i.us, label %if.end196.us, label %for.body.i.us, !llvm.loop !69
+  br i1 %exitcond.not.i.us, label %if.end196.us, label %for.body.i.us, !llvm.loop !67
 
 if.end196.us:                                     ; preds = %for.body.i.us, %for.end184.us
   br i1 %cmp118, label %for.body202.us, label %for.inc238.us
@@ -8023,7 +8025,7 @@ for.inc238.us:                                    ; preds = %LossyDctEncoder_rle
   %currAcComp.2.lcssa.us = phi ptr [ %currAcComp.1142.us, %if.end196.us ], [ %currAcComp.1142.us, %for.cond104.preheader.us ], [ %curAC.0.be.i.us, %LossyDctEncoder_rleAc.exit.us ]
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count197
-  br i1 %exitcond198.not, label %for.cond99.for.inc241_crit_edge.us, label %for.cond104.preheader.us, !llvm.loop !70
+  br i1 %exitcond198.not, label %for.cond99.for.inc241_crit_edge.us, label %for.cond104.preheader.us, !llvm.loop !68
 
 for.body202.us:                                   ; preds = %if.end196.us, %LossyDctEncoder_rleAc.exit.us
   %indvars.iv188 = phi i64 [ %indvars.iv.next189, %LossyDctEncoder_rleAc.exit.us ], [ 0, %if.end196.us ]
@@ -8130,7 +8132,7 @@ for.body3.i.us:                                   ; preds = %for.body3.i.us, %fo
   %mul.i.i.us = fmul <4 x float> %sub.i351.i.us, <float 0x3FDF6297C0000000, float 0x3FDF6297C0000000, float 0x3FDF6297C0000000, float 0x3FDF6297C0000000>
   %add.i.i102.us = fadd <4 x float> %mul.i260.i.us, %mul.i.i.us
   store <4 x float> %add.i.i102.us, ptr %arrayidx6.i100.us, align 16
-  br i1 %cmp2.i.us, label %for.body3.i.us, label %for.end.i.us, !llvm.loop !71
+  br i1 %cmp2.i.us, label %for.body3.i.us, label %for.end.i.us, !llvm.loop !69
 
 for.end.i.us:                                     ; preds = %for.body3.i.us
   %65 = load <4 x float>, ptr %49, align 16
@@ -8197,7 +8199,7 @@ for.end.i.us:                                     ; preds = %for.body3.i.us
   store <4 x float> %shufp249.i.us, ptr %arrayidx192.i.us, align 16
   %shufp253.i.us = shufflevector <4 x float> %shufp217.i.us, <4 x float> %shufp221.i.us, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
   store <4 x float> %shufp253.i.us, ptr %arrayidx196.i.us, align 16
-  br i1 %cmp.i.us, label %for.cond1.preheader.i.us, label %for.cond207.preheader.us, !llvm.loop !72
+  br i1 %cmp.i.us, label %for.cond1.preheader.i.us, label %for.cond207.preheader.us, !llvm.loop !70
 
 for.body.i109.us:                                 ; preds = %quantize.exit.us, %for.body.i109.us
   %indvars.iv.i110.us = phi i64 [ %indvars.iv.next.i112.us, %for.body.i109.us ], [ 0, %quantize.exit.us ]
@@ -8210,7 +8212,7 @@ for.body.i109.us:                                 ; preds = %quantize.exit.us, %
   store i16 %82, ptr %arrayidx4.i.us, align 2
   %indvars.iv.next.i112.us = add nuw nsw i64 %indvars.iv.i110.us, 1
   %exitcond.not.i113.us = icmp eq i64 %indvars.iv.next.i112.us, 64
-  br i1 %exitcond.not.i113.us, label %toZigZag.exit.us, label %for.body.i109.us, !llvm.loop !73
+  br i1 %exitcond.not.i113.us, label %toZigZag.exit.us, label %for.body.i109.us, !llvm.loop !71
 
 toZigZag.exit.us:                                 ; preds = %for.body.i109.us
   %83 = load i16, ptr %halfZigCoef, align 16
@@ -8262,7 +8264,7 @@ while.body20.i.us:                                ; preds = %land.rhs.i.us
   %conv8.i.us = zext i16 %inc21.i.us to i32
   %add9.i.us = add nuw nsw i32 %dctComp.035.i.us, %conv8.i.us
   %cmp10.i.us = icmp ult i32 %add9.i.us, 64
-  br i1 %cmp10.i.us, label %land.rhs.i.us, label %while.end.i.us, !llvm.loop !74
+  br i1 %cmp10.i.us, label %land.rhs.i.us, label %while.end.i.us, !llvm.loop !72
 
 while.end.i.us:                                   ; preds = %while.body20.i.us, %land.rhs.i.us
   %runLen.0.lcssa.i.us = phi i16 [ %runLen.030.i.us, %land.rhs.i.us ], [ %inc21.i.us, %while.body20.i.us ]
@@ -8291,12 +8293,12 @@ while.cond.backedge.i.us:                         ; preds = %if.end46.i.us, %if.
   %add.i.us = add nuw nsw i32 %.sink.i.us, %dctComp.035.i.us
   %curAC.0.be.i.us = getelementptr inbounds i8, ptr %curAC.036.i.us, i64 2
   %cmp.i117.us = icmp ult i32 %add.i.us, 64
-  br i1 %cmp.i117.us, label %while.body.i.us, label %LossyDctEncoder_rleAc.exit.us, !llvm.loop !75
+  br i1 %cmp.i117.us, label %while.body.i.us, label %LossyDctEncoder_rleAc.exit.us, !llvm.loop !73
 
 LossyDctEncoder_rleAc.exit.us:                    ; preds = %while.cond.backedge.i.us
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %for.inc238.us, label %for.body202.us, !llvm.loop !76
+  br i1 %exitcond192.not, label %for.inc238.us, label %for.body202.us, !llvm.loop !74
 
 for.body210.us:                                   ; preds = %for.cond207.preheader.us, %quantize.exit.us
   %indvars.iv184 = phi i64 [ 0, %for.cond207.preheader.us ], [ %indvars.iv.next185, %quantize.exit.us ]
@@ -8395,7 +8397,7 @@ if.else12.i.i.i.us:                               ; preds = %float_to_half.exit.
   br i1 %cmp13.not.i.i.i.us, label %half_to_float.exit.i.us, label %if.then15.i.i.i.us
 
 if.then15.i.i.i.us:                               ; preds = %if.else12.i.i.i.us
-  %99 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i8.i.us, i1 true), !range !42
+  %99 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i8.i.us, i1 true)
   %sub.i.i.i.us = add nsw i32 %99, -8
   %shl17.i.i.i.us = shl i32 %shr.i.i8.i.us, %sub.i.i.i.us
   %or16.i.i.i.us = or i32 %shl3.i.i.i.us, %shl17.i.i.i.us
@@ -8460,7 +8462,7 @@ if.else12.i.i17.i.us:                             ; preds = %for.body.i107.us
   br i1 %cmp13.not.i.i18.i.us, label %half_to_float.exit34.i.us, label %if.then15.i.i19.i.us
 
 if.then15.i.i19.i.us:                             ; preds = %if.else12.i.i17.i.us
-  %106 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i13.i.us, i1 true), !range !42
+  %106 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i13.i.us, i1 true)
   %sub.i.i20.i.us = add nsw i32 %106, -8
   %shl17.i.i21.i.us = shl i32 %shr.i.i13.i.us, %sub.i.i20.i.us
   %or16.i.i22.i.us = or i32 %shl3.i.i15.i.us, %shl17.i.i21.i.us
@@ -8493,7 +8495,7 @@ half_to_float.exit34.i.us:                        ; preds = %if.then10.i.i32.i.u
 for.cond.i.us:                                    ; preds = %half_to_float.exit34.i.us
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %closest.037.i.us, i64 2
   %cmp.i108.us = icmp ugt i32 %targetNumSetBits.038.in.i.us, 1
-  br i1 %cmp.i108.us, label %for.body.i107.us, label %quantize.exit.us, !llvm.loop !77
+  br i1 %cmp.i108.us, label %for.body.i107.us, label %quantize.exit.us, !llvm.loop !75
 
 quantize.exit.us:                                 ; preds = %half_to_float.exit34.i.us, %for.cond.i.us, %half_to_float.exit.i.us
   %retval.0.i.us = phi i16 [ %retval.0.i.i.i.us, %half_to_float.exit.i.us ], [ %104, %half_to_float.exit34.i.us ], [ %retval.0.i.i.i.us, %for.cond.i.us ]
@@ -8501,17 +8503,17 @@ quantize.exit.us:                                 ; preds = %half_to_float.exit3
   store i16 %retval.0.i.us, ptr %arrayidx220.us, align 2
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next185, 64
-  br i1 %exitcond187.not, label %for.body.i109.us, label %for.body210.us, !llvm.loop !78
+  br i1 %exitcond187.not, label %for.body.i109.us, label %for.body210.us, !llvm.loop !76
 
 for.inc182.us:                                    ; preds = %for.inc179.us
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %for.end184.us, label %for.cond109.preheader.us, !llvm.loop !79
+  br i1 %exitcond183.not, label %for.end184.us, label %for.cond109.preheader.us, !llvm.loop !77
 
 for.inc179.us:                                    ; preds = %half_to_float.exit.us
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next174, 8
-  br i1 %exitcond178.not, label %for.inc182.us, label %for.cond114.preheader.us, !llvm.loop !80
+  br i1 %exitcond178.not, label %for.inc182.us, label %for.cond114.preheader.us, !llvm.loop !78
 
 for.body117.us:                                   ; preds = %for.cond114.preheader.us, %half_to_float.exit.us
   %indvars.iv167 = phi i64 [ 0, %for.cond114.preheader.us ], [ %indvars.iv.next168, %half_to_float.exit.us ]
@@ -8566,7 +8568,7 @@ if.else12.i.i.us:                                 ; preds = %if.end168.us
   br i1 %cmp13.not.i.i.us, label %half_to_float.exit.us, label %if.then15.i.i.us
 
 if.then15.i.i.us:                                 ; preds = %if.else12.i.i.us
-  %120 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i94.us, i1 true), !range !42
+  %120 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i94.us, i1 true)
   %sub.i.i.us = add nsw i32 %120, -8
   %shl17.i.i.us = shl i32 %shr.i.i94.us, %sub.i.i.us
   %or16.i.i.us = or i32 %shl3.i.i.us, %shl17.i.i.us
@@ -8595,7 +8597,7 @@ half_to_float.exit.us:                            ; preds = %if.then10.i.i.us, %
   store i32 %v.sroa.0.0.i.i.us, ptr %arrayidx175.us, align 4
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next168, 8
-  br i1 %exitcond172.not, label %for.inc179.us, label %for.body117.us, !llvm.loop !81
+  br i1 %exitcond172.not, label %for.inc179.us, label %for.body117.us, !llvm.loop !79
 
 for.cond114.preheader.us:                         ; preds = %for.cond109.preheader.us, %for.inc179.us
   %indvars.iv173 = phi i64 [ 0, %for.cond109.preheader.us ], [ %indvars.iv.next174, %for.inc179.us ]
@@ -8628,7 +8630,7 @@ for.cond109.preheader.lr.ph.us:                   ; preds = %for.cond104.prehead
 for.cond99.for.inc241_crit_edge.us:               ; preds = %for.inc238.us
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count203
-  br i1 %exitcond204.not, label %for.end243, label %for.cond99.preheader.us, !llvm.loop !82
+  br i1 %exitcond204.not, label %for.end243, label %for.cond99.preheader.us, !llvm.loop !80
 
 for.body82:                                       ; preds = %for.body82.lr.ph, %for.body82
   %129 = phi ptr [ %33, %for.body82.lr.ph ], [ %add.ptr88, %for.body82 ]
@@ -8640,7 +8642,7 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
   store ptr %add.ptr88, ptr %_dc_comp91, align 32
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count165
-  br i1 %exitcond166.not, label %for.cond95.preheader, label %for.body82, !llvm.loop !83
+  br i1 %exitcond166.not, label %for.cond95.preheader, label %for.body82, !llvm.loop !81
 
 for.end243:                                       ; preds = %for.cond99.for.inc241_crit_edge.us, %for.cond99.preheader.lr.ph, %for.cond95.preheader
   %tobool244.not = icmp eq ptr %tmpHalfBufferPtr.0210215, null
@@ -8667,7 +8669,7 @@ entry:
   store ptr %toNonlinear, ptr %e, align 8
   %_numAcComp.i = getelementptr inbounds i8, ptr %e, i64 8
   %_packedAc.i = getelementptr inbounds i8, ptr %e, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_numAcComp.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %_numAcComp.i, i8 0, i64 16, i1 false)
   store ptr %packedAc, ptr %_packedAc.i, align 8
   %_packedDc.i = getelementptr inbounds i8, ptr %e, i64 72
   store ptr %packedDc, ptr %_packedDc.i, align 8
@@ -8707,7 +8709,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 LossyDctEncoder_base_construct.exit:              ; preds = %for.body.i
   %_channel_encode_data.i = getelementptr inbounds i8, ptr %e, i64 24
   %3 = getelementptr inbounds i8, ptr %e, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %3, i8 0, i64 16, i1 false)
   store ptr %rowPtrs, ptr %_channel_encode_data.i, align 8
   %_channel_encode_data_count = getelementptr inbounds i8, ptr %e, i64 48
   store i32 1, ptr %_channel_encode_data_count, align 8
@@ -8838,7 +8840,7 @@ for.body32:                                       ; preds = %for.end, %for.body3
   %spec.select338 = select i1 %cmp33, ptr %add.ptr, ptr %add.ptr279280
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %for.cond43.preheader, label %for.body32, !llvm.loop !84
+  br i1 %exitcond.not, label %for.cond43.preheader, label %for.body32, !llvm.loop !82
 
 for.body46:                                       ; preds = %for.body46.lr.ph, %for.body46
   %10 = phi ptr [ %spec.select338, %for.body46.lr.ph ], [ %add.ptr52, %for.body46 ]
@@ -8848,7 +8850,7 @@ for.body46:                                       ; preds = %for.body46.lr.ph, %
   store ptr %add.ptr52, ptr %arrayidx54, align 8
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count
-  br i1 %exitcond357.not, label %for.end57, label %for.body46, !llvm.loop !85
+  br i1 %exitcond357.not, label %for.end57, label %for.body46, !llvm.loop !83
 
 for.end57:                                        ; preds = %for.body46
   %_packedDc = getelementptr inbounds i8, ptr %d, i64 32
@@ -8945,7 +8947,7 @@ for.body63:                                       ; preds = %for.body63.lr.ph, %
   store ptr %add.ptr69, ptr %arrayidx71, align 8
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond363.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count362
-  br i1 %exitcond363.not, label %for.cond75.preheader, label %for.body63, !llvm.loop !86
+  br i1 %exitcond363.not, label %for.cond75.preheader, label %for.body63, !llvm.loop !84
 
 for.cond495.preheader:                            ; preds = %for.inc491, %for.cond75.preheader
   br i1 %cmp16276, label %for.body498.preheader, label %return.sink.split
@@ -9048,7 +9050,7 @@ if.end12.i:                                       ; preds = %if.else10.i, %if.th
   %inc13.i = add i64 %ac_count.019.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %acComp.017.i, i64 2
   %cmp.i = icmp slt i32 %dctComp.1.i, 64
-  br i1 %cmp.i, label %while.body.i, label %if.end128, !llvm.loop !87
+  br i1 %cmp.i, label %while.body.i, label %if.end128, !llvm.loop !85
 
 if.end128:                                        ; preds = %if.end12.i, %if.end12.thread.i
   %incdec.ptr27.i = phi ptr [ %incdec.ptr23.i, %if.end12.thread.i ], [ %incdec.ptr.i, %if.end12.i ]
@@ -9088,7 +9090,7 @@ if.else12.i.i:                                    ; preds = %if.then131
   br i1 %cmp13.not.i.i, label %half_to_float.exit, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %if.else12.i.i
-  %27 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true), !range !42
+  %27 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i, i1 true)
   %sub.i.i = add nsw i32 %27, -8
   %shl17.i.i = shl i32 %shr.i.i, %sub.i.i
   %or16.i.i = or i32 %shl3.i.i, %shl17.i.i
@@ -9113,11 +9115,11 @@ for.body.i:                                       ; preds = %for.body.i, %half_t
   store <4 x float> %vecinit3.i.i, ptr %arrayidx2.i, align 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %for.inc171, label %for.body.i, !llvm.loop !88
+  br i1 %exitcond.not.i, label %for.inc171, label %for.body.i, !llvm.loop !86
 
 if.else:                                          ; preds = %if.end128
   %29 = load ptr, ptr @fromHalfZigZag, align 8
-  tail call void %29(ptr noundef nonnull %_halfZigData, ptr noundef %18) #18, !callees !89
+  tail call void %29(ptr noundef nonnull %_halfZigData, ptr noundef %18) #18, !callees !87
   %cmp135 = icmp slt i32 %lnz.125.i, 2
   br i1 %cmp135, label %for.inc171.sink.split, label %if.else138
 
@@ -9156,7 +9158,7 @@ for.inc171:                                       ; preds = %for.body.i, %for.in
   %blockIsConstant.1 = phi i8 [ 0, %for.inc171.sink.split ], [ %blockIsConstant.0289, %for.body.i ]
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next365, %wide.trip.count366
-  br i1 %exitcond367.not, label %for.end173, label %for.body97, !llvm.loop !90
+  br i1 %exitcond367.not, label %for.end173, label %for.body97, !llvm.loop !88
 
 for.end173:                                       ; preds = %for.inc171
   br i1 %cmp174, label %if.then176, label %if.end199
@@ -9447,10 +9449,10 @@ for.body204.us:                                   ; preds = %for.body204.us.preh
   %arrayidx211.us = getelementptr inbounds i16, ptr %140, i64 %138
   %arrayidx213.us = getelementptr inbounds [3 x ptr], ptr %chanData, i64 0, i64 %indvars.iv373
   %141 = load ptr, ptr %arrayidx213.us, align 8
-  tail call void %139(ptr noundef %arrayidx211.us, ptr noundef %141) #18, !callees !91
+  tail call void %139(ptr noundef %arrayidx211.us, ptr noundef %141) #18, !callees !89
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next374, %wide.trip.count376
-  br i1 %exitcond377.not, label %for.inc248, label %for.body204.us, !llvm.loop !92
+  br i1 %exitcond377.not, label %for.inc248, label %for.body204.us, !llvm.loop !90
 
 for.body204:                                      ; preds = %for.body204.preheader, %float_to_half.exit
   %indvars.iv368 = phi i64 [ 0, %for.body204.preheader ], [ %indvars.iv.next369, %float_to_half.exit ]
@@ -9557,13 +9559,13 @@ float_to_half.exit:                               ; preds = %if.then6.i.i, %if.e
   store <8 x i16> %vecinit7.i, ptr %arrayidx243, align 16
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %exitcond372.not = icmp eq i64 %indvars.iv.next369, %wide.trip.count371
-  br i1 %exitcond372.not, label %for.inc248, label %for.body204, !llvm.loop !92
+  br i1 %exitcond372.not, label %for.inc248, label %for.body204, !llvm.loop !90
 
 for.inc248:                                       ; preds = %float_to_half.exit, %for.body204.us, %for.body87, %if.end199
   %currAcComp.2.lcssa428433 = phi ptr [ %incdec.ptr27.i, %if.end199 ], [ %currAcComp.1296, %for.body87 ], [ %incdec.ptr27.i, %for.body204.us ], [ %incdec.ptr27.i, %float_to_half.exit ]
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %exitcond384.not = icmp eq i64 %indvars.iv.next379, %wide.trip.count383
-  br i1 %exitcond384.not, label %for.cond252.preheader, label %for.body87, !llvm.loop !93
+  br i1 %exitcond384.not, label %for.cond252.preheader, label %for.body87, !llvm.loop !91
 
 for.body255:                                      ; preds = %for.body255.lr.ph, %for.inc488
   %indvars.iv407 = phi i64 [ 0, %for.body255.lr.ph ], [ %indvars.iv.next408, %for.inc488 ]
@@ -9587,7 +9589,7 @@ for.body262:                                      ; preds = %for.body262.lr.ph, 
   %spec.select226 = select i1 %tobool268.not, i8 %fastPath.0303, i8 0
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %cmp260 = icmp slt i64 %indvars.iv.next388, %17
-  br i1 %cmp260, label %for.body262, label %for.end273, !llvm.loop !94
+  br i1 %cmp260, label %for.body262, label %for.end273, !llvm.loop !92
 
 for.end273:                                       ; preds = %for.body262
   %tobool274.not = icmp eq i8 %spec.select226, 0
@@ -9673,12 +9675,12 @@ for.body300.us:                                   ; preds = %for.body283.us, %fo
   %incdec.ptr359.us = getelementptr inbounds i8, ptr %dst284.0308.us, i64 16
   %inc361.us = add nuw nsw i32 %blockx296.0310.us, 1
   %exitcond389.not = icmp eq i32 %inc361.us, %div10
-  br i1 %exitcond389.not, label %for.cond297.for.inc363_crit_edge.us, label %for.body300.us, !llvm.loop !95
+  br i1 %exitcond389.not, label %for.cond297.for.inc363_crit_edge.us, label %for.body300.us, !llvm.loop !93
 
 for.cond297.for.inc363_crit_edge.us:              ; preds = %for.body300.us
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %cmp281.us = icmp slt i64 %indvars.iv.next391, %17
-  br i1 %cmp281.us, label %for.body283.us, label %if.end442, !llvm.loop !96
+  br i1 %cmp281.us, label %for.body283.us, label %if.end442, !llvm.loop !94
 
 for.cond369.preheader:                            ; preds = %for.end273
   br i1 %cmp260302, label %for.body374.lr.ph, label %for.inc488
@@ -9774,12 +9776,12 @@ for.body385.us:                                   ; preds = %for.body374.us, %fo
   %add.ptr435.us = getelementptr inbounds i8, ptr %dst375.0314.us, i64 16
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next394, %wide.trip.count398
-  br i1 %exitcond399.not, label %for.cond382.for.inc439_crit_edge.us, label %for.body385.us, !llvm.loop !97
+  br i1 %exitcond399.not, label %for.cond382.for.inc439_crit_edge.us, label %for.body385.us, !llvm.loop !95
 
 for.cond382.for.inc439_crit_edge.us:              ; preds = %for.body385.us
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %cmp372.us = icmp slt i64 %indvars.iv.next401, %17
-  br i1 %cmp372.us, label %for.body374.us, label %if.end442, !llvm.loop !98
+  br i1 %cmp372.us, label %for.body374.us, label %if.end442, !llvm.loop !96
 
 if.end442:                                        ; preds = %for.cond297.for.inc363_crit_edge.us, %for.cond382.for.inc439_crit_edge.us, %for.body374.lr.ph, %for.body283.lr.ph
   br i1 %brmerge, label %for.inc488, label %for.body453.lr.ph
@@ -9823,23 +9825,23 @@ for.body475:                                      ; preds = %for.body475.prehead
   store i16 %228, ptr %dst463.0320, align 2
   %inc482 = add nuw nsw i32 %x.0321, 1
   %exitcond403.not = icmp eq i32 %inc482, %maxX.0.lcssa
-  br i1 %exitcond403.not, label %for.inc484, label %for.body475, !llvm.loop !99
+  br i1 %exitcond403.not, label %for.inc484, label %for.body475, !llvm.loop !97
 
 for.inc484:                                       ; preds = %for.body475, %for.body453
   %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
   %cmp451 = icmp slt i64 %indvars.iv.next405, %17
-  br i1 %cmp451, label %for.body453, label %for.inc488, !llvm.loop !100
+  br i1 %cmp451, label %for.body453, label %for.inc488, !llvm.loop !98
 
 for.inc488:                                       ; preds = %for.inc484, %for.body255, %for.cond369.preheader, %for.cond278.preheader, %if.end442
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %exitcond411.not = icmp eq i64 %indvars.iv.next408, %wide.trip.count410
-  br i1 %exitcond411.not, label %for.inc491, label %for.body255, !llvm.loop !101
+  br i1 %exitcond411.not, label %for.inc491, label %for.body255, !llvm.loop !99
 
 for.inc491:                                       ; preds = %for.inc488, %for.cond252.preheader
   %inc492 = add nuw nsw i32 %blocky.0331, 1
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 8
   %exitcond413.not = icmp eq i32 %inc492, %smax412
-  br i1 %exitcond413.not, label %for.cond495.preheader, label %for.body78, !llvm.loop !102
+  br i1 %exitcond413.not, label %for.cond495.preheader, label %for.body78, !llvm.loop !100
 
 for.body498:                                      ; preds = %for.body498.preheader, %for.inc535
   %indvars.iv420 = phi i64 [ 0, %for.body498.preheader ], [ %indvars.iv.next421, %for.inc535 ]
@@ -9910,7 +9912,7 @@ if.else12.i.i238:                                 ; preds = %for.body522
   br i1 %cmp13.not.i.i239, label %half_to_float.exit255, label %if.then15.i.i240
 
 if.then15.i.i240:                                 ; preds = %if.else12.i.i238
-  %241 = tail call i32 @llvm.ctlz.i32(i32 %shr.i.i234, i1 true), !range !42
+  %241 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %shr.i.i234, i1 true)
   %sub.i.i241 = add nsw i32 %241, -8
   %shl17.i.i242 = shl i32 %shr.i.i234, %sub.i.i241
   %or16.i.i243 = or i32 %shl3.i.i236, %shl17.i.i242
@@ -9924,7 +9926,7 @@ half_to_float.exit255:                            ; preds = %if.then10.i.i253, %
   %arrayidx529 = getelementptr inbounds float, ptr %237, i64 %indvars.iv.next415
   store i32 %v.sroa.0.0.i.i247, ptr %arrayidx529, align 4
   %cmp520 = icmp ugt i64 %indvars.iv414, 1
-  br i1 %cmp520, label %for.body522, label %for.inc532.loopexit, !llvm.loop !103
+  br i1 %cmp520, label %for.body522, label %for.inc532.loopexit, !llvm.loop !101
 
 for.inc532.loopexit:                              ; preds = %half_to_float.exit255
   %.pre = load i32, ptr %_height, align 4
@@ -9935,12 +9937,12 @@ for.inc532:                                       ; preds = %for.inc532.loopexit
   %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
   %243 = sext i32 %242 to i64
   %cmp508 = icmp slt i64 %indvars.iv.next418, %243
-  br i1 %cmp508, label %for.body510thread-pre-split, label %for.inc535, !llvm.loop !104
+  br i1 %cmp508, label %for.body510thread-pre-split, label %for.inc535, !llvm.loop !102
 
 for.inc535:                                       ; preds = %for.inc532, %for.body510.lr.ph, %for.cond506.preheader, %for.body498
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next421, %wide.trip.count423
-  br i1 %exitcond424.not, label %return.sink.split, label %for.body498, !llvm.loop !105
+  br i1 %exitcond424.not, label %return.sink.split, label %for.body498, !llvm.loop !103
 
 return.sink.split:                                ; preds = %while.body.i, %for.inc535, %for.cond495.preheader
   %retval.0.ph = phi i32 [ 0, %for.cond495.preheader ], [ 0, %for.inc535 ], [ 23, %while.body.i ]
@@ -9985,14 +9987,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %11 = shl nuw nsw i64 %indvars.iv143, 1
   %arrayidx12 = getelementptr inbounds <2 x i64>, ptr %dst, i64 %11
   %shuffle.i177 = shufflevector <16 x i8> %9, <16 x i8> %10, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %shuffle.i177, ptr %arrayidx12, align 16, !nontemporal !106
+  store <16 x i8> %shuffle.i177, ptr %arrayidx12, align 16, !nontemporal !104
   %12 = or disjoint i64 %11, 1
   %arrayidx15 = getelementptr inbounds <2 x i64>, ptr %dst, i64 %12
   %shuffle.i186 = shufflevector <16 x i8> %9, <16 x i8> %10, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %shuffle.i186, ptr %arrayidx15, align 16, !nontemporal !106
+  store <16 x i8> %shuffle.i186, ptr %arrayidx15, align 16, !nontemporal !104
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count148
-  br i1 %exitcond149.not, label %for.end, label %for.body, !llvm.loop !107
+  br i1 %exitcond149.not, label %for.end, label %for.body, !llvm.loop !105
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %mul18 = shl nsw i32 %div, 4
@@ -10018,7 +10020,7 @@ for.body22:                                       ; preds = %for.body22.preheade
   store i8 %16, ptr %arrayidx33, align 1
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count155
-  br i1 %exitcond156.not, label %if.end164, label %for.body22, !llvm.loop !108
+  br i1 %exitcond156.not, label %if.end164, label %for.body22, !llvm.loop !106
 
 if.else:                                          ; preds = %entry
   %conv4 = and i32 %5, 15
@@ -10062,7 +10064,7 @@ for.body51:                                       ; preds = %for.body51.preheade
   store i8 %21, ptr %arrayidx62, align 1
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count127
-  br i1 %exitcond128.not, label %for.end65, label %for.body51, !llvm.loop !109
+  br i1 %exitcond128.not, label %for.end65, label %for.body51, !llvm.loop !107
 
 for.end65:                                        ; preds = %for.body51
   %cmp66 = icmp sgt i32 %numBytes, 8
@@ -10090,16 +10092,16 @@ for.body77:                                       ; preds = %for.body77.preheade
   %arrayidx84 = getelementptr inbounds <2 x i64>, ptr %arrayidx71, i64 %indvars.iv129
   %25 = load <16 x i8>, ptr %arrayidx84, align 16
   %shuffle.i174 = shufflevector <16 x i8> %24, <16 x i8> %25, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %shuffle.i174, ptr %arrayidx80, align 16, !nontemporal !106
+  store <16 x i8> %shuffle.i174, ptr %arrayidx80, align 16, !nontemporal !104
   %26 = or disjoint i64 %23, 1
   %arrayidx89 = getelementptr inbounds <2 x i64>, ptr %arrayidx69, i64 %26
   %27 = load <16 x i8>, ptr %arrayidx82, align 16
   %28 = load <16 x i8>, ptr %arrayidx84, align 16
   %shuffle.i183 = shufflevector <16 x i8> %27, <16 x i8> %28, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %shuffle.i183, ptr %arrayidx89, align 16, !nontemporal !106
+  store <16 x i8> %shuffle.i183, ptr %arrayidx89, align 16, !nontemporal !104
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count134
-  br i1 %exitcond135.not, label %for.end97, label %for.body77, !llvm.loop !110
+  br i1 %exitcond135.not, label %for.end97, label %for.body77, !llvm.loop !108
 
 for.end97:                                        ; preds = %for.body77, %if.then68
   %mul99 = and i32 %sub, -16
@@ -10127,7 +10129,7 @@ for.body104:                                      ; preds = %for.body104.prehead
   store i8 %33, ptr %arrayidx115, align 1
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count141
-  br i1 %exitcond142.not, label %if.end164, label %for.body104, !llvm.loop !111
+  br i1 %exitcond142.not, label %if.end164, label %for.body104, !llvm.loop !109
 
 for.body124:                                      ; preds = %for.body124.preheader, %for.body124
   %indvars.iv = phi i64 [ 0, %for.body124.preheader ], [ %indvars.iv.next, %for.body124 ]
@@ -10145,7 +10147,7 @@ for.body124:                                      ; preds = %for.body124.prehead
   store <16 x i8> %shuffle.i180, ptr %arrayidx138, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end142, label %for.body124, !llvm.loop !112
+  br i1 %exitcond.not, label %for.end142, label %for.body124, !llvm.loop !110
 
 for.end142:                                       ; preds = %for.body124, %for.cond121.preheader
   %mul144 = shl nsw i32 %div, 4
@@ -10171,7 +10173,7 @@ for.body148:                                      ; preds = %for.body148.prehead
   store i8 %42, ptr %arrayidx159, align 1
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count120
-  br i1 %exitcond121.not, label %if.end164, label %for.body148, !llvm.loop !113
+  br i1 %exitcond121.not, label %if.end164, label %for.body148, !llvm.loop !111
 
 if.end164:                                        ; preds = %for.body148, %for.body104, %for.body22, %if.then44, %for.end142, %for.end97, %for.end, %for.end65
   ret void
@@ -10241,7 +10243,7 @@ attributes #20 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8, !12}
 !18 = distinct !{!18, !8}
-!19 = !{i32 0, i32 2}
+!19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
@@ -10255,26 +10257,26 @@ attributes #20 = { nounwind willreturn memory(read) }
 !30 = distinct !{!30, !8}
 !31 = distinct !{!31, !8}
 !32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8, !12}
+!33 = distinct !{!33, !8, !12}
+!34 = distinct !{!34, !8}
 !35 = distinct !{!35, !8}
 !36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
 !39 = distinct !{!39, !8}
 !40 = distinct !{!40, !8}
-!41 = distinct !{!41, !8}
-!42 = !{i32 9, i32 33}
-!43 = !{i64 10774609, i64 10774667, i64 10774724, i64 10774781, i64 10774838, i64 10774895, i64 10774952, i64 10775009, i64 10775066, i64 10775123, i64 10775180, i64 10775237, i64 10775294, i64 10775351, i64 10775408, i64 10775465, i64 10775522, i64 10775579, i64 10775636, i64 10775693, i64 10775750, i64 10775807, i64 10775864, i64 10775921, i64 10775998}
-!44 = !{i64 10782685, i64 10782734, i64 10782782, i64 10782830, i64 10782878, i64 10782926, i64 10783244, i64 10783292, i64 10783340, i64 10783394, i64 10783448, i64 10783767, i64 10783821, i64 10783875, i64 10783929, i64 10783983, i64 10784135, i64 10784388, i64 10784442, i64 10784496, i64 10784550, i64 10784605, i64 10784659, i64 10784713, i64 10784767, i64 10784822, i64 10784875, i64 10784928, i64 10784981, i64 10785087, i64 10785141, i64 10785195, i64 10785249, i64 10785303, i64 10785357, i64 10785411, i64 10785465, i64 10785520, i64 10785574, i64 10785628, i64 10785682, i64 10785736, i64 10785790, i64 10785844, i64 10785898, i64 10785953, i64 10786007, i64 10786061, i64 10786115, i64 10786169, i64 10786223, i64 10786277, i64 10786331, i64 10786662, i64 10786716, i64 10786770, i64 10786824, i64 10786878, i64 10786932, i64 10787030, i64 10787081, i64 10787132, i64 10787183, i64 10787234, i64 10787285, i64 10787336, i64 10787387, i64 10787480, i64 10787531, i64 10787582, i64 10787633, i64 10787684, i64 10787735, i64 10787786, i64 10787837, i64 10787908}
-!45 = !{i64 2158598878, i64 2158598943, i64 2158599008, i64 2158599093, i64 2158599165, i64 2158599237, i64 2158599322, i64 2158599394, i64 2158599466, i64 2158599551, i64 2158599622, i64 2158599693, i64 2158599778, i64 2158599850, i64 2158601455, i64 2158601520, i64 2158601585, i64 2158601670, i64 2158601742, i64 2158601815, i64 2158601900, i64 2158601972, i64 2158602044, i64 2158602129, i64 2158602200, i64 2158602271, i64 2158602356, i64 2158602428, i64 2158604039, i64 2158604105, i64 2158604171, i64 2158604256, i64 2158604329, i64 2158604402, i64 2158604487, i64 2158604559, i64 2158604631, i64 2158604716, i64 2158604787, i64 2158604858, i64 2158604943, i64 2158605015, i64 2158606594, i64 2158606659, i64 2158606724, i64 2158606809, i64 2158606880, i64 2158606951, i64 2158607036, i64 2158607106, i64 2158607176, i64 2158607261, i64 2158607331, i64 2158607401, i64 2158607486, i64 2158607556, i64 2158583578, i64 2158583649, i64 2158583720, i64 2158583791, i64 2158608551, i64 2158608608, i64 2158608665, i64 2158608722, i64 2158608772, i64 2158608817, i64 2158608862, i64 2158608907, i64 2158608952, i64 2158608998, i64 2158609044, i64 2158610020, i64 2158610077, i64 2158610134, i64 2158610191, i64 2158610241, i64 2158610286, i64 2158610331, i64 2158610376, i64 2158610421, i64 2158610467, i64 2158610513, i64 2158611489, i64 2158611546, i64 2158611603, i64 2158611660, i64 2158611710, i64 2158611755, i64 2158611800, i64 2158611845, i64 2158611890, i64 2158611936, i64 2158611982, i64 2158612958, i64 2158613015, i64 2158613072, i64 2158613129, i64 2158613179, i64 2158613224, i64 2158613269, i64 2158613314, i64 2158613359, i64 2158613405, i64 2158613451, i64 2158584434, i64 2158584505, i64 2158584576, i64 2158584647, i64 2158614427, i64 2158614484, i64 2158614541, i64 2158614598, i64 2158614648, i64 2158614693, i64 2158614738, i64 2158614783, i64 2158614828, i64 2158614874, i64 2158614920, i64 2158615896, i64 2158615953, i64 2158616010, i64 2158616067, i64 2158616117, i64 2158616162, i64 2158616207, i64 2158616252, i64 2158616297, i64 2158616343, i64 2158616389, i64 2158617365, i64 2158617422, i64 2158617479, i64 2158617536, i64 2158617586, i64 2158617631, i64 2158617676, i64 2158617721, i64 2158617766, i64 2158617812, i64 2158617858, i64 2158618834, i64 2158618891, i64 2158618948, i64 2158619005, i64 2158619055, i64 2158619100, i64 2158619145, i64 2158619190, i64 2158619235, i64 2158619281, i64 2158619327, i64 2158619744, i64 2158619806, i64 2158619860, i64 2158620282, i64 2158620344, i64 2158620398, i64 2158620820, i64 2158620882, i64 2158620936, i64 2158621358, i64 2158621420, i64 2158621474, i64 2158621527, i64 2158621579, i64 2158621631, i64 2158621683, i64 2158621735, i64 2158621787, i64 2158621839, i64 2158621891, i64 2158587829, i64 2158587902, i64 2158587975, i64 2158588048, i64 2158621943, i64 2158621989, i64 2158622035, i64 2158622081, i64 2158622127, i64 2158622173, i64 2158622219, i64 2158622265, i64 2158622311, i64 2158622357, i64 2158622403, i64 2158622449, i64 2158622495, i64 2158622541, i64 2158622587, i64 2158622633, i64 2158622679, i64 2158622725, i64 2158622771, i64 2158622817, i64 2158622863, i64 2158622909, i64 2158622955, i64 2158623001, i64 2158623047, i64 2158623093, i64 2158623139, i64 2158623185, i64 2158592601, i64 2158592674, i64 2158592747, i64 2158592820, i64 2158623231, i64 2158623276, i64 2158623321, i64 2158623366, i64 2158623411, i64 2158623456, i64 2158623501, i64 2158623546, i64 2158623591, i64 2158623636, i64 2158623681, i64 2158623726, i64 2158623771, i64 2158623816, i64 2158623861, i64 2158623906, i64 2158623951, i64 2158623996, i64 2158595981, i64 2158596054, i64 2158596127, i64 2158596200, i64 2158596346, i64 2158596419, i64 2158596492, i64 2158596565, i64 2158596784, i64 2158596857, i64 2158596930, i64 2158597003, i64 2158597076, i64 2158597149, i64 2158597222, i64 2158597295, i64 2158582907}
-!46 = !{i64 2158640500, i64 2158640565, i64 2158640630, i64 2158640715, i64 2158640787, i64 2158640859, i64 2158640944, i64 2158641016, i64 2158641088, i64 2158641173, i64 2158641244, i64 2158641315, i64 2158641400, i64 2158641472, i64 2158643077, i64 2158643142, i64 2158643207, i64 2158643292, i64 2158643364, i64 2158643437, i64 2158643522, i64 2158643594, i64 2158643666, i64 2158643751, i64 2158643822, i64 2158643893, i64 2158643978, i64 2158644050, i64 2158645661, i64 2158645727, i64 2158645793, i64 2158645878, i64 2158645951, i64 2158646024, i64 2158646109, i64 2158646181, i64 2158646253, i64 2158646338, i64 2158646409, i64 2158646480, i64 2158646565, i64 2158646637, i64 2158648216, i64 2158648281, i64 2158648346, i64 2158648431, i64 2158648502, i64 2158648573, i64 2158648658, i64 2158648728, i64 2158648798, i64 2158648883, i64 2158648953, i64 2158649023, i64 2158649108, i64 2158649178, i64 2158625200, i64 2158625271, i64 2158625342, i64 2158625413, i64 2158650173, i64 2158650230, i64 2158650287, i64 2158650344, i64 2158650394, i64 2158650439, i64 2158650484, i64 2158650529, i64 2158650574, i64 2158650620, i64 2158650666, i64 2158651642, i64 2158651699, i64 2158651756, i64 2158651813, i64 2158651863, i64 2158651908, i64 2158651953, i64 2158651998, i64 2158652043, i64 2158652089, i64 2158652135, i64 2158653111, i64 2158653168, i64 2158653225, i64 2158653282, i64 2158653332, i64 2158653377, i64 2158653422, i64 2158653467, i64 2158653512, i64 2158653558, i64 2158653604, i64 2158654580, i64 2158654637, i64 2158654694, i64 2158654751, i64 2158654801, i64 2158654846, i64 2158654891, i64 2158654936, i64 2158654981, i64 2158655027, i64 2158655073, i64 2158626056, i64 2158626127, i64 2158626198, i64 2158626269, i64 2158656049, i64 2158656106, i64 2158656163, i64 2158656220, i64 2158656270, i64 2158656315, i64 2158656360, i64 2158656405, i64 2158656450, i64 2158656496, i64 2158656542, i64 2158657518, i64 2158657575, i64 2158657632, i64 2158657689, i64 2158657739, i64 2158657784, i64 2158657829, i64 2158657874, i64 2158657919, i64 2158657965, i64 2158658011, i64 2158658987, i64 2158659044, i64 2158659101, i64 2158659158, i64 2158659208, i64 2158659253, i64 2158659298, i64 2158659343, i64 2158659388, i64 2158659434, i64 2158659480, i64 2158660456, i64 2158660513, i64 2158660570, i64 2158660627, i64 2158660677, i64 2158660722, i64 2158660767, i64 2158660812, i64 2158660857, i64 2158660903, i64 2158660949, i64 2158661366, i64 2158661428, i64 2158661482, i64 2158661904, i64 2158661966, i64 2158662020, i64 2158662442, i64 2158662504, i64 2158662558, i64 2158662980, i64 2158663042, i64 2158663096, i64 2158663149, i64 2158663201, i64 2158663253, i64 2158663305, i64 2158663357, i64 2158663409, i64 2158663461, i64 2158629451, i64 2158629524, i64 2158629597, i64 2158629670, i64 2158663513, i64 2158663559, i64 2158663605, i64 2158663651, i64 2158663697, i64 2158663743, i64 2158663789, i64 2158663835, i64 2158663881, i64 2158663927, i64 2158663973, i64 2158664019, i64 2158664065, i64 2158664111, i64 2158664157, i64 2158664203, i64 2158664249, i64 2158664295, i64 2158664341, i64 2158664387, i64 2158634223, i64 2158634296, i64 2158634369, i64 2158634442, i64 2158664433, i64 2158664478, i64 2158664523, i64 2158664568, i64 2158664613, i64 2158664658, i64 2158664703, i64 2158664748, i64 2158664793, i64 2158664838, i64 2158664883, i64 2158664928, i64 2158664973, i64 2158665018, i64 2158665063, i64 2158665108, i64 2158665153, i64 2158665198, i64 2158637603, i64 2158637676, i64 2158637749, i64 2158637822, i64 2158637968, i64 2158638041, i64 2158638114, i64 2158638187, i64 2158638406, i64 2158638479, i64 2158638552, i64 2158638625, i64 2158638698, i64 2158638771, i64 2158638844, i64 2158638917, i64 2158624529}
-!47 = !{i64 2158685763, i64 2158685828, i64 2158685893, i64 2158685978, i64 2158686050, i64 2158686122, i64 2158686207, i64 2158686279, i64 2158686351, i64 2158686436, i64 2158686507, i64 2158686578, i64 2158686663, i64 2158686735, i64 2158688340, i64 2158688405, i64 2158688470, i64 2158688555, i64 2158688627, i64 2158688700, i64 2158688785, i64 2158688857, i64 2158688929, i64 2158689014, i64 2158689085, i64 2158689156, i64 2158689241, i64 2158689313, i64 2158690924, i64 2158690990, i64 2158691056, i64 2158691141, i64 2158691214, i64 2158691287, i64 2158691372, i64 2158691444, i64 2158691516, i64 2158691601, i64 2158691672, i64 2158691743, i64 2158691828, i64 2158691900, i64 2158666402, i64 2158666473, i64 2158666544, i64 2158666615, i64 2158692897, i64 2158692954, i64 2158693011, i64 2158693068, i64 2158693118, i64 2158693163, i64 2158693208, i64 2158693253, i64 2158693298, i64 2158693344, i64 2158693390, i64 2158694366, i64 2158694423, i64 2158694480, i64 2158694537, i64 2158694587, i64 2158694632, i64 2158694677, i64 2158694722, i64 2158694767, i64 2158694813, i64 2158694859, i64 2158695835, i64 2158695892, i64 2158695949, i64 2158696006, i64 2158696056, i64 2158696101, i64 2158696146, i64 2158696191, i64 2158696236, i64 2158696282, i64 2158696328, i64 2158667258, i64 2158667329, i64 2158667400, i64 2158667471, i64 2158697304, i64 2158697361, i64 2158697418, i64 2158697475, i64 2158697525, i64 2158697570, i64 2158697615, i64 2158697660, i64 2158697705, i64 2158697751, i64 2158697797, i64 2158698773, i64 2158698830, i64 2158698887, i64 2158698944, i64 2158698994, i64 2158699039, i64 2158699084, i64 2158699129, i64 2158699174, i64 2158699220, i64 2158699266, i64 2158700242, i64 2158700299, i64 2158700356, i64 2158700413, i64 2158700463, i64 2158700508, i64 2158700553, i64 2158700598, i64 2158700643, i64 2158700689, i64 2158700735, i64 2158701152, i64 2158701214, i64 2158701268, i64 2158701690, i64 2158701752, i64 2158701806, i64 2158702228, i64 2158702290, i64 2158702344, i64 2158702397, i64 2158702449, i64 2158702501, i64 2158702553, i64 2158702605, i64 2158702657, i64 2158670653, i64 2158670726, i64 2158670799, i64 2158670872, i64 2158702709, i64 2158702755, i64 2158702801, i64 2158702847, i64 2158702893, i64 2158702939, i64 2158702985, i64 2158703031, i64 2158703077, i64 2158703123, i64 2158703169, i64 2158703215, i64 2158703261, i64 2158703307, i64 2158703353, i64 2158703399, i64 2158703445, i64 2158703491, i64 2158703537, i64 2158703583, i64 2158675425, i64 2158675498, i64 2158675571, i64 2158675644, i64 2158703629, i64 2158703674, i64 2158703719, i64 2158703764, i64 2158703809, i64 2158703854, i64 2158703899, i64 2158703944, i64 2158703989, i64 2158704034, i64 2158704079, i64 2158704124, i64 2158704169, i64 2158704214, i64 2158678805, i64 2158678878, i64 2158678951, i64 2158679024, i64 2158679170, i64 2158679243, i64 2158679316, i64 2158679389, i64 2158679608, i64 2158679681, i64 2158679754, i64 2158679827, i64 2158679900, i64 2158679973, i64 2158680046, i64 2158680119, i64 2158665731}
-!48 = !{i64 2158720718, i64 2158720783, i64 2158720848, i64 2158720933, i64 2158721005, i64 2158721077, i64 2158721162, i64 2158721234, i64 2158721306, i64 2158721391, i64 2158721462, i64 2158721533, i64 2158721618, i64 2158721690, i64 2158723295, i64 2158723360, i64 2158723425, i64 2158723510, i64 2158723582, i64 2158723655, i64 2158723740, i64 2158723812, i64 2158723884, i64 2158723969, i64 2158724040, i64 2158724111, i64 2158724196, i64 2158724268, i64 2158725879, i64 2158725945, i64 2158726011, i64 2158726096, i64 2158726169, i64 2158726242, i64 2158726327, i64 2158726399, i64 2158726471, i64 2158726556, i64 2158726627, i64 2158726698, i64 2158726783, i64 2158726855, i64 2158705418, i64 2158705489, i64 2158705560, i64 2158705631, i64 2158727852, i64 2158727909, i64 2158727966, i64 2158728023, i64 2158728073, i64 2158728118, i64 2158728163, i64 2158728208, i64 2158728253, i64 2158728299, i64 2158728345, i64 2158729321, i64 2158729378, i64 2158729435, i64 2158729492, i64 2158729542, i64 2158729587, i64 2158729632, i64 2158729677, i64 2158729722, i64 2158729768, i64 2158729814, i64 2158730790, i64 2158730847, i64 2158730904, i64 2158730961, i64 2158731011, i64 2158731056, i64 2158731101, i64 2158731146, i64 2158731191, i64 2158731237, i64 2158731283, i64 2158706274, i64 2158706345, i64 2158706416, i64 2158706487, i64 2158732259, i64 2158732316, i64 2158732373, i64 2158732430, i64 2158732480, i64 2158732525, i64 2158732570, i64 2158732615, i64 2158732660, i64 2158732706, i64 2158732752, i64 2158733728, i64 2158733785, i64 2158733842, i64 2158733899, i64 2158733949, i64 2158733994, i64 2158734039, i64 2158734084, i64 2158734129, i64 2158734175, i64 2158734221, i64 2158735197, i64 2158735254, i64 2158735311, i64 2158735368, i64 2158735418, i64 2158735463, i64 2158735508, i64 2158735553, i64 2158735598, i64 2158735644, i64 2158735690, i64 2158736107, i64 2158736169, i64 2158736223, i64 2158736645, i64 2158736707, i64 2158736761, i64 2158737183, i64 2158737245, i64 2158737299, i64 2158737352, i64 2158737404, i64 2158737456, i64 2158737508, i64 2158737560, i64 2158709669, i64 2158709742, i64 2158709815, i64 2158709888, i64 2158737612, i64 2158737658, i64 2158737704, i64 2158737750, i64 2158737796, i64 2158737842, i64 2158737888, i64 2158737934, i64 2158737980, i64 2158738026, i64 2158738072, i64 2158738118, i64 2158714441, i64 2158714514, i64 2158714587, i64 2158714660, i64 2158738164, i64 2158738209, i64 2158738254, i64 2158738299, i64 2158738344, i64 2158738389, i64 2158738434, i64 2158738479, i64 2158738524, i64 2158738569, i64 2158738614, i64 2158738659, i64 2158738704, i64 2158738749, i64 2158717821, i64 2158717894, i64 2158717967, i64 2158718040, i64 2158718186, i64 2158718259, i64 2158718332, i64 2158718405, i64 2158718624, i64 2158718697, i64 2158718770, i64 2158718843, i64 2158718916, i64 2158718989, i64 2158719062, i64 2158719135, i64 2158704747}
-!49 = !{i64 2158755253, i64 2158755318, i64 2158755383, i64 2158755468, i64 2158755540, i64 2158755612, i64 2158755697, i64 2158755769, i64 2158755841, i64 2158755926, i64 2158755997, i64 2158756068, i64 2158756153, i64 2158756225, i64 2158757830, i64 2158757895, i64 2158757960, i64 2158758045, i64 2158758117, i64 2158758190, i64 2158758275, i64 2158758347, i64 2158758419, i64 2158758504, i64 2158758575, i64 2158758646, i64 2158758731, i64 2158758803, i64 2158739953, i64 2158740024, i64 2158740095, i64 2158740166, i64 2158759800, i64 2158759857, i64 2158759914, i64 2158759971, i64 2158760021, i64 2158760066, i64 2158760111, i64 2158760156, i64 2158760201, i64 2158760247, i64 2158760293, i64 2158761269, i64 2158761326, i64 2158761383, i64 2158761440, i64 2158761490, i64 2158761535, i64 2158761580, i64 2158761625, i64 2158761670, i64 2158761716, i64 2158761762, i64 2158740809, i64 2158740880, i64 2158740951, i64 2158741022, i64 2158762738, i64 2158762795, i64 2158762852, i64 2158762909, i64 2158762959, i64 2158763004, i64 2158763049, i64 2158763094, i64 2158763139, i64 2158763185, i64 2158763231, i64 2158764207, i64 2158764264, i64 2158764321, i64 2158764378, i64 2158764428, i64 2158764473, i64 2158764518, i64 2158764563, i64 2158764608, i64 2158764654, i64 2158764700, i64 2158765117, i64 2158765179, i64 2158765233, i64 2158765655, i64 2158765717, i64 2158765771, i64 2158765824, i64 2158765876, i64 2158765928, i64 2158765980, i64 2158744204, i64 2158744277, i64 2158744350, i64 2158744423, i64 2158766032, i64 2158766078, i64 2158766124, i64 2158766170, i64 2158766216, i64 2158766262, i64 2158766308, i64 2158766354, i64 2158766400, i64 2158766446, i64 2158766492, i64 2158766538, i64 2158748976, i64 2158749049, i64 2158749122, i64 2158749195, i64 2158766584, i64 2158766629, i64 2158766674, i64 2158766719, i64 2158766764, i64 2158766809, i64 2158766854, i64 2158766899, i64 2158766944, i64 2158766989, i64 2158767034, i64 2158752356, i64 2158752429, i64 2158752502, i64 2158752575, i64 2158752721, i64 2158752794, i64 2158752867, i64 2158752940, i64 2158753159, i64 2158753232, i64 2158753305, i64 2158753378, i64 2158753451, i64 2158753524, i64 2158753597, i64 2158753670, i64 2158739282}
-!50 = !{i64 2158783538, i64 2158783603, i64 2158783668, i64 2158783753, i64 2158783825, i64 2158783897, i64 2158783982, i64 2158784054, i64 2158784126, i64 2158784211, i64 2158784282, i64 2158784353, i64 2158784438, i64 2158784510, i64 2158786115, i64 2158786180, i64 2158786245, i64 2158786330, i64 2158786402, i64 2158786475, i64 2158786560, i64 2158786632, i64 2158786704, i64 2158786789, i64 2158786860, i64 2158786931, i64 2158787016, i64 2158787088, i64 2158768238, i64 2158768309, i64 2158768380, i64 2158768451, i64 2158788085, i64 2158788142, i64 2158788199, i64 2158788256, i64 2158788306, i64 2158788351, i64 2158788396, i64 2158788441, i64 2158788486, i64 2158788532, i64 2158788578, i64 2158789554, i64 2158789611, i64 2158789668, i64 2158789725, i64 2158789775, i64 2158789820, i64 2158789865, i64 2158789910, i64 2158789955, i64 2158790001, i64 2158790047, i64 2158769094, i64 2158769165, i64 2158769236, i64 2158769307, i64 2158791023, i64 2158791080, i64 2158791137, i64 2158791194, i64 2158791244, i64 2158791289, i64 2158791334, i64 2158791379, i64 2158791424, i64 2158791470, i64 2158791516, i64 2158792492, i64 2158792549, i64 2158792606, i64 2158792663, i64 2158792713, i64 2158792758, i64 2158792803, i64 2158792848, i64 2158792893, i64 2158792939, i64 2158792985, i64 2158793402, i64 2158793464, i64 2158793518, i64 2158793940, i64 2158794002, i64 2158794056, i64 2158794109, i64 2158794161, i64 2158794213, i64 2158772489, i64 2158772562, i64 2158772635, i64 2158772708, i64 2158794265, i64 2158794311, i64 2158794357, i64 2158794403, i64 2158777261, i64 2158777334, i64 2158777407, i64 2158777480, i64 2158794449, i64 2158794494, i64 2158794539, i64 2158794584, i64 2158794629, i64 2158794674, i64 2158794719, i64 2158794764, i64 2158794809, i64 2158794854, i64 2158794899, i64 2158780641, i64 2158780714, i64 2158780787, i64 2158780860, i64 2158781006, i64 2158781079, i64 2158781152, i64 2158781225, i64 2158781444, i64 2158781517, i64 2158781590, i64 2158781663, i64 2158781736, i64 2158781809, i64 2158781882, i64 2158781955, i64 2158767567}
-!51 = !{i64 2158811403, i64 2158811468, i64 2158811533, i64 2158811618, i64 2158811690, i64 2158811762, i64 2158811847, i64 2158811919, i64 2158811991, i64 2158812076, i64 2158812147, i64 2158812218, i64 2158812303, i64 2158812375, i64 2158796103, i64 2158796174, i64 2158796245, i64 2158796316, i64 2158813372, i64 2158813429, i64 2158813486, i64 2158813543, i64 2158813593, i64 2158813638, i64 2158813683, i64 2158813728, i64 2158813773, i64 2158813819, i64 2158813865, i64 2158796959, i64 2158797030, i64 2158797101, i64 2158797172, i64 2158814841, i64 2158814898, i64 2158814955, i64 2158815012, i64 2158815062, i64 2158815107, i64 2158815152, i64 2158815197, i64 2158815242, i64 2158815288, i64 2158815334, i64 2158815751, i64 2158815813, i64 2158815867, i64 2158815920, i64 2158815972, i64 2158800354, i64 2158800427, i64 2158800500, i64 2158800573, i64 2158816024, i64 2158816070, i64 2158816116, i64 2158816162, i64 2158805126, i64 2158805199, i64 2158805272, i64 2158805345, i64 2158816208, i64 2158816253, i64 2158816298, i64 2158816343, i64 2158816388, i64 2158808506, i64 2158808579, i64 2158808652, i64 2158808725, i64 2158808871, i64 2158808944, i64 2158809017, i64 2158809090, i64 2158809309, i64 2158809382, i64 2158809455, i64 2158809528, i64 2158809601, i64 2158809674, i64 2158809747, i64 2158809820, i64 2158795432}
-!52 = !{i64 2158816846, i64 2158816925, i64 2158817003, i64 2158817094, i64 2158817185, i64 2158817276, i64 2158817367, i64 2158817458, i64 2158817549, i64 2158817640, i64 2158817731, i64 2158817822, i64 2158817913, i64 2158818004, i64 10830167, i64 10830223, i64 10830279, i64 10830335, i64 10830462, i64 2158818379, i64 2158818442, i64 2158818505, i64 2158818568, i64 2158818747, i64 2158818805, i64 2158818863, i64 2158818921, i64 2158819095, i64 2158819153, i64 2158819211, i64 10830555, i64 10830612, i64 10830669, i64 10830726, i64 2158819307, i64 2158819370, i64 2158819433, i64 2158819496, i64 2158819675, i64 2158819733, i64 2158819791, i64 2158819849, i64 2158820023, i64 2158820081, i64 2158820139, i64 2158820235, i64 2158820317, i64 2158820464, i64 10830862, i64 10831144, i64 10831223, i64 10831269, i64 10831315, i64 10831361, i64 10831407, i64 10831453, i64 10831499, i64 10831545, i64 10831612}
+!41 = !{i64 10774609, i64 10774667, i64 10774724, i64 10774781, i64 10774838, i64 10774895, i64 10774952, i64 10775009, i64 10775066, i64 10775123, i64 10775180, i64 10775237, i64 10775294, i64 10775351, i64 10775408, i64 10775465, i64 10775522, i64 10775579, i64 10775636, i64 10775693, i64 10775750, i64 10775807, i64 10775864, i64 10775921, i64 10775998}
+!42 = !{i64 10782685, i64 10782734, i64 10782782, i64 10782830, i64 10782878, i64 10782926, i64 10783244, i64 10783292, i64 10783340, i64 10783394, i64 10783448, i64 10783767, i64 10783821, i64 10783875, i64 10783929, i64 10783983, i64 10784135, i64 10784388, i64 10784442, i64 10784496, i64 10784550, i64 10784605, i64 10784659, i64 10784713, i64 10784767, i64 10784822, i64 10784875, i64 10784928, i64 10784981, i64 10785087, i64 10785141, i64 10785195, i64 10785249, i64 10785303, i64 10785357, i64 10785411, i64 10785465, i64 10785520, i64 10785574, i64 10785628, i64 10785682, i64 10785736, i64 10785790, i64 10785844, i64 10785898, i64 10785953, i64 10786007, i64 10786061, i64 10786115, i64 10786169, i64 10786223, i64 10786277, i64 10786331, i64 10786662, i64 10786716, i64 10786770, i64 10786824, i64 10786878, i64 10786932, i64 10787030, i64 10787081, i64 10787132, i64 10787183, i64 10787234, i64 10787285, i64 10787336, i64 10787387, i64 10787480, i64 10787531, i64 10787582, i64 10787633, i64 10787684, i64 10787735, i64 10787786, i64 10787837, i64 10787908}
+!43 = !{i64 2158598878, i64 2158598943, i64 2158599008, i64 2158599093, i64 2158599165, i64 2158599237, i64 2158599322, i64 2158599394, i64 2158599466, i64 2158599551, i64 2158599622, i64 2158599693, i64 2158599778, i64 2158599850, i64 2158601455, i64 2158601520, i64 2158601585, i64 2158601670, i64 2158601742, i64 2158601815, i64 2158601900, i64 2158601972, i64 2158602044, i64 2158602129, i64 2158602200, i64 2158602271, i64 2158602356, i64 2158602428, i64 2158604039, i64 2158604105, i64 2158604171, i64 2158604256, i64 2158604329, i64 2158604402, i64 2158604487, i64 2158604559, i64 2158604631, i64 2158604716, i64 2158604787, i64 2158604858, i64 2158604943, i64 2158605015, i64 2158606594, i64 2158606659, i64 2158606724, i64 2158606809, i64 2158606880, i64 2158606951, i64 2158607036, i64 2158607106, i64 2158607176, i64 2158607261, i64 2158607331, i64 2158607401, i64 2158607486, i64 2158607556, i64 2158583578, i64 2158583649, i64 2158583720, i64 2158583791, i64 2158608551, i64 2158608608, i64 2158608665, i64 2158608722, i64 2158608772, i64 2158608817, i64 2158608862, i64 2158608907, i64 2158608952, i64 2158608998, i64 2158609044, i64 2158610020, i64 2158610077, i64 2158610134, i64 2158610191, i64 2158610241, i64 2158610286, i64 2158610331, i64 2158610376, i64 2158610421, i64 2158610467, i64 2158610513, i64 2158611489, i64 2158611546, i64 2158611603, i64 2158611660, i64 2158611710, i64 2158611755, i64 2158611800, i64 2158611845, i64 2158611890, i64 2158611936, i64 2158611982, i64 2158612958, i64 2158613015, i64 2158613072, i64 2158613129, i64 2158613179, i64 2158613224, i64 2158613269, i64 2158613314, i64 2158613359, i64 2158613405, i64 2158613451, i64 2158584434, i64 2158584505, i64 2158584576, i64 2158584647, i64 2158614427, i64 2158614484, i64 2158614541, i64 2158614598, i64 2158614648, i64 2158614693, i64 2158614738, i64 2158614783, i64 2158614828, i64 2158614874, i64 2158614920, i64 2158615896, i64 2158615953, i64 2158616010, i64 2158616067, i64 2158616117, i64 2158616162, i64 2158616207, i64 2158616252, i64 2158616297, i64 2158616343, i64 2158616389, i64 2158617365, i64 2158617422, i64 2158617479, i64 2158617536, i64 2158617586, i64 2158617631, i64 2158617676, i64 2158617721, i64 2158617766, i64 2158617812, i64 2158617858, i64 2158618834, i64 2158618891, i64 2158618948, i64 2158619005, i64 2158619055, i64 2158619100, i64 2158619145, i64 2158619190, i64 2158619235, i64 2158619281, i64 2158619327, i64 2158619744, i64 2158619806, i64 2158619860, i64 2158620282, i64 2158620344, i64 2158620398, i64 2158620820, i64 2158620882, i64 2158620936, i64 2158621358, i64 2158621420, i64 2158621474, i64 2158621527, i64 2158621579, i64 2158621631, i64 2158621683, i64 2158621735, i64 2158621787, i64 2158621839, i64 2158621891, i64 2158587829, i64 2158587902, i64 2158587975, i64 2158588048, i64 2158621943, i64 2158621989, i64 2158622035, i64 2158622081, i64 2158622127, i64 2158622173, i64 2158622219, i64 2158622265, i64 2158622311, i64 2158622357, i64 2158622403, i64 2158622449, i64 2158622495, i64 2158622541, i64 2158622587, i64 2158622633, i64 2158622679, i64 2158622725, i64 2158622771, i64 2158622817, i64 2158622863, i64 2158622909, i64 2158622955, i64 2158623001, i64 2158623047, i64 2158623093, i64 2158623139, i64 2158623185, i64 2158592601, i64 2158592674, i64 2158592747, i64 2158592820, i64 2158623231, i64 2158623276, i64 2158623321, i64 2158623366, i64 2158623411, i64 2158623456, i64 2158623501, i64 2158623546, i64 2158623591, i64 2158623636, i64 2158623681, i64 2158623726, i64 2158623771, i64 2158623816, i64 2158623861, i64 2158623906, i64 2158623951, i64 2158623996, i64 2158595981, i64 2158596054, i64 2158596127, i64 2158596200, i64 2158596346, i64 2158596419, i64 2158596492, i64 2158596565, i64 2158596784, i64 2158596857, i64 2158596930, i64 2158597003, i64 2158597076, i64 2158597149, i64 2158597222, i64 2158597295, i64 2158582907}
+!44 = !{i64 2158640500, i64 2158640565, i64 2158640630, i64 2158640715, i64 2158640787, i64 2158640859, i64 2158640944, i64 2158641016, i64 2158641088, i64 2158641173, i64 2158641244, i64 2158641315, i64 2158641400, i64 2158641472, i64 2158643077, i64 2158643142, i64 2158643207, i64 2158643292, i64 2158643364, i64 2158643437, i64 2158643522, i64 2158643594, i64 2158643666, i64 2158643751, i64 2158643822, i64 2158643893, i64 2158643978, i64 2158644050, i64 2158645661, i64 2158645727, i64 2158645793, i64 2158645878, i64 2158645951, i64 2158646024, i64 2158646109, i64 2158646181, i64 2158646253, i64 2158646338, i64 2158646409, i64 2158646480, i64 2158646565, i64 2158646637, i64 2158648216, i64 2158648281, i64 2158648346, i64 2158648431, i64 2158648502, i64 2158648573, i64 2158648658, i64 2158648728, i64 2158648798, i64 2158648883, i64 2158648953, i64 2158649023, i64 2158649108, i64 2158649178, i64 2158625200, i64 2158625271, i64 2158625342, i64 2158625413, i64 2158650173, i64 2158650230, i64 2158650287, i64 2158650344, i64 2158650394, i64 2158650439, i64 2158650484, i64 2158650529, i64 2158650574, i64 2158650620, i64 2158650666, i64 2158651642, i64 2158651699, i64 2158651756, i64 2158651813, i64 2158651863, i64 2158651908, i64 2158651953, i64 2158651998, i64 2158652043, i64 2158652089, i64 2158652135, i64 2158653111, i64 2158653168, i64 2158653225, i64 2158653282, i64 2158653332, i64 2158653377, i64 2158653422, i64 2158653467, i64 2158653512, i64 2158653558, i64 2158653604, i64 2158654580, i64 2158654637, i64 2158654694, i64 2158654751, i64 2158654801, i64 2158654846, i64 2158654891, i64 2158654936, i64 2158654981, i64 2158655027, i64 2158655073, i64 2158626056, i64 2158626127, i64 2158626198, i64 2158626269, i64 2158656049, i64 2158656106, i64 2158656163, i64 2158656220, i64 2158656270, i64 2158656315, i64 2158656360, i64 2158656405, i64 2158656450, i64 2158656496, i64 2158656542, i64 2158657518, i64 2158657575, i64 2158657632, i64 2158657689, i64 2158657739, i64 2158657784, i64 2158657829, i64 2158657874, i64 2158657919, i64 2158657965, i64 2158658011, i64 2158658987, i64 2158659044, i64 2158659101, i64 2158659158, i64 2158659208, i64 2158659253, i64 2158659298, i64 2158659343, i64 2158659388, i64 2158659434, i64 2158659480, i64 2158660456, i64 2158660513, i64 2158660570, i64 2158660627, i64 2158660677, i64 2158660722, i64 2158660767, i64 2158660812, i64 2158660857, i64 2158660903, i64 2158660949, i64 2158661366, i64 2158661428, i64 2158661482, i64 2158661904, i64 2158661966, i64 2158662020, i64 2158662442, i64 2158662504, i64 2158662558, i64 2158662980, i64 2158663042, i64 2158663096, i64 2158663149, i64 2158663201, i64 2158663253, i64 2158663305, i64 2158663357, i64 2158663409, i64 2158663461, i64 2158629451, i64 2158629524, i64 2158629597, i64 2158629670, i64 2158663513, i64 2158663559, i64 2158663605, i64 2158663651, i64 2158663697, i64 2158663743, i64 2158663789, i64 2158663835, i64 2158663881, i64 2158663927, i64 2158663973, i64 2158664019, i64 2158664065, i64 2158664111, i64 2158664157, i64 2158664203, i64 2158664249, i64 2158664295, i64 2158664341, i64 2158664387, i64 2158634223, i64 2158634296, i64 2158634369, i64 2158634442, i64 2158664433, i64 2158664478, i64 2158664523, i64 2158664568, i64 2158664613, i64 2158664658, i64 2158664703, i64 2158664748, i64 2158664793, i64 2158664838, i64 2158664883, i64 2158664928, i64 2158664973, i64 2158665018, i64 2158665063, i64 2158665108, i64 2158665153, i64 2158665198, i64 2158637603, i64 2158637676, i64 2158637749, i64 2158637822, i64 2158637968, i64 2158638041, i64 2158638114, i64 2158638187, i64 2158638406, i64 2158638479, i64 2158638552, i64 2158638625, i64 2158638698, i64 2158638771, i64 2158638844, i64 2158638917, i64 2158624529}
+!45 = !{i64 2158685763, i64 2158685828, i64 2158685893, i64 2158685978, i64 2158686050, i64 2158686122, i64 2158686207, i64 2158686279, i64 2158686351, i64 2158686436, i64 2158686507, i64 2158686578, i64 2158686663, i64 2158686735, i64 2158688340, i64 2158688405, i64 2158688470, i64 2158688555, i64 2158688627, i64 2158688700, i64 2158688785, i64 2158688857, i64 2158688929, i64 2158689014, i64 2158689085, i64 2158689156, i64 2158689241, i64 2158689313, i64 2158690924, i64 2158690990, i64 2158691056, i64 2158691141, i64 2158691214, i64 2158691287, i64 2158691372, i64 2158691444, i64 2158691516, i64 2158691601, i64 2158691672, i64 2158691743, i64 2158691828, i64 2158691900, i64 2158666402, i64 2158666473, i64 2158666544, i64 2158666615, i64 2158692897, i64 2158692954, i64 2158693011, i64 2158693068, i64 2158693118, i64 2158693163, i64 2158693208, i64 2158693253, i64 2158693298, i64 2158693344, i64 2158693390, i64 2158694366, i64 2158694423, i64 2158694480, i64 2158694537, i64 2158694587, i64 2158694632, i64 2158694677, i64 2158694722, i64 2158694767, i64 2158694813, i64 2158694859, i64 2158695835, i64 2158695892, i64 2158695949, i64 2158696006, i64 2158696056, i64 2158696101, i64 2158696146, i64 2158696191, i64 2158696236, i64 2158696282, i64 2158696328, i64 2158667258, i64 2158667329, i64 2158667400, i64 2158667471, i64 2158697304, i64 2158697361, i64 2158697418, i64 2158697475, i64 2158697525, i64 2158697570, i64 2158697615, i64 2158697660, i64 2158697705, i64 2158697751, i64 2158697797, i64 2158698773, i64 2158698830, i64 2158698887, i64 2158698944, i64 2158698994, i64 2158699039, i64 2158699084, i64 2158699129, i64 2158699174, i64 2158699220, i64 2158699266, i64 2158700242, i64 2158700299, i64 2158700356, i64 2158700413, i64 2158700463, i64 2158700508, i64 2158700553, i64 2158700598, i64 2158700643, i64 2158700689, i64 2158700735, i64 2158701152, i64 2158701214, i64 2158701268, i64 2158701690, i64 2158701752, i64 2158701806, i64 2158702228, i64 2158702290, i64 2158702344, i64 2158702397, i64 2158702449, i64 2158702501, i64 2158702553, i64 2158702605, i64 2158702657, i64 2158670653, i64 2158670726, i64 2158670799, i64 2158670872, i64 2158702709, i64 2158702755, i64 2158702801, i64 2158702847, i64 2158702893, i64 2158702939, i64 2158702985, i64 2158703031, i64 2158703077, i64 2158703123, i64 2158703169, i64 2158703215, i64 2158703261, i64 2158703307, i64 2158703353, i64 2158703399, i64 2158703445, i64 2158703491, i64 2158703537, i64 2158703583, i64 2158675425, i64 2158675498, i64 2158675571, i64 2158675644, i64 2158703629, i64 2158703674, i64 2158703719, i64 2158703764, i64 2158703809, i64 2158703854, i64 2158703899, i64 2158703944, i64 2158703989, i64 2158704034, i64 2158704079, i64 2158704124, i64 2158704169, i64 2158704214, i64 2158678805, i64 2158678878, i64 2158678951, i64 2158679024, i64 2158679170, i64 2158679243, i64 2158679316, i64 2158679389, i64 2158679608, i64 2158679681, i64 2158679754, i64 2158679827, i64 2158679900, i64 2158679973, i64 2158680046, i64 2158680119, i64 2158665731}
+!46 = !{i64 2158720718, i64 2158720783, i64 2158720848, i64 2158720933, i64 2158721005, i64 2158721077, i64 2158721162, i64 2158721234, i64 2158721306, i64 2158721391, i64 2158721462, i64 2158721533, i64 2158721618, i64 2158721690, i64 2158723295, i64 2158723360, i64 2158723425, i64 2158723510, i64 2158723582, i64 2158723655, i64 2158723740, i64 2158723812, i64 2158723884, i64 2158723969, i64 2158724040, i64 2158724111, i64 2158724196, i64 2158724268, i64 2158725879, i64 2158725945, i64 2158726011, i64 2158726096, i64 2158726169, i64 2158726242, i64 2158726327, i64 2158726399, i64 2158726471, i64 2158726556, i64 2158726627, i64 2158726698, i64 2158726783, i64 2158726855, i64 2158705418, i64 2158705489, i64 2158705560, i64 2158705631, i64 2158727852, i64 2158727909, i64 2158727966, i64 2158728023, i64 2158728073, i64 2158728118, i64 2158728163, i64 2158728208, i64 2158728253, i64 2158728299, i64 2158728345, i64 2158729321, i64 2158729378, i64 2158729435, i64 2158729492, i64 2158729542, i64 2158729587, i64 2158729632, i64 2158729677, i64 2158729722, i64 2158729768, i64 2158729814, i64 2158730790, i64 2158730847, i64 2158730904, i64 2158730961, i64 2158731011, i64 2158731056, i64 2158731101, i64 2158731146, i64 2158731191, i64 2158731237, i64 2158731283, i64 2158706274, i64 2158706345, i64 2158706416, i64 2158706487, i64 2158732259, i64 2158732316, i64 2158732373, i64 2158732430, i64 2158732480, i64 2158732525, i64 2158732570, i64 2158732615, i64 2158732660, i64 2158732706, i64 2158732752, i64 2158733728, i64 2158733785, i64 2158733842, i64 2158733899, i64 2158733949, i64 2158733994, i64 2158734039, i64 2158734084, i64 2158734129, i64 2158734175, i64 2158734221, i64 2158735197, i64 2158735254, i64 2158735311, i64 2158735368, i64 2158735418, i64 2158735463, i64 2158735508, i64 2158735553, i64 2158735598, i64 2158735644, i64 2158735690, i64 2158736107, i64 2158736169, i64 2158736223, i64 2158736645, i64 2158736707, i64 2158736761, i64 2158737183, i64 2158737245, i64 2158737299, i64 2158737352, i64 2158737404, i64 2158737456, i64 2158737508, i64 2158737560, i64 2158709669, i64 2158709742, i64 2158709815, i64 2158709888, i64 2158737612, i64 2158737658, i64 2158737704, i64 2158737750, i64 2158737796, i64 2158737842, i64 2158737888, i64 2158737934, i64 2158737980, i64 2158738026, i64 2158738072, i64 2158738118, i64 2158714441, i64 2158714514, i64 2158714587, i64 2158714660, i64 2158738164, i64 2158738209, i64 2158738254, i64 2158738299, i64 2158738344, i64 2158738389, i64 2158738434, i64 2158738479, i64 2158738524, i64 2158738569, i64 2158738614, i64 2158738659, i64 2158738704, i64 2158738749, i64 2158717821, i64 2158717894, i64 2158717967, i64 2158718040, i64 2158718186, i64 2158718259, i64 2158718332, i64 2158718405, i64 2158718624, i64 2158718697, i64 2158718770, i64 2158718843, i64 2158718916, i64 2158718989, i64 2158719062, i64 2158719135, i64 2158704747}
+!47 = !{i64 2158755253, i64 2158755318, i64 2158755383, i64 2158755468, i64 2158755540, i64 2158755612, i64 2158755697, i64 2158755769, i64 2158755841, i64 2158755926, i64 2158755997, i64 2158756068, i64 2158756153, i64 2158756225, i64 2158757830, i64 2158757895, i64 2158757960, i64 2158758045, i64 2158758117, i64 2158758190, i64 2158758275, i64 2158758347, i64 2158758419, i64 2158758504, i64 2158758575, i64 2158758646, i64 2158758731, i64 2158758803, i64 2158739953, i64 2158740024, i64 2158740095, i64 2158740166, i64 2158759800, i64 2158759857, i64 2158759914, i64 2158759971, i64 2158760021, i64 2158760066, i64 2158760111, i64 2158760156, i64 2158760201, i64 2158760247, i64 2158760293, i64 2158761269, i64 2158761326, i64 2158761383, i64 2158761440, i64 2158761490, i64 2158761535, i64 2158761580, i64 2158761625, i64 2158761670, i64 2158761716, i64 2158761762, i64 2158740809, i64 2158740880, i64 2158740951, i64 2158741022, i64 2158762738, i64 2158762795, i64 2158762852, i64 2158762909, i64 2158762959, i64 2158763004, i64 2158763049, i64 2158763094, i64 2158763139, i64 2158763185, i64 2158763231, i64 2158764207, i64 2158764264, i64 2158764321, i64 2158764378, i64 2158764428, i64 2158764473, i64 2158764518, i64 2158764563, i64 2158764608, i64 2158764654, i64 2158764700, i64 2158765117, i64 2158765179, i64 2158765233, i64 2158765655, i64 2158765717, i64 2158765771, i64 2158765824, i64 2158765876, i64 2158765928, i64 2158765980, i64 2158744204, i64 2158744277, i64 2158744350, i64 2158744423, i64 2158766032, i64 2158766078, i64 2158766124, i64 2158766170, i64 2158766216, i64 2158766262, i64 2158766308, i64 2158766354, i64 2158766400, i64 2158766446, i64 2158766492, i64 2158766538, i64 2158748976, i64 2158749049, i64 2158749122, i64 2158749195, i64 2158766584, i64 2158766629, i64 2158766674, i64 2158766719, i64 2158766764, i64 2158766809, i64 2158766854, i64 2158766899, i64 2158766944, i64 2158766989, i64 2158767034, i64 2158752356, i64 2158752429, i64 2158752502, i64 2158752575, i64 2158752721, i64 2158752794, i64 2158752867, i64 2158752940, i64 2158753159, i64 2158753232, i64 2158753305, i64 2158753378, i64 2158753451, i64 2158753524, i64 2158753597, i64 2158753670, i64 2158739282}
+!48 = !{i64 2158783538, i64 2158783603, i64 2158783668, i64 2158783753, i64 2158783825, i64 2158783897, i64 2158783982, i64 2158784054, i64 2158784126, i64 2158784211, i64 2158784282, i64 2158784353, i64 2158784438, i64 2158784510, i64 2158786115, i64 2158786180, i64 2158786245, i64 2158786330, i64 2158786402, i64 2158786475, i64 2158786560, i64 2158786632, i64 2158786704, i64 2158786789, i64 2158786860, i64 2158786931, i64 2158787016, i64 2158787088, i64 2158768238, i64 2158768309, i64 2158768380, i64 2158768451, i64 2158788085, i64 2158788142, i64 2158788199, i64 2158788256, i64 2158788306, i64 2158788351, i64 2158788396, i64 2158788441, i64 2158788486, i64 2158788532, i64 2158788578, i64 2158789554, i64 2158789611, i64 2158789668, i64 2158789725, i64 2158789775, i64 2158789820, i64 2158789865, i64 2158789910, i64 2158789955, i64 2158790001, i64 2158790047, i64 2158769094, i64 2158769165, i64 2158769236, i64 2158769307, i64 2158791023, i64 2158791080, i64 2158791137, i64 2158791194, i64 2158791244, i64 2158791289, i64 2158791334, i64 2158791379, i64 2158791424, i64 2158791470, i64 2158791516, i64 2158792492, i64 2158792549, i64 2158792606, i64 2158792663, i64 2158792713, i64 2158792758, i64 2158792803, i64 2158792848, i64 2158792893, i64 2158792939, i64 2158792985, i64 2158793402, i64 2158793464, i64 2158793518, i64 2158793940, i64 2158794002, i64 2158794056, i64 2158794109, i64 2158794161, i64 2158794213, i64 2158772489, i64 2158772562, i64 2158772635, i64 2158772708, i64 2158794265, i64 2158794311, i64 2158794357, i64 2158794403, i64 2158777261, i64 2158777334, i64 2158777407, i64 2158777480, i64 2158794449, i64 2158794494, i64 2158794539, i64 2158794584, i64 2158794629, i64 2158794674, i64 2158794719, i64 2158794764, i64 2158794809, i64 2158794854, i64 2158794899, i64 2158780641, i64 2158780714, i64 2158780787, i64 2158780860, i64 2158781006, i64 2158781079, i64 2158781152, i64 2158781225, i64 2158781444, i64 2158781517, i64 2158781590, i64 2158781663, i64 2158781736, i64 2158781809, i64 2158781882, i64 2158781955, i64 2158767567}
+!49 = !{i64 2158811403, i64 2158811468, i64 2158811533, i64 2158811618, i64 2158811690, i64 2158811762, i64 2158811847, i64 2158811919, i64 2158811991, i64 2158812076, i64 2158812147, i64 2158812218, i64 2158812303, i64 2158812375, i64 2158796103, i64 2158796174, i64 2158796245, i64 2158796316, i64 2158813372, i64 2158813429, i64 2158813486, i64 2158813543, i64 2158813593, i64 2158813638, i64 2158813683, i64 2158813728, i64 2158813773, i64 2158813819, i64 2158813865, i64 2158796959, i64 2158797030, i64 2158797101, i64 2158797172, i64 2158814841, i64 2158814898, i64 2158814955, i64 2158815012, i64 2158815062, i64 2158815107, i64 2158815152, i64 2158815197, i64 2158815242, i64 2158815288, i64 2158815334, i64 2158815751, i64 2158815813, i64 2158815867, i64 2158815920, i64 2158815972, i64 2158800354, i64 2158800427, i64 2158800500, i64 2158800573, i64 2158816024, i64 2158816070, i64 2158816116, i64 2158816162, i64 2158805126, i64 2158805199, i64 2158805272, i64 2158805345, i64 2158816208, i64 2158816253, i64 2158816298, i64 2158816343, i64 2158816388, i64 2158808506, i64 2158808579, i64 2158808652, i64 2158808725, i64 2158808871, i64 2158808944, i64 2158809017, i64 2158809090, i64 2158809309, i64 2158809382, i64 2158809455, i64 2158809528, i64 2158809601, i64 2158809674, i64 2158809747, i64 2158809820, i64 2158795432}
+!50 = !{i64 2158816846, i64 2158816925, i64 2158817003, i64 2158817094, i64 2158817185, i64 2158817276, i64 2158817367, i64 2158817458, i64 2158817549, i64 2158817640, i64 2158817731, i64 2158817822, i64 2158817913, i64 2158818004, i64 10830167, i64 10830223, i64 10830279, i64 10830335, i64 10830462, i64 2158818379, i64 2158818442, i64 2158818505, i64 2158818568, i64 2158818747, i64 2158818805, i64 2158818863, i64 2158818921, i64 2158819095, i64 2158819153, i64 2158819211, i64 10830555, i64 10830612, i64 10830669, i64 10830726, i64 2158819307, i64 2158819370, i64 2158819433, i64 2158819496, i64 2158819675, i64 2158819733, i64 2158819791, i64 2158819849, i64 2158820023, i64 2158820081, i64 2158820139, i64 2158820235, i64 2158820317, i64 2158820464, i64 10830862, i64 10831144, i64 10831223, i64 10831269, i64 10831315, i64 10831361, i64 10831407, i64 10831453, i64 10831499, i64 10831545, i64 10831612}
+!51 = distinct !{!51, !8}
+!52 = distinct !{!52, !8}
 !53 = distinct !{!53, !8}
 !54 = distinct !{!54, !8}
 !55 = distinct !{!55, !8}
@@ -10309,11 +10311,11 @@ attributes #20 = { nounwind willreturn memory(read) }
 !84 = distinct !{!84, !8}
 !85 = distinct !{!85, !8}
 !86 = distinct !{!86, !8}
-!87 = distinct !{!87, !8}
+!87 = !{ptr @fromHalfZigZag_f16c, ptr @fromHalfZigZag_scalar}
 !88 = distinct !{!88, !8}
-!89 = !{ptr @fromHalfZigZag_f16c, ptr @fromHalfZigZag_scalar}
+!89 = !{ptr @convertFloatToHalf64_f16c, ptr @convertFloatToHalf64_scalar}
 !90 = distinct !{!90, !8}
-!91 = !{ptr @convertFloatToHalf64_f16c, ptr @convertFloatToHalf64_scalar}
+!91 = distinct !{!91, !8}
 !92 = distinct !{!92, !8}
 !93 = distinct !{!93, !8}
 !94 = distinct !{!94, !8}
@@ -10324,15 +10326,13 @@ attributes #20 = { nounwind willreturn memory(read) }
 !99 = distinct !{!99, !8}
 !100 = distinct !{!100, !8}
 !101 = distinct !{!101, !8}
-!102 = distinct !{!102, !8}
+!102 = distinct !{!102, !8, !12}
 !103 = distinct !{!103, !8}
-!104 = distinct !{!104, !8, !12}
+!104 = !{i32 1}
 !105 = distinct !{!105, !8}
-!106 = !{i32 1}
+!106 = distinct !{!106, !8}
 !107 = distinct !{!107, !8}
 !108 = distinct !{!108, !8}
 !109 = distinct !{!109, !8}
 !110 = distinct !{!110, !8}
 !111 = distinct !{!111, !8}
-!112 = distinct !{!112, !8}
-!113 = distinct !{!113, !8}

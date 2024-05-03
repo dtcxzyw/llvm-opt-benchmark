@@ -1644,7 +1644,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17h5c8e72ac7b13a3ca
   %13 = phi i64 [ %8, %.lr.ph.split.us ], [ %.pre.i.i.i.i.us, %12 ]
   %14 = load ptr, ptr %6, align 8, !alias.scope !99, !noalias !107, !nonnull !11, !noundef !11
   %15 = getelementptr inbounds i8, ptr %14, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !116
   %16 = load <2 x i64>, ptr %5, align 8, !alias.scope !117, !noalias !118
   %17 = insertelement <2 x i64> poison, i64 %2, i64 0
   %18 = shufflevector <2 x i64> %17, <2 x i64> poison, <2 x i32> zeroinitializer
@@ -2369,7 +2369,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %6 = getelementptr inbounds i8, ptr %4, i64 6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !282
   store ptr %4, ptr %3, align 8, !noalias !282
-  %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h33427ccf9e8910d7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.300723b8b4ae560adae3b8028e6a4857.82, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.300723b8b4ae560adae3b8028e6a4857.83, i64 noundef 11, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.300723b8b4ae560adae3b8028e6a4857.84, ptr noalias noundef nonnull readonly align 1 @anon.300723b8b4ae560adae3b8028e6a4857.85, i64 noundef 11, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.300723b8b4ae560adae3b8028e6a4857.84, ptr noalias noundef nonnull readonly align 1 @anon.300723b8b4ae560adae3b8028e6a4857.86, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.300723b8b4ae560adae3b8028e6a4857.87)
+  %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h33427ccf9e8910d7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.300723b8b4ae560adae3b8028e6a4857.82, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.300723b8b4ae560adae3b8028e6a4857.83, i64 noundef 11, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.300723b8b4ae560adae3b8028e6a4857.84, ptr noalias noundef nonnull readonly align 1 @anon.300723b8b4ae560adae3b8028e6a4857.85, i64 noundef 11, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.300723b8b4ae560adae3b8028e6a4857.84, ptr noalias noundef nonnull readonly align 1 @anon.300723b8b4ae560adae3b8028e6a4857.86, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.300723b8b4ae560adae3b8028e6a4857.87)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !282
   ret i1 %7
 }
@@ -4469,7 +4469,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br i1 %.not, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd364b3ff44568b03E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd364b3ff44568b03E.exit": ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %0, i64 %3), !alias.scope !835
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %0, i64 %3), !alias.scope !835
   %5 = icmp eq i32 %bcmp.i, 0
   br label %6
 
@@ -4532,7 +4532,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
 6:                                                ; preds = %4
   %7 = sub i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %8, i64 %3), !alias.scope !845
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !845
   %9 = icmp eq i32 %bcmp.i, 0
   br label %5
 }
@@ -10827,7 +10827,7 @@ define hidden { i64, ptr } @_ZN5salsa5Cycle5catch17h03de4923280d77d4E(ptr noalia
 14:                                               ; preds = %5
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17heafb3ecbefdb0cf9E"(ptr nonnull %8, ptr nonnull %10) #43
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17heafb3ecbefdb0cf9E"(ptr nonnull %8, ptr nonnull readonly %10) #43
           to label %18 unwind label %16, !noalias !1102
 
 16:                                               ; preds = %14
@@ -10891,7 +10891,7 @@ define hidden { i64, ptr } @_ZN5salsa5Cycle5catch17h70a294e7e138115aE(ptr noalia
 14:                                               ; preds = %5
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17heafb3ecbefdb0cf9E"(ptr nonnull %8, ptr nonnull %10) #43
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17heafb3ecbefdb0cf9E"(ptr nonnull %8, ptr nonnull readonly %10) #43
           to label %18 unwind label %16, !noalias !1116
 
 16:                                               ; preds = %14
@@ -10955,7 +10955,7 @@ define hidden { i64, ptr } @_ZN5salsa5Cycle5catch17h79360d9dc35c1de6E(ptr noalia
 14:                                               ; preds = %5
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17heafb3ecbefdb0cf9E"(ptr nonnull %8, ptr nonnull %10) #43
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17heafb3ecbefdb0cf9E"(ptr nonnull %8, ptr nonnull readonly %10) #43
           to label %18 unwind label %16, !noalias !1130
 
 16:                                               ; preds = %14
@@ -11171,7 +11171,7 @@ _ZN3std9panicking3try17heede7d29386aa517E.exit:   ; preds = %2
 17:                                               ; preds = %11
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17heafb3ecbefdb0cf9E"(ptr nonnull %.sroa.6.017, ptr nonnull %.sroa.8.016) #43
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17heafb3ecbefdb0cf9E"(ptr nonnull %.sroa.6.017, ptr nonnull readonly %.sroa.8.016) #43
           to label %21 unwind label %19, !noalias !1152
 
 19:                                               ; preds = %17
@@ -16483,7 +16483,7 @@ define hidden { i1, i8 } @_ZN8bitflags6traits5Flags9from_name17hf223a8ef3480f642
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd364b3ff44568b03E.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !11, !align !319, !noundef !11
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %9, ptr nonnull %0, i64 %1), !alias.scope !1986
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %0, i64 %1), !alias.scope !1986
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd364b3ff44568b03E.exit.backedge"
 
@@ -16568,7 +16568,7 @@ define hidden void @"_ZN99_$LT$rayon..iter..map..MapFolder$LT$C$C$F$GT$$u20$as$u
   %8 = load ptr, ptr %1, align 8, !nonnull !11, !align !12, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1993)
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !alias.scope !1996, !noalias !1998
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %9, ptr noundef nonnull readonly align 8 dereferenceable(64) %2, i64 64, i1 false), !alias.scope !1996, !noalias !1998
   store ptr %8, ptr %4, align 8, !alias.scope !2000, !noalias !2001
   call void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h19cc2797a374b67bE(ptr noalias nocapture noundef nonnull sret({ ptr, i64, i64, {} }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %4)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
@@ -33315,7 +33315,7 @@ define void @_ZN6ide_db6search10FindUsages8in_scope17h9e213c4a6f0561f1E(ptr noal
 
 _ZN6ide_db6search10FindUsages9set_scope17h1c2bf8165c330668E.exit: ; preds = %3
   store ptr %2, ptr %4, align 8, !alias.scope !4822, !noalias !4824
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false), !alias.scope !4832, !noalias !4833
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false), !alias.scope !4832, !noalias !4833
   ret void
 }
 
@@ -37764,7 +37764,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hd7ff3f27d5c56742E.exit: ; pred
 
 1315:                                             ; preds = %1310
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %20, ptr noundef nonnull align 4 dereferenceable(20) %378, i64 20, i1 false), !noalias !6228
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(20) %139, i64 20, i1 false), !noalias !6231
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, ptr noundef nonnull readonly align 8 dereferenceable(20) %139, i64 20, i1 false), !noalias !6231
   br i1 %.not39.i, label %1342, label %1316
 
 1316:                                             ; preds = %1315
@@ -38497,7 +38497,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h022c02776c273622E.llvm.437034861003
 
 "_ZN6ide_db6search10FindUsages6search28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8ae415bdc173697cE.exit.i.i.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17h34cadfbbc1a73206E.exit.i.i.i.i"
   %40 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 %32
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull %40, ptr nonnull %1, i64 %2), !alias.scope !6472, !noalias !6451
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %40, ptr nonnull readonly %1, i64 %2), !alias.scope !6472, !noalias !6451
   %41 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %41, label %_ZN4core4iter6traits8iterator8Iterator4find17he460fcad7c005bfbE.exit, label %"_ZN6ide_db6search10FindUsages6search28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8ae415bdc173697cE.exit.thread.i.i.i"
 
@@ -40654,7 +40654,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 112:                                              ; preds = %.lr.ph.i.i.i
   %113 = getelementptr inbounds i8, ptr %110, i64 -24
   %.val5.i.i.i.i = load ptr, ptr %113, align 8, !noalias !6861, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @anon.300723b8b4ae560adae3b8028e6a4857.56, ptr noundef nonnull dereferenceable(10) %.val5.i.i.i.i, i64 10), !alias.scope !6862, !noalias !6869
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) @anon.300723b8b4ae560adae3b8028e6a4857.56, ptr noundef nonnull readonly dereferenceable(10) %.val5.i.i.i.i, i64 10), !alias.scope !6862, !noalias !6869
   %114 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %114, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i"
 
@@ -40742,7 +40742,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 150:                                              ; preds = %.lr.ph.i.i.i399
   %151 = getelementptr inbounds i8, ptr %148, i64 -24
   %.val5.i.i.i.i412 = load ptr, ptr %151, align 8, !noalias !6923, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i413 = call i32 @bcmp(ptr noundef nonnull dereferenceable(24) @anon.300723b8b4ae560adae3b8028e6a4857.218, ptr noundef nonnull dereferenceable(24) %.val5.i.i.i.i412, i64 24), !alias.scope !6924, !noalias !6931
+  %bcmp.i.i.i.i.i.i.i.i413 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) @anon.300723b8b4ae560adae3b8028e6a4857.218, ptr noundef nonnull readonly dereferenceable(24) %.val5.i.i.i.i412, i64 24), !alias.scope !6924, !noalias !6931
   %152 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i413, 0
   br i1 %152, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit414", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i403"
 
@@ -40837,7 +40837,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 190:                                              ; preds = %.lr.ph.i.i.i425
   %191 = getelementptr inbounds i8, ptr %188, i64 -24
   %.val5.i.i.i.i438 = load ptr, ptr %191, align 8, !noalias !6985, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i439 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.93, ptr noundef nonnull dereferenceable(13) %.val5.i.i.i.i438, i64 13), !alias.scope !6986, !noalias !6993
+  %bcmp.i.i.i.i.i.i.i.i439 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.93, ptr noundef nonnull readonly dereferenceable(13) %.val5.i.i.i.i438, i64 13), !alias.scope !6986, !noalias !6993
   %192 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i439, 0
   br i1 %192, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit440", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i429"
 
@@ -40922,7 +40922,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 226:                                              ; preds = %.lr.ph.i.i.i451
   %227 = getelementptr inbounds i8, ptr %224, i64 -24
   %.val5.i.i.i.i464 = load ptr, ptr %227, align 8, !noalias !7036, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i465 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.58, ptr noundef nonnull dereferenceable(13) %.val5.i.i.i.i464, i64 13), !alias.scope !7037, !noalias !7044
+  %bcmp.i.i.i.i.i.i.i.i465 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.58, ptr noundef nonnull readonly dereferenceable(13) %.val5.i.i.i.i464, i64 13), !alias.scope !7037, !noalias !7044
   %228 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i465, 0
   br i1 %228, label %234, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i455"
 
@@ -41002,7 +41002,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 263:                                              ; preds = %.lr.ph.i.i.i477
   %264 = getelementptr inbounds i8, ptr %261, i64 -24
   %.val5.i.i.i.i490 = load ptr, ptr %264, align 8, !noalias !7087, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i491 = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @anon.300723b8b4ae560adae3b8028e6a4857.128, ptr noundef nonnull dereferenceable(21) %.val5.i.i.i.i490, i64 21), !alias.scope !7088, !noalias !7095
+  %bcmp.i.i.i.i.i.i.i.i491 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(21) @anon.300723b8b4ae560adae3b8028e6a4857.128, ptr noundef nonnull readonly dereferenceable(21) %.val5.i.i.i.i490, i64 21), !alias.scope !7088, !noalias !7095
   %265 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i491, 0
   br i1 %265, label %271, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i481"
 
@@ -41082,7 +41082,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 300:                                              ; preds = %.lr.ph.i.i.i503
   %301 = getelementptr inbounds i8, ptr %298, i64 -24
   %.val5.i.i.i.i516 = load ptr, ptr %301, align 8, !noalias !7138, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i517 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.125, ptr noundef nonnull dereferenceable(13) %.val5.i.i.i.i516, i64 13), !alias.scope !7139, !noalias !7146
+  %bcmp.i.i.i.i.i.i.i.i517 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.125, ptr noundef nonnull readonly dereferenceable(13) %.val5.i.i.i.i516, i64 13), !alias.scope !7139, !noalias !7146
   %302 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i517, 0
   br i1 %302, label %308, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i507"
 
@@ -41162,7 +41162,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 337:                                              ; preds = %.lr.ph.i.i.i529
   %338 = getelementptr inbounds i8, ptr %335, i64 -24
   %.val5.i.i.i.i542 = load ptr, ptr %338, align 8, !noalias !7189, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i543 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.126, ptr noundef nonnull dereferenceable(13) %.val5.i.i.i.i542, i64 13), !alias.scope !7190, !noalias !7197
+  %bcmp.i.i.i.i.i.i.i.i543 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.126, ptr noundef nonnull readonly dereferenceable(13) %.val5.i.i.i.i542, i64 13), !alias.scope !7190, !noalias !7197
   %339 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i543, 0
   br i1 %339, label %345, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i533"
 
@@ -41242,7 +41242,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 374:                                              ; preds = %.lr.ph.i.i.i555
   %375 = getelementptr inbounds i8, ptr %372, i64 -24
   %.val5.i.i.i.i568 = load ptr, ptr %375, align 8, !noalias !7240, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i569 = call i32 @bcmp(ptr noundef nonnull dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.204, ptr noundef nonnull dereferenceable(22) %.val5.i.i.i.i568, i64 22), !alias.scope !7241, !noalias !7248
+  %bcmp.i.i.i.i.i.i.i.i569 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.204, ptr noundef nonnull readonly dereferenceable(22) %.val5.i.i.i.i568, i64 22), !alias.scope !7241, !noalias !7248
   %376 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i569, 0
   br i1 %376, label %382, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i559"
 
@@ -41322,7 +41322,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 411:                                              ; preds = %.lr.ph.i.i.i581
   %412 = getelementptr inbounds i8, ptr %409, i64 -24
   %.val5.i.i.i.i594 = load ptr, ptr %412, align 8, !noalias !7291, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i595 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) @anon.300723b8b4ae560adae3b8028e6a4857.196, ptr noundef nonnull dereferenceable(20) %.val5.i.i.i.i594, i64 20), !alias.scope !7292, !noalias !7299
+  %bcmp.i.i.i.i.i.i.i.i595 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) @anon.300723b8b4ae560adae3b8028e6a4857.196, ptr noundef nonnull readonly dereferenceable(20) %.val5.i.i.i.i594, i64 20), !alias.scope !7292, !noalias !7299
   %413 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i595, 0
   br i1 %413, label %419, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i585"
 
@@ -41402,7 +41402,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 448:                                              ; preds = %.lr.ph.i.i.i607
   %449 = getelementptr inbounds i8, ptr %446, i64 -24
   %.val5.i.i.i.i620 = load ptr, ptr %449, align 8, !noalias !7342, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i621 = call i32 @bcmp(ptr noundef nonnull dereferenceable(29) @anon.300723b8b4ae560adae3b8028e6a4857.500, ptr noundef nonnull dereferenceable(29) %.val5.i.i.i.i620, i64 29), !alias.scope !7343, !noalias !7350
+  %bcmp.i.i.i.i.i.i.i.i621 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(29) @anon.300723b8b4ae560adae3b8028e6a4857.500, ptr noundef nonnull readonly dereferenceable(29) %.val5.i.i.i.i620, i64 29), !alias.scope !7343, !noalias !7350
   %450 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i621, 0
   br i1 %450, label %456, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i611"
 
@@ -41482,7 +41482,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 485:                                              ; preds = %.lr.ph.i.i.i633
   %486 = getelementptr inbounds i8, ptr %483, i64 -24
   %.val5.i.i.i.i646 = load ptr, ptr %486, align 8, !noalias !7393, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i647 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @anon.300723b8b4ae560adae3b8028e6a4857.129, ptr noundef nonnull dereferenceable(17) %.val5.i.i.i.i646, i64 17), !alias.scope !7394, !noalias !7401
+  %bcmp.i.i.i.i.i.i.i.i647 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(17) @anon.300723b8b4ae560adae3b8028e6a4857.129, ptr noundef nonnull readonly dereferenceable(17) %.val5.i.i.i.i646, i64 17), !alias.scope !7394, !noalias !7401
   %487 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i647, 0
   br i1 %487, label %493, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i637"
 
@@ -41562,7 +41562,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 522:                                              ; preds = %.lr.ph.i.i.i659
   %523 = getelementptr inbounds i8, ptr %520, i64 -24
   %.val5.i.i.i.i672 = load ptr, ptr %523, align 8, !noalias !7444, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i673 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @anon.300723b8b4ae560adae3b8028e6a4857.118, ptr noundef nonnull dereferenceable(16) %.val5.i.i.i.i672, i64 16), !alias.scope !7445, !noalias !7452
+  %bcmp.i.i.i.i.i.i.i.i673 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) @anon.300723b8b4ae560adae3b8028e6a4857.118, ptr noundef nonnull readonly dereferenceable(16) %.val5.i.i.i.i672, i64 16), !alias.scope !7445, !noalias !7452
   %524 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i673, 0
   br i1 %524, label %530, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i663"
 
@@ -41642,7 +41642,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 559:                                              ; preds = %.lr.ph.i.i.i685
   %560 = getelementptr inbounds i8, ptr %557, i64 -24
   %.val5.i.i.i.i698 = load ptr, ptr %560, align 8, !noalias !7495, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i699 = call i32 @bcmp(ptr noundef nonnull dereferenceable(30) @anon.300723b8b4ae560adae3b8028e6a4857.498, ptr noundef nonnull dereferenceable(30) %.val5.i.i.i.i698, i64 30), !alias.scope !7496, !noalias !7503
+  %bcmp.i.i.i.i.i.i.i.i699 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(30) @anon.300723b8b4ae560adae3b8028e6a4857.498, ptr noundef nonnull readonly dereferenceable(30) %.val5.i.i.i.i698, i64 30), !alias.scope !7496, !noalias !7503
   %561 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i699, 0
   br i1 %561, label %567, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i689"
 
@@ -41722,7 +41722,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 596:                                              ; preds = %.lr.ph.i.i.i711
   %597 = getelementptr inbounds i8, ptr %594, i64 -24
   %.val5.i.i.i.i724 = load ptr, ptr %597, align 8, !noalias !7546, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i725 = call i32 @bcmp(ptr noundef nonnull dereferenceable(29) @anon.300723b8b4ae560adae3b8028e6a4857.222, ptr noundef nonnull dereferenceable(29) %.val5.i.i.i.i724, i64 29), !alias.scope !7547, !noalias !7554
+  %bcmp.i.i.i.i.i.i.i.i725 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(29) @anon.300723b8b4ae560adae3b8028e6a4857.222, ptr noundef nonnull readonly dereferenceable(29) %.val5.i.i.i.i724, i64 29), !alias.scope !7547, !noalias !7554
   %598 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i725, 0
   br i1 %598, label %604, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i715"
 
@@ -41802,7 +41802,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 633:                                              ; preds = %.lr.ph.i.i.i737
   %634 = getelementptr inbounds i8, ptr %631, i64 -24
   %.val5.i.i.i.i750 = load ptr, ptr %634, align 8, !noalias !7597, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i751 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.94, ptr noundef nonnull dereferenceable(13) %.val5.i.i.i.i750, i64 13), !alias.scope !7598, !noalias !7605
+  %bcmp.i.i.i.i.i.i.i.i751 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.94, ptr noundef nonnull readonly dereferenceable(13) %.val5.i.i.i.i750, i64 13), !alias.scope !7598, !noalias !7605
   %635 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i751, 0
   br i1 %635, label %641, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i741"
 
@@ -41882,7 +41882,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 670:                                              ; preds = %.lr.ph.i.i.i763
   %671 = getelementptr inbounds i8, ptr %668, i64 -24
   %.val5.i.i.i.i776 = load ptr, ptr %671, align 8, !noalias !7648, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i777 = call i32 @bcmp(ptr noundef nonnull dereferenceable(35) @anon.300723b8b4ae560adae3b8028e6a4857.507, ptr noundef nonnull dereferenceable(35) %.val5.i.i.i.i776, i64 35), !alias.scope !7649, !noalias !7656
+  %bcmp.i.i.i.i.i.i.i.i777 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(35) @anon.300723b8b4ae560adae3b8028e6a4857.507, ptr noundef nonnull readonly dereferenceable(35) %.val5.i.i.i.i776, i64 35), !alias.scope !7649, !noalias !7656
   %672 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i777, 0
   br i1 %672, label %678, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i767"
 
@@ -41962,7 +41962,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 707:                                              ; preds = %.lr.ph.i.i.i789
   %708 = getelementptr inbounds i8, ptr %705, i64 -24
   %.val5.i.i.i.i802 = load ptr, ptr %708, align 8, !noalias !7699, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i803 = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) @anon.300723b8b4ae560adae3b8028e6a4857.219, ptr noundef nonnull dereferenceable(28) %.val5.i.i.i.i802, i64 28), !alias.scope !7700, !noalias !7707
+  %bcmp.i.i.i.i.i.i.i.i803 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(28) @anon.300723b8b4ae560adae3b8028e6a4857.219, ptr noundef nonnull readonly dereferenceable(28) %.val5.i.i.i.i802, i64 28), !alias.scope !7700, !noalias !7707
   %709 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i803, 0
   br i1 %709, label %715, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i793"
 
@@ -42042,7 +42042,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 744:                                              ; preds = %.lr.ph.i.i.i815
   %745 = getelementptr inbounds i8, ptr %742, i64 -24
   %.val5.i.i.i.i828 = load ptr, ptr %745, align 8, !noalias !7750, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i829 = call i32 @bcmp(ptr noundef nonnull dereferenceable(29) @anon.300723b8b4ae560adae3b8028e6a4857.221, ptr noundef nonnull dereferenceable(29) %.val5.i.i.i.i828, i64 29), !alias.scope !7751, !noalias !7758
+  %bcmp.i.i.i.i.i.i.i.i829 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(29) @anon.300723b8b4ae560adae3b8028e6a4857.221, ptr noundef nonnull readonly dereferenceable(29) %.val5.i.i.i.i828, i64 29), !alias.scope !7751, !noalias !7758
   %746 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i829, 0
   br i1 %746, label %752, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i819"
 
@@ -42122,7 +42122,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 781:                                              ; preds = %.lr.ph.i.i.i841
   %782 = getelementptr inbounds i8, ptr %779, i64 -24
   %.val5.i.i.i.i854 = load ptr, ptr %782, align 8, !noalias !7801, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i855 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) @anon.300723b8b4ae560adae3b8028e6a4857.155, ptr noundef nonnull dereferenceable(19) %.val5.i.i.i.i854, i64 19), !alias.scope !7802, !noalias !7809
+  %bcmp.i.i.i.i.i.i.i.i855 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(19) @anon.300723b8b4ae560adae3b8028e6a4857.155, ptr noundef nonnull readonly dereferenceable(19) %.val5.i.i.i.i854, i64 19), !alias.scope !7802, !noalias !7809
   %783 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i855, 0
   br i1 %783, label %789, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i845"
 
@@ -42202,7 +42202,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 818:                                              ; preds = %.lr.ph.i.i.i867
   %819 = getelementptr inbounds i8, ptr %816, i64 -24
   %.val5.i.i.i.i880 = load ptr, ptr %819, align 8, !noalias !7852, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i881 = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @anon.300723b8b4ae560adae3b8028e6a4857.139, ptr noundef nonnull dereferenceable(18) %.val5.i.i.i.i880, i64 18), !alias.scope !7853, !noalias !7860
+  %bcmp.i.i.i.i.i.i.i.i881 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @anon.300723b8b4ae560adae3b8028e6a4857.139, ptr noundef nonnull readonly dereferenceable(18) %.val5.i.i.i.i880, i64 18), !alias.scope !7853, !noalias !7860
   %820 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i881, 0
   br i1 %820, label %826, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i871"
 
@@ -42282,7 +42282,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 855:                                              ; preds = %.lr.ph.i.i.i893
   %856 = getelementptr inbounds i8, ptr %853, i64 -24
   %.val5.i.i.i.i906 = load ptr, ptr %856, align 8, !noalias !7903, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i907 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @anon.300723b8b4ae560adae3b8028e6a4857.130, ptr noundef nonnull dereferenceable(17) %.val5.i.i.i.i906, i64 17), !alias.scope !7904, !noalias !7911
+  %bcmp.i.i.i.i.i.i.i.i907 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(17) @anon.300723b8b4ae560adae3b8028e6a4857.130, ptr noundef nonnull readonly dereferenceable(17) %.val5.i.i.i.i906, i64 17), !alias.scope !7904, !noalias !7911
   %857 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i907, 0
   br i1 %857, label %863, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i897"
 
@@ -42362,7 +42362,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 892:                                              ; preds = %.lr.ph.i.i.i919
   %893 = getelementptr inbounds i8, ptr %890, i64 -24
   %.val5.i.i.i.i932 = load ptr, ptr %893, align 8, !noalias !7954, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i933 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.99, ptr noundef nonnull dereferenceable(14) %.val5.i.i.i.i932, i64 14), !alias.scope !7955, !noalias !7962
+  %bcmp.i.i.i.i.i.i.i.i933 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.99, ptr noundef nonnull readonly dereferenceable(14) %.val5.i.i.i.i932, i64 14), !alias.scope !7955, !noalias !7962
   %894 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i933, 0
   br i1 %894, label %900, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i923"
 
@@ -42444,7 +42444,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 929:                                              ; preds = %.lr.ph.i.i.i945
   %930 = getelementptr inbounds i8, ptr %927, i64 -24
   %.val5.i.i.i.i958 = load ptr, ptr %930, align 8, !noalias !8005, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i959 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.111, ptr noundef nonnull dereferenceable(15) %.val5.i.i.i.i958, i64 15), !alias.scope !8006, !noalias !8013
+  %bcmp.i.i.i.i.i.i.i.i959 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.111, ptr noundef nonnull readonly dereferenceable(15) %.val5.i.i.i.i958, i64 15), !alias.scope !8006, !noalias !8013
   %931 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i959, 0
   br i1 %931, label %937, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i949"
 
@@ -42524,7 +42524,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 966:                                              ; preds = %.lr.ph.i.i.i971
   %967 = getelementptr inbounds i8, ptr %964, i64 -24
   %.val5.i.i.i.i984 = load ptr, ptr %967, align 8, !noalias !8056, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i985 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.110, ptr noundef nonnull dereferenceable(15) %.val5.i.i.i.i984, i64 15), !alias.scope !8057, !noalias !8064
+  %bcmp.i.i.i.i.i.i.i.i985 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.110, ptr noundef nonnull readonly dereferenceable(15) %.val5.i.i.i.i984, i64 15), !alias.scope !8057, !noalias !8064
   %968 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i985, 0
   br i1 %968, label %974, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i975"
 
@@ -42604,7 +42604,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1003:                                             ; preds = %.lr.ph.i.i.i997
   %1004 = getelementptr inbounds i8, ptr %1001, i64 -24
   %.val5.i.i.i.i1010 = load ptr, ptr %1004, align 8, !noalias !8107, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1011 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) @anon.300723b8b4ae560adae3b8028e6a4857.154, ptr noundef nonnull dereferenceable(19) %.val5.i.i.i.i1010, i64 19), !alias.scope !8108, !noalias !8115
+  %bcmp.i.i.i.i.i.i.i.i1011 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(19) @anon.300723b8b4ae560adae3b8028e6a4857.154, ptr noundef nonnull readonly dereferenceable(19) %.val5.i.i.i.i1010, i64 19), !alias.scope !8108, !noalias !8115
   %1005 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1011, 0
   br i1 %1005, label %1011, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1001"
 
@@ -42684,7 +42684,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1040:                                             ; preds = %.lr.ph.i.i.i1023
   %1041 = getelementptr inbounds i8, ptr %1038, i64 -24
   %.val5.i.i.i.i1036 = load ptr, ptr %1041, align 8, !noalias !8158, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1037 = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @anon.300723b8b4ae560adae3b8028e6a4857.138, ptr noundef nonnull dereferenceable(18) %.val5.i.i.i.i1036, i64 18), !alias.scope !8159, !noalias !8166
+  %bcmp.i.i.i.i.i.i.i.i1037 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @anon.300723b8b4ae560adae3b8028e6a4857.138, ptr noundef nonnull readonly dereferenceable(18) %.val5.i.i.i.i1036, i64 18), !alias.scope !8159, !noalias !8166
   %1042 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1037, 0
   br i1 %1042, label %1048, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1027"
 
@@ -42764,7 +42764,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1077:                                             ; preds = %.lr.ph.i.i.i1049
   %1078 = getelementptr inbounds i8, ptr %1075, i64 -24
   %.val5.i.i.i.i1062 = load ptr, ptr %1078, align 8, !noalias !8209, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1063 = call i32 @bcmp(ptr noundef nonnull dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.188, ptr noundef nonnull dereferenceable(22) %.val5.i.i.i.i1062, i64 22), !alias.scope !8210, !noalias !8217
+  %bcmp.i.i.i.i.i.i.i.i1063 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.188, ptr noundef nonnull readonly dereferenceable(22) %.val5.i.i.i.i1062, i64 22), !alias.scope !8210, !noalias !8217
   %1079 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1063, 0
   br i1 %1079, label %1085, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1053"
 
@@ -42844,7 +42844,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1114:                                             ; preds = %.lr.ph.i.i.i1075
   %1115 = getelementptr inbounds i8, ptr %1112, i64 -24
   %.val5.i.i.i.i1088 = load ptr, ptr %1115, align 8, !noalias !8260, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1089 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @anon.300723b8b4ae560adae3b8028e6a4857.59, ptr noundef nonnull dereferenceable(9) %.val5.i.i.i.i1088, i64 9), !alias.scope !8261, !noalias !8268
+  %bcmp.i.i.i.i.i.i.i.i1089 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) @anon.300723b8b4ae560adae3b8028e6a4857.59, ptr noundef nonnull readonly dereferenceable(9) %.val5.i.i.i.i1088, i64 9), !alias.scope !8261, !noalias !8268
   %1116 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1089, 0
   br i1 %1116, label %1122, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1079"
 
@@ -42924,7 +42924,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1151:                                             ; preds = %.lr.ph.i.i.i1101
   %1152 = getelementptr inbounds i8, ptr %1149, i64 -24
   %.val5.i.i.i.i1114 = load ptr, ptr %1152, align 8, !noalias !8311, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1115 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.107, ptr noundef nonnull dereferenceable(15) %.val5.i.i.i.i1114, i64 15), !alias.scope !8312, !noalias !8319
+  %bcmp.i.i.i.i.i.i.i.i1115 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.107, ptr noundef nonnull readonly dereferenceable(15) %.val5.i.i.i.i1114, i64 15), !alias.scope !8312, !noalias !8319
   %1153 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1115, 0
   br i1 %1153, label %1159, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1105"
 
@@ -43004,7 +43004,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1188:                                             ; preds = %.lr.ph.i.i.i1127
   %1189 = getelementptr inbounds i8, ptr %1186, i64 -24
   %.val5.i.i.i.i1140 = load ptr, ptr %1189, align 8, !noalias !8362, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1141 = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @anon.300723b8b4ae560adae3b8028e6a4857.137, ptr noundef nonnull dereferenceable(18) %.val5.i.i.i.i1140, i64 18), !alias.scope !8363, !noalias !8370
+  %bcmp.i.i.i.i.i.i.i.i1141 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @anon.300723b8b4ae560adae3b8028e6a4857.137, ptr noundef nonnull readonly dereferenceable(18) %.val5.i.i.i.i1140, i64 18), !alias.scope !8363, !noalias !8370
   %1190 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1141, 0
   br i1 %1190, label %1196, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1131"
 
@@ -43084,7 +43084,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1225:                                             ; preds = %.lr.ph.i.i.i1153
   %1226 = getelementptr inbounds i8, ptr %1223, i64 -24
   %.val5.i.i.i.i1166 = load ptr, ptr %1226, align 8, !noalias !8413, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1167 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @anon.300723b8b4ae560adae3b8028e6a4857.120, ptr noundef nonnull dereferenceable(16) %.val5.i.i.i.i1166, i64 16), !alias.scope !8414, !noalias !8421
+  %bcmp.i.i.i.i.i.i.i.i1167 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) @anon.300723b8b4ae560adae3b8028e6a4857.120, ptr noundef nonnull readonly dereferenceable(16) %.val5.i.i.i.i1166, i64 16), !alias.scope !8414, !noalias !8421
   %1227 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1167, 0
   br i1 %1227, label %1233, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1157"
 
@@ -43164,7 +43164,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1262:                                             ; preds = %.lr.ph.i.i.i1179
   %1263 = getelementptr inbounds i8, ptr %1260, i64 -24
   %.val5.i.i.i.i1192 = load ptr, ptr %1263, align 8, !noalias !8464, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1193 = call i32 @bcmp(ptr noundef nonnull dereferenceable(25) @anon.300723b8b4ae560adae3b8028e6a4857.202, ptr noundef nonnull dereferenceable(25) %.val5.i.i.i.i1192, i64 25), !alias.scope !8465, !noalias !8472
+  %bcmp.i.i.i.i.i.i.i.i1193 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(25) @anon.300723b8b4ae560adae3b8028e6a4857.202, ptr noundef nonnull readonly dereferenceable(25) %.val5.i.i.i.i1192, i64 25), !alias.scope !8465, !noalias !8472
   %1264 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1193, 0
   br i1 %1264, label %1270, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1183"
 
@@ -43244,7 +43244,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1299:                                             ; preds = %.lr.ph.i.i.i1205
   %1300 = getelementptr inbounds i8, ptr %1297, i64 -24
   %.val5.i.i.i.i1218 = load ptr, ptr %1300, align 8, !noalias !8515, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1219 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @anon.300723b8b4ae560adae3b8028e6a4857.81, ptr noundef nonnull dereferenceable(10) %.val5.i.i.i.i1218, i64 10), !alias.scope !8516, !noalias !8523
+  %bcmp.i.i.i.i.i.i.i.i1219 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) @anon.300723b8b4ae560adae3b8028e6a4857.81, ptr noundef nonnull readonly dereferenceable(10) %.val5.i.i.i.i1218, i64 10), !alias.scope !8516, !noalias !8523
   %1301 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1219, 0
   br i1 %1301, label %1307, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1209"
 
@@ -43324,7 +43324,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1336:                                             ; preds = %.lr.ph.i.i.i1231
   %1337 = getelementptr inbounds i8, ptr %1334, i64 -24
   %.val5.i.i.i.i1244 = load ptr, ptr %1337, align 8, !noalias !8566, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1245 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) @anon.300723b8b4ae560adae3b8028e6a4857.152, ptr noundef nonnull dereferenceable(19) %.val5.i.i.i.i1244, i64 19), !alias.scope !8567, !noalias !8574
+  %bcmp.i.i.i.i.i.i.i.i1245 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(19) @anon.300723b8b4ae560adae3b8028e6a4857.152, ptr noundef nonnull readonly dereferenceable(19) %.val5.i.i.i.i1244, i64 19), !alias.scope !8567, !noalias !8574
   %1338 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1245, 0
   br i1 %1338, label %1344, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1235"
 
@@ -43404,7 +43404,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1373:                                             ; preds = %.lr.ph.i.i.i1257
   %1374 = getelementptr inbounds i8, ptr %1371, i64 -24
   %.val5.i.i.i.i1270 = load ptr, ptr %1374, align 8, !noalias !8617, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1271 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.95, ptr noundef nonnull dereferenceable(13) %.val5.i.i.i.i1270, i64 13), !alias.scope !8618, !noalias !8625
+  %bcmp.i.i.i.i.i.i.i.i1271 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.95, ptr noundef nonnull readonly dereferenceable(13) %.val5.i.i.i.i1270, i64 13), !alias.scope !8618, !noalias !8625
   %1375 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1271, 0
   br i1 %1375, label %1381, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1261"
 
@@ -43484,7 +43484,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1410:                                             ; preds = %.lr.ph.i.i.i1283
   %1411 = getelementptr inbounds i8, ptr %1408, i64 -24
   %.val5.i.i.i.i1296 = load ptr, ptr %1411, align 8, !noalias !8668, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1297 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.100, ptr noundef nonnull dereferenceable(14) %.val5.i.i.i.i1296, i64 14), !alias.scope !8669, !noalias !8676
+  %bcmp.i.i.i.i.i.i.i.i1297 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.100, ptr noundef nonnull readonly dereferenceable(14) %.val5.i.i.i.i1296, i64 14), !alias.scope !8669, !noalias !8676
   %1412 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1297, 0
   br i1 %1412, label %1418, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1287"
 
@@ -43564,7 +43564,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1447:                                             ; preds = %.lr.ph.i.i.i1309
   %1448 = getelementptr inbounds i8, ptr %1445, i64 -24
   %.val5.i.i.i.i1322 = load ptr, ptr %1448, align 8, !noalias !8719, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1323 = call i32 @bcmp(ptr noundef nonnull dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.189, ptr noundef nonnull dereferenceable(22) %.val5.i.i.i.i1322, i64 22), !alias.scope !8720, !noalias !8727
+  %bcmp.i.i.i.i.i.i.i.i1323 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.189, ptr noundef nonnull readonly dereferenceable(22) %.val5.i.i.i.i1322, i64 22), !alias.scope !8720, !noalias !8727
   %1449 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1323, 0
   br i1 %1449, label %1455, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1313"
 
@@ -43644,7 +43644,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1484:                                             ; preds = %.lr.ph.i.i.i1335
   %1485 = getelementptr inbounds i8, ptr %1482, i64 -24
   %.val5.i.i.i.i1348 = load ptr, ptr %1485, align 8, !noalias !8770, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1349 = call i32 @bcmp(ptr noundef nonnull dereferenceable(23) @anon.300723b8b4ae560adae3b8028e6a4857.195, ptr noundef nonnull dereferenceable(23) %.val5.i.i.i.i1348, i64 23), !alias.scope !8771, !noalias !8778
+  %bcmp.i.i.i.i.i.i.i.i1349 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(23) @anon.300723b8b4ae560adae3b8028e6a4857.195, ptr noundef nonnull readonly dereferenceable(23) %.val5.i.i.i.i1348, i64 23), !alias.scope !8771, !noalias !8778
   %1486 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1349, 0
   br i1 %1486, label %1492, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1339"
 
@@ -43724,7 +43724,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1521:                                             ; preds = %.lr.ph.i.i.i1361
   %1522 = getelementptr inbounds i8, ptr %1519, i64 -24
   %.val5.i.i.i.i1374 = load ptr, ptr %1522, align 8, !noalias !8821, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1375 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) @anon.300723b8b4ae560adae3b8028e6a4857.173, ptr noundef nonnull dereferenceable(20) %.val5.i.i.i.i1374, i64 20), !alias.scope !8822, !noalias !8829
+  %bcmp.i.i.i.i.i.i.i.i1375 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) @anon.300723b8b4ae560adae3b8028e6a4857.173, ptr noundef nonnull readonly dereferenceable(20) %.val5.i.i.i.i1374, i64 20), !alias.scope !8822, !noalias !8829
   %1523 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1375, 0
   br i1 %1523, label %1529, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1365"
 
@@ -43804,7 +43804,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1558:                                             ; preds = %.lr.ph.i.i.i1387
   %1559 = getelementptr inbounds i8, ptr %1556, i64 -24
   %.val5.i.i.i.i1400 = load ptr, ptr %1559, align 8, !noalias !8872, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1401 = call i32 @bcmp(ptr noundef nonnull dereferenceable(23) @anon.300723b8b4ae560adae3b8028e6a4857.194, ptr noundef nonnull dereferenceable(23) %.val5.i.i.i.i1400, i64 23), !alias.scope !8873, !noalias !8880
+  %bcmp.i.i.i.i.i.i.i.i1401 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(23) @anon.300723b8b4ae560adae3b8028e6a4857.194, ptr noundef nonnull readonly dereferenceable(23) %.val5.i.i.i.i1400, i64 23), !alias.scope !8873, !noalias !8880
   %1560 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1401, 0
   br i1 %1560, label %1566, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1391"
 
@@ -43884,7 +43884,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1595:                                             ; preds = %.lr.ph.i.i.i1413
   %1596 = getelementptr inbounds i8, ptr %1593, i64 -24
   %.val5.i.i.i.i1426 = load ptr, ptr %1596, align 8, !noalias !8923, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1427 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @anon.300723b8b4ae560adae3b8028e6a4857.90, ptr noundef nonnull dereferenceable(12) %.val5.i.i.i.i1426, i64 12), !alias.scope !8924, !noalias !8931
+  %bcmp.i.i.i.i.i.i.i.i1427 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @anon.300723b8b4ae560adae3b8028e6a4857.90, ptr noundef nonnull readonly dereferenceable(12) %.val5.i.i.i.i1426, i64 12), !alias.scope !8924, !noalias !8931
   %1597 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1427, 0
   br i1 %1597, label %1603, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1417"
 
@@ -43966,7 +43966,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1632:                                             ; preds = %.lr.ph.i.i.i1439
   %1633 = getelementptr inbounds i8, ptr %1630, i64 -24
   %.val5.i.i.i.i1452 = load ptr, ptr %1633, align 8, !noalias !8974, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1453 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.93, ptr noundef nonnull dereferenceable(13) %.val5.i.i.i.i1452, i64 13), !alias.scope !8975, !noalias !8982
+  %bcmp.i.i.i.i.i.i.i.i1453 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.93, ptr noundef nonnull readonly dereferenceable(13) %.val5.i.i.i.i1452, i64 13), !alias.scope !8975, !noalias !8982
   %1634 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1453, 0
   br i1 %1634, label %1640, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1443"
 
@@ -44046,7 +44046,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1669:                                             ; preds = %.lr.ph.i.i.i1465
   %1670 = getelementptr inbounds i8, ptr %1667, i64 -24
   %.val5.i.i.i.i1478 = load ptr, ptr %1670, align 8, !noalias !9025, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1479 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @anon.300723b8b4ae560adae3b8028e6a4857.57, ptr noundef nonnull dereferenceable(7) %.val5.i.i.i.i1478, i64 7), !alias.scope !9026, !noalias !9033
+  %bcmp.i.i.i.i.i.i.i.i1479 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) @anon.300723b8b4ae560adae3b8028e6a4857.57, ptr noundef nonnull readonly dereferenceable(7) %.val5.i.i.i.i1478, i64 7), !alias.scope !9026, !noalias !9033
   %1671 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1479, 0
   br i1 %1671, label %1677, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1469"
 
@@ -44126,7 +44126,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1706:                                             ; preds = %.lr.ph.i.i.i1491
   %1707 = getelementptr inbounds i8, ptr %1704, i64 -24
   %.val5.i.i.i.i1504 = load ptr, ptr %1707, align 8, !noalias !9076, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1505 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @anon.300723b8b4ae560adae3b8028e6a4857.91, ptr noundef nonnull dereferenceable(12) %.val5.i.i.i.i1504, i64 12), !alias.scope !9077, !noalias !9084
+  %bcmp.i.i.i.i.i.i.i.i1505 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) @anon.300723b8b4ae560adae3b8028e6a4857.91, ptr noundef nonnull readonly dereferenceable(12) %.val5.i.i.i.i1504, i64 12), !alias.scope !9077, !noalias !9084
   %1708 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1505, 0
   br i1 %1708, label %1714, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1495"
 
@@ -44206,7 +44206,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1743:                                             ; preds = %.lr.ph.i.i.i1517
   %1744 = getelementptr inbounds i8, ptr %1741, i64 -24
   %.val5.i.i.i.i1530 = load ptr, ptr %1744, align 8, !noalias !9127, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1531 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.104, ptr noundef nonnull dereferenceable(15) %.val5.i.i.i.i1530, i64 15), !alias.scope !9128, !noalias !9135
+  %bcmp.i.i.i.i.i.i.i.i1531 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.104, ptr noundef nonnull readonly dereferenceable(15) %.val5.i.i.i.i1530, i64 15), !alias.scope !9128, !noalias !9135
   %1745 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1531, 0
   br i1 %1745, label %1751, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1521"
 
@@ -44286,7 +44286,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1780:                                             ; preds = %.lr.ph.i.i.i1543
   %1781 = getelementptr inbounds i8, ptr %1778, i64 -24
   %.val5.i.i.i.i1556 = load ptr, ptr %1781, align 8, !noalias !9178, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1557 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @anon.300723b8b4ae560adae3b8028e6a4857.127, ptr noundef nonnull dereferenceable(17) %.val5.i.i.i.i1556, i64 17), !alias.scope !9179, !noalias !9186
+  %bcmp.i.i.i.i.i.i.i.i1557 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(17) @anon.300723b8b4ae560adae3b8028e6a4857.127, ptr noundef nonnull readonly dereferenceable(17) %.val5.i.i.i.i1556, i64 17), !alias.scope !9179, !noalias !9186
   %1782 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1557, 0
   br i1 %1782, label %1788, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1547"
 
@@ -44366,7 +44366,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1817:                                             ; preds = %.lr.ph.i.i.i1569
   %1818 = getelementptr inbounds i8, ptr %1815, i64 -24
   %.val5.i.i.i.i1582 = load ptr, ptr %1818, align 8, !noalias !9229, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1583 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.96, ptr noundef nonnull dereferenceable(14) %.val5.i.i.i.i1582, i64 14), !alias.scope !9230, !noalias !9237
+  %bcmp.i.i.i.i.i.i.i.i1583 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.96, ptr noundef nonnull readonly dereferenceable(14) %.val5.i.i.i.i1582, i64 14), !alias.scope !9230, !noalias !9237
   %1819 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1583, 0
   br i1 %1819, label %1825, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1573"
 
@@ -44446,7 +44446,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1854:                                             ; preds = %.lr.ph.i.i.i1595
   %1855 = getelementptr inbounds i8, ptr %1852, i64 -24
   %.val5.i.i.i.i1608 = load ptr, ptr %1855, align 8, !noalias !9280, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1609 = call i32 @bcmp(ptr noundef nonnull dereferenceable(26) @anon.300723b8b4ae560adae3b8028e6a4857.206, ptr noundef nonnull dereferenceable(26) %.val5.i.i.i.i1608, i64 26), !alias.scope !9281, !noalias !9288
+  %bcmp.i.i.i.i.i.i.i.i1609 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(26) @anon.300723b8b4ae560adae3b8028e6a4857.206, ptr noundef nonnull readonly dereferenceable(26) %.val5.i.i.i.i1608, i64 26), !alias.scope !9281, !noalias !9288
   %1856 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1609, 0
   br i1 %1856, label %1862, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1599"
 
@@ -44526,7 +44526,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1891:                                             ; preds = %.lr.ph.i.i.i1621
   %1892 = getelementptr inbounds i8, ptr %1889, i64 -24
   %.val5.i.i.i.i1634 = load ptr, ptr %1892, align 8, !noalias !9331, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1635 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.98, ptr noundef nonnull dereferenceable(14) %.val5.i.i.i.i1634, i64 14), !alias.scope !9332, !noalias !9339
+  %bcmp.i.i.i.i.i.i.i.i1635 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.98, ptr noundef nonnull readonly dereferenceable(14) %.val5.i.i.i.i1634, i64 14), !alias.scope !9332, !noalias !9339
   %1893 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1635, 0
   br i1 %1893, label %1899, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1625"
 
@@ -44606,7 +44606,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1928:                                             ; preds = %.lr.ph.i.i.i1647
   %1929 = getelementptr inbounds i8, ptr %1926, i64 -24
   %.val5.i.i.i.i1660 = load ptr, ptr %1929, align 8, !noalias !9382, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1661 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.102, ptr noundef nonnull dereferenceable(15) %.val5.i.i.i.i1660, i64 15), !alias.scope !9383, !noalias !9390
+  %bcmp.i.i.i.i.i.i.i.i1661 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.102, ptr noundef nonnull readonly dereferenceable(15) %.val5.i.i.i.i1660, i64 15), !alias.scope !9383, !noalias !9390
   %1930 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1661, 0
   br i1 %1930, label %1936, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1651"
 
@@ -44686,7 +44686,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 1965:                                             ; preds = %.lr.ph.i.i.i1673
   %1966 = getelementptr inbounds i8, ptr %1963, i64 -24
   %.val5.i.i.i.i1686 = load ptr, ptr %1966, align 8, !noalias !9433, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1687 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @anon.300723b8b4ae560adae3b8028e6a4857.113, ptr noundef nonnull dereferenceable(16) %.val5.i.i.i.i1686, i64 16), !alias.scope !9434, !noalias !9441
+  %bcmp.i.i.i.i.i.i.i.i1687 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) @anon.300723b8b4ae560adae3b8028e6a4857.113, ptr noundef nonnull readonly dereferenceable(16) %.val5.i.i.i.i1686, i64 16), !alias.scope !9434, !noalias !9441
   %1967 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1687, 0
   br i1 %1967, label %1973, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1677"
 
@@ -44766,7 +44766,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2002:                                             ; preds = %.lr.ph.i.i.i1699
   %2003 = getelementptr inbounds i8, ptr %2000, i64 -24
   %.val5.i.i.i.i1712 = load ptr, ptr %2003, align 8, !noalias !9484, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1713 = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @anon.300723b8b4ae560adae3b8028e6a4857.177, ptr noundef nonnull dereferenceable(21) %.val5.i.i.i.i1712, i64 21), !alias.scope !9485, !noalias !9492
+  %bcmp.i.i.i.i.i.i.i.i1713 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(21) @anon.300723b8b4ae560adae3b8028e6a4857.177, ptr noundef nonnull readonly dereferenceable(21) %.val5.i.i.i.i1712, i64 21), !alias.scope !9485, !noalias !9492
   %2004 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1713, 0
   br i1 %2004, label %2010, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1703"
 
@@ -44846,7 +44846,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2039:                                             ; preds = %.lr.ph.i.i.i1725
   %2040 = getelementptr inbounds i8, ptr %2037, i64 -24
   %.val5.i.i.i.i1738 = load ptr, ptr %2040, align 8, !noalias !9535, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1739 = call i32 @bcmp(ptr noundef nonnull dereferenceable(26) @anon.300723b8b4ae560adae3b8028e6a4857.205, ptr noundef nonnull dereferenceable(26) %.val5.i.i.i.i1738, i64 26), !alias.scope !9536, !noalias !9543
+  %bcmp.i.i.i.i.i.i.i.i1739 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(26) @anon.300723b8b4ae560adae3b8028e6a4857.205, ptr noundef nonnull readonly dereferenceable(26) %.val5.i.i.i.i1738, i64 26), !alias.scope !9536, !noalias !9543
   %2041 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1739, 0
   br i1 %2041, label %2047, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1729"
 
@@ -44926,7 +44926,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2076:                                             ; preds = %.lr.ph.i.i.i1751
   %2077 = getelementptr inbounds i8, ptr %2074, i64 -24
   %.val5.i.i.i.i1764 = load ptr, ptr %2077, align 8, !noalias !9586, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1765 = call i32 @bcmp(ptr noundef nonnull dereferenceable(25) @anon.300723b8b4ae560adae3b8028e6a4857.201, ptr noundef nonnull dereferenceable(25) %.val5.i.i.i.i1764, i64 25), !alias.scope !9587, !noalias !9594
+  %bcmp.i.i.i.i.i.i.i.i1765 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(25) @anon.300723b8b4ae560adae3b8028e6a4857.201, ptr noundef nonnull readonly dereferenceable(25) %.val5.i.i.i.i1764, i64 25), !alias.scope !9587, !noalias !9594
   %2078 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1765, 0
   br i1 %2078, label %2084, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1755"
 
@@ -45006,7 +45006,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2113:                                             ; preds = %.lr.ph.i.i.i1777
   %2114 = getelementptr inbounds i8, ptr %2111, i64 -24
   %.val5.i.i.i.i1790 = load ptr, ptr %2114, align 8, !noalias !9637, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1791 = call i32 @bcmp(ptr noundef nonnull dereferenceable(30) @anon.300723b8b4ae560adae3b8028e6a4857.223, ptr noundef nonnull dereferenceable(30) %.val5.i.i.i.i1790, i64 30), !alias.scope !9638, !noalias !9645
+  %bcmp.i.i.i.i.i.i.i.i1791 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(30) @anon.300723b8b4ae560adae3b8028e6a4857.223, ptr noundef nonnull readonly dereferenceable(30) %.val5.i.i.i.i1790, i64 30), !alias.scope !9638, !noalias !9645
   %2115 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1791, 0
   br i1 %2115, label %2121, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1781"
 
@@ -45086,7 +45086,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2150:                                             ; preds = %.lr.ph.i.i.i1803
   %2151 = getelementptr inbounds i8, ptr %2148, i64 -24
   %.val5.i.i.i.i1816 = load ptr, ptr %2151, align 8, !noalias !9688, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1817 = call i32 @bcmp(ptr noundef nonnull dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.183, ptr noundef nonnull dereferenceable(22) %.val5.i.i.i.i1816, i64 22), !alias.scope !9689, !noalias !9696
+  %bcmp.i.i.i.i.i.i.i.i1817 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.183, ptr noundef nonnull readonly dereferenceable(22) %.val5.i.i.i.i1816, i64 22), !alias.scope !9689, !noalias !9696
   %2152 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1817, 0
   br i1 %2152, label %2158, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1807"
 
@@ -45166,7 +45166,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2187:                                             ; preds = %.lr.ph.i.i.i1829
   %2188 = getelementptr inbounds i8, ptr %2185, i64 -24
   %.val5.i.i.i.i1842 = load ptr, ptr %2188, align 8, !noalias !9739, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1843 = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @anon.300723b8b4ae560adae3b8028e6a4857.178, ptr noundef nonnull dereferenceable(21) %.val5.i.i.i.i1842, i64 21), !alias.scope !9740, !noalias !9747
+  %bcmp.i.i.i.i.i.i.i.i1843 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(21) @anon.300723b8b4ae560adae3b8028e6a4857.178, ptr noundef nonnull readonly dereferenceable(21) %.val5.i.i.i.i1842, i64 21), !alias.scope !9740, !noalias !9747
   %2189 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1843, 0
   br i1 %2189, label %2195, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1833"
 
@@ -45246,7 +45246,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2224:                                             ; preds = %.lr.ph.i.i.i1855
   %2225 = getelementptr inbounds i8, ptr %2222, i64 -24
   %.val5.i.i.i.i1868 = load ptr, ptr %2225, align 8, !noalias !9790, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1869 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) @anon.300723b8b4ae560adae3b8028e6a4857.158, ptr noundef nonnull dereferenceable(20) %.val5.i.i.i.i1868, i64 20), !alias.scope !9791, !noalias !9798
+  %bcmp.i.i.i.i.i.i.i.i1869 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) @anon.300723b8b4ae560adae3b8028e6a4857.158, ptr noundef nonnull readonly dereferenceable(20) %.val5.i.i.i.i1868, i64 20), !alias.scope !9791, !noalias !9798
   %2226 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1869, 0
   br i1 %2226, label %2232, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1859"
 
@@ -45326,7 +45326,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2261:                                             ; preds = %.lr.ph.i.i.i1881
   %2262 = getelementptr inbounds i8, ptr %2259, i64 -24
   %.val5.i.i.i.i1894 = load ptr, ptr %2262, align 8, !noalias !9841, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1895 = call i32 @bcmp(ptr noundef nonnull dereferenceable(25) @anon.300723b8b4ae560adae3b8028e6a4857.200, ptr noundef nonnull dereferenceable(25) %.val5.i.i.i.i1894, i64 25), !alias.scope !9842, !noalias !9849
+  %bcmp.i.i.i.i.i.i.i.i1895 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(25) @anon.300723b8b4ae560adae3b8028e6a4857.200, ptr noundef nonnull readonly dereferenceable(25) %.val5.i.i.i.i1894, i64 25), !alias.scope !9842, !noalias !9849
   %2263 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1895, 0
   br i1 %2263, label %2269, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1885"
 
@@ -45406,7 +45406,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2298:                                             ; preds = %.lr.ph.i.i.i1907
   %2299 = getelementptr inbounds i8, ptr %2296, i64 -24
   %.val5.i.i.i.i1920 = load ptr, ptr %2299, align 8, !noalias !9892, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1921 = call i32 @bcmp(ptr noundef nonnull dereferenceable(25) @anon.300723b8b4ae560adae3b8028e6a4857.199, ptr noundef nonnull dereferenceable(25) %.val5.i.i.i.i1920, i64 25), !alias.scope !9893, !noalias !9900
+  %bcmp.i.i.i.i.i.i.i.i1921 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(25) @anon.300723b8b4ae560adae3b8028e6a4857.199, ptr noundef nonnull readonly dereferenceable(25) %.val5.i.i.i.i1920, i64 25), !alias.scope !9893, !noalias !9900
   %2300 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1921, 0
   br i1 %2300, label %2306, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1911"
 
@@ -45488,7 +45488,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2335:                                             ; preds = %.lr.ph.i.i.i1933
   %2336 = getelementptr inbounds i8, ptr %2333, i64 -24
   %.val5.i.i.i.i1946 = load ptr, ptr %2336, align 8, !noalias !9943, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1947 = call i32 @bcmp(ptr noundef nonnull dereferenceable(33) @anon.300723b8b4ae560adae3b8028e6a4857.501, ptr noundef nonnull dereferenceable(33) %.val5.i.i.i.i1946, i64 33), !alias.scope !9944, !noalias !9951
+  %bcmp.i.i.i.i.i.i.i.i1947 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(33) @anon.300723b8b4ae560adae3b8028e6a4857.501, ptr noundef nonnull readonly dereferenceable(33) %.val5.i.i.i.i1946, i64 33), !alias.scope !9944, !noalias !9951
   %2337 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1947, 0
   br i1 %2337, label %2343, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1937"
 
@@ -45568,7 +45568,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2372:                                             ; preds = %.lr.ph.i.i.i1959
   %2373 = getelementptr inbounds i8, ptr %2370, i64 -24
   %.val5.i.i.i.i1972 = load ptr, ptr %2373, align 8, !noalias !9994, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1973 = call i32 @bcmp(ptr noundef nonnull dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.187, ptr noundef nonnull dereferenceable(22) %.val5.i.i.i.i1972, i64 22), !alias.scope !9995, !noalias !10002
+  %bcmp.i.i.i.i.i.i.i.i1973 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.187, ptr noundef nonnull readonly dereferenceable(22) %.val5.i.i.i.i1972, i64 22), !alias.scope !9995, !noalias !10002
   %2374 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1973, 0
   br i1 %2374, label %2380, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1963"
 
@@ -45648,7 +45648,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2409:                                             ; preds = %.lr.ph.i.i.i1985
   %2410 = getelementptr inbounds i8, ptr %2407, i64 -24
   %.val5.i.i.i.i1998 = load ptr, ptr %2410, align 8, !noalias !10045, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i1999 = call i32 @bcmp(ptr noundef nonnull dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.186, ptr noundef nonnull dereferenceable(22) %.val5.i.i.i.i1998, i64 22), !alias.scope !10046, !noalias !10053
+  %bcmp.i.i.i.i.i.i.i.i1999 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.186, ptr noundef nonnull readonly dereferenceable(22) %.val5.i.i.i.i1998, i64 22), !alias.scope !10046, !noalias !10053
   %2411 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i1999, 0
   br i1 %2411, label %2417, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1989"
 
@@ -45728,7 +45728,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2446:                                             ; preds = %.lr.ph.i.i.i2011
   %2447 = getelementptr inbounds i8, ptr %2444, i64 -24
   %.val5.i.i.i.i2024 = load ptr, ptr %2447, align 8, !noalias !10096, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2025 = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @anon.300723b8b4ae560adae3b8028e6a4857.179, ptr noundef nonnull dereferenceable(21) %.val5.i.i.i.i2024, i64 21), !alias.scope !10097, !noalias !10104
+  %bcmp.i.i.i.i.i.i.i.i2025 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(21) @anon.300723b8b4ae560adae3b8028e6a4857.179, ptr noundef nonnull readonly dereferenceable(21) %.val5.i.i.i.i2024, i64 21), !alias.scope !10097, !noalias !10104
   %2448 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2025, 0
   br i1 %2448, label %2454, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2015"
 
@@ -45808,7 +45808,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2483:                                             ; preds = %.lr.ph.i.i.i2037
   %2484 = getelementptr inbounds i8, ptr %2481, i64 -24
   %.val5.i.i.i.i2050 = load ptr, ptr %2484, align 8, !noalias !10147, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2051 = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) @anon.300723b8b4ae560adae3b8028e6a4857.176, ptr noundef nonnull dereferenceable(21) %.val5.i.i.i.i2050, i64 21), !alias.scope !10148, !noalias !10155
+  %bcmp.i.i.i.i.i.i.i.i2051 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(21) @anon.300723b8b4ae560adae3b8028e6a4857.176, ptr noundef nonnull readonly dereferenceable(21) %.val5.i.i.i.i2050, i64 21), !alias.scope !10148, !noalias !10155
   %2485 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2051, 0
   br i1 %2485, label %2491, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2041"
 
@@ -45888,7 +45888,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2520:                                             ; preds = %.lr.ph.i.i.i2063
   %2521 = getelementptr inbounds i8, ptr %2518, i64 -24
   %.val5.i.i.i.i2076 = load ptr, ptr %2521, align 8, !noalias !10198, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2077 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.105, ptr noundef nonnull dereferenceable(15) %.val5.i.i.i.i2076, i64 15), !alias.scope !10199, !noalias !10206
+  %bcmp.i.i.i.i.i.i.i.i2077 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.105, ptr noundef nonnull readonly dereferenceable(15) %.val5.i.i.i.i2076, i64 15), !alias.scope !10199, !noalias !10206
   %2522 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2077, 0
   br i1 %2522, label %2528, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2067"
 
@@ -45968,7 +45968,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2557:                                             ; preds = %.lr.ph.i.i.i2089
   %2558 = getelementptr inbounds i8, ptr %2555, i64 -24
   %.val5.i.i.i.i2102 = load ptr, ptr %2558, align 8, !noalias !10249, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2103 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.92, ptr noundef nonnull dereferenceable(13) %.val5.i.i.i.i2102, i64 13), !alias.scope !10250, !noalias !10257
+  %bcmp.i.i.i.i.i.i.i.i2103 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) @anon.300723b8b4ae560adae3b8028e6a4857.92, ptr noundef nonnull readonly dereferenceable(13) %.val5.i.i.i.i2102, i64 13), !alias.scope !10250, !noalias !10257
   %2559 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2103, 0
   br i1 %2559, label %2565, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2093"
 
@@ -46048,7 +46048,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2594:                                             ; preds = %.lr.ph.i.i.i2115
   %2595 = getelementptr inbounds i8, ptr %2592, i64 -24
   %.val5.i.i.i.i2128 = load ptr, ptr %2595, align 8, !noalias !10300, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2129 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.97, ptr noundef nonnull dereferenceable(14) %.val5.i.i.i.i2128, i64 14), !alias.scope !10301, !noalias !10308
+  %bcmp.i.i.i.i.i.i.i.i2129 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.97, ptr noundef nonnull readonly dereferenceable(14) %.val5.i.i.i.i2128, i64 14), !alias.scope !10301, !noalias !10308
   %2596 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2129, 0
   br i1 %2596, label %2602, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2119"
 
@@ -46128,7 +46128,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2631:                                             ; preds = %.lr.ph.i.i.i2141
   %2632 = getelementptr inbounds i8, ptr %2629, i64 -24
   %.val5.i.i.i.i2154 = load ptr, ptr %2632, align 8, !noalias !10351, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2155 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.103, ptr noundef nonnull dereferenceable(15) %.val5.i.i.i.i2154, i64 15), !alias.scope !10352, !noalias !10359
+  %bcmp.i.i.i.i.i.i.i.i2155 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) @anon.300723b8b4ae560adae3b8028e6a4857.103, ptr noundef nonnull readonly dereferenceable(15) %.val5.i.i.i.i2154, i64 15), !alias.scope !10352, !noalias !10359
   %2633 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2155, 0
   br i1 %2633, label %2639, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2145"
 
@@ -46208,7 +46208,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2668:                                             ; preds = %.lr.ph.i.i.i2167
   %2669 = getelementptr inbounds i8, ptr %2666, i64 -24
   %.val5.i.i.i.i2180 = load ptr, ptr %2669, align 8, !noalias !10402, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2181 = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @anon.300723b8b4ae560adae3b8028e6a4857.134, ptr noundef nonnull dereferenceable(18) %.val5.i.i.i.i2180, i64 18), !alias.scope !10403, !noalias !10410
+  %bcmp.i.i.i.i.i.i.i.i2181 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @anon.300723b8b4ae560adae3b8028e6a4857.134, ptr noundef nonnull readonly dereferenceable(18) %.val5.i.i.i.i2180, i64 18), !alias.scope !10403, !noalias !10410
   %2670 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2181, 0
   br i1 %2670, label %2676, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2171"
 
@@ -46288,7 +46288,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2705:                                             ; preds = %.lr.ph.i.i.i2193
   %2706 = getelementptr inbounds i8, ptr %2703, i64 -24
   %.val5.i.i.i.i2206 = load ptr, ptr %2706, align 8, !noalias !10453, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2207 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @anon.300723b8b4ae560adae3b8028e6a4857.112, ptr noundef nonnull dereferenceable(16) %.val5.i.i.i.i2206, i64 16), !alias.scope !10454, !noalias !10461
+  %bcmp.i.i.i.i.i.i.i.i2207 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) @anon.300723b8b4ae560adae3b8028e6a4857.112, ptr noundef nonnull readonly dereferenceable(16) %.val5.i.i.i.i2206, i64 16), !alias.scope !10454, !noalias !10461
   %2707 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2207, 0
   br i1 %2707, label %2713, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2197"
 
@@ -46368,7 +46368,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2742:                                             ; preds = %.lr.ph.i.i.i2219
   %2743 = getelementptr inbounds i8, ptr %2740, i64 -24
   %.val5.i.i.i.i2232 = load ptr, ptr %2743, align 8, !noalias !10504, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2233 = call i32 @bcmp(ptr noundef nonnull dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.182, ptr noundef nonnull dereferenceable(22) %.val5.i.i.i.i2232, i64 22), !alias.scope !10505, !noalias !10512
+  %bcmp.i.i.i.i.i.i.i.i2233 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(22) @anon.300723b8b4ae560adae3b8028e6a4857.182, ptr noundef nonnull readonly dereferenceable(22) %.val5.i.i.i.i2232, i64 22), !alias.scope !10505, !noalias !10512
   %2744 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2233, 0
   br i1 %2744, label %2750, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2223"
 
@@ -46448,7 +46448,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2779:                                             ; preds = %.lr.ph.i.i.i2245
   %2780 = getelementptr inbounds i8, ptr %2777, i64 -24
   %.val5.i.i.i.i2258 = load ptr, ptr %2780, align 8, !noalias !10555, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2259 = call i32 @bcmp(ptr noundef nonnull dereferenceable(30) @anon.300723b8b4ae560adae3b8028e6a4857.224, ptr noundef nonnull dereferenceable(30) %.val5.i.i.i.i2258, i64 30), !alias.scope !10556, !noalias !10563
+  %bcmp.i.i.i.i.i.i.i.i2259 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(30) @anon.300723b8b4ae560adae3b8028e6a4857.224, ptr noundef nonnull readonly dereferenceable(30) %.val5.i.i.i.i2258, i64 30), !alias.scope !10556, !noalias !10563
   %2781 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2259, 0
   br i1 %2781, label %2787, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2249"
 
@@ -46528,7 +46528,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2816:                                             ; preds = %.lr.ph.i.i.i2271
   %2817 = getelementptr inbounds i8, ptr %2814, i64 -24
   %.val5.i.i.i.i2284 = load ptr, ptr %2817, align 8, !noalias !10606, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2285 = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) @anon.300723b8b4ae560adae3b8028e6a4857.575, ptr noundef nonnull dereferenceable(18) %.val5.i.i.i.i2284, i64 18), !alias.scope !10607, !noalias !10614
+  %bcmp.i.i.i.i.i.i.i.i2285 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) @anon.300723b8b4ae560adae3b8028e6a4857.575, ptr noundef nonnull readonly dereferenceable(18) %.val5.i.i.i.i2284, i64 18), !alias.scope !10607, !noalias !10614
   %2818 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2285, 0
   br i1 %2818, label %2824, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2275"
 
@@ -46607,7 +46607,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2853:                                             ; preds = %.lr.ph.i.i.i2297
   %2854 = getelementptr inbounds i8, ptr %2851, i64 -24
   %.val5.i.i.i.i2310 = load ptr, ptr %2854, align 8, !noalias !10665, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2311 = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) @anon.300723b8b4ae560adae3b8028e6a4857.576, ptr noundef nonnull dereferenceable(19) %.val5.i.i.i.i2310, i64 19), !alias.scope !10666, !noalias !10673
+  %bcmp.i.i.i.i.i.i.i.i2311 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(19) @anon.300723b8b4ae560adae3b8028e6a4857.576, ptr noundef nonnull readonly dereferenceable(19) %.val5.i.i.i.i2310, i64 19), !alias.scope !10666, !noalias !10673
   %2855 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2311, 0
   br i1 %2855, label %2861, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2301"
 
@@ -46686,7 +46686,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
 2890:                                             ; preds = %.lr.ph.i.i.i2323
   %2891 = getelementptr inbounds i8, ptr %2888, i64 -24
   %.val5.i.i.i.i2336 = load ptr, ptr %2891, align 8, !noalias !10724, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.i.i.i2337 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.577, ptr noundef nonnull dereferenceable(14) %.val5.i.i.i.i2336, i64 14), !alias.scope !10725, !noalias !10732
+  %bcmp.i.i.i.i.i.i.i.i2337 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @anon.300723b8b4ae560adae3b8028e6a4857.577, ptr noundef nonnull readonly dereferenceable(14) %.val5.i.i.i.i2336, i64 14), !alias.scope !10725, !noalias !10732
   %2892 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i2337, 0
   br i1 %2892, label %2898, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2327"
 

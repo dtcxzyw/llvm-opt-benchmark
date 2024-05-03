@@ -827,7 +827,7 @@ my_strdup.exit:                                   ; preds = %67, %57, %._crit_ed
   %70 = zext i32 %69 to i64
   %71 = call noalias ptr @malloc(i64 noundef %70) #55
   %72 = zext i32 %.0.lcssa.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr nonnull align 16 %6, i64 %72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr nonnull readonly align 16 %6, i64 %72, i1 false)
   %73 = getelementptr inbounds i8, ptr %71, i64 %72
   store i8 0, ptr %73, align 1
   br i1 %.not67, label %.backedge, label %74
@@ -1430,7 +1430,7 @@ my_strdup.exit87:                                 ; preds = %290, %282, %._crit_
   %293 = zext i32 %292 to i64
   %294 = call noalias ptr @malloc(i64 noundef %293) #55
   %295 = zext i32 %.0.lcssa.i.i83 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %294, ptr nonnull align 1 %283, i64 %295, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %294, ptr nonnull readonly align 1 %283, i64 %295, i1 false)
   %296 = getelementptr inbounds i8, ptr %294, i64 %295
   store i8 0, ptr %296, align 1
   br label %.backedge
@@ -1486,7 +1486,7 @@ my_strdup.exit98:                                 ; preds = %311, %303, %._crit_
   %314 = zext i32 %313 to i64
   %315 = call noalias ptr @malloc(i64 noundef %314) #55
   %316 = zext i32 %.0.lcssa.i.i94 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %315, ptr nonnull align 1 %304, i64 %316, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %315, ptr nonnull readonly align 1 %304, i64 %316, i1 false)
   %317 = getelementptr inbounds i8, ptr %315, i64 %316
   store i8 0, ptr %317, align 1
   br label %.backedge
@@ -1542,7 +1542,7 @@ my_strdup.exit109:                                ; preds = %332, %324, %._crit_
   %335 = zext i32 %334 to i64
   %336 = call noalias ptr @malloc(i64 noundef %335) #55
   %337 = zext i32 %.0.lcssa.i.i105 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %336, ptr nonnull align 1 %325, i64 %337, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %336, ptr nonnull readonly align 1 %325, i64 %337, i1 false)
   %338 = getelementptr inbounds i8, ptr %336, i64 %337
   store i8 0, ptr %338, align 1
   br label %.backedge
@@ -1598,7 +1598,7 @@ my_strdup.exit120:                                ; preds = %353, %345, %._crit_
   %356 = zext i32 %355 to i64
   %357 = call noalias ptr @malloc(i64 noundef %356) #55
   %358 = zext i32 %.0.lcssa.i.i116 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %357, ptr nonnull align 1 %346, i64 %358, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %357, ptr nonnull readonly align 1 %346, i64 %358, i1 false)
   %359 = getelementptr inbounds i8, ptr %357, i64 %358
   store i8 0, ptr %359, align 1
   br label %.backedge
@@ -1654,7 +1654,7 @@ my_strdup.exit131:                                ; preds = %374, %366, %._crit_
   %377 = zext i32 %376 to i64
   %378 = call noalias ptr @malloc(i64 noundef %377) #55
   %379 = zext i32 %.0.lcssa.i.i127 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %378, ptr nonnull align 1 %367, i64 %379, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %378, ptr nonnull readonly align 1 %367, i64 %379, i1 false)
   %380 = getelementptr inbounds i8, ptr %378, i64 %379
   store i8 0, ptr %380, align 1
   br label %.backedge
@@ -1710,7 +1710,7 @@ my_strdup.exit142:                                ; preds = %395, %387, %._crit_
   %398 = zext i32 %397 to i64
   %399 = call noalias ptr @malloc(i64 noundef %398) #55
   %400 = zext i32 %.0.lcssa.i.i138 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %399, ptr nonnull align 1 %388, i64 %400, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %399, ptr nonnull readonly align 1 %388, i64 %400, i1 false)
   %401 = getelementptr inbounds i8, ptr %399, i64 %400
   store i8 0, ptr %401, align 1
   br label %.backedge
@@ -1905,8 +1905,8 @@ define hidden range(i32 -2, 1) i32 @tinyobj_parse_obj(ptr noundef %0, ptr nounde
 
 .lr.ph.preheader:                                 ; preds = %8
   %27 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false)
   %28 = zext i32 %6 to i64
   br label %.lr.ph
 
@@ -2508,7 +2508,7 @@ skip_space_and_cr.exit.i:                         ; preds = %221
   %229 = getelementptr inbounds i8, ptr %87, i64 32
   %230 = zext i32 %.072.i to i64
   %231 = mul nuw nsw i64 %230, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %229, ptr nonnull align 16 %11, i64 %231, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %229, ptr nonnull align 16 %11, i64 %231, i1 false)
   br label %._crit_edge154.i
 
 232:                                              ; preds = %.critedge.i
@@ -2532,15 +2532,15 @@ skip_space_and_cr.exit.i:                         ; preds = %221
   %239 = mul i32 %238, 3
   %240 = zext i32 %239 to i64
   %241 = getelementptr inbounds [16 x %struct.tinyobj_vertex_index_t], ptr %234, i64 0, i64 %240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %241, ptr noundef nonnull align 16 dereferenceable(12) %11, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %241, ptr noundef nonnull align 16 dereferenceable(12) %11, i64 12, i1 false)
   %242 = add i32 %239, 1
   %243 = zext i32 %242 to i64
   %244 = getelementptr inbounds [16 x %struct.tinyobj_vertex_index_t], ptr %234, i64 0, i64 %243
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %244, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %244, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false)
   %245 = add i32 %239, 2
   %246 = zext i32 %245 to i64
   %247 = getelementptr inbounds [16 x %struct.tinyobj_vertex_index_t], ptr %234, i64 0, i64 %246
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %247, ptr noundef nonnull align 4 dereferenceable(12) %237, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(12) %247, ptr noundef nonnull align 4 dereferenceable(12) %237, i64 12, i1 false)
   %248 = getelementptr inbounds [16 x i32], ptr %235, i64 0, i64 %indvars.iv.i
   store i32 3, ptr %248, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6406,7 +6406,7 @@ cgltf_load_buffer_base64.exit:                    ; preds = %._crit_edge.i, %.pr
   %.not32.i = icmp eq ptr %111, null
   %112 = select i1 %.not32.i, ptr @cgltf_default_file_read, ptr %111
   %113 = load ptr, ptr %38, align 8
-  %114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #50
+  %114 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %47) #50
   %115 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #50
   %116 = add i64 %114, 1
   %117 = add i64 %116, %115
@@ -6439,10 +6439,10 @@ cgltf_load_buffer_file.exit.thread:               ; preds = %105
 
 cgltf_combine_paths.exit.i:                       ; preds = %125, %119
   %.sink.i.i = phi ptr [ %130, %125 ], [ %118, %119 ]
-  %131 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sink.i.i, ptr noundef nonnull dereferenceable(1) %47) #53
+  %131 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sink.i.i, ptr noundef nonnull readonly dereferenceable(1) %47) #53
   %132 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #50
   %133 = getelementptr inbounds i8, ptr %118, i64 %132
-  %134 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #50
+  %134 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %47) #50
   %135 = sub i64 0, %134
   %136 = getelementptr inbounds i8, ptr %133, i64 %135
   br label %137
@@ -10630,7 +10630,7 @@ cgltf_component_size.exit.i:                      ; preds = %39, %switch.lookup
 
 cgltf_component_read_uint.exit.preheader.i:       ; preds = %cgltf_component_size.exit.i
   %42 = shl nuw nsw i64 %.0.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %2, i8 0, i64 %42, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %2, i8 0, i64 %42, i1 false)
   br label %cgltf_element_read_uint.exit
 
 cgltf_component_read_uint.exit.us.i:              ; preds = %cgltf_component_size.exit.i, %cgltf_component_read_uint.exit.us.i
@@ -14876,7 +14876,7 @@ _m3dstbi__get16be.exit279.i.i:                    ; preds = %304, %_m3dstbi__get
 _m3dstbi__getn.exit.i.i:                          ; preds = %331
   %337 = zext nneg i32 %.0189.i.i to i64
   %338 = getelementptr inbounds i8, ptr %332, i64 %337
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %338, ptr align 1 %334, i64 %335, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %338, ptr align 1 %334, i64 %335, i1 false)
   %339 = load ptr, ptr %14, align 8
   %340 = getelementptr inbounds i8, ptr %339, i64 %335
   store ptr %340, ptr %14, align 8
@@ -27088,7 +27088,7 @@ define hidden noalias noundef ptr @par_shapes_create_lsystem(ptr nocapture nound
   br i1 %.not156, label %101, label %170
 
 101:                                              ; preds = %.lr.ph324
-  %102 = tail call ptr @par_shapes_clone(ptr noundef %51, ptr noundef null)
+  %102 = tail call ptr @par_shapes_clone(ptr noundef readonly %51, ptr noundef null)
   %103 = getelementptr inbounds i8, ptr %102, i64 8
   %104 = load i32, ptr %103, align 8
   %105 = icmp sgt i32 %104, 0
@@ -27206,7 +27206,7 @@ par_shapes__apply_turtle.exit:                    ; preds = %.lr.ph.i, %101
   %.02633.i = phi i32 [ %.127.i, %181 ], [ 0, %.lr.ph.i173.preheader ]
   %174 = getelementptr inbounds %struct.par_shapes__rule, ptr %19, i64 %indvars.iv.i174
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %175, ptr noundef nonnull dereferenceable(1) %173) #50
+  %176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %175, ptr noundef nonnull readonly dereferenceable(1) %173) #50
   %.not32.i = icmp eq i32 %176, 0
   br i1 %.not32.i, label %177, label %181
 
@@ -27234,7 +27234,7 @@ par_shapes__apply_turtle.exit:                    ; preds = %.lr.ph.i, %101
   %.02336.i = phi float [ 0.000000e+00, %.lr.ph39.i ], [ %.1.i, %197 ]
   %187 = getelementptr inbounds %struct.par_shapes__rule, ptr %19, i64 %indvars.iv46.i
   %188 = load ptr, ptr %187, align 8
-  %189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %188, ptr noundef nonnull dereferenceable(1) %173) #50
+  %189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %188, ptr noundef nonnull readonly dereferenceable(1) %173) #50
   %.not.i = icmp eq i32 %189, 0
   br i1 %.not.i, label %190, label %197
 
@@ -39066,7 +39066,7 @@ cgltf_accessor_read_float.exit.us.i:              ; preds = %cgltf_buffer_view_d
   %756 = load i32, ptr %755, align 8
   %757 = getelementptr inbounds i8, ptr %725, i64 12
   %758 = load i32, ptr %757, align 4
-  %759 = call fastcc i32 @cgltf_element_read_float(ptr noundef %752, i32 noundef %754, i32 noundef %756, i32 noundef %758, ptr noundef nonnull %6, i64 noundef 1)
+  %759 = call fastcc i32 @cgltf_element_read_float(ptr noundef %752, i32 noundef %754, i32 noundef %756, i32 noundef %758, ptr noundef nonnull writeonly %6, i64 noundef 1)
   %.not158.us.i = icmp eq i32 %759, 0
   br i1 %.not158.us.i, label %cgltf_accessor_read_float.exit.thread.us.i, label %cgltf_accessor_read_float.exit.us._crit_edge.i
 
@@ -42955,7 +42955,7 @@ define void @DrawBillboard(ptr nocapture noundef readonly byval(%struct.Camera3D
   %.sroa.01.0.vec.insert = insertelement <2 x float> poison, float %4, i64 0
   %.sroa.01.4.vec.insert = shufflevector <2 x float> %.sroa.01.0.vec.insert, <2 x float> poison, <2 x i32> zeroinitializer
   %10 = tail call <2 x float> @Vector2Zero() #53
-  tail call void @DrawBillboardPro(ptr noundef nonnull byval(%struct.Camera3D) align 8 %0, ptr noundef nonnull byval(%struct.Texture) align 8 %1, <2 x float> zeroinitializer, <2 x float> %9, <2 x float> %2, float %3, <2 x float> <float 0.000000e+00, float 1.000000e+00>, float 0.000000e+00, <2 x float> %.sroa.01.4.vec.insert, <2 x float> %10, float noundef 0.000000e+00, i32 %5)
+  tail call void @DrawBillboardPro(ptr noundef nonnull readonly byval(%struct.Camera3D) align 8 %0, ptr noundef nonnull readonly byval(%struct.Texture) align 8 %1, <2 x float> zeroinitializer, <2 x float> %9, <2 x float> %2, float %3, <2 x float> <float 0.000000e+00, float 1.000000e+00>, float 0.000000e+00, <2 x float> %.sroa.01.4.vec.insert, <2 x float> %10, float noundef 0.000000e+00, i32 %5)
   ret void
 }
 
@@ -44286,7 +44286,7 @@ jsmn_alloc_token.exit:                            ; preds = %17
   %21 = getelementptr inbounds %struct.jsmntok_t, ptr %3, i64 %19
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = getelementptr inbounds i8, ptr %21, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %22, i8 -1, i64 16, i1 false)
   store i32 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 28
   store i32 -1, ptr %24, align 4
@@ -44489,7 +44489,7 @@ jsmn_parse_string.exit:                           ; preds = %78
   %104 = getelementptr inbounds %struct.jsmntok_t, ptr %3, i64 %80
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = getelementptr inbounds i8, ptr %104, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %105, i8 -1, i64 16, i1 false)
   store i32 0, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %104, i64 28
   store i32 -1, ptr %107, align 4
@@ -44614,7 +44614,7 @@ jsmn_parse_string.exit:                           ; preds = %78
   %155 = getelementptr inbounds %struct.jsmntok_t, ptr %3, i64 %152
   %156 = getelementptr inbounds i8, ptr %155, i64 8
   %157 = getelementptr inbounds i8, ptr %155, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %156, i8 -1, i64 16, i1 false)
   store i32 0, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %155, i64 28
   store i32 -1, ptr %158, align 4
@@ -44836,7 +44836,7 @@ define internal fastcc i32 @cgltf_parse_json_root(ptr noundef readonly %0, ptr n
 
 cgltf_json_strcmp.exit:                           ; preds = %119
   %126 = getelementptr inbounds i8, ptr %2, i64 %123
-  %127 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull dereferenceable(6) @.str.121, i64 noundef 5) #50
+  %127 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %126, ptr noundef nonnull readonly dereferenceable(6) @.str.121, i64 noundef 5) #50
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %cgltf_json_strcmp.exit658
 
@@ -44891,7 +44891,7 @@ cgltf_parse_json_string.exit.i.thread:            ; preds = %313, %249, %223, %1
 
 cgltf_json_strcmp.exit.i:                         ; preds = %147
   %153 = getelementptr inbounds i8, ptr %2, i64 %151
-  %154 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(10) @.str.144, i64 noundef 9) #50
+  %154 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %153, ptr noundef nonnull readonly dereferenceable(10) @.str.144, i64 noundef 9) #50
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %156, label %cgltf_json_strcmp.exit77.i
 
@@ -44925,7 +44925,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %147
   %173 = load i64, ptr %164, align 8
   %174 = getelementptr inbounds i8, ptr %2, i64 %173
   %175 = ashr exact i64 %169, 32
-  %176 = call ptr @strncpy(ptr noundef nonnull %171, ptr noundef %174, i64 noundef %175) #53
+  %176 = call ptr @strncpy(ptr noundef nonnull %171, ptr noundef readonly %174, i64 noundef %175) #53
   %177 = getelementptr inbounds i8, ptr %171, i64 %175
   store i8 0, ptr %177, align 1
   store ptr %171, ptr %102, align 8
@@ -44933,7 +44933,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %147
   br label %cgltf_parse_json_string.exit.i.thread
 
 cgltf_json_strcmp.exit77.i:                       ; preds = %cgltf_json_strcmp.exit.i
-  %179 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(10) @.str.145, i64 noundef 9) #50
+  %179 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %153, ptr noundef nonnull readonly dereferenceable(10) @.str.145, i64 noundef 9) #50
   %180 = icmp eq i32 %179, 0
   br i1 %180, label %181, label %cgltf_json_strcmp.exit109.thread.i
 
@@ -44967,7 +44967,7 @@ cgltf_json_strcmp.exit77.i:                       ; preds = %cgltf_json_strcmp.e
   %198 = load i64, ptr %189, align 8
   %199 = getelementptr inbounds i8, ptr %2, i64 %198
   %200 = ashr exact i64 %194, 32
-  %201 = call ptr @strncpy(ptr noundef nonnull %196, ptr noundef %199, i64 noundef %200) #53
+  %201 = call ptr @strncpy(ptr noundef nonnull %196, ptr noundef readonly %199, i64 noundef %200) #53
   %202 = getelementptr inbounds i8, ptr %196, i64 %200
   store i8 0, ptr %202, align 1
   store ptr %196, ptr %110, align 8
@@ -44976,7 +44976,7 @@ cgltf_json_strcmp.exit77.i:                       ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit86.i:                       ; preds = %147
   %204 = getelementptr inbounds i8, ptr %2, i64 %151
-  %205 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(8) @.str.146, i64 noundef 7) #50
+  %205 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %204, ptr noundef nonnull readonly dereferenceable(8) @.str.146, i64 noundef 7) #50
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %cgltf_json_strcmp.exit109.thread.i
 
@@ -45010,7 +45010,7 @@ cgltf_json_strcmp.exit86.i:                       ; preds = %147
   %224 = load i64, ptr %215, align 8
   %225 = getelementptr inbounds i8, ptr %2, i64 %224
   %226 = ashr exact i64 %220, 32
-  %227 = call ptr @strncpy(ptr noundef nonnull %222, ptr noundef %225, i64 noundef %226) #53
+  %227 = call ptr @strncpy(ptr noundef nonnull %222, ptr noundef readonly %225, i64 noundef %226) #53
   %228 = getelementptr inbounds i8, ptr %222, i64 %226
   store i8 0, ptr %228, align 1
   store ptr %222, ptr %109, align 8
@@ -45019,7 +45019,7 @@ cgltf_json_strcmp.exit86.i:                       ; preds = %147
 
 cgltf_json_strcmp.exit95.i:                       ; preds = %147
   %230 = getelementptr inbounds i8, ptr %2, i64 %151
-  %231 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %230, ptr noundef nonnull dereferenceable(11) @.str.147, i64 noundef 10) #50
+  %231 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %230, ptr noundef nonnull readonly dereferenceable(11) @.str.147, i64 noundef 10) #50
   %232 = icmp eq i32 %231, 0
   br i1 %232, label %233, label %cgltf_json_strcmp.exit109.i
 
@@ -45053,7 +45053,7 @@ cgltf_json_strcmp.exit95.i:                       ; preds = %147
   %250 = load i64, ptr %241, align 8
   %251 = getelementptr inbounds i8, ptr %2, i64 %250
   %252 = ashr exact i64 %246, 32
-  %253 = call ptr @strncpy(ptr noundef nonnull %248, ptr noundef %251, i64 noundef %252) #53
+  %253 = call ptr @strncpy(ptr noundef nonnull %248, ptr noundef readonly %251, i64 noundef %252) #53
   %254 = getelementptr inbounds i8, ptr %248, i64 %252
   store i8 0, ptr %254, align 1
   store ptr %248, ptr %108, align 8
@@ -45062,7 +45062,7 @@ cgltf_json_strcmp.exit95.i:                       ; preds = %147
 
 cgltf_json_strcmp.exit104.i:                      ; preds = %147
   %256 = getelementptr inbounds i8, ptr %2, i64 %151
-  %257 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %256, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %257 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %256, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %258 = icmp eq i32 %257, 0
   br i1 %258, label %259, label %cgltf_json_strcmp.exit109.thread.i
 
@@ -45093,7 +45093,7 @@ cgltf_json_strcmp.exit104.i:                      ; preds = %147
 
 275:                                              ; preds = %261
   %276 = getelementptr inbounds i8, ptr %2, i64 %269
-  %277 = call ptr @strncpy(ptr noundef nonnull %274, ptr noundef %276, i64 noundef %270) #53
+  %277 = call ptr @strncpy(ptr noundef nonnull %274, ptr noundef readonly %276, i64 noundef %270) #53
   %278 = load ptr, ptr %105, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 %270
   store i8 0, ptr %279, align 1
@@ -45137,7 +45137,7 @@ cgltf_json_strcmp.exit104.i:                      ; preds = %147
   br label %cgltf_parse_json_string.exit.i
 
 cgltf_json_strcmp.exit109.i:                      ; preds = %cgltf_json_strcmp.exit95.i
-  %297 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %230, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %297 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %230, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %298 = icmp eq i32 %297, 0
   br i1 %298, label %299, label %cgltf_json_strcmp.exit109.thread.i
 
@@ -45200,7 +45200,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %307, %304
   store i64 %324, ptr %103, align 8
   %325 = load ptr, ptr %104, align 8
   %326 = getelementptr inbounds %struct.cgltf_extension, ptr %325, i64 %323
-  %327 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i, ptr noundef %2, ptr noundef %326)
+  %327 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %2, ptr noundef %326)
   %328 = icmp slt i32 %327, 0
   %329 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %329, %306
@@ -45276,7 +45276,7 @@ cgltf_json_strcmp.exit.thread:                    ; preds = %119
 
 cgltf_json_strcmp.exit267:                        ; preds = %cgltf_json_strcmp.exit.thread
   %354 = getelementptr inbounds i8, ptr %2, i64 %123
-  %355 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %354, ptr noundef nonnull dereferenceable(7) @.str.122, i64 noundef 6) #50
+  %355 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %354, ptr noundef nonnull readonly dereferenceable(7) @.str.122, i64 noundef 6) #50
   %356 = icmp eq i32 %355, 0
   br i1 %356, label %357, label %cgltf_json_strcmp.exit515
 
@@ -45383,7 +45383,7 @@ cgltf_parse_json_array.exit.i:                    ; preds = %371
 
 cgltf_json_strcmp.exit.i.i:                       ; preds = %406
   %412 = getelementptr inbounds i8, ptr %2, i64 %410
-  %413 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %412, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %413 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %412, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %414 = icmp eq i32 %413, 0
   br i1 %414, label %415, label %cgltf_json_strcmp.exit166.thread.i.i
 
@@ -45419,7 +45419,7 @@ cgltf_json_strcmp.exit.i.i:                       ; preds = %406
   %434 = load i64, ptr %425, align 8
   %435 = getelementptr inbounds i8, ptr %2, i64 %434
   %436 = ashr exact i64 %430, 32
-  %437 = call ptr @strncpy(ptr noundef nonnull %432, ptr noundef %435, i64 noundef %436) #53
+  %437 = call ptr @strncpy(ptr noundef nonnull %432, ptr noundef readonly %435, i64 noundef %436) #53
   %438 = getelementptr inbounds i8, ptr %432, i64 %436
   store i8 0, ptr %438, align 1
   store ptr %432, ptr %379, align 8
@@ -45428,7 +45428,7 @@ cgltf_json_strcmp.exit.i.i:                       ; preds = %406
 
 cgltf_json_strcmp.exit127.i.i:                    ; preds = %406
   %440 = getelementptr inbounds i8, ptr %2, i64 %410
-  %441 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %440, ptr noundef nonnull dereferenceable(11) @.str.149, i64 noundef 10) #50
+  %441 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %440, ptr noundef nonnull readonly dereferenceable(11) @.str.149, i64 noundef 10) #50
   %442 = icmp eq i32 %441, 0
   br i1 %442, label %443, label %cgltf_json_strcmp.exit166.i.i
 
@@ -45553,7 +45553,7 @@ cgltf_parse_json_array.exit.i.i:                  ; preds = %457
 
 cgltf_json_strcmp.exit.i.i.i:                     ; preds = %503
   %509 = getelementptr inbounds i8, ptr %2, i64 %507
-  %510 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(5) @.str.152, i64 noundef 4) #50
+  %510 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull readonly dereferenceable(5) @.str.152, i64 noundef 4) #50
   %511 = icmp eq i32 %510, 0
   br i1 %511, label %512, label %cgltf_json_strcmp.exit177.thread.i.i.i
 
@@ -45574,7 +45574,7 @@ cgltf_json_strcmp.exit.i.i.i:                     ; preds = %503
   %522 = sub nsw i64 %519, %521
   %spec.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %522, i64 127)
   %523 = getelementptr inbounds i8, ptr %2, i64 %521
-  %524 = call ptr @strncpy(ptr noundef nonnull %68, ptr noundef %523, i64 noundef %spec.select.i.i.i.i) #53
+  %524 = call ptr @strncpy(ptr noundef nonnull %68, ptr noundef readonly %523, i64 noundef %spec.select.i.i.i.i) #53
   %525 = getelementptr inbounds [128 x i8], ptr %68, i64 0, i64 %spec.select.i.i.i.i
   store i8 0, ptr %525, align 1
   %526 = call i32 @atoi(ptr nocapture noundef nonnull %68) #50
@@ -45589,7 +45589,7 @@ cgltf_json_to_int.exit.i.i.i:                     ; preds = %517, %512
 
 cgltf_json_strcmp.exit150.i.i.i:                  ; preds = %503
   %528 = getelementptr inbounds i8, ptr %2, i64 %507
-  %529 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %528, ptr noundef nonnull dereferenceable(8) @.str.153, i64 noundef 7) #50
+  %529 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %528, ptr noundef nonnull readonly dereferenceable(8) @.str.153, i64 noundef 7) #50
   %530 = icmp eq i32 %529, 0
   br i1 %530, label %531, label %cgltf_json_strcmp.exit167.i.i.i
 
@@ -45610,7 +45610,7 @@ cgltf_json_strcmp.exit150.i.i.i:                  ; preds = %503
   %541 = sub nsw i64 %538, %540
   %spec.select.i153.i.i.i = call i64 @llvm.umin.i64(i64 %541, i64 127)
   %542 = getelementptr inbounds i8, ptr %2, i64 %540
-  %543 = call ptr @strncpy(ptr noundef nonnull %67, ptr noundef %542, i64 noundef %spec.select.i153.i.i.i) #53
+  %543 = call ptr @strncpy(ptr noundef nonnull %67, ptr noundef readonly %542, i64 noundef %spec.select.i153.i.i.i) #53
   %544 = getelementptr inbounds [128 x i8], ptr %67, i64 0, i64 %spec.select.i153.i.i.i
   store i8 0, ptr %544, align 1
   %545 = call i32 @atoi(ptr nocapture noundef nonnull %67) #50
@@ -45628,7 +45628,7 @@ cgltf_json_to_int.exit154.i.i.i:                  ; preds = %536, %531
 
 cgltf_json_strcmp.exit157.i.i.i:                  ; preds = %503
   %550 = getelementptr inbounds i8, ptr %2, i64 %507
-  %551 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %550, ptr noundef nonnull dereferenceable(9) @.str.154, i64 noundef 8) #50
+  %551 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %550, ptr noundef nonnull readonly dereferenceable(9) @.str.154, i64 noundef 8) #50
   %552 = icmp eq i32 %551, 0
   br i1 %552, label %553, label %cgltf_json_strcmp.exit177.thread.i.i.i
 
@@ -45649,7 +45649,7 @@ cgltf_json_strcmp.exit157.i.i.i:                  ; preds = %503
   %563 = sub nsw i64 %560, %562
   %spec.select.i160.i.i.i = call i64 @llvm.umin.i64(i64 %563, i64 127)
   %564 = getelementptr inbounds i8, ptr %2, i64 %562
-  %565 = call ptr @strncpy(ptr noundef nonnull %66, ptr noundef %564, i64 noundef %spec.select.i160.i.i.i) #53
+  %565 = call ptr @strncpy(ptr noundef nonnull %66, ptr noundef readonly %564, i64 noundef %spec.select.i160.i.i.i) #53
   %566 = getelementptr inbounds [128 x i8], ptr %66, i64 0, i64 %spec.select.i160.i.i.i
   store i8 0, ptr %566, align 1
   %567 = call i32 @atoi(ptr nocapture noundef nonnull %66) #50
@@ -45667,17 +45667,17 @@ cgltf_json_to_int.exit161.i.i.i:                  ; preds = %558, %553
 
 cgltf_json_strcmp.exit164.i.i.i:                  ; preds = %503
   %572 = getelementptr inbounds i8, ptr %2, i64 %507
-  %573 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %572, ptr noundef nonnull dereferenceable(11) @.str.155, i64 noundef 10) #50
+  %573 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %572, ptr noundef nonnull readonly dereferenceable(11) @.str.155, i64 noundef 10) #50
   %574 = icmp eq i32 %573, 0
   br i1 %574, label %575, label %cgltf_json_strcmp.exit177.i.i.i
 
 575:                                              ; preds = %cgltf_json_strcmp.exit164.i.i.i
   %576 = add nuw nsw i32 %.0136251.i.i.i, 1
-  %577 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %576, ptr noundef %2, ptr noundef nonnull %491, ptr noundef nonnull %492)
+  %577 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %576, ptr noundef readonly %2, ptr noundef nonnull %491, ptr noundef nonnull %492)
   br label %cgltf_parse_json_extras.exit.i.i.i
 
 cgltf_json_strcmp.exit167.i.i.i:                  ; preds = %cgltf_json_strcmp.exit150.i.i.i
-  %578 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %528, ptr noundef nonnull dereferenceable(8) @.str.156, i64 noundef 7) #50
+  %578 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %528, ptr noundef nonnull readonly dereferenceable(8) @.str.156, i64 noundef 7) #50
   %579 = icmp eq i32 %578, 0
   br i1 %579, label %580, label %cgltf_json_strcmp.exit177.thread.i.i.i
 
@@ -45738,13 +45738,13 @@ cgltf_parse_json_array.exit.i.i.i:                ; preds = %594
   %605 = load ptr, ptr %489, align 8
   %606 = getelementptr inbounds %struct.cgltf_morph_target, ptr %605, i64 %.0134248.i.i.i
   %607 = getelementptr inbounds i8, ptr %606, i64 8
-  %608 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.1247.i.i.i, ptr noundef %2, ptr noundef %606, ptr noundef nonnull %607)
+  %608 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.1247.i.i.i, ptr noundef readonly %2, ptr noundef %606, ptr noundef nonnull %607)
   %609 = icmp slt i32 %608, 0
   br i1 %609, label %cgltf_parse_json_asset.exit.thread, label %601
 
 cgltf_json_strcmp.exit172.i.i.i:                  ; preds = %503
   %610 = getelementptr inbounds i8, ptr %2, i64 %507
-  %611 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %610, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %611 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %610, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %612 = icmp eq i32 %611, 0
   br i1 %612, label %613, label %cgltf_json_strcmp.exit177.thread.i.i.i
 
@@ -45775,7 +45775,7 @@ cgltf_json_strcmp.exit172.i.i.i:                  ; preds = %503
 
 629:                                              ; preds = %616
   %630 = getelementptr inbounds i8, ptr %2, i64 %623
-  %631 = call ptr @strncpy(ptr noundef nonnull %628, ptr noundef %630, i64 noundef %624) #53
+  %631 = call ptr @strncpy(ptr noundef nonnull %628, ptr noundef readonly %630, i64 noundef %624) #53
   %632 = load ptr, ptr %486, align 8
   %633 = getelementptr inbounds i8, ptr %632, i64 %624
   store i8 0, ptr %633, align 1
@@ -45820,7 +45820,7 @@ cgltf_json_strcmp.exit172.i.i.i:                  ; preds = %503
   br label %cgltf_parse_json_extras.exit.i.i.i
 
 cgltf_json_strcmp.exit177.i.i.i:                  ; preds = %cgltf_json_strcmp.exit164.i.i.i
-  %652 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %572, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %652 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %572, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %653 = icmp eq i32 %652, 0
   br i1 %653, label %654, label %cgltf_json_strcmp.exit177.thread.i.i.i
 
@@ -45897,7 +45897,7 @@ cgltf_calloc.exit.thread.i.i.i:                   ; preds = %664, %661
 
 cgltf_json_strcmp.exit182.i.i.i:                  ; preds = %681
   %687 = getelementptr inbounds i8, ptr %2, i64 %685
-  %688 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %687, ptr noundef nonnull dereferenceable(27) @.str.157, i64 noundef 26) #50
+  %688 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %687, ptr noundef nonnull readonly dereferenceable(27) @.str.157, i64 noundef 26) #50
   %689 = icmp eq i32 %688, 0
   br i1 %689, label %690, label %cgltf_json_strcmp.exit191.thread.i.i.i
 
@@ -45943,17 +45943,17 @@ cgltf_json_strcmp.exit182.i.i.i:                  ; preds = %681
 
 cgltf_json_strcmp.exit.i.i.i.i:                   ; preds = %707
   %714 = getelementptr inbounds i8, ptr %2, i64 %711
-  %715 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %714, ptr noundef nonnull dereferenceable(11) @.str.155, i64 noundef 10) #50
+  %715 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %714, ptr noundef nonnull readonly dereferenceable(11) @.str.155, i64 noundef 10) #50
   %716 = icmp eq i32 %715, 0
   br i1 %716, label %717, label %cgltf_json_strcmp.exit40.i.i.i.i
 
 717:                                              ; preds = %cgltf_json_strcmp.exit.i.i.i.i
   %718 = add nuw nsw i32 %.03647.i.i.i.i, 1
-  %719 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %718, ptr noundef %2, ptr noundef nonnull %484, ptr noundef nonnull %485)
+  %719 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %718, ptr noundef readonly %2, ptr noundef nonnull %484, ptr noundef nonnull %485)
   br label %cgltf_skip_json.exit.i.i.i.i
 
 cgltf_json_strcmp.exit40.i.i.i.i:                 ; preds = %cgltf_json_strcmp.exit.i.i.i.i
-  %720 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %714, ptr noundef nonnull dereferenceable(11) @.str.165, i64 noundef 10) #50
+  %720 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %714, ptr noundef nonnull readonly dereferenceable(11) @.str.165, i64 noundef 10) #50
   %721 = icmp eq i32 %720, 0
   br i1 %721, label %722, label %cgltf_json_strcmp.exit40.thread.i.i.i.i
 
@@ -45974,7 +45974,7 @@ cgltf_json_strcmp.exit40.i.i.i.i:                 ; preds = %cgltf_json_strcmp.e
   %732 = sub nsw i64 %729, %731
   %spec.select.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %732, i64 127)
   %733 = getelementptr inbounds i8, ptr %2, i64 %731
-  %734 = call ptr @strncpy(ptr noundef nonnull %65, ptr noundef %733, i64 noundef %spec.select.i.i.i.i.i) #53
+  %734 = call ptr @strncpy(ptr noundef nonnull %65, ptr noundef readonly %733, i64 noundef %spec.select.i.i.i.i.i) #53
   %735 = getelementptr inbounds [128 x i8], ptr %65, i64 0, i64 %spec.select.i.i.i.i.i
   store i8 0, ptr %735, align 1
   %736 = call i32 @atoi(ptr nocapture noundef nonnull %65) #50
@@ -46042,7 +46042,7 @@ cgltf_skip_json.exit.i.i.i.i:                     ; preds = %.split.loop.exit.i.
 
 cgltf_json_strcmp.exit191.i.i.i:                  ; preds = %681
   %762 = getelementptr inbounds i8, ptr %2, i64 %685
-  %763 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %762, ptr noundef nonnull dereferenceable(23) @.str.140, i64 noundef 22) #50
+  %763 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %762, ptr noundef nonnull readonly dereferenceable(23) @.str.140, i64 noundef 22) #50
   %764 = icmp eq i32 %763, 0
   br i1 %764, label %765, label %cgltf_json_strcmp.exit191.thread.i.i.i
 
@@ -46088,7 +46088,7 @@ cgltf_json_strcmp.exit191.i.i.i:                  ; preds = %681
 
 cgltf_json_strcmp.exit.i205.i.i.i:                ; preds = %782
   %789 = getelementptr inbounds i8, ptr %2, i64 %786
-  %790 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %789, ptr noundef nonnull dereferenceable(9) @.str.166, i64 noundef 8) #50
+  %790 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %789, ptr noundef nonnull readonly dereferenceable(9) @.str.166, i64 noundef 8) #50
   %791 = icmp eq i32 %790, 0
   br i1 %791, label %792, label %cgltf_json_strcmp.exit.thread.i.i.i.i
 
@@ -46100,7 +46100,7 @@ cgltf_json_strcmp.exit.i205.i.i.i:                ; preds = %782
 794:                                              ; preds = %792
   store i64 0, ptr %64, align 8
   %795 = add nuw nsw i32 %.03746.i.i.i.i, 1
-  %796 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %795, ptr noundef %2, ptr noundef null, ptr noundef nonnull %64)
+  %796 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %795, ptr noundef readonly %2, ptr noundef null, ptr noundef nonnull %64)
   %797 = icmp slt i32 %796, 0
   br i1 %797, label %cgltf_parse_json_material_mappings.exit.i.i.i, label %798
 
@@ -46126,7 +46126,7 @@ cgltf_calloc.exit.i.i.i.i:                        ; preds = %805, %800, %798
   %.0.i42.i208.i.i.i = phi ptr [ %804, %805 ], [ null, %798 ], [ null, %800 ]
   store ptr %.0.i42.i208.i.i.i, ptr %480, align 8
   store i64 0, ptr %64, align 8
-  %806 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %795, ptr noundef %2, ptr noundef %.0.i42.i208.i.i.i, ptr noundef nonnull %64)
+  %806 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %795, ptr noundef readonly %2, ptr noundef %.0.i42.i208.i.i.i, ptr noundef nonnull %64)
   br label %cgltf_skip_json.exit.i201.i.i.i
 
 cgltf_json_strcmp.exit.thread.i.i.i.i:            ; preds = %cgltf_json_strcmp.exit.i205.i.i.i, %782
@@ -46190,7 +46190,7 @@ cgltf_json_strcmp.exit191.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   %830 = add i64 %829, 1
   store i64 %830, ptr %479, align 8
   %831 = getelementptr inbounds %struct.cgltf_extension, ptr %828, i64 %829
-  %832 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.2245.i.i.i, ptr noundef %2, ptr noundef %831)
+  %832 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.2245.i.i.i, ptr noundef readonly %2, ptr noundef %831)
   br label %cgltf_parse_json_draco_mesh_compression.exit.i.i.i
 
 cgltf_parse_json_draco_mesh_compression.exit.i.i.i: ; preds = %cgltf_skip_json.exit.i.i.i.i, %cgltf_json_strcmp.exit191.thread.i.i.i, %cgltf_parse_json_material_mappings.exit.i.i.i, %695
@@ -46258,7 +46258,7 @@ cgltf_parse_json_primitive.exit.i.i:              ; preds = %cgltf_parse_json_ex
 
 cgltf_json_strcmp.exit134.i.i:                    ; preds = %406
   %856 = getelementptr inbounds i8, ptr %2, i64 %410
-  %857 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %856, ptr noundef nonnull dereferenceable(8) @.str.150, i64 noundef 7) #50
+  %857 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %856, ptr noundef nonnull readonly dereferenceable(8) @.str.150, i64 noundef 7) #50
   %858 = icmp eq i32 %857, 0
   br i1 %858, label %859, label %cgltf_json_strcmp.exit166.thread.i.i
 
@@ -46335,7 +46335,7 @@ cgltf_json_to_float.exit.i.i.i:                   ; preds = %.lr.ph.i145.i.i
   %891 = sub nsw i64 %888, %890
   %spec.select.i.i147.i.i = call i64 @llvm.umin.i64(i64 %891, i64 127)
   %892 = getelementptr inbounds i8, ptr %2, i64 %890
-  %893 = call ptr @strncpy(ptr noundef nonnull %63, ptr noundef %892, i64 noundef %spec.select.i.i147.i.i) #53
+  %893 = call ptr @strncpy(ptr noundef nonnull %63, ptr noundef readonly %892, i64 noundef %spec.select.i.i147.i.i) #53
   %894 = getelementptr inbounds [128 x i8], ptr %63, i64 0, i64 %spec.select.i.i147.i.i
   store i8 0, ptr %894, align 1
   %895 = call double @atof(ptr noundef nonnull %63) #50
@@ -46350,7 +46350,7 @@ cgltf_json_to_float.exit.i.i.i:                   ; preds = %.lr.ph.i145.i.i
 
 cgltf_json_strcmp.exit151.i.i:                    ; preds = %406
   %898 = getelementptr inbounds i8, ptr %2, i64 %410
-  %899 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %898, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %899 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %898, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %900 = icmp eq i32 %899, 0
   br i1 %900, label %901, label %cgltf_json_strcmp.exit166.thread.i.i
 
@@ -46406,7 +46406,7 @@ cgltf_json_strcmp.exit151.i.i:                    ; preds = %406
 
 cgltf_json_strcmp.exit154.i.i:                    ; preds = %925
   %932 = getelementptr inbounds i8, ptr %2, i64 %929
-  %933 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %932, ptr noundef nonnull dereferenceable(12) @.str.151, i64 noundef 11) #50
+  %933 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %932, ptr noundef nonnull readonly dereferenceable(12) @.str.151, i64 noundef 11) #50
   %934 = icmp eq i32 %933, 0
   br i1 %934, label %935, label %cgltf_json_strcmp.exit154.thread.i.i
 
@@ -46419,7 +46419,7 @@ cgltf_json_strcmp.exit154.i.i:                    ; preds = %925
   br i1 %940, label %941, label %cgltf_json_strcmp.exit154.thread.i.i
 
 941:                                              ; preds = %935
-  %942 = call fastcc i32 @cgltf_parse_json_string_array(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %936, ptr noundef %2, ptr noundef nonnull %392, ptr noundef nonnull %393)
+  %942 = call fastcc i32 @cgltf_parse_json_string_array(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %936, ptr noundef readonly %2, ptr noundef nonnull %392, ptr noundef nonnull %393)
   br label %cgltf_skip_json.exit.i.i
 
 cgltf_json_strcmp.exit154.thread.i.i:             ; preds = %935, %cgltf_json_strcmp.exit154.i.i, %925
@@ -46511,7 +46511,7 @@ cgltf_skip_json.exit.i.i:                         ; preds = %.split.loop.exit.i.
   br label %cgltf_parse_json_string.exit.i.i
 
 cgltf_json_strcmp.exit166.i.i:                    ; preds = %cgltf_json_strcmp.exit127.i.i
-  %982 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %440, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %982 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %440, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %983 = icmp eq i32 %982, 0
   br i1 %983, label %984, label %cgltf_json_strcmp.exit166.thread.i.i
 
@@ -46576,7 +46576,7 @@ cgltf_calloc.exit.thread.i173.i.i:                ; preds = %994, %991
   store i64 %1011, ptr %388, align 8
   %1012 = load ptr, ptr %389, align 8
   %1013 = getelementptr inbounds %struct.cgltf_extension, ptr %1012, i64 %1010
-  %1014 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i.i, ptr noundef %2, ptr noundef %1013)
+  %1014 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i, ptr noundef readonly %2, ptr noundef %1013)
   %1015 = icmp slt i32 %1014, 0
   %1016 = add nuw nsw i32 %.03138.i.i.i, 1
   %exitcond.not.i172.i.i = icmp eq i32 %1016, %993
@@ -46653,7 +46653,7 @@ cgltf_parse_json_mesh.exit.thread28.i:            ; preds = %cgltf_parse_json_me
 
 cgltf_json_strcmp.exit281:                        ; preds = %cgltf_json_strcmp.exit.thread
   %1042 = getelementptr inbounds i8, ptr %2, i64 %123
-  %1043 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1042, ptr noundef nonnull dereferenceable(10) @.str.123, i64 noundef 9) #50
+  %1043 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1042, ptr noundef nonnull readonly dereferenceable(10) @.str.123, i64 noundef 9) #50
   %1044 = icmp eq i32 %1043, 0
   br i1 %1044, label %1045, label %cgltf_json_strcmp.exit447
 
@@ -46774,7 +46774,7 @@ cgltf_parse_json_array.exit.i287:                 ; preds = %1059
 
 cgltf_json_strcmp.exit.i.i333:                    ; preds = %1106
   %1112 = getelementptr inbounds i8, ptr %2, i64 %1110
-  %1113 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1112, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %1113 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1112, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %1114 = icmp eq i32 %1113, 0
   br i1 %1114, label %1115, label %cgltf_json_strcmp.exit192.i.i
 
@@ -46810,7 +46810,7 @@ cgltf_json_strcmp.exit.i.i333:                    ; preds = %1106
   %1134 = load i64, ptr %1125, align 8
   %1135 = getelementptr inbounds i8, ptr %2, i64 %1134
   %1136 = ashr exact i64 %1130, 32
-  %1137 = call ptr @strncpy(ptr noundef nonnull %1132, ptr noundef %1135, i64 noundef %1136) #53
+  %1137 = call ptr @strncpy(ptr noundef nonnull %1132, ptr noundef readonly %1135, i64 noundef %1136) #53
   %1138 = getelementptr inbounds i8, ptr %1132, i64 %1136
   store i8 0, ptr %1138, align 1
   store ptr %1132, ptr %1067, align 8
@@ -46819,7 +46819,7 @@ cgltf_json_strcmp.exit.i.i333:                    ; preds = %1106
 
 cgltf_json_strcmp.exit167.i.i:                    ; preds = %1106
   %1140 = getelementptr inbounds i8, ptr %2, i64 %1110
-  %1141 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1140, ptr noundef nonnull dereferenceable(11) @.str.165, i64 noundef 10) #50
+  %1141 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1140, ptr noundef nonnull readonly dereferenceable(11) @.str.165, i64 noundef 10) #50
   %1142 = icmp eq i32 %1141, 0
   br i1 %1142, label %1143, label %cgltf_json_strcmp.exit172.i.i
 
@@ -46840,7 +46840,7 @@ cgltf_json_strcmp.exit167.i.i:                    ; preds = %1106
   %1153 = sub nsw i64 %1150, %1152
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %1153, i64 127)
   %1154 = getelementptr inbounds i8, ptr %2, i64 %1152
-  %1155 = call ptr @strncpy(ptr noundef nonnull %62, ptr noundef %1154, i64 noundef %spec.select.i.i.i) #53
+  %1155 = call ptr @strncpy(ptr noundef nonnull %62, ptr noundef readonly %1154, i64 noundef %spec.select.i.i.i) #53
   %1156 = getelementptr inbounds [128 x i8], ptr %62, i64 0, i64 %spec.select.i.i.i
   store i8 0, ptr %1156, align 1
   %1157 = call i32 @atoi(ptr nocapture noundef nonnull %62) #50
@@ -46857,7 +46857,7 @@ cgltf_json_to_int.exit.i.i:                       ; preds = %1148, %1143
   br label %cgltf_parse_json_string.exit.i.i297
 
 cgltf_json_strcmp.exit172.i.i:                    ; preds = %cgltf_json_strcmp.exit167.i.i
-  %1162 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1140, ptr noundef nonnull dereferenceable(11) @.str.167, i64 noundef 10) #50
+  %1162 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1140, ptr noundef nonnull readonly dereferenceable(11) @.str.167, i64 noundef 10) #50
   %1163 = icmp eq i32 %1162, 0
   br i1 %1163, label %1164, label %cgltf_json_strcmp.exit182.i.i
 
@@ -46878,7 +46878,7 @@ cgltf_json_strcmp.exit172.i.i:                    ; preds = %cgltf_json_strcmp.e
   %1174 = sub nsw i64 %1171, %1173
   %spec.select.i175.i.i = call i64 @llvm.umin.i64(i64 %1174, i64 127)
   %1175 = getelementptr inbounds i8, ptr %2, i64 %1173
-  %1176 = call ptr @strncpy(ptr noundef nonnull %61, ptr noundef %1175, i64 noundef %spec.select.i175.i.i) #53
+  %1176 = call ptr @strncpy(ptr noundef nonnull %61, ptr noundef readonly %1175, i64 noundef %spec.select.i175.i.i) #53
   %1177 = getelementptr inbounds [128 x i8], ptr %61, i64 0, i64 %spec.select.i175.i.i
   store i8 0, ptr %1177, align 1
   %1178 = call i64 @atoll(ptr nocapture noundef nonnull %61) #50
@@ -46893,7 +46893,7 @@ cgltf_json_to_size.exit.i.i:                      ; preds = %1169, %1164
 
 cgltf_json_strcmp.exit178.i.i:                    ; preds = %1106
   %1180 = getelementptr inbounds i8, ptr %2, i64 %1110
-  %1181 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1180, ptr noundef nonnull dereferenceable(14) @.str.168, i64 noundef 13) #50
+  %1181 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1180, ptr noundef nonnull readonly dereferenceable(14) @.str.168, i64 noundef 13) #50
   %1182 = icmp eq i32 %1181, 0
   br i1 %1182, label %1183, label %cgltf_json_strcmp.exit244.thread.i.i
 
@@ -46918,7 +46918,7 @@ cgltf_json_to_int.exit.i.i.i324:                  ; preds = %1183
   %1192 = sub nsw i64 %1189, %1191
   %spec.select.i.i.i.i325 = call i64 @llvm.umin.i64(i64 %1192, i64 127)
   %1193 = getelementptr inbounds i8, ptr %2, i64 %1191
-  %1194 = call ptr @strncpy(ptr noundef nonnull %60, ptr noundef %1193, i64 noundef %spec.select.i.i.i.i325) #53
+  %1194 = call ptr @strncpy(ptr noundef nonnull %60, ptr noundef readonly %1193, i64 noundef %spec.select.i.i.i.i325) #53
   %1195 = getelementptr inbounds [128 x i8], ptr %60, i64 0, i64 %spec.select.i.i.i.i325
   store i8 0, ptr %1195, align 1
   %1196 = call i32 @atoi(ptr nocapture noundef nonnull %60) #50
@@ -46940,7 +46940,7 @@ cgltf_json_to_component_type.exit.i.i:            ; preds = %cgltf_json_to_int.e
   br label %cgltf_parse_json_string.exit.i.i297
 
 cgltf_json_strcmp.exit182.i.i:                    ; preds = %cgltf_json_strcmp.exit172.i.i
-  %1200 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1140, ptr noundef nonnull dereferenceable(11) @.str.169, i64 noundef 10) #50
+  %1200 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1140, ptr noundef nonnull readonly dereferenceable(11) @.str.169, i64 noundef 10) #50
   %1201 = icmp eq i32 %1200, 0
   br i1 %1201, label %1202, label %cgltf_json_strcmp.exit244.i.i
 
@@ -46958,7 +46958,7 @@ cgltf_json_strcmp.exit182.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1210:                                             ; preds = %1202
   %1211 = getelementptr inbounds i8, ptr %2, i64 %.val.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1211, ptr noundef nonnull dereferenceable(4) @.str.182, i64 4)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1211, ptr noundef nonnull dereferenceable(4) @.str.182, i64 4)
   %1212 = icmp eq i32 %bcmp.i.i.i, 0
   %1213 = zext i1 %1212 to i32
   br label %cgltf_json_to_bool.exit.i.i
@@ -46971,7 +46971,7 @@ cgltf_json_to_bool.exit.i.i:                      ; preds = %1210, %1202
 
 cgltf_json_strcmp.exit185.i.i:                    ; preds = %1106
   %1216 = getelementptr inbounds i8, ptr %2, i64 %1110
-  %1217 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1216, ptr noundef nonnull dereferenceable(6) @.str.170, i64 noundef 5) #50
+  %1217 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1216, ptr noundef nonnull readonly dereferenceable(6) @.str.170, i64 noundef 5) #50
   %1218 = icmp eq i32 %1217, 0
   br i1 %1218, label %1219, label %cgltf_json_strcmp.exit244.thread.i.i
 
@@ -46992,7 +46992,7 @@ cgltf_json_strcmp.exit185.i.i:                    ; preds = %1106
   %1229 = sub nsw i64 %1226, %1228
   %spec.select.i188.i.i = call i64 @llvm.umin.i64(i64 %1229, i64 127)
   %1230 = getelementptr inbounds i8, ptr %2, i64 %1228
-  %1231 = call ptr @strncpy(ptr noundef nonnull %59, ptr noundef %1230, i64 noundef %spec.select.i188.i.i) #53
+  %1231 = call ptr @strncpy(ptr noundef nonnull %59, ptr noundef readonly %1230, i64 noundef %spec.select.i188.i.i) #53
   %1232 = getelementptr inbounds [128 x i8], ptr %59, i64 0, i64 %spec.select.i188.i.i
   store i8 0, ptr %1232, align 1
   %1233 = call i32 @atoi(ptr nocapture noundef nonnull %59) #50
@@ -47007,7 +47007,7 @@ cgltf_json_to_int.exit189.i.i:                    ; preds = %1224, %1219
   br label %cgltf_parse_json_string.exit.i.i297
 
 cgltf_json_strcmp.exit192.i.i:                    ; preds = %cgltf_json_strcmp.exit.i.i333
-  %1236 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1112, ptr noundef nonnull dereferenceable(5) @.str.171, i64 noundef 4) #50
+  %1236 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1112, ptr noundef nonnull readonly dereferenceable(5) @.str.171, i64 noundef 4) #50
   %1237 = icmp eq i32 %1236, 0
   br i1 %1237, label %1238, label %cgltf_json_strcmp.exit244.thread.i.i
 
@@ -47032,38 +47032,38 @@ cgltf_json_strcmp.exit192.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit195.i.i:                    ; preds = %1243
   %1249 = getelementptr inbounds i8, ptr %2, i64 %1247
-  %1250 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1249, ptr noundef nonnull dereferenceable(7) @.str.172, i64 noundef 6) #50
+  %1250 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1249, ptr noundef nonnull readonly dereferenceable(7) @.str.172, i64 noundef 6) #50
   %1251 = icmp eq i32 %1250, 0
   br i1 %1251, label %.sink.split.i.i, label %cgltf_json_strcmp.exit.thread.i
 
 cgltf_json_strcmp.exit198.i.i:                    ; preds = %1243
   %1252 = getelementptr inbounds i8, ptr %2, i64 %1247
-  %1253 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1252, ptr noundef nonnull dereferenceable(5) @.str.173, i64 noundef 4) #50
+  %1253 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1252, ptr noundef nonnull readonly dereferenceable(5) @.str.173, i64 noundef 4) #50
   %1254 = icmp eq i32 %1253, 0
   br i1 %1254, label %.sink.split.i.i, label %cgltf_json_strcmp.exit201.i.i
 
 cgltf_json_strcmp.exit201.i.i:                    ; preds = %cgltf_json_strcmp.exit198.i.i
-  %1255 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1252, ptr noundef nonnull dereferenceable(5) @.str.174, i64 noundef 4) #50
+  %1255 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1252, ptr noundef nonnull readonly dereferenceable(5) @.str.174, i64 noundef 4) #50
   %1256 = icmp eq i32 %1255, 0
   br i1 %1256, label %.sink.split.i.i, label %cgltf_json_strcmp.exit204.i.i
 
 cgltf_json_strcmp.exit204.i.i:                    ; preds = %cgltf_json_strcmp.exit201.i.i
-  %1257 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1252, ptr noundef nonnull dereferenceable(5) @.str.175, i64 noundef 4) #50
+  %1257 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1252, ptr noundef nonnull readonly dereferenceable(5) @.str.175, i64 noundef 4) #50
   %1258 = icmp eq i32 %1257, 0
   br i1 %1258, label %.sink.split.i.i, label %cgltf_json_strcmp.exit45.i
 
 cgltf_json_strcmp.exit45.i:                       ; preds = %cgltf_json_strcmp.exit204.i.i
-  %1259 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1252, ptr noundef nonnull dereferenceable(5) @.str.176, i64 noundef 4) #50
+  %1259 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1252, ptr noundef nonnull readonly dereferenceable(5) @.str.176, i64 noundef 4) #50
   %1260 = icmp eq i32 %1259, 0
   br i1 %1260, label %.sink.split.i.i, label %cgltf_json_strcmp.exit42.i
 
 cgltf_json_strcmp.exit42.i:                       ; preds = %cgltf_json_strcmp.exit45.i
-  %1261 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1252, ptr noundef nonnull dereferenceable(5) @.str.177, i64 noundef 4) #50
+  %1261 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1252, ptr noundef nonnull readonly dereferenceable(5) @.str.177, i64 noundef 4) #50
   %1262 = icmp eq i32 %1261, 0
   br i1 %1262, label %.sink.split.i.i, label %cgltf_json_strcmp.exit.i334
 
 cgltf_json_strcmp.exit.i334:                      ; preds = %cgltf_json_strcmp.exit42.i
-  %1263 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1252, ptr noundef nonnull dereferenceable(5) @.str.178, i64 noundef 4) #50
+  %1263 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1252, ptr noundef nonnull readonly dereferenceable(5) @.str.178, i64 noundef 4) #50
   %1264 = icmp eq i32 %1263, 0
   br i1 %1264, label %.sink.split.i.i, label %cgltf_json_strcmp.exit.thread.i
 
@@ -47144,7 +47144,7 @@ cgltf_json_to_float.exit.i.i.i319:                ; preds = %.lr.ph.i.i.i316
   %1295 = sub nsw i64 %1292, %1294
   %spec.select.i.i210.i.i = call i64 @llvm.umin.i64(i64 %1295, i64 127)
   %1296 = getelementptr inbounds i8, ptr %2, i64 %1294
-  %1297 = call ptr @strncpy(ptr noundef nonnull %58, ptr noundef %1296, i64 noundef %spec.select.i.i210.i.i) #53
+  %1297 = call ptr @strncpy(ptr noundef nonnull %58, ptr noundef readonly %1296, i64 noundef %spec.select.i.i210.i.i) #53
   %1298 = getelementptr inbounds [128 x i8], ptr %58, i64 0, i64 %spec.select.i.i210.i.i
   store i8 0, ptr %1298, align 1
   %1299 = call double @atof(ptr noundef nonnull %58) #50
@@ -47214,7 +47214,7 @@ cgltf_json_to_float.exit.i225.i.i:                ; preds = %.lr.ph.i221.i.i
   %1324 = sub nsw i64 %1321, %1323
   %spec.select.i.i226.i.i = call i64 @llvm.umin.i64(i64 %1324, i64 127)
   %1325 = getelementptr inbounds i8, ptr %2, i64 %1323
-  %1326 = call ptr @strncpy(ptr noundef nonnull %57, ptr noundef %1325, i64 noundef %spec.select.i.i226.i.i) #53
+  %1326 = call ptr @strncpy(ptr noundef nonnull %57, ptr noundef readonly %1325, i64 noundef %spec.select.i.i226.i.i) #53
   %1327 = getelementptr inbounds [128 x i8], ptr %57, i64 0, i64 %spec.select.i.i226.i.i
   store i8 0, ptr %1327, align 1
   %1328 = call double @atof(ptr noundef nonnull %57) #50
@@ -47229,7 +47229,7 @@ cgltf_json_to_float.exit.i225.i.i:                ; preds = %.lr.ph.i221.i.i
 
 cgltf_json_strcmp.exit233.i.i:                    ; preds = %1106
   %1331 = getelementptr inbounds i8, ptr %2, i64 %1110
-  %1332 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1331, ptr noundef nonnull dereferenceable(7) @.str.181, i64 noundef 6) #50
+  %1332 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1331, ptr noundef nonnull readonly dereferenceable(7) @.str.181, i64 noundef 6) #50
   %1333 = icmp eq i32 %1332, 0
   br i1 %1333, label %1334, label %cgltf_json_strcmp.exit241.i.i
 
@@ -47282,7 +47282,7 @@ cgltf_skip_json.exit172.thread.i.i.i:             ; preds = %1488, %cgltf_skip_j
 
 cgltf_json_strcmp.exit.i.i.i313:                  ; preds = %1350
   %1356 = getelementptr inbounds i8, ptr %2, i64 %1354
-  %1357 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1356, ptr noundef nonnull dereferenceable(6) @.str.170, i64 noundef 5) #50
+  %1357 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1356, ptr noundef nonnull readonly dereferenceable(6) @.str.170, i64 noundef 5) #50
   %1358 = icmp eq i32 %1357, 0
   br i1 %1358, label %1359, label %cgltf_json_strcmp.exit144.thread.i.i.i
 
@@ -47303,7 +47303,7 @@ cgltf_json_strcmp.exit.i.i.i313:                  ; preds = %1350
   %1369 = sub nsw i64 %1366, %1368
   %spec.select.i.i238.i.i = call i64 @llvm.umin.i64(i64 %1369, i64 127)
   %1370 = getelementptr inbounds i8, ptr %2, i64 %1368
-  %1371 = call ptr @strncpy(ptr noundef nonnull %56, ptr noundef %1370, i64 noundef %spec.select.i.i238.i.i) #53
+  %1371 = call ptr @strncpy(ptr noundef nonnull %56, ptr noundef readonly %1370, i64 noundef %spec.select.i.i238.i.i) #53
   %1372 = getelementptr inbounds [128 x i8], ptr %56, i64 0, i64 %spec.select.i.i238.i.i
   store i8 0, ptr %1372, align 1
   %1373 = call i32 @atoi(ptr nocapture noundef nonnull %56) #50
@@ -47319,7 +47319,7 @@ cgltf_json_to_int.exit.i237.i.i:                  ; preds = %1364, %1359
 
 cgltf_json_strcmp.exit124.i.i.i:                  ; preds = %1350
   %1376 = getelementptr inbounds i8, ptr %2, i64 %1354
-  %1377 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1376, ptr noundef nonnull dereferenceable(8) @.str.153, i64 noundef 7) #50
+  %1377 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1376, ptr noundef nonnull readonly dereferenceable(8) @.str.153, i64 noundef 7) #50
   %1378 = icmp eq i32 %1377, 0
   br i1 %1378, label %1379, label %cgltf_json_strcmp.exit144.thread.i.i.i
 
@@ -47370,7 +47370,7 @@ cgltf_skip_json.exit.i.i.thread.i:                ; preds = %cgltf_skip_json.exi
 
 cgltf_json_strcmp.exit127.i.i.i:                  ; preds = %1395
   %1401 = getelementptr inbounds i8, ptr %2, i64 %1399
-  %1402 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1401, ptr noundef nonnull dereferenceable(11) @.str.165, i64 noundef 10) #50
+  %1402 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1401, ptr noundef nonnull readonly dereferenceable(11) @.str.165, i64 noundef 10) #50
   %1403 = icmp eq i32 %1402, 0
   br i1 %1403, label %1404, label %cgltf_json_strcmp.exit134.i.i.i
 
@@ -47389,7 +47389,7 @@ cgltf_json_strcmp.exit127.i.i.i:                  ; preds = %1395
   %1412 = sub nsw i64 %1409, %1411
   %spec.select.i130.i.i.i = call i64 @llvm.umin.i64(i64 %1412, i64 127)
   %1413 = getelementptr inbounds i8, ptr %2, i64 %1411
-  %1414 = call ptr @strncpy(ptr noundef nonnull %55, ptr noundef %1413, i64 noundef %spec.select.i130.i.i.i) #53
+  %1414 = call ptr @strncpy(ptr noundef nonnull %55, ptr noundef readonly %1413, i64 noundef %spec.select.i130.i.i.i) #53
   %1415 = getelementptr inbounds [128 x i8], ptr %55, i64 0, i64 %spec.select.i130.i.i.i
   store i8 0, ptr %1415, align 1
   %1416 = call i32 @atoi(ptr nocapture noundef nonnull %55) #50
@@ -47406,7 +47406,7 @@ cgltf_json_to_int.exit131.i.i.i:                  ; preds = %1407, %1404
   br label %cgltf_skip_json.exit.i.i.thread.i
 
 cgltf_json_strcmp.exit134.i.i.i:                  ; preds = %cgltf_json_strcmp.exit127.i.i.i
-  %1421 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1401, ptr noundef nonnull dereferenceable(11) @.str.167, i64 noundef 10) #50
+  %1421 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1401, ptr noundef nonnull readonly dereferenceable(11) @.str.167, i64 noundef 10) #50
   %1422 = icmp eq i32 %1421, 0
   br i1 %1422, label %1423, label %cgltf_json_strcmp.exit140.thread.i.i.i
 
@@ -47425,7 +47425,7 @@ cgltf_json_strcmp.exit134.i.i.i:                  ; preds = %cgltf_json_strcmp.e
   %1431 = sub nsw i64 %1428, %1430
   %spec.select.i137.i.i.i = call i64 @llvm.umin.i64(i64 %1431, i64 127)
   %1432 = getelementptr inbounds i8, ptr %2, i64 %1430
-  %1433 = call ptr @strncpy(ptr noundef nonnull %54, ptr noundef %1432, i64 noundef %spec.select.i137.i.i.i) #53
+  %1433 = call ptr @strncpy(ptr noundef nonnull %54, ptr noundef readonly %1432, i64 noundef %spec.select.i137.i.i.i) #53
   %1434 = getelementptr inbounds [128 x i8], ptr %54, i64 0, i64 %spec.select.i137.i.i.i
   store i8 0, ptr %1434, align 1
   %1435 = call i64 @atoll(ptr nocapture noundef nonnull %54) #50
@@ -47440,7 +47440,7 @@ cgltf_json_to_size.exit.i.i.i:                    ; preds = %1426, %1423
 
 cgltf_json_strcmp.exit140.i.i.i:                  ; preds = %1395
   %1437 = getelementptr inbounds i8, ptr %2, i64 %1399
-  %1438 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1437, ptr noundef nonnull dereferenceable(14) @.str.168, i64 noundef 13) #50
+  %1438 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1437, ptr noundef nonnull readonly dereferenceable(14) @.str.168, i64 noundef 13) #50
   %1439 = icmp eq i32 %1438, 0
   br i1 %1439, label %1440, label %cgltf_json_strcmp.exit140.thread.i.i.i
 
@@ -47463,7 +47463,7 @@ cgltf_json_to_int.exit.i.i.i.i311:                ; preds = %1440
   %1447 = sub nsw i64 %1444, %1446
   %spec.select.i.i.i.i.i312 = call i64 @llvm.umin.i64(i64 %1447, i64 127)
   %1448 = getelementptr inbounds i8, ptr %2, i64 %1446
-  %1449 = call ptr @strncpy(ptr noundef nonnull %53, ptr noundef %1448, i64 noundef %spec.select.i.i.i.i.i312) #53
+  %1449 = call ptr @strncpy(ptr noundef nonnull %53, ptr noundef readonly %1448, i64 noundef %spec.select.i.i.i.i.i312) #53
   %1450 = getelementptr inbounds [128 x i8], ptr %53, i64 0, i64 %spec.select.i.i.i.i.i312
   store i8 0, ptr %1450, align 1
   %1451 = call i32 @atoi(ptr nocapture noundef nonnull %53) #50
@@ -47529,7 +47529,7 @@ cgltf_skip_json.exit.i.i.i:                       ; preds = %1470
 
 cgltf_json_strcmp.exit144.i.i.i:                  ; preds = %1350
   %1475 = getelementptr inbounds i8, ptr %2, i64 %1354
-  %1476 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1475, ptr noundef nonnull dereferenceable(7) @.str.183, i64 noundef 6) #50
+  %1476 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1475, ptr noundef nonnull readonly dereferenceable(7) @.str.183, i64 noundef 6) #50
   %1477 = icmp eq i32 %1476, 0
   br i1 %1477, label %1478, label %cgltf_json_strcmp.exit144.thread.i.i.i
 
@@ -47579,7 +47579,7 @@ cgltf_json_strcmp.exit144.i.i.i:                  ; preds = %1350
 
 cgltf_json_strcmp.exit147.i.i.i:                  ; preds = %1497
   %1504 = getelementptr inbounds i8, ptr %2, i64 %1501
-  %1505 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1504, ptr noundef nonnull dereferenceable(11) @.str.165, i64 noundef 10) #50
+  %1505 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1504, ptr noundef nonnull readonly dereferenceable(11) @.str.165, i64 noundef 10) #50
   %1506 = icmp eq i32 %1505, 0
   br i1 %1506, label %1507, label %cgltf_json_strcmp.exit154.i.i.i
 
@@ -47600,7 +47600,7 @@ cgltf_json_strcmp.exit147.i.i.i:                  ; preds = %1497
   %1517 = sub nsw i64 %1514, %1516
   %spec.select.i150.i.i.i = call i64 @llvm.umin.i64(i64 %1517, i64 127)
   %1518 = getelementptr inbounds i8, ptr %2, i64 %1516
-  %1519 = call ptr @strncpy(ptr noundef nonnull %52, ptr noundef %1518, i64 noundef %spec.select.i150.i.i.i) #53
+  %1519 = call ptr @strncpy(ptr noundef nonnull %52, ptr noundef readonly %1518, i64 noundef %spec.select.i150.i.i.i) #53
   %1520 = getelementptr inbounds [128 x i8], ptr %52, i64 0, i64 %spec.select.i150.i.i.i
   store i8 0, ptr %1520, align 1
   %1521 = call i32 @atoi(ptr nocapture noundef nonnull %52) #50
@@ -47617,7 +47617,7 @@ cgltf_json_to_int.exit151.i.i.i:                  ; preds = %1512, %1507
   br label %cgltf_skip_json.exit165.i.i.i
 
 cgltf_json_strcmp.exit154.i.i.i:                  ; preds = %cgltf_json_strcmp.exit147.i.i.i
-  %1526 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1504, ptr noundef nonnull dereferenceable(11) @.str.167, i64 noundef 10) #50
+  %1526 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1504, ptr noundef nonnull readonly dereferenceable(11) @.str.167, i64 noundef 10) #50
   %1527 = icmp eq i32 %1526, 0
   br i1 %1527, label %1528, label %cgltf_json_strcmp.exit154.thread.i.i.i
 
@@ -47638,7 +47638,7 @@ cgltf_json_strcmp.exit154.i.i.i:                  ; preds = %cgltf_json_strcmp.e
   %1538 = sub nsw i64 %1535, %1537
   %spec.select.i157.i.i.i = call i64 @llvm.umin.i64(i64 %1538, i64 127)
   %1539 = getelementptr inbounds i8, ptr %2, i64 %1537
-  %1540 = call ptr @strncpy(ptr noundef nonnull %51, ptr noundef %1539, i64 noundef %spec.select.i157.i.i.i) #53
+  %1540 = call ptr @strncpy(ptr noundef nonnull %51, ptr noundef readonly %1539, i64 noundef %spec.select.i157.i.i.i) #53
   %1541 = getelementptr inbounds [128 x i8], ptr %51, i64 0, i64 %spec.select.i157.i.i.i
   store i8 0, ptr %1541, align 1
   %1542 = call i64 @atoll(ptr nocapture noundef nonnull %51) #50
@@ -47746,7 +47746,7 @@ cgltf_skip_json.exit172.i.i.i:                    ; preds = %.split.loop.exit.i1
   br i1 %1583, label %cgltf_parse_json_asset.exit.thread, label %cgltf_skip_json.exit172.thread.i.i.i
 
 cgltf_json_strcmp.exit241.i.i:                    ; preds = %cgltf_json_strcmp.exit233.i.i
-  %1584 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1331, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %1584 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1331, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %1585 = icmp eq i32 %1584, 0
   br i1 %1585, label %1586, label %cgltf_json_strcmp.exit244.thread.i.i
 
@@ -47777,7 +47777,7 @@ cgltf_json_strcmp.exit241.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1602:                                             ; preds = %1589
   %1603 = getelementptr inbounds i8, ptr %2, i64 %1596
-  %1604 = call ptr @strncpy(ptr noundef nonnull %1601, ptr noundef %1603, i64 noundef %1597) #53
+  %1604 = call ptr @strncpy(ptr noundef nonnull %1601, ptr noundef readonly %1603, i64 noundef %1597) #53
   %1605 = load ptr, ptr %1096, align 8
   %1606 = getelementptr inbounds i8, ptr %1605, i64 %1597
   store i8 0, ptr %1606, align 1
@@ -47822,7 +47822,7 @@ cgltf_json_strcmp.exit241.i.i:                    ; preds = %cgltf_json_strcmp.e
   br label %cgltf_parse_json_string.exit.i.i297
 
 cgltf_json_strcmp.exit244.i.i:                    ; preds = %cgltf_json_strcmp.exit182.i.i
-  %1625 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1140, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %1625 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1140, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %1626 = icmp eq i32 %1625, 0
   br i1 %1626, label %1627, label %cgltf_json_strcmp.exit244.thread.i.i
 
@@ -47887,7 +47887,7 @@ cgltf_calloc.exit.thread.i.i332:                  ; preds = %1637, %1634
   store i64 %1654, ptr %1076, align 8
   %1655 = load ptr, ptr %1077, align 8
   %1656 = getelementptr inbounds %struct.cgltf_extension, ptr %1655, i64 %1653
-  %1657 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i328, ptr noundef %2, ptr noundef %1656)
+  %1657 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i328, ptr noundef readonly %2, ptr noundef %1656)
   %1658 = icmp slt i32 %1657, 0
   %1659 = add nuw nsw i32 %.03138.i.i329, 1
   %exitcond.not.i33.i = icmp eq i32 %1659, %1636
@@ -47960,7 +47960,7 @@ cgltf_parse_json_accessor.exit.i:                 ; preds = %cgltf_parse_json_ac
 
 cgltf_json_strcmp.exit340:                        ; preds = %cgltf_json_strcmp.exit.thread
   %1684 = getelementptr inbounds i8, ptr %2, i64 %123
-  %1685 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1684, ptr noundef nonnull dereferenceable(12) @.str.124, i64 noundef 11) #50
+  %1685 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1684, ptr noundef nonnull readonly dereferenceable(12) @.str.124, i64 noundef 11) #50
   %1686 = icmp eq i32 %1685, 0
   br i1 %1686, label %1687, label %cgltf_json_strcmp.exit716.thread
 
@@ -48080,7 +48080,7 @@ cgltf_parse_json_string.exit.thread.i.i:          ; preds = %cgltf_parse_json_me
 
 cgltf_json_strcmp.exit.i.i390:                    ; preds = %1745
   %1751 = getelementptr inbounds i8, ptr %2, i64 %1749
-  %1752 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1751, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %1752 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1751, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %1753 = icmp eq i32 %1752, 0
   br i1 %1753, label %1754, label %cgltf_json_strcmp.exit171.thread.i.i
 
@@ -48116,7 +48116,7 @@ cgltf_json_strcmp.exit.i.i390:                    ; preds = %1745
   %1773 = load i64, ptr %1764, align 8
   %1774 = getelementptr inbounds i8, ptr %2, i64 %1773
   %1775 = ashr exact i64 %1769, 32
-  %1776 = call ptr @strncpy(ptr noundef nonnull %1771, ptr noundef %1774, i64 noundef %1775) #53
+  %1776 = call ptr @strncpy(ptr noundef nonnull %1771, ptr noundef readonly %1774, i64 noundef %1775) #53
   %1777 = getelementptr inbounds i8, ptr %1771, i64 %1775
   store i8 0, ptr %1777, align 1
   store ptr %1771, ptr %1709, align 8
@@ -48125,7 +48125,7 @@ cgltf_json_strcmp.exit.i.i390:                    ; preds = %1745
 
 cgltf_json_strcmp.exit134.i.i379:                 ; preds = %1745
   %1779 = getelementptr inbounds i8, ptr %2, i64 %1749
-  %1780 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1779, ptr noundef nonnull dereferenceable(7) @.str.184, i64 noundef 6) #50
+  %1780 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1779, ptr noundef nonnull readonly dereferenceable(7) @.str.184, i64 noundef 6) #50
   %1781 = icmp eq i32 %1780, 0
   br i1 %1781, label %1782, label %cgltf_json_strcmp.exit159.i.i
 
@@ -48146,7 +48146,7 @@ cgltf_json_strcmp.exit134.i.i379:                 ; preds = %1745
   %1792 = sub nsw i64 %1789, %1791
   %spec.select.i.i.i389 = call i64 @llvm.umin.i64(i64 %1792, i64 127)
   %1793 = getelementptr inbounds i8, ptr %2, i64 %1791
-  %1794 = call ptr @strncpy(ptr noundef nonnull %50, ptr noundef %1793, i64 noundef %spec.select.i.i.i389) #53
+  %1794 = call ptr @strncpy(ptr noundef nonnull %50, ptr noundef readonly %1793, i64 noundef %spec.select.i.i.i389) #53
   %1795 = getelementptr inbounds [128 x i8], ptr %50, i64 0, i64 %spec.select.i.i.i389
   store i8 0, ptr %1795, align 1
   %1796 = call i32 @atoi(ptr nocapture noundef nonnull %50) #50
@@ -48164,7 +48164,7 @@ cgltf_json_to_int.exit.i.i388:                    ; preds = %1787, %1782
 
 cgltf_json_strcmp.exit139.i.i:                    ; preds = %1745
   %1801 = getelementptr inbounds i8, ptr %2, i64 %1749
-  %1802 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1801, ptr noundef nonnull dereferenceable(11) @.str.167, i64 noundef 10) #50
+  %1802 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1801, ptr noundef nonnull readonly dereferenceable(11) @.str.167, i64 noundef 10) #50
   %1803 = icmp eq i32 %1802, 0
   br i1 %1803, label %1804, label %cgltf_json_strcmp.exit145.i.i
 
@@ -48185,7 +48185,7 @@ cgltf_json_strcmp.exit139.i.i:                    ; preds = %1745
   %1814 = sub nsw i64 %1811, %1813
   %spec.select.i142.i.i = call i64 @llvm.umin.i64(i64 %1814, i64 127)
   %1815 = getelementptr inbounds i8, ptr %2, i64 %1813
-  %1816 = call ptr @strncpy(ptr noundef nonnull %49, ptr noundef %1815, i64 noundef %spec.select.i142.i.i) #53
+  %1816 = call ptr @strncpy(ptr noundef nonnull %49, ptr noundef readonly %1815, i64 noundef %spec.select.i142.i.i) #53
   %1817 = getelementptr inbounds [128 x i8], ptr %49, i64 0, i64 %spec.select.i142.i.i
   store i8 0, ptr %1817, align 1
   %1818 = call i64 @atoll(ptr nocapture noundef nonnull %49) #50
@@ -48199,7 +48199,7 @@ cgltf_json_to_size.exit.i.i378:                   ; preds = %1809, %1804
   br label %cgltf_parse_json_string.exit.i.i355
 
 cgltf_json_strcmp.exit145.i.i:                    ; preds = %cgltf_json_strcmp.exit139.i.i
-  %1820 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1801, ptr noundef nonnull dereferenceable(11) @.str.185, i64 noundef 10) #50
+  %1820 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1801, ptr noundef nonnull readonly dereferenceable(11) @.str.185, i64 noundef 10) #50
   %1821 = icmp eq i32 %1820, 0
   br i1 %1821, label %1822, label %cgltf_json_strcmp.exit152.i.i
 
@@ -48220,7 +48220,7 @@ cgltf_json_strcmp.exit145.i.i:                    ; preds = %cgltf_json_strcmp.e
   %1832 = sub nsw i64 %1829, %1831
   %spec.select.i148.i.i = call i64 @llvm.umin.i64(i64 %1832, i64 127)
   %1833 = getelementptr inbounds i8, ptr %2, i64 %1831
-  %1834 = call ptr @strncpy(ptr noundef nonnull %48, ptr noundef %1833, i64 noundef %spec.select.i148.i.i) #53
+  %1834 = call ptr @strncpy(ptr noundef nonnull %48, ptr noundef readonly %1833, i64 noundef %spec.select.i148.i.i) #53
   %1835 = getelementptr inbounds [128 x i8], ptr %48, i64 0, i64 %spec.select.i148.i.i
   store i8 0, ptr %1835, align 1
   %1836 = call i64 @atoll(ptr nocapture noundef nonnull %48) #50
@@ -48234,7 +48234,7 @@ cgltf_json_to_size.exit149.i.i:                   ; preds = %1827, %1822
   br label %cgltf_parse_json_string.exit.i.i355
 
 cgltf_json_strcmp.exit152.i.i:                    ; preds = %cgltf_json_strcmp.exit145.i.i
-  %1838 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1801, ptr noundef nonnull dereferenceable(11) @.str.186, i64 noundef 10) #50
+  %1838 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1801, ptr noundef nonnull readonly dereferenceable(11) @.str.186, i64 noundef 10) #50
   %1839 = icmp eq i32 %1838, 0
   br i1 %1839, label %1840, label %cgltf_json_strcmp.exit171.i.i
 
@@ -48255,7 +48255,7 @@ cgltf_json_strcmp.exit152.i.i:                    ; preds = %cgltf_json_strcmp.e
   %1850 = sub nsw i64 %1847, %1849
   %spec.select.i155.i.i = call i64 @llvm.umin.i64(i64 %1850, i64 127)
   %1851 = getelementptr inbounds i8, ptr %2, i64 %1849
-  %1852 = call ptr @strncpy(ptr noundef nonnull %47, ptr noundef %1851, i64 noundef %spec.select.i155.i.i) #53
+  %1852 = call ptr @strncpy(ptr noundef nonnull %47, ptr noundef readonly %1851, i64 noundef %spec.select.i155.i.i) #53
   %1853 = getelementptr inbounds [128 x i8], ptr %47, i64 0, i64 %spec.select.i155.i.i
   store i8 0, ptr %1853, align 1
   %1854 = call i64 @atoll(ptr nocapture noundef nonnull %47) #50
@@ -48269,7 +48269,7 @@ cgltf_json_to_size.exit156.i.i:                   ; preds = %1845, %1840
   br label %cgltf_parse_json_string.exit.i.i355
 
 cgltf_json_strcmp.exit159.i.i:                    ; preds = %cgltf_json_strcmp.exit134.i.i379
-  %1856 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1779, ptr noundef nonnull dereferenceable(7) @.str.187, i64 noundef 6) #50
+  %1856 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1779, ptr noundef nonnull readonly dereferenceable(7) @.str.187, i64 noundef 6) #50
   %1857 = icmp eq i32 %1856, 0
   br i1 %1857, label %1858, label %cgltf_json_strcmp.exit166.i.i380
 
@@ -48294,7 +48294,7 @@ cgltf_json_to_int.exit163.i.i:                    ; preds = %1858
   %1867 = sub nsw i64 %1864, %1866
   %spec.select.i162.i.i = call i64 @llvm.umin.i64(i64 %1867, i64 127)
   %1868 = getelementptr inbounds i8, ptr %2, i64 %1866
-  %1869 = call ptr @strncpy(ptr noundef nonnull %46, ptr noundef %1868, i64 noundef %spec.select.i162.i.i) #53
+  %1869 = call ptr @strncpy(ptr noundef nonnull %46, ptr noundef readonly %1868, i64 noundef %spec.select.i162.i.i) #53
   %1870 = getelementptr inbounds [128 x i8], ptr %46, i64 0, i64 %spec.select.i162.i.i
   store i8 0, ptr %1870, align 1
   %1871 = call i32 @atoi(ptr nocapture noundef nonnull %46) #50
@@ -48313,7 +48313,7 @@ cgltf_json_to_int.exit163.i.i:                    ; preds = %1858
   br label %cgltf_parse_json_string.exit.i.i355
 
 cgltf_json_strcmp.exit166.i.i380:                 ; preds = %cgltf_json_strcmp.exit159.i.i
-  %1875 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1779, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %1875 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1779, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %1876 = icmp eq i32 %1875, 0
   br i1 %1876, label %1877, label %cgltf_json_strcmp.exit171.thread.i.i
 
@@ -48344,7 +48344,7 @@ cgltf_json_strcmp.exit166.i.i380:                 ; preds = %cgltf_json_strcmp.e
 
 1893:                                             ; preds = %1880
   %1894 = getelementptr inbounds i8, ptr %2, i64 %1887
-  %1895 = call ptr @strncpy(ptr noundef nonnull %1892, ptr noundef %1894, i64 noundef %1888) #53
+  %1895 = call ptr @strncpy(ptr noundef nonnull %1892, ptr noundef readonly %1894, i64 noundef %1888) #53
   %1896 = load ptr, ptr %1728, align 8
   %1897 = getelementptr inbounds i8, ptr %1896, i64 %1888
   store i8 0, ptr %1897, align 1
@@ -48389,7 +48389,7 @@ cgltf_json_strcmp.exit166.i.i380:                 ; preds = %cgltf_json_strcmp.e
   br label %cgltf_parse_json_string.exit.i.i355
 
 cgltf_json_strcmp.exit171.i.i:                    ; preds = %cgltf_json_strcmp.exit152.i.i
-  %1916 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1801, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %1916 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1801, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %1917 = icmp eq i32 %1916, 0
   br i1 %1917, label %1918, label %cgltf_json_strcmp.exit171.thread.i.i
 
@@ -48463,7 +48463,7 @@ cgltf_parse_json_meshopt_compression.exit.i.thread.i: ; preds = %cgltf_parse_jso
 
 cgltf_json_strcmp.exit176.i.i:                    ; preds = %1942
   %1949 = getelementptr inbounds i8, ptr %2, i64 %1946
-  %1950 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1949, ptr noundef nonnull dereferenceable(24) @.str.188, i64 noundef 23) #50
+  %1950 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1949, ptr noundef nonnull readonly dereferenceable(24) @.str.188, i64 noundef 23) #50
   %1951 = icmp eq i32 %1950, 0
   br i1 %1951, label %1952, label %cgltf_json_strcmp.exit176.thread.i.i
 
@@ -48511,7 +48511,7 @@ cgltf_json_strcmp.exit176.i.i:                    ; preds = %1942
 
 cgltf_json_strcmp.exit.i.i.i374:                  ; preds = %1967
   %1973 = getelementptr inbounds i8, ptr %2, i64 %1971
-  %1974 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1973, ptr noundef nonnull dereferenceable(7) @.str.184, i64 noundef 6) #50
+  %1974 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1973, ptr noundef nonnull readonly dereferenceable(7) @.str.184, i64 noundef 6) #50
   %1975 = icmp eq i32 %1974, 0
   br i1 %1975, label %1976, label %cgltf_json_strcmp.exit146.i.i.i
 
@@ -48530,7 +48530,7 @@ cgltf_json_strcmp.exit.i.i.i374:                  ; preds = %1967
   %1984 = sub nsw i64 %1981, %1983
   %spec.select.i.i.i.i376 = call i64 @llvm.umin.i64(i64 %1984, i64 127)
   %1985 = getelementptr inbounds i8, ptr %2, i64 %1983
-  %1986 = call ptr @strncpy(ptr noundef nonnull %45, ptr noundef %1985, i64 noundef %spec.select.i.i.i.i376) #53
+  %1986 = call ptr @strncpy(ptr noundef nonnull %45, ptr noundef readonly %1985, i64 noundef %spec.select.i.i.i.i376) #53
   %1987 = getelementptr inbounds [128 x i8], ptr %45, i64 0, i64 %spec.select.i.i.i.i376
   store i8 0, ptr %1987, align 1
   %1988 = call i32 @atoi(ptr nocapture noundef nonnull %45) #50
@@ -48548,7 +48548,7 @@ cgltf_json_to_int.exit.i.i.i375:                  ; preds = %1979, %1976
 
 cgltf_json_strcmp.exit107.i.i.i:                  ; preds = %1967
   %1993 = getelementptr inbounds i8, ptr %2, i64 %1971
-  %1994 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1993, ptr noundef nonnull dereferenceable(11) @.str.167, i64 noundef 10) #50
+  %1994 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1993, ptr noundef nonnull readonly dereferenceable(11) @.str.167, i64 noundef 10) #50
   %1995 = icmp eq i32 %1994, 0
   br i1 %1995, label %1996, label %cgltf_json_strcmp.exit113.i.i.i
 
@@ -48567,7 +48567,7 @@ cgltf_json_strcmp.exit107.i.i.i:                  ; preds = %1967
   %2004 = sub nsw i64 %2001, %2003
   %spec.select.i110.i.i.i = call i64 @llvm.umin.i64(i64 %2004, i64 127)
   %2005 = getelementptr inbounds i8, ptr %2, i64 %2003
-  %2006 = call ptr @strncpy(ptr noundef nonnull %44, ptr noundef %2005, i64 noundef %spec.select.i110.i.i.i) #53
+  %2006 = call ptr @strncpy(ptr noundef nonnull %44, ptr noundef readonly %2005, i64 noundef %spec.select.i110.i.i.i) #53
   %2007 = getelementptr inbounds [128 x i8], ptr %44, i64 0, i64 %spec.select.i110.i.i.i
   store i8 0, ptr %2007, align 1
   %2008 = call i64 @atoll(ptr nocapture noundef nonnull %44) #50
@@ -48581,7 +48581,7 @@ cgltf_json_to_size.exit.i.i.i373:                 ; preds = %1999, %1996
   br label %cgltf_skip_json.exit.i.i.i362
 
 cgltf_json_strcmp.exit113.i.i.i:                  ; preds = %cgltf_json_strcmp.exit107.i.i.i
-  %2010 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1993, ptr noundef nonnull dereferenceable(11) @.str.185, i64 noundef 10) #50
+  %2010 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1993, ptr noundef nonnull readonly dereferenceable(11) @.str.185, i64 noundef 10) #50
   %2011 = icmp eq i32 %2010, 0
   br i1 %2011, label %2012, label %cgltf_json_strcmp.exit120.i.i.i
 
@@ -48600,7 +48600,7 @@ cgltf_json_strcmp.exit113.i.i.i:                  ; preds = %cgltf_json_strcmp.e
   %2020 = sub nsw i64 %2017, %2019
   %spec.select.i116.i.i.i = call i64 @llvm.umin.i64(i64 %2020, i64 127)
   %2021 = getelementptr inbounds i8, ptr %2, i64 %2019
-  %2022 = call ptr @strncpy(ptr noundef nonnull %43, ptr noundef %2021, i64 noundef %spec.select.i116.i.i.i) #53
+  %2022 = call ptr @strncpy(ptr noundef nonnull %43, ptr noundef readonly %2021, i64 noundef %spec.select.i116.i.i.i) #53
   %2023 = getelementptr inbounds [128 x i8], ptr %43, i64 0, i64 %spec.select.i116.i.i.i
   store i8 0, ptr %2023, align 1
   %2024 = call i64 @atoll(ptr nocapture noundef nonnull %43) #50
@@ -48614,7 +48614,7 @@ cgltf_json_to_size.exit117.i.i.i:                 ; preds = %2015, %2012
   br label %cgltf_skip_json.exit.i.i.i362
 
 cgltf_json_strcmp.exit120.i.i.i:                  ; preds = %cgltf_json_strcmp.exit113.i.i.i
-  %2026 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1993, ptr noundef nonnull dereferenceable(11) @.str.186, i64 noundef 10) #50
+  %2026 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1993, ptr noundef nonnull readonly dereferenceable(11) @.str.186, i64 noundef 10) #50
   %2027 = icmp eq i32 %2026, 0
   br i1 %2027, label %2028, label %cgltf_json_strcmp.exit146.thread.i.i.i
 
@@ -48633,7 +48633,7 @@ cgltf_json_strcmp.exit120.i.i.i:                  ; preds = %cgltf_json_strcmp.e
   %2036 = sub nsw i64 %2033, %2035
   %spec.select.i123.i.i.i = call i64 @llvm.umin.i64(i64 %2036, i64 127)
   %2037 = getelementptr inbounds i8, ptr %2, i64 %2035
-  %2038 = call ptr @strncpy(ptr noundef nonnull %42, ptr noundef %2037, i64 noundef %spec.select.i123.i.i.i) #53
+  %2038 = call ptr @strncpy(ptr noundef nonnull %42, ptr noundef readonly %2037, i64 noundef %spec.select.i123.i.i.i) #53
   %2039 = getelementptr inbounds [128 x i8], ptr %42, i64 0, i64 %spec.select.i123.i.i.i
   store i8 0, ptr %2039, align 1
   %2040 = call i64 @atoll(ptr nocapture noundef nonnull %42) #50
@@ -48648,7 +48648,7 @@ cgltf_json_to_size.exit124.i.i.i:                 ; preds = %2031, %2028
 
 cgltf_json_strcmp.exit127.i.i.i368:               ; preds = %1967
   %2042 = getelementptr inbounds i8, ptr %2, i64 %1971
-  %2043 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2042, ptr noundef nonnull dereferenceable(6) @.str.170, i64 noundef 5) #50
+  %2043 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2042, ptr noundef nonnull readonly dereferenceable(6) @.str.170, i64 noundef 5) #50
   %2044 = icmp eq i32 %2043, 0
   br i1 %2044, label %2045, label %cgltf_json_strcmp.exit146.thread.i.i.i
 
@@ -48667,7 +48667,7 @@ cgltf_json_strcmp.exit127.i.i.i368:               ; preds = %1967
   %2053 = sub nsw i64 %2050, %2052
   %spec.select.i130.i.i.i372 = call i64 @llvm.umin.i64(i64 %2053, i64 127)
   %2054 = getelementptr inbounds i8, ptr %2, i64 %2052
-  %2055 = call ptr @strncpy(ptr noundef nonnull %41, ptr noundef %2054, i64 noundef %spec.select.i130.i.i.i372) #53
+  %2055 = call ptr @strncpy(ptr noundef nonnull %41, ptr noundef readonly %2054, i64 noundef %spec.select.i130.i.i.i372) #53
   %2056 = getelementptr inbounds [128 x i8], ptr %41, i64 0, i64 %spec.select.i130.i.i.i372
   store i8 0, ptr %2056, align 1
   %2057 = call i32 @atoi(ptr nocapture noundef nonnull %41) #50
@@ -48683,7 +48683,7 @@ cgltf_json_to_int.exit131.i.i.i370:               ; preds = %2048, %2045
 
 cgltf_json_strcmp.exit134.i.i.i361:               ; preds = %1967
   %2060 = getelementptr inbounds i8, ptr %2, i64 %1971
-  %2061 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2060, ptr noundef nonnull dereferenceable(5) @.str.152, i64 noundef 4) #50
+  %2061 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2060, ptr noundef nonnull readonly dereferenceable(5) @.str.152, i64 noundef 4) #50
   %2062 = icmp eq i32 %2061, 0
   br i1 %2062, label %2063, label %cgltf_json_strcmp.exit146.thread.i.i.i
 
@@ -48707,19 +48707,19 @@ cgltf_json_strcmp.exit134.i.i.i361:               ; preds = %1967
 
 cgltf_json_strcmp.exit137.i.i.i:                  ; preds = %2066
   %2072 = getelementptr inbounds i8, ptr %2, i64 %2070
-  %2073 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2072, ptr noundef nonnull dereferenceable(11) @.str.189, i64 noundef 10) #50
+  %2073 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2072, ptr noundef nonnull readonly dereferenceable(11) @.str.189, i64 noundef 10) #50
   %2074 = icmp eq i32 %2073, 0
   br i1 %2074, label %cgltf_json_strcmp.exit143.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit143.thread.i.i.i
 
 cgltf_json_strcmp.exit140.i.i.i367:               ; preds = %2066
   %2075 = getelementptr inbounds i8, ptr %2, i64 %2070
-  %2076 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2075, ptr noundef nonnull dereferenceable(10) @.str.190, i64 noundef 9) #50
+  %2076 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2075, ptr noundef nonnull readonly dereferenceable(10) @.str.190, i64 noundef 9) #50
   %2077 = icmp eq i32 %2076, 0
   br i1 %2077, label %cgltf_json_strcmp.exit143.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit143.thread.i.i.i
 
 cgltf_json_strcmp.exit143.i.i.i:                  ; preds = %2066
   %2078 = getelementptr inbounds i8, ptr %2, i64 %2070
-  %2079 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2078, ptr noundef nonnull dereferenceable(8) @.str.191, i64 noundef 7) #50
+  %2079 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2078, ptr noundef nonnull readonly dereferenceable(8) @.str.191, i64 noundef 7) #50
   %2080 = icmp eq i32 %2079, 0
   br i1 %2080, label %cgltf_json_strcmp.exit143.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit143.thread.i.i.i
 
@@ -48733,7 +48733,7 @@ cgltf_json_strcmp.exit143.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   br label %cgltf_skip_json.exit.i.i.i362
 
 cgltf_json_strcmp.exit146.i.i.i:                  ; preds = %cgltf_json_strcmp.exit.i.i.i374
-  %2082 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1973, ptr noundef nonnull dereferenceable(7) @.str.192, i64 noundef 6) #50
+  %2082 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1973, ptr noundef nonnull readonly dereferenceable(7) @.str.192, i64 noundef 6) #50
   %2083 = icmp eq i32 %2082, 0
   br i1 %2083, label %2084, label %cgltf_json_strcmp.exit146.thread.i.i.i
 
@@ -48757,24 +48757,24 @@ cgltf_json_strcmp.exit146.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit149.i.i.i:                  ; preds = %2087
   %2093 = getelementptr inbounds i8, ptr %2, i64 %2091
-  %2094 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2093, ptr noundef nonnull dereferenceable(5) @.str.193, i64 noundef 4) #50
+  %2094 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2093, ptr noundef nonnull readonly dereferenceable(5) @.str.193, i64 noundef 4) #50
   %2095 = icmp eq i32 %2094, 0
   br i1 %2095, label %cgltf_json_strcmp.exit158.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit158.thread.i.i.i
 
 cgltf_json_strcmp.exit152.i.i.i:                  ; preds = %2087
   %2096 = getelementptr inbounds i8, ptr %2, i64 %2091
-  %2097 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2096, ptr noundef nonnull dereferenceable(11) @.str.194, i64 noundef 10) #50
+  %2097 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2096, ptr noundef nonnull readonly dereferenceable(11) @.str.194, i64 noundef 10) #50
   %2098 = icmp eq i32 %2097, 0
   br i1 %2098, label %cgltf_json_strcmp.exit158.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit155.i.i.i
 
 cgltf_json_strcmp.exit155.i.i.i:                  ; preds = %cgltf_json_strcmp.exit152.i.i.i
-  %2099 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2096, ptr noundef nonnull dereferenceable(11) @.str.195, i64 noundef 10) #50
+  %2099 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2096, ptr noundef nonnull readonly dereferenceable(11) @.str.195, i64 noundef 10) #50
   %2100 = icmp eq i32 %2099, 0
   br i1 %2100, label %cgltf_json_strcmp.exit158.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit158.thread.i.i.i
 
 cgltf_json_strcmp.exit158.i.i.i:                  ; preds = %2087
   %2101 = getelementptr inbounds i8, ptr %2, i64 %2091
-  %2102 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2101, ptr noundef nonnull dereferenceable(12) @.str.196, i64 noundef 11) #50
+  %2102 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2101, ptr noundef nonnull readonly dereferenceable(12) @.str.196, i64 noundef 11) #50
   %2103 = icmp eq i32 %2102, 0
   br i1 %2103, label %cgltf_json_strcmp.exit158.thread.sink.split.i.i.i, label %cgltf_json_strcmp.exit158.thread.i.i.i
 
@@ -48843,7 +48843,7 @@ cgltf_json_strcmp.exit176.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   %2128 = add i64 %2127, 1
   store i64 %2128, ptr %1719, align 8
   %2129 = getelementptr inbounds %struct.cgltf_extension, ptr %2126, i64 %2127
-  %2130 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.1218.i.i, ptr noundef %2, ptr noundef %2129)
+  %2130 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.1218.i.i, ptr noundef readonly %2, ptr noundef %2129)
   br label %cgltf_parse_json_meshopt_compression.exit.i.i
 
 cgltf_parse_json_meshopt_compression.exit.i.i:    ; preds = %cgltf_skip_json.exit.i.i.i362, %cgltf_json_strcmp.exit176.thread.i.i
@@ -48911,7 +48911,7 @@ cgltf_parse_json_buffer_view.exit.i:              ; preds = %cgltf_parse_json_bu
 
 cgltf_json_strcmp.exit397:                        ; preds = %cgltf_json_strcmp.exit.thread
   %2155 = getelementptr inbounds i8, ptr %2, i64 %123
-  %2156 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2155, ptr noundef nonnull dereferenceable(8) @.str.125, i64 noundef 7) #50
+  %2156 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2155, ptr noundef nonnull readonly dereferenceable(8) @.str.125, i64 noundef 7) #50
   %2157 = icmp eq i32 %2156, 0
   br i1 %2157, label %2158, label %cgltf_json_strcmp.exit713
 
@@ -49015,7 +49015,7 @@ cgltf_parse_json_array.exit.i403:                 ; preds = %2172
 
 cgltf_json_strcmp.exit.i.i441:                    ; preds = %2204
   %2210 = getelementptr inbounds i8, ptr %2, i64 %2208
-  %2211 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2210, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %2211 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2210, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %2212 = icmp eq i32 %2211, 0
   br i1 %2212, label %2213, label %cgltf_json_strcmp.exit85.thread.i.i
 
@@ -49049,7 +49049,7 @@ cgltf_json_strcmp.exit.i.i441:                    ; preds = %2204
   %2230 = load i64, ptr %2221, align 8
   %2231 = getelementptr inbounds i8, ptr %2, i64 %2230
   %2232 = ashr exact i64 %2226, 32
-  %2233 = call ptr @strncpy(ptr noundef nonnull %2228, ptr noundef %2231, i64 noundef %2232) #53
+  %2233 = call ptr @strncpy(ptr noundef nonnull %2228, ptr noundef readonly %2231, i64 noundef %2232) #53
   %2234 = getelementptr inbounds i8, ptr %2228, i64 %2232
   store i8 0, ptr %2234, align 1
   store ptr %2228, ptr %2180, align 8
@@ -49058,7 +49058,7 @@ cgltf_json_strcmp.exit.i.i441:                    ; preds = %2204
 
 cgltf_json_strcmp.exit66.i.i:                     ; preds = %2204
   %2236 = getelementptr inbounds i8, ptr %2, i64 %2208
-  %2237 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2236, ptr noundef nonnull dereferenceable(11) @.str.185, i64 noundef 10) #50
+  %2237 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2236, ptr noundef nonnull readonly dereferenceable(11) @.str.185, i64 noundef 10) #50
   %2238 = icmp eq i32 %2237, 0
   br i1 %2238, label %2239, label %cgltf_json_strcmp.exit85.i.i
 
@@ -49077,7 +49077,7 @@ cgltf_json_strcmp.exit66.i.i:                     ; preds = %2204
   %2247 = sub nsw i64 %2244, %2246
   %spec.select.i.i.i440 = call i64 @llvm.umin.i64(i64 %2247, i64 127)
   %2248 = getelementptr inbounds i8, ptr %2, i64 %2246
-  %2249 = call ptr @strncpy(ptr noundef nonnull %40, ptr noundef %2248, i64 noundef %spec.select.i.i.i440) #53
+  %2249 = call ptr @strncpy(ptr noundef nonnull %40, ptr noundef readonly %2248, i64 noundef %spec.select.i.i.i440) #53
   %2250 = getelementptr inbounds [128 x i8], ptr %40, i64 0, i64 %spec.select.i.i.i440
   store i8 0, ptr %2250, align 1
   %2251 = call i64 @atoll(ptr nocapture noundef nonnull %40) #50
@@ -49148,7 +49148,7 @@ cgltf_json_strcmp.exit71.tail.i.i:                ; preds = %sub_2.i.i427, %sub_
   %2284 = load i64, ptr %2275, align 8
   %2285 = getelementptr inbounds i8, ptr %2, i64 %2284
   %2286 = ashr exact i64 %2280, 32
-  %2287 = call ptr @strncpy(ptr noundef nonnull %2282, ptr noundef %2285, i64 noundef %2286) #53
+  %2287 = call ptr @strncpy(ptr noundef nonnull %2282, ptr noundef readonly %2285, i64 noundef %2286) #53
   %2288 = getelementptr inbounds i8, ptr %2282, i64 %2286
   store i8 0, ptr %2288, align 1
   store ptr %2282, ptr %2194, align 8
@@ -49157,7 +49157,7 @@ cgltf_json_strcmp.exit71.tail.i.i:                ; preds = %sub_2.i.i427, %sub_
 
 cgltf_json_strcmp.exit80.i.i:                     ; preds = %2204
   %2290 = getelementptr inbounds i8, ptr %2, i64 %2208
-  %2291 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2290, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %2291 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2290, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %2292 = icmp eq i32 %2291, 0
   br i1 %2292, label %2293, label %cgltf_json_strcmp.exit85.thread.i.i
 
@@ -49188,7 +49188,7 @@ cgltf_json_strcmp.exit80.i.i:                     ; preds = %2204
 
 2309:                                             ; preds = %2295
   %2310 = getelementptr inbounds i8, ptr %2, i64 %2303
-  %2311 = call ptr @strncpy(ptr noundef nonnull %2308, ptr noundef %2310, i64 noundef %2304) #53
+  %2311 = call ptr @strncpy(ptr noundef nonnull %2308, ptr noundef readonly %2310, i64 noundef %2304) #53
   %2312 = load ptr, ptr %2191, align 8
   %2313 = getelementptr inbounds i8, ptr %2312, i64 %2304
   store i8 0, ptr %2313, align 1
@@ -49232,7 +49232,7 @@ cgltf_json_strcmp.exit80.i.i:                     ; preds = %2204
   br label %cgltf_parse_json_string.exit.i.i414
 
 cgltf_json_strcmp.exit85.i.i:                     ; preds = %cgltf_json_strcmp.exit66.i.i
-  %2331 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2236, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %2331 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2236, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %2332 = icmp eq i32 %2331, 0
   br i1 %2332, label %2333, label %cgltf_json_strcmp.exit85.thread.i.i
 
@@ -49295,7 +49295,7 @@ cgltf_calloc.exit.thread.i.i.i438:                ; preds = %2341, %2338
   store i64 %2358, ptr %2189, align 8
   %2359 = load ptr, ptr %2190, align 8
   %2360 = getelementptr inbounds %struct.cgltf_extension, ptr %2359, i64 %2357
-  %2361 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i.i433, ptr noundef %2, ptr noundef %2360)
+  %2361 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i433, ptr noundef readonly %2, ptr noundef %2360)
   %2362 = icmp slt i32 %2361, 0
   %2363 = add nuw nsw i32 %.03138.i.i.i434, 1
   %exitcond.not.i.i.i436 = icmp eq i32 %2363, %2340
@@ -49368,7 +49368,7 @@ cgltf_parse_json_buffer.exit.thread28.i:          ; preds = %cgltf_parse_json_bu
 
 cgltf_json_strcmp.exit447:                        ; preds = %cgltf_json_strcmp.exit281
   %2388 = getelementptr inbounds i8, ptr %2, i64 %123
-  %2389 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2388, ptr noundef nonnull dereferenceable(10) @.str.126, i64 noundef 9) #50
+  %2389 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2388, ptr noundef nonnull readonly dereferenceable(10) @.str.126, i64 noundef 9) #50
   %2390 = icmp eq i32 %2389, 0
   br i1 %2390, label %2391, label %cgltf_json_strcmp.exit716.thread
 
@@ -49586,7 +49586,7 @@ cgltf_parse_json_string.exit.thread.i.i464:       ; preds = %2819, %cgltf_parse_
 
 cgltf_json_strcmp.exit.i.i509:                    ; preds = %2496
   %2502 = getelementptr inbounds i8, ptr %2, i64 %2500
-  %2503 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2502, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %2503 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2502, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %2504 = icmp eq i32 %2503, 0
   br i1 %2504, label %2505, label %cgltf_json_strcmp.exit325.thread.i.i
 
@@ -49622,7 +49622,7 @@ cgltf_json_strcmp.exit.i.i509:                    ; preds = %2496
   %2524 = load i64, ptr %2515, align 8
   %2525 = getelementptr inbounds i8, ptr %2, i64 %2524
   %2526 = ashr exact i64 %2520, 32
-  %2527 = call ptr @strncpy(ptr noundef nonnull %2522, ptr noundef %2525, i64 noundef %2526) #53
+  %2527 = call ptr @strncpy(ptr noundef nonnull %2522, ptr noundef readonly %2525, i64 noundef %2526) #53
   %2528 = getelementptr inbounds i8, ptr %2522, i64 %2526
   store i8 0, ptr %2528, align 1
   store ptr %2522, ptr %2412, align 8
@@ -49631,7 +49631,7 @@ cgltf_json_strcmp.exit.i.i509:                    ; preds = %2496
 
 cgltf_json_strcmp.exit269.i.i:                    ; preds = %2496
   %2530 = getelementptr inbounds i8, ptr %2, i64 %2500
-  %2531 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2530, ptr noundef nonnull dereferenceable(21) @.str.198, i64 noundef 20) #50
+  %2531 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2530, ptr noundef nonnull readonly dereferenceable(21) @.str.198, i64 noundef 20) #50
   %2532 = icmp eq i32 %2531, 0
   br i1 %2532, label %2533, label %cgltf_json_strcmp.exit325.thread.i.i
 
@@ -49681,7 +49681,7 @@ cgltf_json_strcmp.exit269.i.i:                    ; preds = %2496
 
 cgltf_json_strcmp.exit.i.i.i506:                  ; preds = %2550
   %2556 = getelementptr inbounds i8, ptr %2, i64 %2554
-  %2557 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2556, ptr noundef nonnull dereferenceable(15) @.str.220, i64 noundef 14) #50
+  %2557 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2556, ptr noundef nonnull readonly dereferenceable(15) @.str.220, i64 noundef 14) #50
   %2558 = icmp eq i32 %2557, 0
   br i1 %2558, label %2559, label %cgltf_json_strcmp.exit79.thread.i.i.i
 
@@ -49702,7 +49702,7 @@ cgltf_json_strcmp.exit.i.i.i506:                  ; preds = %2550
   %2569 = sub nsw i64 %2566, %2568
   %spec.select.i.i.i.i508 = call i64 @llvm.umin.i64(i64 %2569, i64 127)
   %2570 = getelementptr inbounds i8, ptr %2, i64 %2568
-  %2571 = call ptr @strncpy(ptr noundef nonnull %39, ptr noundef %2570, i64 noundef %spec.select.i.i.i.i508) #53
+  %2571 = call ptr @strncpy(ptr noundef nonnull %39, ptr noundef readonly %2570, i64 noundef %spec.select.i.i.i.i508) #53
   %2572 = getelementptr inbounds [128 x i8], ptr %39, i64 0, i64 %spec.select.i.i.i.i508
   store i8 0, ptr %2572, align 1
   %2573 = call double @atof(ptr noundef nonnull %39) #50
@@ -49718,7 +49718,7 @@ cgltf_json_to_float.exit.i.i.i507:                ; preds = %2564, %2559
 
 cgltf_json_strcmp.exit65.i.i.i:                   ; preds = %2550
   %2576 = getelementptr inbounds i8, ptr %2, i64 %2554
-  %2577 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2576, ptr noundef nonnull dereferenceable(16) @.str.221, i64 noundef 15) #50
+  %2577 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2576, ptr noundef nonnull readonly dereferenceable(16) @.str.221, i64 noundef 15) #50
   %2578 = icmp eq i32 %2577, 0
   br i1 %2578, label %2579, label %cgltf_json_strcmp.exit72.i.i.i
 
@@ -49739,7 +49739,7 @@ cgltf_json_strcmp.exit65.i.i.i:                   ; preds = %2550
   %2589 = sub nsw i64 %2586, %2588
   %spec.select.i68.i.i.i = call i64 @llvm.umin.i64(i64 %2589, i64 127)
   %2590 = getelementptr inbounds i8, ptr %2, i64 %2588
-  %2591 = call ptr @strncpy(ptr noundef nonnull %38, ptr noundef %2590, i64 noundef %spec.select.i68.i.i.i) #53
+  %2591 = call ptr @strncpy(ptr noundef nonnull %38, ptr noundef readonly %2590, i64 noundef %spec.select.i68.i.i.i) #53
   %2592 = getelementptr inbounds [128 x i8], ptr %38, i64 0, i64 %spec.select.i68.i.i.i
   store i8 0, ptr %2592, align 1
   %2593 = call double @atof(ptr noundef nonnull %38) #50
@@ -49754,7 +49754,7 @@ cgltf_json_to_float.exit69.i.i.i:                 ; preds = %2584, %2579
   br label %cgltf_parse_json_float_array.exit.i.i.i
 
 cgltf_json_strcmp.exit72.i.i.i:                   ; preds = %cgltf_json_strcmp.exit65.i.i.i
-  %2596 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2576, ptr noundef nonnull dereferenceable(16) @.str.222, i64 noundef 15) #50
+  %2596 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2576, ptr noundef nonnull readonly dereferenceable(16) @.str.222, i64 noundef 15) #50
   %2597 = icmp eq i32 %2596, 0
   br i1 %2597, label %2598, label %cgltf_json_strcmp.exit79.thread.i.i.i
 
@@ -49794,7 +49794,7 @@ cgltf_json_to_float.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i501
   %2613 = sub nsw i64 %2610, %2612
   %spec.select.i.i.i.i.i503 = call i64 @llvm.umin.i64(i64 %2613, i64 127)
   %2614 = getelementptr inbounds i8, ptr %2, i64 %2612
-  %2615 = call ptr @strncpy(ptr noundef nonnull %37, ptr noundef %2614, i64 noundef %spec.select.i.i.i.i.i503) #53
+  %2615 = call ptr @strncpy(ptr noundef nonnull %37, ptr noundef readonly %2614, i64 noundef %spec.select.i.i.i.i.i503) #53
   %2616 = getelementptr inbounds [128 x i8], ptr %37, i64 0, i64 %spec.select.i.i.i.i.i503
   store i8 0, ptr %2616, align 1
   %2617 = call double @atof(ptr noundef nonnull %37) #50
@@ -49809,24 +49809,24 @@ cgltf_json_to_float.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i501
 
 cgltf_json_strcmp.exit76.i.i.i:                   ; preds = %2550
   %2620 = getelementptr inbounds i8, ptr %2, i64 %2554
-  %2621 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2620, ptr noundef nonnull dereferenceable(17) @.str.223, i64 noundef 16) #50
+  %2621 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2620, ptr noundef nonnull readonly dereferenceable(17) @.str.223, i64 noundef 16) #50
   %2622 = icmp eq i32 %2621, 0
   br i1 %2622, label %2623, label %cgltf_json_strcmp.exit79.thread.i.i.i
 
 2623:                                             ; preds = %cgltf_json_strcmp.exit76.i.i.i
   %2624 = add nuw nsw i32 %.0599.i.i.i, 1
-  %2625 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2624, ptr noundef %2, ptr noundef nonnull %2428)
+  %2625 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2624, ptr noundef readonly %2, ptr noundef nonnull writeonly %2428)
   br label %cgltf_parse_json_float_array.exit.i.i.i
 
 cgltf_json_strcmp.exit79.i.i.i:                   ; preds = %2550
   %2626 = getelementptr inbounds i8, ptr %2, i64 %2554
-  %2627 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2626, ptr noundef nonnull dereferenceable(25) @.str.224, i64 noundef 24) #50
+  %2627 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2626, ptr noundef nonnull readonly dereferenceable(25) @.str.224, i64 noundef 24) #50
   %2628 = icmp eq i32 %2627, 0
   br i1 %2628, label %2629, label %cgltf_json_strcmp.exit79.thread.i.i.i
 
 2629:                                             ; preds = %cgltf_json_strcmp.exit79.i.i.i
   %2630 = add nuw nsw i32 %.0599.i.i.i, 1
-  %2631 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2630, ptr noundef %2, ptr noundef nonnull %2469)
+  %2631 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2630, ptr noundef readonly %2, ptr noundef nonnull writeonly %2469)
   br label %cgltf_parse_json_float_array.exit.i.i.i
 
 cgltf_json_strcmp.exit79.thread.i.i.i:            ; preds = %cgltf_json_strcmp.exit79.i.i.i, %cgltf_json_strcmp.exit76.i.i.i, %cgltf_json_strcmp.exit72.i.i.i, %cgltf_json_strcmp.exit.i.i.i506, %2550
@@ -49881,7 +49881,7 @@ cgltf_parse_json_float_array.exit.i.i.i:          ; preds = %cgltf_json_to_float
 
 cgltf_json_strcmp.exit275.i.i:                    ; preds = %2496
   %2653 = getelementptr inbounds i8, ptr %2, i64 %2500
-  %2654 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2653, ptr noundef nonnull dereferenceable(15) @.str.199, i64 noundef 14) #50
+  %2654 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2653, ptr noundef nonnull readonly dereferenceable(15) @.str.199, i64 noundef 14) #50
   %2655 = icmp eq i32 %2654, 0
   br i1 %2655, label %2656, label %cgltf_json_strcmp.exit325.thread.i.i
 
@@ -49921,7 +49921,7 @@ cgltf_json_to_float.exit.i280.i.i:                ; preds = %.lr.ph.i277.i.i
   %2671 = sub nsw i64 %2668, %2670
   %spec.select.i.i281.i.i = call i64 @llvm.umin.i64(i64 %2671, i64 127)
   %2672 = getelementptr inbounds i8, ptr %2, i64 %2670
-  %2673 = call ptr @strncpy(ptr noundef nonnull %36, ptr noundef %2672, i64 noundef %spec.select.i.i281.i.i) #53
+  %2673 = call ptr @strncpy(ptr noundef nonnull %36, ptr noundef readonly %2672, i64 noundef %spec.select.i.i281.i.i) #53
   %2674 = getelementptr inbounds [128 x i8], ptr %36, i64 0, i64 %spec.select.i.i281.i.i
   store i8 0, ptr %2674, align 1
   %2675 = call double @atof(ptr noundef nonnull %36) #50
@@ -49936,40 +49936,40 @@ cgltf_json_to_float.exit.i280.i.i:                ; preds = %.lr.ph.i277.i.i
 
 cgltf_json_strcmp.exit286.i.i:                    ; preds = %2496
   %2678 = getelementptr inbounds i8, ptr %2, i64 %2500
-  %2679 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2678, ptr noundef nonnull dereferenceable(14) @.str.200, i64 noundef 13) #50
+  %2679 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2678, ptr noundef nonnull readonly dereferenceable(14) @.str.200, i64 noundef 13) #50
   %2680 = icmp eq i32 %2679, 0
   br i1 %2680, label %2681, label %cgltf_json_strcmp.exit325.thread.i.i
 
 2681:                                             ; preds = %cgltf_json_strcmp.exit286.i.i
   %2682 = add nuw nsw i32 %.0243429.i.i, 1
-  %2683 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2682, ptr noundef %2, ptr noundef nonnull %2466)
+  %2683 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2682, ptr noundef readonly %2, ptr noundef nonnull %2466)
   br label %cgltf_parse_json_string.exit.i.i462
 
 cgltf_json_strcmp.exit289.i.i:                    ; preds = %2496
   %2684 = getelementptr inbounds i8, ptr %2, i64 %2500
-  %2685 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2684, ptr noundef nonnull dereferenceable(17) @.str.201, i64 noundef 16) #50
+  %2685 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2684, ptr noundef nonnull readonly dereferenceable(17) @.str.201, i64 noundef 16) #50
   %2686 = icmp eq i32 %2685, 0
   br i1 %2686, label %2687, label %cgltf_json_strcmp.exit325.thread.i.i
 
 2687:                                             ; preds = %cgltf_json_strcmp.exit289.i.i
   %2688 = add nuw nsw i32 %.0243429.i.i, 1
-  %2689 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2688, ptr noundef %2, ptr noundef nonnull %2465)
+  %2689 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2688, ptr noundef readonly %2, ptr noundef nonnull %2465)
   br label %cgltf_parse_json_string.exit.i.i462
 
 cgltf_json_strcmp.exit292.i.i:                    ; preds = %2496
   %2690 = getelementptr inbounds i8, ptr %2, i64 %2500
-  %2691 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2690, ptr noundef nonnull dereferenceable(16) @.str.202, i64 noundef 15) #50
+  %2691 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2690, ptr noundef nonnull readonly dereferenceable(16) @.str.202, i64 noundef 15) #50
   %2692 = icmp eq i32 %2691, 0
   br i1 %2692, label %2693, label %cgltf_json_strcmp.exit325.thread.i.i
 
 2693:                                             ; preds = %cgltf_json_strcmp.exit292.i.i
   %2694 = add nuw nsw i32 %.0243429.i.i, 1
-  %2695 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2694, ptr noundef %2, ptr noundef nonnull %2464)
+  %2695 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2694, ptr noundef readonly %2, ptr noundef nonnull %2464)
   br label %cgltf_parse_json_string.exit.i.i462
 
 cgltf_json_strcmp.exit295.i.i:                    ; preds = %2496
   %2696 = getelementptr inbounds i8, ptr %2, i64 %2500
-  %2697 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2696, ptr noundef nonnull dereferenceable(10) @.str.203, i64 noundef 9) #50
+  %2697 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2696, ptr noundef nonnull readonly dereferenceable(10) @.str.203, i64 noundef 9) #50
   %2698 = icmp eq i32 %2697, 0
   br i1 %2698, label %2699, label %cgltf_json_strcmp.exit325.thread.i.i
 
@@ -49995,19 +49995,19 @@ cgltf_json_strcmp.exit295.i.i:                    ; preds = %2496
 
 cgltf_json_strcmp.exit298.i.i:                    ; preds = %2704
   %2710 = getelementptr inbounds i8, ptr %2, i64 %2708
-  %2711 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2710, ptr noundef nonnull dereferenceable(7) @.str.204, i64 noundef 6) #50
+  %2711 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2710, ptr noundef nonnull readonly dereferenceable(7) @.str.204, i64 noundef 6) #50
   %2712 = icmp eq i32 %2711, 0
   br i1 %2712, label %cgltf_json_strcmp.exit304.thread.sink.split.i.i, label %cgltf_json_strcmp.exit304.thread.i.i
 
 cgltf_json_strcmp.exit301.i.i:                    ; preds = %2704
   %2713 = getelementptr inbounds i8, ptr %2, i64 %2708
-  %2714 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2713, ptr noundef nonnull dereferenceable(5) @.str.205, i64 noundef 4) #50
+  %2714 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2713, ptr noundef nonnull readonly dereferenceable(5) @.str.205, i64 noundef 4) #50
   %2715 = icmp eq i32 %2714, 0
   br i1 %2715, label %cgltf_json_strcmp.exit304.thread.sink.split.i.i, label %cgltf_json_strcmp.exit304.thread.i.i
 
 cgltf_json_strcmp.exit304.i.i:                    ; preds = %2704
   %2716 = getelementptr inbounds i8, ptr %2, i64 %2708
-  %2717 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2716, ptr noundef nonnull dereferenceable(6) @.str.206, i64 noundef 5) #50
+  %2717 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2716, ptr noundef nonnull readonly dereferenceable(6) @.str.206, i64 noundef 5) #50
   %2718 = icmp eq i32 %2717, 0
   br i1 %2718, label %cgltf_json_strcmp.exit304.thread.sink.split.i.i, label %cgltf_json_strcmp.exit304.thread.i.i
 
@@ -50022,7 +50022,7 @@ cgltf_json_strcmp.exit304.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit307.i.i:                    ; preds = %2496
   %2720 = getelementptr inbounds i8, ptr %2, i64 %2500
-  %2721 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2720, ptr noundef nonnull dereferenceable(12) @.str.207, i64 noundef 11) #50
+  %2721 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2720, ptr noundef nonnull readonly dereferenceable(12) @.str.207, i64 noundef 11) #50
   %2722 = icmp eq i32 %2721, 0
   br i1 %2722, label %2723, label %cgltf_json_strcmp.exit312.i.i
 
@@ -50043,7 +50043,7 @@ cgltf_json_strcmp.exit307.i.i:                    ; preds = %2496
   %2733 = sub nsw i64 %2730, %2732
   %spec.select.i.i.i489 = call i64 @llvm.umin.i64(i64 %2733, i64 127)
   %2734 = getelementptr inbounds i8, ptr %2, i64 %2732
-  %2735 = call ptr @strncpy(ptr noundef nonnull %35, ptr noundef %2734, i64 noundef %spec.select.i.i.i489) #53
+  %2735 = call ptr @strncpy(ptr noundef nonnull %35, ptr noundef readonly %2734, i64 noundef %spec.select.i.i.i489) #53
   %2736 = getelementptr inbounds [128 x i8], ptr %35, i64 0, i64 %spec.select.i.i.i489
   store i8 0, ptr %2736, align 1
   %2737 = call double @atof(ptr noundef nonnull %35) #50
@@ -50058,7 +50058,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %2728, %2723
   br label %cgltf_parse_json_string.exit.i.i462
 
 cgltf_json_strcmp.exit312.i.i:                    ; preds = %cgltf_json_strcmp.exit307.i.i
-  %2740 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2720, ptr noundef nonnull dereferenceable(12) @.str.208, i64 noundef 11) #50
+  %2740 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2720, ptr noundef nonnull readonly dereferenceable(12) @.str.208, i64 noundef 11) #50
   %2741 = icmp eq i32 %2740, 0
   br i1 %2741, label %2742, label %cgltf_json_strcmp.exit325.thread.i.i
 
@@ -50076,7 +50076,7 @@ cgltf_json_strcmp.exit312.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 2750:                                             ; preds = %2742
   %2751 = getelementptr inbounds i8, ptr %2, i64 %.val.i.i486
-  %bcmp.i.i.i488 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %2751, ptr noundef nonnull dereferenceable(4) @.str.182, i64 4)
+  %bcmp.i.i.i488 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %2751, ptr noundef nonnull dereferenceable(4) @.str.182, i64 4)
   %2752 = icmp eq i32 %bcmp.i.i.i488, 0
   %2753 = zext i1 %2752 to i32
   br label %cgltf_json_to_bool.exit.i.i487
@@ -50089,7 +50089,7 @@ cgltf_json_to_bool.exit.i.i487:                   ; preds = %2750, %2742
 
 cgltf_json_strcmp.exit315.i.i:                    ; preds = %2496
   %2756 = getelementptr inbounds i8, ptr %2, i64 %2500
-  %2757 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2756, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %2757 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2756, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %2758 = icmp eq i32 %2757, 0
   br i1 %2758, label %2759, label %cgltf_json_strcmp.exit325.thread.i.i
 
@@ -50120,7 +50120,7 @@ cgltf_json_strcmp.exit315.i.i:                    ; preds = %2496
 
 2775:                                             ; preds = %2762
   %2776 = getelementptr inbounds i8, ptr %2, i64 %2769
-  %2777 = call ptr @strncpy(ptr noundef nonnull %2774, ptr noundef %2776, i64 noundef %2770) #53
+  %2777 = call ptr @strncpy(ptr noundef nonnull %2774, ptr noundef readonly %2776, i64 noundef %2770) #53
   %2778 = load ptr, ptr %2459, align 8
   %2779 = getelementptr inbounds i8, ptr %2778, i64 %2770
   store i8 0, ptr %2779, align 1
@@ -50166,7 +50166,7 @@ cgltf_json_strcmp.exit315.i.i:                    ; preds = %2496
 
 cgltf_json_strcmp.exit325.i.i:                    ; preds = %2496
   %2798 = getelementptr inbounds i8, ptr %2, i64 %2500
-  %2799 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2798, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %2799 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2798, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %2800 = icmp eq i32 %2799, 0
   br i1 %2800, label %2801, label %cgltf_json_strcmp.exit325.thread.i.i
 
@@ -50247,7 +50247,7 @@ cgltf_calloc.exit.thread.i.i484:                  ; preds = %2811, %2808
 
 cgltf_json_strcmp.exit330.i.i:                    ; preds = %2828
   %2836 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %2837 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2836, ptr noundef nonnull dereferenceable(36) @.str.209, i64 noundef 35) #50
+  %2837 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2836, ptr noundef nonnull readonly dereferenceable(36) @.str.209, i64 noundef 35) #50
   %2838 = icmp eq i32 %2837, 0
   br i1 %2838, label %2839, label %cgltf_json_strcmp.exit366.thread.i.i
 
@@ -50297,7 +50297,7 @@ cgltf_json_strcmp.exit330.i.i:                    ; preds = %2828
 
 cgltf_json_strcmp.exit.i342.i.i:                  ; preds = %2856
   %2862 = getelementptr inbounds i8, ptr %2, i64 %2860
-  %2863 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2862, ptr noundef nonnull dereferenceable(14) @.str.232, i64 noundef 13) #50
+  %2863 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2862, ptr noundef nonnull readonly dereferenceable(14) @.str.232, i64 noundef 13) #50
   %2864 = icmp eq i32 %2863, 0
   br i1 %2864, label %2865, label %cgltf_json_strcmp.exit88.thread.i.i.i
 
@@ -50337,7 +50337,7 @@ cgltf_json_to_float.exit.i.i350.i.i:              ; preds = %.lr.ph.i.i346.i.i
   %2880 = sub nsw i64 %2877, %2879
   %spec.select.i.i.i351.i.i = call i64 @llvm.umin.i64(i64 %2880, i64 127)
   %2881 = getelementptr inbounds i8, ptr %2, i64 %2879
-  %2882 = call ptr @strncpy(ptr noundef nonnull %34, ptr noundef %2881, i64 noundef %spec.select.i.i.i351.i.i) #53
+  %2882 = call ptr @strncpy(ptr noundef nonnull %34, ptr noundef readonly %2881, i64 noundef %spec.select.i.i.i351.i.i) #53
   %2883 = getelementptr inbounds [128 x i8], ptr %34, i64 0, i64 %spec.select.i.i.i351.i.i
   store i8 0, ptr %2883, align 1
   %2884 = call double @atof(ptr noundef nonnull %34) #50
@@ -50352,7 +50352,7 @@ cgltf_json_to_float.exit.i.i350.i.i:              ; preds = %.lr.ph.i.i346.i.i
 
 cgltf_json_strcmp.exit62.i.i.i:                   ; preds = %2856
   %2887 = getelementptr inbounds i8, ptr %2, i64 %2860
-  %2888 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2887, ptr noundef nonnull dereferenceable(15) @.str.233, i64 noundef 14) #50
+  %2888 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2887, ptr noundef nonnull readonly dereferenceable(15) @.str.233, i64 noundef 14) #50
   %2889 = icmp eq i32 %2888, 0
   br i1 %2889, label %2890, label %cgltf_json_strcmp.exit85.i.i.i
 
@@ -50392,7 +50392,7 @@ cgltf_json_to_float.exit.i72.i.i.i:               ; preds = %.lr.ph.i68.i.i.i
   %2905 = sub nsw i64 %2902, %2904
   %spec.select.i.i73.i.i.i = call i64 @llvm.umin.i64(i64 %2905, i64 127)
   %2906 = getelementptr inbounds i8, ptr %2, i64 %2904
-  %2907 = call ptr @strncpy(ptr noundef nonnull %33, ptr noundef %2906, i64 noundef %spec.select.i.i73.i.i.i) #53
+  %2907 = call ptr @strncpy(ptr noundef nonnull %33, ptr noundef readonly %2906, i64 noundef %spec.select.i.i73.i.i.i) #53
   %2908 = getelementptr inbounds [128 x i8], ptr %33, i64 0, i64 %spec.select.i.i73.i.i.i
   store i8 0, ptr %2908, align 1
   %2909 = call double @atof(ptr noundef nonnull %33) #50
@@ -50407,7 +50407,7 @@ cgltf_json_to_float.exit.i72.i.i.i:               ; preds = %.lr.ph.i68.i.i.i
 
 cgltf_json_strcmp.exit80.i.i.i:                   ; preds = %2856
   %2912 = getelementptr inbounds i8, ptr %2, i64 %2860
-  %2913 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2912, ptr noundef nonnull dereferenceable(17) @.str.234, i64 noundef 16) #50
+  %2913 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2912, ptr noundef nonnull readonly dereferenceable(17) @.str.234, i64 noundef 16) #50
   %2914 = icmp eq i32 %2913, 0
   br i1 %2914, label %2915, label %cgltf_json_strcmp.exit88.thread.i.i.i
 
@@ -50428,7 +50428,7 @@ cgltf_json_strcmp.exit80.i.i.i:                   ; preds = %2856
   %2925 = sub nsw i64 %2922, %2924
   %spec.select.i.i341.i.i = call i64 @llvm.umin.i64(i64 %2925, i64 127)
   %2926 = getelementptr inbounds i8, ptr %2, i64 %2924
-  %2927 = call ptr @strncpy(ptr noundef nonnull %32, ptr noundef %2926, i64 noundef %spec.select.i.i341.i.i) #53
+  %2927 = call ptr @strncpy(ptr noundef nonnull %32, ptr noundef readonly %2926, i64 noundef %spec.select.i.i341.i.i) #53
   %2928 = getelementptr inbounds [128 x i8], ptr %32, i64 0, i64 %spec.select.i.i341.i.i
   store i8 0, ptr %2928, align 1
   %2929 = call double @atof(ptr noundef nonnull %32) #50
@@ -50443,24 +50443,24 @@ cgltf_json_to_float.exit.i340.i.i:                ; preds = %2920, %2915
   br label %cgltf_parse_json_float_array.exit.i336.i.i
 
 cgltf_json_strcmp.exit85.i.i.i:                   ; preds = %cgltf_json_strcmp.exit62.i.i.i
-  %2932 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2887, ptr noundef nonnull dereferenceable(15) @.str.235, i64 noundef 14) #50
+  %2932 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2887, ptr noundef nonnull readonly dereferenceable(15) @.str.235, i64 noundef 14) #50
   %2933 = icmp eq i32 %2932, 0
   br i1 %2933, label %2934, label %cgltf_json_strcmp.exit88.thread.i.i.i
 
 2934:                                             ; preds = %cgltf_json_strcmp.exit85.i.i.i
   %2935 = add nuw nsw i32 %.05711.i.i.i, 1
-  %2936 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2935, ptr noundef %2, ptr noundef nonnull %2429)
+  %2936 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2935, ptr noundef readonly %2, ptr noundef nonnull writeonly %2429)
   br label %cgltf_parse_json_float_array.exit.i336.i.i
 
 cgltf_json_strcmp.exit88.i.i.i:                   ; preds = %2856
   %2937 = getelementptr inbounds i8, ptr %2, i64 %2860
-  %2938 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2937, ptr noundef nonnull dereferenceable(26) @.str.236, i64 noundef 25) #50
+  %2938 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2937, ptr noundef nonnull readonly dereferenceable(26) @.str.236, i64 noundef 25) #50
   %2939 = icmp eq i32 %2938, 0
   br i1 %2939, label %2940, label %cgltf_json_strcmp.exit88.thread.i.i.i
 
 2940:                                             ; preds = %cgltf_json_strcmp.exit88.i.i.i
   %2941 = add nuw nsw i32 %.05711.i.i.i, 1
-  %2942 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2941, ptr noundef %2, ptr noundef nonnull %2458)
+  %2942 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2941, ptr noundef readonly %2, ptr noundef nonnull writeonly %2458)
   br label %cgltf_parse_json_float_array.exit.i336.i.i
 
 cgltf_json_strcmp.exit88.thread.i.i.i:            ; preds = %cgltf_json_strcmp.exit88.i.i.i, %cgltf_json_strcmp.exit85.i.i.i, %cgltf_json_strcmp.exit80.i.i.i, %cgltf_json_strcmp.exit.i342.i.i, %2856
@@ -50515,7 +50515,7 @@ cgltf_parse_json_float_array.exit.i336.i.i:       ; preds = %cgltf_json_to_float
 
 cgltf_json_strcmp.exit357.i.i:                    ; preds = %2828
   %2964 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %2965 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2964, ptr noundef nonnull dereferenceable(20) @.str.210, i64 noundef 19) #50
+  %2965 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2964, ptr noundef nonnull readonly dereferenceable(20) @.str.210, i64 noundef 19) #50
   %2966 = icmp eq i32 %2965, 0
   br i1 %2966, label %2967, label %cgltf_json_strcmp.exit366.thread.i.i
 
@@ -50564,7 +50564,7 @@ cgltf_json_strcmp.exit357.i.i:                    ; preds = %2828
 
 cgltf_json_strcmp.exit363.i.i:                    ; preds = %2828
   %2987 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %2988 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2987, ptr noundef nonnull dereferenceable(24) @.str.211, i64 noundef 23) #50
+  %2988 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %2987, ptr noundef nonnull readonly dereferenceable(24) @.str.211, i64 noundef 23) #50
   %2989 = icmp eq i32 %2988, 0
   br i1 %2989, label %2990, label %cgltf_json_strcmp.exit366.thread.i.i
 
@@ -50615,7 +50615,7 @@ cgltf_json_strcmp.exit363.i.i:                    ; preds = %2828
 
 cgltf_json_strcmp.exit.i196.i:                    ; preds = %3007
   %3013 = getelementptr inbounds i8, ptr %2, i64 %3011
-  %3014 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3013, ptr noundef nonnull dereferenceable(16) @.str.237, i64 noundef 15) #50
+  %3014 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3013, ptr noundef nonnull readonly dereferenceable(16) @.str.237, i64 noundef 15) #50
   %3015 = icmp eq i32 %3014, 0
   br i1 %3015, label %3016, label %cgltf_json_strcmp.exit79.thread.i.i
 
@@ -50636,7 +50636,7 @@ cgltf_json_strcmp.exit.i196.i:                    ; preds = %3007
   %3026 = sub nsw i64 %3023, %3025
   %spec.select.i.i198.i = call i64 @llvm.umin.i64(i64 %3026, i64 127)
   %3027 = getelementptr inbounds i8, ptr %2, i64 %3025
-  %3028 = call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %3027, i64 noundef %spec.select.i.i198.i) #53
+  %3028 = call ptr @strncpy(ptr noundef nonnull %17, ptr noundef readonly %3027, i64 noundef %spec.select.i.i198.i) #53
   %3029 = getelementptr inbounds [128 x i8], ptr %17, i64 0, i64 %spec.select.i.i198.i
   store i8 0, ptr %3029, align 1
   %3030 = call double @atof(ptr noundef nonnull %17) #50
@@ -50652,7 +50652,7 @@ cgltf_json_to_float.exit.i197.i:                  ; preds = %3021, %3016
 
 cgltf_json_strcmp.exit66.i195.i:                  ; preds = %3007
   %3033 = getelementptr inbounds i8, ptr %2, i64 %3011
-  %3034 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3033, ptr noundef nonnull dereferenceable(25) @.str.238, i64 noundef 24) #50
+  %3034 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3033, ptr noundef nonnull readonly dereferenceable(25) @.str.238, i64 noundef 24) #50
   %3035 = icmp eq i32 %3034, 0
   br i1 %3035, label %3036, label %cgltf_json_strcmp.exit79.thread.i.i
 
@@ -50673,7 +50673,7 @@ cgltf_json_strcmp.exit66.i195.i:                  ; preds = %3007
   %3046 = sub nsw i64 %3043, %3045
   %spec.select.i69.i.i = call i64 @llvm.umin.i64(i64 %3046, i64 127)
   %3047 = getelementptr inbounds i8, ptr %2, i64 %3045
-  %3048 = call ptr @strncpy(ptr noundef nonnull %16, ptr noundef %3047, i64 noundef %spec.select.i69.i.i) #53
+  %3048 = call ptr @strncpy(ptr noundef nonnull %16, ptr noundef readonly %3047, i64 noundef %spec.select.i69.i.i) #53
   %3049 = getelementptr inbounds [128 x i8], ptr %16, i64 0, i64 %spec.select.i69.i.i
   store i8 0, ptr %3049, align 1
   %3050 = call double @atof(ptr noundef nonnull %16) #50
@@ -50689,35 +50689,35 @@ cgltf_json_to_float.exit70.i.i:                   ; preds = %3041, %3036
 
 cgltf_json_strcmp.exit73.i.i:                     ; preds = %3007
   %3053 = getelementptr inbounds i8, ptr %2, i64 %3011
-  %3054 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3053, ptr noundef nonnull dereferenceable(17) @.str.239, i64 noundef 16) #50
+  %3054 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3053, ptr noundef nonnull readonly dereferenceable(17) @.str.239, i64 noundef 16) #50
   %3055 = icmp eq i32 %3054, 0
   br i1 %3055, label %3056, label %cgltf_json_strcmp.exit79.thread.i.i
 
 3056:                                             ; preds = %cgltf_json_strcmp.exit73.i.i
   %3057 = add nuw nsw i32 %.0608.i.i, 1
-  %3058 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3057, ptr noundef %2, ptr noundef nonnull %2455)
+  %3058 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3057, ptr noundef readonly %2, ptr noundef nonnull writeonly %2455)
   br label %cgltf_skip_json.exit.i191.i
 
 cgltf_json_strcmp.exit76.i.i:                     ; preds = %3007
   %3059 = getelementptr inbounds i8, ptr %2, i64 %3011
-  %3060 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3059, ptr noundef nonnull dereferenceable(26) @.str.240, i64 noundef 25) #50
+  %3060 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3059, ptr noundef nonnull readonly dereferenceable(26) @.str.240, i64 noundef 25) #50
   %3061 = icmp eq i32 %3060, 0
   br i1 %3061, label %3062, label %cgltf_json_strcmp.exit79.thread.i.i
 
 3062:                                             ; preds = %cgltf_json_strcmp.exit76.i.i
   %3063 = add nuw nsw i32 %.0608.i.i, 1
-  %3064 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3063, ptr noundef %2, ptr noundef nonnull %2471)
+  %3064 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3063, ptr noundef readonly %2, ptr noundef nonnull writeonly %2471)
   br label %cgltf_skip_json.exit.i191.i
 
 cgltf_json_strcmp.exit79.i185.i:                  ; preds = %3007
   %3065 = getelementptr inbounds i8, ptr %2, i64 %3011
-  %3066 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3065, ptr noundef nonnull dereferenceable(23) @.str.241, i64 noundef 22) #50
+  %3066 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3065, ptr noundef nonnull readonly dereferenceable(23) @.str.241, i64 noundef 22) #50
   %3067 = icmp eq i32 %3066, 0
   br i1 %3067, label %3068, label %cgltf_json_strcmp.exit79.thread.i.i
 
 3068:                                             ; preds = %cgltf_json_strcmp.exit79.i185.i
   %3069 = add nuw nsw i32 %.0608.i.i, 1
-  %3070 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3069, ptr noundef %2, ptr noundef nonnull %2470)
+  %3070 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3069, ptr noundef readonly %2, ptr noundef nonnull writeonly %2470)
   br label %cgltf_skip_json.exit.i191.i
 
 cgltf_json_strcmp.exit79.thread.i.i:              ; preds = %cgltf_json_strcmp.exit79.i185.i, %cgltf_json_strcmp.exit76.i.i, %cgltf_json_strcmp.exit73.i.i, %cgltf_json_strcmp.exit66.i195.i, %cgltf_json_strcmp.exit.i196.i, %3007
@@ -50772,7 +50772,7 @@ cgltf_skip_json.exit.i191.i:                      ; preds = %.split.loop.exit.i.
 
 cgltf_json_strcmp.exit366.i.i:                    ; preds = %2828
   %3092 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %3093 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3092, ptr noundef nonnull dereferenceable(18) @.str.212, i64 noundef 17) #50
+  %3093 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3092, ptr noundef nonnull readonly dereferenceable(18) @.str.212, i64 noundef 17) #50
   %3094 = icmp eq i32 %3093, 0
   br i1 %3094, label %3095, label %cgltf_json_strcmp.exit366.thread.i.i
 
@@ -50862,7 +50862,7 @@ cgltf_json_strcmp.exit.tail.i.i:                  ; preds = %sub_2.i.i477, %sub_
   %3143 = sub nsw i64 %3140, %3142
   %spec.select.i.i181.i = call i64 @llvm.umin.i64(i64 %3143, i64 127)
   %3144 = getelementptr inbounds i8, ptr %2, i64 %3142
-  %3145 = call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %3144, i64 noundef %spec.select.i.i181.i) #53
+  %3145 = call ptr @strncpy(ptr noundef nonnull %18, ptr noundef readonly %3144, i64 noundef %spec.select.i.i181.i) #53
   %3146 = getelementptr inbounds [128 x i8], ptr %18, i64 0, i64 %spec.select.i.i181.i
   store i8 0, ptr %3146, align 1
   %3147 = call double @atof(ptr noundef nonnull %18) #50
@@ -50939,7 +50939,7 @@ cgltf_json_strcmp.exit366.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit160.i:                      ; preds = %cgltf_json_strcmp.exit366.thread.i.i
   %3171 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %3172 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3171, ptr noundef nonnull dereferenceable(23) @.str.213, i64 noundef 22) #50
+  %3172 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3171, ptr noundef nonnull readonly dereferenceable(23) @.str.213, i64 noundef 22) #50
   %3173 = icmp eq i32 %3172, 0
   br i1 %3173, label %3174, label %cgltf_json_strcmp.exit.thread.i468
 
@@ -51001,7 +51001,7 @@ cgltf_fill_float_array.exit.preheader.i.i:        ; preds = %.lr.ph.i.i132.i
 
 cgltf_json_strcmp.exit.i155.i:                    ; preds = %3192
   %3198 = getelementptr inbounds i8, ptr %2, i64 %3196
-  %3199 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3198, ptr noundef nonnull dereferenceable(15) @.str.233, i64 noundef 14) #50
+  %3199 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3198, ptr noundef nonnull readonly dereferenceable(15) @.str.233, i64 noundef 14) #50
   %3200 = icmp eq i32 %3199, 0
   br i1 %3200, label %3201, label %cgltf_json_strcmp.exit69.thread.i.i
 
@@ -51022,7 +51022,7 @@ cgltf_json_strcmp.exit.i155.i:                    ; preds = %3192
   %3211 = sub nsw i64 %3208, %3210
   %spec.select.i.i157.i = call i64 @llvm.umin.i64(i64 %3211, i64 127)
   %3212 = getelementptr inbounds i8, ptr %2, i64 %3210
-  %3213 = call ptr @strncpy(ptr noundef nonnull %20, ptr noundef %3212, i64 noundef %spec.select.i.i157.i) #53
+  %3213 = call ptr @strncpy(ptr noundef nonnull %20, ptr noundef readonly %3212, i64 noundef %spec.select.i.i157.i) #53
   %3214 = getelementptr inbounds [128 x i8], ptr %20, i64 0, i64 %spec.select.i.i157.i
   store i8 0, ptr %3214, align 1
   %3215 = call double @atof(ptr noundef nonnull %20) #50
@@ -51038,7 +51038,7 @@ cgltf_json_to_float.exit.i156.i:                  ; preds = %3206, %3201
 
 cgltf_json_strcmp.exit58.i145.i:                  ; preds = %3192
   %3218 = getelementptr inbounds i8, ptr %2, i64 %3196
-  %3219 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3218, ptr noundef nonnull dereferenceable(20) @.str.243, i64 noundef 19) #50
+  %3219 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3218, ptr noundef nonnull readonly dereferenceable(20) @.str.243, i64 noundef 19) #50
   %3220 = icmp eq i32 %3219, 0
   br i1 %3220, label %3221, label %cgltf_json_strcmp.exit69.thread.i.i
 
@@ -51078,7 +51078,7 @@ cgltf_json_to_float.exit.i.i152.i:                ; preds = %.lr.ph.i60.i.i
   %3236 = sub nsw i64 %3233, %3235
   %spec.select.i.i.i153.i = call i64 @llvm.umin.i64(i64 %3236, i64 127)
   %3237 = getelementptr inbounds i8, ptr %2, i64 %3235
-  %3238 = call ptr @strncpy(ptr noundef nonnull %19, ptr noundef %3237, i64 noundef %spec.select.i.i.i153.i) #53
+  %3238 = call ptr @strncpy(ptr noundef nonnull %19, ptr noundef readonly %3237, i64 noundef %spec.select.i.i.i153.i) #53
   %3239 = getelementptr inbounds [128 x i8], ptr %19, i64 0, i64 %spec.select.i.i.i153.i
   store i8 0, ptr %3239, align 1
   %3240 = call double @atof(ptr noundef nonnull %19) #50
@@ -51093,24 +51093,24 @@ cgltf_json_to_float.exit.i.i152.i:                ; preds = %.lr.ph.i60.i.i
 
 cgltf_json_strcmp.exit66.i.i475:                  ; preds = %3192
   %3243 = getelementptr inbounds i8, ptr %2, i64 %3196
-  %3244 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3243, ptr noundef nonnull dereferenceable(16) @.str.244, i64 noundef 15) #50
+  %3244 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3243, ptr noundef nonnull readonly dereferenceable(16) @.str.244, i64 noundef 15) #50
   %3245 = icmp eq i32 %3244, 0
   br i1 %3245, label %3246, label %cgltf_json_strcmp.exit69.thread.i.i
 
 3246:                                             ; preds = %cgltf_json_strcmp.exit66.i.i475
   %3247 = add nuw nsw i32 %.0528.i.i, 1
-  %3248 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3247, ptr noundef %2, ptr noundef nonnull %2451)
+  %3248 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3247, ptr noundef readonly %2, ptr noundef nonnull writeonly %2451)
   br label %cgltf_parse_json_float_array.exit.i141.i
 
 cgltf_json_strcmp.exit69.i.i:                     ; preds = %3192
   %3249 = getelementptr inbounds i8, ptr %2, i64 %3196
-  %3250 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3249, ptr noundef nonnull dereferenceable(21) @.str.245, i64 noundef 20) #50
+  %3250 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3249, ptr noundef nonnull readonly dereferenceable(21) @.str.245, i64 noundef 20) #50
   %3251 = icmp eq i32 %3250, 0
   br i1 %3251, label %3252, label %cgltf_json_strcmp.exit69.thread.i.i
 
 3252:                                             ; preds = %cgltf_json_strcmp.exit69.i.i
   %3253 = add nuw nsw i32 %.0528.i.i, 1
-  %3254 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3253, ptr noundef %2, ptr noundef nonnull %2486)
+  %3254 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3253, ptr noundef readonly %2, ptr noundef nonnull writeonly %2486)
   br label %cgltf_parse_json_float_array.exit.i141.i
 
 cgltf_json_strcmp.exit69.thread.i.i:              ; preds = %cgltf_json_strcmp.exit69.i.i, %cgltf_json_strcmp.exit66.i.i475, %cgltf_json_strcmp.exit58.i145.i, %cgltf_json_strcmp.exit.i155.i, %3192
@@ -51165,7 +51165,7 @@ cgltf_parse_json_float_array.exit.i141.i:         ; preds = %cgltf_json_to_float
 
 cgltf_json_strcmp.exit130.i:                      ; preds = %cgltf_json_strcmp.exit366.thread.i.i
   %3276 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %3277 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3276, ptr noundef nonnull dereferenceable(27) @.str.214, i64 noundef 26) #50
+  %3277 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3276, ptr noundef nonnull readonly dereferenceable(27) @.str.214, i64 noundef 26) #50
   %3278 = icmp eq i32 %3277, 0
   br i1 %3278, label %3279, label %cgltf_json_strcmp.exit.thread.i468
 
@@ -51213,7 +51213,7 @@ cgltf_json_strcmp.exit130.i:                      ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit.i125.i:                    ; preds = %3296
   %3302 = getelementptr inbounds i8, ptr %2, i64 %3300
-  %3303 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3302, ptr noundef nonnull dereferenceable(19) @.str.246, i64 noundef 18) #50
+  %3303 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3302, ptr noundef nonnull readonly dereferenceable(19) @.str.246, i64 noundef 18) #50
   %3304 = icmp eq i32 %3303, 0
   br i1 %3304, label %3305, label %cgltf_json_strcmp.exit41.thread.i.i
 
@@ -51234,7 +51234,7 @@ cgltf_json_strcmp.exit.i125.i:                    ; preds = %3296
   %3315 = sub nsw i64 %3312, %3314
   %spec.select.i.i127.i = call i64 @llvm.umin.i64(i64 %3315, i64 127)
   %3316 = getelementptr inbounds i8, ptr %2, i64 %3314
-  %3317 = call ptr @strncpy(ptr noundef nonnull %21, ptr noundef %3316, i64 noundef %spec.select.i.i127.i) #53
+  %3317 = call ptr @strncpy(ptr noundef nonnull %21, ptr noundef readonly %3316, i64 noundef %spec.select.i.i127.i) #53
   %3318 = getelementptr inbounds [128 x i8], ptr %21, i64 0, i64 %spec.select.i.i127.i
   store i8 0, ptr %3318, align 1
   %3319 = call double @atof(ptr noundef nonnull %21) #50
@@ -51250,13 +51250,13 @@ cgltf_json_to_float.exit.i126.i:                  ; preds = %3310, %3305
 
 cgltf_json_strcmp.exit41.i.i:                     ; preds = %3296
   %3322 = getelementptr inbounds i8, ptr %2, i64 %3300
-  %3323 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3322, ptr noundef nonnull dereferenceable(20) @.str.247, i64 noundef 19) #50
+  %3323 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3322, ptr noundef nonnull readonly dereferenceable(20) @.str.247, i64 noundef 19) #50
   %3324 = icmp eq i32 %3323, 0
   br i1 %3324, label %3325, label %cgltf_json_strcmp.exit41.thread.i.i
 
 3325:                                             ; preds = %cgltf_json_strcmp.exit41.i.i
   %3326 = add nuw nsw i32 %.0355.i.i, 1
-  %3327 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3326, ptr noundef %2, ptr noundef nonnull %2449)
+  %3327 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3326, ptr noundef readonly %2, ptr noundef nonnull writeonly %2449)
   br label %cgltf_skip_json.exit.i121.i
 
 cgltf_json_strcmp.exit41.thread.i.i:              ; preds = %cgltf_json_strcmp.exit41.i.i, %cgltf_json_strcmp.exit.i125.i, %3296
@@ -51311,7 +51311,7 @@ cgltf_skip_json.exit.i121.i:                      ; preds = %.split.loop.exit.i.
 
 cgltf_json_strcmp.exit113.i:                      ; preds = %cgltf_json_strcmp.exit366.thread.i.i
   %3349 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %3350 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3349, ptr noundef nonnull dereferenceable(21) @.str.215, i64 noundef 20) #50
+  %3350 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3349, ptr noundef nonnull readonly dereferenceable(21) @.str.215, i64 noundef 20) #50
   %3351 = icmp eq i32 %3350, 0
   br i1 %3351, label %3352, label %cgltf_json_strcmp.exit.thread.i468
 
@@ -51360,7 +51360,7 @@ cgltf_json_strcmp.exit113.i:                      ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit.i108.i:                    ; preds = %3369
   %3375 = getelementptr inbounds i8, ptr %2, i64 %3373
-  %3376 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3375, ptr noundef nonnull dereferenceable(16) @.str.248, i64 noundef 15) #50
+  %3376 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3375, ptr noundef nonnull readonly dereferenceable(16) @.str.248, i64 noundef 15) #50
   %3377 = icmp eq i32 %3376, 0
   br i1 %3377, label %3378, label %cgltf_json_strcmp.exit64.thread.i.i
 
@@ -51381,7 +51381,7 @@ cgltf_json_strcmp.exit.i108.i:                    ; preds = %3369
   %3388 = sub nsw i64 %3385, %3387
   %spec.select.i.i110.i = call i64 @llvm.umin.i64(i64 %3388, i64 127)
   %3389 = getelementptr inbounds i8, ptr %2, i64 %3387
-  %3390 = call ptr @strncpy(ptr noundef nonnull %24, ptr noundef %3389, i64 noundef %spec.select.i.i110.i) #53
+  %3390 = call ptr @strncpy(ptr noundef nonnull %24, ptr noundef readonly %3389, i64 noundef %spec.select.i.i110.i) #53
   %3391 = getelementptr inbounds [128 x i8], ptr %24, i64 0, i64 %spec.select.i.i110.i
   store i8 0, ptr %3391, align 1
   %3392 = call double @atof(ptr noundef nonnull %24) #50
@@ -51397,17 +51397,17 @@ cgltf_json_to_float.exit.i109.i:                  ; preds = %3383, %3378
 
 cgltf_json_strcmp.exit57.i.i:                     ; preds = %3369
   %3395 = getelementptr inbounds i8, ptr %2, i64 %3373
-  %3396 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3395, ptr noundef nonnull dereferenceable(17) @.str.249, i64 noundef 16) #50
+  %3396 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3395, ptr noundef nonnull readonly dereferenceable(17) @.str.249, i64 noundef 16) #50
   %3397 = icmp eq i32 %3396, 0
   br i1 %3397, label %3398, label %cgltf_json_strcmp.exit60.i.i
 
 3398:                                             ; preds = %cgltf_json_strcmp.exit57.i.i
   %3399 = add nuw nsw i32 %.0518.i.i, 1
-  %3400 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3399, ptr noundef %2, ptr noundef nonnull %2430)
+  %3400 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3399, ptr noundef readonly %2, ptr noundef nonnull writeonly %2430)
   br label %cgltf_parse_json_float_array.exit.i92.i
 
 cgltf_json_strcmp.exit60.i.i:                     ; preds = %cgltf_json_strcmp.exit57.i.i
-  %3401 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3395, ptr noundef nonnull dereferenceable(17) @.str.250, i64 noundef 16) #50
+  %3401 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3395, ptr noundef nonnull readonly dereferenceable(17) @.str.250, i64 noundef 16) #50
   %3402 = icmp eq i32 %3401, 0
   br i1 %3402, label %3403, label %cgltf_json_strcmp.exit64.thread.i.i
 
@@ -51447,7 +51447,7 @@ cgltf_json_to_float.exit.i.i103.i:                ; preds = %.lr.ph.i.i99.i
   %3418 = sub nsw i64 %3415, %3417
   %spec.select.i.i.i104.i = call i64 @llvm.umin.i64(i64 %3418, i64 127)
   %3419 = getelementptr inbounds i8, ptr %2, i64 %3417
-  %3420 = call ptr @strncpy(ptr noundef nonnull %23, ptr noundef %3419, i64 noundef %spec.select.i.i.i104.i) #53
+  %3420 = call ptr @strncpy(ptr noundef nonnull %23, ptr noundef readonly %3419, i64 noundef %spec.select.i.i.i104.i) #53
   %3421 = getelementptr inbounds [128 x i8], ptr %23, i64 0, i64 %spec.select.i.i.i104.i
   store i8 0, ptr %3421, align 1
   %3422 = call double @atof(ptr noundef nonnull %23) #50
@@ -51462,7 +51462,7 @@ cgltf_json_to_float.exit.i.i103.i:                ; preds = %.lr.ph.i.i99.i
 
 cgltf_json_strcmp.exit64.i.i:                     ; preds = %3369
   %3425 = getelementptr inbounds i8, ptr %2, i64 %3373
-  %3426 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3425, ptr noundef nonnull dereferenceable(20) @.str.251, i64 noundef 19) #50
+  %3426 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3425, ptr noundef nonnull readonly dereferenceable(20) @.str.251, i64 noundef 19) #50
   %3427 = icmp eq i32 %3426, 0
   br i1 %3427, label %3428, label %cgltf_json_strcmp.exit64.thread.i.i
 
@@ -51483,7 +51483,7 @@ cgltf_json_strcmp.exit64.i.i:                     ; preds = %3369
   %3438 = sub nsw i64 %3435, %3437
   %spec.select.i67.i.i = call i64 @llvm.umin.i64(i64 %3438, i64 127)
   %3439 = getelementptr inbounds i8, ptr %2, i64 %3437
-  %3440 = call ptr @strncpy(ptr noundef nonnull %22, ptr noundef %3439, i64 noundef %spec.select.i67.i.i) #53
+  %3440 = call ptr @strncpy(ptr noundef nonnull %22, ptr noundef readonly %3439, i64 noundef %spec.select.i67.i.i) #53
   %3441 = getelementptr inbounds [128 x i8], ptr %22, i64 0, i64 %spec.select.i67.i.i
   store i8 0, ptr %3441, align 1
   %3442 = call double @atof(ptr noundef nonnull %22) #50
@@ -51549,7 +51549,7 @@ cgltf_parse_json_float_array.exit.i92.i:          ; preds = %cgltf_json_to_float
 
 cgltf_json_strcmp.exit85.i:                       ; preds = %cgltf_json_strcmp.exit366.thread.i.i
   %3466 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %3467 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3466, ptr noundef nonnull dereferenceable(20) @.str.216, i64 noundef 19) #50
+  %3467 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3466, ptr noundef nonnull readonly dereferenceable(20) @.str.216, i64 noundef 19) #50
   %3468 = icmp eq i32 %3467, 0
   br i1 %3468, label %3469, label %cgltf_json_strcmp.exit.thread.i468
 
@@ -51599,7 +51599,7 @@ cgltf_json_strcmp.exit85.i:                       ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit.i70.i:                     ; preds = %3486
   %3492 = getelementptr inbounds i8, ptr %2, i64 %3490
-  %3493 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3492, ptr noundef nonnull dereferenceable(17) @.str.252, i64 noundef 16) #50
+  %3493 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3492, ptr noundef nonnull readonly dereferenceable(17) @.str.252, i64 noundef 16) #50
   %3494 = icmp eq i32 %3493, 0
   br i1 %3494, label %3495, label %cgltf_json_strcmp.exit63.thread.i.i
 
@@ -51639,7 +51639,7 @@ cgltf_json_to_float.exit.i.i78.i:                 ; preds = %.lr.ph.i.i74.i
   %3510 = sub nsw i64 %3507, %3509
   %spec.select.i.i.i79.i = call i64 @llvm.umin.i64(i64 %3510, i64 127)
   %3511 = getelementptr inbounds i8, ptr %2, i64 %3509
-  %3512 = call ptr @strncpy(ptr noundef nonnull %26, ptr noundef %3511, i64 noundef %spec.select.i.i.i79.i) #53
+  %3512 = call ptr @strncpy(ptr noundef nonnull %26, ptr noundef readonly %3511, i64 noundef %spec.select.i.i.i79.i) #53
   %3513 = getelementptr inbounds [128 x i8], ptr %26, i64 0, i64 %spec.select.i.i.i79.i
   store i8 0, ptr %3513, align 1
   %3514 = call double @atof(ptr noundef nonnull %26) #50
@@ -51654,18 +51654,18 @@ cgltf_json_to_float.exit.i.i78.i:                 ; preds = %.lr.ph.i.i74.i
 
 cgltf_json_strcmp.exit55.i.i:                     ; preds = %3486
   %3517 = getelementptr inbounds i8, ptr %2, i64 %3490
-  %3518 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3517, ptr noundef nonnull dereferenceable(18) @.str.253, i64 noundef 17) #50
+  %3518 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3517, ptr noundef nonnull readonly dereferenceable(18) @.str.253, i64 noundef 17) #50
   %3519 = icmp eq i32 %3518, 0
   br i1 %3519, label %3520, label %cgltf_json_strcmp.exit63.thread.i.i
 
 3520:                                             ; preds = %cgltf_json_strcmp.exit55.i.i
   %3521 = add nuw nsw i32 %.0508.i.i, 1
-  %3522 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3521, ptr noundef %2, ptr noundef nonnull %2446)
+  %3522 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3521, ptr noundef readonly %2, ptr noundef nonnull writeonly %2446)
   br label %cgltf_parse_json_float_array.exit.i.i
 
 cgltf_json_strcmp.exit58.i.i:                     ; preds = %3486
   %3523 = getelementptr inbounds i8, ptr %2, i64 %3490
-  %3524 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3523, ptr noundef nonnull dereferenceable(21) @.str.254, i64 noundef 20) #50
+  %3524 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3523, ptr noundef nonnull readonly dereferenceable(21) @.str.254, i64 noundef 20) #50
   %3525 = icmp eq i32 %3524, 0
   br i1 %3525, label %3526, label %cgltf_json_strcmp.exit63.thread.i.i
 
@@ -51686,7 +51686,7 @@ cgltf_json_strcmp.exit58.i.i:                     ; preds = %3486
   %3536 = sub nsw i64 %3533, %3535
   %spec.select.i.i69.i = call i64 @llvm.umin.i64(i64 %3536, i64 127)
   %3537 = getelementptr inbounds i8, ptr %2, i64 %3535
-  %3538 = call ptr @strncpy(ptr noundef nonnull %25, ptr noundef %3537, i64 noundef %spec.select.i.i69.i) #53
+  %3538 = call ptr @strncpy(ptr noundef nonnull %25, ptr noundef readonly %3537, i64 noundef %spec.select.i.i69.i) #53
   %3539 = getelementptr inbounds [128 x i8], ptr %25, i64 0, i64 %spec.select.i.i69.i
   store i8 0, ptr %3539, align 1
   %3540 = call double @atof(ptr noundef nonnull %25) #50
@@ -51702,13 +51702,13 @@ cgltf_json_to_float.exit.i68.i:                   ; preds = %3531, %3526
 
 cgltf_json_strcmp.exit63.i.i:                     ; preds = %3486
   %3543 = getelementptr inbounds i8, ptr %2, i64 %3490
-  %3544 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3543, ptr noundef nonnull dereferenceable(22) @.str.255, i64 noundef 21) #50
+  %3544 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3543, ptr noundef nonnull readonly dereferenceable(22) @.str.255, i64 noundef 21) #50
   %3545 = icmp eq i32 %3544, 0
   br i1 %3545, label %3546, label %cgltf_json_strcmp.exit63.thread.i.i
 
 3546:                                             ; preds = %cgltf_json_strcmp.exit63.i.i
   %3547 = add nuw nsw i32 %.0508.i.i, 1
-  %3548 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3547, ptr noundef %2, ptr noundef nonnull %2479)
+  %3548 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3547, ptr noundef readonly %2, ptr noundef nonnull writeonly %2479)
   br label %cgltf_parse_json_float_array.exit.i.i
 
 cgltf_json_strcmp.exit63.thread.i.i:              ; preds = %cgltf_json_strcmp.exit63.i.i, %cgltf_json_strcmp.exit58.i.i, %cgltf_json_strcmp.exit55.i.i, %cgltf_json_strcmp.exit.i70.i, %3486
@@ -51763,7 +51763,7 @@ cgltf_parse_json_float_array.exit.i.i:            ; preds = %cgltf_json_to_float
 
 cgltf_json_strcmp.exit59.i:                       ; preds = %cgltf_json_strcmp.exit366.thread.i.i
   %3570 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %3571 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3570, ptr noundef nonnull dereferenceable(32) @.str.217, i64 noundef 31) #50
+  %3571 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3570, ptr noundef nonnull readonly dereferenceable(32) @.str.217, i64 noundef 31) #50
   %3572 = icmp eq i32 %3571, 0
   br i1 %3572, label %3573, label %cgltf_json_strcmp.exit.thread.i468
 
@@ -51810,7 +51810,7 @@ cgltf_json_strcmp.exit59.i:                       ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit.i54.i:                     ; preds = %3590
   %3597 = getelementptr inbounds i8, ptr %2, i64 %3594
-  %3598 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3597, ptr noundef nonnull dereferenceable(17) @.str.256, i64 noundef 16) #50
+  %3598 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3597, ptr noundef nonnull readonly dereferenceable(17) @.str.256, i64 noundef 16) #50
   %3599 = icmp eq i32 %3598, 0
   br i1 %3599, label %3600, label %cgltf_json_strcmp.exit.thread.i.i
 
@@ -51831,7 +51831,7 @@ cgltf_json_strcmp.exit.i54.i:                     ; preds = %3590
   %3610 = sub nsw i64 %3607, %3609
   %spec.select.i.i56.i = call i64 @llvm.umin.i64(i64 %3610, i64 127)
   %3611 = getelementptr inbounds i8, ptr %2, i64 %3609
-  %3612 = call ptr @strncpy(ptr noundef nonnull %27, ptr noundef %3611, i64 noundef %spec.select.i.i56.i) #53
+  %3612 = call ptr @strncpy(ptr noundef nonnull %27, ptr noundef readonly %3611, i64 noundef %spec.select.i.i56.i) #53
   %3613 = getelementptr inbounds [128 x i8], ptr %27, i64 0, i64 %spec.select.i.i56.i
   store i8 0, ptr %3613, align 1
   %3614 = call double @atof(ptr noundef nonnull %27) #50
@@ -51897,7 +51897,7 @@ cgltf_skip_json.exit.i50.i:                       ; preds = %.split.loop.exit.i.
 
 cgltf_json_strcmp.exit42.i471:                    ; preds = %cgltf_json_strcmp.exit366.thread.i.i
   %3638 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %3639 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3638, ptr noundef nonnull dereferenceable(26) @.str.218, i64 noundef 25) #50
+  %3639 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3638, ptr noundef nonnull readonly dereferenceable(26) @.str.218, i64 noundef 25) #50
   %3640 = icmp eq i32 %3639, 0
   br i1 %3640, label %3641, label %cgltf_json_strcmp.exit.thread.i468
 
@@ -51949,7 +51949,7 @@ cgltf_json_strcmp.exit42.i471:                    ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit.i37.i:                     ; preds = %3658
   %3664 = getelementptr inbounds i8, ptr %2, i64 %3662
-  %3665 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3664, ptr noundef nonnull dereferenceable(18) @.str.257, i64 noundef 17) #50
+  %3665 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3664, ptr noundef nonnull readonly dereferenceable(18) @.str.257, i64 noundef 17) #50
   %3666 = icmp eq i32 %3665, 0
   br i1 %3666, label %3667, label %cgltf_json_strcmp.exit103.thread.i.i
 
@@ -51970,7 +51970,7 @@ cgltf_json_strcmp.exit.i37.i:                     ; preds = %3658
   %3677 = sub nsw i64 %3674, %3676
   %spec.select.i.i39.i = call i64 @llvm.umin.i64(i64 %3677, i64 127)
   %3678 = getelementptr inbounds i8, ptr %2, i64 %3676
-  %3679 = call ptr @strncpy(ptr noundef nonnull %31, ptr noundef %3678, i64 noundef %spec.select.i.i39.i) #53
+  %3679 = call ptr @strncpy(ptr noundef nonnull %31, ptr noundef readonly %3678, i64 noundef %spec.select.i.i39.i) #53
   %3680 = getelementptr inbounds [128 x i8], ptr %31, i64 0, i64 %spec.select.i.i39.i
   store i8 0, ptr %3680, align 1
   %3681 = call double @atof(ptr noundef nonnull %31) #50
@@ -51986,18 +51986,18 @@ cgltf_json_to_float.exit.i38.i:                   ; preds = %3672, %3667
 
 cgltf_json_strcmp.exit79.i.i:                     ; preds = %3658
   %3684 = getelementptr inbounds i8, ptr %2, i64 %3662
-  %3685 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3684, ptr noundef nonnull dereferenceable(19) @.str.258, i64 noundef 18) #50
+  %3685 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3684, ptr noundef nonnull readonly dereferenceable(19) @.str.258, i64 noundef 18) #50
   %3686 = icmp eq i32 %3685, 0
   br i1 %3686, label %3687, label %cgltf_json_strcmp.exit103.thread.i.i
 
 3687:                                             ; preds = %cgltf_json_strcmp.exit79.i.i
   %3688 = add nuw nsw i32 %.0739.i.i, 1
-  %3689 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3688, ptr noundef %2, ptr noundef nonnull %2478)
+  %3689 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3688, ptr noundef readonly %2, ptr noundef nonnull writeonly %2478)
   br label %cgltf_skip_json.exit.i.i472
 
 cgltf_json_strcmp.exit82.i.i:                     ; preds = %3658
   %3690 = getelementptr inbounds i8, ptr %2, i64 %3662
-  %3691 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3690, ptr noundef nonnull dereferenceable(15) @.str.259, i64 noundef 14) #50
+  %3691 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3690, ptr noundef nonnull readonly dereferenceable(15) @.str.259, i64 noundef 14) #50
   %3692 = icmp eq i32 %3691, 0
   br i1 %3692, label %3693, label %cgltf_json_strcmp.exit103.thread.i.i
 
@@ -52018,7 +52018,7 @@ cgltf_json_strcmp.exit82.i.i:                     ; preds = %3658
   %3703 = sub nsw i64 %3700, %3702
   %spec.select.i85.i.i = call i64 @llvm.umin.i64(i64 %3703, i64 127)
   %3704 = getelementptr inbounds i8, ptr %2, i64 %3702
-  %3705 = call ptr @strncpy(ptr noundef nonnull %30, ptr noundef %3704, i64 noundef %spec.select.i85.i.i) #53
+  %3705 = call ptr @strncpy(ptr noundef nonnull %30, ptr noundef readonly %3704, i64 noundef %spec.select.i85.i.i) #53
   %3706 = getelementptr inbounds [128 x i8], ptr %30, i64 0, i64 %spec.select.i85.i.i
   store i8 0, ptr %3706, align 1
   %3707 = call double @atof(ptr noundef nonnull %30) #50
@@ -52034,7 +52034,7 @@ cgltf_json_to_float.exit86.i.i:                   ; preds = %3698, %3693
 
 cgltf_json_strcmp.exit89.i.i:                     ; preds = %3658
   %3710 = getelementptr inbounds i8, ptr %2, i64 %3662
-  %3711 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3710, ptr noundef nonnull dereferenceable(28) @.str.260, i64 noundef 27) #50
+  %3711 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3710, ptr noundef nonnull readonly dereferenceable(28) @.str.260, i64 noundef 27) #50
   %3712 = icmp eq i32 %3711, 0
   br i1 %3712, label %3713, label %cgltf_json_strcmp.exit96.i.i
 
@@ -52055,7 +52055,7 @@ cgltf_json_strcmp.exit89.i.i:                     ; preds = %3658
   %3723 = sub nsw i64 %3720, %3722
   %spec.select.i92.i.i = call i64 @llvm.umin.i64(i64 %3723, i64 127)
   %3724 = getelementptr inbounds i8, ptr %2, i64 %3722
-  %3725 = call ptr @strncpy(ptr noundef nonnull %29, ptr noundef %3724, i64 noundef %spec.select.i92.i.i) #53
+  %3725 = call ptr @strncpy(ptr noundef nonnull %29, ptr noundef readonly %3724, i64 noundef %spec.select.i92.i.i) #53
   %3726 = getelementptr inbounds [128 x i8], ptr %29, i64 0, i64 %spec.select.i92.i.i
   store i8 0, ptr %3726, align 1
   %3727 = call double @atof(ptr noundef nonnull %29) #50
@@ -52070,7 +52070,7 @@ cgltf_json_to_float.exit93.i.i:                   ; preds = %3718, %3713
   br label %cgltf_skip_json.exit.i.i472
 
 cgltf_json_strcmp.exit96.i.i:                     ; preds = %cgltf_json_strcmp.exit89.i.i
-  %3730 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3710, ptr noundef nonnull dereferenceable(28) @.str.261, i64 noundef 27) #50
+  %3730 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3710, ptr noundef nonnull readonly dereferenceable(28) @.str.261, i64 noundef 27) #50
   %3731 = icmp eq i32 %3730, 0
   br i1 %3731, label %3732, label %cgltf_json_strcmp.exit103.i.i
 
@@ -52091,7 +52091,7 @@ cgltf_json_strcmp.exit96.i.i:                     ; preds = %cgltf_json_strcmp.e
   %3742 = sub nsw i64 %3739, %3741
   %spec.select.i99.i.i = call i64 @llvm.umin.i64(i64 %3742, i64 127)
   %3743 = getelementptr inbounds i8, ptr %2, i64 %3741
-  %3744 = call ptr @strncpy(ptr noundef nonnull %28, ptr noundef %3743, i64 noundef %spec.select.i99.i.i) #53
+  %3744 = call ptr @strncpy(ptr noundef nonnull %28, ptr noundef readonly %3743, i64 noundef %spec.select.i99.i.i) #53
   %3745 = getelementptr inbounds [128 x i8], ptr %28, i64 0, i64 %spec.select.i99.i.i
   store i8 0, ptr %3745, align 1
   %3746 = call double @atof(ptr noundef nonnull %28) #50
@@ -52106,13 +52106,13 @@ cgltf_json_to_float.exit100.i.i:                  ; preds = %3737, %3732
   br label %cgltf_skip_json.exit.i.i472
 
 cgltf_json_strcmp.exit103.i.i:                    ; preds = %cgltf_json_strcmp.exit96.i.i
-  %3749 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3710, ptr noundef nonnull dereferenceable(28) @.str.262, i64 noundef 27) #50
+  %3749 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3710, ptr noundef nonnull readonly dereferenceable(28) @.str.262, i64 noundef 27) #50
   %3750 = icmp eq i32 %3749, 0
   br i1 %3750, label %3751, label %cgltf_json_strcmp.exit103.thread.i.i
 
 3751:                                             ; preds = %cgltf_json_strcmp.exit103.i.i
   %3752 = add nuw nsw i32 %.0739.i.i, 1
-  %3753 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3752, ptr noundef %2, ptr noundef nonnull %2477)
+  %3753 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3752, ptr noundef readonly %2, ptr noundef nonnull writeonly %2477)
   br label %cgltf_skip_json.exit.i.i472
 
 cgltf_json_strcmp.exit103.thread.i.i:             ; preds = %cgltf_json_strcmp.exit103.i.i, %cgltf_json_strcmp.exit82.i.i, %cgltf_json_strcmp.exit79.i.i, %cgltf_json_strcmp.exit.i37.i, %3658
@@ -52167,14 +52167,14 @@ cgltf_skip_json.exit.i.i472:                      ; preds = %.split.loop.exit.i.
 
 cgltf_json_strcmp.exit.i467:                      ; preds = %cgltf_json_strcmp.exit366.thread.i.i
   %3775 = getelementptr inbounds i8, ptr %2, i64 %2832
-  %3776 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3775, ptr noundef nonnull dereferenceable(25) @.str.219, i64 noundef 24) #50
+  %3776 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3775, ptr noundef nonnull readonly dereferenceable(25) @.str.219, i64 noundef 24) #50
   %3777 = icmp eq i32 %3776, 0
   br i1 %3777, label %3778, label %cgltf_json_strcmp.exit.thread.i468
 
 3778:                                             ; preds = %cgltf_json_strcmp.exit.i467
   store i32 1, ptr %2439, align 8
   %3779 = add nuw nsw i32 %.1427.i.i, 1
-  %3780 = call fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef nonnull %1, i32 noundef %3779, ptr noundef %2, ptr noundef nonnull %2440)
+  %3780 = call fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef nonnull %1, i32 noundef %3779, ptr noundef readonly %2, ptr noundef nonnull %2440)
   br label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
 cgltf_json_strcmp.exit.thread.i468:               ; preds = %cgltf_json_strcmp.exit.i467, %cgltf_json_strcmp.exit42.i471, %cgltf_json_strcmp.exit59.i, %cgltf_json_strcmp.exit85.i, %cgltf_json_strcmp.exit113.i, %cgltf_json_strcmp.exit130.i, %cgltf_json_strcmp.exit160.i, %cgltf_json_strcmp.exit366.thread.i.i
@@ -52183,7 +52183,7 @@ cgltf_json_strcmp.exit.thread.i468:               ; preds = %cgltf_json_strcmp.e
   %3783 = add i64 %3782, 1
   store i64 %3783, ptr %2438, align 8
   %3784 = getelementptr inbounds %struct.cgltf_extension, ptr %3781, i64 %3782
-  %3785 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.1427.i.i, ptr noundef %2, ptr noundef %3784)
+  %3785 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull %1, i32 noundef %.1427.i.i, ptr noundef readonly %2, ptr noundef %3784)
   br label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
 cgltf_parse_json_pbr_specular_glossiness.exit.i.i: ; preds = %cgltf_skip_json.exit.i173.i, %cgltf_skip_json.exit.i191.i, %cgltf_parse_json_float_array.exit.i336.i.i, %cgltf_skip_json.exit.i.i472, %cgltf_skip_json.exit.i50.i, %cgltf_parse_json_float_array.exit.i.i, %cgltf_parse_json_float_array.exit.i92.i, %cgltf_skip_json.exit.i121.i, %cgltf_parse_json_float_array.exit.i141.i, %cgltf_json_strcmp.exit.thread.i468, %3778, %3646, %3578, %3474, %3357, %3284, %cgltf_fill_float_array.exit.preheader.i.i, %3100, %2995, %.split.loop.exit.i.i.i483, %2844
@@ -52251,7 +52251,7 @@ cgltf_parse_json_material.exit.thread209.i:       ; preds = %cgltf_parse_json_st
 
 cgltf_json_strcmp.exit515:                        ; preds = %cgltf_json_strcmp.exit267
   %3811 = getelementptr inbounds i8, ptr %2, i64 %123
-  %3812 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3811, ptr noundef nonnull dereferenceable(7) @.str.127, i64 noundef 6) #50
+  %3812 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3811, ptr noundef nonnull readonly dereferenceable(7) @.str.127, i64 noundef 6) #50
   %3813 = icmp eq i32 %3812, 0
   br i1 %3813, label %3814, label %cgltf_json_strcmp.exit713.thread
 
@@ -52413,7 +52413,7 @@ cgltf_json_strcmp.exit.tail.i.i562:               ; preds = %sub_2.i.i567, %sub_
   %3898 = load i64, ptr %3889, align 8
   %3899 = getelementptr inbounds i8, ptr %2, i64 %3898
   %3900 = ashr exact i64 %3894, 32
-  %3901 = call ptr @strncpy(ptr noundef nonnull %3896, ptr noundef %3899, i64 noundef %3900) #53
+  %3901 = call ptr @strncpy(ptr noundef nonnull %3896, ptr noundef readonly %3899, i64 noundef %3900) #53
   %3902 = getelementptr inbounds i8, ptr %3896, i64 %3900
   store i8 0, ptr %3902, align 1
   store ptr %3896, ptr %3852, align 8
@@ -52422,7 +52422,7 @@ cgltf_json_strcmp.exit.tail.i.i562:               ; preds = %sub_2.i.i567, %sub_
 
 cgltf_json_strcmp.exit74.i.i:                     ; preds = %3861
   %3904 = getelementptr inbounds i8, ptr %2, i64 %3865
-  %3905 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3904, ptr noundef nonnull dereferenceable(11) @.str.165, i64 noundef 10) #50
+  %3905 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3904, ptr noundef nonnull readonly dereferenceable(11) @.str.165, i64 noundef 10) #50
   %3906 = icmp eq i32 %3905, 0
   br i1 %3906, label %3907, label %cgltf_json_strcmp.exit102.i.i
 
@@ -52441,7 +52441,7 @@ cgltf_json_strcmp.exit74.i.i:                     ; preds = %3861
   %3915 = sub nsw i64 %3912, %3914
   %spec.select.i.i.i560 = call i64 @llvm.umin.i64(i64 %3915, i64 127)
   %3916 = getelementptr inbounds i8, ptr %2, i64 %3914
-  %3917 = call ptr @strncpy(ptr noundef nonnull %15, ptr noundef %3916, i64 noundef %spec.select.i.i.i560) #53
+  %3917 = call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %3916, i64 noundef %spec.select.i.i.i560) #53
   %3918 = getelementptr inbounds [128 x i8], ptr %15, i64 0, i64 %spec.select.i.i.i560
   store i8 0, ptr %3918, align 1
   %3919 = call i32 @atoi(ptr nocapture noundef nonnull %15) #50
@@ -52459,7 +52459,7 @@ cgltf_json_to_int.exit.i.i558:                    ; preds = %3910, %3907
 
 cgltf_json_strcmp.exit79.i.i545:                  ; preds = %3861
   %3924 = getelementptr inbounds i8, ptr %2, i64 %3865
-  %3925 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3924, ptr noundef nonnull dereferenceable(9) @.str.266, i64 noundef 8) #50
+  %3925 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3924, ptr noundef nonnull readonly dereferenceable(9) @.str.266, i64 noundef 8) #50
   %3926 = icmp eq i32 %3925, 0
   br i1 %3926, label %3927, label %cgltf_json_strcmp.exit102.thread.i.i
 
@@ -52493,7 +52493,7 @@ cgltf_json_strcmp.exit79.i.i545:                  ; preds = %3861
   %3944 = load i64, ptr %3935, align 8
   %3945 = getelementptr inbounds i8, ptr %2, i64 %3944
   %3946 = ashr exact i64 %3940, 32
-  %3947 = call ptr @strncpy(ptr noundef nonnull %3942, ptr noundef %3945, i64 noundef %3946) #53
+  %3947 = call ptr @strncpy(ptr noundef nonnull %3942, ptr noundef readonly %3945, i64 noundef %3946) #53
   %3948 = getelementptr inbounds i8, ptr %3942, i64 %3946
   store i8 0, ptr %3948, align 1
   store ptr %3942, ptr %3850, align 8
@@ -52502,7 +52502,7 @@ cgltf_json_strcmp.exit79.i.i545:                  ; preds = %3861
 
 cgltf_json_strcmp.exit88.i.i:                     ; preds = %3861
   %3950 = getelementptr inbounds i8, ptr %2, i64 %3865
-  %3951 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3950, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %3951 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3950, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %3952 = icmp eq i32 %3951, 0
   br i1 %3952, label %3953, label %cgltf_json_strcmp.exit102.thread.i.i
 
@@ -52536,7 +52536,7 @@ cgltf_json_strcmp.exit88.i.i:                     ; preds = %3861
   %3970 = load i64, ptr %3961, align 8
   %3971 = getelementptr inbounds i8, ptr %2, i64 %3970
   %3972 = ashr exact i64 %3966, 32
-  %3973 = call ptr @strncpy(ptr noundef nonnull %3968, ptr noundef %3971, i64 noundef %3972) #53
+  %3973 = call ptr @strncpy(ptr noundef nonnull %3968, ptr noundef readonly %3971, i64 noundef %3972) #53
   %3974 = getelementptr inbounds i8, ptr %3968, i64 %3972
   store i8 0, ptr %3974, align 1
   store ptr %3968, ptr %3836, align 8
@@ -52545,7 +52545,7 @@ cgltf_json_strcmp.exit88.i.i:                     ; preds = %3861
 
 cgltf_json_strcmp.exit97.i.i:                     ; preds = %3861
   %3976 = getelementptr inbounds i8, ptr %2, i64 %3865
-  %3977 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3976, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %3977 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3976, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %3978 = icmp eq i32 %3977, 0
   br i1 %3978, label %3979, label %cgltf_json_strcmp.exit102.thread.i.i
 
@@ -52576,7 +52576,7 @@ cgltf_json_strcmp.exit97.i.i:                     ; preds = %3861
 
 3995:                                             ; preds = %3981
   %3996 = getelementptr inbounds i8, ptr %2, i64 %3989
-  %3997 = call ptr @strncpy(ptr noundef nonnull %3994, ptr noundef %3996, i64 noundef %3990) #53
+  %3997 = call ptr @strncpy(ptr noundef nonnull %3994, ptr noundef readonly %3996, i64 noundef %3990) #53
   %3998 = load ptr, ptr %3847, align 8
   %3999 = getelementptr inbounds i8, ptr %3998, i64 %3990
   store i8 0, ptr %3999, align 1
@@ -52620,7 +52620,7 @@ cgltf_json_strcmp.exit97.i.i:                     ; preds = %3861
   br label %cgltf_parse_json_string.exit.i.i534
 
 cgltf_json_strcmp.exit102.i.i:                    ; preds = %cgltf_json_strcmp.exit74.i.i
-  %4017 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3904, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %4017 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %3904, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %4018 = icmp eq i32 %4017, 0
   br i1 %4018, label %4019, label %cgltf_json_strcmp.exit102.thread.i.i
 
@@ -52683,7 +52683,7 @@ cgltf_calloc.exit.thread.i.i.i556:                ; preds = %4027, %4024
   store i64 %4044, ptr %3845, align 8
   %4045 = load ptr, ptr %3846, align 8
   %4046 = getelementptr inbounds %struct.cgltf_extension, ptr %4045, i64 %4043
-  %4047 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i.i551, ptr noundef %2, ptr noundef %4046)
+  %4047 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i551, ptr noundef readonly %2, ptr noundef %4046)
   %4048 = icmp slt i32 %4047, 0
   %4049 = add nuw nsw i32 %.03138.i.i.i552, 1
   %exitcond.not.i.i.i554 = icmp eq i32 %4049, %4026
@@ -52756,7 +52756,7 @@ cgltf_parse_json_image.exit.thread28.i:           ; preds = %cgltf_parse_json_im
 
 cgltf_json_strcmp.exit570:                        ; preds = %cgltf_json_strcmp.exit.thread
   %4074 = getelementptr inbounds i8, ptr %2, i64 %123
-  %4075 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4074, ptr noundef nonnull dereferenceable(9) @.str.128, i64 noundef 8) #50
+  %4075 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4074, ptr noundef nonnull readonly dereferenceable(9) @.str.128, i64 noundef 8) #50
   %4076 = icmp eq i32 %4075, 0
   br i1 %4076, label %4077, label %cgltf_json_strcmp.exit609
 
@@ -52868,7 +52868,7 @@ cgltf_parse_json_string.exit.thread.i.i582:       ; preds = %.loopexit.thread.i.
 
 cgltf_json_strcmp.exit.i.i603:                    ; preds = %4126
   %4132 = getelementptr inbounds i8, ptr %2, i64 %4130
-  %4133 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4132, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %4133 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4132, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %4134 = icmp eq i32 %4133, 0
   br i1 %4134, label %4135, label %cgltf_json_strcmp.exit143.thread.i.i
 
@@ -52904,7 +52904,7 @@ cgltf_json_strcmp.exit.i.i603:                    ; preds = %4126
   %4154 = load i64, ptr %4145, align 8
   %4155 = getelementptr inbounds i8, ptr %2, i64 %4154
   %4156 = ashr exact i64 %4150, 32
-  %4157 = call ptr @strncpy(ptr noundef nonnull %4152, ptr noundef %4155, i64 noundef %4156) #53
+  %4157 = call ptr @strncpy(ptr noundef nonnull %4152, ptr noundef readonly %4155, i64 noundef %4156) #53
   %4158 = getelementptr inbounds i8, ptr %4152, i64 %4156
   store i8 0, ptr %4158, align 1
   store ptr %4152, ptr %4099, align 8
@@ -52913,7 +52913,7 @@ cgltf_json_strcmp.exit.i.i603:                    ; preds = %4126
 
 cgltf_json_strcmp.exit126.i.i:                    ; preds = %4126
   %4160 = getelementptr inbounds i8, ptr %2, i64 %4130
-  %4161 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4160, ptr noundef nonnull dereferenceable(8) @.str.267, i64 noundef 7) #50
+  %4161 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4160, ptr noundef nonnull readonly dereferenceable(8) @.str.267, i64 noundef 7) #50
   %4162 = icmp eq i32 %4161, 0
   br i1 %4162, label %4163, label %cgltf_json_strcmp.exit143.thread.i.i
 
@@ -52934,7 +52934,7 @@ cgltf_json_strcmp.exit126.i.i:                    ; preds = %4126
   %4173 = sub nsw i64 %4170, %4172
   %spec.select.i.i.i602 = call i64 @llvm.umin.i64(i64 %4173, i64 127)
   %4174 = getelementptr inbounds i8, ptr %2, i64 %4172
-  %4175 = call ptr @strncpy(ptr noundef nonnull %14, ptr noundef %4174, i64 noundef %spec.select.i.i.i602) #53
+  %4175 = call ptr @strncpy(ptr noundef nonnull %14, ptr noundef readonly %4174, i64 noundef %spec.select.i.i.i602) #53
   %4176 = getelementptr inbounds [128 x i8], ptr %14, i64 0, i64 %spec.select.i.i.i602
   store i8 0, ptr %4176, align 1
   %4177 = call i32 @atoi(ptr nocapture noundef nonnull %14) #50
@@ -52952,7 +52952,7 @@ cgltf_json_to_int.exit.i.i601:                    ; preds = %4168, %4163
 
 cgltf_json_strcmp.exit131.i.i:                    ; preds = %4126
   %4182 = getelementptr inbounds i8, ptr %2, i64 %4130
-  %4183 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4182, ptr noundef nonnull dereferenceable(7) @.str.268, i64 noundef 6) #50
+  %4183 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4182, ptr noundef nonnull readonly dereferenceable(7) @.str.268, i64 noundef 6) #50
   %4184 = icmp eq i32 %4183, 0
   br i1 %4184, label %4185, label %cgltf_json_strcmp.exit138.i.i
 
@@ -52973,7 +52973,7 @@ cgltf_json_strcmp.exit131.i.i:                    ; preds = %4126
   %4195 = sub nsw i64 %4192, %4194
   %spec.select.i134.i.i = call i64 @llvm.umin.i64(i64 %4195, i64 127)
   %4196 = getelementptr inbounds i8, ptr %2, i64 %4194
-  %4197 = call ptr @strncpy(ptr noundef nonnull %13, ptr noundef %4196, i64 noundef %spec.select.i134.i.i) #53
+  %4197 = call ptr @strncpy(ptr noundef nonnull %13, ptr noundef readonly %4196, i64 noundef %spec.select.i134.i.i) #53
   %4198 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %spec.select.i134.i.i
   store i8 0, ptr %4198, align 1
   %4199 = call i32 @atoi(ptr nocapture noundef nonnull %13) #50
@@ -52990,7 +52990,7 @@ cgltf_json_to_int.exit135.i.i:                    ; preds = %4190, %4185
   br label %cgltf_parse_json_string.exit.i.i581
 
 cgltf_json_strcmp.exit138.i.i:                    ; preds = %cgltf_json_strcmp.exit131.i.i
-  %4204 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4182, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %4204 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4182, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %4205 = icmp eq i32 %4204, 0
   br i1 %4205, label %4206, label %cgltf_json_strcmp.exit143.thread.i.i
 
@@ -53021,7 +53021,7 @@ cgltf_json_strcmp.exit138.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 4222:                                             ; preds = %4209
   %4223 = getelementptr inbounds i8, ptr %2, i64 %4216
-  %4224 = call ptr @strncpy(ptr noundef nonnull %4221, ptr noundef %4223, i64 noundef %4217) #53
+  %4224 = call ptr @strncpy(ptr noundef nonnull %4221, ptr noundef readonly %4223, i64 noundef %4217) #53
   %4225 = load ptr, ptr %4112, align 8
   %4226 = getelementptr inbounds i8, ptr %4225, i64 %4217
   store i8 0, ptr %4226, align 1
@@ -53067,7 +53067,7 @@ cgltf_json_strcmp.exit138.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit143.i.i:                    ; preds = %4126
   %4245 = getelementptr inbounds i8, ptr %2, i64 %4130
-  %4246 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4245, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %4246 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4245, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %4247 = icmp eq i32 %4246, 0
   br i1 %4247, label %4248, label %cgltf_json_strcmp.exit143.thread.i.i
 
@@ -53141,7 +53141,7 @@ cgltf_calloc.exit.thread.i.i594:                  ; preds = %4256, %4253
 
 cgltf_json_strcmp.exit148.i.i:                    ; preds = %4272
   %4279 = getelementptr inbounds i8, ptr %2, i64 %4276
-  %4280 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4279, ptr noundef nonnull dereferenceable(19) @.str.269, i64 noundef 18) #50
+  %4280 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4279, ptr noundef nonnull readonly dereferenceable(19) @.str.269, i64 noundef 18) #50
   %4281 = icmp eq i32 %4280, 0
   br i1 %4281, label %4282, label %.loopexit.i.i
 
@@ -53191,7 +53191,7 @@ cgltf_json_strcmp.exit148.i.i:                    ; preds = %4272
 
 cgltf_json_strcmp.exit151.i.i593:                 ; preds = %4299
   %4306 = getelementptr inbounds i8, ptr %2, i64 %4303
-  %4307 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4306, ptr noundef nonnull dereferenceable(7) @.str.268, i64 noundef 6) #50
+  %4307 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4306, ptr noundef nonnull readonly dereferenceable(7) @.str.268, i64 noundef 6) #50
   %4308 = icmp eq i32 %4307, 0
   br i1 %4308, label %4309, label %cgltf_json_strcmp.exit151.thread.i.i
 
@@ -53210,7 +53210,7 @@ cgltf_json_strcmp.exit151.i.i593:                 ; preds = %4299
   %4317 = sub nsw i64 %4314, %4316
   %spec.select.i154.i.i = call i64 @llvm.umin.i64(i64 %4317, i64 127)
   %4318 = getelementptr inbounds i8, ptr %2, i64 %4316
-  %4319 = call ptr @strncpy(ptr noundef nonnull %12, ptr noundef %4318, i64 noundef %spec.select.i154.i.i) #53
+  %4319 = call ptr @strncpy(ptr noundef nonnull %12, ptr noundef readonly %4318, i64 noundef %spec.select.i154.i.i) #53
   %4320 = getelementptr inbounds [128 x i8], ptr %12, i64 0, i64 %spec.select.i154.i.i
   store i8 0, ptr %4320, align 1
   %4321 = call i32 @atoi(ptr nocapture noundef nonnull %12) #50
@@ -53275,7 +53275,7 @@ cgltf_skip_json.exit.i.i591:                      ; preds = %4341
   %4348 = add i64 %4347, 1
   store i64 %4348, ptr %4109, align 8
   %4349 = getelementptr inbounds %struct.cgltf_extension, ptr %4346, i64 %4347
-  %4350 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.1191.i.i, ptr noundef %2, ptr noundef %4349)
+  %4350 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.1191.i.i, ptr noundef readonly %2, ptr noundef %4349)
   %4351 = icmp slt i32 %4350, 0
   br i1 %4351, label %cgltf_parse_json_asset.exit.thread, label %.loopexit.thread.i.i
 
@@ -53339,7 +53339,7 @@ cgltf_parse_json_texture.exit.i:                  ; preds = %cgltf_parse_json_te
 
 cgltf_json_strcmp.exit609:                        ; preds = %cgltf_json_strcmp.exit570
   %4375 = getelementptr inbounds i8, ptr %2, i64 %123
-  %4376 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4375, ptr noundef nonnull dereferenceable(9) @.str.129, i64 noundef 8) #50
+  %4376 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4375, ptr noundef nonnull readonly dereferenceable(9) @.str.129, i64 noundef 8) #50
   %4377 = icmp eq i32 %4376, 0
   br i1 %4377, label %4378, label %cgltf_json_strcmp.exit716.thread
 
@@ -53447,7 +53447,7 @@ cgltf_parse_json_array.exit.i615:                 ; preds = %4392
 
 cgltf_json_strcmp.exit.i.i651:                    ; preds = %4425
   %4431 = getelementptr inbounds i8, ptr %2, i64 %4429
-  %4432 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4431, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %4432 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4431, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %4433 = icmp eq i32 %4432, 0
   br i1 %4433, label %4434, label %cgltf_json_strcmp.exit118.thread.i.i
 
@@ -53481,7 +53481,7 @@ cgltf_json_strcmp.exit.i.i651:                    ; preds = %4425
   %4451 = load i64, ptr %4442, align 8
   %4452 = getelementptr inbounds i8, ptr %2, i64 %4451
   %4453 = ashr exact i64 %4447, 32
-  %4454 = call ptr @strncpy(ptr noundef nonnull %4449, ptr noundef %4452, i64 noundef %4453) #53
+  %4454 = call ptr @strncpy(ptr noundef nonnull %4449, ptr noundef readonly %4452, i64 noundef %4453) #53
   %4455 = getelementptr inbounds i8, ptr %4449, i64 %4453
   store i8 0, ptr %4455, align 1
   store ptr %4449, ptr %4399, align 8
@@ -53490,7 +53490,7 @@ cgltf_json_strcmp.exit.i.i651:                    ; preds = %4425
 
 cgltf_json_strcmp.exit87.i.i:                     ; preds = %4425
   %4457 = getelementptr inbounds i8, ptr %2, i64 %4429
-  %4458 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4457, ptr noundef nonnull dereferenceable(10) @.str.270, i64 noundef 9) #50
+  %4458 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4457, ptr noundef nonnull readonly dereferenceable(10) @.str.270, i64 noundef 9) #50
   %4459 = icmp eq i32 %4458, 0
   br i1 %4459, label %4460, label %cgltf_json_strcmp.exit92.i.i
 
@@ -53509,7 +53509,7 @@ cgltf_json_strcmp.exit87.i.i:                     ; preds = %4425
   %4468 = sub nsw i64 %4465, %4467
   %spec.select.i.i.i650 = call i64 @llvm.umin.i64(i64 %4468, i64 127)
   %4469 = getelementptr inbounds i8, ptr %2, i64 %4467
-  %4470 = call ptr @strncpy(ptr noundef nonnull %11, ptr noundef %4469, i64 noundef %spec.select.i.i.i650) #53
+  %4470 = call ptr @strncpy(ptr noundef nonnull %11, ptr noundef readonly %4469, i64 noundef %spec.select.i.i.i650) #53
   %4471 = getelementptr inbounds [128 x i8], ptr %11, i64 0, i64 %spec.select.i.i.i650
   store i8 0, ptr %4471, align 1
   %4472 = call i32 @atoi(ptr nocapture noundef nonnull %11) #50
@@ -53523,7 +53523,7 @@ cgltf_json_to_int.exit.i.i649:                    ; preds = %4463, %4460
   br label %cgltf_parse_json_string.exit.i.i628
 
 cgltf_json_strcmp.exit92.i.i:                     ; preds = %cgltf_json_strcmp.exit87.i.i
-  %4474 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4457, ptr noundef nonnull dereferenceable(10) @.str.271, i64 noundef 9) #50
+  %4474 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4457, ptr noundef nonnull readonly dereferenceable(10) @.str.271, i64 noundef 9) #50
   %4475 = icmp eq i32 %4474, 0
   br i1 %4475, label %4476, label %cgltf_json_strcmp.exit118.thread.i.i
 
@@ -53542,7 +53542,7 @@ cgltf_json_strcmp.exit92.i.i:                     ; preds = %cgltf_json_strcmp.e
   %4484 = sub nsw i64 %4481, %4483
   %spec.select.i95.i.i = call i64 @llvm.umin.i64(i64 %4484, i64 127)
   %4485 = getelementptr inbounds i8, ptr %2, i64 %4483
-  %4486 = call ptr @strncpy(ptr noundef nonnull %10, ptr noundef %4485, i64 noundef %spec.select.i95.i.i) #53
+  %4486 = call ptr @strncpy(ptr noundef nonnull %10, ptr noundef readonly %4485, i64 noundef %spec.select.i95.i.i) #53
   %4487 = getelementptr inbounds [128 x i8], ptr %10, i64 0, i64 %spec.select.i95.i.i
   store i8 0, ptr %4487, align 1
   %4488 = call i32 @atoi(ptr nocapture noundef nonnull %10) #50
@@ -53557,7 +53557,7 @@ cgltf_json_to_int.exit96.i.i:                     ; preds = %4479, %4476
 
 cgltf_json_strcmp.exit99.i.i:                     ; preds = %4425
   %4490 = getelementptr inbounds i8, ptr %2, i64 %4429
-  %4491 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4490, ptr noundef nonnull dereferenceable(6) @.str.272, i64 noundef 5) #50
+  %4491 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4490, ptr noundef nonnull readonly dereferenceable(6) @.str.272, i64 noundef 5) #50
   %4492 = icmp eq i32 %4491, 0
   br i1 %4492, label %4493, label %cgltf_json_strcmp.exit106.i.i
 
@@ -53576,7 +53576,7 @@ cgltf_json_strcmp.exit99.i.i:                     ; preds = %4425
   %4501 = sub nsw i64 %4498, %4500
   %spec.select.i102.i.i = call i64 @llvm.umin.i64(i64 %4501, i64 127)
   %4502 = getelementptr inbounds i8, ptr %2, i64 %4500
-  %4503 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef %4502, i64 noundef %spec.select.i102.i.i) #53
+  %4503 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef readonly %4502, i64 noundef %spec.select.i102.i.i) #53
   %4504 = getelementptr inbounds [128 x i8], ptr %9, i64 0, i64 %spec.select.i102.i.i
   store i8 0, ptr %4504, align 1
   %4505 = call i32 @atoi(ptr nocapture noundef nonnull %9) #50
@@ -53590,7 +53590,7 @@ cgltf_json_to_int.exit103.i.i:                    ; preds = %4496, %4493
   br label %cgltf_parse_json_string.exit.i.i628
 
 cgltf_json_strcmp.exit106.i.i:                    ; preds = %cgltf_json_strcmp.exit99.i.i
-  %4507 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4490, ptr noundef nonnull dereferenceable(6) @.str.273, i64 noundef 5) #50
+  %4507 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4490, ptr noundef nonnull readonly dereferenceable(6) @.str.273, i64 noundef 5) #50
   %4508 = icmp eq i32 %4507, 0
   br i1 %4508, label %4509, label %cgltf_json_strcmp.exit118.thread.i.i
 
@@ -53609,7 +53609,7 @@ cgltf_json_strcmp.exit106.i.i:                    ; preds = %cgltf_json_strcmp.e
   %4517 = sub nsw i64 %4514, %4516
   %spec.select.i109.i.i = call i64 @llvm.umin.i64(i64 %4517, i64 127)
   %4518 = getelementptr inbounds i8, ptr %2, i64 %4516
-  %4519 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %4518, i64 noundef %spec.select.i109.i.i) #53
+  %4519 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef readonly %4518, i64 noundef %spec.select.i109.i.i) #53
   %4520 = getelementptr inbounds [128 x i8], ptr %8, i64 0, i64 %spec.select.i109.i.i
   store i8 0, ptr %4520, align 1
   %4521 = call i32 @atoi(ptr nocapture noundef nonnull %8) #50
@@ -53624,7 +53624,7 @@ cgltf_json_to_int.exit110.i.i:                    ; preds = %4512, %4509
 
 cgltf_json_strcmp.exit113.i.i:                    ; preds = %4425
   %4523 = getelementptr inbounds i8, ptr %2, i64 %4429
-  %4524 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4523, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %4524 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4523, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %4525 = icmp eq i32 %4524, 0
   br i1 %4525, label %4526, label %cgltf_json_strcmp.exit118.thread.i.i
 
@@ -53655,7 +53655,7 @@ cgltf_json_strcmp.exit113.i.i:                    ; preds = %4425
 
 4542:                                             ; preds = %4528
   %4543 = getelementptr inbounds i8, ptr %2, i64 %4536
-  %4544 = call ptr @strncpy(ptr noundef nonnull %4541, ptr noundef %4543, i64 noundef %4537) #53
+  %4544 = call ptr @strncpy(ptr noundef nonnull %4541, ptr noundef readonly %4543, i64 noundef %4537) #53
   %4545 = load ptr, ptr %4412, align 8
   %4546 = getelementptr inbounds i8, ptr %4545, i64 %4537
   store i8 0, ptr %4546, align 1
@@ -53700,7 +53700,7 @@ cgltf_json_strcmp.exit113.i.i:                    ; preds = %4425
 
 cgltf_json_strcmp.exit118.i.i:                    ; preds = %4425
   %4564 = getelementptr inbounds i8, ptr %2, i64 %4429
-  %4565 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4564, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %4565 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4564, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %4566 = icmp eq i32 %4565, 0
   br i1 %4566, label %4567, label %cgltf_json_strcmp.exit118.thread.i.i
 
@@ -53763,7 +53763,7 @@ cgltf_calloc.exit.thread.i.i.i642:                ; preds = %4575, %4572
   store i64 %4592, ptr %4410, align 8
   %4593 = load ptr, ptr %4411, align 8
   %4594 = getelementptr inbounds %struct.cgltf_extension, ptr %4593, i64 %4591
-  %4595 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i.i637, ptr noundef %2, ptr noundef %4594)
+  %4595 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i637, ptr noundef readonly %2, ptr noundef %4594)
   %4596 = icmp slt i32 %4595, 0
   %4597 = add nuw nsw i32 %.03138.i.i.i638, 1
   %exitcond.not.i.i.i640 = icmp eq i32 %4597, %4574
@@ -53832,7 +53832,7 @@ cgltf_parse_json_sampler.exit.thread28.i:         ; preds = %cgltf_parse_json_sa
 
 cgltf_json_strcmp.exit658:                        ; preds = %cgltf_json_strcmp.exit
   %4622 = getelementptr inbounds i8, ptr %2, i64 %123
-  %4623 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4622, ptr noundef nonnull dereferenceable(6) @.str.130, i64 noundef 5) #50
+  %4623 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4622, ptr noundef nonnull readonly dereferenceable(6) @.str.130, i64 noundef 5) #50
   %4624 = icmp eq i32 %4623, 0
   br i1 %4624, label %4625, label %cgltf_json_strcmp.exit713.thread
 
@@ -53939,7 +53939,7 @@ cgltf_parse_json_array.exit.i664:                 ; preds = %4639
 
 cgltf_json_strcmp.exit.i.i707:                    ; preds = %4673
   %4679 = getelementptr inbounds i8, ptr %2, i64 %4677
-  %4680 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4679, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %4680 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4679, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %4681 = icmp eq i32 %4680, 0
   br i1 %4681, label %4682, label %cgltf_json_strcmp.exit122.thread.i.i
 
@@ -53975,7 +53975,7 @@ cgltf_json_strcmp.exit.i.i707:                    ; preds = %4673
   %4701 = load i64, ptr %4692, align 8
   %4702 = getelementptr inbounds i8, ptr %2, i64 %4701
   %4703 = ashr exact i64 %4697, 32
-  %4704 = call ptr @strncpy(ptr noundef nonnull %4699, ptr noundef %4702, i64 noundef %4703) #53
+  %4704 = call ptr @strncpy(ptr noundef nonnull %4699, ptr noundef readonly %4702, i64 noundef %4703) #53
   %4705 = getelementptr inbounds i8, ptr %4699, i64 %4703
   store i8 0, ptr %4705, align 1
   store ptr %4699, ptr %4647, align 8
@@ -53984,7 +53984,7 @@ cgltf_json_strcmp.exit.i.i707:                    ; preds = %4673
 
 cgltf_json_strcmp.exit96.i.i690:                  ; preds = %4673
   %4707 = getelementptr inbounds i8, ptr %2, i64 %4677
-  %4708 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4707, ptr noundef nonnull dereferenceable(7) @.str.274, i64 noundef 6) #50
+  %4708 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4707, ptr noundef nonnull readonly dereferenceable(7) @.str.274, i64 noundef 6) #50
   %4709 = icmp eq i32 %4708, 0
   br i1 %4709, label %4710, label %cgltf_json_strcmp.exit117.i.i
 
@@ -54048,7 +54048,7 @@ cgltf_json_strcmp.exit96.i.i690:                  ; preds = %4673
   %4736 = sub nsw i64 %4733, %4735
   %spec.select.i.i.i706 = call i64 @llvm.umin.i64(i64 %4736, i64 127)
   %4737 = getelementptr inbounds i8, ptr %2, i64 %4735
-  %4738 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef %4737, i64 noundef %spec.select.i.i.i706) #53
+  %4738 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef readonly %4737, i64 noundef %spec.select.i.i.i706) #53
   %4739 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %spec.select.i.i.i706
   store i8 0, ptr %4739, align 1
   %4740 = call i32 @atoi(ptr nocapture noundef nonnull %7) #50
@@ -54071,7 +54071,7 @@ cgltf_json_to_int.exit.i.i704:                    ; preds = %4731, %.lr.ph.i.i70
 
 cgltf_json_strcmp.exit103.i.i689:                 ; preds = %4673
   %4749 = getelementptr inbounds i8, ptr %2, i64 %4677
-  %4750 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4749, ptr noundef nonnull dereferenceable(9) @.str.275, i64 noundef 8) #50
+  %4750 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4749, ptr noundef nonnull readonly dereferenceable(9) @.str.275, i64 noundef 8) #50
   %4751 = icmp eq i32 %4750, 0
   br i1 %4751, label %4752, label %cgltf_json_strcmp.exit122.thread.i.i
 
@@ -54092,7 +54092,7 @@ cgltf_json_to_int.exit107.i.i:                    ; preds = %4752
   %4761 = sub nsw i64 %4758, %4760
   %spec.select.i106.i.i = call i64 @llvm.umin.i64(i64 %4761, i64 127)
   %4762 = getelementptr inbounds i8, ptr %2, i64 %4760
-  %4763 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef %4762, i64 noundef %spec.select.i106.i.i) #53
+  %4763 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef readonly %4762, i64 noundef %spec.select.i106.i.i) #53
   %4764 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 %spec.select.i106.i.i
   store i8 0, ptr %4764, align 1
   %4765 = call i32 @atoi(ptr nocapture noundef nonnull %6) #50
@@ -54106,7 +54106,7 @@ cgltf_json_to_int.exit107.i.i:                    ; preds = %4752
 
 cgltf_json_strcmp.exit110.i.i:                    ; preds = %4673
   %4770 = getelementptr inbounds i8, ptr %2, i64 %4677
-  %4771 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4770, ptr noundef nonnull dereferenceable(20) @.str.276, i64 noundef 19) #50
+  %4771 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4770, ptr noundef nonnull readonly dereferenceable(20) @.str.276, i64 noundef 19) #50
   %4772 = icmp eq i32 %4771, 0
   br i1 %4772, label %4773, label %cgltf_json_strcmp.exit122.thread.i.i
 
@@ -54127,7 +54127,7 @@ cgltf_json_to_int.exit114.i.i:                    ; preds = %4773
   %4782 = sub nsw i64 %4779, %4781
   %spec.select.i113.i.i = call i64 @llvm.umin.i64(i64 %4782, i64 127)
   %4783 = getelementptr inbounds i8, ptr %2, i64 %4781
-  %4784 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef %4783, i64 noundef %spec.select.i113.i.i) #53
+  %4784 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef readonly %4783, i64 noundef %spec.select.i113.i.i) #53
   %4785 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %spec.select.i113.i.i
   store i8 0, ptr %4785, align 1
   %4786 = call i32 @atoi(ptr nocapture noundef nonnull %5) #50
@@ -54140,7 +54140,7 @@ cgltf_json_to_int.exit114.i.i:                    ; preds = %4773
   br label %cgltf_parse_json_string.exit.i.i674
 
 cgltf_json_strcmp.exit117.i.i:                    ; preds = %cgltf_json_strcmp.exit96.i.i690
-  %4791 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4707, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %4791 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4707, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %4792 = icmp eq i32 %4791, 0
   br i1 %4792, label %4793, label %cgltf_json_strcmp.exit122.thread.i.i
 
@@ -54171,7 +54171,7 @@ cgltf_json_strcmp.exit117.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 4809:                                             ; preds = %4796
   %4810 = getelementptr inbounds i8, ptr %2, i64 %4803
-  %4811 = call ptr @strncpy(ptr noundef nonnull %4808, ptr noundef %4810, i64 noundef %4804) #53
+  %4811 = call ptr @strncpy(ptr noundef nonnull %4808, ptr noundef readonly %4810, i64 noundef %4804) #53
   %4812 = load ptr, ptr %4658, align 8
   %4813 = getelementptr inbounds i8, ptr %4812, i64 %4804
   store i8 0, ptr %4813, align 1
@@ -54217,7 +54217,7 @@ cgltf_json_strcmp.exit117.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit122.i.i:                    ; preds = %4673
   %4832 = getelementptr inbounds i8, ptr %2, i64 %4677
-  %4833 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4832, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %4833 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4832, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %4834 = icmp eq i32 %4833, 0
   br i1 %4834, label %4835, label %cgltf_json_strcmp.exit122.thread.i.i
 
@@ -54280,7 +54280,7 @@ cgltf_calloc.exit.thread.i.i.i688:                ; preds = %4843, %4840
   store i64 %4860, ptr %4656, align 8
   %4861 = load ptr, ptr %4657, align 8
   %4862 = getelementptr inbounds %struct.cgltf_extension, ptr %4861, i64 %4859
-  %4863 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i.i683, ptr noundef %2, ptr noundef %4862)
+  %4863 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i683, ptr noundef readonly %2, ptr noundef %4862)
   %4864 = icmp slt i32 %4863, 0
   %4865 = add nuw nsw i32 %.03138.i.i.i684, 1
   %exitcond.not.i.i.i686 = icmp eq i32 %4865, %4842
@@ -54357,7 +54357,7 @@ cgltf_parse_json_skin.exit.thread28.i:            ; preds = %cgltf_parse_json_sk
 
 cgltf_json_strcmp.exit713:                        ; preds = %cgltf_json_strcmp.exit397
   %4891 = getelementptr inbounds i8, ptr %2, i64 %123
-  %4892 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4891, ptr noundef nonnull dereferenceable(8) @.str.131, i64 noundef 7) #50
+  %4892 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4891, ptr noundef nonnull readonly dereferenceable(8) @.str.131, i64 noundef 7) #50
   %4893 = icmp eq i32 %4892, 0
   br i1 %4893, label %4894, label %cgltf_json_strcmp.exit713.thread
 
@@ -54371,7 +54371,7 @@ cgltf_json_strcmp.exit713.thread:                 ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit716:                        ; preds = %cgltf_json_strcmp.exit713.thread
   %4897 = getelementptr inbounds i8, ptr %2, i64 %123
-  %4898 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4897, ptr noundef nonnull dereferenceable(6) @.str.132, i64 noundef 5) #50
+  %4898 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4897, ptr noundef nonnull readonly dereferenceable(6) @.str.132, i64 noundef 5) #50
   %4899 = icmp eq i32 %4898, 0
   br i1 %4899, label %4900, label %cgltf_json_strcmp.exit716.thread
 
@@ -54815,7 +54815,7 @@ cgltf_parse_json_string.exit.thread.i:            ; preds = %276, %cgltf_parse_j
 
 cgltf_json_strcmp.exit.i:                         ; preds = %72
   %78 = getelementptr inbounds i8, ptr %3, i64 %76
-  %79 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %79 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %78, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %cgltf_json_strcmp.exit287.thread.i
 
@@ -54851,7 +54851,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %72
   %100 = load i64, ptr %91, align 8
   %101 = getelementptr inbounds i8, ptr %3, i64 %100
   %102 = ashr exact i64 %96, 32
-  %103 = call ptr @strncpy(ptr noundef nonnull %98, ptr noundef %101, i64 noundef %102) #53
+  %103 = call ptr @strncpy(ptr noundef nonnull %98, ptr noundef readonly %101, i64 noundef %102) #53
   %104 = getelementptr inbounds i8, ptr %98, i64 %102
   store i8 0, ptr %104, align 1
   store ptr %98, ptr %39, align 8
@@ -54860,7 +54860,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %72
 
 cgltf_json_strcmp.exit191.i:                      ; preds = %72
   %106 = getelementptr inbounds i8, ptr %3, i64 %76
-  %107 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(12) @.str.277, i64 noundef 11) #50
+  %107 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %106, ptr noundef nonnull readonly dereferenceable(12) @.str.277, i64 noundef 11) #50
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %cgltf_json_strcmp.exit287.thread.i
 
@@ -54919,7 +54919,7 @@ cgltf_parse_json_extras.exit.i.thread:            ; preds = %cgltf_json_to_float
 
 cgltf_json_strcmp.exit194.i:                      ; preds = %127
   %133 = getelementptr inbounds i8, ptr %3, i64 %131
-  %134 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %133, ptr noundef nonnull dereferenceable(12) @.str.278, i64 noundef 11) #50
+  %134 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %133, ptr noundef nonnull readonly dereferenceable(12) @.str.278, i64 noundef 11) #50
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %cgltf_json_strcmp.exit220.thread.i
 
@@ -54939,7 +54939,7 @@ cgltf_json_strcmp.exit194.i:                      ; preds = %127
   %144 = sub nsw i64 %141, %143
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %144, i64 127)
   %145 = getelementptr inbounds i8, ptr %3, i64 %143
-  %146 = call ptr @strncpy(ptr noundef nonnull %13, ptr noundef %145, i64 noundef %spec.select.i.i) #53
+  %146 = call ptr @strncpy(ptr noundef nonnull %13, ptr noundef readonly %145, i64 noundef %spec.select.i.i) #53
   %147 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %spec.select.i.i
   store i8 0, ptr %147, align 1
   %148 = call double @atof(ptr noundef nonnull %13) #50
@@ -54955,7 +54955,7 @@ cgltf_json_to_float.exit.i:                       ; preds = %139, %136
 
 cgltf_json_strcmp.exit199.i:                      ; preds = %127
   %151 = getelementptr inbounds i8, ptr %3, i64 %131
-  %152 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %151, ptr noundef nonnull dereferenceable(5) @.str.279, i64 noundef 4) #50
+  %152 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %151, ptr noundef nonnull readonly dereferenceable(5) @.str.279, i64 noundef 4) #50
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %cgltf_json_strcmp.exit206.i
 
@@ -54974,7 +54974,7 @@ cgltf_json_strcmp.exit199.i:                      ; preds = %127
   %162 = sub nsw i64 %159, %161
   %spec.select.i202.i = call i64 @llvm.umin.i64(i64 %162, i64 127)
   %163 = getelementptr inbounds i8, ptr %3, i64 %161
-  %164 = call ptr @strncpy(ptr noundef nonnull %12, ptr noundef %163, i64 noundef %spec.select.i202.i) #53
+  %164 = call ptr @strncpy(ptr noundef nonnull %12, ptr noundef readonly %163, i64 noundef %spec.select.i202.i) #53
   %165 = getelementptr inbounds [128 x i8], ptr %12, i64 0, i64 %spec.select.i202.i
   store i8 0, ptr %165, align 1
   %166 = call double @atof(ptr noundef nonnull %12) #50
@@ -54989,7 +54989,7 @@ cgltf_json_to_float.exit203.i:                    ; preds = %157, %154
   br label %cgltf_parse_json_extras.exit.i.thread
 
 cgltf_json_strcmp.exit206.i:                      ; preds = %cgltf_json_strcmp.exit199.i
-  %169 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %151, ptr noundef nonnull dereferenceable(5) @.str.280, i64 noundef 4) #50
+  %169 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %151, ptr noundef nonnull readonly dereferenceable(5) @.str.280, i64 noundef 4) #50
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %171, label %cgltf_json_strcmp.exit220.thread.i
 
@@ -55009,7 +55009,7 @@ cgltf_json_strcmp.exit206.i:                      ; preds = %cgltf_json_strcmp.e
   %179 = sub nsw i64 %176, %178
   %spec.select.i209.i = call i64 @llvm.umin.i64(i64 %179, i64 127)
   %180 = getelementptr inbounds i8, ptr %3, i64 %178
-  %181 = call ptr @strncpy(ptr noundef nonnull %11, ptr noundef %180, i64 noundef %spec.select.i209.i) #53
+  %181 = call ptr @strncpy(ptr noundef nonnull %11, ptr noundef readonly %180, i64 noundef %spec.select.i209.i) #53
   %182 = getelementptr inbounds [128 x i8], ptr %11, i64 0, i64 %spec.select.i209.i
   store i8 0, ptr %182, align 1
   %183 = call double @atof(ptr noundef nonnull %11) #50
@@ -55025,7 +55025,7 @@ cgltf_json_to_float.exit210.i:                    ; preds = %174, %171
 
 cgltf_json_strcmp.exit213.i:                      ; preds = %127
   %186 = getelementptr inbounds i8, ptr %3, i64 %131
-  %187 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %186, ptr noundef nonnull dereferenceable(6) @.str.281, i64 noundef 5) #50
+  %187 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %186, ptr noundef nonnull readonly dereferenceable(6) @.str.281, i64 noundef 5) #50
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %189, label %cgltf_json_strcmp.exit220.thread.i
 
@@ -55044,7 +55044,7 @@ cgltf_json_strcmp.exit213.i:                      ; preds = %127
   %197 = sub nsw i64 %194, %196
   %spec.select.i216.i = call i64 @llvm.umin.i64(i64 %197, i64 127)
   %198 = getelementptr inbounds i8, ptr %3, i64 %196
-  %199 = call ptr @strncpy(ptr noundef nonnull %10, ptr noundef %198, i64 noundef %spec.select.i216.i) #53
+  %199 = call ptr @strncpy(ptr noundef nonnull %10, ptr noundef readonly %198, i64 noundef %spec.select.i216.i) #53
   %200 = getelementptr inbounds [128 x i8], ptr %10, i64 0, i64 %spec.select.i216.i
   store i8 0, ptr %200, align 1
   %201 = call double @atof(ptr noundef nonnull %10) #50
@@ -55060,7 +55060,7 @@ cgltf_json_to_float.exit217.i:                    ; preds = %192, %189
 
 cgltf_json_strcmp.exit220.i:                      ; preds = %127
   %204 = getelementptr inbounds i8, ptr %3, i64 %131
-  %205 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %205 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %204, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %cgltf_json_strcmp.exit220.thread.i
 
@@ -55091,7 +55091,7 @@ cgltf_json_strcmp.exit220.i:                      ; preds = %127
 
 223:                                              ; preds = %209
   %224 = getelementptr inbounds i8, ptr %3, i64 %217
-  %225 = call ptr @strncpy(ptr noundef nonnull %222, ptr noundef %224, i64 noundef %218) #53
+  %225 = call ptr @strncpy(ptr noundef nonnull %222, ptr noundef readonly %224, i64 noundef %218) #53
   %226 = load ptr, ptr %61, align 8
   %227 = getelementptr inbounds i8, ptr %226, i64 %218
   store i8 0, ptr %227, align 1
@@ -55176,7 +55176,7 @@ cgltf_parse_json_extras.exit.i:                   ; preds = %241, %259
 
 cgltf_json_strcmp.exit225.i:                      ; preds = %72
   %263 = getelementptr inbounds i8, ptr %3, i64 %76
-  %264 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %263, ptr noundef nonnull dereferenceable(13) @.str.282, i64 noundef 12) #50
+  %264 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %263, ptr noundef nonnull readonly dereferenceable(13) @.str.282, i64 noundef 12) #50
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %266, label %cgltf_json_strcmp.exit287.thread.i
 
@@ -55233,7 +55233,7 @@ cgltf_json_strcmp.exit225.i:                      ; preds = %72
 
 cgltf_json_strcmp.exit228.i:                      ; preds = %285
   %291 = getelementptr inbounds i8, ptr %3, i64 %289
-  %292 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %291, ptr noundef nonnull dereferenceable(5) @.str.283, i64 noundef 4) #50
+  %292 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %291, ptr noundef nonnull readonly dereferenceable(5) @.str.283, i64 noundef 4) #50
   %293 = icmp eq i32 %292, 0
   br i1 %293, label %294, label %cgltf_json_strcmp.exit235.i
 
@@ -55254,7 +55254,7 @@ cgltf_json_strcmp.exit228.i:                      ; preds = %285
   %304 = sub nsw i64 %301, %303
   %spec.select.i231.i = call i64 @llvm.umin.i64(i64 %304, i64 127)
   %305 = getelementptr inbounds i8, ptr %3, i64 %303
-  %306 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef %305, i64 noundef %spec.select.i231.i) #53
+  %306 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef readonly %305, i64 noundef %spec.select.i231.i) #53
   %307 = getelementptr inbounds [128 x i8], ptr %9, i64 0, i64 %spec.select.i231.i
   store i8 0, ptr %307, align 1
   %308 = call double @atof(ptr noundef nonnull %9) #50
@@ -55269,7 +55269,7 @@ cgltf_json_to_float.exit232.i:                    ; preds = %299, %294
   br label %cgltf_parse_json_extras.exit265.i
 
 cgltf_json_strcmp.exit235.i:                      ; preds = %cgltf_json_strcmp.exit228.i
-  %311 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %291, ptr noundef nonnull dereferenceable(5) @.str.284, i64 noundef 4) #50
+  %311 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %291, ptr noundef nonnull readonly dereferenceable(5) @.str.284, i64 noundef 4) #50
   %312 = icmp eq i32 %311, 0
   br i1 %312, label %313, label %cgltf_json_strcmp.exit242.i
 
@@ -55290,7 +55290,7 @@ cgltf_json_strcmp.exit235.i:                      ; preds = %cgltf_json_strcmp.e
   %323 = sub nsw i64 %320, %322
   %spec.select.i238.i = call i64 @llvm.umin.i64(i64 %323, i64 127)
   %324 = getelementptr inbounds i8, ptr %3, i64 %322
-  %325 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %324, i64 noundef %spec.select.i238.i) #53
+  %325 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef readonly %324, i64 noundef %spec.select.i238.i) #53
   %326 = getelementptr inbounds [128 x i8], ptr %8, i64 0, i64 %spec.select.i238.i
   store i8 0, ptr %326, align 1
   %327 = call double @atof(ptr noundef nonnull %8) #50
@@ -55305,7 +55305,7 @@ cgltf_json_to_float.exit239.i:                    ; preds = %318, %313
   br label %cgltf_parse_json_extras.exit265.i
 
 cgltf_json_strcmp.exit242.i:                      ; preds = %cgltf_json_strcmp.exit235.i
-  %330 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %291, ptr noundef nonnull dereferenceable(5) @.str.280, i64 noundef 4) #50
+  %330 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %291, ptr noundef nonnull readonly dereferenceable(5) @.str.280, i64 noundef 4) #50
   %331 = icmp eq i32 %330, 0
   br i1 %331, label %332, label %cgltf_json_strcmp.exit256.thread.i
 
@@ -55326,7 +55326,7 @@ cgltf_json_strcmp.exit242.i:                      ; preds = %cgltf_json_strcmp.e
   %342 = sub nsw i64 %339, %341
   %spec.select.i245.i = call i64 @llvm.umin.i64(i64 %342, i64 127)
   %343 = getelementptr inbounds i8, ptr %3, i64 %341
-  %344 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef %343, i64 noundef %spec.select.i245.i) #53
+  %344 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef readonly %343, i64 noundef %spec.select.i245.i) #53
   %345 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %spec.select.i245.i
   store i8 0, ptr %345, align 1
   %346 = call double @atof(ptr noundef nonnull %7) #50
@@ -55342,7 +55342,7 @@ cgltf_json_to_float.exit246.i:                    ; preds = %337, %332
 
 cgltf_json_strcmp.exit249.i:                      ; preds = %285
   %349 = getelementptr inbounds i8, ptr %3, i64 %289
-  %350 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %349, ptr noundef nonnull dereferenceable(6) @.str.281, i64 noundef 5) #50
+  %350 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %349, ptr noundef nonnull readonly dereferenceable(6) @.str.281, i64 noundef 5) #50
   %351 = icmp eq i32 %350, 0
   br i1 %351, label %352, label %cgltf_json_strcmp.exit256.thread.i
 
@@ -55363,7 +55363,7 @@ cgltf_json_strcmp.exit249.i:                      ; preds = %285
   %362 = sub nsw i64 %359, %361
   %spec.select.i252.i = call i64 @llvm.umin.i64(i64 %362, i64 127)
   %363 = getelementptr inbounds i8, ptr %3, i64 %361
-  %364 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef %363, i64 noundef %spec.select.i252.i) #53
+  %364 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef readonly %363, i64 noundef %spec.select.i252.i) #53
   %365 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 %spec.select.i252.i
   store i8 0, ptr %365, align 1
   %366 = call double @atof(ptr noundef nonnull %6) #50
@@ -55379,7 +55379,7 @@ cgltf_json_to_float.exit253.i:                    ; preds = %357, %352
 
 cgltf_json_strcmp.exit256.i:                      ; preds = %285
   %369 = getelementptr inbounds i8, ptr %3, i64 %289
-  %370 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %369, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %370 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %369, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %371 = icmp eq i32 %370, 0
   br i1 %371, label %372, label %cgltf_json_strcmp.exit256.thread.i
 
@@ -55410,7 +55410,7 @@ cgltf_json_strcmp.exit256.i:                      ; preds = %285
 
 388:                                              ; preds = %375
   %389 = getelementptr inbounds i8, ptr %3, i64 %382
-  %390 = call ptr @strncpy(ptr noundef nonnull %387, ptr noundef %389, i64 noundef %383) #53
+  %390 = call ptr @strncpy(ptr noundef nonnull %387, ptr noundef readonly %389, i64 noundef %383) #53
   %391 = load ptr, ptr %54, align 8
   %392 = getelementptr inbounds i8, ptr %391, i64 %383
   store i8 0, ptr %392, align 1
@@ -55503,7 +55503,7 @@ cgltf_parse_json_extras.exit265.i:                ; preds = %.split.loop.exit.i2
 
 cgltf_json_strcmp.exit275.i:                      ; preds = %72
   %431 = getelementptr inbounds i8, ptr %3, i64 %76
-  %432 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %431, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %432 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %431, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %433 = icmp eq i32 %432, 0
   br i1 %433, label %434, label %cgltf_json_strcmp.exit287.thread.i
 
@@ -55534,7 +55534,7 @@ cgltf_json_strcmp.exit275.i:                      ; preds = %72
 
 450:                                              ; preds = %437
   %451 = getelementptr inbounds i8, ptr %3, i64 %444
-  %452 = call ptr @strncpy(ptr noundef nonnull %449, ptr noundef %451, i64 noundef %445) #53
+  %452 = call ptr @strncpy(ptr noundef nonnull %449, ptr noundef readonly %451, i64 noundef %445) #53
   %453 = load ptr, ptr %50, align 8
   %454 = getelementptr inbounds i8, ptr %453, i64 %445
   store i8 0, ptr %454, align 1
@@ -55580,7 +55580,7 @@ cgltf_json_strcmp.exit275.i:                      ; preds = %72
 
 cgltf_json_strcmp.exit287.i:                      ; preds = %72
   %473 = getelementptr inbounds i8, ptr %3, i64 %76
-  %474 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %473, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %474 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %473, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %475 = icmp eq i32 %474, 0
   br i1 %475, label %476, label %cgltf_json_strcmp.exit287.thread.i
 
@@ -55643,7 +55643,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %484, %481
   store i64 %501, ptr %48, align 8
   %502 = load ptr, ptr %49, align 8
   %503 = getelementptr inbounds %struct.cgltf_extension, ptr %502, i64 %500
-  %504 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i, ptr noundef %3, ptr noundef %503)
+  %504 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %503)
   %505 = icmp slt i32 %504, 0
   %506 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %506, %483
@@ -55867,7 +55867,7 @@ cgltf_parse_json_string.exit.thread.i:            ; preds = %.loopexit.thread.i,
 
 cgltf_json_strcmp.exit.i:                         ; preds = %87
   %93 = getelementptr inbounds i8, ptr %3, i64 %91
-  %94 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %94 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %cgltf_json_strcmp.exit243.i
 
@@ -55903,7 +55903,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %87
   %115 = load i64, ptr %106, align 8
   %116 = getelementptr inbounds i8, ptr %3, i64 %115
   %117 = ashr exact i64 %111, 32
-  %118 = call ptr @strncpy(ptr noundef nonnull %113, ptr noundef %116, i64 noundef %117) #53
+  %118 = call ptr @strncpy(ptr noundef nonnull %113, ptr noundef readonly %116, i64 noundef %117) #53
   %119 = getelementptr inbounds i8, ptr %113, i64 %117
   store i8 0, ptr %119, align 1
   store ptr %113, ptr %41, align 8
@@ -55912,7 +55912,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %87
 
 cgltf_json_strcmp.exit236.i:                      ; preds = %87
   %121 = getelementptr inbounds i8, ptr %3, i64 %91
-  %122 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(9) @.str.285, i64 noundef 8) #50
+  %122 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(9) @.str.285, i64 noundef 8) #50
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %cgltf_json_strcmp.exit269.i
 
@@ -55976,7 +55976,7 @@ cgltf_json_strcmp.exit236.i:                      ; preds = %87
   %150 = sub nsw i64 %147, %149
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %150, i64 127)
   %151 = getelementptr inbounds i8, ptr %3, i64 %149
-  %152 = call ptr @strncpy(ptr noundef nonnull %15, ptr noundef %151, i64 noundef %spec.select.i.i) #53
+  %152 = call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %151, i64 noundef %spec.select.i.i) #53
   %153 = getelementptr inbounds [128 x i8], ptr %15, i64 0, i64 %spec.select.i.i
   store i8 0, ptr %153, align 1
   %154 = call i32 @atoi(ptr nocapture noundef nonnull %15) #50
@@ -55998,7 +55998,7 @@ cgltf_json_to_int.exit.i:                         ; preds = %145, %.lr.ph382.i
   br i1 %162, label %.lr.ph382.i, label %cgltf_parse_json_string.exit.loopexit.i
 
 cgltf_json_strcmp.exit243.i:                      ; preds = %cgltf_json_strcmp.exit.i
-  %163 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(5) @.str.286, i64 noundef 4) #50
+  %163 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull readonly dereferenceable(5) @.str.286, i64 noundef 4) #50
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %cgltf_json_strcmp.exit250.i
 
@@ -56019,7 +56019,7 @@ cgltf_json_to_int.exit247.i:                      ; preds = %165
   %174 = sub nsw i64 %171, %173
   %spec.select.i246.i = call i64 @llvm.umin.i64(i64 %174, i64 127)
   %175 = getelementptr inbounds i8, ptr %3, i64 %173
-  %176 = call ptr @strncpy(ptr noundef nonnull %14, ptr noundef %175, i64 noundef %spec.select.i246.i) #53
+  %176 = call ptr @strncpy(ptr noundef nonnull %14, ptr noundef readonly %175, i64 noundef %spec.select.i246.i) #53
   %177 = getelementptr inbounds [128 x i8], ptr %14, i64 0, i64 %spec.select.i246.i
   store i8 0, ptr %177, align 1
   %178 = call i32 @atoi(ptr nocapture noundef nonnull %14) #50
@@ -56032,7 +56032,7 @@ cgltf_json_to_int.exit247.i:                      ; preds = %165
   br label %cgltf_parse_json_string.exit.i
 
 cgltf_json_strcmp.exit250.i:                      ; preds = %cgltf_json_strcmp.exit243.i
-  %183 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(5) @.str.287, i64 noundef 4) #50
+  %183 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull readonly dereferenceable(5) @.str.287, i64 noundef 4) #50
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %cgltf_json_strcmp.exit49.thread
 
@@ -56053,7 +56053,7 @@ cgltf_json_to_int.exit254.i:                      ; preds = %185
   %194 = sub nsw i64 %191, %193
   %spec.select.i253.i = call i64 @llvm.umin.i64(i64 %194, i64 127)
   %195 = getelementptr inbounds i8, ptr %3, i64 %193
-  %196 = call ptr @strncpy(ptr noundef nonnull %13, ptr noundef %195, i64 noundef %spec.select.i253.i) #53
+  %196 = call ptr @strncpy(ptr noundef nonnull %13, ptr noundef readonly %195, i64 noundef %spec.select.i253.i) #53
   %197 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %spec.select.i253.i
   store i8 0, ptr %197, align 1
   %198 = call i32 @atoi(ptr nocapture noundef nonnull %13) #50
@@ -56067,7 +56067,7 @@ cgltf_json_to_int.exit254.i:                      ; preds = %185
 
 cgltf_json_strcmp.exit257.i:                      ; preds = %87
   %203 = getelementptr inbounds i8, ptr %3, i64 %91
-  %204 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %203, ptr noundef nonnull dereferenceable(7) @.str.288, i64 noundef 6) #50
+  %204 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %203, ptr noundef nonnull readonly dereferenceable(7) @.str.288, i64 noundef 6) #50
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %206, label %cgltf_json_strcmp.exit305.i
 
@@ -56088,7 +56088,7 @@ cgltf_json_to_int.exit261.i:                      ; preds = %206
   %215 = sub nsw i64 %212, %214
   %spec.select.i260.i = call i64 @llvm.umin.i64(i64 %215, i64 127)
   %216 = getelementptr inbounds i8, ptr %3, i64 %214
-  %217 = call ptr @strncpy(ptr noundef nonnull %12, ptr noundef %216, i64 noundef %spec.select.i260.i) #53
+  %217 = call ptr @strncpy(ptr noundef nonnull %12, ptr noundef readonly %216, i64 noundef %spec.select.i260.i) #53
   %218 = getelementptr inbounds [128 x i8], ptr %12, i64 0, i64 %spec.select.i260.i
   store i8 0, ptr %218, align 1
   %219 = call i32 @atoi(ptr nocapture noundef nonnull %12) #50
@@ -56102,7 +56102,7 @@ cgltf_json_to_int.exit261.i:                      ; preds = %206
 
 cgltf_json_strcmp.exit264.i:                      ; preds = %87
   %224 = getelementptr inbounds i8, ptr %3, i64 %91
-  %225 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %224, ptr noundef nonnull dereferenceable(12) @.str.289, i64 noundef 11) #50
+  %225 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %224, ptr noundef nonnull readonly dereferenceable(12) @.str.289, i64 noundef 11) #50
   %226 = icmp eq i32 %225, 0
   br i1 %226, label %227, label %cgltf_json_strcmp.exit49.thread
 
@@ -56141,7 +56141,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
   %240 = sub nsw i64 %237, %239
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %240, i64 127)
   %241 = getelementptr inbounds i8, ptr %3, i64 %239
-  %242 = call ptr @strncpy(ptr noundef nonnull %11, ptr noundef %241, i64 noundef %spec.select.i.i.i) #53
+  %242 = call ptr @strncpy(ptr noundef nonnull %11, ptr noundef readonly %241, i64 noundef %spec.select.i.i.i) #53
   %243 = getelementptr inbounds [128 x i8], ptr %11, i64 0, i64 %spec.select.i.i.i
   store i8 0, ptr %243, align 1
   %244 = call double @atof(ptr noundef nonnull %11) #50
@@ -56155,7 +56155,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i.i, label %cgltf_parse_json_string.exit.i, label %.lr.ph.i.i
 
 cgltf_json_strcmp.exit269.i:                      ; preds = %cgltf_json_strcmp.exit236.i
-  %247 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(9) @.str.231, i64 noundef 8) #50
+  %247 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(9) @.str.231, i64 noundef 8) #50
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %249, label %cgltf_json_strcmp.exit49.thread
 
@@ -56194,7 +56194,7 @@ cgltf_json_to_float.exit.i279.i:                  ; preds = %.lr.ph.i275.i
   %262 = sub nsw i64 %259, %261
   %spec.select.i.i280.i = call i64 @llvm.umin.i64(i64 %262, i64 127)
   %263 = getelementptr inbounds i8, ptr %3, i64 %261
-  %264 = call ptr @strncpy(ptr noundef nonnull %10, ptr noundef %263, i64 noundef %spec.select.i.i280.i) #53
+  %264 = call ptr @strncpy(ptr noundef nonnull %10, ptr noundef readonly %263, i64 noundef %spec.select.i.i280.i) #53
   %265 = getelementptr inbounds [128 x i8], ptr %10, i64 0, i64 %spec.select.i.i280.i
   store i8 0, ptr %265, align 1
   %266 = call double @atof(ptr noundef nonnull %10) #50
@@ -56209,7 +56209,7 @@ cgltf_json_to_float.exit.i279.i:                  ; preds = %.lr.ph.i275.i
 
 cgltf_json_strcmp.exit287.i:                      ; preds = %87
   %269 = getelementptr inbounds i8, ptr %3, i64 %91
-  %270 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %269, ptr noundef nonnull dereferenceable(6) @.str.227, i64 noundef 5) #50
+  %270 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %269, ptr noundef nonnull readonly dereferenceable(6) @.str.227, i64 noundef 5) #50
   %271 = icmp eq i32 %270, 0
   br i1 %271, label %272, label %cgltf_json_strcmp.exit49.thread
 
@@ -56248,7 +56248,7 @@ cgltf_json_to_float.exit.i297.i:                  ; preds = %.lr.ph.i293.i
   %285 = sub nsw i64 %282, %284
   %spec.select.i.i298.i = call i64 @llvm.umin.i64(i64 %285, i64 127)
   %286 = getelementptr inbounds i8, ptr %3, i64 %284
-  %287 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef %286, i64 noundef %spec.select.i.i298.i) #53
+  %287 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef readonly %286, i64 noundef %spec.select.i.i298.i) #53
   %288 = getelementptr inbounds [128 x i8], ptr %9, i64 0, i64 %spec.select.i.i298.i
   store i8 0, ptr %288, align 1
   %289 = call double @atof(ptr noundef nonnull %9) #50
@@ -56262,7 +56262,7 @@ cgltf_json_to_float.exit.i297.i:                  ; preds = %.lr.ph.i293.i
   br i1 %exitcond.not.i301.i, label %cgltf_parse_json_string.exit.i, label %.lr.ph.i293.i
 
 cgltf_json_strcmp.exit305.i:                      ; preds = %cgltf_json_strcmp.exit257.i
-  %292 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %203, ptr noundef nonnull dereferenceable(7) @.str.290, i64 noundef 6) #50
+  %292 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %203, ptr noundef nonnull readonly dereferenceable(7) @.str.290, i64 noundef 6) #50
   %293 = icmp eq i32 %292, 0
   br i1 %293, label %294, label %cgltf_json_strcmp.exit326.i
 
@@ -56303,7 +56303,7 @@ cgltf_json_to_float.exit.i315.i:                  ; preds = %.lr.ph.i311.i
   %309 = sub nsw i64 %306, %308
   %spec.select.i.i316.i = call i64 @llvm.umin.i64(i64 %309, i64 127)
   %310 = getelementptr inbounds i8, ptr %3, i64 %308
-  %311 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %310, i64 noundef %spec.select.i.i316.i) #53
+  %311 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef readonly %310, i64 noundef %spec.select.i.i316.i) #53
   %312 = getelementptr inbounds [128 x i8], ptr %8, i64 0, i64 %spec.select.i.i316.i
   store i8 0, ptr %312, align 1
   %313 = call double @atof(ptr noundef nonnull %8) #50
@@ -56318,7 +56318,7 @@ cgltf_json_to_float.exit.i315.i:                  ; preds = %.lr.ph.i311.i
 
 cgltf_json_strcmp.exit323.i:                      ; preds = %87
   %316 = getelementptr inbounds i8, ptr %3, i64 %91
-  %317 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %316, ptr noundef nonnull dereferenceable(8) @.str.150, i64 noundef 7) #50
+  %317 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %316, ptr noundef nonnull readonly dereferenceable(8) @.str.150, i64 noundef 7) #50
   %318 = icmp eq i32 %317, 0
   br i1 %318, label %319, label %cgltf_json_strcmp.exit49.thread
 
@@ -56395,7 +56395,7 @@ cgltf_json_to_float.exit.i:                       ; preds = %.lr.ph.i61
   %351 = sub nsw i64 %348, %350
   %spec.select.i.i63 = call i64 @llvm.umin.i64(i64 %351, i64 127)
   %352 = getelementptr inbounds i8, ptr %3, i64 %350
-  %353 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef %352, i64 noundef %spec.select.i.i63) #53
+  %353 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef readonly %352, i64 noundef %spec.select.i.i63) #53
   %354 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 %spec.select.i.i63
   store i8 0, ptr %354, align 1
   %355 = call double @atof(ptr noundef nonnull %6) #50
@@ -56409,7 +56409,7 @@ cgltf_json_to_float.exit.i:                       ; preds = %.lr.ph.i61
   br i1 %exitcond.not.i65, label %cgltf_parse_json_string.exit.i, label %.lr.ph.i61
 
 cgltf_json_strcmp.exit326.i:                      ; preds = %cgltf_json_strcmp.exit305.i
-  %358 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %203, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %358 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %203, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %360, label %cgltf_json_strcmp.exit49.thread
 
@@ -56440,7 +56440,7 @@ cgltf_json_strcmp.exit326.i:                      ; preds = %cgltf_json_strcmp.e
 
 376:                                              ; preds = %363
   %377 = getelementptr inbounds i8, ptr %3, i64 %370
-  %378 = call ptr @strncpy(ptr noundef nonnull %375, ptr noundef %377, i64 noundef %371) #53
+  %378 = call ptr @strncpy(ptr noundef nonnull %375, ptr noundef readonly %377, i64 noundef %371) #53
   %379 = load ptr, ptr %75, align 8
   %380 = getelementptr inbounds i8, ptr %379, i64 %371
   store i8 0, ptr %380, align 1
@@ -56486,7 +56486,7 @@ cgltf_json_strcmp.exit326.i:                      ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit49:                         ; preds = %87
   %399 = getelementptr inbounds i8, ptr %3, i64 %91
-  %400 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %399, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %400 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %399, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %401 = icmp eq i32 %400, 0
   br i1 %401, label %402, label %cgltf_json_strcmp.exit49.thread
 
@@ -56564,7 +56564,7 @@ cgltf_calloc.exit.thread.i:                       ; preds = %412, %409
 
 cgltf_json_strcmp.exit46:                         ; preds = %428
   %434 = getelementptr inbounds i8, ptr %3, i64 %432
-  %435 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %434, ptr noundef nonnull dereferenceable(20) @.str.138, i64 noundef 19) #50
+  %435 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %434, ptr noundef nonnull readonly dereferenceable(20) @.str.138, i64 noundef 19) #50
   %436 = icmp eq i32 %435, 0
   br i1 %436, label %437, label %cgltf_json_strcmp.exit.thread
 
@@ -56614,7 +56614,7 @@ cgltf_json_strcmp.exit46:                         ; preds = %428
 
 cgltf_json_strcmp.exit331.i:                      ; preds = %456
   %463 = getelementptr inbounds i8, ptr %3, i64 %460
-  %464 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %463, ptr noundef nonnull dereferenceable(6) @.str.291, i64 noundef 5) #50
+  %464 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %463, ptr noundef nonnull readonly dereferenceable(6) @.str.291, i64 noundef 5) #50
   %465 = icmp eq i32 %464, 0
   br i1 %465, label %466, label %cgltf_json_strcmp.exit331.thread.i
 
@@ -56634,7 +56634,7 @@ cgltf_json_to_int.exit:                           ; preds = %466
   %473 = sub nsw i64 %470, %472
   %spec.select.i = call i64 @llvm.umin.i64(i64 %473, i64 127)
   %474 = getelementptr inbounds i8, ptr %3, i64 %472
-  %475 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef %474, i64 noundef %spec.select.i) #53
+  %475 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef readonly %474, i64 noundef %spec.select.i) #53
   %476 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %spec.select.i
   store i8 0, ptr %476, align 1
   %477 = call i32 @atoi(ptr nocapture noundef nonnull %7) #50
@@ -56695,7 +56695,7 @@ cgltf_skip_json.exit.i:                           ; preds = %.split.loop.exit.i.
 
 cgltf_json_strcmp.exit:                           ; preds = %428
   %502 = getelementptr inbounds i8, ptr %3, i64 %432
-  %503 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %502, ptr noundef nonnull dereferenceable(24) @.str.292, i64 noundef 23) #50
+  %503 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %502, ptr noundef nonnull readonly dereferenceable(24) @.str.292, i64 noundef 23) #50
   %504 = icmp eq i32 %503, 0
   br i1 %504, label %505, label %cgltf_json_strcmp.exit.thread
 
@@ -56741,13 +56741,13 @@ cgltf_json_strcmp.exit:                           ; preds = %428
 
 cgltf_json_strcmp.exit.i39:                       ; preds = %522
   %529 = getelementptr inbounds i8, ptr %3, i64 %526
-  %530 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %529, ptr noundef nonnull dereferenceable(11) @.str.155, i64 noundef 10) #50
+  %530 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %529, ptr noundef nonnull readonly dereferenceable(11) @.str.155, i64 noundef 10) #50
   %531 = icmp eq i32 %530, 0
   br i1 %531, label %532, label %cgltf_json_strcmp.exit.thread.i
 
 532:                                              ; preds = %cgltf_json_strcmp.exit.i39
   %533 = add nuw nsw i32 %.02732.i, 1
-  %534 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %533, ptr noundef %3, ptr noundef nonnull %60, ptr noundef nonnull %77)
+  %534 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %533, ptr noundef readonly %3, ptr noundef nonnull %60, ptr noundef nonnull %77)
   br label %cgltf_skip_json.exit.i36
 
 cgltf_json_strcmp.exit.thread.i:                  ; preds = %cgltf_json_strcmp.exit.i39, %522
@@ -56806,7 +56806,7 @@ cgltf_json_strcmp.exit.thread:                    ; preds = %428, %cgltf_json_st
   %558 = add i64 %557, 1
   store i64 %558, ptr %58, align 8
   %559 = getelementptr inbounds %struct.cgltf_extension, ptr %556, i64 %557
-  %560 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.2376.i, ptr noundef %3, ptr noundef %559)
+  %560 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.2376.i, ptr noundef readonly %3, ptr noundef %559)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %cgltf_skip_json.exit.i36, %510, %cgltf_json_strcmp.exit.thread, %442
@@ -56984,7 +56984,7 @@ cgltf_parse_json_array.exit:                      ; preds = %21
 
 cgltf_json_strcmp.exit.i:                         ; preds = %56
   %62 = getelementptr inbounds i8, ptr %3, i64 %60
-  %63 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %63 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %62, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %cgltf_json_strcmp.exit84.thread.i
 
@@ -57020,7 +57020,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %56
   %84 = load i64, ptr %75, align 8
   %85 = getelementptr inbounds i8, ptr %3, i64 %84
   %86 = ashr exact i64 %80, 32
-  %87 = call ptr @strncpy(ptr noundef nonnull %82, ptr noundef %85, i64 noundef %86) #53
+  %87 = call ptr @strncpy(ptr noundef nonnull %82, ptr noundef readonly %85, i64 noundef %86) #53
   %88 = getelementptr inbounds i8, ptr %82, i64 %86
   store i8 0, ptr %88, align 1
   store ptr %82, ptr %32, align 8
@@ -57029,7 +57029,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %56
 
 cgltf_json_strcmp.exit72.i:                       ; preds = %56
   %90 = getelementptr inbounds i8, ptr %3, i64 %60
-  %91 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(6) @.str.132, i64 noundef 5) #50
+  %91 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %90, ptr noundef nonnull readonly dereferenceable(6) @.str.132, i64 noundef 5) #50
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %cgltf_json_strcmp.exit84.thread.i
 
@@ -57093,7 +57093,7 @@ cgltf_json_strcmp.exit72.i:                       ; preds = %56
   %119 = sub nsw i64 %116, %118
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %119, i64 127)
   %120 = getelementptr inbounds i8, ptr %3, i64 %118
-  %121 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef %120, i64 noundef %spec.select.i.i) #53
+  %121 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef readonly %120, i64 noundef %spec.select.i.i) #53
   %122 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 %spec.select.i.i
   store i8 0, ptr %122, align 1
   %123 = call i32 @atoi(ptr nocapture noundef nonnull %6) #50
@@ -57116,7 +57116,7 @@ cgltf_json_to_int.exit.i:                         ; preds = %114, %.lr.ph.i
 
 cgltf_json_strcmp.exit79.i:                       ; preds = %56
   %132 = getelementptr inbounds i8, ptr %3, i64 %60
-  %133 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %133 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %132, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %cgltf_json_strcmp.exit84.thread.i
 
@@ -57147,7 +57147,7 @@ cgltf_json_strcmp.exit79.i:                       ; preds = %56
 
 151:                                              ; preds = %138
   %152 = getelementptr inbounds i8, ptr %3, i64 %145
-  %153 = call ptr @strncpy(ptr noundef nonnull %150, ptr noundef %152, i64 noundef %146) #53
+  %153 = call ptr @strncpy(ptr noundef nonnull %150, ptr noundef readonly %152, i64 noundef %146) #53
   %154 = load ptr, ptr %43, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 %146
   store i8 0, ptr %155, align 1
@@ -57193,7 +57193,7 @@ cgltf_json_strcmp.exit79.i:                       ; preds = %56
 
 cgltf_json_strcmp.exit84.i:                       ; preds = %56
   %174 = getelementptr inbounds i8, ptr %3, i64 %60
-  %175 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %174, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %175 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %174, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %cgltf_json_strcmp.exit84.thread.i
 
@@ -57256,7 +57256,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %185, %182
   store i64 %202, ptr %41, align 8
   %203 = load ptr, ptr %42, align 8
   %204 = getelementptr inbounds %struct.cgltf_extension, ptr %203, i64 %201
-  %205 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i, ptr noundef %3, ptr noundef %204)
+  %205 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %204)
   %206 = icmp slt i32 %205, 0
   %207 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %207, %184
@@ -57474,7 +57474,7 @@ cgltf_parse_json_array.exit:                      ; preds = %24
 
 cgltf_json_strcmp.exit.i:                         ; preds = %61
   %67 = getelementptr inbounds i8, ptr %3, i64 %65
-  %68 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %68 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %67, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %cgltf_json_strcmp.exit159.thread.i
 
@@ -57510,7 +57510,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %61
   %89 = load i64, ptr %80, align 8
   %90 = getelementptr inbounds i8, ptr %3, i64 %89
   %91 = ashr exact i64 %85, 32
-  %92 = call ptr @strncpy(ptr noundef nonnull %87, ptr noundef %90, i64 noundef %91) #53
+  %92 = call ptr @strncpy(ptr noundef nonnull %87, ptr noundef readonly %90, i64 noundef %91) #53
   %93 = getelementptr inbounds i8, ptr %87, i64 %91
   store i8 0, ptr %93, align 1
   store ptr %87, ptr %35, align 8
@@ -57519,7 +57519,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %61
 
 cgltf_json_strcmp.exit103.i:                      ; preds = %61
   %95 = getelementptr inbounds i8, ptr %3, i64 %65
-  %96 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(9) @.str.129, i64 noundef 8) #50
+  %96 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %95, ptr noundef nonnull readonly dereferenceable(9) @.str.129, i64 noundef 8) #50
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %cgltf_json_strcmp.exit109.i
 
@@ -57632,7 +57632,7 @@ cgltf_parse_json_array.exit.i:                    ; preds = %112
 
 cgltf_json_strcmp.exit.i.i:                       ; preds = %148
   %154 = getelementptr inbounds i8, ptr %3, i64 %152
-  %155 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull dereferenceable(6) @.str.294, i64 noundef 5) #50
+  %155 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %154, ptr noundef nonnull readonly dereferenceable(6) @.str.294, i64 noundef 5) #50
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %cgltf_json_strcmp.exit100.thread.i.i
 
@@ -57653,7 +57653,7 @@ cgltf_json_strcmp.exit.i.i:                       ; preds = %148
   %167 = sub nsw i64 %164, %166
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %167, i64 127)
   %168 = getelementptr inbounds i8, ptr %3, i64 %166
-  %169 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef %168, i64 noundef %spec.select.i.i.i) #53
+  %169 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef readonly %168, i64 noundef %spec.select.i.i.i) #53
   %170 = getelementptr inbounds [128 x i8], ptr %9, i64 0, i64 %spec.select.i.i.i
   store i8 0, ptr %170, align 1
   %171 = call i32 @atoi(ptr nocapture noundef nonnull %9) #50
@@ -57671,7 +57671,7 @@ cgltf_json_to_int.exit.i.i:                       ; preds = %162, %157
 
 cgltf_json_strcmp.exit76.i.i:                     ; preds = %148
   %176 = getelementptr inbounds i8, ptr %3, i64 %152
-  %177 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %176, ptr noundef nonnull dereferenceable(7) @.str.295, i64 noundef 6) #50
+  %177 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %176, ptr noundef nonnull readonly dereferenceable(7) @.str.295, i64 noundef 6) #50
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %179, label %cgltf_json_strcmp.exit95.i.i
 
@@ -57692,7 +57692,7 @@ cgltf_json_strcmp.exit76.i.i:                     ; preds = %148
   %189 = sub nsw i64 %186, %188
   %spec.select.i79.i.i = call i64 @llvm.umin.i64(i64 %189, i64 127)
   %190 = getelementptr inbounds i8, ptr %3, i64 %188
-  %191 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %190, i64 noundef %spec.select.i79.i.i) #53
+  %191 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef readonly %190, i64 noundef %spec.select.i79.i.i) #53
   %192 = getelementptr inbounds [128 x i8], ptr %8, i64 0, i64 %spec.select.i79.i.i
   store i8 0, ptr %192, align 1
   %193 = call i32 @atoi(ptr nocapture noundef nonnull %8) #50
@@ -57710,7 +57710,7 @@ cgltf_json_to_int.exit80.i.i:                     ; preds = %184, %179
 
 cgltf_json_strcmp.exit83.i.i:                     ; preds = %148
   %198 = getelementptr inbounds i8, ptr %3, i64 %152
-  %199 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(14) @.str.296, i64 noundef 13) #50
+  %199 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %198, ptr noundef nonnull readonly dereferenceable(14) @.str.296, i64 noundef 13) #50
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %201, label %cgltf_json_strcmp.exit100.thread.i.i
 
@@ -57736,19 +57736,19 @@ cgltf_json_strcmp.exit83.i.i:                     ; preds = %148
 
 cgltf_json_strcmp.exit86.i.i:                     ; preds = %206
   %212 = getelementptr inbounds i8, ptr %3, i64 %210
-  %213 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %212, ptr noundef nonnull dereferenceable(7) @.str.297, i64 noundef 6) #50
+  %213 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %212, ptr noundef nonnull readonly dereferenceable(7) @.str.297, i64 noundef 6) #50
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %cgltf_json_strcmp.exit92.thread.sink.split.i.i, label %cgltf_json_strcmp.exit92.thread.i.i
 
 cgltf_json_strcmp.exit89.i.i:                     ; preds = %206
   %215 = getelementptr inbounds i8, ptr %3, i64 %210
-  %216 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %215, ptr noundef nonnull dereferenceable(5) @.str.298, i64 noundef 4) #50
+  %216 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %215, ptr noundef nonnull readonly dereferenceable(5) @.str.298, i64 noundef 4) #50
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %cgltf_json_strcmp.exit92.thread.sink.split.i.i, label %cgltf_json_strcmp.exit92.thread.i.i
 
 cgltf_json_strcmp.exit92.i.i:                     ; preds = %206
   %218 = getelementptr inbounds i8, ptr %3, i64 %210
-  %219 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %218, ptr noundef nonnull dereferenceable(12) @.str.299, i64 noundef 11) #50
+  %219 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %218, ptr noundef nonnull readonly dereferenceable(12) @.str.299, i64 noundef 11) #50
   %220 = icmp eq i32 %219, 0
   br i1 %220, label %cgltf_json_strcmp.exit92.thread.sink.split.i.i, label %cgltf_json_strcmp.exit92.thread.i.i
 
@@ -57762,7 +57762,7 @@ cgltf_json_strcmp.exit92.thread.i.i:              ; preds = %cgltf_json_strcmp.e
   br label %cgltf_parse_json_extras.exit.i.i
 
 cgltf_json_strcmp.exit95.i.i:                     ; preds = %cgltf_json_strcmp.exit76.i.i
-  %222 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %176, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %222 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %176, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %224, label %cgltf_json_strcmp.exit100.thread.i.i
 
@@ -57793,7 +57793,7 @@ cgltf_json_strcmp.exit95.i.i:                     ; preds = %cgltf_json_strcmp.e
 
 240:                                              ; preds = %227
   %241 = getelementptr inbounds i8, ptr %3, i64 %234
-  %242 = call ptr @strncpy(ptr noundef nonnull %239, ptr noundef %241, i64 noundef %235) #53
+  %242 = call ptr @strncpy(ptr noundef nonnull %239, ptr noundef readonly %241, i64 noundef %235) #53
   %243 = load ptr, ptr %135, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 %235
   store i8 0, ptr %244, align 1
@@ -57839,7 +57839,7 @@ cgltf_json_strcmp.exit95.i.i:                     ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit100.i.i:                    ; preds = %148
   %263 = getelementptr inbounds i8, ptr %3, i64 %152
-  %264 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %263, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %264 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %263, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %266, label %cgltf_json_strcmp.exit100.thread.i.i
 
@@ -57904,7 +57904,7 @@ cgltf_calloc.exit.thread.i.i.i:                   ; preds = %276, %273
   store i64 %293, ptr %133, align 8
   %294 = load ptr, ptr %134, align 8
   %295 = getelementptr inbounds %struct.cgltf_extension, ptr %294, i64 %292
-  %296 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i.i, ptr noundef %3, ptr noundef %295)
+  %296 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i, ptr noundef readonly %3, ptr noundef %295)
   %297 = icmp slt i32 %296, 0
   %298 = add nuw nsw i32 %.03138.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %298, %275
@@ -57967,7 +57967,7 @@ cgltf_parse_json_animation_sampler.exit.i:        ; preds = %cgltf_parse_json_ex
   br i1 %320, label %cgltf_parse_json_array.exit.thread, label %119
 
 cgltf_json_strcmp.exit109.i:                      ; preds = %cgltf_json_strcmp.exit103.i
-  %321 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(9) @.str.293, i64 noundef 8) #50
+  %321 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %95, ptr noundef nonnull readonly dereferenceable(9) @.str.293, i64 noundef 8) #50
   %322 = icmp eq i32 %321, 0
   br i1 %322, label %323, label %cgltf_json_strcmp.exit159.thread.i
 
@@ -58079,7 +58079,7 @@ cgltf_skip_json.exit142.thread.i.i:               ; preds = %412, %cgltf_skip_js
 
 cgltf_json_strcmp.exit.i144.i:                    ; preds = %371
   %377 = getelementptr inbounds i8, ptr %3, i64 %375
-  %378 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %377, ptr noundef nonnull dereferenceable(8) @.str.267, i64 noundef 7) #50
+  %378 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %377, ptr noundef nonnull readonly dereferenceable(8) @.str.267, i64 noundef 7) #50
   %379 = icmp eq i32 %378, 0
   br i1 %379, label %380, label %cgltf_json_strcmp.exit103.thread.i.i
 
@@ -58100,7 +58100,7 @@ cgltf_json_strcmp.exit.i144.i:                    ; preds = %371
   %390 = sub nsw i64 %387, %389
   %spec.select.i.i146.i = call i64 @llvm.umin.i64(i64 %390, i64 127)
   %391 = getelementptr inbounds i8, ptr %3, i64 %389
-  %392 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef %391, i64 noundef %spec.select.i.i146.i) #53
+  %392 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef readonly %391, i64 noundef %spec.select.i.i146.i) #53
   %393 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %spec.select.i.i146.i
   store i8 0, ptr %393, align 1
   %394 = call i32 @atoi(ptr nocapture noundef nonnull %7) #50
@@ -58118,7 +58118,7 @@ cgltf_json_to_int.exit.i145.i:                    ; preds = %385, %380
 
 cgltf_json_strcmp.exit103.i.i:                    ; preds = %371
   %399 = getelementptr inbounds i8, ptr %3, i64 %375
-  %400 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %399, ptr noundef nonnull dereferenceable(7) @.str.187, i64 noundef 6) #50
+  %400 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %399, ptr noundef nonnull readonly dereferenceable(7) @.str.187, i64 noundef 6) #50
   %401 = icmp eq i32 %400, 0
   br i1 %401, label %402, label %cgltf_json_strcmp.exit103.thread.i.i
 
@@ -58171,7 +58171,7 @@ cgltf_json_strcmp.exit103.i.i:                    ; preds = %371
 
 cgltf_json_strcmp.exit106.i.i:                    ; preds = %421
   %427 = getelementptr inbounds i8, ptr %3, i64 %425
-  %428 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %427, ptr noundef nonnull dereferenceable(5) @.str.300, i64 noundef 4) #50
+  %428 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %427, ptr noundef nonnull readonly dereferenceable(5) @.str.300, i64 noundef 4) #50
   %429 = icmp eq i32 %428, 0
   br i1 %429, label %430, label %cgltf_json_strcmp.exit113.i.i
 
@@ -58192,7 +58192,7 @@ cgltf_json_strcmp.exit106.i.i:                    ; preds = %421
   %440 = sub nsw i64 %437, %439
   %spec.select.i109.i.i = call i64 @llvm.umin.i64(i64 %440, i64 127)
   %441 = getelementptr inbounds i8, ptr %3, i64 %439
-  %442 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef %441, i64 noundef %spec.select.i109.i.i) #53
+  %442 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef readonly %441, i64 noundef %spec.select.i109.i.i) #53
   %443 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 %spec.select.i109.i.i
   store i8 0, ptr %443, align 1
   %444 = call i32 @atoi(ptr nocapture noundef nonnull %6) #50
@@ -58209,7 +58209,7 @@ cgltf_json_to_int.exit110.i.i:                    ; preds = %435, %430
   br label %cgltf_parse_json_extras.exit.i124.i
 
 cgltf_json_strcmp.exit113.i.i:                    ; preds = %cgltf_json_strcmp.exit106.i.i
-  %449 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %427, ptr noundef nonnull dereferenceable(5) @.str.301, i64 noundef 4) #50
+  %449 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %427, ptr noundef nonnull readonly dereferenceable(5) @.str.301, i64 noundef 4) #50
   %450 = icmp eq i32 %449, 0
   br i1 %450, label %451, label %cgltf_json_strcmp.exit133.thread.i.i
 
@@ -58236,25 +58236,25 @@ cgltf_json_strcmp.exit113.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit116.i.i:                    ; preds = %456
   %462 = getelementptr inbounds i8, ptr %3, i64 %460
-  %463 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %462, ptr noundef nonnull dereferenceable(12) @.str.289, i64 noundef 11) #50
+  %463 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %462, ptr noundef nonnull readonly dereferenceable(12) @.str.289, i64 noundef 11) #50
   %464 = icmp eq i32 %463, 0
   br i1 %464, label %cgltf_json_strcmp.exit125.thread.sink.split.i.i, label %cgltf_json_strcmp.exit125.thread.i.i
 
 cgltf_json_strcmp.exit119.i.i:                    ; preds = %456
   %465 = getelementptr inbounds i8, ptr %3, i64 %460
-  %466 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %465, ptr noundef nonnull dereferenceable(9) @.str.231, i64 noundef 8) #50
+  %466 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %465, ptr noundef nonnull readonly dereferenceable(9) @.str.231, i64 noundef 8) #50
   %467 = icmp eq i32 %466, 0
   br i1 %467, label %cgltf_json_strcmp.exit125.thread.sink.split.i.i, label %cgltf_json_strcmp.exit125.thread.i.i
 
 cgltf_json_strcmp.exit122.i.i:                    ; preds = %456
   %468 = getelementptr inbounds i8, ptr %3, i64 %460
-  %469 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %468, ptr noundef nonnull dereferenceable(6) @.str.227, i64 noundef 5) #50
+  %469 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %468, ptr noundef nonnull readonly dereferenceable(6) @.str.227, i64 noundef 5) #50
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %cgltf_json_strcmp.exit125.thread.sink.split.i.i, label %cgltf_json_strcmp.exit125.thread.i.i
 
 cgltf_json_strcmp.exit125.i.i:                    ; preds = %456
   %471 = getelementptr inbounds i8, ptr %3, i64 %460
-  %472 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %471, ptr noundef nonnull dereferenceable(8) @.str.150, i64 noundef 7) #50
+  %472 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %471, ptr noundef nonnull readonly dereferenceable(8) @.str.150, i64 noundef 7) #50
   %473 = icmp eq i32 %472, 0
   br i1 %473, label %cgltf_json_strcmp.exit125.thread.sink.split.i.i, label %cgltf_json_strcmp.exit125.thread.i.i
 
@@ -58269,7 +58269,7 @@ cgltf_json_strcmp.exit125.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit128.i.i:                    ; preds = %421
   %475 = getelementptr inbounds i8, ptr %3, i64 %425
-  %476 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %475, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %476 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %475, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %477 = icmp eq i32 %476, 0
   br i1 %477, label %478, label %cgltf_json_strcmp.exit133.thread.i.i
 
@@ -58300,7 +58300,7 @@ cgltf_json_strcmp.exit128.i.i:                    ; preds = %421
 
 494:                                              ; preds = %481
   %495 = getelementptr inbounds i8, ptr %3, i64 %488
-  %496 = call ptr @strncpy(ptr noundef nonnull %493, ptr noundef %495, i64 noundef %489) #53
+  %496 = call ptr @strncpy(ptr noundef nonnull %493, ptr noundef readonly %495, i64 noundef %489) #53
   %497 = load ptr, ptr %357, align 8
   %498 = getelementptr inbounds i8, ptr %497, i64 %489
   store i8 0, ptr %498, align 1
@@ -58346,7 +58346,7 @@ cgltf_json_strcmp.exit128.i.i:                    ; preds = %421
 
 cgltf_json_strcmp.exit133.i.i:                    ; preds = %421
   %517 = getelementptr inbounds i8, ptr %3, i64 %425
-  %518 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %517, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %518 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %517, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %519 = icmp eq i32 %518, 0
   br i1 %519, label %520, label %cgltf_json_strcmp.exit133.thread.i.i
 
@@ -58411,7 +58411,7 @@ cgltf_calloc.exit.thread.i.i136.i:                ; preds = %530, %527
   store i64 %547, ptr %355, align 8
   %548 = load ptr, ptr %356, align 8
   %549 = getelementptr inbounds %struct.cgltf_extension, ptr %548, i64 %546
-  %550 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i131.i, ptr noundef %3, ptr noundef %549)
+  %550 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i131.i, ptr noundef readonly %3, ptr noundef %549)
   %551 = icmp slt i32 %550, 0
   %552 = add nuw nsw i32 %.03138.i.i132.i, 1
   %exitcond.not.i.i134.i = icmp eq i32 %552, %529
@@ -58529,7 +58529,7 @@ cgltf_parse_json_animation_channel.exit.thread175.i: ; preds = %cgltf_parse_json
 
 cgltf_json_strcmp.exit149.i:                      ; preds = %61
   %597 = getelementptr inbounds i8, ptr %3, i64 %65
-  %598 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %597, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %598 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %597, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %599 = icmp eq i32 %598, 0
   br i1 %599, label %600, label %cgltf_json_strcmp.exit159.thread.i
 
@@ -58560,7 +58560,7 @@ cgltf_json_strcmp.exit149.i:                      ; preds = %61
 
 616:                                              ; preds = %603
   %617 = getelementptr inbounds i8, ptr %3, i64 %610
-  %618 = call ptr @strncpy(ptr noundef nonnull %615, ptr noundef %617, i64 noundef %611) #53
+  %618 = call ptr @strncpy(ptr noundef nonnull %615, ptr noundef readonly %617, i64 noundef %611) #53
   %619 = load ptr, ptr %46, align 8
   %620 = getelementptr inbounds i8, ptr %619, i64 %611
   store i8 0, ptr %620, align 1
@@ -58606,7 +58606,7 @@ cgltf_json_strcmp.exit149.i:                      ; preds = %61
 
 cgltf_json_strcmp.exit159.i:                      ; preds = %61
   %639 = getelementptr inbounds i8, ptr %3, i64 %65
-  %640 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %639, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %640 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %639, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %641 = icmp eq i32 %640, 0
   br i1 %641, label %642, label %cgltf_json_strcmp.exit159.thread.i
 
@@ -58671,7 +58671,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %652, %649
   store i64 %669, ptr %44, align 8
   %670 = load ptr, ptr %45, align 8
   %671 = getelementptr inbounds %struct.cgltf_extension, ptr %670, i64 %668
-  %672 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.03039.i.i, ptr noundef %3, ptr noundef %671)
+  %672 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %671)
   %673 = icmp slt i32 %672, 0
   %674 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i165.i = icmp eq i32 %674, %651
@@ -58951,7 +58951,7 @@ cgltf_parse_json_string.exit.thread.i:            ; preds = %cgltf_skip_json.exi
 
 cgltf_json_strcmp.exit.i:                         ; preds = %62
   %68 = getelementptr inbounds i8, ptr %3, i64 %66
-  %69 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %69 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %cgltf_json_strcmp.exit139.i
 
@@ -58987,7 +58987,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %62
   %90 = load i64, ptr %81, align 8
   %91 = getelementptr inbounds i8, ptr %3, i64 %90
   %92 = ashr exact i64 %86, 32
-  %93 = call ptr @strncpy(ptr noundef nonnull %88, ptr noundef %91, i64 noundef %92) #53
+  %93 = call ptr @strncpy(ptr noundef nonnull %88, ptr noundef readonly %91, i64 noundef %92) #53
   %94 = getelementptr inbounds i8, ptr %88, i64 %92
   store i8 0, ptr %94, align 1
   store ptr %88, ptr %35, align 8
@@ -58996,7 +58996,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %62
 
 cgltf_json_strcmp.exit129.i:                      ; preds = %62
   %96 = getelementptr inbounds i8, ptr %3, i64 %66
-  %97 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(6) @.str.302, i64 noundef 5) #50
+  %97 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %96, ptr noundef nonnull readonly dereferenceable(6) @.str.302, i64 noundef 5) #50
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %cgltf_json_strcmp.exit151.thread253.i
 
@@ -59036,7 +59036,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
   %114 = sub nsw i64 %111, %113
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %114, i64 127)
   %115 = getelementptr inbounds i8, ptr %3, i64 %113
-  %116 = call ptr @strncpy(ptr noundef nonnull %10, ptr noundef %115, i64 noundef %spec.select.i.i.i) #53
+  %116 = call ptr @strncpy(ptr noundef nonnull %10, ptr noundef readonly %115, i64 noundef %spec.select.i.i.i) #53
   %117 = getelementptr inbounds [128 x i8], ptr %10, i64 0, i64 %spec.select.i.i.i
   store i8 0, ptr %117, align 1
   %118 = call double @atof(ptr noundef nonnull %10) #50
@@ -59051,7 +59051,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
 
 cgltf_json_strcmp.exit134.i:                      ; preds = %62
   %121 = getelementptr inbounds i8, ptr %3, i64 %66
-  %122 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(10) @.str.303, i64 noundef 9) #50
+  %122 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(10) @.str.303, i64 noundef 9) #50
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %cgltf_json_strcmp.exit177.thread.i
 
@@ -59072,7 +59072,7 @@ cgltf_json_strcmp.exit134.i:                      ; preds = %62
   %134 = sub nsw i64 %131, %133
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %134, i64 127)
   %135 = getelementptr inbounds i8, ptr %3, i64 %133
-  %136 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef %135, i64 noundef %spec.select.i.i) #53
+  %136 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef readonly %135, i64 noundef %spec.select.i.i) #53
   %137 = getelementptr inbounds [128 x i8], ptr %9, i64 0, i64 %spec.select.i.i
   store i8 0, ptr %137, align 1
   %138 = call double @atof(ptr noundef nonnull %9) #50
@@ -59087,7 +59087,7 @@ cgltf_json_to_float.exit.i:                       ; preds = %129, %124
   br label %cgltf_parse_json_string.exit.i
 
 cgltf_json_strcmp.exit139.i:                      ; preds = %cgltf_json_strcmp.exit.i
-  %141 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(5) @.str.171, i64 noundef 4) #50
+  %141 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(5) @.str.171, i64 noundef 4) #50
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %cgltf_json_strcmp.exit158.i
 
@@ -59113,19 +59113,19 @@ cgltf_json_strcmp.exit139.i:                      ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit142.i:                      ; preds = %148
   %154 = getelementptr inbounds i8, ptr %3, i64 %152
-  %155 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull dereferenceable(12) @.str.304, i64 noundef 11) #50
+  %155 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %154, ptr noundef nonnull readonly dereferenceable(12) @.str.304, i64 noundef 11) #50
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %cgltf_json_strcmp.exit148.thread.sink.split.i, label %cgltf_json_strcmp.exit148.thread.i
 
 cgltf_json_strcmp.exit145.i:                      ; preds = %148
   %157 = getelementptr inbounds i8, ptr %3, i64 %152
-  %158 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %157, ptr noundef nonnull dereferenceable(6) @.str.305, i64 noundef 5) #50
+  %158 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %157, ptr noundef nonnull readonly dereferenceable(6) @.str.305, i64 noundef 5) #50
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %cgltf_json_strcmp.exit148.thread.sink.split.i, label %cgltf_json_strcmp.exit148.thread.i
 
 cgltf_json_strcmp.exit148.i:                      ; preds = %148
   %160 = getelementptr inbounds i8, ptr %3, i64 %152
-  %161 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(5) @.str.306, i64 noundef 4) #50
+  %161 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %160, ptr noundef nonnull readonly dereferenceable(5) @.str.306, i64 noundef 4) #50
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %cgltf_json_strcmp.exit148.thread.sink.split.i, label %cgltf_json_strcmp.exit148.thread.i
 
@@ -59139,7 +59139,7 @@ cgltf_json_strcmp.exit148.thread.i:               ; preds = %cgltf_json_strcmp.e
   br label %cgltf_parse_json_string.exit.i
 
 cgltf_json_strcmp.exit151.thread253.i:            ; preds = %cgltf_json_strcmp.exit129.i
-  %164 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(6) @.str.307, i64 noundef 5) #50
+  %164 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %96, ptr noundef nonnull readonly dereferenceable(6) @.str.307, i64 noundef 5) #50
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %cgltf_json_strcmp.exit177.thread.i
 
@@ -59160,7 +59160,7 @@ cgltf_json_strcmp.exit151.thread253.i:            ; preds = %cgltf_json_strcmp.e
   %176 = sub nsw i64 %173, %175
   %spec.select.i154.i = call i64 @llvm.umin.i64(i64 %176, i64 127)
   %177 = getelementptr inbounds i8, ptr %3, i64 %175
-  %178 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %177, i64 noundef %spec.select.i154.i) #53
+  %178 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef readonly %177, i64 noundef %spec.select.i154.i) #53
   %179 = getelementptr inbounds [128 x i8], ptr %8, i64 0, i64 %spec.select.i154.i
   store i8 0, ptr %179, align 1
   %180 = call double @atof(ptr noundef nonnull %8) #50
@@ -59175,7 +59175,7 @@ cgltf_json_to_float.exit155.i:                    ; preds = %171, %166
   br label %cgltf_parse_json_string.exit.i
 
 cgltf_json_strcmp.exit158.i:                      ; preds = %cgltf_json_strcmp.exit139.i
-  %183 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(5) @.str.306, i64 noundef 4) #50
+  %183 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(5) @.str.306, i64 noundef 4) #50
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %cgltf_json_strcmp.exit177.thread.i
 
@@ -59224,7 +59224,7 @@ cgltf_skip_json.exit.i.thread:                    ; preds = %cgltf_json_to_float
 
 cgltf_json_strcmp.exit161.i:                      ; preds = %201
   %208 = getelementptr inbounds i8, ptr %3, i64 %205
-  %209 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %208, ptr noundef nonnull dereferenceable(15) @.str.308, i64 noundef 14) #50
+  %209 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %208, ptr noundef nonnull readonly dereferenceable(15) @.str.308, i64 noundef 14) #50
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %cgltf_json_strcmp.exit168.i
 
@@ -59243,7 +59243,7 @@ cgltf_json_strcmp.exit161.i:                      ; preds = %201
   %219 = sub nsw i64 %216, %218
   %spec.select.i164.i = call i64 @llvm.umin.i64(i64 %219, i64 127)
   %220 = getelementptr inbounds i8, ptr %3, i64 %218
-  %221 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef %220, i64 noundef %spec.select.i164.i) #53
+  %221 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef readonly %220, i64 noundef %spec.select.i164.i) #53
   %222 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %spec.select.i164.i
   store i8 0, ptr %222, align 1
   %223 = call double @atof(ptr noundef nonnull %7) #50
@@ -59258,7 +59258,7 @@ cgltf_json_to_float.exit165.i:                    ; preds = %214, %211
   br label %cgltf_skip_json.exit.i.thread
 
 cgltf_json_strcmp.exit168.i:                      ; preds = %cgltf_json_strcmp.exit161.i
-  %226 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %208, ptr noundef nonnull dereferenceable(15) @.str.309, i64 noundef 14) #50
+  %226 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %208, ptr noundef nonnull readonly dereferenceable(15) @.str.309, i64 noundef 14) #50
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %228, label %cgltf_json_strcmp.exit168.thread.i
 
@@ -59277,7 +59277,7 @@ cgltf_json_strcmp.exit168.i:                      ; preds = %cgltf_json_strcmp.e
   %236 = sub nsw i64 %233, %235
   %spec.select.i171.i = call i64 @llvm.umin.i64(i64 %236, i64 127)
   %237 = getelementptr inbounds i8, ptr %3, i64 %235
-  %238 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef %237, i64 noundef %spec.select.i171.i) #53
+  %238 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef readonly %237, i64 noundef %spec.select.i171.i) #53
   %239 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 %spec.select.i171.i
   store i8 0, ptr %239, align 1
   %240 = call double @atof(ptr noundef nonnull %6) #50
@@ -59336,7 +59336,7 @@ cgltf_skip_json.exit.i:                           ; preds = %258
 
 cgltf_json_strcmp.exit177.i:                      ; preds = %62
   %263 = getelementptr inbounds i8, ptr %3, i64 %66
-  %264 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %263, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %264 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %263, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %266, label %cgltf_json_strcmp.exit177.thread.i
 
@@ -59367,7 +59367,7 @@ cgltf_json_strcmp.exit177.i:                      ; preds = %62
 
 282:                                              ; preds = %269
   %283 = getelementptr inbounds i8, ptr %3, i64 %276
-  %284 = call ptr @strncpy(ptr noundef nonnull %281, ptr noundef %283, i64 noundef %277) #53
+  %284 = call ptr @strncpy(ptr noundef nonnull %281, ptr noundef readonly %283, i64 noundef %277) #53
   %285 = load ptr, ptr %48, align 8
   %286 = getelementptr inbounds i8, ptr %285, i64 %277
   store i8 0, ptr %286, align 1
@@ -59617,7 +59617,7 @@ cgltf_parse_json_array.exit:                      ; preds = %20
 
 cgltf_json_strcmp.exit.i:                         ; preds = %51
   %57 = getelementptr inbounds i8, ptr %3, i64 %55
-  %58 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(5) @.str.148, i64 noundef 4) #50
+  %58 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %57, ptr noundef nonnull readonly dereferenceable(5) @.str.148, i64 noundef 4) #50
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %cgltf_json_strcmp.exit40.thread.i
 
@@ -59651,7 +59651,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %51
   %77 = load i64, ptr %68, align 8
   %78 = getelementptr inbounds i8, ptr %3, i64 %77
   %79 = ashr exact i64 %73, 32
-  %80 = tail call ptr @strncpy(ptr noundef nonnull %75, ptr noundef %78, i64 noundef %79) #53
+  %80 = tail call ptr @strncpy(ptr noundef nonnull %75, ptr noundef readonly %78, i64 noundef %79) #53
   %81 = getelementptr inbounds i8, ptr %75, i64 %79
   store i8 0, ptr %81, align 1
   store ptr %75, ptr %31, align 8
@@ -59660,7 +59660,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %51
 
 cgltf_json_strcmp.exit40.i:                       ; preds = %51
   %83 = getelementptr inbounds i8, ptr %3, i64 %55
-  %84 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %84 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %83, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %cgltf_json_strcmp.exit40.thread.i
 
@@ -59691,7 +59691,7 @@ cgltf_json_strcmp.exit40.i:                       ; preds = %51
 
 102:                                              ; preds = %88
   %103 = getelementptr inbounds i8, ptr %3, i64 %96
-  %104 = tail call ptr @strncpy(ptr noundef nonnull %101, ptr noundef %103, i64 noundef %97) #53
+  %104 = tail call ptr @strncpy(ptr noundef nonnull %101, ptr noundef readonly %103, i64 noundef %97) #53
   %105 = load ptr, ptr %40, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 %97
   store i8 0, ptr %106, align 1
@@ -59990,7 +59990,7 @@ cgltf_parse_json_string.exit:                     ; preds = %33
   %44 = load i64, ptr %36, align 8
   %45 = getelementptr inbounds i8, ptr %3, i64 %44
   %46 = ashr exact i64 %41, 32
-  %47 = tail call ptr @strncpy(ptr noundef nonnull %43, ptr noundef %45, i64 noundef %46) #53
+  %47 = tail call ptr @strncpy(ptr noundef nonnull %43, ptr noundef readonly %45, i64 noundef %46) #53
   %48 = getelementptr inbounds i8, ptr %43, i64 %46
   store i8 0, ptr %48, align 1
   store ptr %43, ptr %28, align 8
@@ -60099,7 +60099,7 @@ cgltf_parse_json_string.exit:                     ; preds = %38
   %49 = load i64, ptr %41, align 8
   %50 = getelementptr inbounds i8, ptr %3, i64 %49
   %51 = ashr exact i64 %46, 32
-  %52 = call ptr @strncpy(ptr noundef nonnull %48, ptr noundef %50, i64 noundef %51) #53
+  %52 = call ptr @strncpy(ptr noundef nonnull %48, ptr noundef readonly %50, i64 noundef %51) #53
   %53 = getelementptr inbounds i8, ptr %48, i64 %51
   store i8 0, ptr %53, align 1
   store ptr %48, ptr %36, align 8
@@ -60209,7 +60209,7 @@ cgltf_parse_attribute_type.exit:                  ; preds = %62, %92, %.thread.i
   %103 = sub nsw i64 %100, %102
   %spec.select.i = call i64 @llvm.umin.i64(i64 %103, i64 127)
   %104 = getelementptr inbounds i8, ptr %3, i64 %102
-  %105 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef %104, i64 noundef %spec.select.i) #53
+  %105 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef readonly %104, i64 noundef %spec.select.i) #53
   %106 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %spec.select.i
   store i8 0, ptr %106, align 1
   %107 = call i32 @atoi(ptr nocapture noundef nonnull %7) #50
@@ -60314,7 +60314,7 @@ define internal fastcc i32 @cgltf_parse_json_material_mapping_data(ptr nocapture
 
 cgltf_json_strcmp.exit:                           ; preds = %37
   %43 = getelementptr inbounds i8, ptr %3, i64 %41
-  %44 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(9) @.str.154, i64 noundef 8) #50
+  %44 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %43, ptr noundef nonnull readonly dereferenceable(9) @.str.154, i64 noundef 8) #50
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %cgltf_json_strcmp.exit102
 
@@ -60335,7 +60335,7 @@ cgltf_json_strcmp.exit:                           ; preds = %37
   %56 = sub nsw i64 %53, %55
   %spec.select.i = call i64 @llvm.umin.i64(i64 %56, i64 127)
   %57 = getelementptr inbounds i8, ptr %3, i64 %55
-  %58 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %57, i64 noundef %spec.select.i) #53
+  %58 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef readonly %57, i64 noundef %spec.select.i) #53
   %59 = getelementptr inbounds [128 x i8], ptr %8, i64 0, i64 %spec.select.i
   store i8 0, ptr %59, align 1
   %60 = call i32 @atoi(ptr nocapture noundef nonnull %8) #50
@@ -60349,7 +60349,7 @@ cgltf_json_to_int.exit:                           ; preds = %46, %51
 
 cgltf_json_strcmp.exit102:                        ; preds = %cgltf_json_strcmp.exit
   %62 = getelementptr inbounds i8, ptr %3, i64 %41
-  %63 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(9) @.str.141, i64 noundef 8) #50
+  %63 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %62, ptr noundef nonnull readonly dereferenceable(9) @.str.141, i64 noundef 8) #50
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %cgltf_json_strcmp.exit105.thread
 
@@ -60404,7 +60404,7 @@ cgltf_json_strcmp.exit102:                        ; preds = %cgltf_json_strcmp.e
 
 cgltf_json_strcmp.exit105:                        ; preds = %37
   %89 = getelementptr inbounds i8, ptr %3, i64 %41
-  %90 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(7) @.str.136, i64 noundef 6) #50
+  %90 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %89, ptr noundef nonnull readonly dereferenceable(7) @.str.136, i64 noundef 6) #50
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %cgltf_json_strcmp.exit105.thread
 
@@ -60551,7 +60551,7 @@ cgltf_json_to_int.exit123:                        ; preds = %148
   %155 = sub nsw i64 %152, %154
   %spec.select.i122 = call i64 @llvm.umin.i64(i64 %155, i64 127)
   %156 = getelementptr inbounds i8, ptr %3, i64 %154
-  %157 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef %156, i64 noundef %spec.select.i122) #53
+  %157 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef readonly %156, i64 noundef %spec.select.i122) #53
   %158 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %spec.select.i122
   store i8 0, ptr %158, align 1
   %159 = call i32 @atoi(ptr nocapture noundef nonnull %7) #50
@@ -60595,7 +60595,7 @@ cgltf_json_to_int.exit123:                        ; preds = %148
 
 182:                                              ; preds = %172
   %183 = getelementptr inbounds i8, ptr %3, i64 %176
-  %184 = call ptr @strncpy(ptr noundef nonnull %181, ptr noundef %183, i64 noundef %177) #53
+  %184 = call ptr @strncpy(ptr noundef nonnull %181, ptr noundef readonly %183, i64 noundef %177) #53
   %185 = load ptr, ptr %170, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 %177
   store i8 0, ptr %186, align 1
@@ -60749,7 +60749,7 @@ cgltf_skip_json.exit129.thread:                   ; preds = %139, %cgltf_skip_js
 
 cgltf_json_strcmp.exit:                           ; preds = %39
   %45 = getelementptr inbounds i8, ptr %2, i64 %43
-  %46 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(6) @.str.225, i64 noundef 5) #50
+  %46 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %45, ptr noundef nonnull readonly dereferenceable(6) @.str.225, i64 noundef 5) #50
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %cgltf_json_strcmp.exit100
 
@@ -60770,7 +60770,7 @@ cgltf_json_strcmp.exit:                           ; preds = %39
   %58 = sub nsw i64 %55, %57
   %spec.select.i = call i64 @llvm.umin.i64(i64 %58, i64 127)
   %59 = getelementptr inbounds i8, ptr %2, i64 %57
-  %60 = call ptr @strncpy(ptr noundef nonnull %12, ptr noundef %59, i64 noundef %spec.select.i) #53
+  %60 = call ptr @strncpy(ptr noundef nonnull %12, ptr noundef readonly %59, i64 noundef %spec.select.i) #53
   %61 = getelementptr inbounds [128 x i8], ptr %12, i64 0, i64 %spec.select.i
   store i8 0, ptr %61, align 1
   %62 = call i32 @atoi(ptr nocapture noundef nonnull %12) #50
@@ -60788,7 +60788,7 @@ cgltf_json_to_int.exit:                           ; preds = %48, %53
 
 cgltf_json_strcmp.exit93:                         ; preds = %39
   %67 = getelementptr inbounds i8, ptr %2, i64 %43
-  %68 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(9) @.str.226, i64 noundef 8) #50
+  %68 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %67, ptr noundef nonnull readonly dereferenceable(9) @.str.226, i64 noundef 8) #50
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %cgltf_json_strcmp.exit106
 
@@ -60809,7 +60809,7 @@ cgltf_json_strcmp.exit93:                         ; preds = %39
   %80 = sub nsw i64 %77, %79
   %spec.select.i96 = call i64 @llvm.umin.i64(i64 %80, i64 127)
   %81 = getelementptr inbounds i8, ptr %2, i64 %79
-  %82 = call ptr @strncpy(ptr noundef nonnull %11, ptr noundef %81, i64 noundef %spec.select.i96) #53
+  %82 = call ptr @strncpy(ptr noundef nonnull %11, ptr noundef readonly %81, i64 noundef %spec.select.i96) #53
   %83 = getelementptr inbounds [128 x i8], ptr %11, i64 0, i64 %spec.select.i96
   store i8 0, ptr %83, align 1
   %84 = call i32 @atoi(ptr nocapture noundef nonnull %11) #50
@@ -60824,7 +60824,7 @@ cgltf_json_to_int.exit97:                         ; preds = %70, %75
 
 cgltf_json_strcmp.exit100:                        ; preds = %cgltf_json_strcmp.exit
   %86 = getelementptr inbounds i8, ptr %2, i64 %43
-  %87 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(6) @.str.227, i64 noundef 5) #50
+  %87 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %86, ptr noundef nonnull readonly dereferenceable(6) @.str.227, i64 noundef 5) #50
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %cgltf_json_strcmp.exit113.thread
 
@@ -60845,7 +60845,7 @@ cgltf_json_strcmp.exit100:                        ; preds = %cgltf_json_strcmp.e
   %99 = sub nsw i64 %96, %98
   %spec.select.i103 = call i64 @llvm.umin.i64(i64 %99, i64 127)
   %100 = getelementptr inbounds i8, ptr %2, i64 %98
-  %101 = call ptr @strncpy(ptr noundef nonnull %10, ptr noundef %100, i64 noundef %spec.select.i103) #53
+  %101 = call ptr @strncpy(ptr noundef nonnull %10, ptr noundef readonly %100, i64 noundef %spec.select.i103) #53
   %102 = getelementptr inbounds [128 x i8], ptr %10, i64 0, i64 %spec.select.i103
   store i8 0, ptr %102, align 1
   %103 = call double @atof(ptr noundef nonnull %10) #50
@@ -60861,7 +60861,7 @@ cgltf_json_to_float.exit:                         ; preds = %89, %94
 
 cgltf_json_strcmp.exit106:                        ; preds = %cgltf_json_strcmp.exit93
   %106 = getelementptr inbounds i8, ptr %2, i64 %43
-  %107 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(9) @.str.228, i64 noundef 8) #50
+  %107 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %106, ptr noundef nonnull readonly dereferenceable(9) @.str.228, i64 noundef 8) #50
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %cgltf_json_strcmp.exit113.thread
 
@@ -60882,7 +60882,7 @@ cgltf_json_strcmp.exit106:                        ; preds = %cgltf_json_strcmp.e
   %119 = sub nsw i64 %116, %118
   %spec.select.i109 = call i64 @llvm.umin.i64(i64 %119, i64 127)
   %120 = getelementptr inbounds i8, ptr %2, i64 %118
-  %121 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef %120, i64 noundef %spec.select.i109) #53
+  %121 = call ptr @strncpy(ptr noundef nonnull %9, ptr noundef readonly %120, i64 noundef %spec.select.i109) #53
   %122 = getelementptr inbounds [128 x i8], ptr %9, i64 0, i64 %spec.select.i109
   store i8 0, ptr %122, align 1
   %123 = call double @atof(ptr noundef nonnull %9) #50
@@ -60898,7 +60898,7 @@ cgltf_json_to_float.exit110:                      ; preds = %109, %114
 
 cgltf_json_strcmp.exit113:                        ; preds = %39
   %126 = getelementptr inbounds i8, ptr %2, i64 %43
-  %127 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull dereferenceable(11) @.str.137, i64 noundef 10) #50
+  %127 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %126, ptr noundef nonnull readonly dereferenceable(11) @.str.137, i64 noundef 10) #50
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %cgltf_json_strcmp.exit113.thread
 
@@ -60948,7 +60948,7 @@ cgltf_json_strcmp.exit113:                        ; preds = %39
 
 cgltf_json_strcmp.exit116:                        ; preds = %148
   %155 = getelementptr inbounds i8, ptr %2, i64 %152
-  %156 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(22) @.str.229, i64 noundef 21) #50
+  %156 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %155, ptr noundef nonnull readonly dereferenceable(22) @.str.229, i64 noundef 21) #50
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %cgltf_json_strcmp.exit116.thread
 
@@ -60997,7 +60997,7 @@ cgltf_json_strcmp.exit116:                        ; preds = %148
 
 cgltf_json_strcmp.exit.i:                         ; preds = %175
   %181 = getelementptr inbounds i8, ptr %2, i64 %179
-  %182 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %181, ptr noundef nonnull dereferenceable(7) @.str.230, i64 noundef 6) #50
+  %182 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %181, ptr noundef nonnull readonly dereferenceable(7) @.str.230, i64 noundef 6) #50
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %cgltf_json_strcmp.exit79.thread.i
 
@@ -61037,7 +61037,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
   %199 = sub nsw i64 %196, %198
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %199, i64 127)
   %200 = getelementptr inbounds i8, ptr %2, i64 %198
-  %201 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %200, i64 noundef %spec.select.i.i.i) #53
+  %201 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef readonly %200, i64 noundef %spec.select.i.i.i) #53
   %202 = getelementptr inbounds [128 x i8], ptr %8, i64 0, i64 %spec.select.i.i.i
   store i8 0, ptr %202, align 1
   %203 = call double @atof(ptr noundef nonnull %8) #50
@@ -61052,7 +61052,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
 
 cgltf_json_strcmp.exit56.i:                       ; preds = %175
   %206 = getelementptr inbounds i8, ptr %2, i64 %179
-  %207 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %206, ptr noundef nonnull dereferenceable(9) @.str.231, i64 noundef 8) #50
+  %207 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull readonly dereferenceable(9) @.str.231, i64 noundef 8) #50
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %209, label %cgltf_json_strcmp.exit79.i
 
@@ -61073,7 +61073,7 @@ cgltf_json_strcmp.exit56.i:                       ; preds = %175
   %219 = sub nsw i64 %216, %218
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %219, i64 127)
   %220 = getelementptr inbounds i8, ptr %2, i64 %218
-  %221 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef %220, i64 noundef %spec.select.i.i) #53
+  %221 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef readonly %220, i64 noundef %spec.select.i.i) #53
   %222 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %spec.select.i.i
   store i8 0, ptr %222, align 1
   %223 = call double @atof(ptr noundef nonnull %7) #50
@@ -61089,7 +61089,7 @@ cgltf_json_to_float.exit.i:                       ; preds = %214, %209
 
 cgltf_json_strcmp.exit61.i:                       ; preds = %175
   %226 = getelementptr inbounds i8, ptr %2, i64 %179
-  %227 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(6) @.str.227, i64 noundef 5) #50
+  %227 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %226, ptr noundef nonnull readonly dereferenceable(6) @.str.227, i64 noundef 5) #50
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %229, label %cgltf_json_strcmp.exit79.thread.i
 
@@ -61129,7 +61129,7 @@ cgltf_json_to_float.exit.i71.i:                   ; preds = %.lr.ph.i67.i
   %244 = sub nsw i64 %241, %243
   %spec.select.i.i72.i = call i64 @llvm.umin.i64(i64 %244, i64 127)
   %245 = getelementptr inbounds i8, ptr %2, i64 %243
-  %246 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef %245, i64 noundef %spec.select.i.i72.i) #53
+  %246 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef readonly %245, i64 noundef %spec.select.i.i72.i) #53
   %247 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 %spec.select.i.i72.i
   store i8 0, ptr %247, align 1
   %248 = call double @atof(ptr noundef nonnull %6) #50
@@ -61143,7 +61143,7 @@ cgltf_json_to_float.exit.i71.i:                   ; preds = %.lr.ph.i67.i
   br i1 %exitcond.not.i75.i, label %cgltf_parse_json_float_array.exit.i, label %.lr.ph.i67.i
 
 cgltf_json_strcmp.exit79.i:                       ; preds = %cgltf_json_strcmp.exit56.i
-  %251 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %206, ptr noundef nonnull dereferenceable(9) @.str.226, i64 noundef 8) #50
+  %251 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull readonly dereferenceable(9) @.str.226, i64 noundef 8) #50
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %cgltf_json_strcmp.exit79.thread.i
 
@@ -61165,7 +61165,7 @@ cgltf_json_strcmp.exit79.i:                       ; preds = %cgltf_json_strcmp.e
   %263 = sub nsw i64 %260, %262
   %spec.select.i82.i = call i64 @llvm.umin.i64(i64 %263, i64 127)
   %264 = getelementptr inbounds i8, ptr %2, i64 %262
-  %265 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef %264, i64 noundef %spec.select.i82.i) #53
+  %265 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef readonly %264, i64 noundef %spec.select.i82.i) #53
   %266 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %spec.select.i82.i
   store i8 0, ptr %266, align 1
   %267 = call i32 @atoi(ptr nocapture noundef nonnull %5) #50
@@ -61377,7 +61377,7 @@ define internal fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef %0, i32 noun
 
 cgltf_json_strcmp.exit:                           ; preds = %25
   %31 = getelementptr inbounds i8, ptr %2, i64 %29
-  %32 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(19) @.str.263, i64 noundef 18) #50
+  %32 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %31, ptr noundef nonnull readonly dereferenceable(19) @.str.263, i64 noundef 18) #50
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %cgltf_json_strcmp.exit50
 
@@ -61398,7 +61398,7 @@ cgltf_json_strcmp.exit:                           ; preds = %25
   %44 = sub nsw i64 %41, %43
   %spec.select.i = call i64 @llvm.umin.i64(i64 %44, i64 127)
   %45 = getelementptr inbounds i8, ptr %2, i64 %43
-  %46 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef %45, i64 noundef %spec.select.i) #53
+  %46 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef readonly %45, i64 noundef %spec.select.i) #53
   %47 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 %spec.select.i
   store i8 0, ptr %47, align 1
   %48 = call double @atof(ptr noundef nonnull %6) #50
@@ -61414,7 +61414,7 @@ cgltf_json_to_float.exit:                         ; preds = %34, %39
 
 cgltf_json_strcmp.exit50:                         ; preds = %cgltf_json_strcmp.exit
   %51 = getelementptr inbounds i8, ptr %2, i64 %29
-  %52 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(19) @.str.264, i64 noundef 18) #50
+  %52 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(19) @.str.264, i64 noundef 18) #50
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %cgltf_json_strcmp.exit57.thread
 
@@ -61435,7 +61435,7 @@ cgltf_json_strcmp.exit50:                         ; preds = %cgltf_json_strcmp.e
   %64 = sub nsw i64 %61, %63
   %spec.select.i53 = call i64 @llvm.umin.i64(i64 %64, i64 127)
   %65 = getelementptr inbounds i8, ptr %2, i64 %63
-  %66 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef %65, i64 noundef %spec.select.i53) #53
+  %66 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef readonly %65, i64 noundef %spec.select.i53) #53
   %67 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %spec.select.i53
   store i8 0, ptr %67, align 1
   %68 = call double @atof(ptr noundef nonnull %5) #50
@@ -61451,7 +61451,7 @@ cgltf_json_to_float.exit54:                       ; preds = %54, %59
 
 cgltf_json_strcmp.exit57:                         ; preds = %25
   %71 = getelementptr inbounds i8, ptr %2, i64 %29
-  %72 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(18) @.str.265, i64 noundef 17) #50
+  %72 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %71, ptr noundef nonnull readonly dereferenceable(18) @.str.265, i64 noundef 17) #50
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %cgltf_json_strcmp.exit57.thread
 
@@ -63659,7 +63659,7 @@ cgltf_accessor_read_float.exit:                   ; preds = %25, %cgltf_buffer_v
   %41 = load i32, ptr %16, align 8
   %42 = load i32, ptr %17, align 8
   %43 = load i32, ptr %18, align 4
-  %44 = call fastcc i32 @cgltf_element_read_float(ptr noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %43, ptr noundef nonnull %5, i64 noundef 1)
+  %44 = call fastcc i32 @cgltf_element_read_float(ptr noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %43, ptr noundef nonnull writeonly %5, i64 noundef 1)
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %cgltf_accessor_read_float.exit.thread, label %45
 
@@ -63700,7 +63700,7 @@ cgltf_accessor_read_float.exit69:                 ; preds = %45, %cgltf_buffer_v
   %61 = load i32, ptr %16, align 8
   %62 = load i32, ptr %17, align 8
   %63 = load i32, ptr %18, align 4
-  %64 = call fastcc i32 @cgltf_element_read_float(ptr noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef nonnull %6, i64 noundef 1)
+  %64 = call fastcc i32 @cgltf_element_read_float(ptr noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef nonnull writeonly %6, i64 noundef 1)
   %.not59 = icmp eq i32 %64, 0
   br i1 %.not59, label %cgltf_accessor_read_float.exit.thread, label %cgltf_accessor_read_float.exit69._crit_edge
 
@@ -63794,7 +63794,7 @@ cgltf_buffer_view_data.exit.thread19.i73:         ; preds = %cgltf_buffer_view_d
   %114 = getelementptr i8, ptr %113, i64 %112
   %115 = getelementptr inbounds i8, ptr %1, i64 12
   %116 = load i32, ptr %115, align 4
-  %117 = call fastcc i32 @cgltf_element_read_float(ptr noundef %114, i32 noundef 3, i32 noundef 6, i32 noundef %116, ptr noundef nonnull %7, i64 noundef 3)
+  %117 = call fastcc i32 @cgltf_element_read_float(ptr noundef %114, i32 noundef 3, i32 noundef 6, i32 noundef %116, ptr noundef nonnull writeonly %7, i64 noundef 3)
   %118 = load <2 x float>, ptr %7, align 8
   %.phi.trans.insert121 = getelementptr inbounds i8, ptr %7, i64 8
   %.pre122 = load float, ptr %.phi.trans.insert121, align 8
@@ -63849,7 +63849,7 @@ cgltf_buffer_view_data.exit.thread19.i81:         ; preds = %cgltf_buffer_view_d
   %147 = getelementptr i8, ptr %146, i64 %145
   %148 = getelementptr inbounds i8, ptr %1, i64 12
   %149 = load i32, ptr %148, align 4
-  %150 = call fastcc i32 @cgltf_element_read_float(ptr noundef %147, i32 noundef 3, i32 noundef 6, i32 noundef %149, ptr noundef nonnull %7, i64 noundef 3)
+  %150 = call fastcc i32 @cgltf_element_read_float(ptr noundef %147, i32 noundef 3, i32 noundef 6, i32 noundef %149, ptr noundef nonnull writeonly %7, i64 noundef 3)
   %.pre123 = load float, ptr %7, align 8
   br label %cgltf_accessor_read_float.exit85
 
@@ -63883,113 +63883,117 @@ cgltf_accessor_read_float.exit85:                 ; preds = %cgltf_accessor_read
   %163 = getelementptr inbounds i8, ptr %1, i64 48
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %189, label %166
+  br i1 %165, label %166, label %167
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds i8, ptr %164, i64 48
-  %168 = load ptr, ptr %167, align 8
-  %.not.i.i88 = icmp eq ptr %168, null
-  br i1 %.not.i.i88, label %169, label %cgltf_buffer_view_data.exit.thread19.i89
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  br label %190
 
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds i8, ptr %164, i64 8
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 24
-  %173 = load ptr, ptr %172, align 8
-  %.not10.i.i91 = icmp eq ptr %173, null
-  br i1 %.not10.i.i91, label %189, label %cgltf_buffer_view_data.exit.i92
+167:                                              ; preds = %162
+  %168 = getelementptr inbounds i8, ptr %164, i64 48
+  %169 = load ptr, ptr %168, align 8
+  %.not.i.i88 = icmp eq ptr %169, null
+  br i1 %.not.i.i88, label %170, label %cgltf_buffer_view_data.exit.thread19.i89
 
-cgltf_buffer_view_data.exit.i92:                  ; preds = %169
-  %174 = getelementptr inbounds i8, ptr %164, i64 16
-  %175 = load i64, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %173, i64 %175
+170:                                              ; preds = %167
+  %171 = getelementptr inbounds i8, ptr %164, i64 8
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds i8, ptr %172, i64 24
+  %174 = load ptr, ptr %173, align 8
+  %.not10.i.i91 = icmp eq ptr %174, null
+  br i1 %.not10.i.i91, label %190, label %cgltf_buffer_view_data.exit.i92
+
+cgltf_buffer_view_data.exit.i92:                  ; preds = %170
+  %175 = getelementptr inbounds i8, ptr %164, i64 16
+  %176 = load i64, ptr %175, align 8
+  %177 = getelementptr inbounds i8, ptr %174, i64 %176
   br label %cgltf_buffer_view_data.exit.thread19.i89
 
-cgltf_buffer_view_data.exit.thread19.i89:         ; preds = %cgltf_buffer_view_data.exit.i92, %166
-  %.0.i21.i90 = phi ptr [ %176, %cgltf_buffer_view_data.exit.i92 ], [ %168, %166 ]
-  %177 = getelementptr inbounds i8, ptr %1, i64 24
-  %178 = load i64, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %1, i64 40
-  %180 = load i64, ptr %179, align 8
-  %181 = mul i64 %180, %159
-  %182 = getelementptr i8, ptr %.0.i21.i90, i64 %178
-  %183 = getelementptr i8, ptr %182, i64 %181
-  %184 = getelementptr inbounds i8, ptr %1, i64 12
-  %185 = load i32, ptr %184, align 4
-  %186 = call fastcc i32 @cgltf_element_read_float(ptr noundef %183, i32 noundef 4, i32 noundef 6, i32 noundef %185, ptr noundef nonnull %8, i64 noundef 4)
+cgltf_buffer_view_data.exit.thread19.i89:         ; preds = %cgltf_buffer_view_data.exit.i92, %167
+  %.0.i21.i90 = phi ptr [ %177, %cgltf_buffer_view_data.exit.i92 ], [ %169, %167 ]
+  %178 = getelementptr inbounds i8, ptr %1, i64 24
+  %179 = load i64, ptr %178, align 8
+  %180 = getelementptr inbounds i8, ptr %1, i64 40
+  %181 = load i64, ptr %180, align 8
+  %182 = mul i64 %181, %159
+  %183 = getelementptr i8, ptr %.0.i21.i90, i64 %179
+  %184 = getelementptr i8, ptr %183, i64 %182
+  %185 = getelementptr inbounds i8, ptr %1, i64 12
+  %186 = load i32, ptr %185, align 4
+  %187 = call fastcc i32 @cgltf_element_read_float(ptr noundef %184, i32 noundef 4, i32 noundef 6, i32 noundef %186, ptr noundef nonnull writeonly %8, i64 noundef 4)
   %.pre117 = load <4 x float>, ptr %8, align 16
-  %187 = extractelement <4 x float> %.pre117, i64 1
-  %188 = extractelement <4 x float> %.pre117, i64 3
-  br label %189
+  %188 = extractelement <4 x float> %.pre117, i64 1
+  %189 = extractelement <4 x float> %.pre117, i64 3
+  br label %190
 
-189:                                              ; preds = %162, %169, %cgltf_buffer_view_data.exit.thread19.i89
-  %.ph137 = phi float [ %188, %cgltf_buffer_view_data.exit.thread19.i89 ], [ 0.000000e+00, %169 ], [ 0.000000e+00, %162 ]
-  %.ph138 = phi float [ %187, %cgltf_buffer_view_data.exit.thread19.i89 ], [ 0.000000e+00, %169 ], [ 0.000000e+00, %162 ]
-  %.ph139 = phi <4 x float> [ %.pre117, %cgltf_buffer_view_data.exit.thread19.i89 ], [ zeroinitializer, %169 ], [ zeroinitializer, %162 ]
+190:                                              ; preds = %166, %170, %cgltf_buffer_view_data.exit.thread19.i89
+  %.ph137 = phi float [ %189, %cgltf_buffer_view_data.exit.thread19.i89 ], [ 0.000000e+00, %170 ], [ 0.000000e+00, %166 ]
+  %.ph138 = phi float [ %188, %cgltf_buffer_view_data.exit.thread19.i89 ], [ 0.000000e+00, %170 ], [ 0.000000e+00, %166 ]
+  %.ph139 = phi <4 x float> [ %.pre117, %cgltf_buffer_view_data.exit.thread19.i89 ], [ zeroinitializer, %170 ], [ zeroinitializer, %166 ]
   %.sroa.04.0.vec.insert140 = shufflevector <4 x float> %.ph139, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %.sroa.04.4.vec.insert141 = insertelement <2 x float> %.sroa.04.0.vec.insert140, float %.ph138, i64 1
   %.sroa.36.8.vec.insert142 = shufflevector <4 x float> %.ph139, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %.sroa.36.12.vec.insert143 = insertelement <2 x float> %.sroa.36.8.vec.insert142, float %.ph137, i64 1
-  %190 = add nuw nsw i32 %.055, 1
-  %191 = zext nneg i32 %190 to i64
-  %192 = getelementptr inbounds i8, ptr %1, i64 48
-  %193 = load ptr, ptr %192, align 8
-  %194 = icmp eq ptr %193, null
-  br i1 %194, label %cgltf_accessor_read_float.exit101, label %195
+  %191 = add nuw nsw i32 %.055, 1
+  %192 = zext nneg i32 %191 to i64
+  %193 = getelementptr inbounds i8, ptr %1, i64 48
+  %194 = load ptr, ptr %193, align 8
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %cgltf_accessor_read_float.exit101, label %196
 
-195:                                              ; preds = %189
-  %196 = getelementptr inbounds i8, ptr %193, i64 48
-  %197 = load ptr, ptr %196, align 8
-  %.not.i.i96 = icmp eq ptr %197, null
-  br i1 %.not.i.i96, label %198, label %cgltf_buffer_view_data.exit.thread19.i97
+196:                                              ; preds = %190
+  %197 = getelementptr inbounds i8, ptr %194, i64 48
+  %198 = load ptr, ptr %197, align 8
+  %.not.i.i96 = icmp eq ptr %198, null
+  br i1 %.not.i.i96, label %199, label %cgltf_buffer_view_data.exit.thread19.i97
 
-198:                                              ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %193, i64 8
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 24
-  %202 = load ptr, ptr %201, align 8
-  %.not10.i.i99 = icmp eq ptr %202, null
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds i8, ptr %194, i64 8
+  %201 = load ptr, ptr %200, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 24
+  %203 = load ptr, ptr %202, align 8
+  %.not10.i.i99 = icmp eq ptr %203, null
   br i1 %.not10.i.i99, label %cgltf_accessor_read_float.exit101, label %cgltf_buffer_view_data.exit.i100
 
-cgltf_buffer_view_data.exit.i100:                 ; preds = %198
-  %203 = getelementptr inbounds i8, ptr %193, i64 16
-  %204 = load i64, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %202, i64 %204
+cgltf_buffer_view_data.exit.i100:                 ; preds = %199
+  %204 = getelementptr inbounds i8, ptr %194, i64 16
+  %205 = load i64, ptr %204, align 8
+  %206 = getelementptr inbounds i8, ptr %203, i64 %205
   br label %cgltf_buffer_view_data.exit.thread19.i97
 
-cgltf_buffer_view_data.exit.thread19.i97:         ; preds = %cgltf_buffer_view_data.exit.i100, %195
-  %.0.i21.i98 = phi ptr [ %205, %cgltf_buffer_view_data.exit.i100 ], [ %197, %195 ]
-  %206 = getelementptr inbounds i8, ptr %1, i64 24
-  %207 = load i64, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %1, i64 40
-  %209 = load i64, ptr %208, align 8
-  %210 = mul i64 %209, %191
-  %211 = getelementptr i8, ptr %.0.i21.i98, i64 %207
-  %212 = getelementptr i8, ptr %211, i64 %210
-  %213 = getelementptr inbounds i8, ptr %1, i64 12
-  %214 = load i32, ptr %213, align 4
-  %215 = call fastcc i32 @cgltf_element_read_float(ptr noundef %212, i32 noundef 4, i32 noundef 6, i32 noundef %214, ptr noundef nonnull %8, i64 noundef 4)
+cgltf_buffer_view_data.exit.thread19.i97:         ; preds = %cgltf_buffer_view_data.exit.i100, %196
+  %.0.i21.i98 = phi ptr [ %206, %cgltf_buffer_view_data.exit.i100 ], [ %198, %196 ]
+  %207 = getelementptr inbounds i8, ptr %1, i64 24
+  %208 = load i64, ptr %207, align 8
+  %209 = getelementptr inbounds i8, ptr %1, i64 40
+  %210 = load i64, ptr %209, align 8
+  %211 = mul i64 %210, %192
+  %212 = getelementptr i8, ptr %.0.i21.i98, i64 %208
+  %213 = getelementptr i8, ptr %212, i64 %211
+  %214 = getelementptr inbounds i8, ptr %1, i64 12
+  %215 = load i32, ptr %214, align 4
+  %216 = call fastcc i32 @cgltf_element_read_float(ptr noundef %213, i32 noundef 4, i32 noundef 6, i32 noundef %215, ptr noundef nonnull writeonly %8, i64 noundef 4)
   %.pre118 = load <4 x float>, ptr %8, align 16
-  %216 = extractelement <4 x float> %.pre118, i64 1
-  %217 = extractelement <4 x float> %.pre118, i64 3
+  %217 = extractelement <4 x float> %.pre118, i64 1
+  %218 = extractelement <4 x float> %.pre118, i64 3
   br label %cgltf_accessor_read_float.exit101
 
-cgltf_accessor_read_float.exit101:                ; preds = %158, %189, %198, %cgltf_buffer_view_data.exit.thread19.i97
-  %.sroa.36.12.vec.insert146 = phi <2 x float> [ %.sroa.36.12.vec.insert143, %198 ], [ %.sroa.36.12.vec.insert143, %cgltf_buffer_view_data.exit.thread19.i97 ], [ %.sroa.36.12.vec.insert143, %189 ], [ zeroinitializer, %158 ]
-  %.sroa.04.4.vec.insert144 = phi <2 x float> [ %.sroa.04.4.vec.insert141, %198 ], [ %.sroa.04.4.vec.insert141, %cgltf_buffer_view_data.exit.thread19.i97 ], [ %.sroa.04.4.vec.insert141, %189 ], [ zeroinitializer, %158 ]
-  %218 = phi float [ %.ph137, %198 ], [ %217, %cgltf_buffer_view_data.exit.thread19.i97 ], [ 0.000000e+00, %189 ], [ 0.000000e+00, %158 ]
-  %219 = phi float [ %.ph138, %198 ], [ %216, %cgltf_buffer_view_data.exit.thread19.i97 ], [ 0.000000e+00, %189 ], [ 0.000000e+00, %158 ]
-  %220 = phi <4 x float> [ %.ph139, %198 ], [ %.pre118, %cgltf_buffer_view_data.exit.thread19.i97 ], [ zeroinitializer, %189 ], [ zeroinitializer, %158 ]
-  %.sroa.01.0.vec.insert = shufflevector <4 x float> %220, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %.sroa.01.4.vec.insert = insertelement <2 x float> %.sroa.01.0.vec.insert, float %219, i64 1
-  %.sroa.3.8.vec.insert = shufflevector <4 x float> %220, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
-  %.sroa.3.12.vec.insert = insertelement <2 x float> %.sroa.3.8.vec.insert, float %218, i64 1
-  %221 = tail call { <2 x float>, <2 x float> } @QuaternionSlerp(<2 x float> %.sroa.04.4.vec.insert144, <2 x float> %.sroa.36.12.vec.insert146, <2 x float> %.sroa.01.4.vec.insert, <2 x float> %.sroa.3.12.vec.insert, float noundef %83) #53
-  %222 = extractvalue { <2 x float>, <2 x float> } %221, 0
-  %223 = extractvalue { <2 x float>, <2 x float> } %221, 1
-  store <2 x float> %222, ptr %3, align 4
+cgltf_accessor_read_float.exit101:                ; preds = %158, %190, %199, %cgltf_buffer_view_data.exit.thread19.i97
+  %.sroa.36.12.vec.insert146 = phi <2 x float> [ %.sroa.36.12.vec.insert143, %199 ], [ %.sroa.36.12.vec.insert143, %cgltf_buffer_view_data.exit.thread19.i97 ], [ %.sroa.36.12.vec.insert143, %190 ], [ zeroinitializer, %158 ]
+  %.sroa.04.4.vec.insert144 = phi <2 x float> [ %.sroa.04.4.vec.insert141, %199 ], [ %.sroa.04.4.vec.insert141, %cgltf_buffer_view_data.exit.thread19.i97 ], [ %.sroa.04.4.vec.insert141, %190 ], [ zeroinitializer, %158 ]
+  %219 = phi float [ %.ph137, %199 ], [ %218, %cgltf_buffer_view_data.exit.thread19.i97 ], [ 0.000000e+00, %190 ], [ 0.000000e+00, %158 ]
+  %220 = phi float [ %.ph138, %199 ], [ %217, %cgltf_buffer_view_data.exit.thread19.i97 ], [ 0.000000e+00, %190 ], [ 0.000000e+00, %158 ]
+  %221 = phi <4 x float> [ %.ph139, %199 ], [ %.pre118, %cgltf_buffer_view_data.exit.thread19.i97 ], [ zeroinitializer, %190 ], [ zeroinitializer, %158 ]
+  %.sroa.01.0.vec.insert = shufflevector <4 x float> %221, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %.sroa.01.4.vec.insert = insertelement <2 x float> %.sroa.01.0.vec.insert, float %220, i64 1
+  %.sroa.3.8.vec.insert = shufflevector <4 x float> %221, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
+  %.sroa.3.12.vec.insert = insertelement <2 x float> %.sroa.3.8.vec.insert, float %219, i64 1
+  %222 = tail call { <2 x float>, <2 x float> } @QuaternionSlerp(<2 x float> %.sroa.04.4.vec.insert144, <2 x float> %.sroa.36.12.vec.insert146, <2 x float> %.sroa.01.4.vec.insert, <2 x float> %.sroa.3.12.vec.insert, float noundef %83) #53
+  %223 = extractvalue { <2 x float>, <2 x float> } %222, 0
+  %224 = extractvalue { <2 x float>, <2 x float> } %222, 1
+  store <2 x float> %223, ptr %3, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store <2 x float> %223, ptr %.sroa.2.0..sroa_idx, align 4
+  store <2 x float> %224, ptr %.sroa.2.0..sroa_idx, align 4
   br label %cgltf_accessor_read_float.exit.thread
 
 cgltf_accessor_read_float.exit.thread:            ; preds = %48, %28, %.lr.ph, %cgltf_accessor_read_float.exit69, %cgltf_accessor_read_float.exit, %cgltf_accessor_read_float.exit85, %cgltf_accessor_read_float.exit101, %86, %.split.loop.exit150

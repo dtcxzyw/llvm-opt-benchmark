@@ -73,57 +73,58 @@ define void @_xstrcat(ptr noundef %0, ptr noundef readonly %1) #0 {
 ; Function Attrs: nounwind uwtable
 define void @_xstrcatat(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2) #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %26, label %4
+  br i1 %.not, label %27, label %4
 
 4:                                                ; preds = %3
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #21
   %6 = load ptr, ptr %0, align 8
   %.not28 = icmp eq ptr %6, null
-  br i1 %.not28, label %xstrdup.exit, label %9
+  br i1 %.not28, label %xstrdup.exit, label %10
 
 xstrdup.exit:                                     ; preds = %4
-  %7 = add i64 %5, 1
-  %8 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %7, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.13, i32 noundef 490, ptr noundef nonnull @__func__.xstrdup) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %2, i64 %7, i1 false)
-  store ptr %8, ptr %0, align 8
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #21
+  %8 = add i64 %7, 1
+  %9 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.13, i32 noundef 490, ptr noundef nonnull @__func__.xstrdup) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull readonly align 1 %2, i64 %8, i1 false)
+  store ptr %9, ptr %0, align 8
   br label %.sink.split
 
-9:                                                ; preds = %4
-  %10 = load ptr, ptr %1, align 8
-  %.not29 = icmp eq ptr %10, null
-  br i1 %.not29, label %11, label %14
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %1, align 8
+  %.not29 = icmp eq ptr %11, null
+  br i1 %.not29, label %12, label %15
 
-11:                                               ; preds = %9
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #21
-  %13 = getelementptr inbounds i8, ptr %6, i64 %12
-  store ptr %13, ptr %1, align 8
-  br label %18
+12:                                               ; preds = %10
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #21
+  %14 = getelementptr inbounds i8, ptr %6, i64 %13
+  store ptr %14, ptr %1, align 8
+  br label %19
 
-14:                                               ; preds = %9
-  %15 = ptrtoint ptr %10 to i64
-  %16 = ptrtoint ptr %6 to i64
-  %17 = sub i64 %15, %16
-  br label %18
+15:                                               ; preds = %10
+  %16 = ptrtoint ptr %11 to i64
+  %17 = ptrtoint ptr %6 to i64
+  %18 = sub i64 %16, %17
+  br label %19
 
-18:                                               ; preds = %14, %11
-  %.0 = phi i64 [ %17, %14 ], [ %12, %11 ]
-  %19 = trunc i64 %.0 to i32
-  %20 = trunc i64 %5 to i32
-  tail call fastcc void @_makespace(ptr noundef nonnull %0, i32 noundef %19, i32 noundef %20)
-  %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 %.0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %2, i64 %5, i1 false)
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 %.0
+19:                                               ; preds = %15, %12
+  %.0 = phi i64 [ %18, %15 ], [ %13, %12 ]
+  %20 = trunc i64 %.0 to i32
+  %21 = trunc i64 %5 to i32
+  tail call fastcc void @_makespace(ptr noundef nonnull %0, i32 noundef %20, i32 noundef %21)
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 %.0
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr nonnull align 1 %2, i64 %5, i1 false)
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 %.0
   br label %.sink.split
 
-.sink.split:                                      ; preds = %xstrdup.exit, %18
-  %.sink30 = phi ptr [ %24, %18 ], [ %8, %xstrdup.exit ]
-  %25 = getelementptr inbounds i8, ptr %.sink30, i64 %5
-  store ptr %25, ptr %1, align 8
-  br label %26
+.sink.split:                                      ; preds = %xstrdup.exit, %19
+  %.sink30 = phi ptr [ %25, %19 ], [ %9, %xstrdup.exit ]
+  %26 = getelementptr inbounds i8, ptr %.sink30, i64 %5
+  store ptr %26, ptr %1, align 8
+  br label %27
 
-26:                                               ; preds = %.sink.split, %3
+27:                                               ; preds = %.sink.split, %3
   ret void
 }
 
@@ -335,7 +336,7 @@ define void @_xstrfmtcat(ptr noundef %0, ptr nocapture noundef readonly %1, ...)
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr null, ptr %3, align 8
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = call i64 @_xstrdup_vprintf(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4), !range !6
+  %5 = call i64 @_xstrdup_vprintf(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   %6 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %6, null
@@ -369,7 +370,7 @@ define void @_xstrfmtcatat(ptr noundef %0, ptr nocapture noundef %1, ptr nocaptu
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr null, ptr %4, align 8
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %6 = call i64 @_xstrdup_vprintf(ptr noundef nonnull %4, ptr noundef %2, ptr noundef nonnull %5), !range !6
+  %6 = call i64 @_xstrdup_vprintf(ptr noundef nonnull %4, ptr noundef %2, ptr noundef nonnull %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %7 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %7, null
@@ -404,7 +405,7 @@ define void @_xstrfmtcatat(ptr noundef %0, ptr nocapture noundef %1, ptr nocaptu
 20:                                               ; preds = %16, %13
   %.0 = phi i64 [ %19, %16 ], [ %14, %13 ]
   %21 = trunc i64 %.0 to i32
-  %22 = trunc i64 %6 to i32
+  %22 = trunc nuw nsw i64 %6 to i32
   call fastcc void @_makespace(ptr noundef nonnull %0, i32 noundef %21, i32 noundef %22)
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %.0
@@ -471,14 +472,14 @@ define ptr @xstrdup_printf(ptr nocapture noundef readonly %0, ...) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call i64 @_xstrdup_vprintf(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3), !range !6
+  %4 = call i64 @_xstrdup_vprintf(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   %5 = load ptr, ptr %2, align 8
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @_xstrdup_vprintf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define range(i64 0, 2147483648) i64 @_xstrdup_vprintf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca ptr, align 8
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 100, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.13, i32 noundef 792, ptr noundef nonnull @__func__._xstrdup_vprintf) #22
@@ -559,10 +560,10 @@ define ptr @xdirname(ptr noundef readonly %0) #0 {
   br i1 %.not.i, label %xstrdup.exit.thread, label %xstrdup.exit
 
 xstrdup.exit:                                     ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #21
   %4 = add i64 %3, 1
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.13, i32 noundef 490, ptr noundef nonnull @__func__.xstrdup) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr nonnull align 1 %0, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr nonnull readonly align 1 %0, i64 %4, i1 false)
   store ptr %5, ptr %2, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %xstrdup.exit.thread, label %7
@@ -639,10 +640,10 @@ define void @_xstrsubstitute(ptr noundef %0, ptr noundef readonly %1, ptr nounde
 
 xstrdup.exit:                                     ; preds = %25
   %31 = getelementptr inbounds i8, ptr %29, i64 %21
-  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #21
+  %32 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #21
   %33 = add i64 %32, 1
   %34 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %33, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.13, i32 noundef 490, ptr noundef nonnull @__func__.xstrdup) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 %31, i64 %33, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull readonly align 1 %31, i64 %33, i1 false)
   store ptr %34, ptr %5, align 8
   %35 = ptrtoint ptr %29 to i64
   %36 = ptrtoint ptr %28 to i64
@@ -720,10 +721,10 @@ define ptr @xshort_hostname() #0 {
   br label %6
 
 6:                                                ; preds = %5, %3
-  %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
+  %7 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #21
   %8 = add i64 %7, 1
   %9 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.13, i32 noundef 490, ptr noundef nonnull @__func__.xstrdup) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 16 %1, i64 %8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull readonly align 16 %1, i64 %8, i1 false)
   br label %10
 
 10:                                               ; preds = %0, %6
@@ -747,7 +748,7 @@ define noundef zeroext i1 @xstring_is_whitespace(ptr nocapture noundef readonly 
   %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !6
 
 8:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
@@ -789,7 +790,7 @@ define zeroext i1 @xstrtolower(ptr noundef %0) #3 {
   %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
   %9 = load i8, ptr %8, align 1
   %.not18 = icmp eq i8 %9, 0
-  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   %.0 = phi i1 [ false, %1 ], [ false, %.preheader ], [ %spec.select, %.lr.ph ]
@@ -962,7 +963,7 @@ define ptr @xstrcasestr(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
   br i1 %.not.us, label %26, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %12
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = icmp eq i32 %21, %9
   br i1 %22, label %.loopexit, label %23
 
@@ -970,12 +971,12 @@ define ptr @xstrcasestr(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
   %24 = getelementptr inbounds i8, ptr %.029.us, i64 1
   %25 = add nuw nsw i32 %.02228.us, 1
   %exitcond41.not = icmp eq i32 %25, %7
-  br i1 %exitcond41.not, label %.loopexit, label %.preheader.us, !llvm.loop !10
+  br i1 %exitcond41.not, label %.loopexit, label %.preheader.us, !llvm.loop !9
 
 26:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !10
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %27 = icmp eq i32 %9, 0
@@ -1220,7 +1221,7 @@ define void @xstrtrim(ptr noundef %0) local_unnamed_addr #17 {
   %13 = getelementptr inbounds i8, ptr %.040, i64 1
   %.pr = load i8, ptr %13, align 1
   %.not30 = icmp eq i8 %.pr, 0
-  br i1 %.not30, label %14, label %6, !llvm.loop !12
+  br i1 %.not30, label %14, label %6, !llvm.loop !11
 
 14:                                               ; preds = %12
   store i8 0, ptr %0, align 1
@@ -1231,7 +1232,7 @@ define void @xstrtrim(ptr noundef %0) local_unnamed_addr #17 {
   %15 = load i8, ptr %.1, align 1
   %.not33 = icmp eq i8 %15, 0
   %16 = getelementptr inbounds i8, ptr %.1, i64 1
-  br i1 %.not33, label %.preheader, label %.critedge, !llvm.loop !13
+  br i1 %.not33, label %.preheader, label %.critedge, !llvm.loop !12
 
 .preheader:                                       ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %.1, i64 -1
@@ -1311,7 +1312,7 @@ define ptr @xstring_bytes2hex(ptr nocapture noundef readonly %0, i32 noundef %1,
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.14, i32 noundef %9)
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next17, %wide.trip.count19
-  br i1 %exitcond20.not, label %.split.us, label %.preheader.split.us, !llvm.loop !14
+  br i1 %exitcond20.not, label %.split.us, label %.preheader.split.us, !llvm.loop !13
 
 .preheader.split:                                 ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %.preheader ]
@@ -1330,7 +1331,7 @@ define ptr @xstring_bytes2hex(ptr nocapture noundef readonly %0, i32 noundef %1,
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.14, i32 noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count19
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !13
 
 .split.us:                                        ; preds = %12, %.preheader.split.us
   %16 = load ptr, ptr %4, align 8
@@ -1373,7 +1374,7 @@ define ptr @xstring_bytes2printable(ptr nocapture noundef readonly %0, i32 nound
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.15, i32 noundef %.sink)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %19, label %9, !llvm.loop !15
+  br i1 %exitcond.not, label %19, label %9, !llvm.loop !14
 
 19:                                               ; preds = %9
   %20 = load ptr, ptr %4, align 8
@@ -1438,13 +1439,12 @@ attributes #24 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i64 0, i64 2147483648}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

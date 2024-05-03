@@ -323,12 +323,12 @@ if.then.i.i.i:                                    ; preds = %if.end
   unreachable
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_110VertexInfoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %infos.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i = icmp eq i64 %9, 0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_110VertexInfoESaIS2_EEC2EmRKS3_.exit.thread.i.i, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_110VertexInfoESaIS2_EEC2EmRKS3_.exit.i.i
 
 _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_110VertexInfoESaIS2_EEC2EmRKS3_.exit.thread.i.i: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_110VertexInfoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
   %_M_finish.i.i2.i.i = getelementptr inbounds i8, ptr %infoMap, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %infos.i, i8 0, i64 24, i1 false)
   br label %_ZN3ue212_GLOBAL__N_113VertexInfoMapC2ERKNS_8NGHolderE.exit
 
 _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_110VertexInfoESaIS2_EEC2EmRKS3_.exit.i.i: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_110VertexInfoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
@@ -1253,7 +1253,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br i1 %cmp.not.i49, label %if.else.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE5clearEv.exit60.i
-  invoke fastcc void @_ZN3ue2L20succPredIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0162.i, i64 %77, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i38, ptr noundef nonnull align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %succPredSet.i)
+  invoke fastcc void @_ZN3ue2L20succPredIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0162.i, i64 %77, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i38, ptr noundef nonnull readonly align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %succPredSet.i)
           to label %invoke.cont33.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont33.i:                                  ; preds = %if.then30.i
@@ -1266,7 +1266,7 @@ invoke.cont33.i:                                  ; preds = %if.then30.i
   br i1 %cmp35.i, label %for.inc161.i, label %if.end37.i
 
 if.end37.i:                                       ; preds = %invoke.cont33.i
-  invoke fastcc void @_ZN3ue2L20predSuccIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0162.i, i64 %77, ptr noundef nonnull align 8 dereferenceable(40) %succ.i48, ptr noundef nonnull align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %predSuccSet.i)
+  invoke fastcc void @_ZN3ue2L20predSuccIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0162.i, i64 %77, ptr noundef nonnull align 8 dereferenceable(40) %succ.i48, ptr noundef nonnull readonly align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %predSuccSet.i)
           to label %invoke.cont40.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont40.i:                                  ; preds = %if.end37.i
@@ -1279,7 +1279,7 @@ invoke.cont40.i:                                  ; preds = %if.end37.i
   br i1 %cmp42.i, label %for.inc161.i, label %if.end59.i
 
 if.else.i:                                        ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE5clearEv.exit60.i
-  invoke fastcc void @_ZN3ue2L20predSuccIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0162.i, i64 %77, ptr noundef nonnull align 8 dereferenceable(40) %succ.i48, ptr noundef nonnull align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %predSuccSet.i)
+  invoke fastcc void @_ZN3ue2L20predSuccIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0162.i, i64 %77, ptr noundef nonnull align 8 dereferenceable(40) %succ.i48, ptr noundef nonnull readonly align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %predSuccSet.i)
           to label %invoke.cont47.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont47.i:                                  ; preds = %if.else.i
@@ -1292,7 +1292,7 @@ invoke.cont47.i:                                  ; preds = %if.else.i
   br i1 %cmp49.i, label %for.inc161.i, label %if.end51.i
 
 if.end51.i:                                       ; preds = %invoke.cont47.i
-  invoke fastcc void @_ZN3ue2L20succPredIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0162.i, i64 %77, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i38, ptr noundef nonnull align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %succPredSet.i)
+  invoke fastcc void @_ZN3ue2L20succPredIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0162.i, i64 %77, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i38, ptr noundef nonnull readonly align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %succPredSet.i)
           to label %invoke.cont54.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont54.i:                                  ; preds = %if.end51.i
@@ -1478,7 +1478,7 @@ invoke.cont151.i:                                 ; preds = %if.end145.i
   br i1 %call152.i, label %do.end156.i, label %for.inc.i56
 
 do.end156.i:                                      ; preds = %invoke.cont151.i
-  invoke fastcc void @_ZN3ue2L14markForRemovalENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_12_GLOBAL__N_113VertexInfoMapERSt3setIS7_St4lessIS7_ESaIS7_EE(ptr %__begin1.sroa.0.0162.i, i64 %77, ptr noundef nonnull align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(48) %removable)
+  invoke fastcc void @_ZN3ue2L14markForRemovalENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_12_GLOBAL__N_113VertexInfoMapERSt3setIS7_St4lessIS7_ESaIS7_EE(ptr %__begin1.sroa.0.0162.i, i64 %77, ptr noundef nonnull readonly align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(48) %removable)
           to label %for.inc161.i unwind label %lpad.loopexit.split-lp.i
 
 for.inc.i56:                                      ; preds = %for.body.i.i.i.i.i.i59, %invoke.cont151.i, %invoke.cont142.i, %invoke.cont134.i, %if.then124.i, %land.lhs.true.i57, %lor.lhs.false108.i, %invoke.cont103.i
@@ -1719,7 +1719,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br i1 %cmp.not.i107, label %if.else.i142, label %if.then26.i
 
 if.then26.i:                                      ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE5clearEv.exit66.i
-  invoke fastcc void @_ZN3ue2L20succPredIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0171.i, i64 %129, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i73, ptr noundef nonnull align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %succPredSet.i63)
+  invoke fastcc void @_ZN3ue2L20succPredIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0171.i, i64 %129, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i73, ptr noundef nonnull readonly align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %succPredSet.i63)
           to label %invoke.cont29.i unwind label %lpad.loopexit.split-lp.i108
 
 invoke.cont29.i:                                  ; preds = %if.then26.i
@@ -1732,7 +1732,7 @@ invoke.cont29.i:                                  ; preds = %if.then26.i
   br i1 %cmp31.i, label %for.inc158.i, label %if.end33.i
 
 if.end33.i:                                       ; preds = %invoke.cont29.i
-  invoke fastcc void @_ZN3ue2L20predSuccIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0171.i, i64 %129, ptr noundef nonnull align 8 dereferenceable(40) %succ.i104, ptr noundef nonnull align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %predSuccSet.i64)
+  invoke fastcc void @_ZN3ue2L20predSuccIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0171.i, i64 %129, ptr noundef nonnull align 8 dereferenceable(40) %succ.i104, ptr noundef nonnull readonly align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %predSuccSet.i64)
           to label %invoke.cont36.i unwind label %lpad.loopexit.split-lp.i108
 
 invoke.cont36.i:                                  ; preds = %if.end33.i
@@ -1745,7 +1745,7 @@ invoke.cont36.i:                                  ; preds = %if.end33.i
   br i1 %cmp38.i, label %for.inc158.i, label %if.end55.i
 
 if.else.i142:                                     ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE5clearEv.exit66.i
-  invoke fastcc void @_ZN3ue2L20predSuccIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0171.i, i64 %129, ptr noundef nonnull align 8 dereferenceable(40) %succ.i104, ptr noundef nonnull align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %predSuccSet.i64)
+  invoke fastcc void @_ZN3ue2L20predSuccIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0171.i, i64 %129, ptr noundef nonnull align 8 dereferenceable(40) %succ.i104, ptr noundef nonnull readonly align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %predSuccSet.i64)
           to label %invoke.cont43.i unwind label %lpad.loopexit.split-lp.i108
 
 invoke.cont43.i:                                  ; preds = %if.else.i142
@@ -1758,7 +1758,7 @@ invoke.cont43.i:                                  ; preds = %if.else.i142
   br i1 %cmp45.i, label %for.inc158.i, label %if.end47.i
 
 if.end47.i:                                       ; preds = %invoke.cont43.i
-  invoke fastcc void @_ZN3ue2L20succPredIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0171.i, i64 %129, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i73, ptr noundef nonnull align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %succPredSet.i63)
+  invoke fastcc void @_ZN3ue2L20succPredIntersectionENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS7_St4lessIS7_ESaIS7_EEERKNS_12_GLOBAL__N_113VertexInfoMapERSt6vectorIS7_SB_Eb(ptr %__begin1.sroa.0.0171.i, i64 %129, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i73, ptr noundef nonnull readonly align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(24) %succPredSet.i63)
           to label %invoke.cont50.i unwind label %lpad.loopexit.split-lp.i108
 
 invoke.cont50.i:                                  ; preds = %if.end47.i
@@ -1970,7 +1970,7 @@ do.end.i:                                         ; preds = %land.lhs.true142.i
   %189 = load i64, ptr %arrayidx.i.i24.i.i.i, align 8
   %or24.i.i.i = or i64 %189, %188
   store i64 %or24.i.i.i, ptr %arrayidx.i.i24.i.i.i, align 8
-  invoke fastcc void @_ZN3ue2L14markForRemovalENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_12_GLOBAL__N_113VertexInfoMapERSt3setIS7_St4lessIS7_ESaIS7_EE(ptr nonnull %__begin1.sroa.0.0171.i, i64 %129, ptr noundef nonnull align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(48) %removable)
+  invoke fastcc void @_ZN3ue2L14markForRemovalENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERNS_12_GLOBAL__N_113VertexInfoMapERSt3setIS7_St4lessIS7_ESaIS7_EE(ptr nonnull %__begin1.sroa.0.0171.i, i64 %129, ptr noundef nonnull readonly align 8 dereferenceable(32) %infoMap, ptr noundef nonnull align 8 dereferenceable(48) %removable)
           to label %for.inc158.i unwind label %lpad.loopexit.split-lp.i108
 
 for.inc.i126:                                     ; preds = %for.body.i.i.i.i.i.i135, %land.lhs.true142.i, %if.end136.i, %invoke.cont130.i, %invoke.cont120.i, %land.lhs.true.i129, %lor.lhs.false101.i, %invoke.cont97.i
@@ -2518,7 +2518,7 @@ if.else.i.i.i.i:                                  ; preds = %invoke.cont4.i.i.i.
 
 if.end5.i.i.i.i:                                  ; preds = %if.else.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i.i.i.i.i, i64 32, i1 false)
   %32 = load <2 x i64>, ptr %props.i.i, align 8, !noalias !121
   %33 = load <2 x i64>, ptr %ref.tmp.i.i.i.i, align 16, !alias.scope !121
   %34 = and <2 x i64> %33, %32
@@ -2527,7 +2527,7 @@ if.end5.i.i.i.i:                                  ; preds = %if.else.i.i.i.i
   %36 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i.i.i.i, align 16, !alias.scope !121
   %37 = and <2 x i64> %36, %35
   store <2 x i64> %37, ptr %arrayidx.i.i22.i.i.i.i.i.i, align 16, !alias.scope !121
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i, label %invoke.cont35.i.i.i.i, label %if.then9.i.invoke.i.i.i
 
@@ -3085,7 +3085,7 @@ if.else.i.i.i.i.i:                                ; preds = %invoke.cont107.i.i.
 
 if.end5.i.i.i.i.i:                                ; preds = %if.else.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i.i.i.i.i.i, i64 32, i1 false)
   %91 = load <2 x i64>, ptr %props.i.i, align 8, !noalias !139
   %92 = load <2 x i64>, ptr %ref.tmp.i.i.i.i.i, align 16, !alias.scope !139
   %93 = and <2 x i64> %92, %91
@@ -3094,7 +3094,7 @@ if.end5.i.i.i.i.i:                                ; preds = %if.else.i.i.i.i.i
   %95 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i.i.i.i.i, align 16, !alias.scope !139
   %96 = and <2 x i64> %95, %94
   store <2 x i64> %96, ptr %arrayidx.i.i22.i.i.i.i.i.i.i, align 16, !alias.scope !139
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i, label %invoke.cont114.i.i.i.i, label %if.then9.i.invoke.i.i.i
 
@@ -3733,7 +3733,7 @@ if.else.i.i.i.i133:                               ; preds = %invoke.cont3.i.i.i.
 
 if.end5.i.i.i.i134:                               ; preds = %if.else.i.i.i.i133
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i14, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i14, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i.i.i.i, i64 32, i1 false)
   %169 = load <2 x i64>, ptr %props.i.i71, align 8, !noalias !158
   %170 = load <2 x i64>, ptr %ref.tmp.i.i.i.i14, align 16, !alias.scope !158
   %171 = and <2 x i64> %170, %169
@@ -3742,7 +3742,7 @@ if.end5.i.i.i.i134:                               ; preds = %if.else.i.i.i.i133
   %173 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i.i.i.i29, align 16, !alias.scope !158
   %174 = and <2 x i64> %173, %172
   store <2 x i64> %174, ptr %arrayidx.i.i22.i.i.i.i.i.i29, align 16, !alias.scope !158
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i139 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i14, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i139 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i14, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i140 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i139, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i140, label %invoke.cont34.i.i.i.i, label %if.then9.i.invoke.i.i.i141
 
@@ -4299,7 +4299,7 @@ if.else.i.i.i.i.i187:                             ; preds = %invoke.cont100.i.i.
 
 if.end5.i.i.i.i.i188:                             ; preds = %if.else.i.i.i.i.i187
   call void @llvm.experimental.noalias.scope.decl(metadata !173)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %props.i.i.i.i.i.i185, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i.i.i.i15, ptr noundef nonnull readonly align 8 dereferenceable(32) %props.i.i.i.i.i.i185, i64 32, i1 false)
   %228 = load <2 x i64>, ptr %props.i.i71, align 8, !noalias !173
   %229 = load <2 x i64>, ptr %ref.tmp.i.i.i.i.i15, align 16, !alias.scope !173
   %230 = and <2 x i64> %229, %228
@@ -4308,7 +4308,7 @@ if.end5.i.i.i.i.i188:                             ; preds = %if.else.i.i.i.i.i18
   %232 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i.i.i.i.i34, align 16, !alias.scope !173
   %233 = and <2 x i64> %232, %231
   store <2 x i64> %233, ptr %arrayidx.i.i22.i.i.i.i.i.i.i34, align 16, !alias.scope !173
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i193 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i.i.i.i.i185, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i15, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i193 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %props.i.i.i.i.i.i185, ptr noundef nonnull dereferenceable(32) %ref.tmp.i.i.i.i.i15, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i194 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i193, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i.i.i.i.i194, label %invoke.cont107.i.i.i.i195, label %if.then9.i.invoke.i.i.i141
 

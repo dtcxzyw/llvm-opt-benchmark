@@ -929,7 +929,7 @@ RB_SYMBOL_P.exit.thread7.fold.split.i:            ; preds = %4, %4
   %15 = and i64 %1, -4
   %16 = inttoptr i64 %15 to ptr
   %17 = load i64, ptr @rb_cProc, align 8
-  %18 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef %0, ptr noundef %16, i64 noundef %17, i8 noundef signext 0)
+  %18 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef readnone %0, ptr noundef %16, i64 noundef %17, i8 noundef signext 0)
   br label %20
 
 vm_block_handler_type.exit:                       ; preds = %RB_SYMBOL_P.exit.i, %6
@@ -1018,7 +1018,7 @@ check_method_entry.exit:                          ; preds = %8, %31, %27, %26, %
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden ptr @rb_vm_get_cref(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = tail call fastcc ptr @vm_env_cref(ptr noundef %0)
+  %2 = tail call fastcc ptr @vm_env_cref(ptr noundef readonly %0)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %vm_get_cref.exit
 
@@ -1231,7 +1231,7 @@ define internal fastcc i64 @vm_get_ev_const(ptr nocapture noundef readonly %0, i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call fastcc ptr @vm_env_cref(ptr noundef %12)
+  %13 = tail call fastcc ptr @vm_env_cref(ptr noundef readonly %12)
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %vm_get_cref.exit.preheader
 
@@ -1671,7 +1671,7 @@ define hidden i64 @rb_vm_getclassvariable(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @vm_getclassvariable(ptr noundef %0, ptr nocapture readonly %.32.val, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
-  %4 = tail call fastcc ptr @vm_env_cref(ptr noundef %.32.val)
+  %4 = tail call fastcc ptr @vm_env_cref(ptr noundef readonly %.32.val)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %vm_get_cref.exit
 
@@ -1737,7 +1737,7 @@ define hidden void @rb_vm_setclassvariable(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vm_setclassvariable(ptr noundef %0, ptr nocapture readonly %.32.val, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #2 {
-  %5 = tail call fastcc ptr @vm_env_cref(ptr noundef %.32.val)
+  %5 = tail call fastcc ptr @vm_env_cref(ptr noundef readonly %.32.val)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %vm_get_cref.exit
 
@@ -3234,7 +3234,7 @@ RB_SYMBOL_P.exit.thread7.fold.split.i.i:          ; preds = %16, %16
   %27 = and i64 %6, -4
   %28 = inttoptr i64 %27 to ptr
   %29 = load i64, ptr @rb_cProc, align 8
-  %30 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef %0, ptr noundef %28, i64 noundef %29, i8 noundef signext 0)
+  %30 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef readnone %0, ptr noundef %28, i64 noundef %29, i8 noundef signext 0)
   br label %rb_vm_bh_to_procval.exit
 
 vm_block_handler_type.exit.i:                     ; preds = %RB_SYMBOL_P.exit.i.i, %18
@@ -3355,7 +3355,7 @@ define internal fastcc zeroext i1 @vm_defined(ptr noundef %0, ptr nocapture noun
 18:                                               ; preds = %5
   %19 = getelementptr inbounds i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call fastcc ptr @vm_env_cref(ptr noundef %20)
+  %21 = tail call fastcc ptr @vm_env_cref(ptr noundef readonly %20)
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %22, label %vm_get_cref.exit
 
@@ -6062,7 +6062,7 @@ rb_ractor_main_p.exit.thread.i.i:                 ; preds = %rb_ractor_main_p.ex
   br i1 %11, label %vm_ic_hit_p.exit, label %12
 
 12:                                               ; preds = %rb_ractor_main_p.exit.thread.i.i
-  %13 = tail call fastcc ptr @vm_env_cref(ptr noundef %1)
+  %13 = tail call fastcc ptr @vm_env_cref(ptr noundef readonly %1)
   %.not.i5.i.i = icmp eq ptr %13, null
   br i1 %.not.i5.i.i, label %14, label %vm_get_cref.exit.i.i
 
@@ -6111,7 +6111,7 @@ rb_ractor_main_p.exit.thread.i.i:                 ; preds = %rb_ractor_main_p.ex
   br i1 %18, label %vm_ic_hit_p.exit.thread, label %19
 
 19:                                               ; preds = %rb_ractor_main_p.exit.thread.i.i
-  %20 = tail call fastcc ptr @vm_env_cref(ptr noundef %11)
+  %20 = tail call fastcc ptr @vm_env_cref(ptr noundef readonly %11)
   %.not.i5.i.i = icmp eq ptr %20, null
   br i1 %.not.i5.i.i, label %21, label %vm_ic_hit_p.exit
 
@@ -6153,7 +6153,7 @@ vm_ic_hit_p.exit.thread27:                        ; preds = %rb_ractor_main_p.ex
   %.11118.i = phi i1 [ false, %.lr.ph.i ], [ %28, %.lr.ph.preheader.i ]
   %.11317.i = phi i32 [ %34, %.lr.ph.i ], [ %spec.select.i, %.lr.ph.preheader.i ]
   %34 = add i32 %.11317.i, 1
-  %35 = tail call fastcc i64 @vm_get_ev_const(ptr noundef %0, i64 noundef %.119.i, i64 noundef %33, i1 noundef zeroext %.11118.i, i32 noundef 0)
+  %35 = tail call fastcc i64 @vm_get_ev_const(ptr noundef readonly %0, i64 noundef %.119.i, i64 noundef %33, i1 noundef zeroext %.11118.i, i32 noundef 0)
   %36 = sext i32 %34 to i64
   %37 = getelementptr i64, ptr %7, i64 %36
   %38 = load i64, ptr %37, align 8
@@ -6257,7 +6257,7 @@ vm_ic_track_const_chain.exit:                     ; preds = %61, %63
   br label %rb_obj_write.exit.i
 
 rb_obj_write.exit.i:                              ; preds = %80, %72
-  %81 = call fastcc ptr @vm_env_cref(ptr noundef %67)
+  %81 = call fastcc ptr @vm_env_cref(ptr noundef readonly %67)
   %.not.i.i.i21 = icmp eq ptr %81, null
   br i1 %.not.i.i.i21, label %82, label %vm_get_cref.exit.preheader.i.i
 
@@ -6717,7 +6717,7 @@ RB_SYMBOL_P.exit.thread7.fold.split.i.i:          ; preds = %108, %108
   %119 = and i64 %.val2177, -4
   %120 = inttoptr i64 %119 to ptr
   %121 = load i64, ptr @rb_cProc, align 8
-  %122 = call i64 @rb_vm_make_proc_lambda(ptr noundef %0, ptr noundef %120, i64 noundef %121, i8 noundef signext 0)
+  %122 = call i64 @rb_vm_make_proc_lambda(ptr noundef readnone %0, ptr noundef %120, i64 noundef %121, i8 noundef signext 0)
   br label %rb_vm_bh_to_procval.exit
 
 vm_block_handler_type.exit.i:                     ; preds = %RB_SYMBOL_P.exit.i.i, %110
@@ -7616,7 +7616,7 @@ vm_ensure_not_refinement_module.exit2243:         ; preds = %vm_check_if_namespa
   br label %vm_get_special_object.exit
 
 593:                                              ; preds = %582
-  %594 = call fastcc ptr @vm_env_cref(ptr noundef %590)
+  %594 = call fastcc ptr @vm_env_cref(ptr noundef readonly %590)
   %.not.i.i.i2246 = icmp eq ptr %594, null
   br i1 %.not.i.i.i2246, label %595, label %vm_get_cref.exit.i.i
 
@@ -7637,7 +7637,7 @@ vm_get_cref.exit.i.i:                             ; preds = %593
   br label %vm_get_special_object.exit
 
 601:                                              ; preds = %582
-  %602 = call fastcc ptr @vm_env_cref(ptr noundef %590)
+  %602 = call fastcc ptr @vm_env_cref(ptr noundef readonly %590)
   %.not.i.i4.i = icmp eq ptr %602, null
   br i1 %.not.i.i4.i, label %603, label %vm_get_cref.exit.preheader.i.i
 
@@ -8660,7 +8660,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1126
 
 1138:                                             ; preds = %rbimpl_size_mul_or_raise.exit
   %1139 = shl nuw i64 %1128, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1133, ptr align 1 %1135, i64 %1139, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1133, ptr readonly align 1 %1135, i64 %1139, i1 false)
   %.pre2914 = load ptr, ptr %1132, align 8
   br label %ruby_nonempty_memcpy.exit
 
@@ -10723,7 +10723,7 @@ vm_once_exec.exit.i:                              ; preds = %.lr.ph.i.i.i.i2378
   %2147 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 40
   store ptr %2109, ptr %2147, align 8
   %2148 = load i64, ptr @rb_cProc, align 8
-  %2149 = call i64 @rb_vm_make_proc_lambda(ptr noundef nonnull %2137, ptr noundef nonnull %2146, i64 noundef %2148, i8 noundef signext 0)
+  %2149 = call i64 @rb_vm_make_proc_lambda(ptr noundef nonnull readnone %2137, ptr noundef nonnull %2146, i64 noundef %2148, i8 noundef signext 0)
   %2150 = call i64 @rb_proc_call_with_block(i64 noundef %2149, i32 noundef 0, ptr noundef null, i64 noundef 4) #20
   br label %vm_once_dispatch.exit
 
@@ -17505,7 +17505,7 @@ search_method.exit:                               ; preds = %36, %30, %._crit_ed
   %.019.i = phi ptr [ %56, %55 ], [ %49, %50 ]
   %57 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
   %58 = load i64, ptr %57, align 8
-  %59 = call ptr @rb_method_entry_complement_defined_class(ptr noundef nonnull %.1.i.i, i64 noundef %58, i64 noundef %.011.lcssa.i.i)
+  %59 = call ptr @rb_method_entry_complement_defined_class(ptr noundef nonnull readonly %.1.i.i, i64 noundef %58, i64 noundef %.011.lcssa.i.i)
   %60 = ptrtoint ptr %59 to i64
   %61 = call i32 @rb_id_table_insert(ptr noundef %.019.i, i64 noundef %1, i64 noundef %60) #20
   %62 = and i64 %60, 7
@@ -17733,7 +17733,7 @@ search_method.exit.i:                             ; preds = %15, %._crit_edge.i.
   br i1 %.not9.i.i.i, label %.lr.ph.i.i.i, label %rb_vm_cref.exit.thread, !llvm.loop !34
 
 rb_vm_get_ruby_level_next_cfp.exit.i.i:           ; preds = %.lr.ph.i.i.i
-  %34 = call fastcc ptr @vm_env_cref(ptr noundef nonnull %.0.val.i.i.i)
+  %34 = call fastcc ptr @vm_env_cref(ptr noundef nonnull readonly %.0.val.i.i.i)
   %.not.i.i.i24 = icmp eq ptr %34, null
   br i1 %.not.i.i.i24, label %35, label %rb_vm_cref.exit
 
@@ -18765,7 +18765,7 @@ define hidden void @rb_scope_visibility_set(i32 noundef %0) local_unnamed_addr #
 
 rb_vm_get_ruby_level_next_cfp.exit.i.i.i:         ; preds = %.lr.ph.i.i.i.i, %1
   %.0.val.i.i.i.lcssa.i = phi ptr [ %.0.val.i.i.i3.i, %1 ], [ %.0.val.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %13 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull %.0.val.i.i.i.lcssa.i)
+  %13 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull readonly %.0.val.i.i.i.lcssa.i)
   %.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i, label %14, label %vm_cref_set_visibility.exit
 
@@ -18948,7 +18948,7 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
   br i1 %or.cond.i.i, label %.loopexit, label %vm_env_cref_by_cref.exit
 
 .loopexit:                                        ; preds = %23, %44, %54
-  %58 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull %.0.val.i)
+  %58 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull readonly %.0.val.i)
   %.not.i16 = icmp eq ptr %58, null
   br i1 %.not.i16, label %59, label %vm_get_cref.exit
 
@@ -19134,7 +19134,7 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i, %1
 
 rb_vm_get_ruby_level_next_cfp.exit.i:             ; preds = %.lr.ph.i.i, %.loopexit
   %.0.val.i.i.lcssa = phi ptr [ %.0.val.i8, %.loopexit ], [ %.0.val.i.i, %.lr.ph.i.i ]
-  %57 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull %.0.val.i.i.lcssa)
+  %57 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull readonly %.0.val.i.i.lcssa)
   %.not.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i, label %58, label %vm_ec_cref.exit
 
@@ -19276,7 +19276,7 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i, %1
 
 rb_vm_get_ruby_level_next_cfp.exit.i:             ; preds = %.lr.ph.i.i, %.loopexit
   %.0.val.i.i.lcssa = phi ptr [ %.0.val.i8, %.loopexit ], [ %.0.val.i.i, %.lr.ph.i.i ]
-  %57 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull %.0.val.i.i.lcssa)
+  %57 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull readonly %.0.val.i.i.lcssa)
   %.not.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i, label %58, label %vm_ec_cref.exit
 
@@ -21357,7 +21357,7 @@ scope_visibility_check.exit.i:                    ; preds = %32, %27, %24, %18
 
 rb_vm_get_ruby_level_next_cfp.exit.i.i.i.i:       ; preds = %.lr.ph.i.i.i.i.i, %scope_visibility_check.exit.i
   %.0.val.i.i.i.lcssa.i.i = phi ptr [ %.0.val.i.i.i3.i.i, %scope_visibility_check.exit.i ], [ %.0.val.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %44 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull %.0.val.i.i.i.lcssa.i.i)
+  %44 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull readonly %.0.val.i.i.i.lcssa.i.i)
   %.not.i.i.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i.i.i, label %45, label %rb_scope_module_func_set.exit
 
@@ -22849,7 +22849,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %80
 
 87:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %88 = shl nuw nsw i64 %84, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr nonnull align 1 %spec.store.select, i64 %88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %83, ptr nonnull readonly align 1 %spec.store.select, i64 %88, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %87
@@ -23155,7 +23155,7 @@ rbimpl_size_mul_or_raise.exit18:                  ; preds = %48, %46
   br i1 %.not.i19, label %ruby_nonempty_memcpy.exit, label %51
 
 51:                                               ; preds = %rbimpl_size_mul_or_raise.exit18
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %45, ptr align 1 %.0.i16, i64 %44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %45, ptr readonly align 1 %.0.i16, i64 %44, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit18, %51
@@ -24138,7 +24138,7 @@ rb_iterate_internal.exit:                         ; preds = %4, %5
   %8 = phi ptr [ %7, %5 ], [ null, %4 ]
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call fastcc i64 @rb_iterate0(ptr noundef %0, i64 noundef %1, ptr noundef %8, ptr noundef %10)
+  %11 = tail call fastcc i64 @rb_iterate0(ptr noundef readonly %0, i64 noundef %1, ptr noundef %8, ptr noundef %10)
   ret i64 %11
 }
 
@@ -24168,7 +24168,7 @@ rb_block_call_kw.exit:                            ; preds = %6, %12
   %16 = ptrtoint ptr %7 to i64
   %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %18 = load ptr, ptr %17, align 8
-  %19 = call fastcc i64 @rb_iterate0(ptr noundef nonnull @iterate_method, i64 noundef %16, ptr noundef %15, ptr noundef %18)
+  %19 = call fastcc i64 @rb_iterate0(ptr noundef nonnull readonly @iterate_method, i64 noundef %16, ptr noundef %15, ptr noundef %18)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret i64 %19
 }
@@ -24198,7 +24198,7 @@ rb_iterate_internal.exit:                         ; preds = %7, %13
   %17 = ptrtoint ptr %8 to i64
   %18 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %19 = load ptr, ptr %18, align 8
-  %20 = call fastcc i64 @rb_iterate0(ptr noundef nonnull @iterate_method, i64 noundef %17, ptr noundef %16, ptr noundef %19)
+  %20 = call fastcc i64 @rb_iterate0(ptr noundef nonnull readonly @iterate_method, i64 noundef %17, ptr noundef %16, ptr noundef %19)
   ret i64 %20
 }
 
@@ -24526,7 +24526,7 @@ rb_iterate_internal.exit:                         ; preds = %6, %12
   %16 = ptrtoint ptr %7 to i64
   %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %18 = load ptr, ptr %17, align 8
-  %19 = call fastcc i64 @rb_iterate0(ptr noundef nonnull @iterate_check_method, i64 noundef %16, ptr noundef %15, ptr noundef %18)
+  %19 = call fastcc i64 @rb_iterate0(ptr noundef nonnull readonly @iterate_check_method, i64 noundef %16, ptr noundef %15, ptr noundef %18)
   ret i64 %19
 }
 
@@ -24742,7 +24742,7 @@ vm_set_eval_stack.exit.i:                         ; preds = %.lr.ph.i.i.i, %.pre
   br i1 %.not15.i, label %eval_string_with_scope.exit, label %84
 
 84:                                               ; preds = %vm_set_eval_stack.exit.i
-  %85 = call fastcc i64 @vm_make_env_each(ptr noundef nonnull %30, ptr noundef nonnull %69)
+  %85 = call fastcc i64 @vm_make_env_each(ptr noundef nonnull readnone %30, ptr noundef nonnull %69)
   %86 = inttoptr i64 %85 to ptr
   %87 = getelementptr inbounds i8, ptr %31, i64 16
   %88 = getelementptr inbounds i8, ptr %86, i64 8
@@ -24871,7 +24871,7 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
 vm_block_ep.exit:                                 ; preds = %27
   %30 = getelementptr inbounds i8, ptr %6, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call fastcc ptr @vm_env_cref(ptr noundef %31)
+  %32 = tail call fastcc ptr @vm_env_cref(ptr noundef readonly %31)
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %33, label %vm_get_cref.exit
 
@@ -25010,7 +25010,7 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @rbimpl_str_new_cstr(ptr noundef nonnull %0) unnamed_addr #2 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #45
+  %2 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #45
   %3 = tail call i64 @rb_str_new_static(ptr noundef nonnull %0, i64 noundef %2) #20
   ret i64 %3
 }
@@ -26239,7 +26239,7 @@ define dso_local i64 @rb_catch(ptr noundef %0, ptr nocapture noundef readonly %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %13 = load ptr, ptr %12, align 8
-  %14 = call fastcc i64 @vm_catch_protect(i64 noundef %11, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4, ptr noundef %13)
+  %14 = call fastcc i64 @vm_catch_protect(i64 noundef %11, ptr noundef readonly %1, i64 noundef %2, ptr noundef nonnull %4, ptr noundef %13)
   %15 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %rb_catch_obj.exit, label %16
@@ -27059,7 +27059,7 @@ rb_check_arity.exit:                              ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %16 = load ptr, ptr %15, align 8
-  %17 = call fastcc i64 @vm_catch_protect(i64 noundef %14, ptr noundef nonnull @catch_i, i64 noundef 0, ptr noundef nonnull %4, ptr noundef %16)
+  %17 = call fastcc i64 @vm_catch_protect(i64 noundef %14, ptr noundef nonnull readonly @catch_i, i64 noundef 0, ptr noundef nonnull %4, ptr noundef %16)
   %18 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %rb_catch_obj.exit, label %19
@@ -27904,7 +27904,7 @@ define hidden void @rb_vm_stack_to_heap(ptr nocapture noundef readonly %0) local
   br i1 %.not9.i, label %.lr.ph.i, label %.loopexit, !llvm.loop !99
 
 rb_vm_get_binding_creatable_next_cfp.exit:        ; preds = %.lr.ph.i
-  %11 = tail call fastcc i64 @vm_make_env_each(ptr noundef nonnull %0, ptr noundef nonnull %.011.i)
+  %11 = tail call fastcc i64 @vm_make_env_each(ptr noundef nonnull readnone %0, ptr noundef nonnull %.011.i)
   %12 = getelementptr i8, ptr %.011.i, i64 56
   %.val.i = load ptr, ptr %0, align 8
   %.val8.i = load i64, ptr %4, align 8
@@ -28185,7 +28185,7 @@ define hidden noundef i64 @rb_proc_dup(i64 noundef %0) local_unnamed_addr #2 {
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
-  tail call void @rb_vm_block_copy(i64 noundef %10, ptr noundef %13, ptr noundef %6)
+  tail call void @rb_vm_block_copy(i64 noundef %10, ptr noundef %13, ptr noundef readonly %6)
   %14 = getelementptr inbounds i8, ptr %6, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 24
@@ -28435,7 +28435,7 @@ define dso_local noundef i64 @rb_proc_isolate(i64 noundef %0) local_unnamed_addr
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
-  tail call void @rb_vm_block_copy(i64 noundef %10, ptr noundef %13, ptr noundef %6)
+  tail call void @rb_vm_block_copy(i64 noundef %10, ptr noundef %13, ptr noundef readonly %6)
   %14 = getelementptr inbounds i8, ptr %6, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 24
@@ -28778,7 +28778,7 @@ rb_vm_get_ruby_level_next_cfp.exit.thread:        ; preds = %11, %2, %rb_vm_get_
   unreachable
 
 23:                                               ; preds = %18, %15
-  %24 = tail call fastcc i64 @vm_make_env_each(ptr noundef nonnull %0, ptr noundef nonnull %.06.i)
+  %24 = tail call fastcc i64 @vm_make_env_each(ptr noundef nonnull readnone %0, ptr noundef nonnull %.06.i)
   %25 = load i64, ptr @rb_cBinding, align 8
   %26 = tail call i64 @rb_binding_alloc(i64 noundef %25) #20
   %27 = inttoptr i64 %26 to ptr
@@ -28997,7 +28997,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %vm_block_iseq.exit
 49:                                               ; preds = %rbimpl_size_mul_or_raise.exit.thread, %rbimpl_size_mul_or_raise.exit
   %50 = phi ptr [ %47, %rbimpl_size_mul_or_raise.exit.thread ], [ %48, %rbimpl_size_mul_or_raise.exit ]
   %51 = getelementptr inbounds i8, ptr %50, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr align 1 %3, i64 %44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %51, ptr readonly align 1 %3, i64 %44, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %49
@@ -29150,7 +29150,7 @@ vm_set_eval_stack.exit:                           ; preds = %.lr.ph.i.i, %.prehe
   %.sroa.6.0..sroa_idx.i.i = getelementptr i8, ptr %93, i64 -16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
   store ptr %100, ptr %92, align 8
-  %112 = call fastcc i64 @vm_make_env_each(ptr noundef %31, ptr noundef nonnull %100)
+  %112 = call fastcc i64 @vm_make_env_each(ptr noundef readnone %31, ptr noundef nonnull %100)
   %113 = inttoptr i64 %112 to ptr
   %114 = getelementptr inbounds i8, ptr %1, i64 16
   %115 = getelementptr inbounds i8, ptr %113, i64 8
@@ -29338,7 +29338,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %50
 
 54:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %55 = shl nuw nsw i64 %43, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0108, ptr align 1 %.0107, i64 %55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %.0108, ptr readonly align 1 %.0107, i64 %55, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %54
@@ -29610,7 +29610,7 @@ RB_SYMBOL_P.exit.thread7.fold.split.i.i.i:        ; preds = %177, %177
   %188 = and i64 %6, -4
   %189 = inttoptr i64 %188 to ptr
   %190 = load i64, ptr @rb_cProc, align 8
-  %191 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef %0, ptr noundef %189, i64 noundef %190, i8 noundef signext 0)
+  %191 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef readnone %0, ptr noundef %189, i64 noundef %190, i8 noundef signext 0)
   br label %vm_yield_with_symbol.exit
 
 vm_block_handler_type.exit.i.i:                   ; preds = %RB_SYMBOL_P.exit.i.i.i, %179
@@ -29819,7 +29819,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %53
   %.1150157165 = phi i32 [ 65, %rbimpl_size_mul_or_raise.exit.thread ], [ %25, %rbimpl_size_mul_or_raise.exit ]
   %.0130149158163 = phi i32 [ 2, %rbimpl_size_mul_or_raise.exit.thread ], [ %3, %rbimpl_size_mul_or_raise.exit ]
   %59 = shl nuw nsw i64 %58, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %.0107151156167, i64 %59, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %24, ptr readonly align 1 %.0107151156167, i64 %59, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %57
@@ -30020,7 +30020,7 @@ RB_SYMBOL_P.exit.thread7.fold.split.i.i.i:        ; preds = %146, %146
   %157 = and i64 %6, -4
   %158 = inttoptr i64 %157 to ptr
   %159 = load i64, ptr @rb_cProc, align 8
-  %160 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef %0, ptr noundef %158, i64 noundef %159, i8 noundef signext 0)
+  %160 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef readnone %0, ptr noundef %158, i64 noundef %159, i8 noundef signext 0)
   br label %vm_yield_with_symbol.exit
 
 vm_block_handler_type.exit.i.i:                   ; preds = %RB_SYMBOL_P.exit.i.i.i, %148
@@ -30742,7 +30742,7 @@ define hidden ptr @rb_vm_cref() local_unnamed_addr #2 {
   br i1 %.not9.i.i, label %.lr.ph.i.i, label %vm_ec_cref.exit, !llvm.loop !34
 
 rb_vm_get_ruby_level_next_cfp.exit.i:             ; preds = %.lr.ph.i.i
-  %11 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull %.0.val.i.i)
+  %11 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull readonly %.0.val.i.i)
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %12, label %vm_ec_cref.exit
 
@@ -31096,7 +31096,7 @@ define hidden i64 @rb_vm_cbase() local_unnamed_addr #2 {
   unreachable
 
 rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
-  %12 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull %.0.val.i)
+  %12 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull readonly %.0.val.i)
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %13, label %vm_get_cref.exit.i
 
@@ -31815,7 +31815,7 @@ vm_set_eval_stack.exit.i:                         ; preds = %.lr.ph.i.i.i, %.pre
   br i1 %.not10.i, label %vm_set_main_stack.exit, label %59
 
 59:                                               ; preds = %vm_set_eval_stack.exit.i
-  %60 = tail call fastcc i64 @vm_make_env_each(ptr noundef nonnull %3, ptr noundef nonnull %44)
+  %60 = tail call fastcc i64 @vm_make_env_each(ptr noundef nonnull readnone %3, ptr noundef nonnull %44)
   %61 = inttoptr i64 %60 to ptr
   %62 = getelementptr inbounds i8, ptr %9, i64 16
   %63 = getelementptr inbounds i8, ptr %61, i64 8
@@ -34738,7 +34738,7 @@ define hidden void @Init_BareVM() local_unnamed_addr #2 {
   store i8 4, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %1, i64 1192
   store i32 -1, ptr %18, align 8
-  %19 = tail call ptr @getenv(ptr noundef nonnull @.str.278) #20
+  %19 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.278) #20
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %get_param.exit.i.i, label %20
 
@@ -34754,7 +34754,7 @@ get_param.exit.i.i:                               ; preds = %20, %8
   %.07.i.i.i = phi i64 [ %24, %20 ], [ 1048576, %8 ]
   %25 = getelementptr inbounds i8, ptr %1, i64 9552
   store i64 %.07.i.i.i, ptr %25, align 8
-  %26 = tail call ptr @getenv(ptr noundef nonnull @.str.279) #20
+  %26 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.279) #20
   %.not.i6.i.i = icmp eq ptr %26, null
   br i1 %.not.i6.i.i, label %get_param.exit9.i.i, label %27
 
@@ -34770,7 +34770,7 @@ get_param.exit9.i.i:                              ; preds = %27, %get_param.exit
   %.07.i8.i.i = phi i64 [ %31, %27 ], [ 1048576, %get_param.exit.i.i ]
   %32 = getelementptr inbounds i8, ptr %1, i64 9560
   store i64 %.07.i8.i.i, ptr %32, align 8
-  %33 = tail call ptr @getenv(ptr noundef nonnull @.str.280) #20
+  %33 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.280) #20
   %.not.i10.i.i = icmp eq ptr %33, null
   br i1 %.not.i10.i.i, label %get_param.exit13.i.i, label %34
 
@@ -34786,7 +34786,7 @@ get_param.exit13.i.i:                             ; preds = %34, %get_param.exit
   %.07.i12.i.i = phi i64 [ %38, %34 ], [ 131072, %get_param.exit9.i.i ]
   %39 = getelementptr inbounds i8, ptr %1, i64 9568
   store i64 %.07.i12.i.i, ptr %39, align 8
-  %40 = tail call ptr @getenv(ptr noundef nonnull @.str.281) #20
+  %40 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.281) #20
   %.not.i14.i.i = icmp eq ptr %40, null
   br i1 %.not.i14.i.i, label %get_param.exit17.i.i, label %41
 
@@ -37759,7 +37759,7 @@ vm_ci_mid.exit.i:                                 ; preds = %620, %618
   %.0.i.i270 = phi i64 [ %619, %618 ], [ %622, %620 ]
   %623 = getelementptr inbounds i8, ptr %1, i64 32
   %624 = load ptr, ptr %623, align 8
-  %625 = tail call fastcc ptr @vm_env_cref(ptr noundef %624)
+  %625 = tail call fastcc ptr @vm_env_cref(ptr noundef readonly %624)
   %.not.i.i271 = icmp eq ptr %625, null
   br i1 %.not.i.i271, label %626, label %vm_get_cref.exit.i
 
@@ -39886,7 +39886,7 @@ rbimpl_size_mul_or_raise.exit180:                 ; preds = %164
 171:                                              ; preds = %rbimpl_size_mul_or_raise.exit180
   %172 = sext i32 %146 to i64
   %173 = getelementptr i64, ptr %3, i64 %172
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %170, ptr align 1 %173, i64 %169, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %170, ptr readonly align 1 %173, i64 %169, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit180, %171
@@ -40571,7 +40571,7 @@ rbimpl_size_mul_or_raise.exit52:                  ; preds = %vm_ci_kwarg.exit
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
   %45 = getelementptr i64, ptr %27, i64 %44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %40, ptr align 1 %45, i64 %39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %40, ptr readonly align 1 %45, i64 %39, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit52, %41
@@ -40952,7 +40952,7 @@ rbimpl_size_mul_or_raise.exit367:                 ; preds = %82
 90:                                               ; preds = %rbimpl_size_mul_or_raise.exit367
   %91 = sext i32 %89 to i64
   %92 = getelementptr i64, ptr %4, i64 %91
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %88, ptr align 1 %92, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %88, ptr readonly align 1 %92, i64 %87, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 93:                                               ; preds = %vm_ci_kwarg.exit
@@ -42063,7 +42063,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %rb_array_const_ptr.
 
 562:                                              ; preds = %rbimpl_size_mul_or_raise.exit.i
   %563 = shl nuw nsw i64 %557, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %543, ptr align 1 %559, i64 %563, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %543, ptr readonly align 1 %559, i64 %563, i1 false)
   br label %args_setup_post_parameters.exit
 
 args_setup_post_parameters.exit:                  ; preds = %rbimpl_size_mul_or_raise.exit.i, %562
@@ -42679,7 +42679,7 @@ RB_SYMBOL_P.exit.thread7.fold.split.i.i.i:        ; preds = %837, %837
   %848 = and i64 %.val, -4
   %849 = inttoptr i64 %848 to ptr
   %850 = load i64, ptr @rb_cProc, align 8
-  %851 = call i64 @rb_vm_make_proc_lambda(ptr noundef %0, ptr noundef %849, i64 noundef %850, i8 noundef signext 0)
+  %851 = call i64 @rb_vm_make_proc_lambda(ptr noundef readnone %0, ptr noundef %849, i64 noundef %850, i8 noundef signext 0)
   br label %args_setup_block_parameter.exit
 
 vm_block_handler_type.exit.i.i:                   ; preds = %RB_SYMBOL_P.exit.i.i.i, %839
@@ -45203,7 +45203,7 @@ CC_SET_FASTPATH.exit:                             ; preds = %vm_ci_flag.exit.thr
   %54 = sub nsw i64 0, %53
   %55 = getelementptr i64, ptr %52, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -8
-  %57 = tail call fastcc i64 @vm_call_cfunc_with_frame_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %50, ptr noundef %55, ptr noundef %56)
+  %57 = tail call fastcc i64 @vm_call_cfunc_with_frame_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly %2, i32 noundef %50, ptr noundef %55, ptr noundef %56)
   br label %58
 
 58:                                               ; preds = %CC_SET_FASTPATH.exit, %rb_array_const_ptr.exit
@@ -46021,7 +46021,7 @@ rbimpl_size_mul_or_raise.exit17:                  ; preds = %20
 30:                                               ; preds = %rbimpl_size_mul_or_raise.exit17
   %31 = sub nsw i64 0, %23
   %32 = getelementptr i64, ptr %29, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %27, ptr align 1 %32, i64 %26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %27, ptr readonly align 1 %32, i64 %26, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit17, %30
@@ -46666,7 +46666,7 @@ RB_SYMBOL_P.exit.thread7.fold.split.i.i:          ; preds = %53, %53
   %64 = and i64 %.val16, -4
   %65 = inttoptr i64 %64 to ptr
   %66 = load i64, ptr @rb_cProc, align 8
-  %67 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef %0, ptr noundef %65, i64 noundef %66, i8 noundef signext 0)
+  %67 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef readnone %0, ptr noundef %65, i64 noundef %66, i8 noundef signext 0)
   br label %rb_vm_bh_to_procval.exit
 
 vm_block_handler_type.exit.i:                     ; preds = %RB_SYMBOL_P.exit.i.i, %55
@@ -48747,7 +48747,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %27
 
 34:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %35 = shl nuw nsw i64 %31, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %spec.store.select, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %30, ptr nonnull readonly align 1 %spec.store.select, i64 %35, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %34
@@ -49111,7 +49111,7 @@ define internal fastcc void @vm_define_method(ptr nocapture noundef readonly %0,
   br i1 %.not9.i.i, label %.lr.ph.i.i, label %vm_ec_cref.exit, !llvm.loop !34
 
 rb_vm_get_ruby_level_next_cfp.exit.i:             ; preds = %.lr.ph.i.i
-  %16 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull %.0.val.i.i)
+  %16 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull readonly %.0.val.i.i)
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %17, label %vm_ec_cref.exit
 
@@ -49961,7 +49961,7 @@ vm_make_proc_with_iseq.exit:                      ; preds = %.lr.ph.i.i
   %14 = getelementptr inbounds i8, ptr %.011.i.i, i64 40
   store ptr %12, ptr %14, align 8
   %15 = load i64, ptr @rb_cProc, align 8
-  %16 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef nonnull %3, ptr noundef nonnull %13, i64 noundef %15, i8 noundef signext 0)
+  %16 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef nonnull readnone %3, ptr noundef nonnull %13, i64 noundef %15, i8 noundef signext 0)
   %17 = tail call i64 @rb_proc_call_with_block(i64 noundef %16, i32 noundef 0, ptr noundef null, i64 noundef 4) #20
   ret i64 %17
 }
@@ -51973,7 +51973,7 @@ scope_visibility_check.exit:                      ; preds = %6, %12, %15, %20
 
 rb_vm_get_ruby_level_next_cfp.exit.i.i.i.i:       ; preds = %.lr.ph.i.i.i.i.i, %scope_visibility_check.exit
   %.0.val.i.i.i.lcssa.i.i = phi ptr [ %.0.val.i.i.i3.i.i, %scope_visibility_check.exit ], [ %.0.val.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %32 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull %.0.val.i.i.i.lcssa.i.i)
+  %32 = tail call fastcc ptr @vm_env_cref(ptr noundef nonnull readonly %.0.val.i.i.i.lcssa.i.i)
   %.not.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i, label %33, label %rb_scope_visibility_set.exit
 
@@ -54381,7 +54381,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %85, %82
   %91 = shl nuw nsw i64 %90, 3
   %92 = getelementptr i8, ptr %1, i64 8
   %93 = getelementptr i8, ptr %88, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr align 1 %92, i64 %91, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %93, ptr readonly align 1 %92, i64 %91, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rb_method_basic_definition_p.exit.thread, %rbimpl_size_mul_or_raise.exit, %77, %76, %RB_SYMBOL_P.exit
@@ -55831,7 +55831,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %41
 
 54:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %55 = shl nuw nsw i64 %51, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %50, i64 %55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %44, ptr readonly align 1 %50, i64 %55, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %54
@@ -56417,7 +56417,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %98
   %.192135142150 = phi i32 [ 65, %rbimpl_size_mul_or_raise.exit.thread ], [ %70, %rbimpl_size_mul_or_raise.exit ]
   %.093134143148 = phi i32 [ 2, %rbimpl_size_mul_or_raise.exit.thread ], [ %2, %rbimpl_size_mul_or_raise.exit ]
   %104 = shl nuw nsw i64 %103, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr align 1 %.071136141152, i64 %104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %69, ptr readonly align 1 %.071136141152, i64 %104, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %102
@@ -56565,7 +56565,7 @@ RB_SYMBOL_P.exit.thread7.fold.split.i.i.i:        ; preds = %160, %160
   %171 = and i64 %5, -4
   %172 = inttoptr i64 %171 to ptr
   %173 = load i64, ptr @rb_cProc, align 8
-  %174 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef %0, ptr noundef %172, i64 noundef %173, i8 noundef signext 0)
+  %174 = tail call i64 @rb_vm_make_proc_lambda(ptr noundef readnone %0, ptr noundef %172, i64 noundef %173, i8 noundef signext 0)
   br label %vm_yield_with_symbol.exit
 
 vm_block_handler_type.exit.i.i:                   ; preds = %RB_SYMBOL_P.exit.i.i.i, %162

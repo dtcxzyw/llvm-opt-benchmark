@@ -61,7 +61,7 @@ skip_cbs:                                         ; preds = %entry, %if.end
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %skip_cbs
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(8) @.str) #10
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(8) @.str) #10
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %padlock_bind_fn.exit
 
@@ -1206,12 +1206,14 @@ sw.bb42:                                          ; preds = %if.end19, %if.end19
   %tobool = icmp ne i32 %enc, 0
   %or.cond2 = or i1 %tobool, %or.cond1
   %ks52 = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %call53 = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %mul, ptr noundef nonnull %ks52)
-  %cmp.i = icmp slt i32 %call53, 0
-  %or.cond28 = select i1 %or.cond2, i1 true, i1 %cmp.i
-  br i1 %or.cond28, label %if.end54, label %if.end.i
+  br i1 %or.cond2, label %if.else51, label %if.then48
 
-if.end.i:                                         ; preds = %sw.bb42
+if.then48:                                        ; preds = %sw.bb42
+  %call.i = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull readonly %key, i32 noundef %mul, ptr noundef nonnull %ks52)
+  %cmp.i = icmp slt i32 %call.i, 0
+  br i1 %cmp.i, label %if.end54, label %if.end.i
+
+if.end.i:                                         ; preds = %if.then48
   %rounds.i = getelementptr inbounds i8, ptr %add.ptr, i64 272
   %6 = load i32, ptr %rounds.i, align 4
   %cmp169.i = icmp sgt i32 %6, 0
@@ -1320,7 +1322,11 @@ for.inc91.i:                                      ; preds = %for.body50.i
   %cmp46.i = icmp slt i32 %inc92.i, %31
   br i1 %cmp46.i, label %for.body47.i, label %if.end54, !llvm.loop !7
 
-if.end54:                                         ; preds = %for.inc91.i, %sw.bb42, %for.cond44.preheader.i, %if.end.i
+if.else51:                                        ; preds = %sw.bb42
+  %call53 = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %mul, ptr noundef nonnull %ks52)
+  br label %if.end54
+
+if.end54:                                         ; preds = %for.inc91.i, %for.cond44.preheader.i, %if.end.i, %if.then48, %if.else51
   %ks55 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @padlock_key_bswap(ptr noundef nonnull %ks55) #9
   %bf.load57 = load i16, ptr %cword21, align 4

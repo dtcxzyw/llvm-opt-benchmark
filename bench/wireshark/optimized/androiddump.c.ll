@@ -260,7 +260,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.202 = private unnamed_addr constant [25 x i8] c"Received incorrect magic\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
@@ -566,7 +566,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 114:                                              ; preds = %110
   %115 = getelementptr inbounds i8, ptr %111, i64 16
   %116 = load ptr, ptr %115, align 8
-  %117 = call fastcc i32 @list_config(ptr noundef %116), !range !7
+  %117 = call fastcc i32 @list_config(ptr noundef %116)
   br label %.thread128
 
 118:                                              ; preds = %110
@@ -592,11 +592,11 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not116, label %131, label %129
 
 129:                                              ; preds = %126
-  %130 = call fastcc i32 @capture_android_logcat_text(ptr noundef nonnull %123, ptr noundef %128, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select, i32 noundef %.073, ptr noundef %.071), !range !8
+  %130 = call fastcc i32 @capture_android_logcat_text(ptr noundef nonnull %123, ptr noundef %128, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select, i32 noundef %.073, ptr noundef %.071)
   br label %.thread128
 
 131:                                              ; preds = %126
-  %132 = call fastcc i32 @capture_android_logcat(ptr noundef nonnull %123, ptr noundef %128, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select), !range !9
+  %132 = call fastcc i32 @capture_android_logcat(ptr noundef nonnull %123, ptr noundef %128, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select)
   br label %.thread128
 
 133:                                              ; preds = %124
@@ -606,44 +606,44 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 135:                                              ; preds = %133
   %136 = getelementptr inbounds i8, ptr %111, i64 8
   %137 = load ptr, ptr %136, align 8
-  %138 = call fastcc i32 @capture_android_logcat_text(ptr noundef nonnull %123, ptr noundef %137, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select, i32 noundef %.073, ptr noundef %.071), !range !8
+  %138 = call fastcc i32 @capture_android_logcat_text(ptr noundef nonnull %123, ptr noundef %137, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select, i32 noundef %.073, ptr noundef %.071)
   br label %.thread128
 
 139:                                              ; preds = %133
-  %140 = call fastcc i32 @is_specified_interface(ptr noundef nonnull %123, ptr noundef nonnull @.str.39), !range !10
+  %140 = call fastcc i32 @is_specified_interface(ptr noundef nonnull %123, ptr noundef nonnull @.str.39)
   %.not109 = icmp eq i32 %140, 0
   br i1 %.not109, label %145, label %141
 
 141:                                              ; preds = %139
   %142 = getelementptr inbounds i8, ptr %111, i64 8
   %143 = load ptr, ptr %142, align 8
-  %144 = call fastcc i32 @capture_android_bluetooth_hcidump(ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select), !range !11
+  %144 = call fastcc i32 @capture_android_bluetooth_hcidump(ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select)
   br label %.thread128
 
 145:                                              ; preds = %139
-  %146 = call fastcc i32 @is_specified_interface(ptr noundef nonnull %123, ptr noundef nonnull @.str.40), !range !10
+  %146 = call fastcc i32 @is_specified_interface(ptr noundef nonnull %123, ptr noundef nonnull @.str.40)
   %.not111 = icmp eq i32 %146, 0
   br i1 %.not111, label %151, label %147
 
 147:                                              ; preds = %145
   %148 = getelementptr inbounds i8, ptr %111, i64 8
   %149 = load ptr, ptr %148, align 8
-  %150 = call fastcc i32 @capture_android_bluetooth_external_parser(ptr noundef nonnull %123, ptr noundef %149, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, i32 noundef %.064, ptr noundef nonnull %.2, ptr noundef nonnull %spec.store.select1), !range !12
+  %150 = call fastcc i32 @capture_android_bluetooth_external_parser(ptr noundef nonnull %123, ptr noundef %149, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, i32 noundef %.064, ptr noundef nonnull %.2, ptr noundef nonnull %spec.store.select1)
   br label %.thread128
 
 151:                                              ; preds = %145
-  %152 = call fastcc i32 @is_specified_interface(ptr noundef nonnull %123, ptr noundef nonnull @.str.41), !range !10
+  %152 = call fastcc i32 @is_specified_interface(ptr noundef nonnull %123, ptr noundef nonnull @.str.41)
   %.not113 = icmp eq i32 %152, 0
   br i1 %.not113, label %157, label %153
 
 153:                                              ; preds = %151
   %154 = getelementptr inbounds i8, ptr %111, i64 8
   %155 = load ptr, ptr %154, align 8
-  %156 = call fastcc i32 @capture_android_bluetooth_btsnoop_net(ptr noundef nonnull %123, ptr noundef %155, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select), !range !13
+  %156 = call fastcc i32 @capture_android_bluetooth_btsnoop_net(ptr noundef nonnull %123, ptr noundef %155, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select)
   br label %.thread128
 
 157:                                              ; preds = %151
-  %158 = call fastcc i32 @is_specified_interface(ptr noundef nonnull %123, ptr noundef nonnull @.str.42), !range !10
+  %158 = call fastcc i32 @is_specified_interface(ptr noundef nonnull %123, ptr noundef nonnull @.str.42)
   %.not115 = icmp eq i32 %158, 0
   br i1 %.not115, label %.thread128, label %159
 
@@ -652,7 +652,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds i8, ptr %111, i64 24
   %163 = load ptr, ptr %162, align 8
-  %164 = call fastcc i32 @capture_android_tcpdump(ptr noundef nonnull %123, ptr noundef %161, ptr noundef %163, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select), !range !14
+  %164 = call fastcc i32 @capture_android_tcpdump(ptr noundef nonnull %123, ptr noundef %161, ptr noundef %163, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select)
   br label %.thread128
 
 .thread128:                                       ; preds = %121, %118, %107, %131, %129, %141, %153, %159, %157, %147, %135, %114, %94, %86, %81, %78, %67, %64, %32, %29, %24, %23, %21
@@ -777,7 +777,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
 25:                                               ; preds = %.preheader1.i
   %26 = add nuw i64 %30, %.0744.i
   %27 = icmp ult i64 %26, 8
-  br i1 %27, label %.preheader1.i, label %33, !llvm.loop !15
+  br i1 %27, label %.preheader1.i, label %33, !llvm.loop !7
 
 .preheader1.i:                                    ; preds = %22, %25
   %.0744.i = phi i64 [ %26, %25 ], [ 0, %22 ]
@@ -825,7 +825,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   %49 = add i32 %48, 8
   %50 = zext i32 %49 to i64
   %51 = icmp ult i64 %47, %50
-  br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %46
   %.15.i = phi i64 [ %47, %46 ], [ %26, %.preheader.i ]
@@ -886,7 +886,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
 
 .backedge:                                        ; preds = %257, %259, %232, %.thread228, %243, %228, %200, %204, %207, %210, %183, %197, %187, %184, %212, %172, %.critedge, %168, %171, %246, %75, %150, %144, %159, %174, %194, %219, %240
   %76 = icmp ult ptr %73, %62
-  br i1 %76, label %66, label %.loopexit, !llvm.loop !17
+  br i1 %76, label %66, label %.loopexit, !llvm.loop !9
 
 77:                                               ; preds = %66
   %sext = shl i64 %70, 32
@@ -1029,7 +1029,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   call void @g_match_info_free(ptr noundef %129) #16
   %130 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.101) #16
   %.not33.us.i = icmp eq ptr %130, null
-  br i1 %.not33.us.i, label %add_tcpdump_interfaces.exit, label %.lr.ph.split.us.i, !llvm.loop !18
+  br i1 %.not33.us.i, label %add_tcpdump_interfaces.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %140
   %.0252.i = phi ptr [ %142, %140 ], [ %.0252.i.ph, %.lr.ph.split.i.preheader ]
@@ -1055,7 +1055,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   call void @g_match_info_free(ptr noundef %141) #16
   %142 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.101) #16
   %.not33.i = icmp eq ptr %142, null
-  br i1 %.not33.i, label %add_tcpdump_interfaces.exit, label %.lr.ph.split.i, !llvm.loop !18
+  br i1 %.not33.i, label %add_tcpdump_interfaces.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.thread.i
   call void @g_regex_unref(ptr noundef nonnull %109) #16
@@ -1332,7 +1332,7 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
 257:                                              ; preds = %255, %252, %.lr.ph
   %258 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.101) #16
   %cond = icmp eq ptr %258, null
-  br i1 %cond, label %.backedge, label %.lr.ph, !llvm.loop !19
+  br i1 %cond, label %.backedge, label %.lr.ph, !llvm.loop !11
 
 259:                                              ; preds = %255
   call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull @.str.103)
@@ -1344,17 +1344,17 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @new_fake_interface_for_list_dlts(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(26) @.str.39, i64 noundef 25) #19
+  %3 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(26) @.str.39, i64 noundef 25) #19
   %.not.i.not = icmp eq i32 %3, 0
   br i1 %.not.i.not, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(34) @.str.40, i64 noundef 33) #19
+  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(34) @.str.40, i64 noundef 33) #19
   %.not.i18.not = icmp eq i32 %5, 0
   br i1 %.not.i18.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(30) @.str.41, i64 noundef 29) #19
+  %7 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(30) @.str.41, i64 noundef 29) #19
   %.not.i19.not = icmp eq i32 %7, 0
   br i1 %.not.i19.not, label %8, label %9
 
@@ -1363,47 +1363,47 @@ define internal fastcc void @new_fake_interface_for_list_dlts(ptr noundef %0, pt
   br label %28
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
+  %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(20) @.str.80, i64 noundef 19) #19
   %.not.i.not.i = icmp eq i32 %10, 0
   br i1 %.not.i.not.i, label %is_logcat_interface.exit.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(22) @.str.82, i64 noundef 21) #19
+  %12 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(22) @.str.82, i64 noundef 21) #19
   %.not.i6.not.i = icmp eq i32 %12, 0
   br i1 %.not.i6.not.i, label %is_logcat_interface.exit.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.84, i64 noundef 20) #19
+  %14 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(21) @.str.84, i64 noundef 20) #19
   %.not.i7.not.i = icmp eq i32 %14, 0
   br i1 %.not.i7.not.i, label %is_logcat_interface.exit.thread, label %is_logcat_interface.exit
 
 is_logcat_interface.exit:                         ; preds = %13
-  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(22) @.str.86, i64 noundef 21) #19
+  %15 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(22) @.str.86, i64 noundef 21) #19
   %.not.i8.i = icmp eq i32 %15, 0
   br i1 %.not.i8.i, label %is_logcat_interface.exit.thread, label %16
 
 16:                                               ; preds = %is_logcat_interface.exit
-  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(25) @.str.88, i64 noundef 24) #19
+  %17 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(25) @.str.88, i64 noundef 24) #19
   %.not.i.not.i20 = icmp eq i32 %17, 0
   br i1 %.not.i.not.i20, label %is_logcat_interface.exit.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.89, i64 noundef 26) #19
+  %19 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(27) @.str.89, i64 noundef 26) #19
   %.not.i8.not.i = icmp eq i32 %19, 0
   br i1 %.not.i8.not.i, label %is_logcat_interface.exit.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(26) @.str.90, i64 noundef 25) #19
+  %21 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(26) @.str.90, i64 noundef 25) #19
   %.not.i9.not.i = icmp eq i32 %21, 0
   br i1 %.not.i9.not.i, label %is_logcat_interface.exit.thread, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.91, i64 noundef 26) #19
+  %23 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(27) @.str.91, i64 noundef 26) #19
   %.not.i10.not.i = icmp eq i32 %23, 0
   br i1 %.not.i10.not.i, label %is_logcat_interface.exit.thread, label %is_logcat_text_interface.exit
 
 is_logcat_text_interface.exit:                    ; preds = %22
-  %24 = tail call fastcc i32 @is_specified_interface(ptr noundef %1, ptr noundef nonnull @.str.92), !range !10
+  %24 = tail call fastcc i32 @is_specified_interface(ptr noundef readonly %1, ptr noundef nonnull @.str.92)
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %is_logcat_interface.exit.thread
 
@@ -1412,7 +1412,7 @@ is_logcat_interface.exit.thread:                  ; preds = %16, %18, %20, %22, 
   br label %28
 
 25:                                               ; preds = %is_logcat_text_interface.exit
-  %26 = tail call fastcc i32 @is_specified_interface(ptr noundef %1, ptr noundef nonnull @.str.42), !range !10
+  %26 = tail call fastcc i32 @is_specified_interface(ptr noundef %1, ptr noundef nonnull @.str.42)
   %.not17 = icmp eq i32 %26, 0
   br i1 %.not17, label %28, label %27
 
@@ -1427,7 +1427,7 @@ is_logcat_interface.exit.thread:                  ; preds = %16, %18, %20, %22, 
 declare zeroext i8 @extcap_base_handle_interface(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @list_config(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @list_config(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
@@ -1437,7 +1437,7 @@ define internal fastcc noundef i32 @list_config(ptr noundef %0) unnamed_addr #0 
   br label %39
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(34) @.str.40, i64 noundef 33) #19
+  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(34) @.str.40, i64 noundef 33) #19
   %.not.i.not = icmp eq i32 %5, 0
   br i1 %.not.i.not, label %6, label %13
 
@@ -1452,17 +1452,17 @@ define internal fastcc noundef i32 @list_config(ptr noundef %0) unnamed_addr #0 
   br label %38
 
 13:                                               ; preds = %4
-  %14 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.39, i64 noundef 25) #19
+  %14 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(26) @.str.39, i64 noundef 25) #19
   %.not.i17.not = icmp eq i32 %14, 0
   br i1 %.not.i17.not, label %19, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(30) @.str.41, i64 noundef 29) #19
+  %16 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(30) @.str.41, i64 noundef 29) #19
   %.not.i18.not = icmp eq i32 %16, 0
   br i1 %.not.i18.not, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.42, i64 noundef 15) #19
+  %18 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(16) @.str.42, i64 noundef 15) #19
   %.not.i19.not = icmp eq i32 %18, 0
   br i1 %.not.i19.not, label %19, label %22
 
@@ -1512,22 +1512,22 @@ define internal fastcc noundef i32 @list_config(ptr noundef %0) unnamed_addr #0 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc zeroext i1 @is_logcat_interface(ptr nocapture noundef readonly %0) unnamed_addr #4 {
-  %2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
+  %2 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(20) @.str.80, i64 noundef 19) #19
   %.not.i.not = icmp eq i32 %2, 0
   br i1 %.not.i.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.82, i64 noundef 21) #19
+  %4 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.82, i64 noundef 21) #19
   %.not.i6.not = icmp eq i32 %4, 0
   br i1 %.not.i6.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(21) @.str.84, i64 noundef 20) #19
+  %6 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(21) @.str.84, i64 noundef 20) #19
   %.not.i7.not = icmp eq i32 %6, 0
   br i1 %.not.i7.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.86, i64 noundef 21) #19
+  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.86, i64 noundef 21) #19
   %.not.i8 = icmp eq i32 %8, 0
   br label %9
 
@@ -1537,7 +1537,7 @@ define internal fastcc zeroext i1 @is_logcat_interface(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 43) i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = tail call fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %1, i32 noundef 155)
@@ -1547,234 +1547,236 @@ define internal fastcc noundef i32 @capture_android_logcat_text(ptr noundef %0, 
 
 12:                                               ; preds = %24, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %24 ]
-  %13 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.i
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #19
-  %16 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %14, i64 noundef %15) #19
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %24
+  %13 = phi ptr [ @.str.80, %6 ], [ %26, %24 ]
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #19
+  %15 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %13, i64 noundef %14) #19
+  %.not.i.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i.not.i, label %16, label %24
 
-17:                                               ; preds = %12
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %19 = add i64 %15, 1
-  %20 = icmp ugt i64 %18, %19
+16:                                               ; preds = %12
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #19
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #19
+  %19 = add i64 %18, 1
+  %20 = icmp ugt i64 %17, %19
   br i1 %20, label %21, label %24
 
-21:                                               ; preds = %17
-  %22 = getelementptr i8, ptr %0, i64 %15
+21:                                               ; preds = %16
+  %22 = getelementptr i8, ptr %0, i64 %18
   %23 = getelementptr i8, ptr %22, i64 1
   br label %get_serial_from_interface.exit
 
-24:                                               ; preds = %17, %12
+24:                                               ; preds = %16, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %25 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.next.i
+  %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %.not.i, label %get_serial_from_interface.exit, label %12, !llvm.loop !20
+  br i1 %.not.i, label %get_serial_from_interface.exit, label %12, !llvm.loop !12
 
 get_serial_from_interface.exit:                   ; preds = %24, %21
   %.08.i = phi ptr [ %23, %21 ], [ null, %24 ]
   %.val = load i16, ptr %3, align 2
-  %25 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %106, label %27
+  %27 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %108, label %29
 
-27:                                               ; preds = %get_serial_from_interface.exit
-  %28 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
-  %.not.i117.not = icmp eq i32 %28, 0
-  br i1 %.not.i117.not, label %47, label %29
-
-29:                                               ; preds = %27
-  %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(25) @.str.88, i64 noundef 24) #19
-  %.not.i118.not = icmp eq i32 %30, 0
-  br i1 %.not.i118.not, label %47, label %31
+29:                                               ; preds = %get_serial_from_interface.exit
+  %30 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(20) @.str.80, i64 noundef 19) #19
+  %.not.i117.not = icmp eq i32 %30, 0
+  br i1 %.not.i117.not, label %49, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.82, i64 noundef 21) #19
-  %.not.i119.not = icmp eq i32 %32, 0
-  br i1 %.not.i119.not, label %47, label %33
+  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(25) @.str.88, i64 noundef 24) #19
+  %.not.i118.not = icmp eq i32 %32, 0
+  br i1 %.not.i118.not, label %49, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(27) @.str.89, i64 noundef 26) #19
-  %.not.i120.not = icmp eq i32 %34, 0
-  br i1 %.not.i120.not, label %47, label %35
+  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.82, i64 noundef 21) #19
+  %.not.i119.not = icmp eq i32 %34, 0
+  br i1 %.not.i119.not, label %49, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.84), !range !10
-  %.not104 = icmp eq i32 %36, 0
-  br i1 %.not104, label %37, label %47
+  %36 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(27) @.str.89, i64 noundef 26) #19
+  %.not.i120.not = icmp eq i32 %36, 0
+  br i1 %.not.i120.not, label %49, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.90), !range !10
-  %.not105 = icmp eq i32 %38, 0
-  br i1 %.not105, label %39, label %47
+  %38 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.84)
+  %.not104 = icmp eq i32 %38, 0
+  br i1 %.not104, label %39, label %49
 
 39:                                               ; preds = %37
-  %40 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.86), !range !10
-  %.not106 = icmp eq i32 %40, 0
-  br i1 %.not106, label %41, label %47
+  %40 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.90)
+  %.not105 = icmp eq i32 %40, 0
+  br i1 %.not105, label %41, label %49
 
 41:                                               ; preds = %39
-  %42 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.91), !range !10
-  %.not107 = icmp eq i32 %42, 0
-  br i1 %.not107, label %43, label %47
+  %42 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.86)
+  %.not106 = icmp eq i32 %42, 0
+  br i1 %.not106, label %43, label %49
 
 43:                                               ; preds = %41
-  %44 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.92), !range !10
-  %.not108 = icmp eq i32 %44, 0
-  br i1 %.not108, label %45, label %47
+  %44 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.91)
+  %.not107 = icmp eq i32 %44, 0
+  br i1 %.not107, label %45, label %49
 
 45:                                               ; preds = %43
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2056, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.159, ptr noundef %0) #16
-  %46 = tail call i32 @close(i32 noundef %25) #16
-  br label %106
+  %46 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.92)
+  %.not108 = icmp eq i32 %46, 0
+  br i1 %.not108, label %47, label %49
 
-47:                                               ; preds = %43, %39, %41, %35, %37, %31, %33, %27, %29
-  %.092 = phi ptr [ @.str.154, %29 ], [ @.str.154, %27 ], [ @.str.155, %33 ], [ @.str.155, %31 ], [ @.str.156, %37 ], [ @.str.156, %35 ], [ @.str.157, %41 ], [ @.str.157, %39 ], [ @.str.158, %43 ]
+47:                                               ; preds = %45
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2056, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.159, ptr noundef %0) #16
+  %48 = tail call i32 @close(i32 noundef %27) #16
+  br label %108
+
+49:                                               ; preds = %45, %41, %43, %37, %39, %33, %35, %29, %31
+  %.092 = phi ptr [ @.str.154, %31 ], [ @.str.154, %29 ], [ @.str.155, %35 ], [ @.str.155, %33 ], [ @.str.156, %39 ], [ @.str.156, %37 ], [ @.str.157, %43 ], [ @.str.157, %41 ], [ @.str.158, %45 ]
   %.not109 = icmp eq i32 %4, 0
   %.str.28..str.160 = select i1 %.not109, ptr @.str.28, ptr @.str.160
   %.not110 = icmp eq ptr %5, null
   %spec.store.select = select i1 %.not110, ptr @.str.28, ptr %5
-  %48 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @capture_android_logcat_text.packet, i64 noundef 65535, ptr noundef nonnull @.str.153, ptr noundef nonnull %.092, ptr noundef nonnull %.str.28..str.160, ptr noundef nonnull %spec.store.select) #16
-  %49 = add i32 %48, -65536
-  %or.cond = icmp ult i32 %49, -65535
-  br i1 %or.cond, label %50, label %52
+  %50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @capture_android_logcat_text.packet, i64 noundef 65535, ptr noundef nonnull @.str.153, ptr noundef nonnull %.092, ptr noundef nonnull %.str.28..str.160, ptr noundef nonnull %spec.store.select) #16
+  %51 = add i32 %50, -65536
+  %or.cond = icmp ult i32 %51, -65535
+  br i1 %or.cond, label %52, label %54
 
-50:                                               ; preds = %47
+52:                                               ; preds = %49
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2071, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.98) #16
-  %51 = tail call i32 @close(i32 noundef %25) #16
-  br label %106
+  %53 = tail call i32 @close(i32 noundef %27) #16
+  br label %108
 
-52:                                               ; preds = %47
-  %53 = tail call fastcc i32 @adb_send(i32 noundef %25, ptr noundef nonnull @capture_android_logcat_text.packet), !range !21
-  %.not111 = icmp eq i32 %53, 0
-  br i1 %.not111, label %56, label %54
+54:                                               ; preds = %49
+  %55 = tail call fastcc i32 @adb_send(i32 noundef %27, ptr noundef nonnull @capture_android_logcat_text.packet)
+  %.not111 = icmp eq i32 %55, 0
+  br i1 %.not111, label %58, label %56
 
-54:                                               ; preds = %52
+56:                                               ; preds = %54
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2078, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.161, ptr noundef nonnull @capture_android_logcat_text.packet) #16
-  %55 = tail call i32 @close(i32 noundef %25) #16
-  br label %106
+  %57 = tail call i32 @close(i32 noundef %27) #16
+  br label %108
 
-56:                                               ; preds = %52
+58:                                               ; preds = %54
   store i16 3072, ptr @capture_android_logcat_text.packet, align 16
   store i16 6144, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 2), align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 4), ptr noundef nonnull align 1 dereferenceable(22) @.str.152, i64 22, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 26), i8 0, i64 6, i1 false)
   br label %.outer123
 
-.outer123:                                        ; preds = %.critedge.split, %56
-  %.090.ph = phi i64 [ %.1.ph165, %.critedge.split ], [ 0, %56 ]
-  %57 = getelementptr i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 32), i64 %.090.ph
-  %58 = shl i64 %.090.ph, 32
-  %sext = sub i64 281333242789888, %58
-  %59 = ashr exact i64 %sext, 32
-  br label %60
+.outer123:                                        ; preds = %.critedge.split, %58
+  %.090.ph = phi i64 [ %.1.ph162, %.critedge.split ], [ 0, %58 ]
+  %59 = getelementptr i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 32), i64 %.090.ph
+  %60 = shl i64 %.090.ph, 32
+  %sext = sub i64 281333242789888, %60
+  %61 = ashr exact i64 %sext, 32
+  br label %62
 
-60:                                               ; preds = %.outer123, %62
-  %61 = load i32, ptr @endless_loop, align 4
-  %.not112 = icmp eq i32 %61, 0
-  br i1 %.not112, label %104, label %62
+62:                                               ; preds = %.outer123, %64
+  %63 = load i32, ptr @endless_loop, align 4
+  %.not112 = icmp eq i32 %63, 0
+  br i1 %.not112, label %106, label %64
 
-62:                                               ; preds = %60
-  %63 = tail call ptr @__errno_location() #20
-  store i32 0, ptr %63, align 4
-  %64 = call i64 @recv(i32 noundef %25, ptr noundef %57, i64 noundef %59, i32 noundef 0) #16
-  %65 = load i32, ptr %63, align 4
-  switch i32 %65, label %66 [
-    i32 11, label %60
-    i32 0, label %69
+64:                                               ; preds = %62
+  %65 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %65, align 4
+  %66 = call i64 @recv(i32 noundef %27, ptr noundef %59, i64 noundef %61, i32 noundef 0) #16
+  %67 = load i32, ptr %65, align 4
+  switch i32 %67, label %68 [
+    i32 11, label %62
+    i32 0, label %71
   ]
 
-66:                                               ; preds = %62
-  %67 = call ptr @strerror(i32 noundef %65) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2110, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.162, ptr noundef %67) #16
-  %68 = call i32 @close(i32 noundef %25) #16
-  br label %106
+68:                                               ; preds = %64
+  %69 = call ptr @strerror(i32 noundef %67) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2110, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.162, ptr noundef %69) #16
+  %70 = call i32 @close(i32 noundef %27) #16
+  br label %108
 
-69:                                               ; preds = %62
-  %70 = icmp slt i64 %64, 1
-  br i1 %70, label %71, label %73
+71:                                               ; preds = %64
+  %72 = icmp slt i64 %66, 1
+  br i1 %72, label %73, label %75
 
-71:                                               ; preds = %69
+73:                                               ; preds = %71
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2116, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.163) #16
-  %72 = call i32 @close(i32 noundef %25) #16
-  br label %106
+  %74 = call i32 @close(i32 noundef %27) #16
+  br label %108
 
-73:                                               ; preds = %69
-  %74 = add i64 %64, %.090.ph
-  %.not114168 = icmp eq i64 %74, 0
-  br i1 %.not114168, label %.critedge.split, label %.outer.split.preheader
+75:                                               ; preds = %71
+  %76 = add i64 %66, %.090.ph
+  %.not114164 = icmp eq i64 %76, 0
+  br i1 %.not114164, label %.critedge.split, label %.outer.split.preheader
 
-.outer.split.preheader:                           ; preds = %73, %.outer
-  %.1.ph169 = phi i64 [ %103, %.outer ], [ %74, %73 ]
+.outer.split.preheader:                           ; preds = %75, %.outer
+  %.1.ph165 = phi i64 [ %105, %.outer ], [ %76, %75 ]
   br label %.outer.split
 
-.outer.split:                                     ; preds = %.outer.split.preheader, %76
-  %75 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 32), i32 noundef 10, i64 noundef %.1.ph169) #19
-  %.not115 = icmp eq ptr %75, null
-  br i1 %.not115, label %.critedge.split, label %76
+.outer.split:                                     ; preds = %.outer.split.preheader, %78
+  %77 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 32), i32 noundef 10, i64 noundef %.1.ph165) #19
+  %.not115 = icmp eq ptr %77, null
+  br i1 %.not115, label %.critedge.split, label %78
 
-76:                                               ; preds = %.outer.split
-  %77 = call i64 @time(ptr noundef null) #16
-  store i64 %77, ptr %8, align 8
-  %78 = call ptr @localtime(ptr noundef nonnull %8) #16
-  %.not116 = icmp eq ptr %78, null
-  br i1 %.not116, label %.outer.split, label %79, !llvm.loop !22
+78:                                               ; preds = %.outer.split
+  %79 = call i64 @time(ptr noundef null) #16
+  store i64 %79, ptr %8, align 8
+  %80 = call ptr @localtime(ptr noundef nonnull %8) #16
+  %.not116 = icmp eq ptr %80, null
+  br i1 %.not116, label %.outer.split, label %81, !llvm.loop !13
 
-79:                                               ; preds = %76
-  %80 = ptrtoint ptr %75 to i64
-  %81 = sub i64 %80, ptrtoint (ptr @capture_android_logcat_text.packet to i64)
-  %82 = add i64 %81, 1
-  %83 = getelementptr inbounds i8, ptr %78, i64 16
-  %84 = getelementptr inbounds i8, ptr %78, i64 12
-  %85 = getelementptr inbounds i8, ptr %78, i64 8
-  %86 = getelementptr inbounds i8, ptr %78, i64 4
-  %87 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 32), ptr noundef nonnull @.str.164, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef nonnull %86, ptr noundef nonnull %78, ptr noundef nonnull %7) #16
-  %88 = icmp eq i32 %87, 6
-  br i1 %88, label %89, label %.outer
+81:                                               ; preds = %78
+  %82 = ptrtoint ptr %77 to i64
+  %83 = sub i64 %82, ptrtoint (ptr @capture_android_logcat_text.packet to i64)
+  %84 = add i64 %83, 1
+  %85 = getelementptr inbounds i8, ptr %80, i64 16
+  %86 = getelementptr inbounds i8, ptr %80, i64 12
+  %87 = getelementptr inbounds i8, ptr %80, i64 8
+  %88 = getelementptr inbounds i8, ptr %80, i64 4
+  %89 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 32), ptr noundef nonnull @.str.164, ptr noundef nonnull %85, ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %80, ptr noundef nonnull %7) #16
+  %90 = icmp eq i32 %89, 6
+  br i1 %90, label %91, label %.outer
 
-89:                                               ; preds = %79
-  %90 = load i32, ptr %83, align 8
-  %91 = add i32 %90, -1
-  store i32 %91, ptr %83, align 8
-  %92 = getelementptr inbounds i8, ptr %78, i64 32
-  store i32 -1, ptr %92, align 8
-  %93 = call i64 @mktime(ptr noundef nonnull %78) #16
-  %94 = load i32, ptr %7, align 4
-  %95 = sitofp i32 %94 to double
-  %96 = fmul double %95, 1.000000e+06
-  %97 = fptosi double %96 to i32
+91:                                               ; preds = %81
+  %92 = load i32, ptr %85, align 8
+  %93 = add i32 %92, -1
+  store i32 %93, ptr %85, align 8
+  %94 = getelementptr inbounds i8, ptr %80, i64 32
+  store i32 -1, ptr %94, align 8
+  %95 = call i64 @mktime(ptr noundef nonnull %80) #16
+  %96 = load i32, ptr %7, align 4
+  %97 = sitofp i32 %96 to double
+  %98 = fmul double %97, 1.000000e+06
+  %99 = fptosi double %98 to i32
   br label %.outer
 
-.outer:                                           ; preds = %89, %79
-  %.088 = phi i64 [ %93, %89 ], [ 0, %79 ]
-  %.0 = phi i32 [ %97, %89 ], [ 0, %79 ]
-  %98 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %10, ptr %11, ptr noundef %1, ptr noundef nonnull @capture_android_logcat_text.packet, i64 noundef %82, i64 noundef %82, i64 noundef %.088, i32 noundef %.0)
-  %99 = zext i1 %98 to i32
-  store i32 %99, ptr @endless_loop, align 4
-  %100 = getelementptr i8, ptr @capture_android_logcat_text.packet, i64 %82
-  %101 = add i64 %.1.ph169, 32
-  %.neg = xor i64 %81, -1
-  %102 = add i64 %101, %.neg
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 32), ptr align 1 %100, i64 %102, i1 false)
-  %.neg122 = add i64 %.1.ph169, 31
-  %103 = sub i64 %.neg122, %81
-  %.not114 = icmp eq i64 %103, 0
-  br i1 %.not114, label %.critedge.split, label %.outer.split.preheader, !llvm.loop !22
+.outer:                                           ; preds = %91, %81
+  %.088 = phi i64 [ %95, %91 ], [ 0, %81 ]
+  %.0 = phi i32 [ %99, %91 ], [ 0, %81 ]
+  %100 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %10, ptr %11, ptr noundef %1, ptr noundef nonnull @capture_android_logcat_text.packet, i64 noundef %84, i64 noundef %84, i64 noundef %.088, i32 noundef %.0)
+  %101 = zext i1 %100 to i32
+  store i32 %101, ptr @endless_loop, align 4
+  %102 = getelementptr i8, ptr @capture_android_logcat_text.packet, i64 %84
+  %103 = add i64 %.1.ph165, 32
+  %.neg = xor i64 %83, -1
+  %104 = add i64 %103, %.neg
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat_text.packet, i64 0, i64 32), ptr align 1 %102, i64 %104, i1 false)
+  %.neg122 = add i64 %.1.ph165, 31
+  %105 = sub i64 %.neg122, %83
+  %.not114 = icmp eq i64 %105, 0
+  br i1 %.not114, label %.critedge.split, label %.outer.split.preheader, !llvm.loop !13
 
-.critedge.split:                                  ; preds = %.outer, %.outer.split, %73
-  %.1.ph165 = phi i64 [ %74, %73 ], [ %.1.ph169, %.outer.split ], [ %103, %.outer ]
-  br label %.outer123, !llvm.loop !23
+.critedge.split:                                  ; preds = %.outer, %.outer.split, %75
+  %.1.ph162 = phi i64 [ %76, %75 ], [ %.1.ph165, %.outer.split ], [ %105, %.outer ]
+  br label %.outer123, !llvm.loop !14
 
-104:                                              ; preds = %60
-  %105 = call i32 @close(i32 noundef %25) #16
-  br label %106
+106:                                              ; preds = %62
+  %107 = call i32 @close(i32 noundef %27) #16
+  br label %108
 
-106:                                              ; preds = %get_serial_from_interface.exit, %104, %71, %66, %54, %50, %45
-  %.089 = phi i32 [ 24, %50 ], [ 30, %54 ], [ -1, %66 ], [ -1, %71 ], [ 0, %104 ], [ -1, %45 ], [ 42, %get_serial_from_interface.exit ]
+108:                                              ; preds = %get_serial_from_interface.exit, %106, %73, %68, %56, %52, %47
+  %.089 = phi i32 [ 24, %52 ], [ 30, %56 ], [ -1, %68 ], [ -1, %73 ], [ 0, %106 ], [ -1, %47 ], [ 42, %get_serial_from_interface.exit ]
   ret i32 %.089
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @capture_android_logcat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 45) i32 @capture_android_logcat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = tail call fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %1, i32 noundef 155)
   %6 = extractvalue { i32, ptr } %5, 0
   %7 = extractvalue { i32, ptr } %5, 1
@@ -1782,208 +1784,210 @@ define internal fastcc noundef i32 @capture_android_logcat(ptr noundef %0, ptr n
 
 8:                                                ; preds = %20, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %20 ]
-  %9 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.i
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #19
-  %12 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %10, i64 noundef %11) #19
-  %.not.i.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i.not.i, label %13, label %20
+  %9 = phi ptr [ @.str.80, %4 ], [ %22, %20 ]
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #19
+  %11 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %9, i64 noundef %10) #19
+  %.not.i.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i.not.i, label %12, label %20
 
-13:                                               ; preds = %8
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %15 = add i64 %11, 1
-  %16 = icmp ugt i64 %14, %15
+12:                                               ; preds = %8
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #19
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
+  %15 = add i64 %14, 1
+  %16 = icmp ugt i64 %13, %15
   br i1 %16, label %17, label %20
 
-17:                                               ; preds = %13
-  %18 = getelementptr i8, ptr %0, i64 %11
+17:                                               ; preds = %12
+  %18 = getelementptr i8, ptr %0, i64 %14
   %19 = getelementptr i8, ptr %18, i64 1
   br label %get_serial_from_interface.exit
 
-20:                                               ; preds = %13, %8
+20:                                               ; preds = %12, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %21 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.next.i
+  %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %.not.i, label %get_serial_from_interface.exit, label %8, !llvm.loop !20
+  br i1 %.not.i, label %get_serial_from_interface.exit, label %8, !llvm.loop !12
 
 get_serial_from_interface.exit:                   ; preds = %20, %17
   %.08.i = phi ptr [ %19, %17 ], [ null, %20 ]
   %.val = load i16, ptr %3, align 2
-  %21 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
-  %22 = icmp eq i32 %21, -1
-  br i1 %22, label %.loopexit, label %23
+  %23 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
+  %24 = icmp eq i32 %23, -1
+  br i1 %24, label %.loopexit, label %25
 
-23:                                               ; preds = %get_serial_from_interface.exit
-  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
-  %.not.i.not.i129 = icmp eq i32 %24, 0
-  br i1 %.not.i.not.i129, label %select.unfold, label %25
-
-25:                                               ; preds = %23
-  %26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.82, i64 noundef 21) #19
-  %.not.i8.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i8.not.i, label %select.unfold, label %27
+25:                                               ; preds = %get_serial_from_interface.exit
+  %26 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(20) @.str.80, i64 noundef 19) #19
+  %.not.i.not.i129 = icmp eq i32 %26, 0
+  br i1 %.not.i.not.i129, label %select.unfold, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(21) @.str.84, i64 noundef 20) #19
-  %.not.i9.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i9.not.i, label %select.unfold, label %29
+  %28 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.82, i64 noundef 21) #19
+  %.not.i8.not.i = icmp eq i32 %28, 0
+  br i1 %.not.i8.not.i, label %select.unfold, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.86, i64 noundef 21) #19
-  %.not.i10.not.i = icmp eq i32 %30, 0
+  %30 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(21) @.str.84, i64 noundef 20) #19
+  %.not.i9.not.i = icmp eq i32 %30, 0
+  br i1 %.not.i9.not.i, label %select.unfold, label %31
+
+31:                                               ; preds = %29
+  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.86, i64 noundef 21) #19
+  %.not.i10.not.i = icmp eq i32 %32, 0
   br i1 %.not.i10.not.i, label %select.unfold, label %interface_to_logbuf.exit
 
-interface_to_logbuf.exit:                         ; preds = %29
+interface_to_logbuf.exit:                         ; preds = %31
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2203, ptr noundef nonnull @__func__.capture_android_logcat, ptr noundef nonnull @.str.159, ptr noundef %0) #16
   br label %.loopexit.sink.split
 
-select.unfold:                                    ; preds = %29, %23, %25, %27
-  %.0.i.ph = phi ptr [ @.str.170, %27 ], [ @.str.169, %25 ], [ @.str.168, %23 ], [ @.str.171, %29 ]
-  %31 = tail call fastcc i32 @adb_send(i32 noundef %21, ptr noundef nonnull %.0.i.ph), !range !21
-  %.not118 = icmp eq i32 %31, 0
-  br i1 %.not118, label %33, label %32
+select.unfold:                                    ; preds = %31, %25, %27, %29
+  %.0.i.ph = phi ptr [ @.str.170, %29 ], [ @.str.169, %27 ], [ @.str.168, %25 ], [ @.str.171, %31 ]
+  %33 = tail call fastcc i32 @adb_send(i32 noundef %23, ptr noundef nonnull %.0.i.ph)
+  %.not118 = icmp eq i32 %33, 0
+  br i1 %.not118, label %35, label %34
 
-32:                                               ; preds = %select.unfold
+34:                                               ; preds = %select.unfold
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2210, ptr noundef nonnull @__func__.capture_android_logcat, ptr noundef nonnull @.str.161, ptr noundef nonnull %.0.i.ph) #16
   br label %.loopexit.sink.split
 
-33:                                               ; preds = %select.unfold
-  %34 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.86, i64 noundef 21) #19
-  %.not.i130.not = icmp eq i32 %34, 0
+35:                                               ; preds = %select.unfold
+  %36 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.86, i64 noundef 21) #19
+  %.not.i130.not = icmp eq i32 %36, 0
   %.str.165..str.166 = select i1 %.not.i130.not, ptr @.str.166, ptr @.str.165
-  %35 = select i1 %.not.i130.not, i32 251661312, i32 134220800
-  store i32 %35, ptr @capture_android_logcat.packet, align 16
-  %36 = select i1 %.not.i130.not, i64 15, i64 8
-  %37 = add nsw i64 %36, -2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat.packet, i64 0, i64 4), ptr nonnull align 1 %.str.165..str.166, i64 %37, i1 false)
-  %38 = add nuw nsw i64 %36, 3
-  %39 = getelementptr [65535 x i8], ptr @capture_android_logcat.packet, i64 0, i64 %38
-  store i8 0, ptr %39, align 1
-  %40 = add nuw nsw i64 %36, 2
+  %37 = select i1 %.not.i130.not, i32 251661312, i32 134220800
+  store i32 %37, ptr @capture_android_logcat.packet, align 16
+  %38 = select i1 %.not.i130.not, i64 15, i64 8
+  %39 = add nsw i64 %38, -2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 getelementptr inbounds ([65535 x i8], ptr @capture_android_logcat.packet, i64 0, i64 4), ptr nonnull align 1 %.str.165..str.166, i64 %39, i1 false)
+  %40 = add nuw nsw i64 %38, 3
   %41 = getelementptr [65535 x i8], ptr @capture_android_logcat.packet, i64 0, i64 %40
   store i8 0, ptr %41, align 1
-  %42 = getelementptr i8, ptr @capture_android_logcat.packet, i64 %36
-  %43 = getelementptr i8, ptr %42, i64 4
-  store i16 0, ptr %43, align 1
-  %.sroa.226.0..sroa_idx = getelementptr i8, ptr %42, i64 6
+  %42 = add nuw nsw i64 %38, 2
+  %43 = getelementptr [65535 x i8], ptr @capture_android_logcat.packet, i64 0, i64 %42
+  store i8 0, ptr %43, align 1
+  %44 = getelementptr i8, ptr @capture_android_logcat.packet, i64 %38
+  %45 = getelementptr i8, ptr %44, i64 4
+  store i16 0, ptr %45, align 1
+  %.sroa.226.0..sroa_idx = getelementptr i8, ptr %44, i64 6
   store i16 0, ptr %.sroa.226.0..sroa_idx, align 1
-  %44 = add nuw nsw i64 %36, 8
-  %45 = getelementptr i8, ptr @capture_android_logcat.packet, i64 %44
-  %46 = getelementptr i8, ptr %45, i64 2
-  %47 = getelementptr i8, ptr %45, i64 12
-  %48 = getelementptr i8, ptr %45, i64 16
+  %46 = add nuw nsw i64 %38, 8
+  %47 = getelementptr i8, ptr @capture_android_logcat.packet, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 2
+  %49 = getelementptr i8, ptr %47, i64 12
+  %50 = getelementptr i8, ptr %47, i64 16
   br label %.outer
 
-.outer:                                           ; preds = %._crit_edge, %33
-  %.096.ph = phi i32 [ %.298, %._crit_edge ], [ %21, %33 ]
-  %.095.ph = phi i64 [ %98, %._crit_edge ], [ 0, %33 ]
-  %49 = getelementptr i8, ptr %45, i64 %.095.ph
-  %50 = add i64 %.095.ph, %36
-  %51 = shl i64 %50, 32
-  %sext = sub i64 281436322004992, %51
-  %52 = ashr exact i64 %sext, 32
-  br label %53
+.outer:                                           ; preds = %._crit_edge, %35
+  %.096.ph = phi i32 [ %.298, %._crit_edge ], [ %23, %35 ]
+  %.095.ph = phi i64 [ %100, %._crit_edge ], [ 0, %35 ]
+  %51 = getelementptr i8, ptr %47, i64 %.095.ph
+  %52 = add i64 %.095.ph, %38
+  %53 = shl i64 %52, 32
+  %sext = sub i64 281436322004992, %53
+  %54 = ashr exact i64 %sext, 32
+  br label %55
 
-53:                                               ; preds = %.outer, %55
-  %54 = load i32, ptr @endless_loop, align 4
-  %.not120 = icmp eq i32 %54, 0
-  br i1 %.not120, label %.loopexit.sink.split, label %55
+55:                                               ; preds = %.outer, %57
+  %56 = load i32, ptr @endless_loop, align 4
+  %.not120 = icmp eq i32 %56, 0
+  br i1 %.not120, label %.loopexit.sink.split, label %57
 
-55:                                               ; preds = %53
-  %56 = tail call ptr @__errno_location() #20
-  store i32 0, ptr %56, align 4
-  %57 = tail call i64 @recv(i32 noundef %.096.ph, ptr noundef %49, i64 noundef %52, i32 noundef 0) #16
-  %58 = load i32, ptr %56, align 4
-  switch i32 %58, label %59 [
-    i32 11, label %53
-    i32 0, label %61
+57:                                               ; preds = %55
+  %58 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %58, align 4
+  %59 = tail call i64 @recv(i32 noundef %.096.ph, ptr noundef %51, i64 noundef %54, i32 noundef 0) #16
+  %60 = load i32, ptr %58, align 4
+  switch i32 %60, label %61 [
+    i32 11, label %55
+    i32 0, label %63
   ]
 
-59:                                               ; preds = %55
-  %60 = tail call ptr @strerror(i32 noundef %58) #16
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2252, ptr noundef nonnull @__func__.capture_android_logcat, ptr noundef nonnull @.str.162, ptr noundef %60) #16
+61:                                               ; preds = %57
+  %62 = tail call ptr @strerror(i32 noundef %60) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2252, ptr noundef nonnull @__func__.capture_android_logcat, ptr noundef nonnull @.str.162, ptr noundef %62) #16
   br label %.loopexit.sink.split
 
-61:                                               ; preds = %55
-  %62 = icmp slt i64 %57, 1
-  %63 = load i32, ptr @endless_loop, align 4
-  %64 = icmp ne i32 %63, 0
-  %or.cond = select i1 %62, i1 %64, i1 false
+63:                                               ; preds = %57
+  %64 = icmp slt i64 %59, 1
+  %65 = load i32, ptr @endless_loop, align 4
+  %66 = icmp ne i32 %65, 0
+  %or.cond = select i1 %64, i1 %66, i1 false
   br i1 %or.cond, label %.preheader, label %.loopexit139
 
-.preheader:                                       ; preds = %61, %70
-  %.197 = phi i32 [ %66, %70 ], [ %.096.ph, %61 ]
+.preheader:                                       ; preds = %63, %72
+  %.197 = phi i32 [ %68, %72 ], [ %.096.ph, %63 ]
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2259, ptr noundef nonnull @__func__.capture_android_logcat, ptr noundef nonnull @.str.163) #16
-  %65 = tail call i32 @close(i32 noundef %.197) #16
+  %67 = tail call i32 @close(i32 noundef %.197) #16
   %.val128 = load i16, ptr %3, align 2
-  %66 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val128, ptr noundef %.08.i)
-  %67 = icmp eq i32 %66, -1
-  br i1 %67, label %.loopexit, label %68
+  %68 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val128, ptr noundef %.08.i)
+  %69 = icmp eq i32 %68, -1
+  br i1 %69, label %.loopexit, label %70
 
-68:                                               ; preds = %.preheader
-  %69 = tail call fastcc i32 @adb_send(i32 noundef %66, ptr noundef nonnull %.0.i.ph), !range !21
-  %.not122 = icmp eq i32 %69, 0
-  br i1 %.not122, label %.loopexit139, label %70
+70:                                               ; preds = %.preheader
+  %71 = tail call fastcc i32 @adb_send(i32 noundef %68, ptr noundef nonnull %.0.i.ph)
+  %.not122 = icmp eq i32 %71, 0
+  br i1 %.not122, label %.loopexit139, label %72
 
-70:                                               ; preds = %68
+72:                                               ; preds = %70
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2269, ptr noundef nonnull @__func__.capture_android_logcat, ptr noundef nonnull @.str.167, ptr noundef nonnull %.0.i.ph) #16
   %.old = load i32, ptr @endless_loop, align 4
   %.old1.not = icmp eq i32 %.old, 0
   br i1 %.old1.not, label %.loopexit139, label %.preheader
 
-.loopexit139:                                     ; preds = %70, %68, %61
-  %.298 = phi i32 [ %.096.ph, %61 ], [ %66, %68 ], [ %66, %70 ]
-  %.1 = phi i64 [ %.095.ph, %61 ], [ 0, %68 ], [ 0, %70 ]
-  %71 = add i64 %57, %44
-  %72 = add i64 %71, %.1
-  %73 = load i16, ptr %46, align 2
-  %.not123 = icmp eq i16 %73, 24
+.loopexit139:                                     ; preds = %72, %70, %63
+  %.298 = phi i32 [ %.096.ph, %63 ], [ %68, %70 ], [ %68, %72 ]
+  %.1 = phi i64 [ %.095.ph, %63 ], [ 0, %70 ], [ 0, %72 ]
+  %73 = add i64 %59, %46
+  %74 = add i64 %73, %.1
+  %75 = load i16, ptr %48, align 2
+  %.not123 = icmp eq i16 %75, 24
   %.126 = select i1 %.not123, i64 24, i64 20
-  %74 = load i16, ptr %45, align 2
-  %75 = zext i16 %74 to i64
-  %76 = add nuw nsw i64 %.126, %75
-  %.094149 = add nuw nsw i64 %76, %44
-  %77 = add nuw nsw i64 %44, %.126
-  %78 = icmp uge i64 %72, %77
-  %79 = icmp ule i64 %.094149, %72
-  %80 = select i1 %78, i1 %79, i1 false
-  br i1 %80, label %.lr.ph, label %._crit_edge
+  %76 = load i16, ptr %47, align 2
+  %77 = zext i16 %76 to i64
+  %78 = add nuw nsw i64 %.126, %77
+  %.094148 = add nuw nsw i64 %78, %46
+  %79 = add nuw nsw i64 %46, %.126
+  %80 = icmp uge i64 %74, %79
+  %81 = icmp ule i64 %.094148, %74
+  %82 = select i1 %80, i1 %81, i1 false
+  br i1 %82, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit139, %.lr.ph
-  %81 = phi i64 [ %.127, %.lr.ph ], [ %.126, %.loopexit139 ]
-  %.094151 = phi i64 [ %.094, %.lr.ph ], [ %.094149, %.loopexit139 ]
-  %.2150 = phi i64 [ %89, %.lr.ph ], [ %72, %.loopexit139 ]
-  %82 = load i32, ptr %47, align 4
-  %83 = zext i32 %82 to i64
-  %84 = load i32, ptr %48, align 4
-  %85 = tail call fastcc zeroext i1 @extcap_dumper_dump(i32 %6, ptr %7, ptr noundef %1, ptr noundef nonnull @capture_android_logcat.packet, i64 noundef %.094151, i64 noundef %.094151, i64 noundef %83, i32 noundef %84)
-  %86 = zext i1 %85 to i32
-  store i32 %86, ptr @endless_loop, align 4
-  %87 = getelementptr i8, ptr @capture_android_logcat.packet, i64 %.094151
-  %88 = sub i64 %.2150, %.094151
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %45, ptr align 1 %87, i64 %88, i1 false)
-  %89 = add i64 %88, %44
-  %90 = load i16, ptr %45, align 2
-  %91 = zext i16 %90 to i64
-  %92 = add nuw nsw i64 %81, %91
-  %93 = load i16, ptr %46, align 2
-  %.not124 = icmp eq i16 %93, 24
+  %83 = phi i64 [ %.127, %.lr.ph ], [ %.126, %.loopexit139 ]
+  %.094150 = phi i64 [ %.094, %.lr.ph ], [ %.094148, %.loopexit139 ]
+  %.2149 = phi i64 [ %91, %.lr.ph ], [ %74, %.loopexit139 ]
+  %84 = load i32, ptr %49, align 4
+  %85 = zext i32 %84 to i64
+  %86 = load i32, ptr %50, align 4
+  %87 = tail call fastcc zeroext i1 @extcap_dumper_dump(i32 %6, ptr %7, ptr noundef %1, ptr noundef nonnull @capture_android_logcat.packet, i64 noundef %.094150, i64 noundef %.094150, i64 noundef %85, i32 noundef %86)
+  %88 = zext i1 %87 to i32
+  store i32 %88, ptr @endless_loop, align 4
+  %89 = getelementptr i8, ptr @capture_android_logcat.packet, i64 %.094150
+  %90 = sub i64 %.2149, %.094150
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %89, i64 %90, i1 false)
+  %91 = add i64 %90, %46
+  %92 = load i16, ptr %47, align 2
+  %93 = zext i16 %92 to i64
+  %94 = add nuw nsw i64 %83, %93
+  %95 = load i16, ptr %48, align 2
+  %.not124 = icmp eq i16 %95, 24
   %.127 = select i1 %.not124, i64 24, i64 20
-  %.094 = add nuw nsw i64 %92, %44
-  %94 = add nuw nsw i64 %.127, %44
-  %95 = icmp uge i64 %89, %94
-  %96 = icmp ule i64 %.094, %89
-  %97 = select i1 %95, i1 %96, i1 false
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  %.094 = add nuw nsw i64 %94, %46
+  %96 = add nuw nsw i64 %.127, %46
+  %97 = icmp uge i64 %91, %96
+  %98 = icmp ule i64 %.094, %91
+  %99 = select i1 %97, i1 %98, i1 false
+  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit139
-  %.2.lcssa = phi i64 [ %72, %.loopexit139 ], [ %89, %.lr.ph ]
-  %98 = sub i64 %.2.lcssa, %44
-  br label %.outer, !llvm.loop !25
+  %.2.lcssa = phi i64 [ %74, %.loopexit139 ], [ %91, %.lr.ph ]
+  %100 = sub i64 %.2.lcssa, %46
+  br label %.outer, !llvm.loop !16
 
-.loopexit.sink.split:                             ; preds = %53, %interface_to_logbuf.exit, %32, %59
-  %.096.ph.lcssa.sink = phi i32 [ %.096.ph, %59 ], [ %21, %32 ], [ %21, %interface_to_logbuf.exit ], [ %.096.ph, %53 ]
-  %.0.ph = phi i32 [ -1, %59 ], [ 31, %32 ], [ -1, %interface_to_logbuf.exit ], [ 0, %53 ]
-  %99 = tail call i32 @close(i32 noundef %.096.ph.lcssa.sink) #16
+.loopexit.sink.split:                             ; preds = %55, %interface_to_logbuf.exit, %34, %61
+  %.096.ph.lcssa.sink = phi i32 [ %.096.ph, %61 ], [ %23, %34 ], [ %23, %interface_to_logbuf.exit ], [ %.096.ph, %55 ]
+  %.0.ph = phi i32 [ -1, %61 ], [ 31, %34 ], [ -1, %interface_to_logbuf.exit ], [ 0, %55 ]
+  %101 = tail call i32 @close(i32 noundef %.096.ph.lcssa.sink) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %get_serial_from_interface.exit
@@ -1993,27 +1997,27 @@ select.unfold:                                    ; preds = %29, %23, %25, %27
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc zeroext i1 @is_logcat_text_interface(ptr nocapture noundef readonly %0) unnamed_addr #4 {
-  %2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(25) @.str.88, i64 noundef 24) #19
+  %2 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(25) @.str.88, i64 noundef 24) #19
   %.not.i.not = icmp eq i32 %2, 0
   br i1 %.not.i.not, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(27) @.str.89, i64 noundef 26) #19
+  %4 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(27) @.str.89, i64 noundef 26) #19
   %.not.i8.not = icmp eq i32 %4, 0
   br i1 %.not.i8.not, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.90, i64 noundef 25) #19
+  %6 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(26) @.str.90, i64 noundef 25) #19
   %.not.i9.not = icmp eq i32 %6, 0
   br i1 %.not.i9.not, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(27) @.str.91, i64 noundef 26) #19
+  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(27) @.str.91, i64 noundef 26) #19
   %.not.i10.not = icmp eq i32 %8, 0
   br i1 %.not.i10.not, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.92), !range !10
+  %10 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.92)
   %11 = icmp ne i32 %10, 0
   br label %12
 
@@ -2023,7 +2027,7 @@ define internal fastcc zeroext i1 @is_logcat_text_interface(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @is_specified_interface(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @is_specified_interface(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %4 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %1, i64 noundef %3) #19
   %.not = icmp eq i32 %4, 0
@@ -2032,7 +2036,7 @@ define internal fastcc i32 @is_specified_interface(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 39) i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.tm, align 8
@@ -2045,500 +2049,502 @@ define internal fastcc noundef i32 @capture_android_bluetooth_hcidump(ptr nounde
 
 12:                                               ; preds = %24, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %24 ]
-  %13 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.i
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #19
-  %16 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %14, i64 noundef %15) #19
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %24
+  %13 = phi ptr [ @.str.80, %4 ], [ %26, %24 ]
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #19
+  %15 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %13, i64 noundef %14) #19
+  %.not.i.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i.not.i, label %16, label %24
 
-17:                                               ; preds = %12
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %19 = add i64 %15, 1
-  %20 = icmp ugt i64 %18, %19
+16:                                               ; preds = %12
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #19
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #19
+  %19 = add i64 %18, 1
+  %20 = icmp ugt i64 %17, %19
   br i1 %20, label %21, label %24
 
-21:                                               ; preds = %17
-  %22 = getelementptr i8, ptr %0, i64 %15
+21:                                               ; preds = %16
+  %22 = getelementptr i8, ptr %0, i64 %18
   %23 = getelementptr i8, ptr %22, i64 1
   br label %get_serial_from_interface.exit
 
-24:                                               ; preds = %17, %12
+24:                                               ; preds = %16, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %25 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.next.i
+  %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %.not.i, label %get_serial_from_interface.exit, label %12, !llvm.loop !20
+  br i1 %.not.i, label %get_serial_from_interface.exit, label %12, !llvm.loop !12
 
 get_serial_from_interface.exit:                   ; preds = %24, %21
   %.08.i = phi ptr [ %23, %21 ], [ null, %24 ]
   %.val = load i16, ptr %3, align 2
-  %25 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %244, label %27
+  %27 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %246, label %29
 
-27:                                               ; preds = %get_serial_from_interface.exit
-  %28 = tail call fastcc i32 @adb_send(i32 noundef %25, ptr noundef nonnull @.str.172), !range !21
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %.outer236, label %29
+29:                                               ; preds = %get_serial_from_interface.exit
+  %30 = tail call fastcc i32 @adb_send(i32 noundef %27, ptr noundef nonnull @.str.172)
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %.outer236, label %31
 
-29:                                               ; preds = %27
+31:                                               ; preds = %29
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1362, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.172) #16
-  %30 = tail call i32 @close(i32 noundef %25) #16
-  br label %244
+  %32 = tail call i32 @close(i32 noundef %27) #16
+  br label %246
 
-31:                                               ; preds = %.outer236, %33
-  %32 = load i32, ptr @endless_loop, align 4
-  %.not201 = icmp eq i32 %32, 0
-  br i1 %.not201, label %.loopexit, label %33
+33:                                               ; preds = %.outer236, %35
+  %34 = load i32, ptr @endless_loop, align 4
+  %.not201 = icmp eq i32 %34, 0
+  br i1 %.not201, label %.loopexit, label %35
 
-33:                                               ; preds = %31
-  %34 = tail call ptr @__errno_location() #20
-  store i32 0, ptr %34, align 4
-  %35 = tail call i64 @recv(i32 noundef %25, ptr noundef %64, i64 noundef %66, i32 noundef 0) #16
-  %36 = load i32, ptr %34, align 4
-  switch i32 %36, label %37 [
-    i32 11, label %31
-    i32 0, label %40
+35:                                               ; preds = %33
+  %36 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %36, align 4
+  %37 = tail call i64 @recv(i32 noundef %27, ptr noundef %66, i64 noundef %68, i32 noundef 0) #16
+  %38 = load i32, ptr %36, align 4
+  switch i32 %38, label %39 [
+    i32 11, label %33
+    i32 0, label %42
   ]
 
-37:                                               ; preds = %33
-  %38 = tail call ptr @strerror(i32 noundef %36) #16
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1380, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.162, ptr noundef %38) #16
-  %39 = tail call i32 @close(i32 noundef %25) #16
-  br label %244
+39:                                               ; preds = %35
+  %40 = tail call ptr @strerror(i32 noundef %38) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1380, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.162, ptr noundef %40) #16
+  %41 = tail call i32 @close(i32 noundef %27) #16
+  br label %246
 
-40:                                               ; preds = %33
-  %41 = icmp slt i64 %35, 1
-  br i1 %41, label %42, label %44
+42:                                               ; preds = %35
+  %43 = icmp slt i64 %37, 1
+  br i1 %43, label %44, label %46
 
-42:                                               ; preds = %40
+44:                                               ; preds = %42
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1386, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.175) #16
-  %43 = tail call i32 @close(i32 noundef %25) #16
-  br label %244
+  %45 = tail call i32 @close(i32 noundef %27) #16
+  br label %246
 
-44:                                               ; preds = %40
-  %45 = add i64 %35, %.0169.ph
-  %46 = tail call ptr @memchr(ptr noundef nonnull @capture_android_bluetooth_hcidump.data, i32 noundef 10, i64 noundef %45) #19
-  %.not203 = icmp ne ptr %46, null
-  %47 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %45
-  %48 = icmp ult ptr %46, %47
-  %or.cond222 = and i1 %.not203, %48
-  br i1 %or.cond222, label %49, label %.outer236.backedge
+46:                                               ; preds = %42
+  %47 = add i64 %37, %.0169.ph
+  %48 = tail call ptr @memchr(ptr noundef nonnull @capture_android_bluetooth_hcidump.data, i32 noundef 10, i64 noundef %47) #19
+  %.not203 = icmp ne ptr %48, null
+  %49 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %47
+  %50 = icmp ult ptr %48, %49
+  %or.cond222 = and i1 %.not203, %50
+  br i1 %or.cond222, label %51, label %.outer236.backedge
 
-49:                                               ; preds = %44
+51:                                               ; preds = %46
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(34) @capture_android_bluetooth_hcidump.data, ptr noundef nonnull dereferenceable(34) @.str.176, i64 34)
   %.not204 = icmp eq i32 %bcmp, 0
-  br i1 %.not204, label %50, label %52
+  br i1 %.not204, label %52, label %54
 
-50:                                               ; preds = %49
+52:                                               ; preds = %51
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1397, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.172) #16
-  %51 = tail call i32 @close(i32 noundef %25) #16
-  br label %244
+  %53 = tail call i32 @close(i32 noundef %27) #16
+  br label %246
 
-52:                                               ; preds = %49
-  %53 = getelementptr i8, ptr %46, i64 1
-  %54 = tail call ptr @memchr(ptr noundef %53, i32 noundef 10, i64 noundef %45) #19
-  %.not205 = icmp eq ptr %54, null
-  br i1 %.not205, label %.outer236.backedge, label %55
+54:                                               ; preds = %51
+  %55 = getelementptr i8, ptr %48, i64 1
+  %56 = tail call ptr @memchr(ptr noundef %55, i32 noundef 10, i64 noundef %47) #19
+  %.not205 = icmp eq ptr %56, null
+  br i1 %.not205, label %.outer236.backedge, label %57
 
-.outer236.backedge:                               ; preds = %52, %44
-  br label %.outer236, !llvm.loop !26
+.outer236.backedge:                               ; preds = %54, %46
+  br label %.outer236, !llvm.loop !17
 
-55:                                               ; preds = %52
-  %56 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(39) @.str.178, i64 noundef 38) #19
-  %.not206 = icmp eq i32 %56, 0
-  br i1 %.not206, label %.thread, label %60
+57:                                               ; preds = %54
+  %58 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(39) @.str.178, i64 noundef 38) #19
+  %.not206 = icmp eq i32 %58, 0
+  br i1 %.not206, label %.thread, label %62
 
-.thread:                                          ; preds = %55
+.thread:                                          ; preds = %57
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1406, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.172) #16
-  %57 = tail call i32 @close(i32 noundef %25) #16
+  %59 = tail call i32 @close(i32 noundef %27) #16
   %.val228 = load i16, ptr %3, align 2
-  %58 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val228, ptr noundef %.08.i)
-  %59 = icmp eq i32 %58, -1
-  br i1 %59, label %244, label %67
+  %60 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val228, ptr noundef %.08.i)
+  %61 = icmp eq i32 %60, -1
+  br i1 %61, label %246, label %69
 
-60:                                               ; preds = %55
-  %61 = getelementptr i8, ptr %54, i64 1
-  %62 = ptrtoint ptr %61 to i64
-  %.neg = sub i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64), %62
-  %63 = add i64 %.neg, %45
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %61, i64 %63, i1 false)
+62:                                               ; preds = %57
+  %63 = getelementptr i8, ptr %56, i64 1
+  %64 = ptrtoint ptr %63 to i64
+  %.neg = sub i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64), %64
+  %65 = add i64 %.neg, %47
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %63, i64 %65, i1 false)
   br label %.loopexit
 
-.outer236:                                        ; preds = %27, %.outer236.backedge
-  %.0169.ph = phi i64 [ %45, %.outer236.backedge ], [ 0, %27 ]
-  %64 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %.0169.ph
-  %65 = shl i64 %.0169.ph, 32
-  %sext = sub i64 281470681743360, %65
-  %66 = ashr exact i64 %sext, 32
-  br label %31
+.outer236:                                        ; preds = %29, %.outer236.backedge
+  %.0169.ph = phi i64 [ %47, %.outer236.backedge ], [ 0, %29 ]
+  %66 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %.0169.ph
+  %67 = shl i64 %.0169.ph, 32
+  %sext = sub i64 281470681743360, %67
+  %68 = ashr exact i64 %sext, 32
+  br label %33
 
-67:                                               ; preds = %.thread
-  %68 = tail call fastcc i32 @adb_send(i32 noundef %58, ptr noundef nonnull @.str.173), !range !21
-  %.not207 = icmp eq i32 %68, 0
-  br i1 %.not207, label %.outer233, label %69
+69:                                               ; preds = %.thread
+  %70 = tail call fastcc i32 @adb_send(i32 noundef %60, ptr noundef nonnull @.str.173)
+  %.not207 = icmp eq i32 %70, 0
+  br i1 %.not207, label %.outer233, label %71
 
-69:                                               ; preds = %67
+71:                                               ; preds = %69
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1426, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.180, ptr noundef nonnull @.str.173) #16
-  %70 = tail call i32 @close(i32 noundef %58) #16
-  br label %244
+  %72 = tail call i32 @close(i32 noundef %60) #16
+  br label %246
 
-71:                                               ; preds = %.outer233, %73
-  %72 = load i32, ptr @endless_loop, align 4
-  %.not208 = icmp eq i32 %72, 0
-  br i1 %.not208, label %.loopexit, label %73
+73:                                               ; preds = %.outer233, %75
+  %74 = load i32, ptr @endless_loop, align 4
+  %.not208 = icmp eq i32 %74, 0
+  br i1 %.not208, label %.loopexit, label %75
 
-73:                                               ; preds = %71
-  store i32 0, ptr %34, align 4
-  %74 = tail call i64 @recv(i32 noundef %58, ptr noundef %98, i64 noundef %100, i32 noundef 0) #16
-  %75 = load i32, ptr %34, align 4
-  switch i32 %75, label %76 [
-    i32 11, label %71
-    i32 0, label %79
+75:                                               ; preds = %73
+  store i32 0, ptr %36, align 4
+  %76 = tail call i64 @recv(i32 noundef %60, ptr noundef %100, i64 noundef %102, i32 noundef 0) #16
+  %77 = load i32, ptr %36, align 4
+  switch i32 %77, label %78 [
+    i32 11, label %73
+    i32 0, label %81
   ]
 
-76:                                               ; preds = %73
-  %77 = tail call ptr @strerror(i32 noundef %75) #16
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1445, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.162, ptr noundef %77) #16
-  %78 = tail call i32 @close(i32 noundef %58) #16
-  br label %244
+78:                                               ; preds = %75
+  %79 = tail call ptr @strerror(i32 noundef %77) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1445, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.162, ptr noundef %79) #16
+  %80 = tail call i32 @close(i32 noundef %60) #16
+  br label %246
 
-79:                                               ; preds = %73
-  %80 = icmp slt i64 %74, 1
-  br i1 %80, label %81, label %83
+81:                                               ; preds = %75
+  %82 = icmp slt i64 %76, 1
+  br i1 %82, label %83, label %85
 
-81:                                               ; preds = %79
+83:                                               ; preds = %81
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1451, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.175) #16
-  %82 = tail call i32 @close(i32 noundef %58) #16
-  br label %244
+  %84 = tail call i32 @close(i32 noundef %60) #16
+  br label %246
 
-83:                                               ; preds = %79
-  %84 = add i64 %74, %.2.ph
-  %85 = tail call ptr @memchr(ptr noundef nonnull @capture_android_bluetooth_hcidump.data, i32 noundef 10, i64 noundef %84) #19
-  %.not211 = icmp ne ptr %85, null
-  %86 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %84
-  %87 = icmp ult ptr %85, %86
-  %or.cond224 = and i1 %.not211, %87
-  br i1 %or.cond224, label %88, label %.outer233.backedge
+85:                                               ; preds = %81
+  %86 = add i64 %76, %.2.ph
+  %87 = tail call ptr @memchr(ptr noundef nonnull @capture_android_bluetooth_hcidump.data, i32 noundef 10, i64 noundef %86) #19
+  %.not211 = icmp ne ptr %87, null
+  %88 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %86
+  %89 = icmp ult ptr %87, %88
+  %or.cond224 = and i1 %.not211, %89
+  br i1 %or.cond224, label %90, label %.outer233.backedge
 
-88:                                               ; preds = %83
+90:                                               ; preds = %85
   %bcmp212 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(29) @capture_android_bluetooth_hcidump.data, ptr noundef nonnull dereferenceable(29) @.str.181, i64 29)
   %.not213 = icmp eq i32 %bcmp212, 0
-  br i1 %.not213, label %89, label %91
+  br i1 %.not213, label %91, label %93
 
-89:                                               ; preds = %88
+91:                                               ; preds = %90
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1460, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.173) #16
-  %90 = tail call i32 @close(i32 noundef %58) #16
-  br label %244
+  %92 = tail call i32 @close(i32 noundef %60) #16
+  br label %246
 
-91:                                               ; preds = %88
-  %92 = getelementptr i8, ptr %85, i64 1
-  %93 = tail call ptr @memchr(ptr noundef %92, i32 noundef 10, i64 noundef %84) #19
-  %.not214 = icmp eq ptr %93, null
-  br i1 %.not214, label %.outer233.backedge, label %94
+93:                                               ; preds = %90
+  %94 = getelementptr i8, ptr %87, i64 1
+  %95 = tail call ptr @memchr(ptr noundef %94, i32 noundef 10, i64 noundef %86) #19
+  %.not214 = icmp eq ptr %95, null
+  br i1 %.not214, label %.outer233.backedge, label %96
 
-.outer233.backedge:                               ; preds = %91, %83
-  br label %.outer233, !llvm.loop !27
+.outer233.backedge:                               ; preds = %93, %85
+  br label %.outer233, !llvm.loop !18
 
-94:                                               ; preds = %91
-  %95 = getelementptr i8, ptr %93, i64 1
-  %96 = ptrtoint ptr %95 to i64
-  %.neg215 = sub i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64), %96
-  %97 = add i64 %.neg215, %84
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %95, i64 %97, i1 false)
+96:                                               ; preds = %93
+  %97 = getelementptr i8, ptr %95, i64 1
+  %98 = ptrtoint ptr %97 to i64
+  %.neg215 = sub i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64), %98
+  %99 = add i64 %.neg215, %86
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %97, i64 %99, i1 false)
   br label %.loopexit
 
-.outer233:                                        ; preds = %67, %.outer233.backedge
-  %.2.ph = phi i64 [ %84, %.outer233.backedge ], [ 0, %67 ]
-  %98 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %.2.ph
-  %99 = shl i64 %.2.ph, 32
-  %sext209 = sub i64 281470681743360, %99
-  %100 = ashr exact i64 %sext209, 32
-  br label %71
+.outer233:                                        ; preds = %69, %.outer233.backedge
+  %.2.ph = phi i64 [ %86, %.outer233.backedge ], [ 0, %69 ]
+  %100 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %.2.ph
+  %101 = shl i64 %.2.ph, 32
+  %sext209 = sub i64 281470681743360, %101
+  %102 = ashr exact i64 %sext209, 32
+  br label %73
 
-.loopexit:                                        ; preds = %31, %71, %60, %94
-  %.1171 = phi i32 [ %58, %94 ], [ %25, %60 ], [ %58, %71 ], [ %25, %31 ]
-  %.3 = phi i64 [ %97, %94 ], [ %63, %60 ], [ %.2.ph, %71 ], [ %.0169.ph, %31 ]
-  %101 = getelementptr inbounds i8, ptr %7, i64 20
-  %102 = getelementptr inbounds i8, ptr %7, i64 16
-  %103 = getelementptr inbounds i8, ptr %7, i64 12
-  %104 = getelementptr inbounds i8, ptr %7, i64 8
-  %105 = getelementptr inbounds i8, ptr %7, i64 4
-  %106 = getelementptr inbounds i8, ptr %7, i64 32
+.loopexit:                                        ; preds = %33, %73, %62, %96
+  %.1171 = phi i32 [ %60, %96 ], [ %27, %62 ], [ %60, %73 ], [ %27, %33 ]
+  %.3 = phi i64 [ %99, %96 ], [ %65, %62 ], [ %.2.ph, %73 ], [ %.0169.ph, %33 ]
+  %103 = getelementptr inbounds i8, ptr %7, i64 20
+  %104 = getelementptr inbounds i8, ptr %7, i64 16
+  %105 = getelementptr inbounds i8, ptr %7, i64 12
+  %106 = getelementptr inbounds i8, ptr %7, i64 8
+  %107 = getelementptr inbounds i8, ptr %7, i64 4
+  %108 = getelementptr inbounds i8, ptr %7, i64 32
   br label %.outer
 
-.outer:                                           ; preds = %._crit_edge287, %.loopexit
-  %.0172.ph = phi i64 [ %.1173.lcssa, %._crit_edge287 ], [ 0, %.loopexit ]
-  %.4.ph = phi i64 [ %.6, %._crit_edge287 ], [ %.3, %.loopexit ]
-  %107 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %.4.ph
-  %108 = shl i64 %.4.ph, 32
-  %sext217 = sub i64 281470681743360, %108
-  %109 = ashr exact i64 %sext217, 32
-  br label %110
+.outer:                                           ; preds = %._crit_edge286, %.loopexit
+  %.0172.ph = phi i64 [ %.1173.lcssa, %._crit_edge286 ], [ 0, %.loopexit ]
+  %.4.ph = phi i64 [ %.6, %._crit_edge286 ], [ %.3, %.loopexit ]
+  %109 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %.4.ph
+  %110 = shl i64 %.4.ph, 32
+  %sext217 = sub i64 281470681743360, %110
+  %111 = ashr exact i64 %sext217, 32
+  br label %112
 
-110:                                              ; preds = %.outer, %112
-  %111 = load i32, ptr @endless_loop, align 4
-  %.not216 = icmp eq i32 %111, 0
-  br i1 %.not216, label %242, label %112
+112:                                              ; preds = %.outer, %114
+  %113 = load i32, ptr @endless_loop, align 4
+  %.not216 = icmp eq i32 %113, 0
+  br i1 %.not216, label %244, label %114
 
-112:                                              ; preds = %110
-  %113 = tail call ptr @__errno_location() #20
-  store i32 0, ptr %113, align 4
-  %114 = call i64 @recv(i32 noundef %.1171, ptr noundef %107, i64 noundef %109, i32 noundef 0) #16
-  %115 = load i32, ptr %113, align 4
-  switch i32 %115, label %116 [
-    i32 11, label %110
-    i32 0, label %119
+114:                                              ; preds = %112
+  %115 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %115, align 4
+  %116 = call i64 @recv(i32 noundef %.1171, ptr noundef %109, i64 noundef %111, i32 noundef 0) #16
+  %117 = load i32, ptr %115, align 4
+  switch i32 %117, label %118 [
+    i32 11, label %112
+    i32 0, label %121
   ]
 
-116:                                              ; preds = %112
-  %117 = call ptr @strerror(i32 noundef %115) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1487, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.162, ptr noundef %117) #16
-  %118 = call i32 @close(i32 noundef %.1171) #16
-  br label %244
+118:                                              ; preds = %114
+  %119 = call ptr @strerror(i32 noundef %117) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1487, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.162, ptr noundef %119) #16
+  %120 = call i32 @close(i32 noundef %.1171) #16
+  br label %246
 
-119:                                              ; preds = %112
-  %120 = icmp slt i64 %114, 1
-  br i1 %120, label %121, label %thread-pre-split
+121:                                              ; preds = %114
+  %122 = icmp slt i64 %116, 1
+  br i1 %122, label %123, label %thread-pre-split
 
-121:                                              ; preds = %119
+123:                                              ; preds = %121
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1493, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.175) #16
-  %122 = call i32 @close(i32 noundef %.1171) #16
-  br label %244
+  %124 = call i32 @close(i32 noundef %.1171) #16
+  br label %246
 
-thread-pre-split:                                 ; preds = %119
+thread-pre-split:                                 ; preds = %121
   %.pr = load i32, ptr @endless_loop, align 4
-  %.not219281 = icmp eq i32 %.pr, 0
-  br i1 %.not219281, label %._crit_edge287, label %.lr.ph286
+  %.not219280 = icmp eq i32 %.pr, 0
+  br i1 %.not219280, label %._crit_edge286, label %.lr.ph285
 
-.lr.ph286:                                        ; preds = %thread-pre-split, %._crit_edge
-  %.0168285 = phi i64 [ 0, %._crit_edge ], [ %114, %thread-pre-split ]
-  %.5284 = phi i64 [ %241, %._crit_edge ], [ %.4.ph, %thread-pre-split ]
-  %.1173283 = phi i64 [ %.2174, %._crit_edge ], [ %.0172.ph, %thread-pre-split ]
-  %123 = add i64 %.0168285, %.5284
-  %124 = icmp sgt i64 %123, 0
-  br i1 %124, label %125, label %._crit_edge287
+.lr.ph285:                                        ; preds = %thread-pre-split, %._crit_edge
+  %.0168284 = phi i64 [ 0, %._crit_edge ], [ %116, %thread-pre-split ]
+  %.5283 = phi i64 [ %243, %._crit_edge ], [ %.4.ph, %thread-pre-split ]
+  %.1173282 = phi i64 [ %.2174, %._crit_edge ], [ %.0172.ph, %thread-pre-split ]
+  %125 = add i64 %.0168284, %.5283
+  %126 = icmp sgt i64 %125, 0
+  br i1 %126, label %127, label %._crit_edge286
 
-125:                                              ; preds = %.lr.ph286
-  %126 = call i64 @g_ascii_strtoll(ptr noundef nonnull getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_hcidump.data, i64 0, i64 29), ptr noundef nonnull %5, i32 noundef 16) #16
-  %127 = icmp eq i64 %126, 1
-  %128 = icmp ugt i64 %123, 3
-  %or.cond225 = and i1 %128, %127
-  br i1 %or.cond225, label %135, label %129
+127:                                              ; preds = %.lr.ph285
+  %128 = call i64 @g_ascii_strtoll(ptr noundef nonnull getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_hcidump.data, i64 0, i64 29), ptr noundef nonnull %5, i32 noundef 16) #16
+  %129 = icmp eq i64 %128, 1
+  %130 = icmp ugt i64 %125, 3
+  %or.cond225 = and i1 %130, %129
+  br i1 %or.cond225, label %137, label %131
 
-129:                                              ; preds = %125
-  %130 = icmp eq i64 %126, 2
-  %131 = icmp ugt i64 %123, 4
-  %or.cond226 = and i1 %131, %130
-  br i1 %or.cond226, label %170, label %132
+131:                                              ; preds = %127
+  %132 = icmp eq i64 %128, 2
+  %133 = icmp ugt i64 %125, 4
+  %or.cond226 = and i1 %133, %132
+  br i1 %or.cond226, label %172, label %134
 
-132:                                              ; preds = %129
-  %133 = icmp eq i64 %126, 4
-  %134 = icmp ugt i64 %123, 2
-  %or.cond227 = and i1 %134, %133
-  br i1 %or.cond227, label %157, label %196
+134:                                              ; preds = %131
+  %135 = icmp eq i64 %128, 4
+  %136 = icmp ugt i64 %125, 2
+  %or.cond227 = and i1 %136, %135
+  br i1 %or.cond227, label %159, label %198
 
-135:                                              ; preds = %125
-  %136 = load ptr, ptr %5, align 8
-  %137 = call i64 @g_ascii_strtoll(ptr noundef %136, ptr noundef nonnull %5, i32 noundef 16) #16
-  %or.cond = icmp ugt i64 %137, 255
-  br i1 %or.cond, label %141, label %138
+137:                                              ; preds = %127
+  %138 = load ptr, ptr %5, align 8
+  %139 = call i64 @g_ascii_strtoll(ptr noundef %138, ptr noundef nonnull %5, i32 noundef 16) #16
+  %or.cond = icmp ugt i64 %139, 255
+  br i1 %or.cond, label %143, label %140
 
-138:                                              ; preds = %135
-  %139 = load ptr, ptr %5, align 8
-  %140 = icmp eq ptr %136, %139
-  br i1 %140, label %141, label %145
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %5, align 8
+  %142 = icmp eq ptr %138, %141
+  br i1 %142, label %143, label %147
 
-141:                                              ; preds = %135, %138
-  %142 = load i32, ptr %113, align 4
-  %143 = call ptr @strerror(i32 noundef %142) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1511, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %143) #16
-  %144 = call i32 @close(i32 noundef %.1171) #16
-  br label %244
+143:                                              ; preds = %137, %140
+  %144 = load i32, ptr %115, align 4
+  %145 = call ptr @strerror(i32 noundef %144) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1511, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %145) #16
+  %146 = call i32 @close(i32 noundef %.1171) #16
+  br label %246
 
-145:                                              ; preds = %138
-  %146 = call i64 @g_ascii_strtoll(ptr noundef %139, ptr noundef nonnull %5, i32 noundef 16) #16
-  %or.cond3 = icmp ugt i64 %146, 255
-  br i1 %or.cond3, label %150, label %147
+147:                                              ; preds = %140
+  %148 = call i64 @g_ascii_strtoll(ptr noundef %141, ptr noundef nonnull %5, i32 noundef 16) #16
+  %or.cond3 = icmp ugt i64 %148, 255
+  br i1 %or.cond3, label %152, label %149
 
-147:                                              ; preds = %145
-  %148 = load ptr, ptr %5, align 8
-  %149 = icmp eq ptr %139, %148
-  br i1 %149, label %150, label %154
+149:                                              ; preds = %147
+  %150 = load ptr, ptr %5, align 8
+  %151 = icmp eq ptr %141, %150
+  br i1 %151, label %152, label %156
 
-150:                                              ; preds = %145, %147
-  %151 = load i32, ptr %113, align 4
-  %152 = call ptr @strerror(i32 noundef %151) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1519, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %152) #16
-  %153 = call i32 @close(i32 noundef %.1171) #16
-  br label %244
+152:                                              ; preds = %147, %149
+  %153 = load i32, ptr %115, align 4
+  %154 = call ptr @strerror(i32 noundef %153) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1519, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %154) #16
+  %155 = call i32 @close(i32 noundef %.1171) #16
+  br label %246
 
-154:                                              ; preds = %147
-  %155 = call i64 @g_ascii_strtoll(ptr noundef %148, ptr noundef nonnull %5, i32 noundef 16) #16
-  %156 = add i64 %155, 4
-  br label %198
+156:                                              ; preds = %149
+  %157 = call i64 @g_ascii_strtoll(ptr noundef %150, ptr noundef nonnull %5, i32 noundef 16) #16
+  %158 = add i64 %157, 4
+  br label %200
 
-157:                                              ; preds = %132
-  %158 = load ptr, ptr %5, align 8
-  %159 = call i64 @g_ascii_strtoll(ptr noundef %158, ptr noundef nonnull %5, i32 noundef 16) #16
-  %or.cond5 = icmp ugt i64 %159, 255
-  br i1 %or.cond5, label %163, label %160
+159:                                              ; preds = %134
+  %160 = load ptr, ptr %5, align 8
+  %161 = call i64 @g_ascii_strtoll(ptr noundef %160, ptr noundef nonnull %5, i32 noundef 16) #16
+  %or.cond5 = icmp ugt i64 %161, 255
+  br i1 %or.cond5, label %165, label %162
 
-160:                                              ; preds = %157
-  %161 = load ptr, ptr %5, align 8
-  %162 = icmp eq ptr %158, %161
-  br i1 %162, label %163, label %167
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %5, align 8
+  %164 = icmp eq ptr %160, %163
+  br i1 %164, label %165, label %169
 
-163:                                              ; preds = %157, %160
-  %164 = load i32, ptr %113, align 4
-  %165 = call ptr @strerror(i32 noundef %164) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1532, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %165) #16
-  %166 = call i32 @close(i32 noundef %.1171) #16
-  br label %244
+165:                                              ; preds = %159, %162
+  %166 = load i32, ptr %115, align 4
+  %167 = call ptr @strerror(i32 noundef %166) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1532, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %167) #16
+  %168 = call i32 @close(i32 noundef %.1171) #16
+  br label %246
 
-167:                                              ; preds = %160
-  %168 = call i64 @g_ascii_strtoll(ptr noundef %161, ptr noundef nonnull %5, i32 noundef 16) #16
-  %169 = add i64 %168, 3
-  br label %198
+169:                                              ; preds = %162
+  %170 = call i64 @g_ascii_strtoll(ptr noundef %163, ptr noundef nonnull %5, i32 noundef 16) #16
+  %171 = add i64 %170, 3
+  br label %200
 
-170:                                              ; preds = %129
-  %171 = load ptr, ptr %5, align 8
-  %172 = call i64 @g_ascii_strtoll(ptr noundef %171, ptr noundef nonnull %5, i32 noundef 16) #16
-  %or.cond7 = icmp ugt i64 %172, 255
-  br i1 %or.cond7, label %176, label %173
+172:                                              ; preds = %131
+  %173 = load ptr, ptr %5, align 8
+  %174 = call i64 @g_ascii_strtoll(ptr noundef %173, ptr noundef nonnull %5, i32 noundef 16) #16
+  %or.cond7 = icmp ugt i64 %174, 255
+  br i1 %or.cond7, label %178, label %175
 
-173:                                              ; preds = %170
-  %174 = load ptr, ptr %5, align 8
-  %175 = icmp eq ptr %171, %174
-  br i1 %175, label %176, label %180
+175:                                              ; preds = %172
+  %176 = load ptr, ptr %5, align 8
+  %177 = icmp eq ptr %173, %176
+  br i1 %177, label %178, label %182
 
-176:                                              ; preds = %170, %173
-  %177 = load i32, ptr %113, align 4
-  %178 = call ptr @strerror(i32 noundef %177) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1545, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %178) #16
-  %179 = call i32 @close(i32 noundef %.1171) #16
-  br label %244
+178:                                              ; preds = %172, %175
+  %179 = load i32, ptr %115, align 4
+  %180 = call ptr @strerror(i32 noundef %179) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1545, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %180) #16
+  %181 = call i32 @close(i32 noundef %.1171) #16
+  br label %246
 
-180:                                              ; preds = %173
-  %181 = call i64 @g_ascii_strtoll(ptr noundef %174, ptr noundef nonnull %5, i32 noundef 16) #16
-  %or.cond9 = icmp ugt i64 %181, 255
-  br i1 %or.cond9, label %185, label %182
+182:                                              ; preds = %175
+  %183 = call i64 @g_ascii_strtoll(ptr noundef %176, ptr noundef nonnull %5, i32 noundef 16) #16
+  %or.cond9 = icmp ugt i64 %183, 255
+  br i1 %or.cond9, label %187, label %184
 
-182:                                              ; preds = %180
-  %183 = load ptr, ptr %5, align 8
-  %184 = icmp eq ptr %174, %183
-  br i1 %184, label %185, label %189
+184:                                              ; preds = %182
+  %185 = load ptr, ptr %5, align 8
+  %186 = icmp eq ptr %176, %185
+  br i1 %186, label %187, label %191
 
-185:                                              ; preds = %180, %182
-  %186 = load i32, ptr %113, align 4
-  %187 = call ptr @strerror(i32 noundef %186) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1553, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %187) #16
-  %188 = call i32 @close(i32 noundef %.1171) #16
-  br label %244
+187:                                              ; preds = %182, %184
+  %188 = load i32, ptr %115, align 4
+  %189 = call ptr @strerror(i32 noundef %188) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1553, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %189) #16
+  %190 = call i32 @close(i32 noundef %.1171) #16
+  br label %246
 
-189:                                              ; preds = %182
-  %190 = call i64 @g_ascii_strtoll(ptr noundef %183, ptr noundef nonnull %5, i32 noundef 16) #16
-  %191 = add i64 %190, 5
-  %192 = load ptr, ptr %5, align 8
-  %193 = call i64 @g_ascii_strtoll(ptr noundef %192, ptr noundef nonnull %5, i32 noundef 16) #16
-  %194 = shl i64 %193, 8
-  %195 = add i64 %191, %194
-  br label %198
+191:                                              ; preds = %184
+  %192 = call i64 @g_ascii_strtoll(ptr noundef %185, ptr noundef nonnull %5, i32 noundef 16) #16
+  %193 = add i64 %192, 5
+  %194 = load ptr, ptr %5, align 8
+  %195 = call i64 @g_ascii_strtoll(ptr noundef %194, ptr noundef nonnull %5, i32 noundef 16) #16
+  %196 = shl i64 %195, 8
+  %197 = add i64 %193, %196
+  br label %200
 
-196:                                              ; preds = %132
+198:                                              ; preds = %134
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1568, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.184) #16
-  %197 = call i32 @close(i32 noundef %.1171) #16
-  br label %244
+  %199 = call i32 @close(i32 noundef %.1171) #16
+  br label %246
 
-198:                                              ; preds = %167, %189, %154
-  %.2177 = phi i64 [ %156, %154 ], [ %169, %167 ], [ %195, %189 ]
-  %199 = mul i64 %.2177, 3
-  %200 = sdiv i64 %.2177, 20
-  %201 = shl nsw i64 %200, 2
-  %202 = srem i64 %.2177, 20
-  %.not220 = icmp eq i64 %202, 0
-  %203 = select i1 %.not220, i64 -2, i64 2
-  %204 = add i64 %199, 29
-  %205 = add i64 %204, %201
-  %206 = add i64 %205, %203
-  %207 = icmp slt i64 %123, %206
-  br i1 %207, label %._crit_edge287, label %208
+200:                                              ; preds = %169, %191, %156
+  %.2177 = phi i64 [ %158, %156 ], [ %171, %169 ], [ %197, %191 ]
+  %201 = mul i64 %.2177, 3
+  %202 = sdiv i64 %.2177, 20
+  %203 = shl nsw i64 %202, 2
+  %204 = srem i64 %.2177, 20
+  %.not220 = icmp eq i64 %204, 0
+  %205 = select i1 %.not220, i64 -2, i64 2
+  %206 = add i64 %201, 29
+  %207 = add i64 %206, %203
+  %208 = add i64 %207, %205
+  %209 = icmp slt i64 %125, %208
+  br i1 %209, label %._crit_edge286, label %210
 
-208:                                              ; preds = %198
-  %209 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @capture_android_bluetooth_hcidump.data, ptr noundef nonnull @.str.185, ptr noundef nonnull %101, ptr noundef nonnull %102, ptr noundef nonnull %103, ptr noundef nonnull %104, ptr noundef nonnull %105, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #16
-  %210 = icmp eq i32 %209, 8
-  br i1 %210, label %211, label %._crit_edge337
+210:                                              ; preds = %200
+  %211 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @capture_android_bluetooth_hcidump.data, ptr noundef nonnull @.str.185, ptr noundef nonnull %103, ptr noundef nonnull %104, ptr noundef nonnull %105, ptr noundef nonnull %106, ptr noundef nonnull %107, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #16
+  %212 = icmp eq i32 %211, 8
+  br i1 %212, label %213, label %._crit_edge335
 
-._crit_edge337:                                   ; preds = %208
+._crit_edge335:                                   ; preds = %210
   %.pre = load ptr, ptr %5, align 8
-  br label %215
+  br label %217
 
-211:                                              ; preds = %208
-  %212 = load <2 x i32>, ptr %102, align 8
-  %213 = add <2 x i32> %212, <i32 -1, i32 -1900>
-  store <2 x i32> %213, ptr %102, align 8
-  store i32 -1, ptr %106, align 8
-  %214 = call i64 @mktime(ptr noundef nonnull %7) #16
+213:                                              ; preds = %210
+  %214 = load <2 x i32>, ptr %104, align 8
+  %215 = add <2 x i32> %214, <i32 -1, i32 -1900>
+  store <2 x i32> %215, ptr %104, align 8
+  store i32 -1, ptr %108, align 8
+  %216 = call i64 @mktime(ptr noundef nonnull %7) #16
   store ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_hcidump.data, i64 0, i64 29), ptr %5, align 8
-  br label %215
+  br label %217
 
-215:                                              ; preds = %._crit_edge337, %211
-  %216 = phi ptr [ getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_hcidump.data, i64 0, i64 29), %211 ], [ %.pre, %._crit_edge337 ]
-  %.2174 = phi i64 [ %214, %211 ], [ %.1173283, %._crit_edge337 ]
-  %217 = ptrtoint ptr %216 to i64
-  %218 = add i64 %217, add (i64 sub (i64 0, i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)), i64 4)
-  %219 = icmp slt i64 %218, %206
-  br i1 %219, label %.lr.ph, label %._crit_edge
+217:                                              ; preds = %._crit_edge335, %213
+  %218 = phi ptr [ getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_hcidump.data, i64 0, i64 29), %213 ], [ %.pre, %._crit_edge335 ]
+  %.2174 = phi i64 [ %216, %213 ], [ %.1173282, %._crit_edge335 ]
+  %219 = ptrtoint ptr %218 to i64
+  %220 = add i64 %219, add (i64 sub (i64 0, i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)), i64 4)
+  %221 = icmp slt i64 %220, %208
+  br i1 %221, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %215, %.lr.ph
-  %220 = phi ptr [ %227, %.lr.ph ], [ %216, %215 ]
-  %.0179280 = phi i32 [ %226, %.lr.ph ], [ 0, %215 ]
-  %221 = call i64 @g_ascii_strtoll(ptr noundef %220, ptr noundef nonnull %5, i32 noundef 16) #16
-  %222 = trunc i64 %221 to i8
-  %223 = zext i32 %.0179280 to i64
-  %224 = add nuw nsw i64 %223, 4
-  %225 = getelementptr [65535 x i8], ptr @capture_android_bluetooth_hcidump.packet, i64 0, i64 %224
-  store i8 %222, ptr %225, align 1
-  %226 = add i32 %.0179280, 1
-  %227 = load ptr, ptr %5, align 8
-  %228 = ptrtoint ptr %227 to i64
-  %229 = add i64 %228, add (i64 sub (i64 0, i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)), i64 4)
-  %230 = icmp slt i64 %229, %206
-  br i1 %230, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+.lr.ph:                                           ; preds = %217, %.lr.ph
+  %222 = phi ptr [ %229, %.lr.ph ], [ %218, %217 ]
+  %.0179279 = phi i32 [ %228, %.lr.ph ], [ 0, %217 ]
+  %223 = call i64 @g_ascii_strtoll(ptr noundef %222, ptr noundef nonnull %5, i32 noundef 16) #16
+  %224 = trunc i64 %223 to i8
+  %225 = zext i32 %.0179279 to i64
+  %226 = add nuw nsw i64 %225, 4
+  %227 = getelementptr [65535 x i8], ptr @capture_android_bluetooth_hcidump.packet, i64 0, i64 %226
+  store i8 %224, ptr %227, align 1
+  %228 = add i32 %.0179279, 1
+  %229 = load ptr, ptr %5, align 8
+  %230 = ptrtoint ptr %229 to i64
+  %231 = add i64 %230, add (i64 sub (i64 0, i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)), i64 4)
+  %232 = icmp slt i64 %231, %208
+  br i1 %232, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph, %215
-  %.0179.lcssa = phi i32 [ 0, %215 ], [ %226, %.lr.ph ]
-  %231 = load i8, ptr %8, align 1
-  %232 = icmp eq i8 %231, 62
-  %233 = select i1 %232, i32 16777216, i32 0
-  store i32 %233, ptr @capture_android_bluetooth_hcidump.packet, align 16
-  %234 = zext i32 %.0179.lcssa to i64
-  %235 = add nuw nsw i64 %234, 4
-  %236 = load i32, ptr %6, align 4
-  %237 = mul i32 %236, 1000
-  %238 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %10, ptr %11, ptr noundef %1, ptr noundef nonnull @capture_android_bluetooth_hcidump.packet, i64 noundef %235, i64 noundef %235, i64 noundef %.2174, i32 noundef %237)
-  %239 = zext i1 %238 to i32
-  store i32 %239, ptr @endless_loop, align 4
-  %240 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %206
-  %241 = sub i64 %123, %206
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %240, i64 %241, i1 false)
-  br i1 %238, label %.lr.ph286, label %._crit_edge287, !llvm.loop !29
+._crit_edge:                                      ; preds = %.lr.ph, %217
+  %.0179.lcssa = phi i32 [ 0, %217 ], [ %228, %.lr.ph ]
+  %233 = load i8, ptr %8, align 1
+  %234 = icmp eq i8 %233, 62
+  %235 = select i1 %234, i32 16777216, i32 0
+  store i32 %235, ptr @capture_android_bluetooth_hcidump.packet, align 16
+  %236 = zext i32 %.0179.lcssa to i64
+  %237 = add nuw nsw i64 %236, 4
+  %238 = load i32, ptr %6, align 4
+  %239 = mul i32 %238, 1000
+  %240 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %10, ptr %11, ptr noundef %1, ptr noundef nonnull @capture_android_bluetooth_hcidump.packet, i64 noundef %237, i64 noundef %237, i64 noundef %.2174, i32 noundef %239)
+  %241 = zext i1 %240 to i32
+  store i32 %241, ptr @endless_loop, align 4
+  %242 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %208
+  %243 = sub i64 %125, %208
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %242, i64 %243, i1 false)
+  br i1 %240, label %.lr.ph285, label %._crit_edge286, !llvm.loop !20
 
-._crit_edge287:                                   ; preds = %._crit_edge, %.lr.ph286, %198, %thread-pre-split
-  %.1173.lcssa = phi i64 [ %.0172.ph, %thread-pre-split ], [ %.1173283, %198 ], [ %.1173283, %.lr.ph286 ], [ %.2174, %._crit_edge ]
-  %.6 = phi i64 [ %.4.ph, %thread-pre-split ], [ %123, %198 ], [ %123, %.lr.ph286 ], [ %241, %._crit_edge ]
-  br label %.outer, !llvm.loop !30
+._crit_edge286:                                   ; preds = %._crit_edge, %.lr.ph285, %200, %thread-pre-split
+  %.1173.lcssa = phi i64 [ %.0172.ph, %thread-pre-split ], [ %.1173282, %200 ], [ %.1173282, %.lr.ph285 ], [ %.2174, %._crit_edge ]
+  %.6 = phi i64 [ %.4.ph, %thread-pre-split ], [ %125, %200 ], [ %125, %.lr.ph285 ], [ %243, %._crit_edge ]
+  br label %.outer, !llvm.loop !21
 
-242:                                              ; preds = %110
-  %243 = call i32 @close(i32 noundef %.1171) #16
-  br label %244
+244:                                              ; preds = %112
+  %245 = call i32 @close(i32 noundef %.1171) #16
+  br label %246
 
-244:                                              ; preds = %.thread, %get_serial_from_interface.exit, %242, %196, %185, %176, %163, %150, %141, %121, %116, %89, %81, %76, %69, %50, %42, %37, %29
-  %.0 = phi i32 [ -1, %29 ], [ -1, %37 ], [ -1, %42 ], [ -1, %69 ], [ -1, %76 ], [ -1, %81 ], [ -1, %116 ], [ -1, %121 ], [ -1, %141 ], [ -1, %150 ], [ -1, %163 ], [ -1, %176 ], [ -1, %185 ], [ -1, %196 ], [ 0, %242 ], [ -1, %89 ], [ -1, %50 ], [ 37, %get_serial_from_interface.exit ], [ 38, %.thread ]
+246:                                              ; preds = %.thread, %get_serial_from_interface.exit, %244, %198, %187, %178, %165, %152, %143, %123, %118, %91, %83, %78, %71, %52, %44, %39, %31
+  %.0 = phi i32 [ -1, %31 ], [ -1, %39 ], [ -1, %44 ], [ -1, %71 ], [ -1, %78 ], [ -1, %83 ], [ -1, %118 ], [ -1, %123 ], [ -1, %143 ], [ -1, %152 ], [ -1, %165 ], [ -1, %178 ], [ -1, %187 ], [ -1, %198 ], [ 0, %244 ], [ -1, %91 ], [ -1, %52 ], [ 37, %get_serial_from_interface.exit ], [ 38, %.thread ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @capture_android_bluetooth_external_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 41) i32 @capture_android_bluetooth_external_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
   %9 = alloca %struct.timeval, align 8
   %10 = alloca %struct.timeval, align 8
   %11 = alloca i32, align 4
@@ -2551,440 +2557,442 @@ define internal fastcc noundef i32 @capture_android_bluetooth_external_parser(pt
 
 17:                                               ; preds = %29, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %29 ]
-  %18 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.i
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #19
-  %21 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %19, i64 noundef %20) #19
-  %.not.i.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i.not.i, label %22, label %29
+  %18 = phi ptr [ @.str.80, %8 ], [ %31, %29 ]
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #19
+  %20 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %18, i64 noundef %19) #19
+  %.not.i.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i.not.i, label %21, label %29
 
-22:                                               ; preds = %17
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %24 = add i64 %20, 1
-  %25 = icmp ugt i64 %23, %24
+21:                                               ; preds = %17
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #19
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #19
+  %24 = add i64 %23, 1
+  %25 = icmp ugt i64 %22, %24
   br i1 %25, label %26, label %29
 
-26:                                               ; preds = %22
-  %27 = getelementptr i8, ptr %0, i64 %20
+26:                                               ; preds = %21
+  %27 = getelementptr i8, ptr %0, i64 %23
   %28 = getelementptr i8, ptr %27, i64 1
   br label %get_serial_from_interface.exit
 
-29:                                               ; preds = %22, %17
+29:                                               ; preds = %21, %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %30 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.next.i
+  %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %.not.i, label %get_serial_from_interface.exit, label %17, !llvm.loop !20
+  br i1 %.not.i, label %get_serial_from_interface.exit, label %17, !llvm.loop !12
 
 get_serial_from_interface.exit:                   ; preds = %29, %26
   %.08.i = phi ptr [ %28, %26 ], [ null, %29 ]
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %78, label %30
+  br i1 %.not, label %80, label %32
 
-30:                                               ; preds = %get_serial_from_interface.exit
-  %31 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #16
-  %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %37
+32:                                               ; preds = %get_serial_from_interface.exit
+  %33 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #16
+  %34 = icmp eq i32 %33, -1
+  br i1 %34, label %35, label %39
 
-33:                                               ; preds = %30
-  %34 = tail call ptr @__errno_location() #20
-  %35 = load i32, ptr %34, align 4
-  %36 = tail call ptr @strerror(i32 noundef %35) #16
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1699, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.104, ptr noundef %36) #16
-  br label %231
+35:                                               ; preds = %32
+  %36 = tail call ptr @__errno_location() #20
+  %37 = load i32, ptr %36, align 4
+  %38 = tail call ptr @strerror(i32 noundef %37) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1699, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.104, ptr noundef %38) #16
+  br label %233
 
-37:                                               ; preds = %30
-  %38 = load i16, ptr %7, align 2
-  %.not141 = icmp eq i16 %38, 0
-  br i1 %.not141, label %adb_forward.exit, label %39
+39:                                               ; preds = %32
+  %40 = load i16, ptr %7, align 2
+  %.not141 = icmp eq i16 %40, 0
+  br i1 %.not141, label %adb_forward.exit, label %41
 
-39:                                               ; preds = %37
-  %40 = load i16, ptr %4, align 2
+41:                                               ; preds = %39
+  %42 = load i16, ptr %4, align 2
   %.val160 = load i16, ptr %3, align 2
-  %41 = tail call fastcc i32 @adb_connect(ptr noundef %2, i16 %.val160)
-  %42 = icmp eq i32 %41, -1
-  br i1 %42, label %adb_forward.exit, label %43
+  %43 = tail call fastcc i32 @adb_connect(ptr noundef %2, i16 %.val160)
+  %44 = icmp eq i32 %43, -1
+  br i1 %44, label %adb_forward.exit, label %45
 
-43:                                               ; preds = %39
+45:                                               ; preds = %41
   %.not.i161 = icmp eq ptr %.08.i, null
-  %44 = select i1 %.not.i161, ptr @.str.194, ptr @.str.193
-  %45 = select i1 %.not.i161, ptr @.str.28, ptr %.08.i
-  %46 = zext i16 %38 to i32
-  %47 = zext i16 %40 to i32
-  %48 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @adb_forward.helpful_packet, i64 noundef 65535, ptr noundef nonnull @.str.192, ptr noundef nonnull %44, ptr noundef nonnull %45, i32 noundef %46, i32 noundef %47) #16
-  %49 = add i32 %48, -65536
-  %or.cond.i = icmp ult i32 %49, -65535
-  br i1 %or.cond.i, label %50, label %51
+  %46 = select i1 %.not.i161, ptr @.str.194, ptr @.str.193
+  %47 = select i1 %.not.i161, ptr @.str.28, ptr %.08.i
+  %48 = zext i16 %40 to i32
+  %49 = zext i16 %42 to i32
+  %50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @adb_forward.helpful_packet, i64 noundef 65535, ptr noundef nonnull @.str.192, ptr noundef nonnull %46, ptr noundef nonnull %47, i32 noundef %48, i32 noundef %49) #16
+  %51 = add i32 %50, -65536
+  %or.cond.i = icmp ult i32 %51, -65535
+  br i1 %or.cond.i, label %52, label %53
 
-50:                                               ; preds = %43
+52:                                               ; preds = %45
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1658, ptr noundef nonnull @__func__.adb_forward, ptr noundef nonnull @.str.98) #16
   br label %.sink.split.i
 
-51:                                               ; preds = %43
-  %52 = tail call fastcc i32 @adb_send(i32 noundef %41, ptr noundef nonnull @adb_forward.helpful_packet), !range !21
+53:                                               ; preds = %45
+  %54 = tail call fastcc i32 @adb_send(i32 noundef %43, ptr noundef nonnull @adb_forward.helpful_packet)
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %51, %50
-  %53 = tail call i32 @close(i32 noundef %41) #16
+.sink.split.i:                                    ; preds = %53, %52
+  %55 = tail call i32 @close(i32 noundef %43) #16
   br label %adb_forward.exit
 
-adb_forward.exit:                                 ; preds = %.sink.split.i, %39, %37
-  %54 = getelementptr inbounds i8, ptr %12, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %54, i8 0, i64 12, i1 false)
+adb_forward.exit:                                 ; preds = %.sink.split.i, %41, %39
+  %56 = getelementptr inbounds i8, ptr %12, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %56, i8 0, i64 12, i1 false)
   store i16 2, ptr %12, align 4
-  %55 = load i16, ptr %7, align 2
-  %rev = tail call i16 @llvm.bswap.i16(i16 %55)
-  %56 = getelementptr inbounds i8, ptr %12, i64 2
-  store i16 %rev, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %12, i64 4
-  %58 = call zeroext i1 @ws_inet_pton4(ptr noundef %6, ptr noundef nonnull %57) #16
+  %57 = load i16, ptr %7, align 2
+  %rev = tail call i16 @llvm.bswap.i16(i16 %57)
+  %58 = getelementptr inbounds i8, ptr %12, i64 2
+  store i16 %rev, ptr %58, align 2
+  %59 = getelementptr inbounds i8, ptr %12, i64 4
+  %60 = call zeroext i1 @ws_inet_pton4(ptr noundef %6, ptr noundef nonnull %59) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) @__const.useSndTimeout.socket_timeout, i64 16, i1 false)
-  %59 = call i32 @setsockopt(i32 noundef %31, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %10, i32 noundef 16) #16
+  %61 = call i32 @setsockopt(i32 noundef %33, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %10, i32 noundef 16) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %60 = call i32 @connect(i32 noundef %31, ptr noundef nonnull %12, i32 noundef 16) #16
-  %61 = icmp eq i32 %60, -1
-  br i1 %61, label %62, label %67
+  %62 = call i32 @connect(i32 noundef %33, ptr noundef nonnull %12, i32 noundef 16) #16
+  %63 = icmp eq i32 %62, -1
+  br i1 %63, label %64, label %69
 
-62:                                               ; preds = %adb_forward.exit
-  %63 = tail call ptr @__errno_location() #20
-  %64 = load i32, ptr %63, align 4
-  %65 = call ptr @strerror(i32 noundef %64) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1722, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.187, ptr noundef %65) #16
-  %66 = call i32 @close(i32 noundef %31) #16
-  br label %231
+64:                                               ; preds = %adb_forward.exit
+  %65 = tail call ptr @__errno_location() #20
+  %66 = load i32, ptr %65, align 4
+  %67 = call ptr @strerror(i32 noundef %66) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1722, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.187, ptr noundef %67) #16
+  %68 = call i32 @close(i32 noundef %33) #16
+  br label %233
 
-67:                                               ; preds = %adb_forward.exit
+69:                                               ; preds = %adb_forward.exit
   store i32 16, ptr %11, align 4
-  %68 = call i32 @getsockname(i32 noundef %31, ptr noundef nonnull %13, ptr noundef nonnull %11) #16
-  %.not142 = icmp eq i32 %68, 0
-  br i1 %.not142, label %74, label %69
+  %70 = call i32 @getsockname(i32 noundef %33, ptr noundef nonnull %13, ptr noundef nonnull %11) #16
+  %.not142 = icmp eq i32 %70, 0
+  br i1 %.not142, label %76, label %71
 
-69:                                               ; preds = %67
-  %70 = tail call ptr @__errno_location() #20
-  %71 = load i32, ptr %70, align 4
-  %72 = call ptr @strerror(i32 noundef %71) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1729, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.105, ptr noundef %72) #16
-  %73 = call i32 @close(i32 noundef %31) #16
-  br label %231
+71:                                               ; preds = %69
+  %72 = tail call ptr @__errno_location() #20
+  %73 = load i32, ptr %72, align 4
+  %74 = call ptr @strerror(i32 noundef %73) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1729, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.105, ptr noundef %74) #16
+  %75 = call i32 @close(i32 noundef %33) #16
+  br label %233
 
-74:                                               ; preds = %67
-  %75 = load i32, ptr %11, align 4
-  %.not143 = icmp eq i32 %75, 16
-  br i1 %.not143, label %92, label %76
+76:                                               ; preds = %69
+  %77 = load i32, ptr %11, align 4
+  %.not143 = icmp eq i32 %77, 16
+  br i1 %.not143, label %94, label %78
 
-76:                                               ; preds = %74
+78:                                               ; preds = %76
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1735, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.106) #16
-  %77 = call i32 @close(i32 noundef %31) #16
-  br label %231
+  %79 = call i32 @close(i32 noundef %33) #16
+  br label %233
 
-78:                                               ; preds = %get_serial_from_interface.exit
+80:                                               ; preds = %get_serial_from_interface.exit
   %.val = load i16, ptr %3, align 2
-  %79 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
-  %80 = icmp eq i32 %79, -1
-  br i1 %80, label %231, label %81
+  %81 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
+  %82 = icmp eq i32 %81, -1
+  br i1 %82, label %233, label %83
 
-81:                                               ; preds = %78
-  %82 = load i16, ptr %4, align 2
-  %83 = zext i16 %82 to i32
-  %84 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @capture_android_bluetooth_external_parser.buffer, i64 noundef 65535, ptr noundef nonnull @.str.186, i32 noundef %83) #16
-  %85 = add i32 %84, -65536
-  %or.cond = icmp ult i32 %85, -65535
-  br i1 %or.cond, label %86, label %88
+83:                                               ; preds = %80
+  %84 = load i16, ptr %4, align 2
+  %85 = zext i16 %84 to i32
+  %86 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @capture_android_bluetooth_external_parser.buffer, i64 noundef 65535, ptr noundef nonnull @.str.186, i32 noundef %85) #16
+  %87 = add i32 %86, -65536
+  %or.cond = icmp ult i32 %87, -65535
+  br i1 %or.cond, label %88, label %90
 
-86:                                               ; preds = %81
+88:                                               ; preds = %83
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1750, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.98) #16
-  %87 = tail call i32 @close(i32 noundef %79) #16
-  br label %231
+  %89 = tail call i32 @close(i32 noundef %81) #16
+  br label %233
 
-88:                                               ; preds = %81
-  %89 = tail call fastcc i32 @adb_send(i32 noundef %79, ptr noundef nonnull @capture_android_bluetooth_external_parser.buffer), !range !21
-  %.not140 = icmp eq i32 %89, 0
-  br i1 %.not140, label %92, label %90
+90:                                               ; preds = %83
+  %91 = tail call fastcc i32 @adb_send(i32 noundef %81, ptr noundef nonnull @capture_android_bluetooth_external_parser.buffer)
+  %.not140 = icmp eq i32 %91, 0
+  br i1 %.not140, label %94, label %92
 
-90:                                               ; preds = %88
+92:                                               ; preds = %90
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1757, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.188) #16
-  %91 = tail call i32 @close(i32 noundef %79) #16
-  br label %231
+  %93 = tail call i32 @close(i32 noundef %81) #16
+  br label %233
 
-92:                                               ; preds = %88, %74
-  %.0130 = phi i32 [ %31, %74 ], [ %79, %88 ]
-  %93 = getelementptr inbounds i8, ptr %12, i64 2
-  %94 = getelementptr inbounds i8, ptr %12, i64 4
+94:                                               ; preds = %90, %76
+  %.0130 = phi i32 [ %33, %76 ], [ %81, %90 ]
+  %95 = getelementptr inbounds i8, ptr %12, i64 2
+  %96 = getelementptr inbounds i8, ptr %12, i64 4
   br label %.outer
 
-.outer:                                           ; preds = %117, %92
-  %.1131.ph = phi i32 [ %112, %117 ], [ %.0130, %92 ]
-  %.0129.ph = phi i64 [ %.0129.ph171, %117 ], [ 0, %92 ]
+.outer:                                           ; preds = %119, %94
+  %.1131.ph = phi i32 [ %114, %119 ], [ %.0130, %94 ]
+  %.0129.ph = phi i64 [ %.0129.ph171, %119 ], [ 0, %94 ]
   br label %.outer170
 
-.outer170.loopexit:                               ; preds = %137, %145, %158, %164, %167
+.outer170.loopexit:                               ; preds = %139, %147, %160, %166, %169
   br label %.outer170
 
 .outer170:                                        ; preds = %.outer170.loopexit, %.outer
   %.0129.ph171 = phi i64 [ %.0129.ph, %.outer ], [ %.1, %.outer170.loopexit ]
-  %95 = getelementptr i8, ptr @capture_android_bluetooth_external_parser.buffer, i64 %.0129.ph171
-  %96 = shl i64 %.0129.ph171, 32
-  %sext = sub i64 281470681743360, %96
-  %97 = ashr exact i64 %sext, 32
-  br label %98
+  %97 = getelementptr i8, ptr @capture_android_bluetooth_external_parser.buffer, i64 %.0129.ph171
+  %98 = shl i64 %.0129.ph171, 32
+  %sext = sub i64 281470681743360, %98
+  %99 = ashr exact i64 %sext, 32
+  br label %100
 
-98:                                               ; preds = %.outer170, %100
-  %99 = load i32, ptr @endless_loop, align 4
-  %.not144 = icmp eq i32 %99, 0
-  br i1 %.not144, label %229, label %100
+100:                                              ; preds = %.outer170, %102
+  %101 = load i32, ptr @endless_loop, align 4
+  %.not144 = icmp eq i32 %101, 0
+  br i1 %.not144, label %231, label %102
 
-100:                                              ; preds = %98
-  %101 = tail call ptr @__errno_location() #20
-  store i32 0, ptr %101, align 4
-  %102 = call i64 @recv(i32 noundef %.1131.ph, ptr noundef %95, i64 noundef %97, i32 noundef 0) #16
-  %103 = load i32, ptr %101, align 4
-  switch i32 %103, label %104 [
-    i32 11, label %98
-    i32 0, label %107
+102:                                              ; preds = %100
+  %103 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %103, align 4
+  %104 = call i64 @recv(i32 noundef %.1131.ph, ptr noundef %97, i64 noundef %99, i32 noundef 0) #16
+  %105 = load i32, ptr %103, align 4
+  switch i32 %105, label %106 [
+    i32 11, label %100
+    i32 0, label %109
   ]
 
-104:                                              ; preds = %100
-  %105 = call ptr @strerror(i32 noundef %103) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1774, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.162, ptr noundef %105) #16
-  %106 = call i32 @close(i32 noundef %.1131.ph) #16
-  br label %231
+106:                                              ; preds = %102
+  %107 = call ptr @strerror(i32 noundef %105) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1774, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.162, ptr noundef %107) #16
+  %108 = call i32 @close(i32 noundef %.1131.ph) #16
+  br label %233
 
-107:                                              ; preds = %100
-  %108 = icmp slt i64 %102, 1
-  br i1 %108, label %109, label %129
+109:                                              ; preds = %102
+  %110 = icmp slt i64 %104, 1
+  br i1 %110, label %111, label %131
 
-109:                                              ; preds = %107
-  br i1 %.not, label %127, label %110
+111:                                              ; preds = %109
+  br i1 %.not, label %129, label %112
 
-110:                                              ; preds = %109
+112:                                              ; preds = %111
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1782, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.163) #16
-  %111 = call i32 @close(i32 noundef %.1131.ph) #16
-  %112 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #16
-  %113 = icmp eq i32 %112, -1
-  br i1 %113, label %114, label %117
+  %113 = call i32 @close(i32 noundef %.1131.ph) #16
+  %114 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #16
+  %115 = icmp eq i32 %114, -1
+  br i1 %115, label %116, label %119
 
-114:                                              ; preds = %110
-  %115 = load i32, ptr %101, align 4
-  %116 = call ptr @strerror(i32 noundef %115) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1786, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.38, ptr noundef %116) #16
-  br label %231
+116:                                              ; preds = %112
+  %117 = load i32, ptr %103, align 4
+  %118 = call ptr @strerror(i32 noundef %117) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1786, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.38, ptr noundef %118) #16
+  br label %233
 
-117:                                              ; preds = %110
+119:                                              ; preds = %112
   store i16 2, ptr %12, align 4
-  %118 = load i16, ptr %7, align 2
-  %rev159 = call i16 @llvm.bswap.i16(i16 %118)
-  store i16 %rev159, ptr %93, align 2
-  %119 = call zeroext i1 @ws_inet_pton4(ptr noundef %6, ptr noundef nonnull %94) #16
+  %120 = load i16, ptr %7, align 2
+  %rev159 = call i16 @llvm.bswap.i16(i16 %120)
+  store i16 %rev159, ptr %95, align 2
+  %121 = call zeroext i1 @ws_inet_pton4(ptr noundef %6, ptr noundef nonnull %96) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) @__const.useSndTimeout.socket_timeout, i64 16, i1 false)
-  %120 = call i32 @setsockopt(i32 noundef %112, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %9, i32 noundef 16) #16
+  %122 = call i32 @setsockopt(i32 noundef %114, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %9, i32 noundef 16) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %121 = call i32 @connect(i32 noundef %112, ptr noundef nonnull %12, i32 noundef 16) #16
-  %122 = icmp eq i32 %121, -1
-  br i1 %122, label %123, label %.outer, !llvm.loop !31
+  %123 = call i32 @connect(i32 noundef %114, ptr noundef nonnull %12, i32 noundef 16) #16
+  %124 = icmp eq i32 %123, -1
+  br i1 %124, label %125, label %.outer, !llvm.loop !22
 
-123:                                              ; preds = %117
-  %124 = load i32, ptr %101, align 4
-  %125 = call ptr @strerror(i32 noundef %124) #16
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1797, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.189, ptr noundef %125) #16
-  %126 = call i32 @close(i32 noundef %112) #16
-  br label %231
+125:                                              ; preds = %119
+  %126 = load i32, ptr %103, align 4
+  %127 = call ptr @strerror(i32 noundef %126) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1797, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.189, ptr noundef %127) #16
+  %128 = call i32 @close(i32 noundef %114) #16
+  br label %233
 
-127:                                              ; preds = %109
+129:                                              ; preds = %111
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1802, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.175) #16
-  %128 = call i32 @close(i32 noundef %.0130) #16
-  br label %231
+  %130 = call i32 @close(i32 noundef %.0130) #16
+  br label %233
 
-129:                                              ; preds = %107
-  %130 = add i64 %102, %.0129.ph171
-  br label %131
+131:                                              ; preds = %109
+  %132 = add i64 %104, %.0129.ph171
+  br label %133
 
-131:                                              ; preds = %227, %129
-  %.1 = phi i64 [ %130, %129 ], [ %223, %227 ]
-  %132 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 8), align 8
-  %133 = icmp eq i8 %132, 1
-  br i1 %133, label %137, label %134
+133:                                              ; preds = %229, %131
+  %.1 = phi i64 [ %132, %131 ], [ %225, %229 ]
+  %134 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 8), align 8
+  %135 = icmp eq i8 %134, 1
+  br i1 %135, label %139, label %136
 
-134:                                              ; preds = %131
-  %135 = icmp eq i8 %132, 3
-  %136 = icmp sgt i64 %.1, 11
-  %or.cond3 = select i1 %135, i1 %136, i1 false
-  br i1 %or.cond3, label %138, label %142
+136:                                              ; preds = %133
+  %137 = icmp eq i8 %134, 3
+  %138 = icmp sgt i64 %.1, 11
+  %or.cond3 = select i1 %137, i1 %138, i1 false
+  br i1 %or.cond3, label %140, label %144
 
-137:                                              ; preds = %131
+139:                                              ; preds = %133
   %.old2 = icmp sgt i64 %.1, 11
-  br i1 %.old2, label %138, label %.outer170.loopexit, !llvm.loop !31
+  br i1 %.old2, label %140, label %.outer170.loopexit, !llvm.loop !22
 
-138:                                              ; preds = %134, %137
-  %139 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 11), align 1
-  %140 = zext i8 %139 to i64
-  %141 = add nuw nsw i64 %140, 12
-  %.not146 = icmp ugt i64 %141, %.1
-  br i1 %.not146, label %142, label %.critedge
+140:                                              ; preds = %136, %139
+  %141 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 11), align 1
+  %142 = zext i8 %141 to i64
+  %143 = add nuw nsw i64 %142, 12
+  %.not146 = icmp ugt i64 %143, %.1
+  br i1 %.not146, label %144, label %.critedge
 
-142:                                              ; preds = %138, %134
-  %143 = icmp eq i8 %132, 2
-  %144 = icmp sgt i64 %.1, 12
-  %or.cond6 = select i1 %143, i1 %144, i1 false
-  br i1 %or.cond6, label %145, label %155
+144:                                              ; preds = %140, %136
+  %145 = icmp eq i8 %134, 2
+  %146 = icmp sgt i64 %.1, 12
+  %or.cond6 = select i1 %145, i1 %146, i1 false
+  br i1 %or.cond6, label %147, label %157
 
-145:                                              ; preds = %142
-  %146 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 11), align 1
-  %147 = zext i8 %146 to i64
-  %148 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 12), align 4
+147:                                              ; preds = %144
+  %148 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 11), align 1
   %149 = zext i8 %148 to i64
-  %150 = shl nuw nsw i64 %149, 8
-  %151 = add nuw nsw i64 %147, 13
-  %152 = add nuw nsw i64 %151, %150
-  %.not147 = icmp ugt i64 %152, %.1
-  br i1 %.not147, label %.outer170.loopexit, label %.critedge.thread, !llvm.loop !31
+  %150 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 12), align 4
+  %151 = zext i8 %150 to i64
+  %152 = shl nuw nsw i64 %151, 8
+  %153 = add nuw nsw i64 %149, 13
+  %154 = add nuw nsw i64 %153, %152
+  %.not147 = icmp ugt i64 %154, %.1
+  br i1 %.not147, label %.outer170.loopexit, label %.critedge.thread, !llvm.loop !22
 
-.critedge.thread:                                 ; preds = %145
-  %153 = load i64, ptr @capture_android_bluetooth_external_parser.buffer, align 16
-  %154 = call i64 @llvm.bswap.i64(i64 %153)
-  br label %182
+.critedge.thread:                                 ; preds = %147
+  %155 = load i64, ptr @capture_android_bluetooth_external_parser.buffer, align 16
+  %156 = call i64 @llvm.bswap.i64(i64 %155)
+  br label %184
 
-155:                                              ; preds = %142
-  %156 = icmp eq i8 %132, 3
-  %157 = icmp sgt i64 %.1, 11
-  %or.cond9 = select i1 %156, i1 %157, i1 false
-  br i1 %or.cond9, label %158, label %164
+157:                                              ; preds = %144
+  %158 = icmp eq i8 %134, 3
+  %159 = icmp sgt i64 %.1, 11
+  %or.cond9 = select i1 %158, i1 %159, i1 false
+  br i1 %or.cond9, label %160, label %166
 
-158:                                              ; preds = %155
-  %159 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 11), align 1
-  %160 = zext i8 %159 to i64
-  %161 = add nuw nsw i64 %160, 12
-  %.not148 = icmp ugt i64 %161, %.1
-  br i1 %.not148, label %.outer170.loopexit, label %.critedge.thread168, !llvm.loop !31
+160:                                              ; preds = %157
+  %161 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 11), align 1
+  %162 = zext i8 %161 to i64
+  %163 = add nuw nsw i64 %162, 12
+  %.not148 = icmp ugt i64 %163, %.1
+  br i1 %.not148, label %.outer170.loopexit, label %.critedge.thread168, !llvm.loop !22
 
-.critedge.thread168:                              ; preds = %158
-  %162 = load i64, ptr @capture_android_bluetooth_external_parser.buffer, align 16
-  %163 = call i64 @llvm.bswap.i64(i64 %162)
-  br label %198
+.critedge.thread168:                              ; preds = %160
+  %164 = load i64, ptr @capture_android_bluetooth_external_parser.buffer, align 16
+  %165 = call i64 @llvm.bswap.i64(i64 %164)
+  br label %200
 
-164:                                              ; preds = %155
-  %165 = icmp eq i8 %132, 4
-  %166 = icmp sgt i64 %.1, 10
-  %or.cond12 = select i1 %165, i1 %166, i1 false
-  br i1 %or.cond12, label %167, label %.outer170.loopexit, !llvm.loop !31
+166:                                              ; preds = %157
+  %167 = icmp eq i8 %134, 4
+  %168 = icmp sgt i64 %.1, 10
+  %or.cond12 = select i1 %167, i1 %168, i1 false
+  br i1 %or.cond12, label %169, label %.outer170.loopexit, !llvm.loop !22
 
-167:                                              ; preds = %164
-  %168 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 10), align 2
-  %169 = zext i8 %168 to i64
-  %170 = add nuw nsw i64 %169, 11
-  %.not149 = icmp ugt i64 %170, %.1
-  br i1 %.not149, label %.outer170.loopexit, label %.critedge.thread169, !llvm.loop !31
+169:                                              ; preds = %166
+  %170 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 10), align 2
+  %171 = zext i8 %170 to i64
+  %172 = add nuw nsw i64 %171, 11
+  %.not149 = icmp ugt i64 %172, %.1
+  br i1 %.not149, label %.outer170.loopexit, label %.critedge.thread169, !llvm.loop !22
 
-.critedge.thread169:                              ; preds = %167
-  %171 = load i64, ptr @capture_android_bluetooth_external_parser.buffer, align 16
-  %172 = call i64 @llvm.bswap.i64(i64 %171)
+.critedge.thread169:                              ; preds = %169
+  %173 = load i64, ptr @capture_android_bluetooth_external_parser.buffer, align 16
+  %174 = call i64 @llvm.bswap.i64(i64 %173)
   store i32 16777216, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 4), align 4
-  %173 = zext i8 %168 to i32
-  %174 = add nuw nsw i32 %173, 7
-  %175 = add nuw nsw i64 %169, 7
-  br label %210
+  %175 = zext i8 %170 to i32
+  %176 = add nuw nsw i32 %175, 7
+  %177 = add nuw nsw i64 %171, 7
+  br label %212
 
-.critedge:                                        ; preds = %138
-  %176 = load i64, ptr @capture_android_bluetooth_external_parser.buffer, align 16
-  %177 = call i64 @llvm.bswap.i64(i64 %176)
-  switch i8 %132, label %208 [
-    i8 1, label %178
+.critedge:                                        ; preds = %140
+  %178 = load i64, ptr @capture_android_bluetooth_external_parser.buffer, align 16
+  %179 = call i64 @llvm.bswap.i64(i64 %178)
+  switch i8 %134, label %210 [
+    i8 1, label %180
     i8 2, label %.critedge._crit_edge
-    i8 3, label %198
+    i8 3, label %200
   ]
 
 .critedge._crit_edge:                             ; preds = %.critedge
   %.pre = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 12), align 4
-  br label %182
+  br label %184
 
-178:                                              ; preds = %.critedge
+180:                                              ; preds = %.critedge
   store i32 0, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 4), align 4
-  %179 = zext i8 %139 to i32
-  %180 = add nuw nsw i32 %179, 8
-  %181 = add nuw nsw i64 %140, 8
-  br label %210
+  %181 = zext i8 %141 to i32
+  %182 = add nuw nsw i32 %181, 8
+  %183 = add nuw nsw i64 %142, 8
+  br label %212
 
-182:                                              ; preds = %.critedge._crit_edge, %.critedge.thread
-  %.pre-phi = phi i64 [ %140, %.critedge._crit_edge ], [ %147, %.critedge.thread ]
-  %183 = phi i8 [ %.pre, %.critedge._crit_edge ], [ %148, %.critedge.thread ]
-  %184 = phi i8 [ %139, %.critedge._crit_edge ], [ %146, %.critedge.thread ]
-  %185 = phi i64 [ %177, %.critedge._crit_edge ], [ %154, %.critedge.thread ]
-  %186 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 10), align 2
-  %187 = and i8 %186, -128
-  %188 = zext i8 %187 to i32
-  %189 = shl nuw nsw i32 %188, 17
-  store i32 %189, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 4), align 4
-  %190 = zext i8 %184 to i32
-  %191 = zext i8 %183 to i32
-  %192 = shl nuw nsw i32 %191, 8
-  %193 = add nuw nsw i32 %190, 9
-  %194 = add nuw nsw i32 %193, %192
-  %195 = add nuw nsw i64 %.pre-phi, 9
-  %196 = zext nneg i32 %192 to i64
-  %197 = add nuw nsw i64 %195, %196
-  br label %210
+184:                                              ; preds = %.critedge._crit_edge, %.critedge.thread
+  %.pre-phi = phi i64 [ %142, %.critedge._crit_edge ], [ %149, %.critedge.thread ]
+  %185 = phi i8 [ %.pre, %.critedge._crit_edge ], [ %150, %.critedge.thread ]
+  %186 = phi i8 [ %141, %.critedge._crit_edge ], [ %148, %.critedge.thread ]
+  %187 = phi i64 [ %179, %.critedge._crit_edge ], [ %156, %.critedge.thread ]
+  %188 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 10), align 2
+  %189 = and i8 %188, -128
+  %190 = zext i8 %189 to i32
+  %191 = shl nuw nsw i32 %190, 17
+  store i32 %191, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 4), align 4
+  %192 = zext i8 %186 to i32
+  %193 = zext i8 %185 to i32
+  %194 = shl nuw nsw i32 %193, 8
+  %195 = add nuw nsw i32 %192, 9
+  %196 = add nuw nsw i32 %195, %194
+  %197 = add nuw nsw i64 %.pre-phi, 9
+  %198 = zext nneg i32 %194 to i64
+  %199 = add nuw nsw i64 %197, %198
+  br label %212
 
-198:                                              ; preds = %.critedge.thread168, %.critedge
-  %.pre-phi222 = phi i64 [ %160, %.critedge.thread168 ], [ %140, %.critedge ]
-  %199 = phi i8 [ %159, %.critedge.thread168 ], [ %139, %.critedge ]
-  %200 = phi i64 [ %163, %.critedge.thread168 ], [ %177, %.critedge ]
-  %201 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 10), align 2
-  %202 = and i8 %201, -128
-  %203 = zext i8 %202 to i32
-  %204 = shl nuw nsw i32 %203, 17
-  store i32 %204, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 4), align 4
-  %205 = zext i8 %199 to i32
-  %206 = add nuw nsw i32 %205, 8
-  %207 = add nuw nsw i64 %.pre-phi222, 8
-  br label %210
+200:                                              ; preds = %.critedge.thread168, %.critedge
+  %.pre-phi220 = phi i64 [ %162, %.critedge.thread168 ], [ %142, %.critedge ]
+  %201 = phi i8 [ %161, %.critedge.thread168 ], [ %141, %.critedge ]
+  %202 = phi i64 [ %165, %.critedge.thread168 ], [ %179, %.critedge ]
+  %203 = load i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 10), align 2
+  %204 = and i8 %203, -128
+  %205 = zext i8 %204 to i32
+  %206 = shl nuw nsw i32 %205, 17
+  store i32 %206, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 4), align 4
+  %207 = zext i8 %201 to i32
+  %208 = add nuw nsw i32 %207, 8
+  %209 = add nuw nsw i64 %.pre-phi220, 8
+  br label %212
 
-208:                                              ; preds = %.critedge
+210:                                              ; preds = %.critedge
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1863, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.190) #16
-  %209 = call i32 @close(i32 noundef %.1131.ph) #16
-  br label %231
+  %211 = call i32 @close(i32 noundef %.1131.ph) #16
+  br label %233
 
-210:                                              ; preds = %.critedge.thread169, %198, %182, %178
-  %211 = phi i64 [ %172, %.critedge.thread169 ], [ %200, %198 ], [ %185, %182 ], [ %177, %178 ]
-  %.0132 = phi i32 [ %174, %.critedge.thread169 ], [ %206, %198 ], [ %194, %182 ], [ %180, %178 ]
-  %.0128 = phi i64 [ %175, %.critedge.thread169 ], [ %207, %198 ], [ %197, %182 ], [ %181, %178 ]
-  %212 = load i32, ptr @capture_android_bluetooth_external_parser.id, align 4
-  %213 = add i32 %212, 1
-  store i32 %213, ptr @capture_android_bluetooth_external_parser.id, align 4
-  %214 = add i64 %211, -62168256000000000
-  %215 = zext nneg i32 %.0132 to i64
-  %216 = udiv i64 %214, 1000000
-  %217 = and i64 %216, 4294967295
-  %218 = urem i64 %214, 1000000
-  %219 = trunc i64 %218 to i32
-  %220 = mul nuw nsw i32 %219, 1000
-  %221 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %15, ptr %16, ptr noundef %1, ptr noundef nonnull getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 4), i64 noundef %215, i64 noundef %215, i64 noundef %217, i32 noundef %220)
-  %222 = zext i1 %221 to i32
-  store i32 %222, ptr @endless_loop, align 4
+212:                                              ; preds = %.critedge.thread169, %200, %184, %180
+  %213 = phi i64 [ %174, %.critedge.thread169 ], [ %202, %200 ], [ %187, %184 ], [ %179, %180 ]
+  %.0132 = phi i32 [ %176, %.critedge.thread169 ], [ %208, %200 ], [ %196, %184 ], [ %182, %180 ]
+  %.0128 = phi i64 [ %177, %.critedge.thread169 ], [ %209, %200 ], [ %199, %184 ], [ %183, %180 ]
+  %214 = load i32, ptr @capture_android_bluetooth_external_parser.id, align 4
+  %215 = add i32 %214, 1
+  store i32 %215, ptr @capture_android_bluetooth_external_parser.id, align 4
+  %216 = add i64 %213, -62168256000000000
+  %217 = zext nneg i32 %.0132 to i64
+  %218 = udiv i64 %216, 1000000
+  %219 = and i64 %218, 4294967295
+  %220 = urem i64 %216, 1000000
+  %221 = trunc nuw nsw i64 %220 to i32
+  %222 = mul nuw nsw i32 %221, 1000
+  %223 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %15, ptr %16, ptr noundef %1, ptr noundef nonnull getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 4), i64 noundef %217, i64 noundef %217, i64 noundef %219, i32 noundef %222)
+  %224 = zext i1 %223 to i32
+  store i32 %224, ptr @endless_loop, align 4
   %.neg = add nsw i64 %.1, -4
-  %223 = sub nsw i64 %.neg, %.0128
-  %224 = icmp slt i64 %223, 0
-  br i1 %224, label %225, label %227
+  %225 = sub nsw i64 %.neg, %.0128
+  %226 = icmp slt i64 %225, 0
+  br i1 %226, label %227, label %229
 
-225:                                              ; preds = %210
+227:                                              ; preds = %212
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1883, ptr noundef nonnull @__func__.capture_android_bluetooth_external_parser, ptr noundef nonnull @.str.191) #16
-  %226 = call i32 @close(i32 noundef %.1131.ph) #16
-  br label %231
+  %228 = call i32 @close(i32 noundef %.1131.ph) #16
+  br label %233
 
-227:                                              ; preds = %210
-  %228 = getelementptr i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 4), i64 %.0128
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_external_parser.buffer, ptr align 1 %228, i64 %223, i1 false)
-  br label %131, !llvm.loop !32
+229:                                              ; preds = %212
+  %230 = getelementptr i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_external_parser.buffer, i64 0, i64 4), i64 %.0128
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_external_parser.buffer, ptr align 1 %230, i64 %225, i1 false)
+  br label %133, !llvm.loop !23
 
-229:                                              ; preds = %98
-  %230 = call i32 @close(i32 noundef %.1131.ph) #16
-  br label %231
+231:                                              ; preds = %100
+  %232 = call i32 @close(i32 noundef %.1131.ph) #16
+  br label %233
 
-231:                                              ; preds = %78, %229, %225, %208, %127, %123, %114, %104, %90, %86, %76, %69, %62, %33
-  %.0 = phi i32 [ -1, %33 ], [ -1, %62 ], [ -1, %69 ], [ -1, %76 ], [ -1, %104 ], [ -1, %114 ], [ -1, %123 ], [ -1, %127 ], [ -1, %208 ], [ -1, %225 ], [ 0, %229 ], [ 21, %86 ], [ -1, %90 ], [ 40, %78 ]
+233:                                              ; preds = %80, %231, %227, %210, %129, %125, %116, %106, %92, %88, %78, %71, %64, %35
+  %.0 = phi i32 [ -1, %35 ], [ -1, %64 ], [ -1, %71 ], [ -1, %78 ], [ -1, %106 ], [ -1, %116 ], [ -1, %125 ], [ -1, %129 ], [ -1, %210 ], [ -1, %227 ], [ 0, %231 ], [ 21, %88 ], [ -1, %92 ], [ 40, %80 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @capture_android_bluetooth_btsnoop_net(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 42) i32 @capture_android_bluetooth_btsnoop_net(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = tail call fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %1, i32 noundef 99)
   %6 = extractvalue { i32, ptr } %5, 0
   %7 = extractvalue { i32, ptr } %5, 1
@@ -2992,174 +3000,176 @@ define internal fastcc noundef i32 @capture_android_bluetooth_btsnoop_net(ptr no
 
 8:                                                ; preds = %20, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %20 ]
-  %9 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.i
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #19
-  %12 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %10, i64 noundef %11) #19
-  %.not.i.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i.not.i, label %13, label %20
+  %9 = phi ptr [ @.str.80, %4 ], [ %22, %20 ]
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #19
+  %11 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %9, i64 noundef %10) #19
+  %.not.i.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i.not.i, label %12, label %20
 
-13:                                               ; preds = %8
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %15 = add i64 %11, 1
-  %16 = icmp ugt i64 %14, %15
+12:                                               ; preds = %8
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #19
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
+  %15 = add i64 %14, 1
+  %16 = icmp ugt i64 %13, %15
   br i1 %16, label %17, label %20
 
-17:                                               ; preds = %13
-  %18 = getelementptr i8, ptr %0, i64 %11
+17:                                               ; preds = %12
+  %18 = getelementptr i8, ptr %0, i64 %14
   %19 = getelementptr i8, ptr %18, i64 1
   br label %get_serial_from_interface.exit
 
-20:                                               ; preds = %13, %8
+20:                                               ; preds = %12, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %21 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.next.i
+  %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %.not.i, label %get_serial_from_interface.exit, label %8, !llvm.loop !20
+  br i1 %.not.i, label %get_serial_from_interface.exit, label %8, !llvm.loop !12
 
 get_serial_from_interface.exit:                   ; preds = %20, %17
   %.08.i = phi ptr [ %19, %17 ], [ null, %20 ]
   %.val = load i16, ptr %3, align 2
-  %21 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
-  %22 = icmp eq i32 %21, -1
-  br i1 %22, label %87, label %23
+  %23 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
+  %24 = icmp eq i32 %23, -1
+  br i1 %24, label %89, label %25
 
-23:                                               ; preds = %get_serial_from_interface.exit
-  %24 = tail call fastcc i32 @adb_send(i32 noundef %21, ptr noundef nonnull @.str.195), !range !21
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %.preheader98, label %25
+25:                                               ; preds = %get_serial_from_interface.exit
+  %26 = tail call fastcc i32 @adb_send(i32 noundef %23, ptr noundef nonnull @.str.195)
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %.preheader98, label %27
 
-25:                                               ; preds = %23
+27:                                               ; preds = %25
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1934, ptr noundef nonnull @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.195) #16
   br label %.sink.split
 
-26:                                               ; preds = %.preheader98
-  %27 = add i64 %32, %.087105
-  %28 = icmp slt i64 %27, 16
-  br i1 %28, label %.preheader98, label %.outer, !llvm.loop !33
+28:                                               ; preds = %.preheader98
+  %29 = add i64 %34, %.087104
+  %30 = icmp slt i64 %29, 16
+  br i1 %30, label %.preheader98, label %.outer, !llvm.loop !24
 
-.preheader98:                                     ; preds = %23, %26
-  %.087105 = phi i64 [ %27, %26 ], [ 0, %23 ]
-  %29 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 %.087105
-  %30 = shl i64 %.087105, 32
-  %sext97 = sub i64 68719476736, %30
-  %31 = ashr exact i64 %sext97, 32
-  %32 = tail call i64 @recv(i32 noundef %21, ptr noundef %29, i64 noundef %31, i32 noundef 0) #16
-  %33 = icmp slt i64 %32, 1
-  br i1 %33, label %34, label %26
+.preheader98:                                     ; preds = %25, %28
+  %.087104 = phi i64 [ %29, %28 ], [ 0, %25 ]
+  %31 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 %.087104
+  %32 = shl i64 %.087104, 32
+  %sext97 = sub i64 68719476736, %32
+  %33 = ashr exact i64 %sext97, 32
+  %34 = tail call i64 @recv(i32 noundef %23, ptr noundef %31, i64 noundef %33, i32 noundef 0) #16
+  %35 = icmp slt i64 %34, 1
+  br i1 %35, label %36, label %28
 
-34:                                               ; preds = %.preheader98
+36:                                               ; preds = %.preheader98
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1943, ptr noundef nonnull @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef nonnull @.str.175) #16
   br label %.sink.split
 
-35:                                               ; preds = %.outer, %37
-  %36 = load i32, ptr @endless_loop, align 4
-  %.not93 = icmp eq i32 %36, 0
-  br i1 %.not93, label %.sink.split, label %37
+37:                                               ; preds = %.outer, %39
+  %38 = load i32, ptr @endless_loop, align 4
+  %.not93 = icmp eq i32 %38, 0
+  br i1 %.not93, label %.sink.split, label %39
 
-37:                                               ; preds = %35
-  %38 = tail call ptr @__errno_location() #20
-  store i32 0, ptr %38, align 4
-  %39 = tail call i64 @recv(i32 noundef %21, ptr noundef %gep, i64 noundef %85, i32 noundef 0) #16
-  %40 = load i32, ptr %38, align 4
-  switch i32 %40, label %41 [
-    i32 11, label %35
-    i32 0, label %43
+39:                                               ; preds = %37
+  %40 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %40, align 4
+  %41 = tail call i64 @recv(i32 noundef %23, ptr noundef %gep, i64 noundef %87, i32 noundef 0) #16
+  %42 = load i32, ptr %40, align 4
+  switch i32 %42, label %43 [
+    i32 11, label %37
+    i32 0, label %45
   ]
 
-41:                                               ; preds = %37
-  %42 = tail call ptr @strerror(i32 noundef %40) #16
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1963, ptr noundef nonnull @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef nonnull @.str.162, ptr noundef %42) #16
+43:                                               ; preds = %39
+  %44 = tail call ptr @strerror(i32 noundef %42) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1963, ptr noundef nonnull @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef nonnull @.str.162, ptr noundef %44) #16
   br label %.sink.split
 
-43:                                               ; preds = %37
-  %44 = icmp slt i64 %39, 1
-  br i1 %44, label %45, label %46
+45:                                               ; preds = %39
+  %46 = icmp slt i64 %41, 1
+  br i1 %46, label %47, label %48
 
-45:                                               ; preds = %43
+47:                                               ; preds = %45
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1969, ptr noundef nonnull @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef nonnull @.str.175) #16
   br label %.sink.split
 
-46:                                               ; preds = %43
-  %47 = add i64 %39, %.1.ph
-  %48 = icmp sgt i64 %47, 23
-  br i1 %48, label %.lr.ph, label %.critedge
+48:                                               ; preds = %45
+  %49 = add i64 %41, %.1.ph
+  %50 = icmp sgt i64 %49, 23
+  br i1 %50, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %46, %80
-  %.2106 = phi i64 [ %76, %80 ], [ %47, %46 ]
-  %49 = load i32, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 8), align 8
-  %50 = tail call i32 @llvm.bswap.i32(i32 %49)
-  %51 = add i32 %50, 24
-  %52 = sext i32 %51 to i64
-  %.not95 = icmp slt i64 %.2106, %52
-  br i1 %.not95, label %.critedge, label %53
+.lr.ph:                                           ; preds = %48, %82
+  %.2105 = phi i64 [ %78, %82 ], [ %49, %48 ]
+  %51 = load i32, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 8), align 8
+  %52 = tail call i32 @llvm.bswap.i32(i32 %51)
+  %53 = add i32 %52, 24
+  %54 = sext i32 %53 to i64
+  %.not95 = icmp slt i64 %.2105, %54
+  br i1 %.not95, label %.critedge, label %55
 
-53:                                               ; preds = %.lr.ph
-  %54 = load i64, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 20), align 8
-  %55 = tail call i64 @llvm.bswap.i64(i64 %54)
-  %56 = add i64 %55, -62168256000000000
-  %57 = load i32, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 12), align 4
-  %58 = and i32 %57, 16777216
-  store i32 %58, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 24), align 8
-  %59 = sext i32 %50 to i64
-  %60 = add nsw i64 %59, 4
-  %61 = load i32, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 4), align 4
-  %62 = tail call i32 @llvm.bswap.i32(i32 %61)
-  %63 = sext i32 %62 to i64
-  %64 = add nsw i64 %63, 4
-  %65 = udiv i64 %56, 1000000
-  %66 = and i64 %65, 4294967295
-  %67 = urem i64 %56, 1000000
-  %68 = trunc i64 %67 to i32
-  %69 = mul nuw nsw i32 %68, 1000
-  %70 = tail call fastcc zeroext i1 @extcap_dumper_dump(i32 %6, ptr %7, ptr noundef %1, ptr noundef nonnull getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 24), i64 noundef %60, i64 noundef %64, i64 noundef %66, i32 noundef %69)
-  %71 = zext i1 %70 to i32
-  store i32 %71, ptr @endless_loop, align 4
-  %72 = load i32, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 8), align 8
-  %73 = tail call i32 @llvm.bswap.i32(i32 %72)
-  %74 = add i32 %73, 24
-  %75 = sext i32 %74 to i64
-  %76 = sub i64 %.2106, %75
-  %77 = icmp slt i64 %76, 0
-  br i1 %77, label %78, label %79
+55:                                               ; preds = %.lr.ph
+  %56 = load i64, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 20), align 8
+  %57 = tail call i64 @llvm.bswap.i64(i64 %56)
+  %58 = add i64 %57, -62168256000000000
+  %59 = load i32, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 12), align 4
+  %60 = and i32 %59, 16777216
+  store i32 %60, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 24), align 8
+  %61 = sext i32 %52 to i64
+  %62 = add nsw i64 %61, 4
+  %63 = load i32, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 4), align 4
+  %64 = tail call i32 @llvm.bswap.i32(i32 %63)
+  %65 = sext i32 %64 to i64
+  %66 = add nsw i64 %65, 4
+  %67 = udiv i64 %58, 1000000
+  %68 = and i64 %67, 4294967295
+  %69 = urem i64 %58, 1000000
+  %70 = trunc nuw nsw i64 %69 to i32
+  %71 = mul nuw nsw i32 %70, 1000
+  %72 = tail call fastcc zeroext i1 @extcap_dumper_dump(i32 %6, ptr %7, ptr noundef %1, ptr noundef nonnull getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 24), i64 noundef %62, i64 noundef %66, i64 noundef %68, i32 noundef %71)
+  %73 = zext i1 %72 to i32
+  store i32 %73, ptr @endless_loop, align 4
+  %74 = load i32, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 8), align 8
+  %75 = tail call i32 @llvm.bswap.i32(i32 %74)
+  %76 = add i32 %75, 24
+  %77 = sext i32 %76 to i64
+  %78 = sub i64 %.2105, %77
+  %79 = icmp slt i64 %78, 0
+  br i1 %79, label %80, label %81
 
-78:                                               ; preds = %53
+80:                                               ; preds = %55
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1995, ptr noundef nonnull @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef nonnull @.str.191) #16
   br label %.sink.split
 
-79:                                               ; preds = %53
-  %.not96 = icmp eq i64 %76, 0
-  br i1 %.not96, label %.critedge, label %80
+81:                                               ; preds = %55
+  %.not96 = icmp eq i64 %78, 0
+  br i1 %.not96, label %.critedge, label %82
 
-80:                                               ; preds = %79
-  %81 = sext i32 %73 to i64
-  %82 = getelementptr i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 28), i64 %81
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 4), ptr align 1 %82, i64 %76, i1 false)
-  %83 = icmp ugt i64 %76, 23
-  br i1 %83, label %.lr.ph, label %.critedge, !llvm.loop !34
+82:                                               ; preds = %81
+  %83 = sext i32 %75 to i64
+  %84 = getelementptr i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 28), i64 %83
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 4), ptr align 1 %84, i64 %78, i1 false)
+  %85 = icmp ugt i64 %78, 23
+  br i1 %85, label %.lr.ph, label %.critedge, !llvm.loop !25
 
-.critedge:                                        ; preds = %79, %.lr.ph, %80, %46
-  %.2.lcssa = phi i64 [ %47, %46 ], [ 0, %79 ], [ %76, %80 ], [ %.2106, %.lr.ph ]
-  br label %.outer, !llvm.loop !35
+.critedge:                                        ; preds = %81, %.lr.ph, %82, %48
+  %.2.lcssa = phi i64 [ %49, %48 ], [ 0, %81 ], [ %78, %82 ], [ %.2105, %.lr.ph ]
+  br label %.outer, !llvm.loop !26
 
-.outer:                                           ; preds = %26, %.critedge
-  %.1.ph = phi i64 [ %.2.lcssa, %.critedge ], [ 0, %26 ]
+.outer:                                           ; preds = %28, %.critedge
+  %.1.ph = phi i64 [ %.2.lcssa, %.critedge ], [ 0, %28 ]
   %gep = getelementptr i8, ptr getelementptr inbounds ([65535 x i8], ptr @capture_android_bluetooth_btsnoop_net.packet, i64 0, i64 4), i64 %.1.ph
-  %84 = shl i64 %.1.ph, 32
-  %sext = sub i64 281453501874176, %84
-  %85 = ashr exact i64 %sext, 32
-  br label %35
+  %86 = shl i64 %.1.ph, 32
+  %sext = sub i64 281453501874176, %86
+  %87 = ashr exact i64 %sext, 32
+  br label %37
 
-.sink.split:                                      ; preds = %35, %25, %34, %41, %45, %78
-  %.0.ph = phi i32 [ -1, %78 ], [ -1, %45 ], [ -1, %41 ], [ -1, %34 ], [ 29, %25 ], [ 0, %35 ]
-  %86 = tail call i32 @close(i32 noundef %21) #16
-  br label %87
+.sink.split:                                      ; preds = %37, %27, %36, %43, %47, %80
+  %.0.ph = phi i32 [ -1, %80 ], [ -1, %47 ], [ -1, %43 ], [ -1, %36 ], [ 29, %27 ], [ 0, %37 ]
+  %88 = tail call i32 @close(i32 noundef %23) #16
+  br label %89
 
-87:                                               ; preds = %.sink.split, %get_serial_from_interface.exit
+89:                                               ; preds = %.sink.split, %get_serial_from_interface.exit
   %.0 = phi i32 [ 41, %get_serial_from_interface.exit ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @capture_android_tcpdump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 46) i32 @capture_android_tcpdump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -3209,7 +3219,7 @@ define internal fastcc noundef i32 @capture_android_tcpdump(ptr noundef %0, ptr 
   %27 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.196, ptr noundef %17, ptr noundef %26) #16
   call void @g_free(ptr noundef %17) #16
   call void @g_free(ptr noundef %26) #16
-  %28 = call fastcc i32 @adb_send(i32 noundef %21, ptr noundef %27), !range !21
+  %28 = call fastcc i32 @adb_send(i32 noundef %21, ptr noundef %27)
   call void @g_free(ptr noundef %27) #16
   %.not107 = icmp eq i32 %28, 0
   br i1 %.not107, label %.preheader, label %30
@@ -3253,7 +3263,7 @@ define internal fastcc noundef i32 @capture_android_tcpdump(ptr noundef %0, ptr 
   %44 = shl i64 %42, 32
   %sext111 = sub i64 103079215104, %44
   %45 = ashr exact i64 %sext111, 32
-  br i1 %43, label %.outer119.split, label %48, !llvm.loop !36
+  br i1 %43, label %.outer119.split, label %48, !llvm.loop !27
 
 .outer119.split:                                  ; preds = %.preheader, %.outer119
   %46 = phi i64 [ 24, %.preheader ], [ %45, %.outer119 ]
@@ -3394,7 +3404,7 @@ define internal fastcc noundef i32 @capture_android_tcpdump(ptr noundef %0, ptr 
   %104 = add i64 %.0129, %93
   %105 = sub i64 %81, %104
   %106 = icmp sgt i64 %105, 16
-  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %103, %90, %80
   %.0.lcssa = phi i64 [ 0, %80 ], [ %.0129, %90 ], [ %104, %103 ]
@@ -3408,7 +3418,7 @@ define internal fastcc noundef i32 @capture_android_tcpdump(ptr noundef %0, ptr 
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %108, %._crit_edge
-  br label %.outer, !llvm.loop !38
+  br label %.outer, !llvm.loop !29
 
 110:                                              ; preds = %68
   %111 = call i32 @close(i32 noundef %21) #16
@@ -3609,7 +3619,7 @@ define internal fastcc i32 @adb_connect_transport(ptr noundef %0, i16 %.0.val, p
 
 13:                                               ; preds = %7, %8
   %.015 = phi ptr [ %3, %8 ], [ @.str.130, %7 ]
-  %14 = call fastcc i32 @adb_send(i32 noundef %4, ptr noundef nonnull %.015), !range !21
+  %14 = call fastcc i32 @adb_send(i32 noundef %4, ptr noundef nonnull %.015)
   %.not18 = icmp eq i32 %14, 0
   br i1 %.not18, label %17, label %15
 
@@ -3654,7 +3664,7 @@ define internal fastcc noundef ptr @adb_send_and_read(i32 noundef %0, ptr nounde
 15:                                               ; preds = %.preheader
   %16 = add i64 %21, %.04661
   %17 = icmp slt i64 %16, 4
-  br i1 %17, label %.preheader, label %24, !llvm.loop !39
+  br i1 %17, label %.preheader, label %24, !llvm.loop !30
 
 .preheader:                                       ; preds = %10, %15
   %.04661 = phi i64 [ %16, %15 ], [ 0, %10 ]
@@ -3736,17 +3746,17 @@ declare i64 @g_ascii_strtoll(ptr noundef, ptr noundef, i32 noundef) local_unname
 define internal fastcc void @new_interface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.135, ptr noundef %1, ptr noundef %3) #16
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.136, ptr noundef %4, ptr noundef %2, ptr noundef %3) #16
-  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(26) @.str.39, i64 noundef 25) #19
+  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(26) @.str.39, i64 noundef 25) #19
   %.not.i.not = icmp eq i32 %8, 0
   br i1 %.not.i.not, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(34) @.str.40, i64 noundef 33) #19
+  %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(34) @.str.40, i64 noundef 33) #19
   %.not.i25.not = icmp eq i32 %10, 0
   br i1 %.not.i25.not, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(30) @.str.41, i64 noundef 29) #19
+  %12 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(30) @.str.41, i64 noundef 29) #19
   %.not.i26.not = icmp eq i32 %12, 0
   br i1 %.not.i26.not, label %13, label %14
 
@@ -3755,47 +3765,47 @@ define internal fastcc void @new_interface(ptr noundef %0, ptr noundef %1, ptr n
   br label %33
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
+  %15 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(20) @.str.80, i64 noundef 19) #19
   %.not.i.not.i = icmp eq i32 %15, 0
   br i1 %.not.i.not.i, label %is_logcat_interface.exit.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(22) @.str.82, i64 noundef 21) #19
+  %17 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(22) @.str.82, i64 noundef 21) #19
   %.not.i6.not.i = icmp eq i32 %17, 0
   br i1 %.not.i6.not.i, label %is_logcat_interface.exit.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(21) @.str.84, i64 noundef 20) #19
+  %19 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(21) @.str.84, i64 noundef 20) #19
   %.not.i7.not.i = icmp eq i32 %19, 0
   br i1 %.not.i7.not.i, label %is_logcat_interface.exit.thread, label %is_logcat_interface.exit
 
 is_logcat_interface.exit:                         ; preds = %18
-  %20 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(22) @.str.86, i64 noundef 21) #19
+  %20 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(22) @.str.86, i64 noundef 21) #19
   %.not.i8.i = icmp eq i32 %20, 0
   br i1 %.not.i8.i, label %is_logcat_interface.exit.thread, label %21
 
 21:                                               ; preds = %is_logcat_interface.exit
-  %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(25) @.str.88, i64 noundef 24) #19
+  %22 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(25) @.str.88, i64 noundef 24) #19
   %.not.i.not.i27 = icmp eq i32 %22, 0
   br i1 %.not.i.not.i27, label %is_logcat_interface.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(27) @.str.89, i64 noundef 26) #19
+  %24 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(27) @.str.89, i64 noundef 26) #19
   %.not.i8.not.i = icmp eq i32 %24, 0
   br i1 %.not.i8.not.i, label %is_logcat_interface.exit.thread, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(26) @.str.90, i64 noundef 25) #19
+  %26 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(26) @.str.90, i64 noundef 25) #19
   %.not.i9.not.i = icmp eq i32 %26, 0
   br i1 %.not.i9.not.i, label %is_logcat_interface.exit.thread, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(27) @.str.91, i64 noundef 26) #19
+  %28 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(27) @.str.91, i64 noundef 26) #19
   %.not.i10.not.i = icmp eq i32 %28, 0
   br i1 %.not.i10.not.i, label %is_logcat_interface.exit.thread, label %is_logcat_text_interface.exit
 
 is_logcat_text_interface.exit:                    ; preds = %27
-  %29 = tail call fastcc i32 @is_specified_interface(ptr noundef %6, ptr noundef nonnull @.str.92), !range !10
+  %29 = tail call fastcc i32 @is_specified_interface(ptr noundef readonly %6, ptr noundef nonnull @.str.92)
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %30, label %is_logcat_interface.exit.thread
 
@@ -3804,7 +3814,7 @@ is_logcat_interface.exit.thread:                  ; preds = %21, %23, %25, %27, 
   br label %33
 
 30:                                               ; preds = %is_logcat_text_interface.exit
-  %31 = tail call fastcc i32 @is_specified_interface(ptr noundef %6, ptr noundef nonnull @.str.42), !range !10
+  %31 = tail call fastcc i32 @is_specified_interface(ptr noundef %6, ptr noundef nonnull @.str.42)
   %.not24 = icmp eq i32 %31, 0
   br i1 %.not24, label %33, label %32
 
@@ -3883,7 +3893,7 @@ declare void @g_match_info_free(ptr noundef) local_unnamed_addr #1
 declare void @g_regex_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @adb_send(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 34) i32 @adb_send(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [5 x i8], align 1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 5, ptr noundef nonnull @.str.109, i64 noundef %4) #16
@@ -3910,7 +3920,7 @@ define internal fastcc i32 @adb_send(i32 noundef %0, ptr noundef %1) unnamed_add
   %14 = trunc i64 %21 to i32
   %15 = add i32 %.01922, %14
   %16 = icmp slt i32 %15, 4
-  br i1 %16, label %.preheader, label %24, !llvm.loop !40
+  br i1 %16, label %.preheader, label %24, !llvm.loop !31
 
 .preheader:                                       ; preds = %9, %13
   %.01922 = phi i32 [ %15, %13 ], [ 0, %9 ]
@@ -4145,21 +4155,21 @@ attributes #20 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 8}
-!8 = !{i32 -1, i32 43}
-!9 = !{i32 -1, i32 45}
-!10 = !{i32 0, i32 2}
-!11 = !{i32 -1, i32 39}
-!12 = !{i32 -1, i32 41}
-!13 = !{i32 -1, i32 42}
-!14 = !{i32 -1, i32 46}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = !{i32 0, i32 34}
+!21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
@@ -4170,12 +4180,3 @@ attributes #20 = { nounwind willreturn memory(none) }
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
