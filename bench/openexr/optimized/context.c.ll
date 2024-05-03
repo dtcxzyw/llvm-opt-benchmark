@@ -731,10 +731,10 @@ if.end10.i:                                       ; preds = %if.end.i9
 
 if.then13.i:                                      ; preds = %if.end10.i
   %call14.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 47) #15
-  %conv15.i = trunc i64 %add.i to i32
+  %conv15.i = trunc nuw nsw i64 %add.i to i32
   %tmp_filename.i = getelementptr inbounds i8, ptr %16, i64 24
   store i32 %conv15.i, ptr %tmp_filename.i, align 8
-  %conv18.i = trunc i64 %add11.i to i32
+  %conv18.i = trunc nuw nsw i64 %add11.i to i32
   %alloc_size.i = getelementptr inbounds i8, ptr %16, i64 28
   store i32 %conv18.i, ptr %alloc_size.i, align 4
   %str21.i = getelementptr inbounds i8, ptr %16, i64 32
@@ -1070,7 +1070,6 @@ if.then10:                                        ; preds = %if.end5
   br label %return
 
 if.end13:                                         ; preds = %if.end5
-  %conv14 = trunc i64 %call6 to i32
   %call15 = tail call i32 @internal_exr_is_standard_type(ptr noundef nonnull %type) #13
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end20, label %if.then17
@@ -1130,7 +1129,7 @@ for.body.lr.ph:                                   ; preds = %if.end35
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc62
-  %13 = phi i32 [ %12, %for.body.lr.ph ], [ %25, %for.inc62 ]
+  %13 = phi i32 [ %12, %for.body.lr.ph ], [ %26, %for.inc62 ]
   %indvars.iv68 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next69, %for.inc62 ]
   %14 = load ptr, ptr %parts, align 8
   %arrayidx41 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv68
@@ -1153,27 +1152,27 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
   store ptr %18, ptr %ent, align 8
   %type_name_length = getelementptr inbounds i8, ptr %18, i64 17
   %19 = load i8, ptr %type_name_length, align 1
-  %conv50 = zext i8 %19 to i32
-  %cmp51 = icmp eq i32 %conv50, %conv14
+  %20 = zext i8 %19 to i64
+  %cmp51 = icmp eq i64 %call6, %20
   br i1 %cmp51, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body47
   %type_name = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %type_name, align 8
-  %call53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %type) #15
+  %21 = load ptr, ptr %type_name, align 8
+  %call53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %type) #15
   %cmp54 = icmp eq i32 %call53, 0
   br i1 %cmp54, label %if.then56, label %for.inc
 
 if.then56:                                        ; preds = %land.lhs.true
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %unpack_func_ptr57 = getelementptr inbounds i8, ptr %22, i64 32
+  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %unpack_func_ptr57 = getelementptr inbounds i8, ptr %23, i64 32
   store ptr %unpack_func_ptr, ptr %unpack_func_ptr57, align 8
-  %23 = load ptr, ptr %21, align 8
-  %pack_func_ptr58 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = load ptr, ptr %22, align 8
+  %pack_func_ptr58 = getelementptr inbounds i8, ptr %24, i64 40
   store ptr %pack_func_ptr, ptr %pack_func_ptr58, align 8
-  %24 = load ptr, ptr %21, align 8
-  %destroy_unpacked_func_ptr59 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = load ptr, ptr %22, align 8
+  %destroy_unpacked_func_ptr59 = getelementptr inbounds i8, ptr %25, i64 48
   store ptr %destroy_unpacked_func_ptr, ptr %destroy_unpacked_func_ptr59, align 8
   br label %for.inc
 
@@ -1187,10 +1186,10 @@ for.inc62.loopexit:                               ; preds = %for.inc
   br label %for.inc62
 
 for.inc62:                                        ; preds = %for.inc62.loopexit, %for.body
-  %25 = phi i32 [ %.pre, %for.inc62.loopexit ], [ %13, %for.body ]
+  %26 = phi i32 [ %.pre, %for.inc62.loopexit ], [ %13, %for.body ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %26 = sext i32 %25 to i64
-  %cmp39 = icmp slt i64 %indvars.iv.next69, %26
+  %27 = sext i32 %26 to i64
+  %cmp39 = icmp slt i64 %indvars.iv.next69, %27
   br i1 %cmp39, label %for.body, label %for.end64, !llvm.loop !15
 
 for.end64:                                        ; preds = %for.inc62, %if.end35
@@ -1415,7 +1414,7 @@ for.body:                                         ; preds = %land.rhs
   br i1 %tobool14.not, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %for.body
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #13
   %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error, align 8
@@ -1442,7 +1441,7 @@ lor.lhs.false:                                    ; preds = %if.end22
 
 if.then28:                                        ; preds = %lor.lhs.false, %if.end22
   %call.i58 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #13
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %call29 = tail call i32 @exr_attr_set_int(ptr noundef nonnull %ctxt, i32 noundef %13, ptr noundef nonnull @.str.13, i32 noundef %call23) #13
   %call.i60 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #13
   %cmp30.not = icmp eq i32 %call29, 0
@@ -1552,7 +1551,7 @@ if.end3:                                          ; preds = %if.then, %if.then1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @default_read_func(ptr noundef %ctxt, ptr noundef readonly %userdata, ptr nocapture noundef %buffer, i64 noundef %sz, i64 noundef %offset, ptr noundef readonly %error_cb) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @default_read_func(ptr noundef %ctxt, ptr noundef readonly %userdata, ptr nocapture noundef %buffer, i64 noundef %sz, i64 noundef %offset, ptr noundef readonly %error_cb) #0 {
 entry:
   %tobool.not = icmp eq ptr %userdata, null
   br i1 %tobool.not, label %if.then, label %if.end3
@@ -1600,7 +1599,7 @@ if.end22:                                         ; preds = %do.body
   br i1 %cmp23, label %do.end, label %if.end25
 
 if.end25:                                         ; preds = %if.end22
-  %add = add nsw i64 %call11, %retsz.0
+  %add = add nuw nsw i64 %call11, %retsz.0
   %add.ptr = getelementptr inbounds i8, ptr %curbuf.0, i64 %call11
   %sub = sub i64 %readsz.0, %call11
   %add26 = add i64 %call11, %offset.addr.0
@@ -1666,7 +1665,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @default_write_func(ptr noundef %ctxt, ptr noundef readonly %userdata, ptr nocapture noundef readonly %buffer, i64 noundef %sz, i64 noundef %offset, ptr noundef readonly %error_cb) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @default_write_func(ptr noundef %ctxt, ptr noundef readonly %userdata, ptr nocapture noundef readonly %buffer, i64 noundef %sz, i64 noundef %offset, ptr noundef readonly %error_cb) #0 {
 entry:
   %tobool.not = icmp eq ptr %userdata, null
   br i1 %tobool.not, label %if.then, label %if.end3
@@ -1710,7 +1709,7 @@ if.then13:                                        ; preds = %do.body
   ]
 
 if.end22:                                         ; preds = %do.body
-  %add = add nsw i64 %call11, %retsz.0
+  %add = add nuw nsw i64 %call11, %retsz.0
   %add.ptr = getelementptr inbounds i8, ptr %curbuf.0, i64 %call11
   %sub = sub i64 %writesz.0, %call11
   %add23 = add i64 %call11, %offset.addr.0

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_obj_typename = external hidden local_unnamed_addr constant [12 x ptr], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lua_status(ptr nocapture noundef readonly %L) local_unnamed_addr #0 {
+define range(i32 0, 256) i32 @lua_status(ptr nocapture noundef readonly %L) local_unnamed_addr #0 {
 entry:
   %status = getelementptr inbounds i8, ptr %L, i64 11
   %0 = load i8, ptr %status, align 1
@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @lua_checkstack(ptr noundef %L, i32 noundef %size) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @lua_checkstack(ptr noundef %L, i32 noundef %size) local_unnamed_addr #1 {
 entry:
   %cmp = icmp sgt i32 %size, 8000
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -434,7 +434,7 @@ if.end:                                           ; preds = %if.then3
   store i64 %and10, ptr %env11, align 8
   %6 = load i64, ptr %f, align 8
   %shr = ashr i64 %6, 47
-  %conv13 = trunc i64 %shr to i32
+  %conv13 = trunc nsw i64 %shr to i32
   %7 = add nsw i32 %conv13, 13
   %cmp14 = icmp ult i32 %7, 9
   br i1 %cmp14, label %land.lhs.true, label %if.end66
@@ -577,7 +577,7 @@ index2adr.exit:                                   ; preds = %cond.true34.i, %con
 
 if.then32:                                        ; preds = %index2adr.exit
   %shr33 = ashr i64 %37, 47
-  %conv34 = trunc i64 %shr33 to i32
+  %conv34 = trunc nsw i64 %shr33 to i32
   %38 = add nsw i32 %conv34, 13
   %cmp36 = icmp ult i32 %38, 9
   br i1 %cmp36, label %land.lhs.true38, label %if.end66
@@ -846,7 +846,7 @@ land.end:                                         ; preds = %land.rhs, %index2ad
 declare hidden void @lj_state_growstack1(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @lua_type(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #6 {
+define range(i32 -1, 16) i32 @lua_type(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #6 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -951,7 +951,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %return, label %if.else
 
@@ -1083,7 +1083,7 @@ index2adr.exit.i:                                 ; preds = %cond.false36.i.i, %
   %retval.0.i.i = phi ptr [ %add.ptr6.i.i, %if.then3.i.i ], [ %tmptv.i.i, %if.then9.i.i ], [ %registrytv.i.i, %if.then15.i.i ], [ %tmptv27.i.i, %if.then23.i.i ], [ %nilnode.i.i, %cond.false.i.i ], [ %add.ptr.i.i, %if.then.i.i ], [ %arrayidx.i.i, %cond.true34.i.i ], [ %nilnode39.i.i, %cond.false36.i.i ]
   %21 = load i64, ptr %retval.0.i.i, align 8
   %shr.i = ashr i64 %21, 47
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nsw i64 %shr.i to i32
   %cmp.i = icmp ult i32 %conv.i, -13
   br i1 %cmp.i, label %lua_type.exit, label %if.else.i
 
@@ -1253,7 +1253,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @lua_iscfunction(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @lua_iscfunction(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #6 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -1377,7 +1377,7 @@ land.end:                                         ; preds = %land.rhs, %index2ad
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lua_isnumber(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @lua_isnumber(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #1 {
 entry:
   %tmp = alloca %union.TValue, align 8
   %cmp.i = icmp sgt i32 %idx, 0
@@ -1483,7 +1483,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %lor.end, label %lor.rhs
 
@@ -1507,7 +1507,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @lua_isstring(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @lua_isstring(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #6 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -1612,7 +1612,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp eq i32 %conv, -5
   %cmp4 = icmp ult i32 %conv, -13
   %narrow = or i1 %cmp, %cmp4
@@ -1621,7 +1621,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @lua_isuserdata(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @lua_isuserdata(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #6 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -1726,7 +1726,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp eq i32 %conv, -13
   %cmp4 = icmp eq i32 %conv, -4
   %narrow = or i1 %cmp, %cmp4
@@ -1960,7 +1960,7 @@ cond.end:                                         ; preds = %index2adr.exit54, %
 declare hidden i32 @lj_obj_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lua_equal(ptr noundef %L, i32 noundef %idx1, i32 noundef %idx2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @lua_equal(ptr noundef %L, i32 noundef %idx1, i32 noundef %idx2) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i32 %idx1, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -2166,11 +2166,11 @@ index2adr.exit74:                                 ; preds = %if.then.i66, %cond.
   %retval.0.i33 = phi ptr [ %add.ptr6.i65, %if.then3.i62 ], [ %tmptv.i36, %if.then9.i34 ], [ %registrytv.i32, %if.then15.i30 ], [ %tmptv27.i59, %if.then23.i57 ], [ %nilnode.i73, %cond.false.i71 ], [ %add.ptr.i68, %if.then.i66 ], [ %arrayidx.i53, %cond.true34.i49 ], [ %nilnode39.i56, %cond.false36.i54 ]
   %42 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %42, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   %.pre = load i64, ptr %retval.0.i33, align 8
   %shr3 = ashr i64 %.pre, 47
-  %conv4 = trunc i64 %shr3 to i32
+  %conv4 = trunc nsw i64 %shr3 to i32
   %cmp5 = icmp ult i32 %conv4, -13
   %or.cond = select i1 %cmp, i1 %cmp5, i1 false
   br i1 %or.cond, label %if.then, label %if.else
@@ -2183,7 +2183,7 @@ if.then:                                          ; preds = %index2adr.exit74
   br label %return
 
 if.else:                                          ; preds = %index2adr.exit74
-  %cmp15.not = icmp eq i32 %conv4, %conv
+  %cmp15.not = icmp eq i64 %shr, %shr3
   br i1 %cmp15.not, label %if.else18, label %return
 
 if.else18:                                        ; preds = %if.else
@@ -2220,7 +2220,7 @@ if.else43:                                        ; preds = %if.else37
 
 if.then50:                                        ; preds = %if.else43
   %49 = ptrtoint ptr %call47 to i64
-  %conv51 = trunc i64 %49 to i32
+  %conv51 = trunc nuw nsw i64 %49 to i32
   br label %return
 
 if.else52:                                        ; preds = %if.else43
@@ -2249,7 +2249,7 @@ declare hidden ptr @lj_meta_equal(ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare hidden void @lj_vm_call(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lua_lessthan(ptr noundef %L, i32 noundef %idx1, i32 noundef %idx2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @lua_lessthan(ptr noundef %L, i32 noundef %idx1, i32 noundef %idx2) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i32 %idx1, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -2465,7 +2465,7 @@ index2adr.exit66:                                 ; preds = %if.then.i58, %cond.
 if.else:                                          ; preds = %index2adr.exit66
   %44 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %44, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp7 = icmp ult i32 %conv, -13
   %45 = bitcast i64 %44 to double
   br i1 %cmp7, label %land.lhs.true, label %if.else18
@@ -2473,7 +2473,7 @@ if.else:                                          ; preds = %index2adr.exit66
 land.lhs.true:                                    ; preds = %if.else
   %46 = load i64, ptr %retval.0.i25, align 8
   %shr9 = ashr i64 %46, 47
-  %conv10 = trunc i64 %shr9 to i32
+  %conv10 = trunc nsw i64 %shr9 to i32
   %cmp11 = icmp ult i32 %conv10, -13
   br i1 %cmp11, label %if.then13, label %if.else18
 
@@ -2490,7 +2490,7 @@ if.else18:                                        ; preds = %land.lhs.true, %if.
 
 if.then22:                                        ; preds = %if.else18
   %48 = ptrtoint ptr %call19 to i64
-  %conv23 = trunc i64 %48 to i32
+  %conv23 = trunc nuw nsw i64 %48 to i32
   br label %return
 
 if.else24:                                        ; preds = %if.else18
@@ -2623,7 +2623,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %if.then, label %if.else
 
@@ -2758,7 +2758,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %if.then, label %if.else
 
@@ -2915,7 +2915,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   %22 = bitcast i64 %21 to double
   br i1 %cmp, label %return, label %if.else
@@ -3055,7 +3055,7 @@ index2adr.exitthread-pre-split:                   ; preds = %cond.false36.i, %co
 index2adr.exit:                                   ; preds = %index2adr.exitthread-pre-split, %if.then9.i, %if.then23.i
   %21 = phi i64 [ %.pr, %index2adr.exitthread-pre-split ], [ %or.i.i.i, %if.then9.i ], [ %or.i.i61.i, %if.then23.i ]
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %if.then, label %if.else
 
@@ -3198,7 +3198,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -14
   %22 = bitcast i64 %21 to double
   br i1 %cmp, label %if.end11, label %if.else
@@ -3335,7 +3335,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -14
   %22 = bitcast i64 %21 to double
   br i1 %cmp, label %if.end14, label %if.else
@@ -3488,7 +3488,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -14
   %22 = bitcast i64 %21 to double
   br i1 %cmp, label %if.end11, label %if.else
@@ -3630,7 +3630,7 @@ index2adr.exit:                                   ; preds = %index2adr.exitthrea
   %21 = phi i64 [ %.pr, %index2adr.exitthread-pre-split ], [ %or.i.i.i, %if.then9.i ], [ %or.i.i61.i, %if.then23.i ]
   %n.08 = bitcast i64 %21 to double
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -14
   br i1 %cmp, label %if.end16, label %if.else
 
@@ -3668,7 +3668,7 @@ return:                                           ; preds = %if.else, %if.end16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @lua_toboolean(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @lua_toboolean(ptr nocapture noundef readonly %L, i32 noundef %idx) local_unnamed_addr #6 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -3885,7 +3885,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp eq i32 %conv, -5
   br i1 %cmp, label %if.then, label %if.else
 
@@ -4154,7 +4154,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp eq i32 %conv, -5
   br i1 %cmp, label %if.then, label %if.else
 
@@ -4415,7 +4415,7 @@ index2adr.exitthread-pre-split:                   ; preds = %cond.false36.i, %co
 index2adr.exit:                                   ; preds = %index2adr.exitthread-pre-split, %if.then9.i, %if.then23.i
   %21 = phi i64 [ %.pr, %index2adr.exitthread-pre-split ], [ %or.i.i.i, %if.then9.i ], [ %or.i.i61.i, %if.then23.i ]
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp eq i32 %conv, -5
   br i1 %cmp, label %if.then, label %if.else
 
@@ -4645,7 +4645,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare hidden void @lj_err_argv(ptr noundef, i32 noundef, i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @lua_objlen(ptr noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
+define range(i64 0, 4294967296) i64 @lua_objlen(ptr noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -4750,7 +4750,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   switch i32 %conv, label %if.else22 [
     i32 -5, label %if.then
     i32 -12, label %if.then7
@@ -5036,7 +5036,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i10, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   switch i32 %conv, label %return [
     i32 -13, label %if.then
     i32 -4, label %if.then6
@@ -5508,17 +5508,11 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   %call6 = call ptr @lj_strfmt_pushvf(ptr noundef nonnull %L, ptr noundef %fmt, ptr noundef nonnull %argp) #13
-  call void @llvm.va_end(ptr nonnull %argp)
+  call void @llvm.va_end.p0(ptr nonnull %argp)
   ret ptr %call6
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define void @lua_pushcclosure(ptr noundef %L, ptr noundef %f, i32 noundef %n) local_unnamed_addr #1 {
@@ -5705,7 +5699,7 @@ land.end:                                         ; preds = %land.rhs, %if.end
 declare hidden ptr @lj_tab_new_ah(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @luaL_newmetatable(ptr noundef %L, ptr noundef %tname) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @luaL_newmetatable(ptr noundef %L, ptr noundef %tname) local_unnamed_addr #1 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -5768,7 +5762,7 @@ declare hidden ptr @lj_tab_setstr(ptr noundef, ptr noundef, ptr noundef) local_u
 declare hidden ptr @lj_tab_new(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lua_pushthread(ptr noundef %L) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @lua_pushthread(ptr noundef %L) local_unnamed_addr #1 {
 entry:
   %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
@@ -5869,7 +5863,7 @@ if.then7:                                         ; preds = %if.end
   unreachable
 
 if.end8:                                          ; preds = %if.end
-  %conv9 = trunc i64 %size to i32
+  %conv9 = trunc nuw nsw i64 %size to i32
   %base.i = getelementptr inbounds i8, ptr %L, i64 32
   %4 = load ptr, ptr %base.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 -16
@@ -6555,7 +6549,7 @@ land.end:                                         ; preds = %land.rhs, %if.end
 declare hidden ptr @lj_tab_getinth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @lua_getmetatable(ptr noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @lua_getmetatable(ptr noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -6660,7 +6654,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   switch i32 %conv, label %if.else12 [
     i32 -12, label %if.then
     i32 -13, label %if.then7
@@ -6720,9 +6714,9 @@ return:                                           ; preds = %if.end24, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @luaL_getmetafield(ptr noundef %L, i32 noundef %idx, ptr noundef %field) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @luaL_getmetafield(ptr noundef %L, i32 noundef %idx, ptr noundef %field) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef %idx), !range !11
+  %call = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef %idx)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
@@ -6869,7 +6863,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %retval.0.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %tmptv.i, %if.then9.i ], [ %registrytv.i, %if.then15.i ], [ %tmptv27.i, %if.then23.i ], [ %nilnode.i, %cond.false.i ], [ %add.ptr.i, %if.then.i ], [ %arrayidx.i, %cond.true34.i ], [ %nilnode39.i, %cond.false36.i ]
   %21 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %21, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %top25 = getelementptr inbounds i8, ptr %L, i64 40
   %22 = load ptr, ptr %top25, align 8
   switch i32 %conv, label %if.end27 [
@@ -8292,7 +8286,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %27 = load i64, ptr %add.ptr, align 8
   store i64 %27, ptr %cond, align 8
   %shr = ashr i64 %27, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %28 = add nsw i32 %conv, 13
   %cmp2 = icmp ult i32 %28, 9
   br i1 %cmp2, label %land.lhs.true, label %if.end
@@ -8450,7 +8444,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %25 = inttoptr i64 %24 to ptr
   %26 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %26, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   switch i32 %conv, label %if.else56 [
     i32 -12, label %if.then5
     i32 -13, label %if.then31
@@ -8538,7 +8532,7 @@ if.then59:                                        ; preds = %if.else56
 if.end60:                                         ; preds = %if.else56
   %48 = load i64, ptr %retval.0.i, align 8
   %shr61 = ashr i64 %48, 47
-  %conv62 = trunc i64 %shr61 to i32
+  %conv62 = trunc nsw i64 %shr61 to i32
   %conv62.off = add nsw i32 %conv62, 3
   %switch = icmp ult i32 %conv62.off, 2
   %49 = ptrtoint ptr %mt.0 to i64
@@ -8628,7 +8622,7 @@ lua_getfield.exit:                                ; preds = %if.end.i, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @lua_setfenv(ptr nocapture noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @lua_setfenv(ptr nocapture noundef %L, i32 noundef %idx) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i32 %idx, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -8739,7 +8733,7 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   %23 = inttoptr i64 %and to ptr
   %24 = load i64, ptr %retval.0.i, align 8
   %shr = ashr i64 %24, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   switch i32 %conv, label %return [
     i32 -9, label %if.end27
     i32 -13, label %if.end27
@@ -8912,7 +8906,7 @@ if.then:                                          ; preds = %index2adr.exit
   %24 = load ptr, ptr %top, align 8
   %25 = load i64, ptr %24, align 8
   %shr = ashr i64 %25, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %26 = add nsw i32 %conv, 13
   %cmp = icmp ult i32 %26, 9
   br i1 %cmp, label %land.lhs.true, label %if.end19
@@ -8964,7 +8958,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %1 = load i64, ptr %add.ptr3.i, align 8
   store i64 %1, ptr %o.012.i, align 8
   %cmp.i = icmp ugt ptr %add.ptr3.i, %add.ptr.i
-  br i1 %cmp.i, label %for.body.i, label %api_call_base.exit, !llvm.loop !12
+  br i1 %cmp.i, label %for.body.i, label %api_call_base.exit, !llvm.loop !11
 
 api_call_base.exit:                               ; preds = %for.body.i, %entry
   %o.0.lcssa.i = phi ptr [ %0, %entry ], [ %add.ptr3.i, %for.body.i ]
@@ -9043,7 +9037,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %12 = load i64, ptr %add.ptr3.i, align 8
   store i64 %12, ptr %o.012.i, align 8
   %cmp.i12 = icmp ugt ptr %add.ptr3.i, %add.ptr.i11
-  br i1 %cmp.i12, label %for.body.i, label %api_call_base.exit, !llvm.loop !12
+  br i1 %cmp.i12, label %for.body.i, label %api_call_base.exit, !llvm.loop !11
 
 api_call_base.exit:                               ; preds = %for.body.i, %if.end
   %o.0.lcssa.i = phi ptr [ %11, %if.end ], [ %add.ptr3.i, %for.body.i ]
@@ -9135,9 +9129,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @luaL_callmeta(ptr noundef %L, i32 noundef %idx, ptr noundef %field) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @luaL_callmeta(ptr noundef %L, i32 noundef %idx, ptr noundef %field) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef %idx), !range !11
+  %call.i = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef %idx)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
@@ -9286,7 +9280,7 @@ return:                                           ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lua_isyieldable(ptr nocapture noundef readonly %L) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lua_isyieldable(ptr nocapture noundef readonly %L) local_unnamed_addr #0 {
 entry:
   %cframe = getelementptr inbounds i8, ptr %L, i64 80
   %0 = load ptr, ptr %cframe, align 8
@@ -9341,7 +9335,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %8 = load i64, ptr %f.034, align 8
   store i64 %8, ptr %t.035, align 8
   %cmp8 = icmp ugt i32 %nresults.addr.036, 1
-  br i1 %cmp8, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp8, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %t.0.lcssa = phi ptr [ %7, %while.cond.preheader ], [ %incdec.ptr, %while.body ]
@@ -9436,7 +9430,7 @@ for.body.i:                                       ; preds = %cond.true, %for.bod
   %3 = load i64, ptr %add.ptr3.i, align 8
   store i64 %3, ptr %o.012.i, align 8
   %cmp.i = icmp ugt ptr %add.ptr3.i, %add.ptr.i
-  br i1 %cmp.i, label %for.body.i, label %api_call_base.exit, !llvm.loop !12
+  br i1 %cmp.i, label %for.body.i, label %api_call_base.exit, !llvm.loop !11
 
 api_call_base.exit:                               ; preds = %for.body.i, %cond.true
   %o.0.lcssa.i = phi ptr [ %2, %cond.true ], [ %add.ptr3.i, %for.body.i ]
@@ -9560,7 +9554,7 @@ while.cond:                                       ; preds = %while.body, %sw.bb1
 while.body:                                       ; preds = %while.cond
   %call = tail call i32 @lj_gc_step(ptr noundef %L) #13
   %cmp37 = icmp sgt i32 %call, 0
-  br i1 %cmp37, label %sw.epilog, label %while.cond, !llvm.loop !14
+  br i1 %cmp37, label %sw.epilog, label %while.cond, !llvm.loop !13
 
 sw.bb39:                                          ; preds = %entry
   %pause41 = getelementptr inbounds i8, ptr %1, i64 108
@@ -9589,7 +9583,7 @@ sw.epilog:                                        ; preds = %while.body, %while.
 declare hidden void @lj_gc_fullgc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @lua_getallocf(ptr nocapture noundef readonly %L, ptr noundef writeonly %ud) local_unnamed_addr #9 {
+define ptr @lua_getallocf(ptr nocapture noundef readonly %L, ptr noundef writeonly %ud) local_unnamed_addr #8 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -9609,7 +9603,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lua_setallocf(ptr nocapture noundef readonly %L, ptr noundef %f, ptr noundef %ud) local_unnamed_addr #10 {
+define void @lua_setallocf(ptr nocapture noundef readonly %L, ptr noundef %f, ptr noundef %ud) local_unnamed_addr #9 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -9619,6 +9613,12 @@ entry:
   store ptr %f, ptr %1, align 8
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
@@ -9637,9 +9637,9 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
@@ -9659,7 +9659,6 @@ attributes #15 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}

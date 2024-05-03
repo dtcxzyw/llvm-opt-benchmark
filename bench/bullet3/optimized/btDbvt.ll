@@ -503,7 +503,7 @@ for.body4.lr.ph:                                  ; preds = %for.body
   %arrayidx = getelementptr inbounds ptr, ptr %leaves, i64 %indvars.iv61
   %1 = load ptr, ptr %arrayidx, align 8
   %mx.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = trunc i64 %indvars.iv61 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv61 to i32
   br label %for.body4
 
 for.body4:                                        ; preds = %for.body4.lr.ph, %_ZL5mergeRK12btDbvtAabbMmS1_.exit
@@ -554,7 +554,7 @@ _ZL5mergeRK12btDbvtAabbMmS1_.exit:                ; preds = %for.body.i.i
   %add8.i = fadd float %15, %add.i
   %cmp8 = fcmp olt float %add8.i, %minsize.149
   %minidx.sroa.0.2 = select i1 %cmp8, i32 %2, i32 %minidx.sroa.0.147
-  %17 = trunc i64 %indvars.iv58 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv58 to i32
   %minidx.sroa.4.2 = select i1 %cmp8, i32 %17, i32 %minidx.sroa.4.148
   %minsize.2 = select i1 %cmp8, float %add8.i, float %minsize.149
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
@@ -947,7 +947,7 @@ if.then45:                                        ; preds = %land.lhs.true
   %29 = tail call noundef float @llvm.fabs.f32(float %conv)
   %conv53 = fptosi float %29 to i32
   %cmp54 = icmp sgt i32 %bestmidp.084, %conv53
-  %30 = trunc i64 %indvars.iv98 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv98 to i32
   %spec.select = select i1 %cmp54, i32 %30, i32 %bestaxis.083
   %spec.select45 = tail call i32 @llvm.smin.i32(i32 %bestmidp.084, i32 %conv53)
   br label %for.inc57
@@ -1011,7 +1011,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %while.cond2.preheader.i, label %while.body.i
 
 while.cond2.preheader.i:                          ; preds = %land.rhs.i
-  %44 = trunc i64 %indvars.iv.i64 to i32
+  %44 = trunc nsw i64 %indvars.iv.i64 to i32
   %cmp3.not52.i = icmp eq i32 %end.057.i, %44
   br i1 %cmp3.not52.i, label %if.end65, label %land.rhs4.lr.ph.i
 
@@ -1057,22 +1057,21 @@ land.rhs4.i:                                      ; preds = %while.body9.i, %lan
 
 while.body9.i:                                    ; preds = %land.rhs4.i
   %indvars.iv.next67.i = add nsw i64 %indvars.iv66.i, -1
-  %55 = trunc i64 %indvars.iv.next67.i to i32
-  %cmp3.not.i = icmp eq i32 %44, %55
+  %cmp3.not.i = icmp eq i64 %indvars.iv.i64, %indvars.iv.next67.i
   br i1 %cmp3.not.i, label %if.end65, label %land.rhs4.i, !llvm.loop !23
 
 if.end13.i:                                       ; preds = %land.rhs4.i
-  %56 = trunc i64 %indvars.iv66.i to i32
-  %dec14.i = add nsw i32 %56, -1
+  %55 = trunc nsw i64 %indvars.iv66.i to i32
+  %dec14.i = add nsw i32 %55, -1
   %sext.i = shl i64 %indvars.iv.i64, 32
   %idxprom15.i = ashr exact i64 %sext.i, 32
   %arrayidx16.i = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom15.i
-  %57 = load ptr, ptr %arrayidx16.i, align 8
+  %56 = load ptr, ptr %arrayidx16.i, align 8
   %idxprom17.i = sext i32 %dec14.i to i64
   %arrayidx18.i = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom17.i
-  %58 = load ptr, ptr %arrayidx18.i, align 8
-  store ptr %58, ptr %arrayidx16.i, align 8
-  store ptr %57, ptr %arrayidx18.i, align 8
+  %57 = load ptr, ptr %arrayidx18.i, align 8
+  store ptr %57, ptr %arrayidx16.i, align 8
+  store ptr %56, ptr %arrayidx18.i, align 8
   %inc23.i = add nsw i32 %44, 1
   %cmp.not49.i = icmp eq i32 %inc23.i, %dec14.i
   br i1 %cmp.not49.i, label %if.end65, label %land.rhs.lr.ph.i, !llvm.loop !24
@@ -1085,8 +1084,8 @@ if.else:                                          ; preds = %for.end59
 if.end65:                                         ; preds = %if.end13.i, %while.cond2.preheader.i, %while.body.i, %while.body9.i, %if.else
   %partition.0 = phi i32 [ %add, %if.else ], [ %44, %while.body9.i ], [ %end.057.i, %while.body.i ], [ %dec14.i, %if.end13.i ], [ %end.057.i, %while.cond2.preheader.i ]
   %m_free.i.i = getelementptr inbounds i8, ptr %pdbvt, i64 8
-  %59 = load ptr, ptr %m_free.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %59, null
+  %58 = load ptr, ptr %m_free.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %58, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end65
@@ -1099,38 +1098,38 @@ if.else.i.i:                                      ; preds = %if.end65
   br label %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit
 
 common.ret129:                                    ; preds = %if.end80, %if.else78, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit
-  %common.ret129.op = phi ptr [ %node.0.i.i, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit ], [ %63, %if.else78 ], [ %64, %if.end80 ]
+  %common.ret129.op = phi ptr [ %node.0.i.i, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit ], [ %62, %if.else78 ], [ %63, %if.end80 ]
   ret ptr %common.ret129.op
 
 _ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmPv.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %node.0.i.i = phi ptr [ %59, %if.then.i.i ], [ %call.i.i, %if.else.i.i ]
+  %node.0.i.i = phi ptr [ %58, %if.then.i.i ], [ %call.i.i, %if.else.i.i ]
   %parent3.i.i = getelementptr inbounds i8, ptr %node.0.i.i, i64 32
-  %60 = getelementptr inbounds i8, ptr %node.0.i.i, i64 40
+  %59 = getelementptr inbounds i8, ptr %node.0.i.i, i64 40
   %arrayidx.i.i66 = getelementptr inbounds i8, ptr %node.0.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %parent3.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %node.0.i.i, ptr noundef nonnull align 4 dereferenceable(32) %vol, i64 32, i1 false)
   %call68 = tail call fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef nonnull %pdbvt, ptr noundef nonnull %leaves, i32 noundef %partition.0, i32 noundef %bu_treshold)
-  store ptr %call68, ptr %60, align 8
+  store ptr %call68, ptr %59, align 8
   %idxprom70 = sext i32 %partition.0 to i64
   %arrayidx71 = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom70
   %sub72 = sub nsw i32 %count, %partition.0
   %call73 = tail call fastcc noundef ptr @_ZL7topdownP6btDbvtPP10btDbvtNodeii(ptr noundef nonnull %pdbvt, ptr noundef nonnull %arrayidx71, i32 noundef %sub72, i32 noundef %bu_treshold)
   store ptr %call73, ptr %arrayidx.i.i66, align 8
-  %61 = load ptr, ptr %60, align 8
-  %parent = getelementptr inbounds i8, ptr %61, i64 32
+  %60 = load ptr, ptr %59, align 8
+  %parent = getelementptr inbounds i8, ptr %60, i64 32
   store ptr %node.0.i.i, ptr %parent, align 8
-  %62 = load ptr, ptr %arrayidx.i.i66, align 8
-  %parent77 = getelementptr inbounds i8, ptr %62, i64 32
+  %61 = load ptr, ptr %arrayidx.i.i66, align 8
+  %parent77 = getelementptr inbounds i8, ptr %61, i64 32
   store ptr %node.0.i.i, ptr %parent77, align 8
   br label %common.ret129
 
 if.else78:                                        ; preds = %if.then
   tail call fastcc void @_ZL8bottomupP6btDbvtPP10btDbvtNodei(ptr noundef %pdbvt, ptr noundef %leaves, i32 noundef %count)
-  %63 = load ptr, ptr %leaves, align 8
+  %62 = load ptr, ptr %leaves, align 8
   br label %common.ret129
 
 if.end80:                                         ; preds = %init.end
-  %64 = load ptr, ptr %leaves, align 8
+  %63 = load ptr, ptr %leaves, align 8
   br label %common.ret129
 }
 
@@ -2264,7 +2263,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !33
 
 for.end.loopexit.split.loop.exit.i:               ; preds = %for.body.i
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE16findLinearSearchERKS2_.exit49, %if.else
@@ -2312,7 +2311,7 @@ for.inc.i30:                                      ; preds = %for.body.i26
   br i1 %exitcond.not.i32, label %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE16findLinearSearchERKS2_.exit34, label %for.body.i26, !llvm.loop !33
 
 for.end.loopexit.split.loop.exit.i33:             ; preds = %for.body.i26
-  %21 = trunc i64 %indvars.iv.i27 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i27 to i32
   br label %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE16findLinearSearchERKS2_.exit34
 
 _ZNK20btAlignedObjectArrayIPK10btDbvtNodeE16findLinearSearchERKS2_.exit34: ; preds = %for.inc.i30, %for.end.loopexit.split.loop.exit.i33
@@ -2332,7 +2331,7 @@ for.inc.i45:                                      ; preds = %for.body.i41
   br i1 %exitcond.not.i47, label %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE16findLinearSearchERKS2_.exit49, label %for.body.i41, !llvm.loop !33
 
 for.end.loopexit.split.loop.exit.i48:             ; preds = %for.body.i41
-  %23 = trunc i64 %indvars.iv.i42 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i42 to i32
   br label %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE16findLinearSearchERKS2_.exit49
 
 _ZNK20btAlignedObjectArrayIPK10btDbvtNodeE16findLinearSearchERKS2_.exit49: ; preds = %for.inc.i45, %if.then20, %for.end.loopexit.split.loop.exit.i48
@@ -2341,7 +2340,7 @@ _ZNK20btAlignedObjectArrayIPK10btDbvtNodeE16findLinearSearchERKS2_.exit49: ; pre
   %vtable28 = load ptr, ptr %iwriter, align 8
   %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 24
   %24 = load ptr, ptr %vfn29, align 8
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %iwriter, ptr noundef nonnull %13, i32 noundef %25, i32 noundef %p.0, i32 noundef %index.0.i2251, i32 noundef %index.0.i37)
           to label %for.inc unwind label %lpad.loopexit
 
@@ -2349,7 +2348,7 @@ if.else:                                          ; preds = %if.end
   %vtable31 = load ptr, ptr %iwriter, align 8
   %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 32
   %26 = load ptr, ptr %vfn32, align 8
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(8) %iwriter, ptr noundef nonnull %13, i32 noundef %27, i32 noundef %p.0)
           to label %for.inc unwind label %lpad.loopexit
 

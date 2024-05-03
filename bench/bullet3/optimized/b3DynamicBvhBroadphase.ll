@@ -2242,7 +2242,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %previousPair.sroa.0.0.copyload = load i64, ptr %arrayidx.i, align 16
   %previousPair.sroa.0.sroa.0.0.extract.trunc31 = trunc i64 %previousPair.sroa.0.0.copyload to i32
   %previousPair.sroa.0.sroa.3.0.extract.shift32 = lshr i64 %previousPair.sroa.0.0.copyload, 32
-  %previousPair.sroa.0.sroa.3.0.extract.trunc33 = trunc i64 %previousPair.sroa.0.sroa.3.0.extract.shift32 to i32
+  %previousPair.sroa.0.sroa.3.0.extract.trunc33 = trunc nuw i64 %previousPair.sroa.0.sroa.3.0.extract.shift32 to i32
   br i1 %10, label %if.then24, label %if.then11
 
 if.then11:                                        ; preds = %for.body
@@ -2964,9 +2964,9 @@ while.body10:                                     ; preds = %while.cond5, %_ZNK2
   br label %while.cond5, !llvm.loop !20
 
 while.end11:                                      ; preds = %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit30
-  %10 = trunc i64 %indvars.iv to i32
-  %11 = trunc i64 %indvars.iv34 to i32
-  %cmp.not = icmp sgt i32 %10, %11
+  %10 = trunc nsw i64 %indvars.iv to i32
+  %11 = trunc nsw i64 %indvars.iv34 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv34
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

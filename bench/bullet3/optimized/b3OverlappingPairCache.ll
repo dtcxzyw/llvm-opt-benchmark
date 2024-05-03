@@ -410,7 +410,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %14, ptr %arrayidx.i42, align 4
   %16 = load ptr, ptr %m_data10.i, align 8
   %arrayidx.i45 = getelementptr inbounds i32, ptr %16, i64 %idxprom.i38
-  %17 = trunc i64 %indvars.iv58 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv58 to i32
   store i32 %17, ptr %arrayidx.i45, align 4
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
@@ -1426,7 +1426,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !20
 
 _ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit: ; preds = %for.body.i
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp sgt i32 %1, %6
   br i1 %cmp, label %if.then7, label %return
 
@@ -1572,7 +1572,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !20
 
 _ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit: ; preds = %for.body.i
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp sgt i32 %2, %7
   br i1 %cmp, label %if.then7, label %return
 
@@ -2259,9 +2259,9 @@ while.body10:                                     ; preds = %while.cond5, %_ZNK2
   br label %while.cond5, !llvm.loop !24
 
 while.end11:                                      ; preds = %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit30
-  %10 = trunc i64 %indvars.iv to i32
-  %11 = trunc i64 %indvars.iv34 to i32
-  %cmp.not = icmp sgt i32 %10, %11
+  %10 = trunc nsw i64 %indvars.iv to i32
+  %11 = trunc nsw i64 %indvars.iv34 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv34
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

@@ -3886,7 +3886,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   %148 = trunc i32 %147 to i8
   store i8 %148, ptr %16, align 2
   %149 = lshr i32 %143, 24
-  %150 = trunc i32 %149 to i8
+  %150 = trunc nuw i32 %149 to i8
   store i8 %150, ptr %17, align 1
   %151 = add nsw i32 %110, 5
   store i32 %151, ptr %6, align 4
@@ -3949,7 +3949,7 @@ _ZL9fill_bitsP4zbuf.exit.i:                       ; preds = %160, %89, %.prehead
 
 180:                                              ; preds = %_ZL9fill_bitsP4zbuf.exit.i
   %181 = add nuw nsw i32 %71, %62
-  %182 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 19), !range !12
+  %182 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 19)
   %.not.i.i = icmp eq i32 %182, 0
   br i1 %.not.i.i, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i, label %.preheader151.i.i
 
@@ -4002,10 +4002,10 @@ _ZL9fill_bitsP4zbuf.exit.i:                       ; preds = %160, %89, %.prehead
   %206 = load i32, ptr %205, align 4
   %207 = icmp sgt i32 %206, %203
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  br i1 %207, label %208, label %204, !llvm.loop !13
+  br i1 %207, label %208, label %204, !llvm.loop !12
 
 208:                                              ; preds = %204
-  %209 = trunc i64 %indvars.iv.i.i.i to i32
+  %209 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %210 = icmp ugt i32 %209, 15
   br i1 %210, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i, label %211
 
@@ -4027,8 +4027,8 @@ _ZL9fill_bitsP4zbuf.exit.i:                       ; preds = %160, %89, %.prehead
   %224 = sext i32 %221 to i64
   %225 = getelementptr inbounds [288 x i8], ptr %21, i64 0, i64 %224
   %226 = load i8, ptr %225, align 1
-  %227 = zext i8 %226 to i32
-  %.not.i.i.i = icmp eq i32 %209, %227
+  %227 = zext i8 %226 to i64
+  %.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %227
   br i1 %.not.i.i.i, label %228, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i
 
 228:                                              ; preds = %223
@@ -4054,7 +4054,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   br i1 %238, label %239, label %244
 
 239:                                              ; preds = %237
-  %240 = trunc i32 %.0135.i.i to i8
+  %240 = trunc nuw nsw i32 %.0135.i.i to i8
   %241 = add nsw i32 %.0138157.i.i, 1
   %242 = sext i32 %.0138157.i.i to i64
   %243 = getelementptr inbounds [455 x i8], ptr %2, i64 0, i64 %242
@@ -4160,14 +4160,14 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   %291 = phi i32 [ %236, %239 ], [ %283, %.preheader.preheader.i.i ]
   %.1139.i.i = phi i32 [ %241, %239 ], [ %288, %.preheader.preheader.i.i ]
   %292 = icmp slt i32 %.1139.i.i, %181
-  br i1 %292, label %.preheader151.i.i, label %293, !llvm.loop !14
+  br i1 %292, label %.preheader151.i.i, label %293, !llvm.loop !13
 
 293:                                              ; preds = %289
   %.not143.i.i = icmp eq i32 %.1139.i.i, %181
   br i1 %.not143.i.i, label %294, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i
 
 294:                                              ; preds = %293
-  %295 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef nonnull %23, ptr noundef nonnull %2, i32 noundef %62), !range !12
+  %295 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef nonnull %23, ptr noundef nonnull %2, i32 noundef %62)
   %.not144.i.i = icmp eq i32 %295, 0
   br i1 %.not144.i.i, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i, label %_ZL21compute_huffman_codesP4zbuf.exit.i
 
@@ -4180,7 +4180,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.thread.i:   ; preds = %294, %293, %180, %2
 _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   %296 = zext nneg i32 %62 to i64
   %297 = getelementptr inbounds i8, ptr %2, i64 %296
-  %298 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef nonnull %24, ptr noundef nonnull %297, i32 noundef %71), !range !12
+  %298 = call fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr noundef nonnull %24, ptr noundef nonnull %297, i32 noundef %71)
   call void @llvm.lifetime.end.p0(i64 2020, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 455, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %3)
@@ -4238,10 +4238,10 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   %324 = load i32, ptr %323, align 4
   %325 = icmp sgt i32 %324, %321
   %indvars.iv.next.i.i56.i = add nuw nsw i64 %indvars.iv.i.i55.i, 1
-  br i1 %325, label %326, label %322, !llvm.loop !13
+  br i1 %325, label %326, label %322, !llvm.loop !12
 
 326:                                              ; preds = %322
-  %327 = trunc i64 %indvars.iv.i.i55.i to i32
+  %327 = trunc nuw nsw i64 %indvars.iv.i.i55.i to i32
   %328 = icmp ugt i32 %327, 15
   br i1 %328, label %_ZL10decompressPci.exit, label %329
 
@@ -4263,8 +4263,8 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   %342 = sext i32 %339 to i64
   %343 = getelementptr inbounds [288 x i8], ptr %28, i64 0, i64 %342
   %344 = load i8, ptr %343, align 1
-  %345 = zext i8 %344 to i32
-  %.not.i.i57.i = icmp eq i32 %327, %345
+  %345 = zext i8 %344 to i64
+  %.not.i.i57.i = icmp eq i64 %indvars.iv.i.i55.i, %345
   br i1 %.not.i.i57.i, label %346, label %_ZL10decompressPci.exit
 
 346:                                              ; preds = %341
@@ -4291,7 +4291,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i47.i: ; preds = %346, %313
   br i1 %.not117.i.i, label %357, label %_ZL10decompressPci.exit
 
 357:                                              ; preds = %355
-  %358 = trunc i32 %.0.i49.i to i8
+  %358 = trunc nuw i32 %.0.i49.i to i8
   %359 = getelementptr inbounds i8, ptr %.097.i.i, i64 1
   store i8 %358, ptr %.097.i.i, align 1
   br label %.loopexit.i.i
@@ -4383,10 +4383,10 @@ thread-pre-split.i.i:                             ; preds = %373, %362
   %404 = load i32, ptr %403, align 4
   %405 = icmp sgt i32 %404, %401
   %indvars.iv.next.i121.i.i = add nuw nsw i64 %indvars.iv.i120.i.i, 1
-  br i1 %405, label %406, label %402, !llvm.loop !13
+  br i1 %405, label %406, label %402, !llvm.loop !12
 
 406:                                              ; preds = %402
-  %407 = trunc i64 %indvars.iv.i120.i.i to i32
+  %407 = trunc nuw nsw i64 %indvars.iv.i120.i.i to i32
   %408 = icmp ugt i32 %407, 15
   br i1 %408, label %_ZL10decompressPci.exit, label %409
 
@@ -4408,8 +4408,8 @@ thread-pre-split.i.i:                             ; preds = %373, %362
   %422 = sext i32 %419 to i64
   %423 = getelementptr inbounds [288 x i8], ptr %33, i64 0, i64 %422
   %424 = load i8, ptr %423, align 1
-  %425 = zext i8 %424 to i32
-  %.not.i122.i.i = icmp eq i32 %407, %425
+  %425 = zext i8 %424 to i64
+  %.not.i122.i.i = icmp eq i64 %indvars.iv.i120.i.i, %425
   br i1 %.not.i122.i.i, label %426, label %_ZL10decompressPci.exit
 
 426:                                              ; preds = %421
@@ -4509,16 +4509,16 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit124.i.i: ; preds = %426, %393
   store i8 %475, ptr %.299.i.i, align 1
   %477 = add nsw i32 %.2.i.i, -1
   %.not114.i.i = icmp eq i32 %477, 0
-  br i1 %.not114.i.i, label %.loopexit.i.i, label %.preheader129.i.i, !llvm.loop !15
+  br i1 %.not114.i.i, label %.loopexit.i.i, label %.preheader129.i.i, !llvm.loop !14
 
 .loopexit.i.i:                                    ; preds = %.preheader129.i.i, %473, %.preheader.preheader.i50.i, %468, %357
   %.3.i.i = phi ptr [ %359, %357 ], [ %.097.i.i, %468 ], [ %.097.i.i, %473 ], [ %scevgep136.i.i, %.preheader.preheader.i50.i ], [ %476, %.preheader129.i.i ]
-  br label %301, !llvm.loop !16
+  br label %301, !llvm.loop !15
 
 478:                                              ; preds = %360
   store ptr %.097.i.i, ptr %9, align 8
   %.not45.i = icmp eq i32 %42, 0
-  br i1 %.not45.i, label %thread-pre-split.i, label %.preheader.i, !llvm.loop !17
+  br i1 %.not45.i, label %thread-pre-split.i, label %.preheader.i, !llvm.loop !16
 
 .preheader.i:                                     ; preds = %478, %.split.us.i
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %.split.us.i ], [ 0, %478 ]
@@ -4529,26 +4529,26 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit124.i.i: ; preds = %426, %393
 .preheader.split.preheader.i:                     ; preds = %.preheader.i
   %480 = mul nuw nsw i64 %indvars.iv80.i, 3
   %gep105.i = getelementptr i8, ptr getelementptr (%struct.mixbox_init_t, ptr @_ZZL10mixbox_lutvE12decompressed, i64 -1, i32 0, i64 799104), i64 %480
-  %invariant.gep.i = getelementptr i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 %480
+  %invariant.gep.i = getelementptr inbounds i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 %480
   br label %.preheader.split.i
 
 .preheader.split.i:                               ; preds = %.preheader.split.i, %.preheader.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.split.preheader.i ], [ %indvars.iv.next.i, %.preheader.split.i ]
   %481 = getelementptr i8, ptr %gep105.i, i64 %indvars.iv.i
   %482 = load i8, ptr %481, align 1
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %483 = load i8, ptr %gep.i, align 1
   %484 = add i8 %482, -127
   %485 = add i8 %484, %483
   store i8 %485, ptr %gep.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !17
 
 .split.us.i:                                      ; preds = %.preheader.split.i, %.preheader.i
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond83.not.i = icmp eq i64 %indvars.iv.next81.i, 266369
-  br i1 %exitcond83.not.i, label %_ZL10decompressPci.exit, label %.preheader.i, !llvm.loop !19
+  br i1 %exitcond83.not.i, label %_ZL10decompressPci.exit, label %.preheader.i, !llvm.loop !18
 
 _ZL10decompressPci.exit:                          ; preds = %47, %_ZL21compute_huffman_codesP4zbuf.exit.i, %304, %326, %329, %341, %355, %384, %406, %409, %421, %452, %459, %.split.us.i, %_ZL21compute_huffman_codesP4zbuf.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %4)
@@ -4673,7 +4673,7 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef %0) unnam
   %77 = trunc i32 %76 to i8
   store i8 %77, ptr %9, align 2
   %78 = lshr i32 %72, 24
-  %79 = trunc i32 %78 to i8
+  %79 = trunc nuw i32 %78 to i8
   store i8 %79, ptr %10, align 1
   %80 = add nsw i32 %38, 5
   store i32 %80, ptr %5, align 4
@@ -4703,7 +4703,7 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #7 {
 .preheader85.preheader:
   %3 = alloca [16 x i32], align 16
   %4 = alloca [17 x i32], align 16
@@ -4727,7 +4727,7 @@ define internal fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapt
   store i32 %11, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader85.preheader
   %12 = getelementptr inbounds i8, ptr %0, i64 1024
@@ -4751,7 +4751,7 @@ define internal fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapt
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, %.07889
   %.not81 = icmp ne i32 %22, 0
-  %24 = trunc i64 %indvars.iv102 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv102 to i32
   %25 = shl nuw nsw i32 1, %24
   %.not82.not = icmp sgt i32 %23, %25
   %or.cond = select i1 %.not81, i1 %.not82.not, i1 false
@@ -4767,7 +4767,7 @@ define internal fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapt
   %32 = add nsw i32 %22, %.07790
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 16
-  br i1 %exitcond105.not, label %33, label %15, !llvm.loop !21
+  br i1 %exitcond105.not, label %33, label %15, !llvm.loop !20
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds i8, ptr %0, i64 1120
@@ -4801,7 +4801,7 @@ define internal fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapt
   %51 = zext i16 %50 to i32
   %52 = add nsw i32 %48, %51
   %53 = shl nuw nsw i32 %40, 9
-  %54 = trunc i64 %indvars.iv109 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv109 to i32
   %55 = or i32 %53, %54
   %56 = trunc i32 %55 to i16
   %57 = sext i32 %52 to i64
@@ -4834,7 +4834,7 @@ define internal fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapt
   store i16 %56, ptr %71, align 2
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, %69
   %72 = icmp ult i64 %indvars.iv.next107, 512
-  br i1 %72, label %70, label %.loopexit, !llvm.loop !22
+  br i1 %72, label %70, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %70, %62, %41
   %73 = add nsw i32 %44, 1
@@ -4844,7 +4844,7 @@ define internal fastcc noundef i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapt
 74:                                               ; preds = %37, %.loopexit
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %.loopexit83, label %37, !llvm.loop !23
+  br i1 %exitcond113.not, label %.loopexit83, label %37, !llvm.loop !22
 
 .loopexit83:                                      ; preds = %15, %74, %33
   %.075 = phi i32 [ 1, %33 ], [ 1, %74 ], [ 0, %15 ]
@@ -4897,7 +4897,7 @@ attributes #12 = { nounwind }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
@@ -4908,4 +4908,3 @@ attributes #12 = { nounwind }
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}

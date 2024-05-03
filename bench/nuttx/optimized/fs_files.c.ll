@@ -59,7 +59,7 @@ declare i32 @file_close(ptr noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @files_countlist(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2041) i32 @files_countlist(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -112,7 +112,7 @@ define i32 @file_allocate_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %
 16:                                               ; preds = %7
   %17 = add nuw nsw i32 %11, 1
   %18 = zext nneg i32 %17 to i64
-  %19 = tail call fastcc i32 @files_extend(ptr noundef nonnull %10, i64 noundef %18), !range !12
+  %19 = tail call fastcc i32 @files_extend(ptr noundef nonnull %10, i64 noundef %18)
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %64, label %21
 
@@ -155,19 +155,19 @@ files_fget_by_index.exit:                         ; preds = %26, %32
 37:                                               ; preds = %files_fget_by_index.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %38, label %26, !llvm.loop !13
+  br i1 %exitcond.not, label %38, label %26, !llvm.loop !12
 
 38:                                               ; preds = %37
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %39 = load i8, ptr %13, align 1
   %40 = zext i8 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next57, %40
-  br i1 %41, label %25, label %42, !llvm.loop !14
+  br i1 %41, label %25, label %42, !llvm.loop !13
 
 42:                                               ; preds = %38
   %43 = add i64 %indvars.iv56, 2
   %44 = and i64 %43, 4294967295
-  %45 = call fastcc i32 @files_extend(ptr noundef nonnull %10, i64 noundef %44), !range !12
+  %45 = call fastcc i32 @files_extend(ptr noundef nonnull %10, i64 noundef %44)
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %64, label %47
 
@@ -190,7 +190,7 @@ files_fget_by_index.exit:                         ; preds = %26, %32
   br label %files_fget_by_index.exit45
 
 files_fget_by_index.exit45.loopexit:              ; preds = %files_fget_by_index.exit
-  %55 = trunc i64 %indvars.iv to i32
+  %55 = trunc nsw i64 %indvars.iv to i32
   br label %files_fget_by_index.exit45
 
 files_fget_by_index.exit45:                       ; preds = %files_fget_by_index.exit45.loopexit, %54, %47
@@ -224,7 +224,7 @@ files_fget_by_index.exit45:                       ; preds = %files_fget_by_index
 declare ptr @nxsched_get_files_from_tcb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @files_extend(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
@@ -253,14 +253,17 @@ define internal fastcc noundef i32 @files_extend(ptr nocapture noundef %0, i64 n
   br i1 %16, label %.preheader, label %26
 
 .preheader:                                       ; preds = %.preheader60
-  %17 = trunc i64 %indvars.iv to i32
-  %18 = load i8, ptr %4, align 1
-  %19 = zext i8 %18 to i32
-  %.not57.not64 = icmp ugt i32 %17, %19
-  br i1 %.not57.not64, label %.lr.ph66, label %._crit_edge67
+  %17 = load i8, ptr %4, align 1
+  %18 = zext i8 %17 to i64
+  %.not57.not64 = icmp ugt i64 %indvars.iv, %18
+  br i1 %.not57.not64, label %.lr.ph66.preheader, label %._crit_edge67
 
-.lr.ph66:                                         ; preds = %.preheader, %.lr.ph66
-  %.165 = phi i32 [ %20, %.lr.ph66 ], [ %17, %.preheader ]
+.lr.ph66.preheader:                               ; preds = %.preheader
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.lr.ph66
+
+.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
+  %.165 = phi i32 [ %20, %.lr.ph66 ], [ %19, %.lr.ph66.preheader ]
   %20 = add nsw i32 %.165, -1
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds ptr, ptr %12, i64 %21
@@ -269,7 +272,7 @@ define internal fastcc noundef i32 @files_extend(ptr nocapture noundef %0, i64 n
   %24 = load i8, ptr %4, align 1
   %25 = zext i8 %24 to i32
   %.not57.not = icmp sgt i32 %20, %25
-  br i1 %.not57.not, label %.lr.ph66, label %._crit_edge67, !llvm.loop !15
+  br i1 %.not57.not, label %.lr.ph66, label %._crit_edge67, !llvm.loop !14
 
 ._crit_edge67:                                    ; preds = %.lr.ph66, %.preheader
   tail call void @free(ptr noundef nonnull %12)
@@ -279,10 +282,10 @@ define internal fastcc noundef i32 @files_extend(ptr nocapture noundef %0, i64 n
   %indvars.iv70 = add i32 %indvars.iv70.in, 1
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
-  br i1 %exitcond.not, label %27, label %.preheader60, !llvm.loop !16
+  br i1 %exitcond.not, label %27, label %.preheader60, !llvm.loop !15
 
 27:                                               ; preds = %26
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #10, !srcloc !9
   %29 = load i64, ptr %3, align 8
@@ -316,7 +319,7 @@ up_irq_restore.exit:                              ; preds = %32, %34
   call void @free(ptr noundef %.pre)
   %37 = add nuw i32 %.063, 1
   %exitcond73.not = icmp eq i32 %.063, %indvars.iv70.in
-  br i1 %exitcond73.not, label %._crit_edge, label %36, !llvm.loop !17
+  br i1 %exitcond73.not, label %._crit_edge, label %36, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %36, %up_irq_restore.exit
   call void @free(ptr noundef %12)
@@ -369,7 +372,7 @@ define i32 @file_allocate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
 declare ptr @nxsched_self() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @files_duplist(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+define range(i32 -2147483648, 1) i32 @files_duplist(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1
@@ -423,7 +426,7 @@ files_fget_by_index.exit.us.us.us.us:             ; preds = %17, %11
   br i1 %.not44, label %.thread36.us.us.us.us, label %37
 
 .thread36.us.us.us.us:                            ; preds = %22
-  %25 = call fastcc i32 @files_extend(ptr noundef %1, i64 noundef %indvars.iv.next68), !range !12
+  %25 = call fastcc i32 @files_extend(ptr noundef %1, i64 noundef %indvars.iv.next68)
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.loopexit, label %27
 
@@ -453,13 +456,13 @@ files_fget_by_index.exit34.us.us.us.us:           ; preds = %33, %27
 37:                                               ; preds = %files_fget_by_index.exit34.us.us.us.us, %22, %files_fget_by_index.exit.us.us.us.us
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
-  br i1 %exitcond66.not, label %.split.us.us.split.us.us, label %11, !llvm.loop !18
+  br i1 %exitcond66.not, label %.split.us.us.split.us.us, label %11, !llvm.loop !17
 
 .split.us.us.split.us.us:                         ; preds = %37
   %38 = load i8, ptr %7, align 1
   %39 = zext i8 %38 to i64
   %40 = icmp ult i64 %indvars.iv.next68, %39
-  br i1 %40, label %.preheader.us.us, label %.loopexit, !llvm.loop !19
+  br i1 %40, label %.preheader.us.us, label %.loopexit, !llvm.loop !18
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %.split.us.us.split
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.split.us.us.split ], [ 0, %.preheader.lr.ph.split.us ]
@@ -497,12 +500,12 @@ files_fget_by_index.exit.us.us:                   ; preds = %49, %42
   %55 = load i32, ptr %50, align 8
   %56 = and i32 %55, 1024
   %57 = icmp ne i32 %56, 0
-  %58 = trunc i64 %43 to i32
+  %58 = trunc nuw nsw i64 %43 to i32
   %59 = call zeroext i1 @spawn_file_is_duplicateable(ptr noundef nonnull %2, i32 noundef %58, i1 noundef zeroext %57) #10
   br i1 %59, label %.thread36.us.us, label %72
 
 .thread36.us.us:                                  ; preds = %54
-  %60 = call fastcc i32 @files_extend(ptr noundef %1, i64 noundef %indvars.iv.next61), !range !12
+  %60 = call fastcc i32 @files_extend(ptr noundef %1, i64 noundef %indvars.iv.next61)
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %.loopexit, label %62
 
@@ -532,13 +535,13 @@ files_fget_by_index.exit34.us.us:                 ; preds = %68, %62
 72:                                               ; preds = %files_fget_by_index.exit34.us.us, %54, %files_fget_by_index.exit.us.us
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 8
-  br i1 %exitcond59.not, label %.split.us.us.split, label %42, !llvm.loop !18
+  br i1 %exitcond59.not, label %.split.us.us.split, label %42, !llvm.loop !17
 
 .split.us.us.split:                               ; preds = %72
   %73 = load i8, ptr %7, align 1
   %74 = zext i8 %73 to i64
   %75 = icmp ult i64 %indvars.iv.next61, %74
-  br i1 %75, label %.preheader.us, label %.loopexit, !llvm.loop !19
+  br i1 %75, label %.preheader.us, label %.loopexit, !llvm.loop !18
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.split ], [ 0, %.preheader.lr.ph ]
@@ -576,12 +579,12 @@ files_fget_by_index.exit:                         ; preds = %77, %84
   br i1 %.not35, label %.thread36, label %89
 
 89:                                               ; preds = %.thread
-  %90 = trunc i64 %78 to i32
+  %90 = trunc nuw nsw i64 %78 to i32
   %91 = call zeroext i1 @spawn_file_is_duplicateable(ptr noundef nonnull %2, i32 noundef %90, i1 noundef zeroext false) #10
   br i1 %91, label %.thread36, label %104
 
 .thread36:                                        ; preds = %.thread, %89
-  %92 = call fastcc i32 @files_extend(ptr noundef %1, i64 noundef %indvars.iv.next54), !range !12
+  %92 = call fastcc i32 @files_extend(ptr noundef %1, i64 noundef %indvars.iv.next54)
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %.loopexit, label %94
 
@@ -611,13 +614,13 @@ files_fget_by_index.exit34:                       ; preds = %94, %100
 104:                                              ; preds = %files_fget_by_index.exit34, %89, %files_fget_by_index.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.split, label %77, !llvm.loop !18
+  br i1 %exitcond.not, label %.split, label %77, !llvm.loop !17
 
 .split:                                           ; preds = %104
   %105 = load i8, ptr %7, align 1
   %106 = zext i8 %105 to i64
   %107 = icmp ult i64 %indvars.iv.next54, %106
-  br i1 %107, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %107, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.split, %.thread36, %files_fget_by_index.exit34, %.split.us.us.split, %files_fget_by_index.exit34.us.us, %.thread36.us.us, %.split.us.us.split.us.us, %.thread36.us.us.us.us, %files_fget_by_index.exit34.us.us.us.us, %4
   %.0 = phi i32 [ 0, %4 ], [ %35, %files_fget_by_index.exit34.us.us.us.us ], [ %25, %.thread36.us.us.us.us ], [ 0, %.split.us.us.split.us.us ], [ %70, %files_fget_by_index.exit34.us.us ], [ %60, %.thread36.us.us ], [ 0, %.split.us.us.split ], [ %102, %files_fget_by_index.exit34 ], [ %92, %.thread36 ], [ 0, %.split ]
@@ -629,7 +632,7 @@ declare zeroext i1 @spawn_file_is_duplicateable(ptr noundef, i32 noundef, i1 nou
 declare i32 @file_dup2(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @fs_getfilep(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   store ptr null, ptr %1, align 8
   %4 = tail call ptr @nxsched_get_files() #10
@@ -725,7 +728,7 @@ define internal fastcc i32 @nx_dup3_from_tcb(ptr noundef %0, i32 noundef %1, i32
 20:                                               ; preds = %19
   %21 = add nuw nsw i32 %.pre, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = tail call fastcc i32 @files_extend(ptr noundef nonnull %10, i64 noundef %22), !range !12
+  %23 = tail call fastcc i32 @files_extend(ptr noundef nonnull %10, i64 noundef %22)
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %50, label %._crit_edge
 
@@ -795,7 +798,7 @@ define i32 @nx_dup2(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dup2(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @dup2(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @nxsched_self() #10
   %4 = tail call fastcc i32 @nx_dup3_from_tcb(ptr noundef %3, i32 noundef %0, i32 noundef %1, i32 noundef 0)
   %5 = icmp slt i32 %4, 0
@@ -815,7 +818,7 @@ define i32 @dup2(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
 declare ptr @__errno() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @dup3(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @dup3(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @nxsched_self() #10
   %5 = tail call fastcc i32 @nx_dup3_from_tcb(ptr noundef %4, i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %6 = icmp slt i32 %5, 0
@@ -954,7 +957,7 @@ nx_close_from_tcb.exit:                           ; preds = %1, %7, %files_fget.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @close(i32 noundef %0) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @close(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.file, align 8
   %4 = tail call ptr @nxsched_self() #10
@@ -1082,14 +1085,14 @@ files_fget_by_index.exit:                         ; preds = %9, %15
 21:                                               ; preds = %files_fget_by_index.exit, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %22, label %9, !llvm.loop !20
+  br i1 %exitcond.not, label %22, label %9, !llvm.loop !19
 
 22:                                               ; preds = %21
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %23 = load i8, ptr %6, align 1
   %24 = zext i8 %23 to i64
   %25 = icmp ult i64 %indvars.iv.next16, %24
-  br i1 %25, label %.preheader, label %._crit_edge, !llvm.loop !21
+  br i1 %25, label %.preheader, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %22, %2
   ret void
@@ -1139,7 +1142,7 @@ attributes #12 = { nounwind allocsize(0) }
 !9 = !{i64 406897, i64 406915}
 !10 = !{i64 407516}
 !11 = !{i64 407637}
-!12 = !{i32 -24, i32 1}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
@@ -1148,4 +1151,3 @@ attributes #12 = { nounwind allocsize(0) }
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}

@@ -22231,8 +22231,8 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %23 = sext i32 %22 to i64
   %24 = getelementptr [16026 x i16], ptr @yycheck, i64 0, i64 %23
   %25 = load i16, ptr %24, align 2
-  %26 = sext i16 %25 to i32
-  %27 = icmp eq i32 %21, %26
+  %26 = sext i16 %25 to i64
+  %27 = icmp eq i64 %indvars.iv.i.i, %26
   %28 = icmp ne i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %28, %27
   br i1 %or.cond.i.i, label %29, label %39
@@ -42307,11 +42307,11 @@ tokadd.exit:                                      ; preds = %26, %34
 40:                                               ; preds = %newtok.exit, %tokadd.exit
   %.0231 = phi i32 [ %39, %tokadd.exit ], [ %1, %newtok.exit ]
   %41 = icmp eq i32 %.0231, 48
-  br i1 %41, label %42, label %.preheader514
+  br i1 %41, label %42, label %.preheader515
 
-.preheader514:                                    ; preds = %.loopexit372, %275, %40
-  %.15247.ph = phi i32 [ 0, %40 ], [ 0, %275 ], [ %.13245, %.loopexit372 ]
-  %.14.ph = phi i32 [ %.0231, %40 ], [ %.11, %275 ], [ %.12, %.loopexit372 ]
+.preheader515:                                    ; preds = %.loopexit373, %275, %40
+  %.15247.ph = phi i32 [ 0, %40 ], [ 0, %275 ], [ %.13245, %.loopexit373 ]
+  %.14.ph = phi i32 [ %.0231, %40 ], [ %.11, %275 ], [ %.12, %.loopexit373 ]
   br label %283
 
 42:                                               ; preds = %40
@@ -42336,7 +42336,7 @@ tokadd.exit:                                      ; preds = %26, %34
   %52 = add nsw i32 %51, -71
   %53 = icmp ult i32 %52, -6
   %narrow.i.not = and i1 %50, %53
-  br i1 %narrow.i.not, label %.loopexit373, label %.preheader
+  br i1 %narrow.i.not, label %.loopexit374, label %.preheader
 
 .preheader:                                       ; preds = %48, %tokadd.exit312
   %.0232 = phi i32 [ %.1233, %tokadd.exit312 ], [ 0, %48 ]
@@ -42346,7 +42346,7 @@ tokadd.exit:                                      ; preds = %26, %34
 
 55:                                               ; preds = %.preheader
   %.not302 = icmp eq i32 %.0232, 0
-  br i1 %.not302, label %tokadd.exit312, label %.loopexit373
+  br i1 %.not302, label %tokadd.exit312, label %.loopexit374
 
 56:                                               ; preds = %.preheader
   %57 = add nsw i32 %.1, -58
@@ -42355,7 +42355,7 @@ tokadd.exit:                                      ; preds = %26, %34
   %60 = add nsw i32 %59, -71
   %61 = icmp ult i32 %60, -6
   %narrow.i310.not = and i1 %58, %61
-  br i1 %narrow.i310.not, label %.loopexit373, label %62
+  br i1 %narrow.i310.not, label %.loopexit374, label %62
 
 62:                                               ; preds = %56
   %63 = trunc i32 %.1 to i8
@@ -42386,7 +42386,7 @@ tokadd.exit312:                                   ; preds = %71, %62, %55
   %.not303 = icmp eq i32 %76, -1
   br i1 %.not303, label %pushback.exit, label %.preheader, !llvm.loop !152
 
-.loopexit373:                                     ; preds = %55, %56, %48
+.loopexit374:                                     ; preds = %55, %56, %48
   %.2234.ph = phi i32 [ 0, %48 ], [ %.0232, %56 ], [ %.0232, %55 ]
   %77 = load i32, ptr %4, align 8
   %78 = and i32 %77, -9
@@ -42400,7 +42400,7 @@ tokadd.exit312:                                   ; preds = %71, %62, %55
   %84 = icmp ugt ptr %81, %83
   br i1 %84, label %85, label %pushback.exit
 
-85:                                               ; preds = %.loopexit373
+85:                                               ; preds = %.loopexit374
   %86 = load i8, ptr %81, align 1
   %87 = icmp eq i8 %86, 10
   br i1 %87, label %88, label %pushback.exit
@@ -42415,8 +42415,8 @@ tokadd.exit312:                                   ; preds = %71, %62, %55
   store ptr %89, ptr %79, align 8
   br label %pushback.exit
 
-pushback.exit:                                    ; preds = %tokadd.exit312, %.loopexit373, %85, %88, %92
-  %.2234338 = phi i32 [ %.2234.ph, %.loopexit373 ], [ %.2234.ph, %85 ], [ %.2234.ph, %88 ], [ %.2234.ph, %92 ], [ %.1233, %tokadd.exit312 ]
+pushback.exit:                                    ; preds = %tokadd.exit312, %.loopexit374, %85, %88, %92
+  %.2234339 = phi i32 [ %.2234.ph, %.loopexit374 ], [ %.2234.ph, %85 ], [ %.2234.ph, %88 ], [ %.2234.ph, %92 ], [ %.1233, %tokadd.exit312 ]
   %93 = load ptr, ptr %13, align 8
   %94 = load i32, ptr %12, align 8
   %95 = sext i32 %94 to i64
@@ -42434,17 +42434,17 @@ pushback.exit.thread:                             ; preds = %46
   store i8 0, ptr %102, align 1
   %103 = load i32, ptr %12, align 8
   %104 = icmp eq i32 %103, %43
-  br i1 %104, label %105, label %.thread341
+  br i1 %104, label %105, label %.thread342
 
 105:                                              ; preds = %pushback.exit.thread, %pushback.exit
   %106 = tail call fastcc i32 @no_digits(ptr noundef nonnull %0)
   br label %491
 
 107:                                              ; preds = %pushback.exit
-  %.not304 = icmp eq i32 %.2234338, 0
-  br i1 %.not304, label %.thread341, label %.loopexit
+  %.not304 = icmp eq i32 %.2234339, 0
+  br i1 %.not304, label %.thread342, label %.loopexit
 
-.thread341:                                       ; preds = %pushback.exit.thread, %107
+.thread342:                                       ; preds = %pushback.exit.thread, %107
   %108 = tail call fastcc i32 @number_literal_suffix(ptr noundef nonnull %0, i32 noundef 3)
   %109 = tail call fastcc i32 @set_number_literal(ptr noundef nonnull %0, i32 noundef 314, i32 noundef %108, i32 noundef 16, i32 noundef 0)
   br label %491
@@ -42453,22 +42453,22 @@ pushback.exit.thread:                             ; preds = %46
   %111 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0, i32 noundef 1)
   %112 = and i32 %111, -2
   %or.cond7 = icmp eq i32 %112, 48
-  br i1 %or.cond7, label %.preheader374, label %132
+  br i1 %or.cond7, label %.preheader375, label %132
 
-.preheader374:                                    ; preds = %110, %tokadd.exit314
+.preheader375:                                    ; preds = %110, %tokadd.exit314
   %.3235 = phi i32 [ %.4236, %tokadd.exit314 ], [ 0, %110 ]
   %.3 = phi i32 [ %131, %tokadd.exit314 ], [ %111, %110 ]
   %113 = icmp eq i32 %.3, 95
   br i1 %113, label %114, label %115
 
-114:                                              ; preds = %.preheader374
+114:                                              ; preds = %.preheader375
   %.not296 = icmp eq i32 %.3235, 0
-  br i1 %.not296, label %tokadd.exit314, label %.thread345
+  br i1 %.not296, label %tokadd.exit314, label %.thread346
 
-115:                                              ; preds = %.preheader374
+115:                                              ; preds = %.preheader375
   %116 = add nsw i32 %.3, -50
   %or.cond9 = icmp ult i32 %116, -2
-  br i1 %or.cond9, label %.thread345, label %117
+  br i1 %or.cond9, label %.thread346, label %117
 
 117:                                              ; preds = %115
   %118 = trunc nuw i32 %.3 to i8
@@ -42497,14 +42497,14 @@ tokadd.exit314:                                   ; preds = %126, %117, %114
   %.4236 = phi i32 [ 95, %114 ], [ 0, %117 ], [ 0, %126 ]
   %131 = tail call fastcc i32 @nextc0(ptr noundef %0, i32 noundef 1)
   %.not297 = icmp eq i32 %131, -1
-  br i1 %.not297, label %pushback.exit315, label %.preheader374, !llvm.loop !153
+  br i1 %.not297, label %pushback.exit315, label %.preheader375, !llvm.loop !153
 
 132:                                              ; preds = %110
   %133 = icmp eq i32 %111, -1
-  br i1 %133, label %pushback.exit315.thread, label %.thread345
+  br i1 %133, label %pushback.exit315.thread, label %.thread346
 
-.thread345:                                       ; preds = %115, %114, %132
-  %.5237348 = phi i32 [ 0, %132 ], [ %.3235, %114 ], [ %.3235, %115 ]
+.thread346:                                       ; preds = %115, %114, %132
+  %.5237349 = phi i32 [ 0, %132 ], [ %.3235, %114 ], [ %.3235, %115 ]
   %134 = load i32, ptr %4, align 8
   %135 = and i32 %134, -9
   store i32 %135, ptr %4, align 8
@@ -42517,7 +42517,7 @@ tokadd.exit314:                                   ; preds = %126, %117, %114
   %141 = icmp ugt ptr %138, %140
   br i1 %141, label %142, label %pushback.exit315
 
-142:                                              ; preds = %.thread345
+142:                                              ; preds = %.thread346
   %143 = load i8, ptr %138, align 1
   %144 = icmp eq i8 %143, 10
   br i1 %144, label %145, label %pushback.exit315
@@ -42532,8 +42532,8 @@ tokadd.exit314:                                   ; preds = %126, %117, %114
   store ptr %146, ptr %136, align 8
   br label %pushback.exit315
 
-pushback.exit315:                                 ; preds = %tokadd.exit314, %.thread345, %142, %145, %149
-  %.5237349 = phi i32 [ %.5237348, %.thread345 ], [ %.5237348, %142 ], [ %.5237348, %145 ], [ %.5237348, %149 ], [ %.4236, %tokadd.exit314 ]
+pushback.exit315:                                 ; preds = %tokadd.exit314, %.thread346, %142, %145, %149
+  %.5237350 = phi i32 [ %.5237349, %.thread346 ], [ %.5237349, %142 ], [ %.5237349, %145 ], [ %.5237349, %149 ], [ %.4236, %tokadd.exit314 ]
   %150 = load ptr, ptr %13, align 8
   %151 = load i32, ptr %12, align 8
   %152 = sext i32 %151 to i64
@@ -42558,7 +42558,7 @@ pushback.exit315.thread:                          ; preds = %132
   br label %491
 
 164:                                              ; preds = %pushback.exit315
-  %.not298 = icmp eq i32 %.5237349, 0
+  %.not298 = icmp eq i32 %.5237350, 0
   br i1 %.not298, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %pushback.exit315.thread, %164
@@ -42574,22 +42574,22 @@ pushback.exit315.thread:                          ; preds = %132
 169:                                              ; preds = %167
   %170 = add nsw i32 %168, -58
   %171 = icmp ult i32 %170, -10
-  br i1 %171, label %.loopexit376, label %.preheader375
+  br i1 %171, label %.loopexit377, label %.preheader376
 
-.preheader375:                                    ; preds = %169, %tokadd.exit317
+.preheader376:                                    ; preds = %169, %tokadd.exit317
   %.6238 = phi i32 [ %.7239, %tokadd.exit317 ], [ 0, %169 ]
   %.5 = phi i32 [ %191, %tokadd.exit317 ], [ %168, %169 ]
   %172 = icmp eq i32 %.5, 95
   br i1 %172, label %173, label %174
 
-173:                                              ; preds = %.preheader375
+173:                                              ; preds = %.preheader376
   %.not293 = icmp eq i32 %.6238, 0
-  br i1 %.not293, label %tokadd.exit317, label %.loopexit376
+  br i1 %.not293, label %tokadd.exit317, label %.loopexit377
 
-174:                                              ; preds = %.preheader375
+174:                                              ; preds = %.preheader376
   %175 = add nsw i32 %.5, -58
   %176 = icmp ult i32 %175, -10
-  br i1 %176, label %.loopexit376, label %177
+  br i1 %176, label %.loopexit377, label %177
 
 177:                                              ; preds = %174
   %178 = trunc nuw i32 %.5 to i8
@@ -42618,9 +42618,9 @@ tokadd.exit317:                                   ; preds = %186, %177, %173
   %.7239 = phi i32 [ 95, %173 ], [ 0, %177 ], [ 0, %186 ]
   %191 = tail call fastcc i32 @nextc0(ptr noundef %0, i32 noundef 1)
   %.not294 = icmp eq i32 %191, -1
-  br i1 %.not294, label %pushback.exit318, label %.preheader375, !llvm.loop !154
+  br i1 %.not294, label %pushback.exit318, label %.preheader376, !llvm.loop !154
 
-.loopexit376:                                     ; preds = %173, %174, %169
+.loopexit377:                                     ; preds = %173, %174, %169
   %.8240.ph = phi i32 [ 0, %169 ], [ %.6238, %174 ], [ %.6238, %173 ]
   %192 = load i32, ptr %4, align 8
   %193 = and i32 %192, -9
@@ -42634,7 +42634,7 @@ tokadd.exit317:                                   ; preds = %186, %177, %173
   %199 = icmp ugt ptr %196, %198
   br i1 %199, label %200, label %pushback.exit318
 
-200:                                              ; preds = %.loopexit376
+200:                                              ; preds = %.loopexit377
   %201 = load i8, ptr %196, align 1
   %202 = icmp eq i8 %201, 10
   br i1 %202, label %203, label %pushback.exit318
@@ -42649,8 +42649,8 @@ tokadd.exit317:                                   ; preds = %186, %177, %173
   store ptr %204, ptr %194, align 8
   br label %pushback.exit318
 
-pushback.exit318:                                 ; preds = %tokadd.exit317, %.loopexit376, %200, %203, %207
-  %.8240358 = phi i32 [ %.8240.ph, %.loopexit376 ], [ %.8240.ph, %200 ], [ %.8240.ph, %203 ], [ %.8240.ph, %207 ], [ %.7239, %tokadd.exit317 ]
+pushback.exit318:                                 ; preds = %tokadd.exit317, %.loopexit377, %200, %203, %207
+  %.8240359 = phi i32 [ %.8240.ph, %.loopexit377 ], [ %.8240.ph, %200 ], [ %.8240.ph, %203 ], [ %.8240.ph, %207 ], [ %.7239, %tokadd.exit317 ]
   %208 = load ptr, ptr %13, align 8
   %209 = load i32, ptr %12, align 8
   %210 = sext i32 %209 to i64
@@ -42668,24 +42668,24 @@ pushback.exit318.thread:                          ; preds = %167
   store i8 0, ptr %217, align 1
   %218 = load i32, ptr %12, align 8
   %219 = icmp eq i32 %218, %43
-  br i1 %219, label %220, label %.thread361
+  br i1 %219, label %220, label %.thread362
 
 220:                                              ; preds = %pushback.exit318.thread, %pushback.exit318
   %221 = tail call fastcc i32 @no_digits(ptr noundef nonnull %0)
   br label %491
 
 222:                                              ; preds = %pushback.exit318
-  %.not295 = icmp eq i32 %.8240358, 0
-  br i1 %.not295, label %.thread361, label %.loopexit
+  %.not295 = icmp eq i32 %.8240359, 0
+  br i1 %.not295, label %.thread362, label %.loopexit
 
-.thread361:                                       ; preds = %pushback.exit318.thread, %222
+.thread362:                                       ; preds = %pushback.exit318.thread, %222
   %223 = tail call fastcc i32 @number_literal_suffix(ptr noundef nonnull %0, i32 noundef 3)
   %224 = tail call fastcc i32 @set_number_literal(ptr noundef nonnull %0, i32 noundef 314, i32 noundef %223, i32 noundef 10, i32 noundef 0)
   br label %491
 
 225:                                              ; preds = %42
   %226 = icmp eq i32 %44, 95
-  br i1 %226, label %.preheader541, label %227
+  br i1 %226, label %.preheader542, label %227
 
 227:                                              ; preds = %225
   %or.cond13 = icmp eq i32 %45, 79
@@ -42711,15 +42711,15 @@ pushback.exit318.thread:                          ; preds = %167
   %.7 = phi i32 [ %229, %230 ], [ %44, %227 ]
   %236 = and i32 %.7, -8
   %or.cond17 = icmp eq i32 %236, 48
-  br i1 %or.cond17, label %.preheader541, label %272
+  br i1 %or.cond17, label %.preheader542, label %272
 
-.preheader541:                                    ; preds = %235, %225
+.preheader542:                                    ; preds = %235, %225
   %.9.ph = phi i32 [ 95, %225 ], [ %.7, %235 ]
   br label %237
 
-237:                                              ; preds = %.preheader541, %tokadd.exit320
-  %.9241 = phi i32 [ %.10242, %tokadd.exit320 ], [ 0, %.preheader541 ]
-  %.9 = phi i32 [ %258, %tokadd.exit320 ], [ %.9.ph, %.preheader541 ]
+237:                                              ; preds = %.preheader542, %tokadd.exit320
+  %.9241 = phi i32 [ %.10242, %tokadd.exit320 ], [ 0, %.preheader542 ]
+  %.9 = phi i32 [ %258, %tokadd.exit320 ], [ %.9.ph, %.preheader542 ]
   %238 = icmp eq i32 %.9, 95
   br i1 %238, label %239, label %240
 
@@ -42734,7 +42734,7 @@ pushback.exit318.thread:                          ; preds = %167
 
 242:                                              ; preds = %240
   %243 = icmp ugt i32 %.9, 55
-  br i1 %243, label %.loopexit372, label %244
+  br i1 %243, label %.loopexit373, label %244
 
 244:                                              ; preds = %242
   %245 = trunc nuw i32 %.9 to i8
@@ -42799,13 +42799,13 @@ tokadd.exit320:                                   ; preds = %253, %244, %239
   %.11 = phi i32 [ %.10, %270 ], [ %.7, %235 ]
   %273 = and i32 %.11, -2
   %or.cond21 = icmp eq i32 %273, 56
-  br i1 %or.cond21, label %.loopexit372, label %274
+  br i1 %or.cond21, label %.loopexit373, label %274
 
-.loopexit372:                                     ; preds = %242, %272
+.loopexit373:                                     ; preds = %242, %272
   %.13245 = phi i32 [ 0, %272 ], [ %.9241, %242 ]
   %.12 = phi i32 [ %.11, %272 ], [ %.9, %242 ]
   tail call fastcc void @parser_yyerror0(ptr noundef %0, ptr noundef @.str.956)
-  br label %.preheader514
+  br label %.preheader515
 
 274:                                              ; preds = %272
   switch i32 %.11, label %276 [
@@ -42816,7 +42816,7 @@ tokadd.exit320:                                   ; preds = %253, %244, %239
 
 275:                                              ; preds = %274, %274, %274
   tail call fastcc void @tokadd(ptr noundef nonnull %0, i32 noundef 48)
-  br label %.preheader514
+  br label %.preheader515
 
 276:                                              ; preds = %274
   tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %.11)
@@ -42829,12 +42829,12 @@ tokadd.exit320:                                   ; preds = %253, %244, %239
   %282 = tail call fastcc i32 @set_number_literal(ptr noundef nonnull %0, i32 noundef 314, i32 noundef %281, i32 noundef 10, i32 noundef 0)
   br label %491
 
-283:                                              ; preds = %.preheader514, %tokadd.exit322
-  %.0256 = phi i32 [ %.1257, %tokadd.exit322 ], [ 0, %.preheader514 ]
-  %.0252 = phi i32 [ %.1253, %tokadd.exit322 ], [ 0, %.preheader514 ]
-  %.0248 = phi i32 [ %.1249, %tokadd.exit322 ], [ 0, %.preheader514 ]
-  %.15247 = phi i32 [ %.16, %tokadd.exit322 ], [ %.15247.ph, %.preheader514 ]
-  %.14 = phi i32 [ %423, %tokadd.exit322 ], [ %.14.ph, %.preheader514 ]
+283:                                              ; preds = %.preheader515, %tokadd.exit322
+  %.0256 = phi i32 [ %.1257, %tokadd.exit322 ], [ 0, %.preheader515 ]
+  %.0252 = phi i32 [ %.1253, %tokadd.exit322 ], [ 0, %.preheader515 ]
+  %.0248 = phi i32 [ %.1249, %tokadd.exit322 ], [ 0, %.preheader515 ]
+  %.15247 = phi i32 [ %.16, %tokadd.exit322 ], [ %.15247.ph, %.preheader515 ]
+  %.14 = phi i32 [ %423, %tokadd.exit322 ], [ %.14.ph, %.preheader515 ]
   switch i32 %.14, label %.split.thread.loopexit [
     i32 48, label %284
     i32 49, label %284
@@ -42935,21 +42935,21 @@ tokadd.exit320:                                   ; preds = %253, %244, %239
   %330 = load i32, ptr %12, align 8
   %331 = load i32, ptr %20, align 4
   %.not.i324 = icmp slt i32 %330, %331
-  %.pre444 = load ptr, ptr %13, align 8
+  %.pre445 = load ptr, ptr %13, align 8
   br i1 %.not.i324, label %tokadd.exit325, label %332
 
 332:                                              ; preds = %324
   %333 = shl i32 %331, 1
   store i32 %333, ptr %20, align 4
   %334 = sext i32 %333 to i64
-  %335 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre444, i64 noundef %334, i64 noundef 1) #39
+  %335 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre445, i64 noundef %334, i64 noundef 1) #39
   store ptr %335, ptr %13, align 8
-  %.pre445 = load i32, ptr %12, align 8
+  %.pre446 = load i32, ptr %12, align 8
   br label %tokadd.exit325
 
 tokadd.exit325:                                   ; preds = %324, %332
-  %336 = phi i32 [ %330, %324 ], [ %.pre445, %332 ]
-  %337 = phi ptr [ %.pre444, %324 ], [ %335, %332 ]
+  %336 = phi i32 [ %330, %324 ], [ %.pre446, %332 ]
+  %337 = phi ptr [ %.pre445, %324 ], [ %335, %332 ]
   %338 = trunc nuw i32 %303 to i8
   %339 = add i32 %336, 1
   store i32 %339, ptr %12, align 8
@@ -43024,11 +43024,11 @@ tokadd.exit327:                                   ; preds = %tokadd.exit325, %34
 
 374:                                              ; preds = %371
   %375 = icmp eq i32 %370, -1
-  %.pre447 = load i32, ptr %4, align 8
+  %.pre448 = load i32, ptr %4, align 8
   br i1 %375, label %.split.thread, label %376
 
 376:                                              ; preds = %374
-  %377 = and i32 %.pre447, -9
+  %377 = and i32 %.pre448, -9
   store i32 %377, ptr %4, align 8
   %378 = getelementptr inbounds i8, ptr %0, i64 88
   %379 = load ptr, ptr %378, align 8
@@ -43075,11 +43075,11 @@ tokadd.exit327:                                   ; preds = %tokadd.exit325, %34
   %403 = sext i32 %402 to i64
   %404 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %403, i64 noundef 1) #39
   store ptr %404, ptr %13, align 8
-  %.pre443 = load i32, ptr %12, align 8
+  %.pre444 = load i32, ptr %12, align 8
   br label %tokadd.exit331
 
 tokadd.exit331:                                   ; preds = %392, %401
-  %405 = phi i32 [ %399, %392 ], [ %.pre443, %401 ]
+  %405 = phi i32 [ %399, %392 ], [ %.pre444, %401 ]
   %406 = phi ptr [ %.pre, %392 ], [ %404, %401 ]
   %407 = add i32 %.0256, 1
   %408 = trunc i32 %370 to i8
@@ -43124,13 +43124,13 @@ tokadd.exit322:                                   ; preds = %293, %284, %422, %t
 .split.thread.loopexit:                           ; preds = %422, %368, %299, %302, %283
   %.0252.lcssa = phi i32 [ %.0252, %422 ], [ %.0252, %368 ], [ %.0252, %299 ], [ 0, %302 ], [ %.0252, %283 ]
   %.0248.lcssa = phi i32 [ %.0248, %422 ], [ %.0248, %368 ], [ %.0248, %299 ], [ 0, %302 ], [ %.0248, %283 ]
-  %.pre446 = load i32, ptr %4, align 8
+  %.pre447 = load i32, ptr %4, align 8
   br label %.split.thread
 
 .split.thread:                                    ; preds = %.split.thread.loopexit, %391, %387, %384, %376, %374, %367, %363, %360, %351, %323, %319, %316, %.split260
-  %424 = phi i32 [ %.pre446, %.split.thread.loopexit ], [ %377, %391 ], [ %377, %387 ], [ %377, %384 ], [ %377, %376 ], [ %.pre447, %374 ], [ %353, %367 ], [ %353, %363 ], [ %353, %360 ], [ %353, %351 ], [ %309, %323 ], [ %309, %319 ], [ %309, %316 ], [ %309, %.split260 ]
-  %.0252430 = phi i32 [ %.0252.lcssa, %.split.thread.loopexit ], [ %.0252, %391 ], [ %.0252, %387 ], [ %.0252, %384 ], [ %.0252, %376 ], [ %.0252, %374 ], [ %.0252, %367 ], [ %.0252, %363 ], [ %.0252, %360 ], [ %.0252, %351 ], [ 0, %323 ], [ 0, %319 ], [ 0, %316 ], [ 0, %.split260 ]
-  %.0248423 = phi i32 [ %.0248.lcssa, %.split.thread.loopexit ], [ 0, %391 ], [ 0, %387 ], [ 0, %384 ], [ 0, %376 ], [ 0, %374 ], [ %.0248, %367 ], [ %.0248, %363 ], [ %.0248, %360 ], [ %.0248, %351 ], [ 0, %323 ], [ 0, %319 ], [ 0, %316 ], [ 0, %.split260 ]
+  %424 = phi i32 [ %.pre447, %.split.thread.loopexit ], [ %377, %391 ], [ %377, %387 ], [ %377, %384 ], [ %377, %376 ], [ %.pre448, %374 ], [ %353, %367 ], [ %353, %363 ], [ %353, %360 ], [ %353, %351 ], [ %309, %323 ], [ %309, %319 ], [ %309, %316 ], [ %309, %.split260 ]
+  %.0252431 = phi i32 [ %.0252.lcssa, %.split.thread.loopexit ], [ %.0252, %391 ], [ %.0252, %387 ], [ %.0252, %384 ], [ %.0252, %376 ], [ %.0252, %374 ], [ %.0252, %367 ], [ %.0252, %363 ], [ %.0252, %360 ], [ %.0252, %351 ], [ 0, %323 ], [ 0, %319 ], [ 0, %316 ], [ 0, %.split260 ]
+  %.0248424 = phi i32 [ %.0248.lcssa, %.split.thread.loopexit ], [ 0, %391 ], [ 0, %387 ], [ 0, %384 ], [ 0, %376 ], [ 0, %374 ], [ %.0248, %367 ], [ %.0248, %363 ], [ %.0248, %360 ], [ %.0248, %351 ], [ 0, %323 ], [ 0, %319 ], [ 0, %316 ], [ 0, %.split260 ]
   %425 = and i32 %424, -9
   store i32 %425, ptr %4, align 8
   %426 = getelementptr inbounds i8, ptr %0, i64 88
@@ -43158,16 +43158,16 @@ tokadd.exit322:                                   ; preds = %293, %284, %422, %t
   br label %pushback.exit334
 
 pushback.exit334:                                 ; preds = %283, %.split.thread, %432, %435, %439
-  %.0252429 = phi i32 [ %.0252430, %.split.thread ], [ %.0252430, %432 ], [ %.0252430, %435 ], [ %.0252430, %439 ], [ %.0252, %283 ]
-  %.0248422 = phi i32 [ %.0248423, %.split.thread ], [ %.0248423, %432 ], [ %.0248423, %435 ], [ %.0248423, %439 ], [ %.0248, %283 ]
+  %.0252430 = phi i32 [ %.0252431, %.split.thread ], [ %.0252431, %432 ], [ %.0252431, %435 ], [ %.0252431, %439 ], [ %.0252, %283 ]
+  %.0248423 = phi i32 [ %.0248424, %.split.thread ], [ %.0248424, %432 ], [ %.0248424, %435 ], [ %.0248424, %439 ], [ %.0248, %283 ]
   %.not288 = icmp eq i32 %.15247, 0
   br i1 %.not288, label %parser_show_error_line.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %298, %pushback.exit334, %262, %222, %164, %107, %271
   %.2258 = phi i32 [ 0, %107 ], [ 0, %164 ], [ 0, %222 ], [ 0, %262 ], [ 0, %271 ], [ %.0256, %pushback.exit334 ], [ %.0256, %298 ]
-  %.2254 = phi i32 [ 0, %107 ], [ 0, %164 ], [ 0, %222 ], [ 0, %262 ], [ 0, %271 ], [ %.0252429, %pushback.exit334 ], [ %.0252, %298 ]
-  %.2250 = phi i32 [ 0, %107 ], [ 0, %164 ], [ 0, %222 ], [ 0, %262 ], [ 0, %271 ], [ %.0248422, %pushback.exit334 ], [ %.0248, %298 ]
-  %.18 = phi i32 [ %.2234338, %107 ], [ %.5237349, %164 ], [ %.8240358, %222 ], [ %.11243, %262 ], [ %.11243, %271 ], [ %.15247, %pushback.exit334 ], [ %.15247, %298 ]
+  %.2254 = phi i32 [ 0, %107 ], [ 0, %164 ], [ 0, %222 ], [ 0, %262 ], [ 0, %271 ], [ %.0252430, %pushback.exit334 ], [ %.0252, %298 ]
+  %.2250 = phi i32 [ 0, %107 ], [ 0, %164 ], [ 0, %222 ], [ 0, %262 ], [ 0, %271 ], [ %.0248423, %pushback.exit334 ], [ %.0248, %298 ]
+  %.18 = phi i32 [ %.2234339, %107 ], [ %.5237350, %164 ], [ %.8240359, %222 ], [ %.11243, %262 ], [ %.11243, %271 ], [ %.15247, %pushback.exit334 ], [ %.15247, %298 ]
   %440 = getelementptr inbounds i8, ptr %0, i64 88
   %441 = load ptr, ptr %440, align 8
   %442 = getelementptr i8, ptr %441, i64 -1
@@ -43206,8 +43206,8 @@ pushback.exit334:                                 ; preds = %283, %.split.thread
 
 parser_show_error_line.exit:                      ; preds = %460, %.loopexit, %pushback.exit334
   %.3259 = phi i32 [ %.0256, %pushback.exit334 ], [ %.2258, %.loopexit ], [ %.2258, %460 ]
-  %.3255 = phi i32 [ %.0252429, %pushback.exit334 ], [ %.2254, %.loopexit ], [ %.2254, %460 ]
-  %.3251 = phi i32 [ %.0248422, %pushback.exit334 ], [ %.2250, %.loopexit ], [ %.2250, %460 ]
+  %.3255 = phi i32 [ %.0252430, %pushback.exit334 ], [ %.2254, %.loopexit ], [ %.2254, %460 ]
+  %.3251 = phi i32 [ %.0248423, %pushback.exit334 ], [ %.2250, %.loopexit ], [ %.2250, %460 ]
   %465 = load ptr, ptr %13, align 8
   %466 = load i32, ptr %12, align 8
   %467 = sext i32 %466 to i64
@@ -43253,8 +43253,8 @@ parser_show_error_line.exit:                      ; preds = %460, %.loopexit, %p
   %490 = call fastcc i32 @set_number_literal(ptr noundef nonnull %0, i32 noundef 314, i32 noundef %489, i32 noundef 10, i32 noundef 0)
   br label %491
 
-491:                                              ; preds = %488, %486, %276, %267, %233, %.thread361, %220, %.thread, %162, %.thread341, %105
-  %.0230 = phi i32 [ %106, %105 ], [ %487, %486 ], [ %490, %488 ], [ %109, %.thread341 ], [ %163, %162 ], [ %166, %.thread ], [ %221, %220 ], [ %224, %.thread361 ], [ %269, %267 ], [ %282, %276 ], [ %234, %233 ]
+491:                                              ; preds = %488, %486, %276, %267, %233, %.thread362, %220, %.thread, %162, %.thread342, %105
+  %.0230 = phi i32 [ %106, %105 ], [ %487, %486 ], [ %490, %488 ], [ %109, %.thread342 ], [ %163, %162 ], [ %166, %.thread ], [ %221, %220 ], [ %224, %.thread362 ], [ %269, %267 ], [ %282, %276 ], [ %234, %233 ]
   ret i32 %.0230
 }
 
@@ -44600,8 +44600,8 @@ parser_set_lex_state.exit:                        ; preds = %48, %54
 
 parser_set_lex_state.exit..split_crit_edge:       ; preds = %parser_set_lex_state.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80
-  %.pre66 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre67 = load ptr, ptr %4, align 8
+  %.pre68 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre69 = load ptr, ptr %4, align 8
   br label %.split
 
 60:                                               ; preds = %parser_set_lex_state.exit
@@ -44662,8 +44662,8 @@ parser_set_lex_state.exit..split_crit_edge:       ; preds = %parser_set_lex_stat
   br label %.split
 
 .split:                                           ; preds = %parser_set_lex_state.exit..split_crit_edge, %90, %86, %83, %.split42
-  %91 = phi ptr [ %.pre67, %parser_set_lex_state.exit..split_crit_edge ], [ %87, %90 ], [ %79, %86 ], [ %79, %83 ], [ %79, %.split42 ]
-  %92 = phi ptr [ %.pre66, %parser_set_lex_state.exit..split_crit_edge ], [ %81, %90 ], [ %81, %86 ], [ %81, %83 ], [ %81, %.split42 ]
+  %91 = phi ptr [ %.pre69, %parser_set_lex_state.exit..split_crit_edge ], [ %87, %90 ], [ %79, %86 ], [ %79, %83 ], [ %79, %.split42 ]
+  %92 = phi ptr [ %.pre68, %parser_set_lex_state.exit..split_crit_edge ], [ %81, %90 ], [ %81, %86 ], [ %81, %83 ], [ %81, %.split42 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 212
   %94 = load i32, ptr %93, align 4
   %95 = load ptr, ptr %8, align 8
@@ -44701,15 +44701,15 @@ parser_show_error_line.exit:                      ; preds = %.split, %108
   store i64 289, ptr %114, align 8
   %115 = load i32, ptr %51, align 8
   %116 = and i32 %115, 32
-  %.not.i53 = icmp eq i32 %116, 0
-  br i1 %.not.i53, label %parser_set_lex_state.exit54, label %117
+  %.not.i54 = icmp eq i32 %116, 0
+  br i1 %.not.i54, label %parser_set_lex_state.exit55, label %117
 
 117:                                              ; preds = %parser_show_error_line.exit
   %118 = load i32, ptr %58, align 8
   %119 = call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %118, i32 noundef 2, i32 noundef 10557)
-  br label %parser_set_lex_state.exit54
+  br label %parser_set_lex_state.exit55
 
-parser_set_lex_state.exit54:                      ; preds = %parser_show_error_line.exit, %117
+parser_set_lex_state.exit55:                      ; preds = %parser_show_error_line.exit, %117
   store i32 2, ptr %58, align 8
   br label %tokadd_ident.exit
 
@@ -44728,24 +44728,24 @@ parser_is_identchar.exit.thread:                  ; preds = %63, %73
   %127 = getelementptr inbounds i8, ptr %0, i64 80
   %128 = load ptr, ptr %127, align 8
   %129 = icmp ugt ptr %126, %128
-  br i1 %129, label %130, label %pushback.exit55
+  br i1 %129, label %130, label %pushback.exit56
 
 130:                                              ; preds = %122
   %131 = load i8, ptr %126, align 1
   %132 = icmp eq i8 %131, 10
-  br i1 %132, label %133, label %pushback.exit55
+  br i1 %132, label %133, label %pushback.exit56
 
 133:                                              ; preds = %130
   %134 = getelementptr i8, ptr %125, i64 -2
   %135 = load i8, ptr %134, align 1
   %136 = icmp eq i8 %135, 13
-  br i1 %136, label %137, label %pushback.exit55
+  br i1 %136, label %137, label %pushback.exit56
 
 137:                                              ; preds = %133
   store ptr %134, ptr %4, align 8
-  br label %pushback.exit55
+  br label %pushback.exit56
 
-pushback.exit55:                                  ; preds = %122, %130, %133, %137
+pushback.exit56:                                  ; preds = %122, %130, %133, %137
   %138 = phi ptr [ %126, %122 ], [ %126, %130 ], [ %126, %133 ], [ %134, %137 ]
   %139 = getelementptr inbounds i8, ptr %0, i64 212
   %140 = load i32, ptr %139, align 4
@@ -44768,31 +44768,31 @@ pushback.exit55:                                  ; preds = %122, %130, %133, %1
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %.str.972..str.971, i32 noundef %.0)
   %152 = load i32, ptr %139, align 4
   %153 = icmp eq i32 %140, %152
-  br i1 %153, label %154, label %parser_show_error_line.exit56
+  br i1 %153, label %154, label %parser_show_error_line.exit58
 
-154:                                              ; preds = %pushback.exit55
+154:                                              ; preds = %pushback.exit56
   %155 = getelementptr inbounds i8, ptr %0, i64 64
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %0, i64 376
   %158 = load i64, ptr %157, align 8
   call void @ruby_show_error_line(ptr nonnull poison, i64 noundef %158, ptr noundef nonnull %3, i32 noundef %140, ptr noundef %156)
-  br label %parser_show_error_line.exit56
+  br label %parser_show_error_line.exit58
 
-parser_show_error_line.exit56:                    ; preds = %pushback.exit55, %154
+parser_show_error_line.exit58:                    ; preds = %pushback.exit56, %154
   %159 = getelementptr inbounds i8, ptr %0, i64 8
   %160 = load ptr, ptr %159, align 8
   store i64 289, ptr %160, align 8
   %161 = load i32, ptr %51, align 8
   %162 = and i32 %161, 32
-  %.not.i57 = icmp eq i32 %162, 0
-  br i1 %.not.i57, label %parser_set_lex_state.exit58, label %163
+  %.not.i59 = icmp eq i32 %162, 0
+  br i1 %.not.i59, label %parser_set_lex_state.exit60, label %163
 
-163:                                              ; preds = %parser_show_error_line.exit56
+163:                                              ; preds = %parser_show_error_line.exit58
   %164 = load i32, ptr %58, align 8
   %165 = call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %164, i32 noundef 2, i32 noundef 10571)
-  br label %parser_set_lex_state.exit58
+  br label %parser_set_lex_state.exit60
 
-parser_set_lex_state.exit58:                      ; preds = %parser_show_error_line.exit56, %163
+parser_set_lex_state.exit60:                      ; preds = %parser_show_error_line.exit58, %163
   store i32 2, ptr %58, align 8
   br label %tokadd_ident.exit
 
@@ -44806,8 +44806,8 @@ parser_set_lex_state.exit58:                      ; preds = %parser_show_error_l
   %169 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0, i32 noundef 1)
   %170 = load i32, ptr %51, align 8
   %171 = and i32 %170, 8
-  %.not.i.i59 = icmp eq i32 %171, 0
-  br i1 %.not.i.i59, label %172, label %parser_is_identchar.exit.thread.i
+  %.not.i.i61 = icmp eq i32 %171, 0
+  br i1 %.not.i.i61, label %172, label %parser_is_identchar.exit.thread.i
 
 172:                                              ; preds = %168
   %173 = load ptr, ptr %4, align 8
@@ -44833,8 +44833,8 @@ parser_set_lex_state.exit58:                      ; preds = %parser_show_error_l
 
 parser_is_identchar.exit.i:                       ; preds = %184, %181, %172
   %186 = phi i32 [ 1, %181 ], [ 1, %172 ], [ %185, %184 ]
-  %.not.i60 = icmp eq i32 %186, 0
-  br i1 %.not.i60, label %parser_is_identchar.exit.thread.i, label %.preheader, !llvm.loop !157
+  %.not.i62 = icmp eq i32 %186, 0
+  br i1 %.not.i62, label %parser_is_identchar.exit.thread.i, label %.preheader, !llvm.loop !157
 
 parser_is_identchar.exit.thread.i:                ; preds = %parser_is_identchar.exit.i, %168
   %187 = icmp eq i32 %169, -1
@@ -44879,8 +44879,8 @@ parser_is_identchar.exit.thread.i:                ; preds = %parser_is_identchar
   %212 = tail call i64 @rb_id2sym(i64 noundef %209) #32
   br label %tokadd_ident.exit
 
-tokadd_ident.exit:                                ; preds = %.preheader, %204, %parser_set_lex_state.exit58, %parser_set_lex_state.exit54
-  %.041 = phi i32 [ %.040, %parser_set_lex_state.exit54 ], [ %.040, %parser_set_lex_state.exit58 ], [ %.040, %204 ], [ 0, %.preheader ]
+tokadd_ident.exit:                                ; preds = %.preheader, %204, %parser_set_lex_state.exit60, %parser_set_lex_state.exit55
+  %.041 = phi i32 [ %.040, %parser_set_lex_state.exit55 ], [ %.040, %parser_set_lex_state.exit60 ], [ %.040, %204 ], [ 0, %.preheader ]
   ret i32 %.041
 }
 
@@ -48350,8 +48350,8 @@ tokaddmbc.exit:                                   ; preds = %._crit_edge.i.i, %1
   %198 = load i32, ptr %193, align 8
   %199 = getelementptr inbounds i8, ptr %0, i64 156
   %200 = load i32, ptr %199, align 4
-  %.not.i60 = icmp slt i32 %198, %200
-  br i1 %.not.i60, label %ruby_nonempty_memcpy.exit, label %201
+  %.not.i61 = icmp slt i32 %198, %200
+  br i1 %.not.i61, label %ruby_nonempty_memcpy.exit, label %201
 
 201:                                              ; preds = %189
   %202 = shl i32 %200, 1
@@ -48541,27 +48541,27 @@ newtok.exit:                                      ; preds = %9, %14
   %16 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0, i32 noundef 1)
   %17 = and i32 %16, -33
   %18 = add i32 %17, -91
-  %narrow.i58 = icmp ult i32 %18, -26
-  br i1 %narrow.i58, label %._crit_edge, label %.lr.ph
+  %narrow.i59 = icmp ult i32 %18, -26
+  br i1 %narrow.i59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %newtok.exit, %tokadd.exit
   %19 = phi i32 [ %39, %tokadd.exit ], [ %16, %newtok.exit ]
-  %.061 = phi i32 [ %.2, %tokadd.exit ], [ 0, %newtok.exit ]
-  %.02960 = phi i32 [ %.130, %tokadd.exit ], [ 0, %newtok.exit ]
-  %.03159 = phi i32 [ %.132, %tokadd.exit ], [ 0, %newtok.exit ]
+  %.062 = phi i32 [ %.2, %tokadd.exit ], [ 0, %newtok.exit ]
+  %.02961 = phi i32 [ %.130, %tokadd.exit ], [ 0, %newtok.exit ]
+  %.03160 = phi i32 [ %.132, %tokadd.exit ], [ 0, %newtok.exit ]
   switch i32 %19, label %char_to_option_kcode.exit [
     i32 111, label %20
     i32 110, label %tokadd.exit
-    i32 101, label %.thread53
-    i32 115, label %.thread53
-    i32 117, label %.thread53
+    i32 101, label %.thread54
+    i32 115, label %.thread54
+    i32 117, label %.thread54
     i32 105, label %24
     i32 120, label %22
     i32 109, label %23
   ]
 
 20:                                               ; preds = %.lr.ph
-  %21 = or i32 %.02960, 65536
+  %21 = or i32 %.02961, 65536
   br label %tokadd.exit
 
 22:                                               ; preds = %.lr.ph
@@ -48570,12 +48570,12 @@ newtok.exit:                                      ; preds = %9, %14
 23:                                               ; preds = %.lr.ph
   br label %24
 
-.thread53:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph
+.thread54:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   br label %tokadd.exit
 
 24:                                               ; preds = %.lr.ph, %22, %23
   %.sink11.i.ph = phi i32 [ 2, %22 ], [ 4, %23 ], [ 1, %.lr.ph ]
-  %25 = or i32 %.sink11.i.ph, %.02960
+  %25 = or i32 %.sink11.i.ph, %.02961
   br label %tokadd.exit
 
 char_to_option_kcode.exit:                        ; preds = %.lr.ph
@@ -48601,10 +48601,10 @@ char_to_option_kcode.exit:                        ; preds = %.lr.ph
   store ptr %38, ptr %4, align 8
   br label %tokadd.exit
 
-tokadd.exit:                                      ; preds = %.lr.ph, %34, %char_to_option_kcode.exit, %.thread53, %24, %20
-  %.132 = phi i32 [ %.03159, %20 ], [ %.03159, %24 ], [ 16, %.thread53 ], [ %.03159, %char_to_option_kcode.exit ], [ %.03159, %34 ], [ 32, %.lr.ph ]
-  %.130 = phi i32 [ %21, %20 ], [ %25, %24 ], [ %.02960, %.thread53 ], [ %.02960, %char_to_option_kcode.exit ], [ %.02960, %34 ], [ %.02960, %.lr.ph ]
-  %.2 = phi i32 [ %.061, %20 ], [ %.061, %24 ], [ %19, %.thread53 ], [ %.061, %char_to_option_kcode.exit ], [ %.061, %34 ], [ %.061, %.lr.ph ]
+tokadd.exit:                                      ; preds = %.lr.ph, %34, %char_to_option_kcode.exit, %.thread54, %24, %20
+  %.132 = phi i32 [ %.03160, %20 ], [ %.03160, %24 ], [ 16, %.thread54 ], [ %.03160, %char_to_option_kcode.exit ], [ %.03160, %34 ], [ 32, %.lr.ph ]
+  %.130 = phi i32 [ %21, %20 ], [ %25, %24 ], [ %.02961, %.thread54 ], [ %.02961, %char_to_option_kcode.exit ], [ %.02961, %34 ], [ %.02961, %.lr.ph ]
+  %.2 = phi i32 [ %.062, %20 ], [ %.062, %24 ], [ %19, %.thread54 ], [ %.062, %char_to_option_kcode.exit ], [ %.062, %34 ], [ %.062, %.lr.ph ]
   %39 = tail call fastcc i32 @nextc0(ptr noundef %0, i32 noundef 1)
   %40 = and i32 %39, -33
   %41 = add i32 %40, -91

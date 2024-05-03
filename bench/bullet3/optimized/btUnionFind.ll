@@ -296,7 +296,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %9 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.btElement, ptr %9, i64 %indvars.iv
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %10, ptr %arrayidx.i, align 4
   %11 = load ptr, ptr %m_data.i, align 8
   %m_sz = getelementptr inbounds %struct.btElement, ptr %11, i64 %indvars.iv, i32 1
@@ -330,7 +330,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load i32, ptr %arrayidx.i16.i, align 4
   %3 = zext i32 %2 to i64
   %cmp.not17.i = icmp eq i64 %indvars.iv, %3
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %cmp.not17.i, label %_ZN11btUnionFind4findEi.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %for.body, %while.body.i
@@ -409,7 +409,7 @@ while.cond:                                       ; preds = %while.cond, %do.bod
 
 while.cond5.preheader:                            ; preds = %while.cond
   %arrayidx4.le = getelementptr inbounds %struct.btElement, ptr %2, i64 %indvars.iv
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nsw i64 %indvars.iv to i32
   %6 = sext i32 %j.0 to i64
   br label %while.cond5
 
@@ -422,8 +422,8 @@ while.cond5:                                      ; preds = %while.cond5, %while
   br i1 %cmp.i24, label %while.cond5, label %while.end11, !llvm.loop !12
 
 while.end11:                                      ; preds = %while.cond5
-  %8 = trunc i64 %indvars.iv29 to i32
-  %cmp.not = icmp sgt i32 %5, %8
+  %8 = trunc nsw i64 %indvars.iv29 to i32
+  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv29
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11

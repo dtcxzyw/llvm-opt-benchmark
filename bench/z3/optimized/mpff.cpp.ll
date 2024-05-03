@@ -9419,7 +9419,7 @@ land.rhs192:                                      ; preds = %while.cond190
 
 while.end200:                                     ; preds = %land.rhs192
   %97 = trunc nuw i64 %indvars.iv446 to i32
-  %cmp201.not = icmp ugt i32 %97, %conv64
+  %cmp201.not = icmp ugt i64 %indvars.iv446, %div6357
   br i1 %cmp201.not, label %if.else210, label %if.then202
 
 if.then202:                                       ; preds = %while.cond190, %while.end200

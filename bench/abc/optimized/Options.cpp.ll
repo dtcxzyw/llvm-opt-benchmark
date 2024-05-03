@@ -574,9 +574,9 @@ _ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN5Gluco6Optio
   %38 = getelementptr inbounds i8, ptr %36, i64 32
   br label %39
 
-39:                                               ; preds = %74, %.lr.ph
-  %.030 = phi i64 [ -1, %.lr.ph ], [ %indvars.iv.next, %74 ]
-  %.0 = phi i32 [ %.tr3849, %.lr.ph ], [ %73, %74 ]
+39:                                               ; preds = %72, %.lr.ph
+  %.030 = phi i64 [ -1, %.lr.ph ], [ %indvars.iv.next, %72 ]
+  %.0 = phi i32 [ %.tr3849, %.lr.ph ], [ %73, %72 ]
   %40 = load ptr, ptr %37, align 8
   %sext = shl i64 %.030, 32
   %41 = ashr exact i64 %sext, 32
@@ -610,50 +610,50 @@ _ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN5Gluco6Optio
 
 _ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.preheader: ; preds = %50, %48
   %56 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next
-  %57 = trunc nsw i64 %indvars.iv.next to i32
-  %58 = sext i32 %.0 to i64
+  %57 = sext i32 %.0 to i64
   br label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit
 
 _ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit:        ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.preheader
-  %indvars.iv60 = phi i64 [ %58, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.preheader ], [ %indvars.iv.next61, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge ]
+  %indvars.iv60 = phi i64 [ %57, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.preheader ], [ %indvars.iv.next61, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge ]
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
-  %59 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next61
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %62) #14
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge, label %65
+  %58 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next61
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %61) #14
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge, label %64
 
-65:                                               ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit
-  %66 = icmp eq i32 %63, 0
-  br i1 %66, label %67, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit37.thread
+64:                                               ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit
+  %65 = icmp eq i32 %62, 0
+  br i1 %65, label %66, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit37.thread
 
-67:                                               ; preds = %65
-  %68 = load ptr, ptr %38, align 8
-  %69 = getelementptr inbounds i8, ptr %60, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(1) %70) #14
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit37.thread
+66:                                               ; preds = %64
+  %67 = load ptr, ptr %38, align 8
+  %68 = getelementptr inbounds i8, ptr %59, i64 32
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %69) #14
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit37.thread
 
-_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge: ; preds = %67, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit
+_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge: ; preds = %66, %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit
   br label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit, !llvm.loop !13
 
-_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit37.thread: ; preds = %65, %67
-  %73 = trunc nsw i64 %indvars.iv.next61 to i32
-  %.not = icmp slt i32 %57, %73
-  br i1 %.not, label %74, label %tailrecurse
+_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit37.thread: ; preds = %64, %66
+  %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next61
+  br i1 %.not, label %72, label %tailrecurse
 
-74:                                               ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit37.thread
-  %75 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next61
-  store ptr %60, ptr %56, align 8
-  store ptr %43, ptr %75, align 8
+72:                                               ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit37.thread
+  %73 = trunc nsw i64 %indvars.iv.next61 to i32
+  %74 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next61
+  store ptr %59, ptr %56, align 8
+  store ptr %43, ptr %74, align 8
   br label %39, !llvm.loop !14
 
 tailrecurse:                                      ; preds = %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit37.thread
-  tail call void @_ZN5Gluco4sortIPNS_6OptionENS1_8OptionLtEEEvPT_iT0_(ptr noundef nonnull %.tr48, i32 noundef %57)
-  %76 = sub nsw i32 %.tr3849, %57
+  %75 = trunc nsw i64 %indvars.iv.next to i32
+  tail call void @_ZN5Gluco4sortIPNS_6OptionENS1_8OptionLtEEEvPT_iT0_(ptr noundef nonnull %.tr48, i32 noundef %75)
+  %76 = sub nsw i32 %.tr3849, %75
   %77 = icmp slt i32 %76, 16
   br i1 %77, label %tailrecurse._crit_edge, label %.lr.ph
 

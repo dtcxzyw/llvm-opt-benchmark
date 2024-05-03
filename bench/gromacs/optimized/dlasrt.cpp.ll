@@ -171,9 +171,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %68 = add nsw i32 %24, 1
   br i1 %switch.masked, label %.preheader307, label %.preheader308
 
-.preheader307:                                    ; preds = %66, %84
-  %.2190 = phi i32 [ %75, %84 ], [ %68, %66 ]
-  %.2 = phi i32 [ %82, %84 ], [ %67, %66 ]
+.preheader307:                                    ; preds = %66, %83
+  %.2190 = phi i32 [ %75, %83 ], [ %68, %66 ]
+  %.2 = phi i32 [ %85, %83 ], [ %67, %66 ]
   %69 = sext i32 %.2190 to i64
   br label %70
 
@@ -200,13 +200,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %80, label %77, label %81
 
 81:                                               ; preds = %77
-  %82 = trunc nsw i64 %indvars.iv.next279 to i32
-  %83 = icmp slt i32 %82, %75
-  br i1 %83, label %84, label %86
+  %82 = icmp slt i64 %indvars.iv.next279, %indvars.iv.next276
+  br i1 %82, label %83, label %86
 
-84:                                               ; preds = %81
-  %85 = getelementptr double, ptr %2, i64 %indvars.iv278
-  store double %72, ptr %85, align 8
+83:                                               ; preds = %81
+  %84 = getelementptr double, ptr %2, i64 %indvars.iv278
+  %85 = trunc nsw i64 %indvars.iv.next279 to i32
+  store double %72, ptr %84, align 8
   store double %79, ptr %74, align 8
   br label %.preheader307
 
@@ -237,9 +237,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %75, ptr %98, align 4
   br label %.loopexit
 
-.preheader308:                                    ; preds = %66, %116
-  %.4192 = phi i32 [ %107, %116 ], [ %68, %66 ]
-  %.4 = phi i32 [ %114, %116 ], [ %67, %66 ]
+.preheader308:                                    ; preds = %66, %115
+  %.4192 = phi i32 [ %107, %115 ], [ %68, %66 ]
+  %.4 = phi i32 [ %117, %115 ], [ %67, %66 ]
   %101 = sext i32 %.4192 to i64
   br label %102
 
@@ -266,13 +266,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %112, label %109, label %113
 
 113:                                              ; preds = %109
-  %114 = trunc nsw i64 %indvars.iv.next273 to i32
-  %115 = icmp slt i32 %114, %107
-  br i1 %115, label %116, label %118
+  %114 = icmp slt i64 %indvars.iv.next273, %indvars.iv.next
+  br i1 %114, label %115, label %118
 
-116:                                              ; preds = %113
-  %117 = getelementptr double, ptr %2, i64 %indvars.iv272
-  store double %104, ptr %117, align 8
+115:                                              ; preds = %113
+  %116 = getelementptr double, ptr %2, i64 %indvars.iv272
+  %117 = trunc nsw i64 %indvars.iv.next273 to i32
+  store double %104, ptr %116, align 8
   store double %111, ptr %106, align 8
   br label %.preheader308
 

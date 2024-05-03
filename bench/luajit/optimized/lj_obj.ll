@@ -20,15 +20,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_obj_itypename = hidden local_unnamed_addr constant [14 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.2, ptr @.str.3, ptr @.str.5, ptr @.str.11, ptr @.str.8, ptr @.str.9, ptr @.str.7, ptr @.str.12, ptr @.str.10, ptr @.str.6, ptr @.str.3, ptr @.str.4], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @lj_obj_equal(ptr nocapture noundef readonly %o1, ptr nocapture noundef readonly %o2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_obj_equal(ptr nocapture noundef readonly %o1, ptr nocapture noundef readonly %o2) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %o1, align 8
   %shr = ashr i64 %0, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %1 = load i64, ptr %o2, align 8
   %shr1 = ashr i64 %1, 47
-  %conv2 = trunc i64 %shr1 to i32
-  %cmp = icmp eq i32 %conv, %conv2
+  %cmp = icmp eq i64 %shr, %shr1
   %2 = bitcast i64 %0 to double
   %3 = bitcast i64 %1 to double
   br i1 %cmp, label %if.then, label %if.else
@@ -46,9 +45,10 @@ if.then13:                                        ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %entry
+  %conv2 = trunc nsw i64 %shr1 to i32
   %cmp20 = icmp ult i32 %conv, -13
   %cmp24 = icmp ult i32 %conv2, -13
-  %or.cond = and i1 %cmp20, %cmp24
+  %or.cond = select i1 %cmp20, i1 %cmp24, i1 false
   br i1 %or.cond, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.else, %if.end
@@ -66,7 +66,7 @@ define hidden ptr @lj_obj_ptr(ptr nocapture noundef readonly %g, ptr nocapture n
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   switch i32 %conv, label %if.else16 [
     i32 -13, label %if.then
     i32 -4, label %if.then6

@@ -335,7 +335,7 @@ _ZN8facebook5velox4type6Parser12yytranslate_Ei.exit: ; preds = %entry, %if.else.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN8facebook5velox4type6Parser12yytranslate_Ei(i32 noundef %t) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZN8facebook5velox4type6Parser12yytranslate_Ei(i32 noundef %t) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp slt i32 %t, 1
   br i1 %cmp, label %return, label %if.else
@@ -418,7 +418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8facebook5velox4type6Parser8by_state4kindEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this) local_unnamed_addr #8 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK8facebook5velox4type6Parser8by_state4kindEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i8, ptr %this, align 1
   %cmp = icmp eq i8 %0, 0
@@ -5094,9 +5094,8 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = add nsw i64 %indvars.iv31, %7
   %arrayidx13.us = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %9
   %10 = load i8, ptr %arrayidx13.us, align 1
-  %conv14.us = sext i8 %10 to i32
-  %11 = trunc i64 %indvars.iv31 to i32
-  %cmp15.us = icmp eq i32 %11, %conv14.us
+  %11 = sext i8 %10 to i64
+  %cmp15.us = icmp eq i64 %indvars.iv31, %11
   %12 = icmp ne i64 %indvars.iv31, 1
   %or.cond.us = and i1 %12, %cmp15.us
   br i1 %or.cond.us, label %land.lhs.true17.us, label %for.inc.us
@@ -5122,7 +5121,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx13 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %14
   %15 = load i8, ptr %arrayidx13, align 1
   %conv14 = sext i8 %15 to i32
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nsw i64 %indvars.iv to i32
   %cmp15 = icmp eq i32 %16, %conv14
   %17 = icmp ne i64 %indvars.iv, 1
   %or.cond = and i1 %17, %cmp15
@@ -5246,14 +5245,14 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i12
   %10 = sext i32 %cond9.i to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ %8, %for.body.lr.ph.i ]
   %yycount.026.i = phi i32 [ %yycount.1.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %11 = add nsw i64 %indvars.iv.i, %9
   %arrayidx13.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %11
   %12 = load i8, ptr %arrayidx13.i, align 1
   %conv14.i = sext i8 %12 to i32
-  %13 = trunc i64 %indvars.iv.i to i32
+  %13 = trunc nsw i64 %indvars.iv.i to i32
   %cmp15.i = icmp eq i32 %13, %conv14.i
   %14 = icmp ne i64 %indvars.iv.i, 1
   %or.cond.i = and i1 %14, %cmp15.i
@@ -6719,7 +6718,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #25
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #25
@@ -6731,11 +6730,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad
+if.then.i32:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #26
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #27
           to label %unreachable unwind label %lpad17
 

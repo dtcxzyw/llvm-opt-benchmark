@@ -2011,7 +2011,6 @@ if.then40:                                        ; preds = %land.lhs.true37
   %11 = load i16, ptr %DisplayOrder, align 2
   %DisplayOrder52 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %10, i64 %idx.ext.i57, i32 18
   %12 = load i16, ptr %DisplayOrder52, align 2
-  %conv53 = sext i16 %12 to i32
   store i16 %12, ptr %DisplayOrder, align 2
   %cmp57.not72 = icmp eq i16 %11, %12
   br i1 %cmp57.not72, label %for.cond68.preheader, label %for.body.lr.ph
@@ -2020,12 +2019,13 @@ for.body.lr.ph:                                   ; preds = %if.then40
   %DisplayOrderToIndex = getelementptr inbounds i8, ptr %table, i64 40
   %13 = sext i16 %11 to i64
   %14 = sext i16 %9 to i64
+  %15 = sext i16 %12 to i64
   br label %for.body
 
 for.cond68.preheader:                             ; preds = %for.body, %if.then40
   %ColumnsCount = getelementptr inbounds i8, ptr %table, i64 108
-  %15 = load i32, ptr %ColumnsCount, align 4
-  %cmp6974 = icmp sgt i32 %15, 0
+  %16 = load i32, ptr %ColumnsCount, align 4
+  %cmp6974 = icmp sgt i32 %16, 0
   br i1 %cmp6974, label %for.body70.lr.ph, label %for.end79
 
 for.body70.lr.ph:                                 ; preds = %for.cond68.preheader
@@ -2035,17 +2035,16 @@ for.body70.lr.ph:                                 ; preds = %for.cond68.preheade
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %13, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, %14
-  %16 = load ptr, ptr %DisplayOrderToIndex, align 8
-  %add.ptr.i60 = getelementptr inbounds i16, ptr %16, i64 %indvars.iv.next
-  %17 = load i16, ptr %add.ptr.i60, align 2
-  %18 = load ptr, ptr %Columns43, align 8
-  %idx.ext.i61 = sext i16 %17 to i64
-  %DisplayOrder64 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %18, i64 %idx.ext.i61, i32 18
-  %19 = load i16, ptr %DisplayOrder64, align 2
-  %sub = sub i16 %19, %9
+  %17 = load ptr, ptr %DisplayOrderToIndex, align 8
+  %add.ptr.i60 = getelementptr inbounds i16, ptr %17, i64 %indvars.iv.next
+  %18 = load i16, ptr %add.ptr.i60, align 2
+  %19 = load ptr, ptr %Columns43, align 8
+  %idx.ext.i61 = sext i16 %18 to i64
+  %DisplayOrder64 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %19, i64 %idx.ext.i61, i32 18
+  %20 = load i16, ptr %DisplayOrder64, align 2
+  %sub = sub i16 %20, %9
   store i16 %sub, ptr %DisplayOrder64, align 2
-  %20 = trunc nsw i64 %indvars.iv.next to i32
-  %cmp57.not = icmp eq i32 %20, %conv53
+  %cmp57.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %cmp57.not, label %for.cond68.preheader, label %for.body, !llvm.loop !13
 
 for.body70:                                       ; preds = %for.body70.lr.ph, %for.body70
@@ -8529,7 +8528,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5ImGui21TableGetHoveredColumnEv() local_unnamed_addr #11 {
+define noundef range(i32 -32768, 32768) i32 @_ZN5ImGui21TableGetHoveredColumnEv() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentTable = getelementptr inbounds i8, ptr %0, i64 19912
@@ -9735,7 +9734,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5ImGui31TableGetColumnNextSortDirectionEP16ImGuiTableColumn(ptr nocapture noundef readonly %column) local_unnamed_addr #9 {
+define noundef range(i32 0, 4) i32 @_ZN5ImGui31TableGetColumnNextSortDirectionEP16ImGuiTableColumn(ptr nocapture noundef readonly %column) local_unnamed_addr #9 {
 entry:
   %SortOrder = getelementptr inbounds i8, ptr %column, i64 90
   %0 = load i16, ptr %SortOrder, align 2
@@ -11321,7 +11320,7 @@ land.lhs.true248:                                 ; preds = %if.end246
   br i1 %cmp251.not, label %if.end257, label %if.then252
 
 if.then252:                                       ; preds = %land.lhs.true248
-  %call253 = call noundef i32 @_ZN5ImGui31TableGetColumnNextSortDirectionEP16ImGuiTableColumn(ptr noundef nonnull %add.ptr.i), !range !54
+  %call253 = call noundef i32 @_ZN5ImGui31TableGetColumnNextSortDirectionEP16ImGuiTableColumn(ptr noundef nonnull %add.ptr.i)
   %KeyShift = getelementptr inbounds i8, ptr %0, i64 3685
   %100 = load i8, ptr %KeyShift, align 1
   %tobool255 = trunc i8 %100 to i1
@@ -12000,7 +11999,7 @@ for.inc.us:                                       ; preds = %cond.end163.us, %if
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %127 = sext i32 %126 to i64
   %cmp88.us = icmp slt i64 %indvars.iv.next, %127
-  br i1 %cmp88.us, label %for.body89.us, label %for.inc193, !llvm.loop !55
+  br i1 %cmp88.us, label %for.body89.us, label %for.inc193, !llvm.loop !54
 
 for.body89:                                       ; preds = %for.body89.lr.ph, %for.inc
   %128 = phi i32 [ %154, %for.inc ], [ %65, %for.body89.lr.ph ]
@@ -12114,7 +12113,7 @@ for.inc:                                          ; preds = %_ZL23TableGetColumn
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %155 = sext i32 %154 to i64
   %cmp88 = icmp slt i64 %indvars.iv.next233, %155
-  br i1 %cmp88, label %for.body89, label %for.inc193, !llvm.loop !55
+  br i1 %cmp88, label %for.body89, label %for.inc193, !llvm.loop !54
 
 for.inc193:                                       ; preds = %for.inc.us, %for.inc, %for.cond87.preheader
   %156 = phi i32 [ %65, %for.cond87.preheader ], [ %154, %for.inc ], [ %125, %for.inc.us ]
@@ -12123,7 +12122,7 @@ for.inc193:                                       ; preds = %for.inc.us, %for.in
   %max_x.1.lcssa = phi float [ %max_x.0227, %for.cond87.preheader ], [ %max_x.0227, %for.inc ], [ %max_x.3.us, %for.inc.us ]
   %inc194 = add nuw nsw i32 %pass.0226, 1
   %exitcond.not = icmp eq i32 %inc194, 2
-  br i1 %exitcond.not, label %for.end195, label %for.cond87.preheader, !llvm.loop !56
+  br i1 %exitcond.not, label %for.end195, label %for.cond87.preheader, !llvm.loop !55
 
 for.end195:                                       ; preds = %for.inc193, %if.end85
   %.us-phi228 = phi float [ 0.000000e+00, %if.end85 ], [ %max_x.1.lcssa, %for.inc193 ]
@@ -12268,7 +12267,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %inc.i = add nuw nsw i32 %n.011.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 16
   %exitcond.not.i = icmp eq i32 %inc.i, %columns_count
-  br i1 %exitcond.not.i, label %_ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit, label %for.body.i, !llvm.loop !58
+  br i1 %exitcond.not.i, label %_ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit, label %for.body.i, !llvm.loop !57
 
 _ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit: ; preds = %for.body.i, %_ZN13ImChunkStreamI18ImGuiTableSettingsE11alloc_chunkEm.exit
   store i32 %id, ptr %add.ptr13.i, align 4
@@ -12409,7 +12408,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = zext i32 %7 to i64
   %cmp.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !59
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !58
 
 for.end:                                          ; preds = %for.inc, %entry
   %Data.i.i6 = getelementptr inbounds i8, ptr %ctx, i64 24392
@@ -12505,7 +12504,7 @@ for.body.i7:                                      ; preds = %for.body.i7, %for.b
   %inc.i = add nuw nsw i32 %n.011.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %settings_column.010.i, i64 16
   %exitcond.not.i = icmp eq i32 %inc.i, %conv
-  br i1 %exitcond.not.i, label %_ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit, label %for.body.i7, !llvm.loop !58
+  br i1 %exitcond.not.i, label %_ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit, label %for.body.i7, !llvm.loop !57
 
 _ZL17TableSettingsInitP18ImGuiTableSettingsjii.exit: ; preds = %for.body.i7, %if.then5
   store i32 %2, ptr %settings.08.i, align 4
@@ -12764,7 +12763,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = zext i32 %7 to i64
   %cmp.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !60
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !59
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -12979,7 +12978,7 @@ for.inc:                                          ; preds = %land.rhs, %lor.end,
   %incdec.ptr = getelementptr inbounds i8, ptr %column.068, i64 16
   %conv35 = sext i16 %34 to i32
   %cmp36 = icmp slt i32 %inc, %conv35
-  br i1 %cmp36, label %for.body37, label %for.end, !llvm.loop !61
+  br i1 %cmp36, label %for.body37, label %for.end, !llvm.loop !60
 
 for.end:                                          ; preds = %for.inc, %if.end31
   tail call void @_ZN15ImGuiTextBuffer6appendEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %buf, ptr noundef nonnull @.str.56, ptr noundef null)
@@ -13098,7 +13097,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load i32, ptr %ColumnsCount, align 4
   %6 = sext i32 %5 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %6
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !62
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !61
 
 for.end:                                          ; preds = %for.body, %_ZN15ImGuiTextBuffer5clearEv.exit
   %Data.i11 = getelementptr inbounds i8, ptr %0, i64 19952
@@ -13579,7 +13578,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %for.body, %if.en
   %36 = load i16, ptr %InstanceCurrent, align 8
   %37 = sext i16 %36 to i64
   %cmp64.not.not = icmp slt i64 %indvars.iv, %37
-  br i1 %cmp64.not.not, label %for.body, label %for.cond68.preheader, !llvm.loop !63
+  br i1 %cmp64.not.not, label %for.body, label %for.cond68.preheader, !llvm.loop !62
 
 for.cond84.preheader:                             ; preds = %for.inc80
   br i1 %cmp70124, label %for.body87.lr.ph, label %for.end206
@@ -13615,7 +13614,7 @@ for.inc80:                                        ; preds = %for.body71, %if.the
   %sum_weights.1 = phi float [ %add78, %if.then75 ], [ %sum_weights.0126, %for.body71 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond84.preheader, label %for.body71, !llvm.loop !64
+  br i1 %exitcond.not, label %for.cond84.preheader, label %for.body71, !llvm.loop !63
 
 for.body87:                                       ; preds = %for.body87.lr.ph, %for.inc204
   %indvars.iv136 = phi i64 [ 0, %for.body87.lr.ph ], [ %indvars.iv.next137, %for.inc204 ]
@@ -13783,7 +13782,7 @@ for.inc204:                                       ; preds = %_ZN5ImGui18TableGet
   %84 = load i32, ptr %ColumnsCount, align 4
   %85 = sext i32 %84 to i64
   %cmp86 = icmp slt i64 %indvars.iv.next137, %85
-  br i1 %cmp86, label %for.body87, label %for.end206, !llvm.loop !65
+  br i1 %cmp86, label %for.body87, label %for.end206, !llvm.loop !64
 
 for.end206:                                       ; preds = %for.inc204, %for.cond68.preheader, %for.cond84.preheader
   %.lcssa = phi i32 [ %29, %for.cond84.preheader ], [ %29, %for.cond68.preheader ], [ %84, %for.inc204 ]
@@ -13926,7 +13925,7 @@ for.cond:                                         ; preds = %for.body, %cond.end
   %13 = load i16, ptr %ColumnsCount, align 4
   %14 = sext i16 %13 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %14
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !66
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !65
 
 for.end:                                          ; preds = %for.cond, %if.end
   tail call void @_ZN5ImGui7TreePopEv()
@@ -14521,7 +14520,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !67
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !66
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -14966,7 +14965,7 @@ _ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit: ; preds = %for.body._ZN
   store i32 %inc.i, ptr %Columns, align 8
   %inc = add nuw i32 %n.0186, 1
   %exitcond.not = icmp eq i32 %n.0186, %columns_count
-  br i1 %exitcond.not, label %if.end56, label %for.body, !llvm.loop !68
+  br i1 %exitcond.not, label %if.end56, label %for.body, !llvm.loop !67
 
 if.end56:                                         ; preds = %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit, %if.end
   %cmp59187 = icmp sgt i32 %columns_count, 0
@@ -15079,7 +15078,7 @@ _ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec
   %retval.sroa.0.4.vec.insert.i21.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i20.i, float %cond27.i14.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i21.i, ptr %ref.tmp.sroa.3.0.ClipRect80.sroa_idx, align 4
   %cmp59 = icmp slt i32 %add73180, %columns_count
-  br i1 %cmp59, label %for.body60, label %for.end85, !llvm.loop !69
+  br i1 %cmp59, label %for.body60, label %for.end85, !llvm.loop !68
 
 for.end85:                                        ; preds = %_ZN6ImRect12ClipWithFullERKS_.exit, %_ZN8ImVectorI18ImGuiOldColumnDataE7reserveEi.exit, %if.end56
   %45 = load i32, ptr %Count, align 8
@@ -15612,7 +15611,7 @@ for.inc:                                          ; preds = %_ZN5ImGui15GetColum
   %32 = load i32, ptr %Count, align 8
   %33 = sext i32 %32 to i64
   %cmp24 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %cmp24, label %for.body, label %for.end, !llvm.loop !70
+  br i1 %cmp24, label %for.body, label %for.end, !llvm.loop !69
 
 for.end:                                          ; preds = %for.inc
   %cmp60.not = icmp eq i32 %dragging_column.2, -1
@@ -15641,7 +15640,7 @@ for.body69:                                       ; preds = %for.body69.lr.ph, %
   %37 = load i32, ptr %Count, align 8
   %38 = sext i32 %37 to i64
   %cmp68.not.not = icmp slt i64 %indvars.iv105, %38
-  br i1 %cmp68.not.not, label %for.body69, label %if.end77, !llvm.loop !71
+  br i1 %cmp68.not.not, label %for.body69, label %if.end77, !llvm.loop !70
 
 if.end77:                                         ; preds = %for.body69, %if.then61
   store i8 1, ptr %IsBeingResized, align 1
@@ -16115,10 +16114,10 @@ attributes #23 = { nounwind willreturn memory(read) }
 !51 = distinct !{!51, !5}
 !52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
-!54 = !{i32 0, i32 4}
-!55 = distinct !{!55, !5}
-!56 = distinct !{!56, !5, !57}
-!57 = !{!"llvm.loop.unswitch.partial.disable"}
+!54 = distinct !{!54, !5}
+!55 = distinct !{!55, !5, !56}
+!56 = !{!"llvm.loop.unswitch.partial.disable"}
+!57 = distinct !{!57, !5}
 !58 = distinct !{!58, !5}
 !59 = distinct !{!59, !5}
 !60 = distinct !{!60, !5}
@@ -16132,4 +16131,3 @@ attributes #23 = { nounwind willreturn memory(read) }
 !68 = distinct !{!68, !5}
 !69 = distinct !{!69, !5}
 !70 = distinct !{!70, !5}
-!71 = distinct !{!71, !5}
