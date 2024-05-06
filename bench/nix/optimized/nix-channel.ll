@@ -5783,7 +5783,7 @@ _ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit44: ; preds = %_ZSt13
   %161 = ptrtoint ptr %159 to i64
   %162 = ptrtoint ptr %160 to i64
   %163 = sub i64 %161, %162
-  %164 = icmp ult i64 %163, 64
+  %164 = icmp ult i64 %163, 33
   br i1 %164, label %167, label %165
 
 165:                                              ; preds = %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit44
@@ -10435,7 +10435,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRSt14_List_itera
   br label %"_ZNSt14_Function_base13_Base_managerIZL16main_nix_channeliPPcE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZL16main_nix_channeliPPcE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZL16main_nix_channeliPPcE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

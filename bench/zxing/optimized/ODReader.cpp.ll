@@ -1774,7 +1774,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %292, %.noexc26
   %295 = load ptr, ptr %53, align 8
   %296 = ptrtoint ptr %295 to i64
   %297 = sub i64 %296, %286
-  %.not.i256 = icmp ult i64 %297, 8
+  %.not.i256 = icmp ult i64 %297, 5
   br i1 %.not.i256, label %_ZSt7advanceIPKimEvRT_T0_.exit.i, label %298
 
 298:                                              ; preds = %294

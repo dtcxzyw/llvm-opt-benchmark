@@ -80,7 +80,7 @@ define void @_ZN5draco14RAnsBitEncoder5ClearEv(ptr nocapture noundef nonnull ali
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
-  %8 = icmp ult i64 %7, 16
+  %8 = icmp ult i64 %7, 9
   br i1 %8, label %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i, label %13
 
 _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i:          ; preds = %1
@@ -314,7 +314,7 @@ define void @_ZN5draco14RAnsBitEncoder28EncodeLeastSignificantBits32Eij(ptr noca
   %4 = tail call noundef i32 @llvm.bitreverse.i32(i32 %2)
   %5 = sub nsw i32 32, %1
   %6 = lshr i32 %4, %5
-  %7 = tail call noundef i32 @llvm.ctpop.i32(i32 %6), !range !4
+  %7 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
   %8 = sub nsw i32 %1, %7
   %9 = sext i32 %8 to i64
   %10 = load ptr, ptr %0, align 8
@@ -648,7 +648,7 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %39, %45
 
 .loopexit:                                        ; preds = %86
   %.not = icmp eq ptr %72, %20
-  br i1 %.not, label %._crit_edge, label %71, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %71, !llvm.loop !4
 
 71:                                               ; preds = %.lr.ph85, %.loopexit
   %.sroa.038.084 = phi ptr [ %19, %.lr.ph85 ], [ %72, %.loopexit ]
@@ -702,7 +702,7 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %39, %45
   %102 = add i32 %101, %reass.mul.i32
   %103 = add nsw i32 %.02280, -1
   %.not89 = icmp eq i32 %.02280, 0
-  br i1 %.not89, label %.loopexit, label %74, !llvm.loop !7
+  br i1 %.not89, label %.loopexit, label %74, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.sroa.7.2.lcssa = phi i32 [ %.sroa.7.0.lcssa, %.preheader ], [ %.sroa.7.4, %.loopexit ]
@@ -942,7 +942,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %33 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
   %34 = add nsw i64 %.012.i.i.i.i.i, -1
   %35 = icmp ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %35, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !8
+  br i1 %35, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !7
 
 _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %36 = getelementptr inbounds i8, ptr %2, i64 %18
@@ -961,7 +961,7 @@ _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %43 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
   %44 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
-  br i1 %44, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !8
+  br i1 %44, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !7
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %.pre = load ptr, ptr %11, align 8
@@ -997,7 +997,7 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i60, i64 1
   %55 = add nsw i64 %.012.i.i.i.i.i59, -1
   %56 = icmp ugt i64 %.012.i.i.i.i.i59, 1
-  br i1 %56, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !8
+  br i1 %56, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !7
 
 57:                                               ; preds = %5
   %58 = load ptr, ptr %0, align 8
@@ -1143,8 +1143,7 @@ attributes #19 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

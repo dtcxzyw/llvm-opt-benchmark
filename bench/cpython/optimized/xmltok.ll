@@ -120,7 +120,7 @@ for.end:                                          ; preds = %for.inc, %if.else32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @PyExpat_XmlUtf8Encode(i32 noundef %c, ptr nocapture noundef writeonly %buf) local_unnamed_addr #1 {
+define hidden range(i32 0, 5) i32 @PyExpat_XmlUtf8Encode(i32 noundef %c, ptr nocapture noundef writeonly %buf) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %c, 0
   br i1 %cmp, label %return, label %if.end
@@ -206,7 +206,7 @@ return:                                           ; preds = %if.end30, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @PyExpat_XmlUtf16Encode(i32 noundef %charNum, ptr nocapture noundef writeonly %buf) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @PyExpat_XmlUtf16Encode(i32 noundef %charNum, ptr nocapture noundef writeonly %buf) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %charNum, 0
   br i1 %cmp, label %return, label %if.end
@@ -528,7 +528,7 @@ return:                                           ; preds = %land.lhs.true8, %if
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @unknown_isName(ptr nocapture noundef readonly %enc, ptr noundef %p) #5 {
+define internal range(i32 0, -2147483647) i32 @unknown_isName(ptr nocapture noundef readonly %enc, ptr noundef %p) #5 {
 entry:
   %convert = getelementptr inbounds i8, ptr %enc, i64 464
   %0 = load ptr, ptr %convert, align 8
@@ -562,7 +562,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @unknown_isNmstrt(ptr nocapture noundef readonly %enc, ptr noundef %p) #5 {
+define internal range(i32 0, -2147483647) i32 @unknown_isNmstrt(ptr nocapture noundef readonly %enc, ptr noundef %p) #5 {
 entry:
   %convert = getelementptr inbounds i8, ptr %enc, i64 464
   %0 = load ptr, ptr %convert, align 8
@@ -596,7 +596,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @unknown_isInvalid(ptr nocapture noundef readonly %enc, ptr noundef %p) #5 {
+define internal range(i32 0, 2) i32 @unknown_isInvalid(ptr nocapture noundef readonly %enc, ptr noundef %p) #5 {
 entry:
   %convert = getelementptr inbounds i8, ptr %enc, i64 464
   %0 = load ptr, ptr %convert, align 8
@@ -643,7 +643,7 @@ lor.end:                                          ; preds = %sw.epilog.i, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @unknown_toUtf8(ptr nocapture noundef readonly %enc, ptr nocapture noundef %fromP, ptr noundef readnone %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #5 {
+define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr nocapture noundef readonly %enc, ptr nocapture noundef %fromP, ptr noundef readnone %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #5 {
 entry:
   %buf = alloca [4 x i8], align 1
   %0 = load ptr, ptr %fromP, align 8
@@ -801,7 +801,7 @@ return:                                           ; preds = %if.end25, %PyExpat_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @unknown_toUtf16(ptr nocapture noundef readonly %enc, ptr nocapture noundef %fromP, ptr noundef readnone %fromLim, ptr nocapture noundef %toP, ptr noundef readnone %toLim) #5 {
+define internal range(i32 0, 3) i32 @unknown_toUtf16(ptr nocapture noundef readonly %enc, ptr nocapture noundef %fromP, ptr noundef readnone %fromLim, ptr nocapture noundef %toP, ptr noundef readnone %toLim) #5 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %cmp16 = icmp ult ptr %0, %fromLim
@@ -884,7 +884,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @PyExpat_XmlInitEncoding(ptr noundef %p, ptr noundef %encPtr, ptr noundef readonly %name) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PyExpat_XmlInitEncoding(ptr noundef %p, ptr noundef %encPtr, ptr noundef readonly %name) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %name, null
   br i1 %cmp.i, label %if.end, label %for.body.i
@@ -1061,14 +1061,14 @@ normal_updatePosition.exit:                       ; preds = %sw.epilog.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PyExpat_XmlParseXmlDecl(i32 noundef %isGeneralTextEntity, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr, ptr noundef %versionPtr, ptr noundef %versionEndPtr, ptr noundef %encodingName, ptr noundef %encoding, ptr noundef %standalone) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @PyExpat_XmlParseXmlDecl(i32 noundef %isGeneralTextEntity, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr, ptr noundef %versionPtr, ptr noundef %versionEndPtr, ptr noundef %encodingName, ptr noundef %encoding, ptr noundef %standalone) local_unnamed_addr #5 {
 entry:
-  %call = tail call fastcc i32 @doParseXmlDecl(ptr noundef nonnull @findEncoding, i32 noundef %isGeneralTextEntity, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef %badPtr, ptr noundef %versionPtr, ptr noundef %versionEndPtr, ptr noundef %encodingName, ptr noundef %encoding, ptr noundef %standalone), !range !11
+  %call = tail call fastcc i32 @doParseXmlDecl(ptr noundef nonnull @findEncoding, i32 noundef %isGeneralTextEntity, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef %badPtr, ptr noundef %versionPtr, ptr noundef %versionEndPtr, ptr noundef %encodingName, ptr noundef %encoding, ptr noundef %standalone)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @doParseXmlDecl(ptr nocapture noundef readonly %encodingFinder, i32 noundef %isGeneralTextEntity, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr, ptr noundef writeonly %versionPtr, ptr noundef writeonly %versionEndPtr, ptr noundef writeonly %encodingName, ptr noundef writeonly %encoding, ptr noundef writeonly %standalone) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @doParseXmlDecl(ptr nocapture noundef readonly %encodingFinder, i32 noundef %isGeneralTextEntity, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr, ptr noundef writeonly %versionPtr, ptr noundef writeonly %versionEndPtr, ptr noundef writeonly %encodingName, ptr noundef writeonly %encoding, ptr noundef writeonly %standalone) unnamed_addr #5 {
 entry:
   %ptr.addr.i53 = alloca ptr, align 8
   %buf.i54 = alloca [1 x i8], align 1
@@ -1093,7 +1093,7 @@ entry:
   %idx.ext3 = sext i32 %mul2 to i64
   %idx.neg = sub nsw i64 0, %idx.ext3
   %add.ptr4 = getelementptr i8, ptr %end, i64 %idx.neg
-  %call = call fastcc i32 @parsePseudoAttribute(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %add.ptr4, ptr noundef nonnull %name, ptr noundef nonnull %nameEnd, ptr noundef nonnull %val, ptr noundef nonnull %ptr.addr), !range !11
+  %call = call fastcc i32 @parsePseudoAttribute(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %add.ptr4, ptr noundef nonnull %name, ptr noundef nonnull %nameEnd, ptr noundef nonnull %val, ptr noundef nonnull %ptr.addr)
   %tobool = icmp ne i32 %call, 0
   %1 = load ptr, ptr %name, align 8
   %tobool5 = icmp ne ptr %1, null
@@ -1135,7 +1135,7 @@ if.then16:                                        ; preds = %if.end14
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.end14
-  %call18 = call fastcc i32 @parsePseudoAttribute(ptr noundef nonnull %enc, ptr noundef %.pre, ptr noundef %add.ptr4, ptr noundef nonnull %name, ptr noundef nonnull %nameEnd, ptr noundef nonnull %val, ptr noundef nonnull %ptr.addr), !range !11
+  %call18 = call fastcc i32 @parsePseudoAttribute(ptr noundef nonnull %enc, ptr noundef %.pre, ptr noundef %add.ptr4, ptr noundef nonnull %name, ptr noundef nonnull %nameEnd, ptr noundef nonnull %val, ptr noundef nonnull %ptr.addr)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.then20, label %if.end21
 
@@ -1210,12 +1210,12 @@ if.then45:                                        ; preds = %if.end43
   %idx.ext47 = sext i32 %19 to i64
   %idx.neg48 = sub nsw i64 0, %idx.ext47
   %add.ptr49 = getelementptr i8, ptr %.pre68, i64 %idx.neg48
-  %call50 = call ptr %encodingFinder(ptr noundef nonnull %enc, ptr noundef %12, ptr noundef %add.ptr49) #14, !callees !12
+  %call50 = call ptr %encodingFinder(ptr noundef nonnull %enc, ptr noundef %12, ptr noundef %add.ptr49) #14, !callees !11
   store ptr %call50, ptr %encoding, align 8
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then45, %if.end43
-  %call52 = call fastcc i32 @parsePseudoAttribute(ptr noundef nonnull %enc, ptr noundef %.pre68, ptr noundef %add.ptr4, ptr noundef nonnull %name, ptr noundef nonnull %nameEnd, ptr noundef nonnull %val, ptr noundef nonnull %ptr.addr), !range !11
+  %call52 = call fastcc i32 @parsePseudoAttribute(ptr noundef nonnull %enc, ptr noundef %.pre68, ptr noundef %add.ptr4, ptr noundef nonnull %name, ptr noundef nonnull %nameEnd, ptr noundef nonnull %val, ptr noundef nonnull %ptr.addr)
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %if.then54, label %if.end55
 
@@ -1310,7 +1310,7 @@ while.body:                                       ; preds = %while.cond, %while.
   %34 = load i32, ptr %minBytesPerChar, align 8
   %idx.ext97 = sext i32 %34 to i64
   %add.ptr98 = getelementptr i8, ptr %add.ptr9866, i64 %idx.ext97
-  br label %while.cond, !llvm.loop !13
+  br label %while.cond, !llvm.loop !12
 
 while.end:                                        ; preds = %while.cond
   %cmp99.not = icmp eq ptr %add.ptr9866, %add.ptr4
@@ -1442,7 +1442,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @PyExpat_XmlInitEncodingNS(ptr noundef %p, ptr noundef %encPtr, ptr noundef readonly %name) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PyExpat_XmlInitEncodingNS(ptr noundef %p, ptr noundef %encPtr, ptr noundef readonly %name) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %name, null
   br i1 %cmp.i, label %if.end, label %for.body.i
@@ -1520,9 +1520,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PyExpat_XmlParseXmlDeclNS(i32 noundef %isGeneralTextEntity, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr, ptr noundef %versionPtr, ptr noundef %versionEndPtr, ptr noundef %encodingName, ptr noundef %encoding, ptr noundef %standalone) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @PyExpat_XmlParseXmlDeclNS(i32 noundef %isGeneralTextEntity, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr, ptr noundef %versionPtr, ptr noundef %versionEndPtr, ptr noundef %encodingName, ptr noundef %encoding, ptr noundef %standalone) local_unnamed_addr #5 {
 entry:
-  %call = tail call fastcc i32 @doParseXmlDecl(ptr noundef nonnull @findEncodingNS, i32 noundef %isGeneralTextEntity, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef %badPtr, ptr noundef %versionPtr, ptr noundef %versionEndPtr, ptr noundef %encodingName, ptr noundef %encoding, ptr noundef %standalone), !range !11
+  %call = tail call fastcc i32 @doParseXmlDecl(ptr noundef nonnull @findEncodingNS, i32 noundef %isGeneralTextEntity, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef %badPtr, ptr noundef %versionPtr, ptr noundef %versionEndPtr, ptr noundef %encodingName, ptr noundef %encoding, ptr noundef %standalone)
   ret i32 %call
 }
 
@@ -1687,12 +1687,12 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %add.ptr = getelementptr i8, ptr %ptr, i64 1
-  %call = tail call fastcc i32 @normal_scanLit(i32 noundef 12, ptr noundef nonnull %enc, ptr noundef %add.ptr, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !14
+  %call = tail call fastcc i32 @normal_scanLit(i32 noundef 12, ptr noundef nonnull %enc, ptr noundef %add.ptr, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb1:                                           ; preds = %if.end
   %add.ptr2 = getelementptr i8, ptr %ptr, i64 1
-  %call3 = tail call fastcc i32 @normal_scanLit(i32 noundef 13, ptr noundef nonnull %enc, ptr noundef %add.ptr2, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !14
+  %call3 = tail call fastcc i32 @normal_scanLit(i32 noundef 13, ptr noundef nonnull %enc, ptr noundef %add.ptr2, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
@@ -1721,7 +1721,7 @@ if.end9:                                          ; preds = %sw.bb4
 
 sw.bb14:                                          ; preds = %if.end9
   %add.ptr15 = getelementptr i8, ptr %ptr, i64 2
-  %call16 = tail call fastcc i32 @normal_scanDecl(ptr noundef nonnull %enc, ptr noundef %add.ptr15, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !15
+  %call16 = tail call fastcc i32 @normal_scanDecl(ptr noundef nonnull %enc, ptr noundef %add.ptr15, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb17:                                          ; preds = %if.end9
@@ -1795,7 +1795,7 @@ for.end:                                          ; preds = %sw.epilog48, %sw.bb
 
 sw.bb49:                                          ; preds = %if.end
   %add.ptr50 = getelementptr i8, ptr %ptr, i64 1
-  %call51 = tail call fastcc i32 @normal_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr50, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !16
+  %call51 = tail call fastcc i32 @normal_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr50, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb52:                                          ; preds = %if.end
@@ -1906,7 +1906,7 @@ sw.bb109:                                         ; preds = %if.end
 
 sw.bb111:                                         ; preds = %if.end
   %add.ptr112 = getelementptr i8, ptr %ptr, i64 1
-  %call113 = tail call fastcc i32 @normal_scanPoundName(ptr noundef nonnull %enc, ptr noundef %add.ptr112, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !17
+  %call113 = tail call fastcc i32 @normal_scanPoundName(ptr noundef nonnull %enc, ptr noundef %add.ptr112, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb114:                                         ; preds = %if.end
@@ -2319,7 +2319,7 @@ sw.epilog346:                                     ; preds = %if.end261, %sw.bb25
   %sub.ptr.rhs.cast187 = ptrtoint ptr %ptr.addr.3 to i64
   %sub.ptr.sub188 = sub i64 %sub.ptr.lhs.cast186, %sub.ptr.rhs.cast187
   %cmp189 = icmp sgt i64 %sub.ptr.sub188, 0
-  br i1 %cmp189, label %while.body, label %while.end, !llvm.loop !18
+  br i1 %cmp189, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %sw.epilog346, %sw.epilog185
   %tok.1.lcssa = phi i32 [ %tok.0, %sw.epilog185 ], [ %tok.2, %sw.epilog346 ]
@@ -2471,7 +2471,7 @@ if.end55.i:                                       ; preds = %sw.bb47.i
 
 sw.bb60.i:                                        ; preds = %if.end55.i
   %add.ptr61.i = getelementptr i8, ptr %ptr, i64 3
-  %call62.i = tail call fastcc i32 @normal_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr61.i, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !19
+  %call62.i = tail call fastcc i32 @normal_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr61.i, ptr noundef nonnull %end, ptr noundef writeonly %nextTokPtr)
   br label %return
 
 sw.bb63.i:                                        ; preds = %if.end55.i
@@ -2498,7 +2498,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %add.ptr.i.i = getelementptr i8, ptr %ptr.addr.02.i.i, i64 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
-  br i1 %exitcond.not.i.i, label %return.sink.split.i.i, label %for.body.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %return.sink.split.i.i, label %for.body.i.i, !llvm.loop !14
 
 return.sink.split.i.i:                            ; preds = %for.inc.i.i, %for.body.i.i
   %scevgep.sink.i.i = phi ptr [ %ptr.addr.02.i.i, %for.body.i.i ], [ %scevgep.i.i, %for.inc.i.i ]
@@ -2512,7 +2512,7 @@ sw.epilog.i:                                      ; preds = %if.end55.i
 
 sw.bb66.i:                                        ; preds = %if.end.i
   %add.ptr67.i = getelementptr i8, ptr %ptr, i64 2
-  %call68.i = tail call fastcc i32 @normal_scanPi(ptr noundef nonnull %enc, ptr noundef %add.ptr67.i, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
+  %call68.i = tail call fastcc i32 @normal_scanPi(ptr noundef nonnull %enc, ptr noundef %add.ptr67.i, ptr noundef nonnull %end, ptr noundef writeonly %nextTokPtr)
   br label %return
 
 sw.bb69.i:                                        ; preds = %if.end.i
@@ -2707,7 +2707,7 @@ for.inc.i216.i:                                   ; preds = %for.body.i215.i, %f
   %sub.ptr.rhs.cast113.i.i = ptrtoint ptr %ptr.addr.2.i.i to i64
   %sub.ptr.sub114.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast113.i.i
   %cmp115.i.i = icmp sgt i64 %sub.ptr.sub114.i.i, 0
-  br i1 %cmp115.i.i, label %for.body.i215.i, label %return, !llvm.loop !21
+  br i1 %cmp115.i.i, label %for.body.i215.i, label %return, !llvm.loop !15
 
 sw.bb129.i.i:                                     ; preds = %while.body.i.i
   %add.ptr130.i.i = getelementptr i8, ptr %ptr.addr.1109.i.i, i64 1
@@ -2719,7 +2719,7 @@ sw.epilog132.i.i:                                 ; preds = %lor.lhs.false104.i.
   %sub.ptr.rhs.cast48.i.i = ptrtoint ptr %add.ptr128.i.i to i64
   %sub.ptr.sub49.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast48.i.i
   %cmp50.i.i = icmp sgt i64 %sub.ptr.sub49.i.i, 0
-  br i1 %cmp50.i.i, label %while.body.i.i, label %return, !llvm.loop !22
+  br i1 %cmp50.i.i, label %while.body.i.i, label %return, !llvm.loop !16
 
 return.sink.split.i213.i:                         ; preds = %lor.lhs.false104.i.i, %if.end100.i.i, %lor.lhs.false87.i.i, %if.end83.i.i, %lor.lhs.false70.i.i, %if.end66.i.i, %while.body.i.i, %for.body.i215.i, %sw.bb129.i.i, %sw.bb122.i.i, %lor.lhs.false41.i.i, %if.end38.i.i, %lor.lhs.false25.i.i, %if.end22.i.i, %lor.lhs.false.i.i, %if.end9.i.i, %if.end.i.i
   %ptr.addr.1109.lcssa.sink.i.i = phi ptr [ %add.ptr130.i.i, %sw.bb129.i.i ], [ %add.ptr123.i.i, %sw.bb122.i.i ], [ %add.ptr70.i, %lor.lhs.false.i.i ], [ %add.ptr70.i, %if.end9.i.i ], [ %add.ptr70.i, %lor.lhs.false25.i.i ], [ %add.ptr70.i, %if.end22.i.i ], [ %add.ptr70.i, %lor.lhs.false41.i.i ], [ %add.ptr70.i, %if.end38.i.i ], [ %add.ptr70.i, %if.end.i.i ], [ %ptr.addr.2119.i.i, %for.body.i215.i ], [ %ptr.addr.1109.i.i, %while.body.i.i ], [ %ptr.addr.1109.i.i, %if.end66.i.i ], [ %ptr.addr.1109.i.i, %lor.lhs.false70.i.i ], [ %ptr.addr.1109.i.i, %if.end83.i.i ], [ %ptr.addr.1109.i.i, %lor.lhs.false87.i.i ], [ %ptr.addr.1109.i.i, %if.end100.i.i ], [ %ptr.addr.1109.i.i, %lor.lhs.false104.i.i ]
@@ -3036,7 +3036,7 @@ sw.bb283.i:                                       ; preds = %while.body219.i, %w
   %sub.ptr.rhs.cast215.i = ptrtoint ptr %ptr.addr.2.i to i64
   %sub.ptr.sub216.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast215.i
   %cmp217.i = icmp sgt i64 %sub.ptr.sub216.i, 0
-  br i1 %cmp217.i, label %while.body219.i, label %return, !llvm.loop !23
+  br i1 %cmp217.i, label %while.body219.i, label %return, !llvm.loop !17
 
 sw.default285.i:                                  ; preds = %while.body219.i
   store ptr %ptr.addr.2291.i, ptr %nextTokPtr, align 8
@@ -3045,7 +3045,7 @@ sw.default285.i:                                  ; preds = %while.body219.i
 sw.epilog286.i:                                   ; preds = %while.body219.i, %while.body219.i, %lor.lhs.false274.i, %lor.lhs.false256.i, %lor.lhs.false238.i
   %.sink = phi i64 [ 3, %lor.lhs.false238.i ], [ 4, %lor.lhs.false256.i ], [ 5, %lor.lhs.false274.i ], [ 2, %while.body219.i ], [ 2, %while.body219.i ]
   %add.ptr280.i = getelementptr i8, ptr %ptr.addr.1.pn290.i, i64 %.sink
-  %call287.i = tail call fastcc i32 @normal_scanAtts(ptr noundef nonnull %enc, ptr noundef %add.ptr280.i, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !24
+  %call287.i = tail call fastcc i32 @normal_scanAtts(ptr noundef nonnull %enc, ptr noundef %add.ptr280.i, ptr noundef nonnull %end, ptr noundef writeonly %nextTokPtr)
   br label %return
 
 gt.i:                                             ; preds = %while.body.i, %while.body219.i
@@ -3087,11 +3087,11 @@ sw.epilog306.i:                                   ; preds = %lor.lhs.false202.i,
   %sub.ptr.rhs.cast74.i = ptrtoint ptr %add.ptr154.i to i64
   %sub.ptr.sub75.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast74.i
   %cmp76.i = icmp sgt i64 %sub.ptr.sub75.i, 0
-  br i1 %cmp76.i, label %while.body.i, label %return, !llvm.loop !25
+  br i1 %cmp76.i, label %while.body.i, label %return, !llvm.loop !18
 
 sw.bb1:                                           ; preds = %if.end
   %add.ptr2 = getelementptr i8, ptr %ptr, i64 1
-  %call3 = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr2, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !26
+  %call3 = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr2, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
@@ -3349,7 +3349,7 @@ sw.epilog169:                                     ; preds = %if.then155, %if.the
   %sub.ptr.rhs.cast90 = ptrtoint ptr %ptr.addr.3 to i64
   %sub.ptr.sub91 = sub i64 %sub.ptr.lhs.cast89.pre-phi, %sub.ptr.rhs.cast90
   %cmp92 = icmp sgt i64 %sub.ptr.sub91, 0
-  br i1 %cmp92, label %while.body, label %while.end, !llvm.loop !27
+  br i1 %cmp92, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %sw.epilog169, %sw.epilog
   %ptr.addr.2.lcssa = phi ptr [ %ptr.addr.1, %sw.epilog ], [ %ptr.addr.3, %sw.epilog169 ]
@@ -3362,7 +3362,7 @@ return:                                           ; preds = %sw.epilog132.i.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @normal_cdataSectionTok(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #5 {
+define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #5 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.end, label %return
@@ -3564,7 +3564,7 @@ sw.epilog134:                                     ; preds = %while.body, %lor.lh
   %sub.ptr.rhs.cast85 = ptrtoint ptr %add.ptr133 to i64
   %sub.ptr.sub86 = sub i64 %sub.ptr.lhs.cast84.pre-phi, %sub.ptr.rhs.cast85
   %cmp87 = icmp sgt i64 %sub.ptr.sub86, 0
-  br i1 %cmp87, label %while.body, label %return.sink.split, !llvm.loop !28
+  br i1 %cmp87, label %while.body, label %return.sink.split, !llvm.loop !20
 
 return.sink.split:                                ; preds = %sw.epilog134, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %sw.bb118, %lor.lhs.false124, %sw.bb105, %lor.lhs.false111, %sw.bb93, %lor.lhs.false, %sw.epilog, %if.end, %if.end, %if.end, %if.end76, %if.end63, %if.end52, %if.end23, %if.end33, %sw.bb43
   %ptr.addr.2.lcssa.sink = phi ptr [ %add.ptr44, %sw.bb43 ], [ %spec.select, %if.end33 ], [ %add.ptr24, %if.end23 ], [ %ptr, %if.end52 ], [ %ptr, %if.end63 ], [ %ptr, %if.end76 ], [ %ptr, %if.end ], [ %ptr, %if.end ], [ %ptr, %if.end ], [ %ptr.addr.1, %sw.epilog ], [ %ptr.addr.289, %lor.lhs.false ], [ %ptr.addr.289, %sw.bb93 ], [ %ptr.addr.289, %lor.lhs.false111 ], [ %ptr.addr.289, %sw.bb105 ], [ %ptr.addr.289, %lor.lhs.false124 ], [ %ptr.addr.289, %sw.bb118 ], [ %ptr.addr.289, %while.body ], [ %ptr.addr.289, %while.body ], [ %ptr.addr.289, %while.body ], [ %ptr.addr.289, %while.body ], [ %ptr.addr.289, %while.body ], [ %ptr.addr.289, %while.body ], [ %add.ptr133, %sw.epilog134 ]
@@ -3578,7 +3578,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @normal_ignoreSectionTok(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #5 {
+define internal range(i32 -2, 43) i32 @normal_ignoreSectionTok(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast55 = ptrtoint ptr %ptr to i64
@@ -3726,7 +3726,7 @@ sw.epilog:                                        ; preds = %if.end71, %if.end92
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr.addr.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 0
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !29
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !21
 
 return.sink.split:                                ; preds = %if.then87, %while.body, %while.body, %while.body, %if.end28, %if.end15, %if.end
   %add.ptr88.lcssa.sink = phi ptr [ %ptr.addr.059, %if.end ], [ %ptr.addr.059, %if.end15 ], [ %ptr.addr.059, %if.end28 ], [ %ptr.addr.059, %while.body ], [ %ptr.addr.059, %while.body ], [ %ptr.addr.059, %while.body ], [ %add.ptr88, %if.then87 ]
@@ -3740,7 +3740,7 @@ return:                                           ; preds = %sw.bb, %sw.bb8, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @normal_attributeValueTok(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #5 {
+define internal range(i32 -4, 40) i32 @normal_attributeValueTok(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #5 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.else, label %return
@@ -3785,7 +3785,7 @@ sw.bb12:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %sw.bb12
   %add.ptr16 = getelementptr i8, ptr %ptr.addr.057, i64 1
-  %call = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !26
+  %call = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 if.end17:                                         ; preds = %sw.bb12
@@ -3857,7 +3857,7 @@ sw.epilog:                                        ; preds = %while.body, %sw.def
   %sub.ptr.rhs.cast5 = ptrtoint ptr %add.ptr53 to i64
   %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast5
   %cmp7 = icmp sgt i64 %sub.ptr.sub6, 0
-  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !30
+  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !22
 
 while.end:                                        ; preds = %sw.epilog
   store ptr %add.ptr53, ptr %nextTokPtr, align 8
@@ -3869,7 +3869,7 @@ return:                                           ; preds = %if.then28, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @normal_entityValueTok(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #5 {
+define internal range(i32 -4, 29) i32 @normal_entityValueTok(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #5 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.else, label %return
@@ -3913,7 +3913,7 @@ sw.bb12:                                          ; preds = %while.body
 
 if.then15:                                        ; preds = %sw.bb12
   %add.ptr16 = getelementptr i8, ptr %ptr.addr.056, i64 1
-  %call = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !26
+  %call = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 if.end17:                                         ; preds = %sw.bb12
@@ -3926,7 +3926,7 @@ sw.bb18:                                          ; preds = %while.body
 
 if.then21:                                        ; preds = %sw.bb18
   %add.ptr22 = getelementptr i8, ptr %ptr.addr.056, i64 1
-  %call23 = tail call fastcc i32 @normal_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr22, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !16
+  %call23 = tail call fastcc i32 @normal_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr22, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   %cmp24 = icmp eq i32 %call23, 22
   %cond = select i1 %cmp24, i32 0, i32 %call23
   br label %return
@@ -3983,7 +3983,7 @@ sw.epilog:                                        ; preds = %while.body, %sw.def
   %sub.ptr.rhs.cast5 = ptrtoint ptr %add.ptr55 to i64
   %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast5
   %cmp7 = icmp sgt i64 %sub.ptr.sub6, 0
-  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !31
+  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !23
 
 while.end:                                        ; preds = %sw.epilog
   store ptr %add.ptr55, ptr %nextTokPtr, align 8
@@ -3995,7 +3995,7 @@ return:                                           ; preds = %if.then36, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @normal_nameMatchesAscii(ptr nocapture readnone %enc, ptr noundef %ptr1, ptr noundef %end1, ptr nocapture noundef readonly %ptr2) #7 {
+define internal range(i32 0, 2) i32 @normal_nameMatchesAscii(ptr nocapture readnone %enc, ptr noundef %ptr1, ptr noundef %end1, ptr nocapture noundef readonly %ptr2) #7 {
 entry:
   %0 = load i8, ptr %ptr2, align 1
   %tobool.not8 = icmp eq i8 %0, 0
@@ -4024,7 +4024,7 @@ for.inc:                                          ; preds = %if.end
   %incdec.ptr = getelementptr i8, ptr %ptr2.addr.010, i64 1
   %3 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %3, 0
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %entry
   %ptr1.addr.0.lcssa = phi ptr [ %ptr1, %entry ], [ %add.ptr, %for.inc ]
@@ -4440,7 +4440,7 @@ sw.epilog:                                        ; preds = %sw.bb11, %sw.bb7, %
 for.inc:                                          ; preds = %for.cond, %sw.epilog
   %result.124 = phi i32 [ %result.1, %sw.epilog ], [ %result.0, %for.cond ]
   %add.ptr19 = getelementptr i8, ptr %ptr.addr.0, i64 1
-  br label %for.cond, !llvm.loop !33
+  br label %for.cond, !llvm.loop !25
 
 for.body25:                                       ; preds = %entry, %for.inc34
   %ptr.addr.131 = phi ptr [ %add.ptr35, %for.inc34 ], [ %add.ptr, %entry ]
@@ -4457,7 +4457,7 @@ for.inc34:                                        ; preds = %for.body25
   %add.ptr35 = getelementptr i8, ptr %ptr.addr.131, i64 1
   %.pr = load i8, ptr %add.ptr35, align 1
   %cmp22.not = icmp eq i8 %.pr, 59
-  br i1 %cmp22.not, label %if.end37, label %for.body25, !llvm.loop !34
+  br i1 %cmp22.not, label %if.end37, label %for.body25, !llvm.loop !26
 
 if.end37:                                         ; preds = %for.cond, %for.inc34
   %result.3 = phi i32 [ %add29, %for.inc34 ], [ %result.0, %for.cond ]
@@ -4498,7 +4498,7 @@ return:                                           ; preds = %sw.epilog, %for.bod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @normal_predefinedEntityName(ptr nocapture readnone %enc, ptr noundef %ptr, ptr noundef %end) #8 {
+define internal range(i32 0, 63) i32 @normal_predefinedEntityName(ptr nocapture readnone %enc, ptr noundef %ptr, ptr noundef %end) #8 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -4692,7 +4692,7 @@ while.end:                                        ; preds = %sw.epilog, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @normal_isPublicId(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr) #0 {
+define internal range(i32 0, 2) i32 @normal_isPublicId(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr) #0 {
 entry:
   %add.ptr1 = getelementptr i8, ptr %end, i64 -1
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr1 to i64
@@ -4756,7 +4756,7 @@ for.inc:                                          ; preds = %for.body, %for.body
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 0
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !35
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !27
 
 return.sink.split:                                ; preds = %sw.default, %sw.bb2
   store ptr %ptr.addr.017, ptr %badPtr, align 8
@@ -4768,7 +4768,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @latin1_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef readnone %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
+define internal range(i32 0, 3) i32 @latin1_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef readnone %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %cmp11 = icmp eq ptr %0, %fromLim
@@ -4833,7 +4833,7 @@ return:                                           ; preds = %if.end20, %if.then1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @latin1_toUtf16(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef readnone %fromLim, ptr nocapture noundef %toP, ptr noundef readnone %toLim) #9 {
+define internal range(i32 0, 3) i32 @latin1_toUtf16(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef readnone %fromLim, ptr nocapture noundef %toP, ptr noundef readnone %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %cmp8 = icmp ult ptr %0, %fromLim
@@ -4856,7 +4856,7 @@ while.body:                                       ; preds = %land.rhs
   store i16 %conv, ptr %4, align 2
   %5 = load ptr, ptr %fromP, align 8
   %cmp = icmp ult ptr %5, %fromLim
-  br i1 %cmp, label %land.rhs, label %if.else, !llvm.loop !36
+  br i1 %cmp, label %land.rhs, label %if.else, !llvm.loop !28
 
 while.end:                                        ; preds = %land.rhs
   %cmp3 = icmp eq ptr %2, %toLim
@@ -4871,7 +4871,7 @@ return:                                           ; preds = %while.end, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @normal_scanLit(i32 noundef %open, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
+define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef %open, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast50 = ptrtoint ptr %ptr to i64
@@ -5001,7 +5001,7 @@ sw.epilog:                                        ; preds = %sw.bb35, %sw.defaul
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr.addr.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 0
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !37
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !29
 
 return:                                           ; preds = %sw.bb, %sw.bb8, %sw.bb21, %sw.epilog, %entry, %if.end47, %if.end47, %if.end47, %if.end47, %if.end47, %if.end47, %if.end40, %sw.default, %sw.bb34, %if.then31, %if.then18, %if.then6
   %retval.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.bb34 ], [ 0, %if.then31 ], [ 0, %if.then18 ], [ 0, %if.then6 ], [ -27, %if.end40 ], [ 27, %if.end47 ], [ 27, %if.end47 ], [ 27, %if.end47 ], [ 27, %if.end47 ], [ 27, %if.end47 ], [ 27, %if.end47 ], [ -1, %entry ], [ -2, %sw.bb ], [ -2, %sw.bb8 ], [ -2, %sw.bb21 ], [ -1, %sw.epilog ]
@@ -5009,7 +5009,7 @@ return:                                           ; preds = %sw.bb, %sw.bb8, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @normal_scanDecl(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 34) i32 @normal_scanDecl(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -5032,7 +5032,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %add.ptr = getelementptr i8, ptr %ptr, i64 1
-  %call = tail call fastcc i32 @normal_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef %nextTokPtr), !range !19
+  %call = tail call fastcc i32 @normal_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb1:                                           ; preds = %if.end
@@ -5098,7 +5098,7 @@ sw.bb30:                                          ; preds = %while.body, %while.
   %sub.ptr.rhs.cast6 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub7 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast6
   %cmp8 = icmp sgt i64 %sub.ptr.sub7, 0
-  br i1 %cmp8, label %while.body, label %return, !llvm.loop !38
+  br i1 %cmp8, label %while.body, label %return, !llvm.loop !30
 
 sw.default32:                                     ; preds = %while.body
   store ptr %ptr.addr.040, ptr %nextTokPtr, align 8
@@ -5471,7 +5471,7 @@ sw.epilog187:                                     ; preds = %if.end178, %sw.defa
   %sub.ptr.rhs.cast118 = ptrtoint ptr %ptr.addr.3 to i64
   %sub.ptr.sub119 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast118
   %cmp120 = icmp sgt i64 %sub.ptr.sub119, 0
-  br i1 %cmp120, label %while.body122, label %return, !llvm.loop !39
+  br i1 %cmp120, label %while.body122, label %return, !llvm.loop !31
 
 sw.bb188:                                         ; preds = %while.body
   %call189 = call fastcc i32 @normal_checkPiTarget(ptr noundef nonnull %ptr, ptr noundef nonnull %ptr.addr.1161, ptr noundef nonnull %tok)
@@ -5511,7 +5511,7 @@ sw.epilog208:                                     ; preds = %lor.lhs.false104, %
   %sub.ptr.rhs.cast48 = ptrtoint ptr %add.ptr109 to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast48
   %cmp50 = icmp sgt i64 %sub.ptr.sub49, 0
-  br i1 %cmp50, label %while.body, label %return, !llvm.loop !40
+  br i1 %cmp50, label %while.body, label %return, !llvm.loop !32
 
 return:                                           ; preds = %sw.bb59, %sw.bb76, %sw.bb93, %sw.epilog208, %sw.bb127, %sw.bb141, %sw.bb155, %sw.bb170, %sw.epilog187, %sw.epilog, %if.end114, %if.end192, %sw.bb31, %sw.bb15, %sw.bb2, %entry, %sw.default207, %if.then204, %if.then191, %if.then182, %sw.bb169, %if.then166, %if.then152, %if.then138, %if.then113, %if.then107, %if.then90, %if.then73, %sw.bb56, %sw.default, %if.then44, %if.then28, %if.then12, %sw.bb
   %retval.0 = phi i32 [ 0, %sw.default ], [ 0, %if.then44 ], [ 0, %sw.default207 ], [ %27, %if.then204 ], [ 0, %if.then191 ], [ %19, %if.then182 ], [ 0, %sw.bb169 ], [ 0, %if.then166 ], [ 0, %if.then152 ], [ 0, %if.then138 ], [ 0, %if.then113 ], [ 0, %if.then107 ], [ 0, %if.then90 ], [ 0, %if.then73 ], [ 0, %sw.bb56 ], [ 0, %if.then28 ], [ 0, %if.then12 ], [ 0, %sw.bb ], [ -1, %entry ], [ -2, %sw.bb2 ], [ -2, %sw.bb15 ], [ -2, %sw.bb31 ], [ -1, %if.end192 ], [ -1, %if.end114 ], [ -1, %sw.epilog ], [ -2, %sw.bb127 ], [ -2, %sw.bb141 ], [ -2, %sw.bb155 ], [ -1, %sw.bb170 ], [ -1, %sw.epilog187 ], [ -2, %sw.bb59 ], [ -2, %sw.bb76 ], [ -2, %sw.bb93 ], [ -1, %sw.epilog208 ]
@@ -5519,7 +5519,7 @@ return:                                           ; preds = %sw.bb59, %sw.bb76, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @normal_scanPercent(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -5696,7 +5696,7 @@ sw.epilog114:                                     ; preds = %lor.lhs.false105, %
   %sub.ptr.rhs.cast49 = ptrtoint ptr %add.ptr110 to i64
   %sub.ptr.sub50 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast49
   %cmp51 = icmp sgt i64 %sub.ptr.sub50, 0
-  br i1 %cmp51, label %while.body, label %return, !llvm.loop !41
+  br i1 %cmp51, label %while.body, label %return, !llvm.loop !33
 
 return.sink.split:                                ; preds = %while.body, %if.end101, %lor.lhs.false105, %if.end84, %lor.lhs.false88, %if.end67, %lor.lhs.false71, %if.end, %if.end38, %lor.lhs.false41, %if.end22, %lor.lhs.false25, %if.end9, %lor.lhs.false, %sw.bb47, %sw.bb111
   %ptr.addr.194.lcssa.sink = phi ptr [ %add.ptr112, %sw.bb111 ], [ %ptr, %sw.bb47 ], [ %ptr, %lor.lhs.false ], [ %ptr, %if.end9 ], [ %ptr, %lor.lhs.false25 ], [ %ptr, %if.end22 ], [ %ptr, %lor.lhs.false41 ], [ %ptr, %if.end38 ], [ %ptr, %if.end ], [ %ptr.addr.194, %lor.lhs.false71 ], [ %ptr.addr.194, %if.end67 ], [ %ptr.addr.194, %lor.lhs.false88 ], [ %ptr.addr.194, %if.end84 ], [ %ptr.addr.194, %lor.lhs.false105 ], [ %ptr.addr.194, %if.end101 ], [ %ptr.addr.194, %while.body ]
@@ -5710,7 +5710,7 @@ return:                                           ; preds = %sw.bb60, %sw.bb77, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @normal_scanPoundName(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
+define internal fastcc range(i32 -20, 21) i32 @normal_scanPoundName(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -5882,7 +5882,7 @@ sw.epilog112:                                     ; preds = %lor.lhs.false104, %
   %sub.ptr.rhs.cast48 = ptrtoint ptr %add.ptr109 to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast48
   %cmp50 = icmp sgt i64 %sub.ptr.sub49, 0
-  br i1 %cmp50, label %while.body, label %return, !llvm.loop !42
+  br i1 %cmp50, label %while.body, label %return, !llvm.loop !34
 
 return.sink.split.loopexit113:                    ; preds = %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body
   br label %return.sink.split
@@ -5899,7 +5899,7 @@ return:                                           ; preds = %sw.bb59, %sw.bb76, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @normal_scanComment(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -6021,7 +6021,7 @@ sw.epilog:                                        ; preds = %if.end55, %sw.defau
   %sub.ptr.rhs.cast5 = ptrtoint ptr %ptr.addr.1 to i64
   %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast5
   %cmp7 = icmp sgt i64 %sub.ptr.sub6, 0
-  br i1 %cmp7, label %while.body, label %return, !llvm.loop !43
+  br i1 %cmp7, label %while.body, label %return, !llvm.loop !35
 
 return.sink.split:                                ; preds = %while.body, %while.body, %while.body, %if.end40, %if.end27, %if.end16, %if.end67, %if.then
   %add.ptr73.sink = phi ptr [ %ptr, %if.then ], [ %spec.select, %if.end67 ], [ %ptr.addr.054, %if.end16 ], [ %ptr.addr.054, %if.end27 ], [ %ptr.addr.054, %if.end40 ], [ %ptr.addr.054, %while.body ], [ %ptr.addr.054, %while.body ], [ %ptr.addr.054, %while.body ]
@@ -6035,7 +6035,7 @@ return:                                           ; preds = %sw.bb, %sw.bb20, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @normal_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %tokPtr) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %tokPtr) unnamed_addr #10 {
 entry:
   store i32 11, ptr %tokPtr, align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
@@ -6092,7 +6092,7 @@ return:                                           ; preds = %sw.epilog12.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @normal_scanRef(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -6226,7 +6226,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i, %for.
   %sub.ptr.rhs.cast2.i.i = ptrtoint ptr %ptr.addr.0.i.i to i64
   %sub.ptr.sub3.i.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast2.i.i
   %cmp4.i.i = icmp sgt i64 %sub.ptr.sub3.i.i, 0
-  br i1 %cmp4.i.i, label %for.body.i.i, label %return, !llvm.loop !44
+  br i1 %cmp4.i.i, label %for.body.i.i, label %return, !llvm.loop !36
 
 if.end.i:                                         ; preds = %if.then.i
   %idxprom.i = zext i8 %8 to i64
@@ -6251,7 +6251,7 @@ for.body.i:                                       ; preds = %for.cond.i
   switch i8 %16, label %return.sink.split [
     i8 25, label %for.cond.i
     i8 18, label %sw.bb16.i
-  ], !llvm.loop !45
+  ], !llvm.loop !37
 
 sw.bb16.i:                                        ; preds = %for.body.i
   %add.ptr17.i = getelementptr i8, ptr %ptr.pn.i, i64 2
@@ -6351,7 +6351,7 @@ sw.epilog116:                                     ; preds = %lor.lhs.false107, %
   %sub.ptr.rhs.cast51 = ptrtoint ptr %add.ptr112 to i64
   %sub.ptr.sub52 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast51
   %cmp53 = icmp sgt i64 %sub.ptr.sub52, 0
-  br i1 %cmp53, label %while.body, label %return, !llvm.loop !46
+  br i1 %cmp53, label %while.body, label %return, !llvm.loop !38
 
 return.sink.split:                                ; preds = %while.body, %if.end103, %lor.lhs.false107, %if.end86, %lor.lhs.false90, %if.end69, %lor.lhs.false73, %for.body.i, %for.body.i.i, %if.end, %if.then.i.i, %sw.bb11.i.i, %if.end.i, %sw.bb16.i, %if.end38, %lor.lhs.false41, %if.end22, %lor.lhs.false25, %if.end9, %lor.lhs.false, %sw.bb113
   %ptr.addr.022.lcssa.sink.i.sink.i.sink = phi ptr [ %add.ptr114, %sw.bb113 ], [ %ptr, %lor.lhs.false ], [ %ptr, %if.end9 ], [ %ptr, %lor.lhs.false25 ], [ %ptr, %if.end22 ], [ %ptr, %lor.lhs.false41 ], [ %ptr, %if.end38 ], [ %add.ptr17.i, %sw.bb16.i ], [ %add.ptr12.i.i, %sw.bb11.i.i ], [ %add.ptr.i, %if.then.i.i ], [ %add.ptr48, %if.end.i ], [ %ptr, %if.end ], [ %ptr.addr.022.i.i, %for.body.i.i ], [ %ptr.addr.0.i, %for.body.i ], [ %ptr.addr.1107, %lor.lhs.false73 ], [ %ptr.addr.1107, %if.end69 ], [ %ptr.addr.1107, %lor.lhs.false90 ], [ %ptr.addr.1107, %if.end86 ], [ %ptr.addr.1107, %lor.lhs.false107 ], [ %ptr.addr.1107, %if.end103 ], [ %ptr.addr.1107, %while.body ]
@@ -6365,7 +6365,7 @@ return:                                           ; preds = %sw.bb62, %sw.bb79, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @normal_scanAtts(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
 entry:
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
@@ -6725,7 +6725,7 @@ if.end218:                                        ; preds = %if.end213
 
 sw.bb221:                                         ; preds = %if.end177
   %add.ptr222 = getelementptr i8, ptr %25, i64 1
-  %call223 = call fastcc i32 @normal_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr222, ptr noundef %end, ptr noundef nonnull %ptr.addr), !range !26
+  %call223 = call fastcc i32 @normal_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr222, ptr noundef %end, ptr noundef nonnull %ptr.addr)
   %cmp224 = icmp slt i32 %call223, 1
   br i1 %cmp224, label %if.then226, label %sw.bb221.sw.epilog235_crit_edge
 
@@ -6905,7 +6905,7 @@ sw.epilog346:                                     ; preds = %if.end322, %if.end3
   %sub.ptr.rhs.cast = ptrtoint ptr %46 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 0
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !47
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !39
 
 return.sink.split:                                ; preds = %while.body, %if.end313, %lor.lhs.false317, %if.end295, %lor.lhs.false299, %if.end277, %lor.lhs.false281, %if.end244, %if.end56, %if.end105, %lor.lhs.false109, %if.end88, %lor.lhs.false92, %if.end71, %lor.lhs.false75, %sw.bb45, %if.end36, %lor.lhs.false39, %if.end20, %lor.lhs.false23, %if.end, %lor.lhs.false, %if.end123, %if.end155, %if.end177, %if.end177, %if.end177, %if.end177, %if.end213, %if.end199, %if.end185, %if.end262, %if.end335, %gt, %if.then229
   %.sink = phi ptr [ %31, %if.then229 ], [ %add.ptr326, %gt ], [ %spec.select, %if.end335 ], [ %add.ptr255276, %if.end262 ], [ %25, %if.end185 ], [ %25, %if.end199 ], [ %25, %if.end213 ], [ %25, %if.end177 ], [ %25, %if.end177 ], [ %25, %if.end177 ], [ %25, %if.end177 ], [ %add.ptr137249593, %if.end155 ], [ %add.ptr116238, %if.end123 ], [ %ptr.addr.promoted, %lor.lhs.false ], [ %ptr.addr.promoted, %if.end ], [ %ptr.addr.promoted, %lor.lhs.false23 ], [ %ptr.addr.promoted, %if.end20 ], [ %ptr.addr.promoted, %lor.lhs.false39 ], [ %ptr.addr.promoted, %if.end36 ], [ %ptr.addr.promoted, %sw.bb45 ], [ %add.ptr49, %lor.lhs.false75 ], [ %add.ptr49, %if.end71 ], [ %add.ptr49, %lor.lhs.false92 ], [ %add.ptr49, %if.end88 ], [ %add.ptr49, %lor.lhs.false109 ], [ %add.ptr49, %if.end105 ], [ %add.ptr49, %if.end56 ], [ %add.ptr237, %if.end244 ], [ %add.ptr255276, %lor.lhs.false281 ], [ %add.ptr255276, %if.end277 ], [ %add.ptr255276, %lor.lhs.false299 ], [ %add.ptr255276, %if.end295 ], [ %add.ptr255276, %lor.lhs.false317 ], [ %add.ptr255276, %if.end313 ], [ %ptr.addr.promoted, %while.body ]
@@ -6919,7 +6919,7 @@ return:                                           ; preds = %sw.bb2, %sw.bb13, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @utf8_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
+define internal range(i32 0, 3) i32 @utf8_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %fromLim to i64
@@ -7016,7 +7016,7 @@ _INTERNAL_trim_to_complete_utf8_characters.exit:  ; preds = %if.else32.i, %for.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @utf8_toUtf16(ptr nocapture noundef readonly %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
+define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr nocapture noundef readonly %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
 entry:
   %0 = load ptr, ptr %toP, align 8
   %1 = load ptr, ptr %fromP, align 8
@@ -7092,7 +7092,7 @@ if.end17:                                         ; preds = %sw.bb10
 sw.bb34:                                          ; preds = %while.body
   %sub.ptr.rhs.cast36 = ptrtoint ptr %to.044 to i64
   %sub.ptr.sub37 = sub i64 %sub.ptr.lhs.cast35, %sub.ptr.rhs.cast36
-  %cmp38 = icmp slt i64 %sub.ptr.sub37, 4
+  %cmp38 = icmp slt i64 %sub.ptr.sub37, 3
   br i1 %cmp38, label %after, label %if.end41
 
 if.end41:                                         ; preds = %sw.bb34
@@ -7148,7 +7148,7 @@ sw.epilog:                                        ; preds = %sw.default, %if.end
   %cmp = icmp ult ptr %from.1, %fromLim
   %cmp1 = icmp ult ptr %to.1, %toLim
   %21 = select i1 %cmp, i1 %cmp1, i1 false
-  br i1 %21, label %while.body, label %while.end, !llvm.loop !48
+  br i1 %21, label %while.body, label %while.end, !llvm.loop !40
 
 while.end:                                        ; preds = %sw.epilog, %entry
   %to.0.lcssa = phi ptr [ %0, %entry ], [ %to.1, %sw.epilog ]
@@ -7167,7 +7167,7 @@ after:                                            ; preds = %if.end41, %sw.bb34,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf8_isName2(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
+define internal range(i32 0, -2147483647) i32 @utf8_isName2(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
 entry:
   %0 = load i8, ptr %p, align 1
   %conv = zext i8 %0 to i32
@@ -7197,7 +7197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf8_isName3(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
+define internal range(i32 0, -2147483647) i32 @utf8_isName3(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
 entry:
   %0 = load i8, ptr %p, align 1
   %1 = shl i8 %0, 4
@@ -7238,7 +7238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf8_isNmstrt2(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
+define internal range(i32 0, -2147483647) i32 @utf8_isNmstrt2(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
 entry:
   %0 = load i8, ptr %p, align 1
   %conv = zext i8 %0 to i32
@@ -7268,7 +7268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf8_isNmstrt3(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
+define internal range(i32 0, -2147483647) i32 @utf8_isNmstrt3(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
 entry:
   %0 = load i8, ptr %p, align 1
   %1 = shl i8 %0, 4
@@ -7303,7 +7303,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf8_isInvalid2(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
+define internal range(i32 0, 2) i32 @utf8_isInvalid2(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
 entry:
   %0 = load i8, ptr %p, align 1
   %cmp = icmp ult i8 %0, -62
@@ -7326,7 +7326,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf8_isInvalid3(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
+define internal range(i32 0, 2) i32 @utf8_isInvalid3(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %p, i64 2
   %0 = load i8, ptr %arrayidx, align 1
@@ -7390,7 +7390,7 @@ lor.end58:                                        ; preds = %cond.false.thread, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf8_isInvalid4(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
+define internal range(i32 0, 2) i32 @utf8_isInvalid4(ptr nocapture readnone %enc, ptr nocapture noundef readonly %p) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %p, i64 3
   %0 = load i8, ptr %arrayidx, align 1
@@ -7520,12 +7520,12 @@ cond.end:                                         ; preds = %if.end6
 
 sw.bb:                                            ; preds = %cond.end
   %add.ptr13 = getelementptr i8, ptr %ptr, i64 2
-  %call14 = tail call fastcc i32 @little2_scanLit(i32 noundef 12, ptr noundef nonnull %enc, ptr noundef %add.ptr13, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !14
+  %call14 = tail call fastcc i32 @little2_scanLit(i32 noundef 12, ptr noundef nonnull %enc, ptr noundef %add.ptr13, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb15:                                          ; preds = %cond.end
   %add.ptr16 = getelementptr i8, ptr %ptr, i64 2
-  %call17 = tail call fastcc i32 @little2_scanLit(i32 noundef 13, ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !14
+  %call17 = tail call fastcc i32 @little2_scanLit(i32 noundef 13, ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb18:                                          ; preds = %cond.end
@@ -7571,7 +7571,7 @@ cond.end40:                                       ; preds = %if.end26
 
 sw.bb42:                                          ; preds = %cond.end40
   %add.ptr43 = getelementptr i8, ptr %ptr, i64 4
-  %call44 = tail call fastcc i32 @little2_scanDecl(ptr noundef nonnull %enc, ptr noundef %add.ptr43, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !15
+  %call44 = tail call fastcc i32 @little2_scanDecl(ptr noundef nonnull %enc, ptr noundef %add.ptr43, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb45:                                          ; preds = %cond.end40
@@ -7646,7 +7646,7 @@ for.end:                                          ; preds = %sw.epilog87, %sw.bb
 
 sw.bb88:                                          ; preds = %cond.end
   %add.ptr89 = getelementptr i8, ptr %ptr, i64 2
-  %call90 = tail call fastcc i32 @little2_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr89, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !16
+  %call90 = tail call fastcc i32 @little2_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr89, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb91:                                          ; preds = %cond.end
@@ -7775,7 +7775,7 @@ sw.bb171:                                         ; preds = %cond.end
 
 sw.bb173:                                         ; preds = %cond.end
   %add.ptr174 = getelementptr i8, ptr %ptr, i64 2
-  %call175 = tail call fastcc i32 @little2_scanPoundName(ptr noundef nonnull %enc, ptr noundef %add.ptr174, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !17
+  %call175 = tail call fastcc i32 @little2_scanPoundName(ptr noundef nonnull %enc, ptr noundef %add.ptr174, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb176:                                         ; preds = %cond.end
@@ -8123,7 +8123,7 @@ sw.epilog405:                                     ; preds = %if.end320, %if.end3
   %sub.ptr.rhs.cast245 = ptrtoint ptr %ptr.addr.3 to i64
   %sub.ptr.sub246 = sub i64 %sub.ptr.lhs.cast244, %sub.ptr.rhs.cast245
   %cmp247 = icmp sgt i64 %sub.ptr.sub246, 1
-  br i1 %cmp247, label %while.body, label %while.end, !llvm.loop !49
+  br i1 %cmp247, label %while.body, label %while.end, !llvm.loop !41
 
 while.end:                                        ; preds = %sw.epilog405, %sw.epilog243
   %tok.1.lcssa = phi i32 [ %tok.0, %sw.epilog243 ], [ %tok.2, %sw.epilog405 ]
@@ -8325,7 +8325,7 @@ cond.end68.i:                                     ; preds = %if.end54.i
 
 sw.bb70.i:                                        ; preds = %cond.end68.i
   %add.ptr71.i = getelementptr i8, ptr %ptr, i64 6
-  %call72.i = tail call fastcc i32 @little2_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr71.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !19
+  %call72.i = tail call fastcc i32 @little2_scanComment(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr71.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
   br label %return
 
 sw.bb73.i:                                        ; preds = %cond.end68.i
@@ -8358,7 +8358,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %add.ptr.i.i = getelementptr i8, ptr %ptr.addr.02.i.i, i64 2
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
-  br i1 %exitcond.not.i.i, label %return.sink.split.i.i, label %for.body.i.i, !llvm.loop !50
+  br i1 %exitcond.not.i.i, label %return.sink.split.i.i, label %for.body.i.i, !llvm.loop !42
 
 return.sink.split.i.i:                            ; preds = %for.inc.i.i, %land.lhs.true.i.i, %for.body.i.i
   %scevgep.sink.i.i = phi ptr [ %ptr.addr.02.i.i, %land.lhs.true.i.i ], [ %ptr.addr.02.i.i, %for.body.i.i ], [ %scevgep.i.i, %for.inc.i.i ]
@@ -8372,7 +8372,7 @@ sw.epilog.i:                                      ; preds = %cond.end68.i, %if.e
 
 sw.bb76.i:                                        ; preds = %cond.end.i
   %add.ptr77.i = getelementptr i8, ptr %ptr, i64 4
-  %call78.i = tail call fastcc i32 @little2_scanPi(ptr noundef nonnull %enc, ptr noundef %add.ptr77.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
+  %call78.i = tail call fastcc i32 @little2_scanPi(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr77.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
   br label %return
 
 sw.bb79.i:                                        ; preds = %cond.end.i
@@ -8566,7 +8566,7 @@ for.inc.i171.i:                                   ; preds = %cond.end132.i.i, %c
   %sub.ptr.rhs.cast115.i.i = ptrtoint ptr %ptr.addr.1.i.i to i64
   %sub.ptr.sub116.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast115.i.i
   %cmp117.i.i = icmp sgt i64 %sub.ptr.sub116.i.i, 1
-  br i1 %cmp117.i.i, label %for.body.i170.i, label %return, !llvm.loop !51
+  br i1 %cmp117.i.i, label %for.body.i170.i, label %return, !llvm.loop !43
 
 sw.bb142.i.i:                                     ; preds = %cond.end64.i.i
   %add.ptr143.i.i = getelementptr i8, ptr %ptr.pn131.i.i, i64 4
@@ -8577,7 +8577,7 @@ sw.epilog145.i.i:                                 ; preds = %sw.bb66.i.i, %cond.
   %sub.ptr.rhs.cast47.i.i = ptrtoint ptr %ptr.addr.0.i.i to i64
   %sub.ptr.sub48.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast47.i.i
   %cmp49.i.i = icmp sgt i64 %sub.ptr.sub48.i.i, 1
-  br i1 %cmp49.i.i, label %while.body.i.i, label %return, !llvm.loop !52
+  br i1 %cmp49.i.i, label %while.body.i.i, label %return, !llvm.loop !44
 
 return.sink.split.i168.i:                         ; preds = %sw.bb66.i.i, %cond.end64.i.i, %sw.bb2.i69.i.i, %while.body.i.i, %while.body.i.i, %while.body.i.i, %while.body.i.i, %cond.end132.i.i, %for.body.i170.i, %sw.bb142.i.i, %sw.bb135.i.i, %sw.bb104.i.i, %sw.bb96.i.i, %sw.bb38.i.i, %sw.bb30.i.i, %sw.bb.i.i, %cond.end.i.i, %sw.bb2.i.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i
   %ptr.addr.0132.lcssa179.sink.i.i = phi ptr [ %add.ptr143.i.i, %sw.bb142.i.i ], [ %add.ptr136.i.i, %sw.bb135.i.i ], [ %add.ptr80.i, %sw.bb.i.i ], [ %add.ptr80.i, %sw.bb30.i.i ], [ %add.ptr80.i, %sw.bb38.i.i ], [ %add.ptr80.i, %if.end.i.i ], [ %add.ptr80.i, %if.end.i.i ], [ %add.ptr80.i, %if.end.i.i ], [ %add.ptr80.i, %if.end.i.i ], [ %add.ptr80.i, %sw.bb2.i.i.i ], [ %add.ptr80.i, %cond.end.i.i ], [ %ptr.addr.0132.i.i, %sw.bb96.i.i ], [ %ptr.addr.0132.i.i, %sw.bb104.i.i ], [ %ptr.addr.1139.i.i, %for.body.i170.i ], [ %ptr.addr.1139.i.i, %cond.end132.i.i ], [ %ptr.addr.0132.i.i, %while.body.i.i ], [ %ptr.addr.0132.i.i, %while.body.i.i ], [ %ptr.addr.0132.i.i, %while.body.i.i ], [ %ptr.addr.0132.i.i, %while.body.i.i ], [ %ptr.addr.0132.i.i, %sw.bb2.i69.i.i ], [ %ptr.addr.0132.i.i, %cond.end64.i.i ], [ %ptr.addr.0132.i.i, %sw.bb66.i.i ]
@@ -8864,7 +8864,7 @@ if.then266.i:                                     ; preds = %sw.bb248.i
 
 sw.bb268.i:                                       ; preds = %cond.end246.i, %cond.end246.i, %sw.bb248.i
   %add.ptr269.i = getelementptr i8, ptr %ptr.addr.0.pn336.i, i64 4
-  %call300.i = tail call fastcc i32 @little2_scanAtts(ptr noundef nonnull %enc, ptr noundef %add.ptr269.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !24
+  %call300.i = tail call fastcc i32 @little2_scanAtts(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr269.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
   br label %return
 
 if.end277.i:                                      ; preds = %cond.end246.i
@@ -8892,7 +8892,7 @@ sw.bb296.i:                                       ; preds = %cond.end246.i, %con
   %sub.ptr.rhs.cast228.i = ptrtoint ptr %ptr.addr.1.i to i64
   %sub.ptr.sub229.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast228.i
   %cmp230.i = icmp sgt i64 %sub.ptr.sub229.i, 1
-  br i1 %cmp230.i, label %while.body232.i, label %return, !llvm.loop !53
+  br i1 %cmp230.i, label %while.body232.i, label %return, !llvm.loop !45
 
 sw.default298.i:                                  ; preds = %cond.end246.i, %while.body232.i, %while.body232.i, %while.body232.i, %while.body232.i, %sw.bb2.i184.i
   store ptr %ptr.addr.1337.i, ptr %nextTokPtr, align 8
@@ -8943,11 +8943,11 @@ sw.epilog324.i:                                   ; preds = %sw.bb176.i, %cond.e
   %sub.ptr.rhs.cast84.i = ptrtoint ptr %add.ptr197.i to i64
   %sub.ptr.sub85.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast84.i
   %cmp86.i = icmp sgt i64 %sub.ptr.sub85.i, 1
-  br i1 %cmp86.i, label %while.body.i, label %return, !llvm.loop !54
+  br i1 %cmp86.i, label %while.body.i, label %return, !llvm.loop !46
 
 sw.bb15:                                          ; preds = %cond.end
   %add.ptr16 = getelementptr i8, ptr %ptr, i64 2
-  %call17 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !26
+  %call17 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb18:                                          ; preds = %cond.end
@@ -9197,7 +9197,7 @@ sw.epilog211:                                     ; preds = %if.then190, %land.l
   %sub.ptr.rhs.cast118 = ptrtoint ptr %ptr.addr.3 to i64
   %sub.ptr.sub119 = sub i64 %sub.ptr.lhs.cast117.pre-phi, %sub.ptr.rhs.cast118
   %cmp120 = icmp sgt i64 %sub.ptr.sub119, 1
-  br i1 %cmp120, label %while.body, label %while.end, !llvm.loop !55
+  br i1 %cmp120, label %while.body, label %while.end, !llvm.loop !47
 
 while.end:                                        ; preds = %sw.epilog211, %sw.epilog
   %ptr.addr.2.lcssa = phi ptr [ %ptr.addr.1, %sw.epilog ], [ %ptr.addr.3, %sw.epilog211 ]
@@ -9210,7 +9210,7 @@ return:                                           ; preds = %sw.epilog145.i.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @little2_cdataSectionTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
+define internal range(i32 -4, 41) i32 @little2_cdataSectionTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.end, label %return
@@ -9442,7 +9442,7 @@ sw.epilog162:                                     ; preds = %cond.end130, %sw.bb
   %sub.ptr.rhs.cast113 = ptrtoint ptr %add.ptr161 to i64
   %sub.ptr.sub114 = sub i64 %sub.ptr.lhs.cast112.pre-phi, %sub.ptr.rhs.cast113
   %cmp115 = icmp sgt i64 %sub.ptr.sub114, 1
-  br i1 %cmp115, label %while.body, label %return.sink.split, !llvm.loop !56
+  br i1 %cmp115, label %while.body, label %return.sink.split, !llvm.loop !48
 
 return.sink.split:                                ; preds = %cond.end130, %cond.end130, %cond.end130, %cond.end130, %cond.end130, %cond.end130, %sw.epilog162, %sw.bb2.i82, %while.body, %while.body, %while.body, %while.body, %sw.bb150, %sw.bb141, %sw.epilog, %cond.end, %cond.end, %cond.end, %sw.bb2.i, %if.end6, %if.end6, %if.end6, %if.end6, %if.end60, %cond.end74, %if.end50, %sw.bb81
   %ptr.addr.2.lcssa.sink = phi ptr [ %add.ptr82, %sw.bb81 ], [ %add.ptr51, %if.end50 ], [ %add.ptr53, %if.end60 ], [ %spec.select, %cond.end74 ], [ %ptr, %if.end6 ], [ %ptr, %if.end6 ], [ %ptr, %if.end6 ], [ %ptr, %if.end6 ], [ %ptr, %sw.bb2.i ], [ %ptr, %cond.end ], [ %ptr, %cond.end ], [ %ptr, %cond.end ], [ %ptr.addr.1, %sw.epilog ], [ %ptr.addr.2116, %sw.bb141 ], [ %ptr.addr.2116, %sw.bb150 ], [ %ptr.addr.2116, %while.body ], [ %ptr.addr.2116, %while.body ], [ %ptr.addr.2116, %while.body ], [ %ptr.addr.2116, %while.body ], [ %ptr.addr.2116, %sw.bb2.i82 ], [ %ptr.addr.2116, %cond.end130 ], [ %ptr.addr.2116, %cond.end130 ], [ %ptr.addr.2116, %cond.end130 ], [ %ptr.addr.2116, %cond.end130 ], [ %ptr.addr.2116, %cond.end130 ], [ %ptr.addr.2116, %cond.end130 ], [ %add.ptr161, %sw.epilog162 ]
@@ -9456,7 +9456,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @little2_ignoreSectionTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
+define internal range(i32 -2, 43) i32 @little2_ignoreSectionTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -9631,7 +9631,7 @@ sw.epilog:                                        ; preds = %if.end85, %land.lhs
   %sub.ptr.rhs.cast3 = ptrtoint ptr %ptr.addr.1 to i64
   %sub.ptr.sub4 = sub i64 %sub.ptr.lhs.cast2, %sub.ptr.rhs.cast3
   %cmp = icmp sgt i64 %sub.ptr.sub4, 1
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !57
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !49
 
 return.sink.split:                                ; preds = %if.then113, %cond.end, %cond.end, %cond.end, %sw.bb2.i, %while.body, %while.body, %while.body, %while.body
   %add.ptr114.lcssa.sink = phi ptr [ %ptr.addr.062, %while.body ], [ %ptr.addr.062, %while.body ], [ %ptr.addr.062, %while.body ], [ %ptr.addr.062, %while.body ], [ %ptr.addr.062, %sw.bb2.i ], [ %ptr.addr.062, %cond.end ], [ %ptr.addr.062, %cond.end ], [ %ptr.addr.062, %cond.end ], [ %add.ptr114, %if.then113 ]
@@ -9645,7 +9645,7 @@ return:                                           ; preds = %sw.bb19, %sw.bb28, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @little2_attributeValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
+define internal range(i32 -4, 40) i32 @little2_attributeValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.else, label %return
@@ -9700,7 +9700,7 @@ sw.bb18:                                          ; preds = %cond.end
 
 if.then21:                                        ; preds = %sw.bb18
   %add.ptr22 = getelementptr i8, ptr %ptr.addr.075, i64 2
-  %call23 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr22, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !26
+  %call23 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr22, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 if.end24:                                         ; preds = %sw.bb18
@@ -9780,7 +9780,7 @@ sw.epilog:                                        ; preds = %cond.end, %while.bo
   %sub.ptr.rhs.cast5 = ptrtoint ptr %add.ptr71 to i64
   %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast5
   %cmp7 = icmp sgt i64 %sub.ptr.sub6, 1
-  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !58
+  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !50
 
 while.end:                                        ; preds = %sw.epilog
   store ptr %add.ptr71, ptr %nextTokPtr, align 8
@@ -9792,7 +9792,7 @@ return:                                           ; preds = %if.then35, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @little2_entityValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
+define internal i32 @little2_entityValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.else, label %return
@@ -9846,7 +9846,7 @@ sw.bb18:                                          ; preds = %cond.end
 
 if.then21:                                        ; preds = %sw.bb18
   %add.ptr22 = getelementptr i8, ptr %ptr.addr.075, i64 2
-  %call23 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr22, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !26
+  %call23 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr22, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 if.end24:                                         ; preds = %sw.bb18
@@ -9859,7 +9859,7 @@ sw.bb25:                                          ; preds = %cond.end
 
 if.then28:                                        ; preds = %sw.bb25
   %add.ptr29 = getelementptr i8, ptr %ptr.addr.075, i64 2
-  %call30 = tail call fastcc i32 @little2_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr29, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !16
+  %call30 = tail call fastcc i32 @little2_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr29, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   %cmp31 = icmp eq i32 %call30, 22
   %cond36 = select i1 %cmp31, i32 0, i32 %call30
   br label %return
@@ -9924,7 +9924,7 @@ sw.epilog:                                        ; preds = %cond.end, %while.bo
   %sub.ptr.rhs.cast5 = ptrtoint ptr %add.ptr77 to i64
   %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast5
   %cmp7 = icmp sgt i64 %sub.ptr.sub6, 1
-  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !59
+  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !51
 
 while.end:                                        ; preds = %sw.epilog
   store ptr %add.ptr77, ptr %nextTokPtr, align 8
@@ -9936,7 +9936,7 @@ return:                                           ; preds = %if.then47, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @little2_nameMatchesAscii(ptr nocapture readnone %enc, ptr noundef %ptr1, ptr noundef %end1, ptr nocapture noundef readonly %ptr2) #7 {
+define internal range(i32 0, 2) i32 @little2_nameMatchesAscii(ptr nocapture readnone %enc, ptr noundef %ptr1, ptr noundef %end1, ptr nocapture noundef readonly %ptr2) #7 {
 entry:
   %0 = load i8, ptr %ptr2, align 1
   %tobool.not9 = icmp eq i8 %0, 0
@@ -9971,7 +9971,7 @@ for.inc:                                          ; preds = %land.lhs.true
   %incdec.ptr = getelementptr i8, ptr %ptr2.addr.011, i64 1
   %4 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !60
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !52
 
 for.end:                                          ; preds = %for.inc, %entry
   %ptr1.addr.0.lcssa = phi ptr [ %ptr1, %entry ], [ %add.ptr, %for.inc ]
@@ -10485,7 +10485,7 @@ sw.epilog:                                        ; preds = %sw.bb25, %sw.bb21, 
 for.inc:                                          ; preds = %for.cond, %cond.end, %sw.epilog
   %result.130 = phi i32 [ %result.1, %sw.epilog ], [ %result.0, %cond.end ], [ %result.0, %for.cond ]
   %add.ptr33 = getelementptr i8, ptr %ptr.addr.0, i64 2
-  br label %for.cond, !llvm.loop !61
+  br label %for.cond, !llvm.loop !53
 
 for.cond34:                                       ; preds = %for.cond34.preheader, %cond.end56
   %result.2 = phi i32 [ %add59, %cond.end56 ], [ 0, %for.cond34.preheader ]
@@ -10511,7 +10511,7 @@ cond.end56:                                       ; preds = %for.cond34, %cond.t
   %add59 = add i32 %sub58, %cond57
   %cmp60 = icmp sgt i32 %add59, 1114111
   %add.ptr65 = getelementptr i8, ptr %ptr.addr.1, i64 2
-  br i1 %cmp60, label %return, label %for.cond34, !llvm.loop !62
+  br i1 %cmp60, label %return, label %for.cond34, !llvm.loop !54
 
 if.end67:                                         ; preds = %land.rhs39, %land.rhs
   %result.3 = phi i32 [ %result.0, %land.rhs ], [ %result.2, %land.rhs39 ]
@@ -10550,7 +10550,7 @@ return:                                           ; preds = %cond.end56, %sw.epi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @little2_predefinedEntityName(ptr nocapture readnone %enc, ptr noundef %ptr, ptr noundef %end) #8 {
+define internal range(i32 0, 63) i32 @little2_predefinedEntityName(ptr nocapture readnone %enc, ptr noundef %ptr, ptr noundef %end) #8 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -10829,14 +10829,14 @@ sw.epilog:                                        ; preds = %sw.default, %if.end
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr.addr.2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 1
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !63
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !55
 
 while.end:                                        ; preds = %sw.epilog, %entry
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @little2_isPublicId(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr) #0 {
+define internal range(i32 0, 2) i32 @little2_isPublicId(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr) #0 {
 entry:
   %add.ptr1 = getelementptr i8, ptr %end, i64 -2
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr1 to i64
@@ -10907,7 +10907,7 @@ for.inc:                                          ; preds = %cond.end, %cond.end
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !64
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !56
 
 return.sink.split:                                ; preds = %cond.end38, %for.body, %land.lhs.true
   store ptr %ptr.addr.029, ptr %badPtr, align 8
@@ -10919,7 +10919,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @little2_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
+define internal range(i32 0, 3) i32 @little2_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %fromLim to i64
@@ -11087,7 +11087,7 @@ for.inc:                                          ; preds = %if.end, %if.end16, 
   %from.1 = phi ptr [ %from.062, %if.end34 ], [ %add.ptr89, %if.end68 ], [ %from.062, %if.end16 ], [ %from.062, %if.end ]
   %add.ptr110 = getelementptr i8, ptr %from.1, i64 2
   %cmp = icmp ult ptr %add.ptr110, %add.ptr
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !65
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !57
 
 return:                                           ; preds = %for.inc, %if.end61, %sw.bb54, %sw.default, %sw.bb9, %if.then, %entry
   %from.0.lcssa.sink = phi ptr [ %0, %entry ], [ %from.062, %if.then ], [ %from.062, %sw.bb9 ], [ %from.062, %sw.default ], [ %from.062, %sw.bb54 ], [ %from.062, %if.end61 ], [ %add.ptr110, %for.inc ]
@@ -11097,7 +11097,7 @@ return:                                           ; preds = %for.inc, %if.end61,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @little2_toUtf16(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
+define internal range(i32 0, 3) i32 @little2_toUtf16(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %fromLim to i64
@@ -11143,7 +11143,7 @@ for.body:                                         ; preds = %land.rhs
   %add.ptr22 = getelementptr i8, ptr %7, i64 2
   store ptr %add.ptr22, ptr %fromP, align 8
   %cmp12 = icmp ult ptr %add.ptr22, %fromLim.addr.0
-  br i1 %cmp12, label %land.rhs, label %if.else, !llvm.loop !66
+  br i1 %cmp12, label %land.rhs, label %if.else, !llvm.loop !58
 
 for.end:                                          ; preds = %land.rhs
   %cmp23 = icmp eq ptr %5, %toLim
@@ -11158,7 +11158,7 @@ return:                                           ; preds = %for.end, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @little2_scanLit(i32 noundef %open, ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -27, 28) i32 @little2_scanLit(i32 noundef %open, ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast47 = ptrtoint ptr %ptr to i64
@@ -11278,7 +11278,7 @@ sw.epilog:                                        ; preds = %sw.bb31, %sw.defaul
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr.addr.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 1
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !67
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !59
 
 return:                                           ; preds = %sw.bb12, %sw.bb21, %sw.epilog, %entry, %cond.end57, %cond.end57, %cond.end57, %cond.end57, %cond.end57, %cond.end57, %if.end36, %sw.default, %sw.bb30
   %retval.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.bb30 ], [ -27, %if.end36 ], [ 27, %cond.end57 ], [ 27, %cond.end57 ], [ 27, %cond.end57 ], [ 27, %cond.end57 ], [ 27, %cond.end57 ], [ 27, %cond.end57 ], [ -1, %entry ], [ -2, %sw.bb12 ], [ -2, %sw.bb21 ], [ -1, %sw.epilog ]
@@ -11286,7 +11286,7 @@ return:                                           ; preds = %sw.bb12, %sw.bb21, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @little2_scanDecl(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 34) i32 @little2_scanDecl(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -11315,7 +11315,7 @@ cond.end:                                         ; preds = %if.end
 
 sw.bb:                                            ; preds = %cond.end
   %add.ptr = getelementptr i8, ptr %ptr, i64 2
-  %call7 = tail call fastcc i32 @little2_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef %nextTokPtr), !range !19
+  %call7 = tail call fastcc i32 @little2_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb8:                                           ; preds = %cond.end
@@ -11397,7 +11397,7 @@ sw.bb62:                                          ; preds = %cond.end30, %cond.e
   %sub.ptr.rhs.cast13 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub14 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast13
   %cmp15 = icmp sgt i64 %sub.ptr.sub14, 1
-  br i1 %cmp15, label %while.body, label %return, !llvm.loop !68
+  br i1 %cmp15, label %while.body, label %return, !llvm.loop !60
 
 sw.default64:                                     ; preds = %while.body, %cond.end30
   store ptr %ptr.addr.066, ptr %nextTokPtr, align 8
@@ -11598,7 +11598,7 @@ sw.bb86:                                          ; preds = %sw.bb66, %cond.end6
   %sub.ptr.rhs.cast47 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub48 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast47
   %cmp49 = icmp sgt i64 %sub.ptr.sub48, 1
-  br i1 %cmp49, label %while.body, label %return, !llvm.loop !69
+  br i1 %cmp49, label %while.body, label %return, !llvm.loop !61
 
 if.end95:                                         ; preds = %cond.end64
   store ptr %ptr.addr.0175, ptr %nextTokPtr, align 8
@@ -11782,7 +11782,7 @@ sw.epilog190:                                     ; preds = %if.end176, %land.lh
   %sub.ptr.rhs.cast120 = ptrtoint ptr %ptr.addr.2 to i64
   %sub.ptr.sub121 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast120
   %cmp122 = icmp sgt i64 %sub.ptr.sub121, 1
-  br i1 %cmp122, label %while.body124, label %return, !llvm.loop !70
+  br i1 %cmp122, label %while.body124, label %return, !llvm.loop !62
 
 sw.bb191:                                         ; preds = %cond.end64
   %call192 = call fastcc i32 @little2_checkPiTarget(ptr noundef %ptr, ptr noundef nonnull %ptr.addr.0175, ptr noundef nonnull %tok)
@@ -11828,7 +11828,7 @@ return:                                           ; preds = %sw.bb86, %sw.bb149,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @little2_scanPercent(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 29) i32 @little2_scanPercent(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -11985,7 +11985,7 @@ sw.bb87:                                          ; preds = %sw.bb67, %cond.end6
   %sub.ptr.rhs.cast48 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast48
   %cmp50 = icmp sgt i64 %sub.ptr.sub49, 1
-  br i1 %cmp50, label %while.body, label %return, !llvm.loop !71
+  br i1 %cmp50, label %while.body, label %return, !llvm.loop !63
 
 sw.bb97:                                          ; preds = %cond.end65
   %cmp101 = icmp eq i64 %sub.ptr.sub4994, 2
@@ -12011,7 +12011,7 @@ return:                                           ; preds = %sw.bb87, %return.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @little2_scanPoundName(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -20, 21) i32 @little2_scanPoundName(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -12167,7 +12167,7 @@ sw.bb86:                                          ; preds = %sw.bb66, %cond.end6
   %sub.ptr.rhs.cast47 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub48 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast47
   %cmp49 = icmp sgt i64 %sub.ptr.sub48, 1
-  br i1 %cmp49, label %while.body, label %return, !llvm.loop !72
+  br i1 %cmp49, label %while.body, label %return, !llvm.loop !64
 
 sw.bb96:                                          ; preds = %cond.end64
   %cmp100 = icmp eq i64 %sub.ptr.sub4886, 2
@@ -12192,7 +12192,7 @@ return:                                           ; preds = %sw.bb86, %return.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @little2_scanComment(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 14) i32 @little2_scanComment(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -12328,7 +12328,7 @@ sw.epilog:                                        ; preds = %if.end56, %land.lhs
   %sub.ptr.rhs.cast9 = ptrtoint ptr %ptr.addr.1 to i64
   %sub.ptr.sub10 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast9
   %cmp11 = icmp sgt i64 %sub.ptr.sub10, 1
-  br i1 %cmp11, label %while.body, label %return, !llvm.loop !73
+  br i1 %cmp11, label %while.body, label %return, !llvm.loop !65
 
 return.sink.split:                                ; preds = %cond.end, %cond.end, %cond.end, %sw.bb2.i, %while.body, %while.body, %while.body, %while.body, %land.lhs.true79, %if.end74, %if.then, %land.lhs.true
   %add.ptr86.sink = phi ptr [ %ptr, %land.lhs.true ], [ %ptr, %if.then ], [ %add.ptr67, %if.end74 ], [ %spec.select, %land.lhs.true79 ], [ %ptr.addr.051, %while.body ], [ %ptr.addr.051, %while.body ], [ %ptr.addr.051, %while.body ], [ %ptr.addr.051, %while.body ], [ %ptr.addr.051, %sw.bb2.i ], [ %ptr.addr.051, %cond.end ], [ %ptr.addr.051, %cond.end ], [ %ptr.addr.051, %cond.end ]
@@ -12342,7 +12342,7 @@ return:                                           ; preds = %sw.bb29, %sw.bb38, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @little2_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %tokPtr) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %tokPtr) unnamed_addr #10 {
 entry:
   store i32 11, ptr %tokPtr, align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
@@ -12417,7 +12417,7 @@ return:                                           ; preds = %sw.epilog19, %sw.ep
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @little2_scanRef(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 11) i32 @little2_scanRef(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -12575,7 +12575,7 @@ for.inc.i.i:                                      ; preds = %cond.end25.i.i, %co
   %sub.ptr.rhs.cast8.i.i = ptrtoint ptr %ptr.addr.0.i.i to i64
   %sub.ptr.sub9.i.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast8.i.i
   %cmp10.i.i = icmp sgt i64 %sub.ptr.sub9.i.i, 1
-  br i1 %cmp10.i.i, label %for.body.i.i, label %return, !llvm.loop !74
+  br i1 %cmp10.i.i, label %for.body.i.i, label %return, !llvm.loop !66
 
 cond.end.i:                                       ; preds = %land.lhs.true.i
   %type.i = getelementptr inbounds i8, ptr %enc, i64 136
@@ -12607,7 +12607,7 @@ cond.end36.i:                                     ; preds = %for.body.i
   switch i8 %20, label %return.sink.split [
     i8 25, label %for.cond.i
     i8 18, label %sw.bb39.i
-  ], !llvm.loop !75
+  ], !llvm.loop !67
 
 sw.bb39.i:                                        ; preds = %cond.end36.i
   %add.ptr40.i = getelementptr i8, ptr %ptr.pn.i, i64 4
@@ -12682,7 +12682,7 @@ sw.bb89:                                          ; preds = %sw.bb69, %cond.end6
   %sub.ptr.rhs.cast50 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub51 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast50
   %cmp52 = icmp sgt i64 %sub.ptr.sub51, 1
-  br i1 %cmp52, label %while.body, label %return, !llvm.loop !76
+  br i1 %cmp52, label %while.body, label %return, !llvm.loop !68
 
 sw.bb99:                                          ; preds = %cond.end67
   %cmp103 = icmp eq i64 %sub.ptr.sub51108, 2
@@ -12708,7 +12708,7 @@ return:                                           ; preds = %for.cond.i, %for.in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @little2_scanAtts(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #9 {
+define internal fastcc range(i32 -2, 4) i32 @little2_scanAtts(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #9 {
 entry:
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
@@ -13051,7 +13051,7 @@ if.end237:                                        ; preds = %sw.bb230
 
 sw.bb240:                                         ; preds = %if.end211
   %add.ptr241 = getelementptr i8, ptr %21, i64 2
-  %call242 = call fastcc i32 @little2_scanRef(ptr noundef %enc, ptr noundef %add.ptr241, ptr noundef %end, ptr noundef nonnull %ptr.addr), !range !26
+  %call242 = call fastcc i32 @little2_scanRef(ptr noundef %enc, ptr noundef %add.ptr241, ptr noundef %end, ptr noundef nonnull %ptr.addr)
   %cmp243 = icmp slt i32 %call242, 1
   br i1 %cmp243, label %if.then245, label %sw.bb240.sw.epilog254_crit_edge
 
@@ -13236,7 +13236,7 @@ sw.epilog381:                                     ; preds = %sw.bb328, %sw.bb91,
   %sub.ptr.rhs.cast = ptrtoint ptr %43 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 1
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !77
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !69
 
 return.sink.split:                                ; preds = %cond.end, %sw.bb2.i, %while.body, %while.body, %while.body, %while.body, %sw.bb2.i95, %sw.bb308, %cond.end277, %if.end263, %cond.end69, %sw.bb2.i65, %if.end55, %if.end55, %if.end55, %if.end55, %sw.bb71, %sw.bb44, %sw.bb, %if.end125, %cond.end139, %if.end178, %if.end157, %if.end211, %if.end211, %if.end211, %if.end211, %cond.end306, %if.end292, %if.end292, %if.end292, %if.end292, %land.lhs.true, %if.end365, %sw.bb346, %sw.bb338, %sw.bb109, %sw.bb101, %sw.bb36, %sw.bb28, %gt, %if.then248
   %.sink = phi ptr [ %26, %if.then248 ], [ %add.ptr356, %gt ], [ %ptr.addr.promoted, %sw.bb28 ], [ %ptr.addr.promoted, %sw.bb36 ], [ %add.ptr48, %sw.bb101 ], [ %add.ptr48, %sw.bb109 ], [ %add.ptr285349, %sw.bb338 ], [ %add.ptr285349, %sw.bb346 ], [ %add.ptr358, %if.end365 ], [ %spec.select, %land.lhs.true ], [ %add.ptr285349, %if.end292 ], [ %add.ptr285349, %if.end292 ], [ %add.ptr285349, %if.end292 ], [ %add.ptr285349, %if.end292 ], [ %add.ptr285349, %cond.end306 ], [ %21, %if.end211 ], [ %21, %if.end211 ], [ %21, %if.end211 ], [ %21, %if.end211 ], [ %add.ptr150322, %if.end157 ], [ %add.ptr150322, %if.end178 ], [ %add.ptr118311, %cond.end139 ], [ %add.ptr118311, %if.end125 ], [ %ptr.addr.promoted, %sw.bb ], [ %ptr.addr.promoted, %sw.bb44 ], [ %add.ptr48, %sw.bb71 ], [ %add.ptr48, %if.end55 ], [ %add.ptr48, %if.end55 ], [ %add.ptr48, %if.end55 ], [ %add.ptr48, %if.end55 ], [ %add.ptr48, %sw.bb2.i65 ], [ %add.ptr48, %cond.end69 ], [ %add.ptr256, %if.end263 ], [ %add.ptr256, %cond.end277 ], [ %add.ptr285349, %sw.bb308 ], [ %add.ptr285349, %sw.bb2.i95 ], [ %ptr.addr.promoted, %while.body ], [ %ptr.addr.promoted, %while.body ], [ %ptr.addr.promoted, %while.body ], [ %ptr.addr.promoted, %while.body ], [ %ptr.addr.promoted, %sw.bb2.i ], [ %ptr.addr.promoted, %cond.end ]
@@ -13446,7 +13446,7 @@ return:                                           ; preds = %if.end84, %sw.epilo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ascii_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef readnone %fromLim, ptr nocapture noundef %toP, ptr noundef readnone %toLim) #9 {
+define internal range(i32 0, 3) i32 @ascii_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef readnone %fromLim, ptr nocapture noundef %toP, ptr noundef readnone %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %cmp8 = icmp ult ptr %0, %fromLim
@@ -13468,7 +13468,7 @@ while.body:                                       ; preds = %land.rhs
   store i8 %3, ptr %4, align 1
   %5 = load ptr, ptr %fromP, align 8
   %cmp = icmp ult ptr %5, %fromLim
-  br i1 %cmp, label %land.rhs, label %if.else, !llvm.loop !78
+  br i1 %cmp, label %land.rhs, label %if.else, !llvm.loop !70
 
 while.end:                                        ; preds = %land.rhs
   %cmp3 = icmp eq ptr %2, %toLim
@@ -13569,12 +13569,12 @@ cond.end:                                         ; preds = %if.end6
 
 sw.bb:                                            ; preds = %cond.end
   %add.ptr14 = getelementptr i8, ptr %ptr, i64 2
-  %call15 = tail call fastcc i32 @big2_scanLit(i32 noundef 12, ptr noundef nonnull %enc, ptr noundef %add.ptr14, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !14
+  %call15 = tail call fastcc i32 @big2_scanLit(i32 noundef 12, ptr noundef nonnull %enc, ptr noundef %add.ptr14, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb16:                                          ; preds = %cond.end
   %add.ptr17 = getelementptr i8, ptr %ptr, i64 2
-  %call18 = tail call fastcc i32 @big2_scanLit(i32 noundef 13, ptr noundef nonnull %enc, ptr noundef %add.ptr17, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !14
+  %call18 = tail call fastcc i32 @big2_scanLit(i32 noundef 13, ptr noundef nonnull %enc, ptr noundef %add.ptr17, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb19:                                          ; preds = %cond.end
@@ -13621,7 +13621,7 @@ cond.end42:                                       ; preds = %if.end27
 
 sw.bb44:                                          ; preds = %cond.end42
   %add.ptr45 = getelementptr i8, ptr %ptr, i64 4
-  %call46 = tail call fastcc i32 @big2_scanDecl(ptr noundef nonnull %enc, ptr noundef %add.ptr45, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !15
+  %call46 = tail call fastcc i32 @big2_scanDecl(ptr noundef nonnull %enc, ptr noundef %add.ptr45, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb47:                                          ; preds = %cond.end42
@@ -13696,7 +13696,7 @@ for.end:                                          ; preds = %sw.epilog90, %sw.bb
 
 sw.bb91:                                          ; preds = %cond.end
   %add.ptr92 = getelementptr i8, ptr %ptr, i64 2
-  %call93 = tail call fastcc i32 @big2_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr92, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !16
+  %call93 = tail call fastcc i32 @big2_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr92, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb94:                                          ; preds = %cond.end
@@ -13825,7 +13825,7 @@ sw.bb175:                                         ; preds = %cond.end
 
 sw.bb177:                                         ; preds = %cond.end
   %add.ptr178 = getelementptr i8, ptr %ptr, i64 2
-  %call179 = tail call fastcc i32 @big2_scanPoundName(ptr noundef nonnull %enc, ptr noundef %add.ptr178, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !17
+  %call179 = tail call fastcc i32 @big2_scanPoundName(ptr noundef nonnull %enc, ptr noundef %add.ptr178, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb180:                                         ; preds = %cond.end
@@ -14177,7 +14177,7 @@ sw.epilog411:                                     ; preds = %if.end325, %if.end3
   %sub.ptr.rhs.cast249 = ptrtoint ptr %ptr.addr.3 to i64
   %sub.ptr.sub250 = sub i64 %sub.ptr.lhs.cast248, %sub.ptr.rhs.cast249
   %cmp251 = icmp sgt i64 %sub.ptr.sub250, 1
-  br i1 %cmp251, label %while.body, label %while.end, !llvm.loop !79
+  br i1 %cmp251, label %while.body, label %while.end, !llvm.loop !71
 
 while.end:                                        ; preds = %sw.epilog411, %sw.epilog247
   %tok.1.lcssa = phi i32 [ %tok.0, %sw.epilog247 ], [ %tok.2, %sw.epilog411 ]
@@ -14382,7 +14382,7 @@ cond.end70.i:                                     ; preds = %if.end55.i
 
 sw.bb72.i:                                        ; preds = %cond.end70.i
   %add.ptr73.i = getelementptr i8, ptr %ptr, i64 6
-  %call74.i = tail call fastcc i32 @big2_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr73.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !19
+  %call74.i = tail call fastcc i32 @big2_scanComment(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr73.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
   br label %return
 
 sw.bb75.i:                                        ; preds = %cond.end70.i
@@ -14415,7 +14415,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %add.ptr.i.i = getelementptr i8, ptr %ptr.addr.02.i.i, i64 2
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
-  br i1 %exitcond.not.i.i, label %return.sink.split.i.i, label %for.body.i.i, !llvm.loop !80
+  br i1 %exitcond.not.i.i, label %return.sink.split.i.i, label %for.body.i.i, !llvm.loop !72
 
 return.sink.split.i.i:                            ; preds = %for.inc.i.i, %land.lhs.true.i.i, %for.body.i.i
   %scevgep.sink.i.i = phi ptr [ %ptr.addr.02.i.i, %land.lhs.true.i.i ], [ %ptr.addr.02.i.i, %for.body.i.i ], [ %scevgep.i.i, %for.inc.i.i ]
@@ -14429,7 +14429,7 @@ sw.epilog.i:                                      ; preds = %cond.end70.i, %if.e
 
 sw.bb78.i:                                        ; preds = %cond.end.i
   %add.ptr79.i = getelementptr i8, ptr %ptr, i64 4
-  %call80.i = tail call fastcc i32 @big2_scanPi(ptr noundef nonnull %enc, ptr noundef %add.ptr79.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
+  %call80.i = tail call fastcc i32 @big2_scanPi(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr79.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
   br label %return
 
 sw.bb81.i:                                        ; preds = %cond.end.i
@@ -14627,7 +14627,7 @@ for.inc.i170.i:                                   ; preds = %cond.end135.i.i, %c
   %sub.ptr.rhs.cast117.i.i = ptrtoint ptr %ptr.addr.1.i.i to i64
   %sub.ptr.sub118.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast117.i.i
   %cmp119.i.i = icmp sgt i64 %sub.ptr.sub118.i.i, 1
-  br i1 %cmp119.i.i, label %for.body.i169.i, label %return, !llvm.loop !81
+  br i1 %cmp119.i.i, label %for.body.i169.i, label %return, !llvm.loop !73
 
 sw.bb145.i.i:                                     ; preds = %cond.end66.i.i
   %add.ptr146.i.i = getelementptr i8, ptr %ptr.pn131.i.i, i64 4
@@ -14638,7 +14638,7 @@ sw.epilog148.i.i:                                 ; preds = %sw.bb68.i.i, %cond.
   %sub.ptr.rhs.cast48.i.i = ptrtoint ptr %ptr.addr.0.i.i to i64
   %sub.ptr.sub49.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast48.i.i
   %cmp50.i.i = icmp sgt i64 %sub.ptr.sub49.i.i, 1
-  br i1 %cmp50.i.i, label %while.body.i.i, label %return, !llvm.loop !82
+  br i1 %cmp50.i.i, label %while.body.i.i, label %return, !llvm.loop !74
 
 return.sink.split.i167.i:                         ; preds = %sw.bb68.i.i, %cond.end66.i.i, %sw.bb2.i69.i.i, %while.body.i.i, %while.body.i.i, %while.body.i.i, %while.body.i.i, %cond.end135.i.i, %for.body.i169.i, %sw.bb145.i.i, %sw.bb138.i.i, %sw.bb106.i.i, %sw.bb98.i.i, %sw.bb39.i.i, %sw.bb31.i.i, %sw.bb.i.i, %cond.end.i.i, %sw.bb2.i.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i
   %ptr.addr.0132.lcssa179.sink.i.i = phi ptr [ %add.ptr146.i.i, %sw.bb145.i.i ], [ %add.ptr139.i.i, %sw.bb138.i.i ], [ %add.ptr82.i, %sw.bb.i.i ], [ %add.ptr82.i, %sw.bb31.i.i ], [ %add.ptr82.i, %sw.bb39.i.i ], [ %add.ptr82.i, %if.end.i.i ], [ %add.ptr82.i, %if.end.i.i ], [ %add.ptr82.i, %if.end.i.i ], [ %add.ptr82.i, %if.end.i.i ], [ %add.ptr82.i, %sw.bb2.i.i.i ], [ %add.ptr82.i, %cond.end.i.i ], [ %ptr.addr.0132.i.i, %sw.bb98.i.i ], [ %ptr.addr.0132.i.i, %sw.bb106.i.i ], [ %ptr.addr.1139.i.i, %for.body.i169.i ], [ %ptr.addr.1139.i.i, %cond.end135.i.i ], [ %ptr.addr.0132.i.i, %while.body.i.i ], [ %ptr.addr.0132.i.i, %while.body.i.i ], [ %ptr.addr.0132.i.i, %while.body.i.i ], [ %ptr.addr.0132.i.i, %while.body.i.i ], [ %ptr.addr.0132.i.i, %sw.bb2.i69.i.i ], [ %ptr.addr.0132.i.i, %cond.end66.i.i ], [ %ptr.addr.0132.i.i, %sw.bb68.i.i ]
@@ -14931,7 +14931,7 @@ if.then271.i:                                     ; preds = %sw.bb253.i
 
 sw.bb273.i:                                       ; preds = %cond.end251.i, %cond.end251.i, %sw.bb253.i
   %add.ptr274.i = getelementptr i8, ptr %ptr.addr.0.pn336.i, i64 4
-  %call305.i = tail call fastcc i32 @big2_scanAtts(ptr noundef nonnull %enc, ptr noundef %add.ptr274.i, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !24
+  %call305.i = tail call fastcc i32 @big2_scanAtts(ptr noundef nonnull readonly %enc, ptr noundef %add.ptr274.i, ptr noundef %end.addr.0, ptr noundef writeonly %nextTokPtr)
   br label %return
 
 if.end282.i:                                      ; preds = %cond.end251.i
@@ -14959,7 +14959,7 @@ sw.bb301.i:                                       ; preds = %cond.end251.i, %con
   %sub.ptr.rhs.cast232.i = ptrtoint ptr %ptr.addr.1.i to i64
   %sub.ptr.sub233.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast232.i
   %cmp234.i = icmp sgt i64 %sub.ptr.sub233.i, 1
-  br i1 %cmp234.i, label %while.body236.i, label %return, !llvm.loop !83
+  br i1 %cmp234.i, label %while.body236.i, label %return, !llvm.loop !75
 
 sw.default303.i:                                  ; preds = %cond.end251.i, %while.body236.i, %while.body236.i, %while.body236.i, %while.body236.i, %sw.bb2.i184.i
   store ptr %ptr.addr.1337.i, ptr %nextTokPtr, align 8
@@ -15010,11 +15010,11 @@ sw.epilog329.i:                                   ; preds = %sw.bb180.i, %cond.e
   %sub.ptr.rhs.cast86.i = ptrtoint ptr %add.ptr201.i to i64
   %sub.ptr.sub87.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast86.i
   %cmp88.i = icmp sgt i64 %sub.ptr.sub87.i, 1
-  br i1 %cmp88.i, label %while.body.i, label %return, !llvm.loop !84
+  br i1 %cmp88.i, label %while.body.i, label %return, !llvm.loop !76
 
 sw.bb16:                                          ; preds = %cond.end
   %add.ptr17 = getelementptr i8, ptr %ptr, i64 2
-  %call18 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr17, ptr noundef %end.addr.0, ptr noundef %nextTokPtr), !range !26
+  %call18 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr17, ptr noundef %end.addr.0, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb19:                                          ; preds = %cond.end
@@ -15265,7 +15265,7 @@ sw.epilog214:                                     ; preds = %if.then193, %land.l
   %sub.ptr.rhs.cast120 = ptrtoint ptr %ptr.addr.3 to i64
   %sub.ptr.sub121 = sub i64 %sub.ptr.lhs.cast119.pre-phi, %sub.ptr.rhs.cast120
   %cmp122 = icmp sgt i64 %sub.ptr.sub121, 1
-  br i1 %cmp122, label %while.body, label %while.end, !llvm.loop !85
+  br i1 %cmp122, label %while.body, label %while.end, !llvm.loop !77
 
 while.end:                                        ; preds = %sw.epilog214, %sw.epilog
   %ptr.addr.2.lcssa = phi ptr [ %ptr.addr.1, %sw.epilog ], [ %ptr.addr.3, %sw.epilog214 ]
@@ -15278,7 +15278,7 @@ return:                                           ; preds = %sw.epilog148.i.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @big2_cdataSectionTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
+define internal range(i32 -4, 41) i32 @big2_cdataSectionTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.end, label %return
@@ -15512,7 +15512,7 @@ sw.epilog165:                                     ; preds = %cond.end133, %sw.bb
   %sub.ptr.rhs.cast115 = ptrtoint ptr %add.ptr164 to i64
   %sub.ptr.sub116 = sub i64 %sub.ptr.lhs.cast114.pre-phi, %sub.ptr.rhs.cast115
   %cmp117 = icmp sgt i64 %sub.ptr.sub116, 1
-  br i1 %cmp117, label %while.body, label %return.sink.split, !llvm.loop !86
+  br i1 %cmp117, label %while.body, label %return.sink.split, !llvm.loop !78
 
 return.sink.split:                                ; preds = %cond.end133, %cond.end133, %cond.end133, %cond.end133, %cond.end133, %cond.end133, %sw.epilog165, %sw.bb2.i82, %while.body, %while.body, %while.body, %while.body, %sw.bb153, %sw.bb144, %sw.epilog, %cond.end, %cond.end, %cond.end, %sw.bb2.i, %if.end6, %if.end6, %if.end6, %if.end6, %if.end61, %cond.end76, %if.end51, %sw.bb83
   %ptr.addr.2.lcssa.sink = phi ptr [ %add.ptr84, %sw.bb83 ], [ %add.ptr52, %if.end51 ], [ %add.ptr54, %if.end61 ], [ %spec.select, %cond.end76 ], [ %ptr, %if.end6 ], [ %ptr, %if.end6 ], [ %ptr, %if.end6 ], [ %ptr, %if.end6 ], [ %ptr, %sw.bb2.i ], [ %ptr, %cond.end ], [ %ptr, %cond.end ], [ %ptr, %cond.end ], [ %ptr.addr.1, %sw.epilog ], [ %ptr.addr.2116, %sw.bb144 ], [ %ptr.addr.2116, %sw.bb153 ], [ %ptr.addr.2116, %while.body ], [ %ptr.addr.2116, %while.body ], [ %ptr.addr.2116, %while.body ], [ %ptr.addr.2116, %while.body ], [ %ptr.addr.2116, %sw.bb2.i82 ], [ %ptr.addr.2116, %cond.end133 ], [ %ptr.addr.2116, %cond.end133 ], [ %ptr.addr.2116, %cond.end133 ], [ %ptr.addr.2116, %cond.end133 ], [ %ptr.addr.2116, %cond.end133 ], [ %ptr.addr.2116, %cond.end133 ], [ %add.ptr164, %sw.epilog165 ]
@@ -15526,7 +15526,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @big2_ignoreSectionTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
+define internal range(i32 -2, 43) i32 @big2_ignoreSectionTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -15702,7 +15702,7 @@ sw.epilog:                                        ; preds = %if.end86, %land.lhs
   %sub.ptr.rhs.cast3 = ptrtoint ptr %ptr.addr.1 to i64
   %sub.ptr.sub4 = sub i64 %sub.ptr.lhs.cast2, %sub.ptr.rhs.cast3
   %cmp = icmp sgt i64 %sub.ptr.sub4, 1
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !87
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !79
 
 return.sink.split:                                ; preds = %if.then114, %cond.end, %cond.end, %cond.end, %sw.bb2.i, %while.body, %while.body, %while.body, %while.body
   %add.ptr115.lcssa.sink = phi ptr [ %ptr.addr.061, %while.body ], [ %ptr.addr.061, %while.body ], [ %ptr.addr.061, %while.body ], [ %ptr.addr.061, %while.body ], [ %ptr.addr.061, %sw.bb2.i ], [ %ptr.addr.061, %cond.end ], [ %ptr.addr.061, %cond.end ], [ %ptr.addr.061, %cond.end ], [ %add.ptr115, %if.then114 ]
@@ -15716,7 +15716,7 @@ return:                                           ; preds = %sw.bb20, %sw.bb29, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @big2_attributeValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
+define internal range(i32 -4, 40) i32 @big2_attributeValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.else, label %return
@@ -15771,7 +15771,7 @@ sw.bb19:                                          ; preds = %cond.end
 
 if.then22:                                        ; preds = %sw.bb19
   %add.ptr23 = getelementptr i8, ptr %ptr.addr.075, i64 2
-  %call24 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr23, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !26
+  %call24 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr23, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 if.end25:                                         ; preds = %sw.bb19
@@ -15851,7 +15851,7 @@ sw.epilog:                                        ; preds = %cond.end, %while.bo
   %sub.ptr.rhs.cast5 = ptrtoint ptr %add.ptr73 to i64
   %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast5
   %cmp7 = icmp sgt i64 %sub.ptr.sub6, 1
-  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !88
+  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !80
 
 while.end:                                        ; preds = %sw.epilog
   store ptr %add.ptr73, ptr %nextTokPtr, align 8
@@ -15863,7 +15863,7 @@ return:                                           ; preds = %if.then36, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @big2_entityValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
+define internal i32 @big2_entityValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.else, label %return
@@ -15917,7 +15917,7 @@ sw.bb19:                                          ; preds = %cond.end
 
 if.then22:                                        ; preds = %sw.bb19
   %add.ptr23 = getelementptr i8, ptr %ptr.addr.075, i64 2
-  %call24 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr23, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !26
+  %call24 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr23, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
 if.end25:                                         ; preds = %sw.bb19
@@ -15930,7 +15930,7 @@ sw.bb26:                                          ; preds = %cond.end
 
 if.then29:                                        ; preds = %sw.bb26
   %add.ptr30 = getelementptr i8, ptr %ptr.addr.075, i64 2
-  %call31 = tail call fastcc i32 @big2_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr30, ptr noundef nonnull %end, ptr noundef %nextTokPtr), !range !16
+  %call31 = tail call fastcc i32 @big2_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr30, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   %cmp32 = icmp eq i32 %call31, 22
   %cond37 = select i1 %cmp32, i32 0, i32 %call31
   br label %return
@@ -15995,7 +15995,7 @@ sw.epilog:                                        ; preds = %cond.end, %while.bo
   %sub.ptr.rhs.cast5 = ptrtoint ptr %add.ptr79 to i64
   %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast5
   %cmp7 = icmp sgt i64 %sub.ptr.sub6, 1
-  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !89
+  br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !81
 
 while.end:                                        ; preds = %sw.epilog
   store ptr %add.ptr79, ptr %nextTokPtr, align 8
@@ -16007,7 +16007,7 @@ return:                                           ; preds = %if.then48, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @big2_nameMatchesAscii(ptr nocapture readnone %enc, ptr noundef %ptr1, ptr noundef %end1, ptr nocapture noundef readonly %ptr2) #7 {
+define internal range(i32 0, 2) i32 @big2_nameMatchesAscii(ptr nocapture readnone %enc, ptr noundef %ptr1, ptr noundef %end1, ptr nocapture noundef readonly %ptr2) #7 {
 entry:
   %0 = load i8, ptr %ptr2, align 1
   %tobool.not9 = icmp eq i8 %0, 0
@@ -16042,7 +16042,7 @@ for.inc:                                          ; preds = %land.lhs.true
   %incdec.ptr = getelementptr i8, ptr %ptr2.addr.011, i64 1
   %4 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %4, 0
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !90
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !82
 
 for.end:                                          ; preds = %for.inc, %entry
   %ptr1.addr.0.lcssa = phi ptr [ %ptr1, %entry ], [ %add.ptr, %for.inc ]
@@ -16558,7 +16558,7 @@ sw.epilog:                                        ; preds = %sw.bb25, %sw.bb21, 
 for.inc:                                          ; preds = %for.cond, %cond.end, %sw.epilog
   %result.130 = phi i32 [ %result.1, %sw.epilog ], [ %result.0, %cond.end ], [ %result.0, %for.cond ]
   %add.ptr33 = getelementptr i8, ptr %ptr.addr.0, i64 2
-  br label %for.cond, !llvm.loop !91
+  br label %for.cond, !llvm.loop !83
 
 for.cond34:                                       ; preds = %for.cond34.preheader, %cond.end56
   %result.2 = phi i32 [ %add59, %cond.end56 ], [ 0, %for.cond34.preheader ]
@@ -16584,7 +16584,7 @@ cond.end56:                                       ; preds = %for.cond34, %cond.t
   %add59 = add i32 %sub58, %cond57
   %cmp60 = icmp sgt i32 %add59, 1114111
   %add.ptr65 = getelementptr i8, ptr %ptr.addr.1, i64 2
-  br i1 %cmp60, label %return, label %for.cond34, !llvm.loop !92
+  br i1 %cmp60, label %return, label %for.cond34, !llvm.loop !84
 
 if.end67:                                         ; preds = %land.rhs39, %land.rhs
   %result.3 = phi i32 [ %result.0, %land.rhs ], [ %result.2, %land.rhs39 ]
@@ -16623,7 +16623,7 @@ return:                                           ; preds = %cond.end56, %sw.epi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @big2_predefinedEntityName(ptr nocapture readnone %enc, ptr noundef %ptr, ptr noundef %end) #8 {
+define internal range(i32 0, 63) i32 @big2_predefinedEntityName(ptr nocapture readnone %enc, ptr noundef %ptr, ptr noundef %end) #8 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -16902,14 +16902,14 @@ sw.epilog:                                        ; preds = %sw.default, %if.end
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr.addr.2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 1
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !93
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !85
 
 while.end:                                        ; preds = %sw.epilog, %entry
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @big2_isPublicId(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr) #0 {
+define internal range(i32 0, 2) i32 @big2_isPublicId(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %badPtr) #0 {
 entry:
   %add.ptr1 = getelementptr i8, ptr %end, i64 -2
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr1 to i64
@@ -16980,7 +16980,7 @@ for.inc:                                          ; preds = %cond.end, %cond.end
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !94
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !86
 
 return.sink.split:                                ; preds = %cond.end39, %for.body, %land.lhs.true
   store ptr %ptr.addr.029, ptr %badPtr, align 8
@@ -16992,7 +16992,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @big2_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
+define internal range(i32 0, 3) i32 @big2_toUtf8(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %fromLim to i64
@@ -17160,7 +17160,7 @@ for.inc:                                          ; preds = %if.end, %if.end16, 
   %from.1 = phi ptr [ %from.062, %if.end34 ], [ %add.ptr89, %if.end68 ], [ %from.062, %if.end16 ], [ %from.062, %if.end ]
   %add.ptr110 = getelementptr i8, ptr %from.1, i64 2
   %cmp = icmp ult ptr %add.ptr110, %add.ptr
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !95
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !87
 
 return:                                           ; preds = %for.inc, %if.end61, %sw.bb54, %sw.default, %sw.bb9, %if.then, %entry
   %from.0.lcssa.sink = phi ptr [ %0, %entry ], [ %from.062, %if.then ], [ %from.062, %sw.bb9 ], [ %from.062, %sw.default ], [ %from.062, %sw.bb54 ], [ %from.062, %if.end61 ], [ %add.ptr110, %for.inc ]
@@ -17170,7 +17170,7 @@ return:                                           ; preds = %for.inc, %if.end61,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @big2_toUtf16(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
+define internal range(i32 0, 3) i32 @big2_toUtf16(ptr nocapture readnone %enc, ptr nocapture noundef %fromP, ptr noundef %fromLim, ptr nocapture noundef %toP, ptr noundef %toLim) #9 {
 entry:
   %0 = load ptr, ptr %fromP, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %fromLim to i64
@@ -17221,7 +17221,7 @@ for.body:                                         ; preds = %land.rhs
   %add.ptr22 = getelementptr i8, ptr %8, i64 2
   store ptr %add.ptr22, ptr %fromP, align 8
   %cmp12 = icmp ult ptr %add.ptr22, %fromLim.addr.0
-  br i1 %cmp12, label %land.rhs, label %if.else, !llvm.loop !96
+  br i1 %cmp12, label %land.rhs, label %if.else, !llvm.loop !88
 
 for.end:                                          ; preds = %land.rhs
   %cmp23 = icmp eq ptr %5, %toLim
@@ -17236,7 +17236,7 @@ return:                                           ; preds = %for.end, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @big2_scanLit(i32 noundef %open, ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -27, 28) i32 @big2_scanLit(i32 noundef %open, ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast47 = ptrtoint ptr %ptr to i64
@@ -17357,7 +17357,7 @@ sw.epilog:                                        ; preds = %sw.bb32, %sw.defaul
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr.addr.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 1
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !97
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !89
 
 return:                                           ; preds = %sw.bb13, %sw.bb22, %sw.epilog, %entry, %cond.end59, %cond.end59, %cond.end59, %cond.end59, %cond.end59, %cond.end59, %if.end37, %sw.default, %sw.bb31
   %retval.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.bb31 ], [ -27, %if.end37 ], [ 27, %cond.end59 ], [ 27, %cond.end59 ], [ 27, %cond.end59 ], [ 27, %cond.end59 ], [ 27, %cond.end59 ], [ 27, %cond.end59 ], [ -1, %entry ], [ -2, %sw.bb13 ], [ -2, %sw.bb22 ], [ -1, %sw.epilog ]
@@ -17365,7 +17365,7 @@ return:                                           ; preds = %sw.bb13, %sw.bb22, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @big2_scanDecl(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 34) i32 @big2_scanDecl(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -17394,7 +17394,7 @@ cond.end:                                         ; preds = %if.end
 
 sw.bb:                                            ; preds = %cond.end
   %add.ptr = getelementptr i8, ptr %ptr, i64 2
-  %call8 = tail call fastcc i32 @big2_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef %nextTokPtr), !range !19
+  %call8 = tail call fastcc i32 @big2_scanComment(ptr noundef nonnull %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef %nextTokPtr)
   br label %return
 
 sw.bb9:                                           ; preds = %cond.end
@@ -17476,7 +17476,7 @@ sw.bb65:                                          ; preds = %cond.end32, %cond.e
   %sub.ptr.rhs.cast14 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub15 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast14
   %cmp16 = icmp sgt i64 %sub.ptr.sub15, 1
-  br i1 %cmp16, label %while.body, label %return, !llvm.loop !98
+  br i1 %cmp16, label %while.body, label %return, !llvm.loop !90
 
 sw.default67:                                     ; preds = %while.body, %cond.end32
   store ptr %ptr.addr.066, ptr %nextTokPtr, align 8
@@ -17681,7 +17681,7 @@ sw.bb88:                                          ; preds = %sw.bb68, %cond.end6
   %sub.ptr.rhs.cast48 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast48
   %cmp50 = icmp sgt i64 %sub.ptr.sub49, 1
-  br i1 %cmp50, label %while.body, label %return, !llvm.loop !99
+  br i1 %cmp50, label %while.body, label %return, !llvm.loop !91
 
 if.end97:                                         ; preds = %cond.end66
   store ptr %ptr.addr.0175, ptr %nextTokPtr, align 8
@@ -17866,7 +17866,7 @@ sw.epilog193:                                     ; preds = %if.end179, %land.lh
   %sub.ptr.rhs.cast122 = ptrtoint ptr %ptr.addr.2 to i64
   %sub.ptr.sub123 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast122
   %cmp124 = icmp sgt i64 %sub.ptr.sub123, 1
-  br i1 %cmp124, label %while.body126, label %return, !llvm.loop !100
+  br i1 %cmp124, label %while.body126, label %return, !llvm.loop !92
 
 sw.bb194:                                         ; preds = %cond.end66
   %call195 = call fastcc i32 @big2_checkPiTarget(ptr noundef nonnull %ptr, ptr noundef nonnull %ptr.addr.0175, ptr noundef nonnull %tok)
@@ -17912,7 +17912,7 @@ return:                                           ; preds = %sw.bb88, %sw.bb152,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @big2_scanPercent(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 29) i32 @big2_scanPercent(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -18073,7 +18073,7 @@ sw.bb89:                                          ; preds = %sw.bb69, %cond.end6
   %sub.ptr.rhs.cast49 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub50 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast49
   %cmp51 = icmp sgt i64 %sub.ptr.sub50, 1
-  br i1 %cmp51, label %while.body, label %return, !llvm.loop !101
+  br i1 %cmp51, label %while.body, label %return, !llvm.loop !93
 
 sw.bb99:                                          ; preds = %cond.end67
   %cmp103 = icmp eq i64 %sub.ptr.sub5094, 2
@@ -18099,7 +18099,7 @@ return:                                           ; preds = %sw.bb89, %return.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @big2_scanPoundName(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -20, 21) i32 @big2_scanPoundName(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -18259,7 +18259,7 @@ sw.bb88:                                          ; preds = %sw.bb68, %cond.end6
   %sub.ptr.rhs.cast48 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast48
   %cmp50 = icmp sgt i64 %sub.ptr.sub49, 1
-  br i1 %cmp50, label %while.body, label %return, !llvm.loop !102
+  br i1 %cmp50, label %while.body, label %return, !llvm.loop !94
 
 sw.bb98:                                          ; preds = %cond.end66
   %cmp102 = icmp eq i64 %sub.ptr.sub4986, 2
@@ -18284,7 +18284,7 @@ return:                                           ; preds = %sw.bb88, %return.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @big2_scanComment(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 14) i32 @big2_scanComment(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -18421,7 +18421,7 @@ sw.epilog:                                        ; preds = %if.end57, %land.lhs
   %sub.ptr.rhs.cast9 = ptrtoint ptr %ptr.addr.1 to i64
   %sub.ptr.sub10 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast9
   %cmp11 = icmp sgt i64 %sub.ptr.sub10, 1
-  br i1 %cmp11, label %while.body, label %return, !llvm.loop !103
+  br i1 %cmp11, label %while.body, label %return, !llvm.loop !95
 
 return.sink.split:                                ; preds = %cond.end, %cond.end, %cond.end, %sw.bb2.i, %while.body, %while.body, %while.body, %while.body, %land.lhs.true80, %if.end75, %if.then, %land.lhs.true
   %add.ptr87.sink = phi ptr [ %ptr, %land.lhs.true ], [ %ptr, %if.then ], [ %add.ptr68, %if.end75 ], [ %spec.select, %land.lhs.true80 ], [ %ptr.addr.051, %while.body ], [ %ptr.addr.051, %while.body ], [ %ptr.addr.051, %while.body ], [ %ptr.addr.051, %while.body ], [ %ptr.addr.051, %sw.bb2.i ], [ %ptr.addr.051, %cond.end ], [ %ptr.addr.051, %cond.end ], [ %ptr.addr.051, %cond.end ]
@@ -18435,7 +18435,7 @@ return:                                           ; preds = %sw.bb30, %sw.bb39, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @big2_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %tokPtr) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %tokPtr) unnamed_addr #10 {
 entry:
   store i32 11, ptr %tokPtr, align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
@@ -18510,7 +18510,7 @@ return:                                           ; preds = %sw.epilog19, %sw.ep
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @big2_scanRef(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 11) i32 @big2_scanRef(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
@@ -18670,7 +18670,7 @@ for.inc.i.i:                                      ; preds = %cond.end27.i.i, %co
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %ptr.addr.0.i.i to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast9.i.i
   %cmp11.i.i = icmp sgt i64 %sub.ptr.sub10.i.i, 1
-  br i1 %cmp11.i.i, label %for.body.i.i, label %return, !llvm.loop !104
+  br i1 %cmp11.i.i, label %for.body.i.i, label %return, !llvm.loop !96
 
 cond.end.i:                                       ; preds = %land.lhs.true.i
   %type.i = getelementptr inbounds i8, ptr %enc, i64 136
@@ -18702,7 +18702,7 @@ cond.end38.i:                                     ; preds = %for.body.i
   switch i8 %20, label %return.sink.split [
     i8 25, label %for.cond.i
     i8 18, label %sw.bb41.i
-  ], !llvm.loop !105
+  ], !llvm.loop !97
 
 sw.bb41.i:                                        ; preds = %cond.end38.i
   %add.ptr42.i = getelementptr i8, ptr %ptr.pn.i, i64 4
@@ -18779,7 +18779,7 @@ sw.bb91:                                          ; preds = %sw.bb71, %cond.end6
   %sub.ptr.rhs.cast51 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub52 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast51
   %cmp53 = icmp sgt i64 %sub.ptr.sub52, 1
-  br i1 %cmp53, label %while.body, label %return, !llvm.loop !106
+  br i1 %cmp53, label %while.body, label %return, !llvm.loop !98
 
 sw.bb101:                                         ; preds = %cond.end69
   %cmp105 = icmp eq i64 %sub.ptr.sub52108, 2
@@ -18805,7 +18805,7 @@ return:                                           ; preds = %for.cond.i, %for.in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @big2_scanAtts(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #9 {
+define internal fastcc range(i32 -2, 4) i32 @big2_scanAtts(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #9 {
 entry:
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
@@ -19153,7 +19153,7 @@ if.end242:                                        ; preds = %sw.bb235
 
 sw.bb245:                                         ; preds = %if.end216
   %add.ptr246 = getelementptr i8, ptr %21, i64 2
-  %call247 = call fastcc i32 @big2_scanRef(ptr noundef %enc, ptr noundef %add.ptr246, ptr noundef %end, ptr noundef nonnull %ptr.addr), !range !26
+  %call247 = call fastcc i32 @big2_scanRef(ptr noundef %enc, ptr noundef %add.ptr246, ptr noundef %end, ptr noundef nonnull %ptr.addr)
   %cmp248 = icmp slt i32 %call247, 1
   br i1 %cmp248, label %if.then250, label %sw.bb245.sw.epilog259_crit_edge
 
@@ -19338,7 +19338,7 @@ sw.epilog388:                                     ; preds = %sw.bb335, %sw.bb93,
   %sub.ptr.rhs.cast = ptrtoint ptr %42 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 1
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !107
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !99
 
 return.sink.split:                                ; preds = %cond.end, %sw.bb2.i, %while.body, %while.body, %while.body, %while.body, %sw.bb2.i95, %sw.bb315, %cond.end283, %if.end268, %cond.end71, %sw.bb2.i65, %if.end56, %if.end56, %if.end56, %if.end56, %sw.bb73, %sw.bb45, %sw.bb, %if.end127, %cond.end142, %if.end182, %if.end160, %if.end216, %if.end216, %if.end216, %if.end216, %cond.end313, %if.end298, %if.end298, %if.end298, %if.end298, %land.lhs.true, %if.end372, %sw.bb353, %sw.bb345, %sw.bb111, %sw.bb103, %sw.bb37, %sw.bb29, %gt, %if.then253
   %.sink = phi ptr [ %26, %if.then253 ], [ %add.ptr363, %gt ], [ %ptr.addr.promoted, %sw.bb29 ], [ %ptr.addr.promoted, %sw.bb37 ], [ %add.ptr49, %sw.bb103 ], [ %add.ptr49, %sw.bb111 ], [ %add.ptr291358, %sw.bb345 ], [ %add.ptr291358, %sw.bb353 ], [ %add.ptr365, %if.end372 ], [ %spec.select, %land.lhs.true ], [ %add.ptr291358, %if.end298 ], [ %add.ptr291358, %if.end298 ], [ %add.ptr291358, %if.end298 ], [ %add.ptr291358, %if.end298 ], [ %add.ptr291358, %cond.end313 ], [ %21, %if.end216 ], [ %21, %if.end216 ], [ %21, %if.end216 ], [ %21, %if.end216 ], [ %add.ptr153331, %if.end160 ], [ %add.ptr153331, %if.end182 ], [ %add.ptr120320, %cond.end142 ], [ %add.ptr120320, %if.end127 ], [ %ptr.addr.promoted, %sw.bb ], [ %ptr.addr.promoted, %sw.bb45 ], [ %add.ptr49, %sw.bb73 ], [ %add.ptr49, %if.end56 ], [ %add.ptr49, %if.end56 ], [ %add.ptr49, %if.end56 ], [ %add.ptr49, %if.end56 ], [ %add.ptr49, %sw.bb2.i65 ], [ %add.ptr49, %cond.end71 ], [ %add.ptr261, %if.end268 ], [ %add.ptr261, %cond.end283 ], [ %add.ptr291358, %sw.bb315 ], [ %add.ptr291358, %sw.bb2.i95 ], [ %ptr.addr.promoted, %while.body ], [ %ptr.addr.promoted, %while.body ], [ %ptr.addr.promoted, %while.body ], [ %ptr.addr.promoted, %while.body ], [ %ptr.addr.promoted, %sw.bb2.i ], [ %ptr.addr.promoted, %cond.end ]
@@ -19352,7 +19352,7 @@ return:                                           ; preds = %if.end48, %for.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parsePseudoAttribute(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef %namePtr, ptr nocapture noundef writeonly %nameEndPtr, ptr nocapture noundef writeonly %valPtr, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @parsePseudoAttribute(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef %namePtr, ptr nocapture noundef writeonly %nameEndPtr, ptr nocapture noundef writeonly %valPtr, ptr nocapture noundef writeonly %nextTokPtr) unnamed_addr #5 {
 entry:
   %ptr.addr.i141 = alloca ptr, align 8
   %buf.i142 = alloca [1 x i8], align 1
@@ -19444,7 +19444,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   ]
 
 do.body.backedge:                                 ; preds = %do.body, %do.body, %do.body, %do.body
-  br label %do.body, !llvm.loop !108
+  br label %do.body, !llvm.loop !100
 
 do.end:                                           ; preds = %do.body
   %cmp7 = icmp eq ptr %add.ptr, %end
@@ -19527,7 +19527,7 @@ do.body20:                                        ; preds = %do.body20.backedge,
   ]
 
 do.body20.backedge:                               ; preds = %do.body20, %do.body20, %do.body20, %do.body20
-  br label %do.body20, !llvm.loop !109
+  br label %do.body20, !llvm.loop !101
 
 if.then30:                                        ; preds = %do.body20
   store ptr %add.ptr23, ptr %nextTokPtr, align 8
@@ -19733,22 +19733,22 @@ attributes #14 = { nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
-!12 = !{ptr @findEncoding, ptr @findEncodingNS}
+!11 = !{ptr @findEncoding, ptr @findEncodingNS}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 -27, i32 28}
-!15 = !{i32 -2, i32 34}
-!16 = !{i32 -2, i32 29}
-!17 = !{i32 -20, i32 21}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i32 -2, i32 14}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = !{i32 -2, i32 4}
+!24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = !{i32 -2, i32 11}
+!26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
@@ -19824,11 +19824,3 @@ attributes #14 = { nounwind }
 !99 = distinct !{!99, !5}
 !100 = distinct !{!100, !5}
 !101 = distinct !{!101, !5}
-!102 = distinct !{!102, !5}
-!103 = distinct !{!103, !5}
-!104 = distinct !{!104, !5}
-!105 = distinct !{!105, !5}
-!106 = distinct !{!106, !5}
-!107 = distinct !{!107, !5}
-!108 = distinct !{!108, !5}
-!109 = distinct !{!109, !5}

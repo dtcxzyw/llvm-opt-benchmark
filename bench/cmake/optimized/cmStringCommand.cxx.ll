@@ -700,7 +700,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118HandleRegexCommandERKSt6v
   %48 = ptrtoint ptr %46 to i64
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
-  %51 = icmp ult i64 %50, 64
+  %51 = icmp ult i64 %50, 33
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %2
@@ -760,7 +760,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %69 = ptrtoint ptr %67 to i64
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %69, %70
-  %72 = icmp ult i64 %71, 160
+  %72 = icmp ult i64 %71, 129
   br i1 %72, label %73, label %83
 
 73:                                               ; preds = %66
@@ -1032,7 +1032,7 @@ _ZN12_GLOBAL__N_110RegexMatchERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_tr
   %166 = ptrtoint ptr %164 to i64
   %167 = ptrtoint ptr %165 to i64
   %168 = sub i64 %166, %167
-  %169 = icmp ult i64 %168, 160
+  %169 = icmp ult i64 %168, 129
   br i1 %169, label %170, label %180
 
 170:                                              ; preds = %163
@@ -1931,7 +1931,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleCompareCommandERKSt
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
-  %14 = icmp ult i64 %13, 64
+  %14 = icmp ult i64 %13, 33
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %2
@@ -2016,7 +2016,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %47 = ptrtoint ptr %45 to i64
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
-  %50 = icmp ult i64 %49, 160
+  %50 = icmp ult i64 %49, 129
   br i1 %50, label %51, label %64
 
 51:                                               ; preds = %44
@@ -2189,7 +2189,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118HandleAsciiCommandERKSt6v
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
-  %14 = icmp ult i64 %13, 96
+  %14 = icmp ult i64 %13, 65
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %2
@@ -2522,7 +2522,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122HandleConfigureCommandERK
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = icmp ult i64 %15, 64
+  %16 = icmp ult i64 %15, 33
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %2
@@ -5023,7 +5023,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleUuidCommandERKSt6ve
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
-  %34 = icmp ult i64 %33, 64
+  %34 = icmp ult i64 %33, 33
   br i1 %34, label %35, label %45
 
 35:                                               ; preds = %2
@@ -7826,7 +7826,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZN12_GL
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false)
   store i8 1, ptr %17, align 8
   %22 = tail call noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %.02574)
   %23 = call fastcc noundef i32 @_ZN12_GLOBAL__N_110ParseIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8optionalINS_4ArgsEEj(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.045.073, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %22)

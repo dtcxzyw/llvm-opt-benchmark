@@ -428,7 +428,7 @@ define dso_local noundef zeroext i1 @_Z18cmCMakePathCommandRKSt6vectorINSt7__cxx
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = icmp ult i64 %11, 64
+  %12 = icmp ult i64 %11, 33
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %2
@@ -728,7 +728,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116HandleGetCommandERKSt6vec
   %31 = getelementptr inbounds i8, ptr %9, i64 16
   %32 = getelementptr inbounds i8, ptr %9, i64 32
   %33 = getelementptr inbounds i8, ptr %9, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_Ob", ptr %33, align 8
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %9, i64 48
@@ -738,7 +738,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116HandleGetCommandERKSt6vec
   %35 = getelementptr inbounds i8, ptr %9, i64 64
   %36 = getelementptr inbounds i8, ptr %9, i64 80
   %37 = getelementptr inbounds i8, ptr %9, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_1E9_M_invokeERKSt9_Any_dataS2_Ob", ptr %37, align 8
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %9, i64 96
@@ -748,7 +748,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116HandleGetCommandERKSt6vec
   %39 = getelementptr inbounds i8, ptr %9, i64 112
   %40 = getelementptr inbounds i8, ptr %9, i64 128
   %41 = getelementptr inbounds i8, ptr %9, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_2E9_M_invokeERKSt9_Any_dataS2_Ob", ptr %41, align 8
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %9, i64 144
@@ -758,7 +758,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116HandleGetCommandERKSt6vec
   %43 = getelementptr inbounds i8, ptr %9, i64 160
   %44 = getelementptr inbounds i8, ptr %9, i64 176
   %45 = getelementptr inbounds i8, ptr %9, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_3E9_M_invokeERKSt9_Any_dataS2_Ob", ptr %45, align 8
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_3E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %9, i64 192
@@ -768,7 +768,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116HandleGetCommandERKSt6vec
   %47 = getelementptr inbounds i8, ptr %9, i64 208
   %48 = getelementptr inbounds i8, ptr %9, i64 224
   %49 = getelementptr inbounds i8, ptr %9, i64 232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_4E9_M_invokeERKSt9_Any_dataS2_Ob", ptr %49, align 8
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_4E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %9, i64 240
@@ -778,7 +778,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116HandleGetCommandERKSt6vec
   %51 = getelementptr inbounds i8, ptr %9, i64 256
   %52 = getelementptr inbounds i8, ptr %9, i64 272
   %53 = getelementptr inbounds i8, ptr %9, i64 280
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_5E9_M_invokeERKSt9_Any_dataS2_Ob", ptr %53, align 8
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_5E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %9, i64 288
@@ -788,7 +788,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116HandleGetCommandERKSt6vec
   %55 = getelementptr inbounds i8, ptr %9, i64 304
   %56 = getelementptr inbounds i8, ptr %9, i64 320
   %57 = getelementptr inbounds i8, ptr %9, i64 328
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_6E9_M_invokeERKSt9_Any_dataS2_Ob", ptr %57, align 8
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_6E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %9, i64 336
@@ -798,7 +798,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116HandleGetCommandERKSt6vec
   %59 = getelementptr inbounds i8, ptr %9, i64 352
   %60 = getelementptr inbounds i8, ptr %9, i64 368
   %61 = getelementptr inbounds i8, ptr %9, i64 376
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_7E9_M_invokeERKSt9_Any_dataS2_Ob", ptr %61, align 8
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_bEZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_7E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %60, align 8
   invoke void @_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIF11cmCMakePathRKS5_bEESt4lessIS3_ESaISt4pairIKS3_S9_EEEC2ESt16initializer_listISE_ERKSB_RKSF_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN12_GLOBAL__N_116HandleGetCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE7actions, ptr nonnull %9, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
@@ -1037,7 +1037,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %293
 
 144:                                              ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %15, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %15, i8 0, i64 136, i1 false)
   %145 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %113) #20
   %146 = extractvalue { i64, ptr } %145, 0
   %147 = icmp eq i64 %146, 9
@@ -4055,7 +4055,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125HandleRelativePathCommand
   %3 = alloca %"class.std::function.273", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorIS8_SaIS8_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_SA_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN12_GLOBAL__N_125HandleRelativePathCommandERKSt6vectorIS8_SaIS8_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %4, align 8
   %6 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSE_RKS6_EEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false)
@@ -4107,7 +4107,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125HandleAbsolutePathCommand
   %3 = alloca %"class.std::function.273", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorIS8_SaIS8_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_SA_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIF11cmCMakePathRKS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN12_GLOBAL__N_125HandleAbsolutePathCommandERKSt6vectorIS8_SaIS8_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %4, align 8
   %6 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126HandleTransformPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusRKSt8functionIF11cmCMakePathRKSE_RKS6_EEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext true)
@@ -5266,7 +5266,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %38 = getelementptr inbounds i8, ptr %6, i64 16
   %39 = getelementptr inbounds i8, ptr %6, i64 32
   %40 = getelementptr inbounds i8, ptr %6, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathS2_EZN12_GLOBAL__N_120HandleCompareCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_S2_", ptr %40, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathS2_EZN12_GLOBAL__N_120HandleCompareCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %6, i64 48
@@ -5276,7 +5276,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %42 = getelementptr inbounds i8, ptr %6, i64 64
   %43 = getelementptr inbounds i8, ptr %6, i64 80
   %44 = getelementptr inbounds i8, ptr %6, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathS2_EZN12_GLOBAL__N_120HandleCompareCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_1E9_M_invokeERKSt9_Any_dataS2_S2_", ptr %44, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathS2_EZN12_GLOBAL__N_120HandleCompareCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %43, align 8
   invoke void @_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFbRK11cmCMakePathS7_EESt4lessIS3_ESaISt4pairIKS3_S9_EEEC2ESt16initializer_listISE_ERKSB_RKSF_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN12_GLOBAL__N_120HandleCompareCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE9operators, ptr nonnull %6, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -5628,7 +5628,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124HandleHasRootNameCommandE
   %3 = alloca %"class.std::function.329", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_124HandleHasRootNameCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_124HandleHasRootNameCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %4, align 8
   %6 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleHasItemCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusRKSt8functionIFbRK11cmCMakePathEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -5680,7 +5680,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129HandleHasRootDirectoryCom
   %3 = alloca %"class.std::function.329", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_129HandleHasRootDirectoryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_129HandleHasRootDirectoryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %4, align 8
   %6 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleHasItemCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusRKSt8functionIFbRK11cmCMakePathEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -5732,7 +5732,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124HandleHasRootPathCommandE
   %3 = alloca %"class.std::function.329", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_124HandleHasRootPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_124HandleHasRootPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %4, align 8
   %6 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleHasItemCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusRKSt8functionIFbRK11cmCMakePathEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -5784,7 +5784,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124HandleHasFilenameCommandE
   %3 = alloca %"class.std::function.329", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_124HandleHasFilenameCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_124HandleHasFilenameCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %4, align 8
   %6 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleHasItemCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusRKSt8functionIFbRK11cmCMakePathEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -5836,7 +5836,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125HandleHasExtensionCommand
   %3 = alloca %"class.std::function.329", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_125HandleHasExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_125HandleHasExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %4, align 8
   %6 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleHasItemCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusRKSt8functionIFbRK11cmCMakePathEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -5888,7 +5888,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleHasStemCommandERKSt
   %3 = alloca %"class.std::function.329", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_120HandleHasStemCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_120HandleHasStemCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %4, align 8
   %6 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleHasItemCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusRKSt8functionIFbRK11cmCMakePathEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -5940,7 +5940,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_128HandleHasRelativePartComm
   %3 = alloca %"class.std::function.329", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_128HandleHasRelativePartCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_128HandleHasRelativePartCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %4, align 8
   %6 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleHasItemCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusRKSt8functionIFbRK11cmCMakePathEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -5992,7 +5992,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_126HandleHasParentPathComman
   %3 = alloca %"class.std::function.329", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_126HandleHasParentPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK11cmCMakePathEZN12_GLOBAL__N_126HandleHasParentPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %4, align 8
   %6 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleHasItemCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusRKSt8functionIFbRK11cmCMakePathEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -9270,7 +9270,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairISt17basic_string_viewIcSt11char_tra
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_115NormalizeParserC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function.217", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %2, i64 24
@@ -9767,7 +9767,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEEC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function.217", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %2, i64 24
@@ -10339,7 +10339,7 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_28HandleRemoveExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function.217", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %2, i64 24
@@ -11290,7 +11290,7 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN11cmCMakePath20Repla
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableIZNS_29HandleReplaceExtensionCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function.217", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %2, i64 24
@@ -11658,7 +11658,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126HandleTransformPat
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
   %20 = alloca %class.cmCMakePath, align 8
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %12, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %12, i8 0, i64 136, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %22 = getelementptr inbounds i8, ptr %10, i64 16
   %23 = getelementptr inbounds i8, ptr %10, i64 24

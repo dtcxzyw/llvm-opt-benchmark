@@ -434,7 +434,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %112 = ptrtoint ptr %110 to i64
   %113 = ptrtoint ptr %111 to i64
   %114 = sub i64 %112, %113
-  %115 = icmp ult i64 %114, 64
+  %115 = icmp ult i64 %114, 33
   br i1 %115, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %109, %152

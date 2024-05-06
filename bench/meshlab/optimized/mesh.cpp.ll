@@ -18150,7 +18150,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %97 = ptrtoint ptr %95 to i64
   %98 = ptrtoint ptr %96 to i64
   %99 = sub i64 %97, %98
-  %100 = icmp ult i64 %99, 96
+  %100 = icmp ult i64 %99, 65
   br i1 %100, label %.loopexit679, label %101
 
 101:                                              ; preds = %94
@@ -25646,7 +25646,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
   %95 = ptrtoint ptr %93 to i64
   %96 = ptrtoint ptr %94 to i64
   %97 = sub i64 %95, %96
-  %98 = icmp ult i64 %97, 64
+  %98 = icmp ult i64 %97, 33
   br i1 %98, label %.loopexit, label %99
 
 99:                                               ; preds = %92
@@ -25784,7 +25784,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
   %191 = ptrtoint ptr %189 to i64
   %192 = ptrtoint ptr %190 to i64
   %193 = sub i64 %191, %192
-  %194 = icmp ult i64 %193, 64
+  %194 = icmp ult i64 %193, 33
   br i1 %194, label %195, label %.backedge
 
 195:                                              ; preds = %188
@@ -25807,7 +25807,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
   %207 = ptrtoint ptr %205 to i64
   %208 = ptrtoint ptr %206 to i64
   %209 = sub i64 %207, %208
-  %210 = icmp ult i64 %209, 64
+  %210 = icmp ult i64 %209, 33
   br i1 %210, label %211, label %.backedge
 
 211:                                              ; preds = %204
@@ -25829,7 +25829,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
   %222 = ptrtoint ptr %220 to i64
   %223 = ptrtoint ptr %221 to i64
   %224 = sub i64 %222, %223
-  %225 = icmp ult i64 %224, 64
+  %225 = icmp ult i64 %224, 33
   br i1 %225, label %226, label %.backedge
 
 226:                                              ; preds = %219
@@ -25851,7 +25851,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
   %237 = ptrtoint ptr %235 to i64
   %238 = ptrtoint ptr %236 to i64
   %239 = sub i64 %237, %238
-  %240 = icmp ult i64 %239, 64
+  %240 = icmp ult i64 %239, 33
   br i1 %240, label %241, label %.backedge
 
 241:                                              ; preds = %234
@@ -60392,7 +60392,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %28
   %107 = getelementptr inbounds i8, ptr %.185110.i, i64 16
   store double %106, ptr %107, align 8
   %108 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %55, i64 0, i64 %68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %92, ptr noundef nonnull align 8 dereferenceable(18) %108, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %92, ptr noundef nonnull readonly align 8 dereferenceable(18) %108, i64 18, i1 false)
   %sext.i = shl i64 %66, 32
   %109 = ashr exact i64 %sext.i, 32
   %110 = load ptr, ptr %4, align 8

@@ -7127,7 +7127,7 @@ while.end607:                                     ; preds = %while.cond585, %whi
   %sub.ptr.lhs.cast.i977 = ptrtoint ptr %211 to i64
   %sub.ptr.rhs.cast.i978 = ptrtoint ptr %212 to i64
   %sub.ptr.sub.i979 = sub i64 %sub.ptr.lhs.cast.i977, %sub.ptr.rhs.cast.i978
-  %cmp609 = icmp ult i64 %sub.ptr.sub.i979, 64
+  %cmp609 = icmp ult i64 %sub.ptr.sub.i979, 33
   br i1 %cmp609, label %if.then610, label %if.else633
 
 if.then610:                                       ; preds = %while.end607

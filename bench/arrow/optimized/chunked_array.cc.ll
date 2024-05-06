@@ -2689,7 +2689,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, 16
+  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, 9
   br i1 %cmp.i, label %_ZNK5arrow8internal13ChunkResolver7ResolveEl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry

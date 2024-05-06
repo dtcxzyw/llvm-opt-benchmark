@@ -777,7 +777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %76 = ptrtoint ptr %74 to i64
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
-  %79 = icmp ult i64 %78, 16
+  %79 = icmp ult i64 %78, 9
   br i1 %79, label %.loopexit.i, label %80
 
 80:                                               ; preds = %69
@@ -814,7 +814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %exitcond.i, label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit, label %69, !llvm.loop !8
 
 .loopexit22.sink.split.i:                         ; preds = %80, %.noexc25
-  invoke void @_ZN22cmComputeTargetDepends25ComplainAboutBadComponentERK23cmComputeComponentGraphmb(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(224) %4, i64 noundef %.01729.i, i1 noundef zeroext false)
+  invoke void @_ZN22cmComputeTargetDepends25ComplainAboutBadComponentERK23cmComputeComponentGraphmb(ptr noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef nonnull readonly align 8 dereferenceable(224) %4, i64 noundef %.01729.i, i1 noundef zeroext false)
           to label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit unwind label %.loopexit.split-lp59
 
 _ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit: ; preds = %.loopexit.i, %.loopexit22.sink.split.i
@@ -989,7 +989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
   %141 = ptrtoint ptr %139 to i64
   %142 = ptrtoint ptr %140 to i64
   %143 = sub i64 %141, %142
-  %144 = icmp ult i64 %143, 16
+  %144 = icmp ult i64 %143, 9
   br i1 %144, label %.loopexit.i47, label %145
 
 145:                                              ; preds = %134
@@ -1026,7 +1026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
   br i1 %exitcond.i48, label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit51, label %134, !llvm.loop !8
 
 .loopexit22.sink.split.i45:                       ; preds = %145, %.noexc49
-  invoke void @_ZN22cmComputeTargetDepends25ComplainAboutBadComponentERK23cmComputeComponentGraphmb(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(224) %7, i64 noundef %.01729.i39, i1 noundef zeroext false)
+  invoke void @_ZN22cmComputeTargetDepends25ComplainAboutBadComponentERK23cmComputeComponentGraphmb(ptr noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef nonnull readonly align 8 dereferenceable(224) %7, i64 noundef %.01729.i39, i1 noundef zeroext false)
           to label %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit51 unwind label %.loopexit.split-lp
 
 _ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit51: ; preds = %.loopexit.i47, %.loopexit22.sink.split.i45
@@ -1477,7 +1477,7 @@ define dso_local noundef zeroext i1 @_ZN22cmComputeTargetDepends15CheckComponent
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  %24 = icmp ult i64 %23, 16
+  %24 = icmp ult i64 %23, 9
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %14

@@ -3019,7 +3019,7 @@ sw.bb493:                                         ; preds = %cond.end16
   %sub.ptr.lhs.cast.i1254 = ptrtoint ptr %272 to i64
   %sub.ptr.rhs.cast.i1255 = ptrtoint ptr %273 to i64
   %sub.ptr.sub.i1256 = sub i64 %sub.ptr.lhs.cast.i1254, %sub.ptr.rhs.cast.i1255
-  %cmp495 = icmp ult i64 %sub.ptr.sub.i1256, 24
+  %cmp495 = icmp ult i64 %sub.ptr.sub.i1256, 17
   br i1 %cmp495, label %return, label %if.end497
 
 if.end497:                                        ; preds = %sw.bb493

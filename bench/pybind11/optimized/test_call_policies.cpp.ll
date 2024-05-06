@@ -33296,7 +33296,7 @@ _ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_
   %31 = ptrtoint ptr %27 to i64
   %32 = ptrtoint ptr %28 to i64
   %33 = sub i64 %31, %32
-  %.not.i5.i.i.i.i = icmp ult i64 %33, 16
+  %.not.i5.i.i.i.i = icmp ult i64 %33, 9
   br i1 %.not.i5.i.i.i.i, label %_ZN8pybind116detail18process_attributesIJNS_4nameENS_9is_methodENS_7siblingENS0_24is_new_style_constructorENS_10keep_aliveILm1ELm2EEEEE7precallERNS0_13function_callE.exit.i, label %34
 
 34:                                               ; preds = %_ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_clEm.exit.i.i.i.i
@@ -34105,7 +34105,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS0_C1IvZ28test_submodule_call_policies
 define internal fastcc void @_ZN8pybind116detail15argument_loaderIJPZ28test_submodule_call_policiesRNS_7module_EE6ParentPZ28test_submodule_call_policiesS3_E5ChildEEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"struct.std::type_index", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr @_ZTIZ28test_submodule_call_policiesRN8pybind117module_EE5Child, ptr %3, align 8
   %4 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -34132,7 +34132,7 @@ _ZNSt11_Tuple_implILm1EJN8pybind116detail11type_casterIZ28test_submodule_call_po
   store ptr null, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %13 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIZ28test_submodule_call_policiesRN8pybind117module_EE6Parent, ptr %2, align 8
   %14 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -34212,7 +34212,7 @@ _ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_
   %27 = ptrtoint ptr %23 to i64
   %28 = ptrtoint ptr %24 to i64
   %29 = sub i64 %27, %28
-  %.not.i5.i.i.i.i = icmp ult i64 %29, 16
+  %.not.i5.i.i.i.i = icmp ult i64 %29, 9
   br i1 %.not.i5.i.i.i.i, label %_ZN8pybind116detail18process_attributesIJNS_4nameENS_9is_methodENS_7siblingENS_10keep_aliveILm1ELm2EEEEE7precallERNS0_13function_callE.exit.i, label %30
 
 30:                                               ; preds = %_ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_clEm.exit.i.i.i.i
@@ -35339,7 +35339,7 @@ _ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_
   %27 = ptrtoint ptr %23 to i64
   %28 = ptrtoint ptr %24 to i64
   %29 = sub i64 %27, %28
-  %.not.i5.i.i.i.i = icmp ult i64 %29, 16
+  %.not.i5.i.i.i.i = icmp ult i64 %29, 9
   br i1 %.not.i5.i.i.i.i, label %_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingENS_10keep_aliveILm1ELm2EEEEE7precallERNS0_13function_callE.exit.i, label %30
 
 30:                                               ; preds = %_ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_clEm.exit.i.i.i.i

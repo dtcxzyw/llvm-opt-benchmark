@@ -76442,7 +76442,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit227: ; preds = %.loopexit2097
   %246 = ptrtoint ptr %.pre6926 to i64
   %247 = ptrtoint ptr %.pre6928 to i64
   %248 = sub i64 %246, %247
-  %249 = icmp ult i64 %248, 16
+  %249 = icmp ult i64 %248, 9
   br i1 %249, label %_ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEED2Ev.exit, label %250
 
 250:                                              ; preds = %._crit_edge6091

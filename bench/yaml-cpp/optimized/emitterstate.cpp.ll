@@ -625,7 +625,7 @@ if.end14:                                         ; preds = %if.else, %if.then10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4YAML12EmitterState13NextGroupTypeENS_9GroupType5valueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %type) local_unnamed_addr #6 align 2 {
+define noundef range(i32 3, 7) i32 @_ZNK4YAML12EmitterState13NextGroupTypeENS_9GroupType5valueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %type) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i32 %type, 1
   %m_groups.i.i = getelementptr inbounds i8, ptr %this, i64 176
@@ -1641,7 +1641,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

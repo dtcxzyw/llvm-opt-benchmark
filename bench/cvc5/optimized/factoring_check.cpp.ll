@@ -3137,7 +3137,7 @@ if.end270:                                        ; preds = %if.then242, %_ZNSt8
   %sub.ptr.lhs.cast.i1002 = ptrtoint ptr %264 to i64
   %sub.ptr.rhs.cast.i1003 = ptrtoint ptr %265 to i64
   %sub.ptr.sub.i1004 = sub i64 %sub.ptr.lhs.cast.i1002, %sub.ptr.rhs.cast.i1003
-  %cmp274 = icmp ult i64 %sub.ptr.sub.i1004, 16
+  %cmp274 = icmp ult i64 %sub.ptr.sub.i1004, 9
   br i1 %cmp274, label %cleanup, label %if.end276
 
 if.end276:                                        ; preds = %if.end270

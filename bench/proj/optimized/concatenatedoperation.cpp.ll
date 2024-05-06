@@ -625,7 +625,7 @@ define void @_ZN5osgeo4proj9operation21ConcatenatedOperation6createERKNS0_4util1
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
-  %26 = icmp ult i64 %25, 32
+  %26 = icmp ult i64 %25, 17
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %4
@@ -15664,7 +15664,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.ex
   %476 = getelementptr inbounds i8, ptr %254, i64 %.pre-phi376
   %477 = ptrtoint ptr %476 to i64
   %478 = sub i64 %477, %209
-  %479 = icmp ult i64 %478, 24
+  %479 = icmp ult i64 %478, 17
   br i1 %479, label %.critedge71.loopexit332, label %246, !llvm.loop !20
 
 480:                                              ; preds = %277, %267

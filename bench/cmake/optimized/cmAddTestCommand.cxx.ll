@@ -857,7 +857,7 @@ _ZL30cmAddTestCommandHandleNameModeRKSt6vectorINSt7__cxx1112basic_stringIcSt11ch
   %254 = ptrtoint ptr %253 to i64
   %255 = ptrtoint ptr %252 to i64
   %256 = sub i64 %254, %255
-  %257 = icmp ult i64 %256, 64
+  %257 = icmp ult i64 %256, 33
   br i1 %257, label %258, label %268
 
 258:                                              ; preds = %251

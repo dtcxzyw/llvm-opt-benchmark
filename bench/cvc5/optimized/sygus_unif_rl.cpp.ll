@@ -18915,7 +18915,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp, label %cond.true, label %if.end
 
 cond.true:                                        ; preds = %entry

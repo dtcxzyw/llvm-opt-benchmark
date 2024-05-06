@@ -179,7 +179,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @luaD_reallocstack(ptr noundef %L, i32 noundef %newsize, i32 noundef %raiseerror) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @luaD_reallocstack(ptr noundef %L, i32 noundef %newsize, i32 noundef %raiseerror) local_unnamed_addr #0 {
 entry:
   %stack_last = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %stack_last, align 8
@@ -414,7 +414,7 @@ return:                                           ; preds = %for.body, %corrects
 declare hidden ptr @luaM_realloc_(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @luaD_growstack(ptr noundef %L, i32 noundef %n, i32 noundef %raiseerror) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @luaD_growstack(ptr noundef %L, i32 noundef %n, i32 noundef %raiseerror) local_unnamed_addr #0 {
 entry:
   %stack_last = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %stack_last, align 8
@@ -455,11 +455,11 @@ if.then30:                                        ; preds = %if.then9
   %mul = shl nsw i32 %conv, 1
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %mul, i32 1000000)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 %add)
-  %call = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select, i32 noundef %raiseerror), !range !11
+  %call = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select, i32 noundef %raiseerror)
   br label %return
 
 if.end33:                                         ; preds = %if.else, %if.then9
-  %call34 = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef %raiseerror), !range !11
+  %call34 = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef %raiseerror)
   %tobool35.not = icmp eq i32 %raiseerror, 0
   br i1 %tobool35.not, label %return, label %if.then36
 
@@ -495,7 +495,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %previous.i = getelementptr inbounds i8, ptr %ci.011.i, i64 16
   %ci.0.i = load ptr, ptr %previous.i, align 8
   %cmp.not.i = icmp eq ptr %ci.0.i, null
-  br i1 %cmp.not.i, label %stackinuse.exit, label %for.body.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %stackinuse.exit, label %for.body.i, !llvm.loop !11
 
 stackinuse.exit:                                  ; preds = %for.body.i, %entry
   %lim.0.lcssa.i = phi ptr [ %0, %entry ], [ %spec.select.i, %for.body.i ]
@@ -528,7 +528,7 @@ if.then:                                          ; preds = %land.lhs.true
   %cmp4 = icmp sgt i32 %conv.i, 499999
   %mul8 = shl nuw nsw i32 %spec.store.select.i, 1
   %cond10 = select i1 %cmp4, i32 1000000, i32 %mul8
-  %call11 = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %cond10, i32 noundef 0), !range !11
+  %call11 = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %cond10, i32 noundef 0)
   br label %if.end
 
 if.end:                                           ; preds = %stackinuse.exit, %land.lhs.true, %if.then
@@ -548,7 +548,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp = icmp slt i64 %sub.ptr.sub, 32
+  %cmp = icmp slt i64 %sub.ptr.sub, 17
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -573,7 +573,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp24.i, label %luaD_growstack.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else.i
-  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1), !range !11
+  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
   unreachable
 
@@ -582,7 +582,7 @@ luaD_growstack.exit:                              ; preds = %if.else.i
   %mul.i = shl nsw i32 %conv.i, 1
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %mul.i, i32 1000000)
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 %add.i)
-  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1), !range !11
+  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1)
   %.pre = load ptr, ptr %top, align 8
   br label %if.end
 
@@ -686,7 +686,7 @@ if.else.i:                                        ; preds = %if.then39
   br i1 %cmp24.i, label %luaD_growstack.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else.i
-  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1), !range !11
+  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
   unreachable
 
@@ -695,7 +695,7 @@ luaD_growstack.exit:                              ; preds = %if.else.i
   %mul.i = shl nsw i32 %conv.i, 1
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %mul.i, i32 1000000)
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 %add.i)
-  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1), !range !11
+  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1)
   %.pre35 = load ptr, ptr %top4, align 8
   br label %if.end40
 
@@ -1027,7 +1027,7 @@ rethook.exit.i:                                   ; preds = %if.then25.i.i, %if.
 
 if.end21.i:                                       ; preds = %rethook.exit.i, %if.then10.i
   %res.addr.0.i = phi ptr [ %add.ptr20.i, %rethook.exit.i ], [ %call.i, %if.then10.i ]
-  %sub22.i = sub nsw i32 -3, %conv
+  %sub22.i = sub nuw nsw i32 -3, %conv
   %cmp23.i = icmp eq i16 %0, -2
   %spec.select.i = select i1 %cmp23.i, i32 %nres, i32 %sub22.i
   br label %sw.epilog.i
@@ -1070,7 +1070,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i8 %64, ptr %tt_47.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.cond48.preheader.i, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %for.cond48.preheader.i, label %for.body.i, !llvm.loop !12
 
 for.body51.i:                                     ; preds = %for.body51.i, %for.body51.preheader.i
   %indvars.iv53.i = phi i64 [ %62, %for.body51.preheader.i ], [ %indvars.iv.next54.i, %for.body51.i ]
@@ -1078,7 +1078,7 @@ for.body51.i:                                     ; preds = %for.body51.i, %for.
   store i8 0, ptr %tt_54.i, align 8
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count56.i
-  br i1 %exitcond57.not.i, label %for.end57.i, label %for.body51.i, !llvm.loop !14
+  br i1 %exitcond57.not.i, label %for.end57.i, label %for.body51.i, !llvm.loop !13
 
 for.end57.i:                                      ; preds = %for.body51.i, %for.cond48.preheader.i
   %idx.ext58.i = sext i32 %wanted.addr.0.i to i64
@@ -1197,7 +1197,7 @@ if.then9.i:                                       ; preds = %if.else.i
   br i1 %cmp24.i, label %luaD_growstack.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then9.i, %if.else.i
-  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1), !range !11
+  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
   unreachable
 
@@ -1205,7 +1205,7 @@ luaD_growstack.exit:                              ; preds = %if.then9.i
   %mul.i = shl nsw i32 %conv.i, 1
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %mul.i, i32 1000000)
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 %add.i)
-  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1), !range !11
+  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1)
   %16 = load ptr, ptr %stack, align 8
   %add.ptr = getelementptr inbounds i8, ptr %16, i64 %sub.ptr.sub16
   br label %if.end23
@@ -1237,7 +1237,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %20, ptr %tt_36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !14
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre66 = load ptr, ptr %ci, align 8
@@ -1256,12 +1256,12 @@ for.body41:                                       ; preds = %for.body41.preheade
   %indvars.iv62 = phi i64 [ %indvars.iv58, %for.body41.preheader ], [ %indvars.iv.next63, %for.body41 ]
   %tt_44 = getelementptr inbounds %union.StackValue, ptr %21, i64 %indvars.iv62, i32 0, i32 1
   store i8 0, ptr %tt_44, align 8
-  %indvars.iv.next63 = add i64 %indvars.iv62, 1
+  %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   %cmp39.not.not = icmp slt i64 %indvars.iv62, %22
-  br i1 %cmp39.not.not, label %for.body41, label %for.end47.loopexit, !llvm.loop !16
+  br i1 %cmp39.not.not, label %for.body41, label %for.end47.loopexit, !llvm.loop !15
 
 for.end47.loopexit:                               ; preds = %for.body41
-  %23 = trunc i64 %indvars.iv.next63 to i32
+  %23 = trunc nsw i64 %indvars.iv.next63 to i32
   br label %for.end47
 
 for.end47:                                        ; preds = %for.end47.loopexit, %for.end
@@ -1352,7 +1352,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp24.i, label %luaD_growstack.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else.i
-  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1), !range !11
+  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
   unreachable
 
@@ -1361,7 +1361,7 @@ luaD_growstack.exit:                              ; preds = %if.else.i
   %mul.i = shl nsw i32 %conv.i, 1
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %mul.i, i32 1000000)
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 %add.i)
-  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1), !range !11
+  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1)
   %6 = load ptr, ptr %stack, align 8
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub6
   %.pre21 = load ptr, ptr %top, align 8
@@ -1428,7 +1428,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp = icmp slt i64 %sub.ptr.sub, 32
+  %cmp = icmp slt i64 %sub.ptr.sub, 17
   br i1 %cmp, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
@@ -1475,7 +1475,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp24.i, label %luaD_growstack.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else.i
-  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1), !range !11
+  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
   unreachable
 
@@ -1484,7 +1484,7 @@ luaD_growstack.exit:                              ; preds = %if.else.i
   %mul.i = shl nsw i32 %conv.i, 1
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %mul.i, i32 1000000)
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 %add.i)
-  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1), !range !11
+  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1)
   %6 = load ptr, ptr %stack, align 8
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub6
   br label %if.end11
@@ -1517,7 +1517,7 @@ for.body:                                         ; preds = %if.end21, %for.body
   %tt_28 = getelementptr inbounds i8, ptr %p.025, i64 8
   store i8 %11, ptr %tt_28, align 8
   %cmp23 = icmp ugt ptr %add.ptr25, %func.addr.0
-  br i1 %cmp23, label %for.body, label %for.end.loopexit, !llvm.loop !17
+  br i1 %cmp23, label %for.body, label %for.end.loopexit, !llvm.loop !16
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre27 = load ptr, ptr %top, align 8
@@ -1627,7 +1627,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp24.i, label %luaD_growstack.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else.i
-  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1), !range !11
+  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
   unreachable
 
@@ -1635,7 +1635,7 @@ luaD_growstack.exit:                              ; preds = %if.else.i
   %mul.i = shl nsw i32 %conv.i, 1
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %mul.i, i32 1000000)
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 %add.i)
-  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1), !range !11
+  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1)
   %13 = load ptr, ptr %stack, align 8
   %add.ptr = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub22
   br label %if.end28
@@ -1682,7 +1682,7 @@ for.body:                                         ; preds = %prepCallInfo.exit, 
   store i8 0, ptr %tt_36, align 8
   %inc = add nsw i32 %narg.037, 1
   %exitcond.not = icmp eq i32 %inc, %conv8
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !17
 
 sw.default:                                       ; preds = %retry
   %call37 = tail call fastcc ptr @tryfuncTM(ptr noundef %L, ptr noundef nonnull %func.addr.0)
@@ -1752,7 +1752,7 @@ if.else.i:                                        ; preds = %if.then11
   br i1 %cmp24.i, label %luaD_growstack.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else.i
-  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1), !range !11
+  %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
   unreachable
 
@@ -1760,7 +1760,7 @@ luaD_growstack.exit:                              ; preds = %if.else.i
   %mul.i = shl nsw i32 %conv.i, 1
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %mul.i, i32 1000000)
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 %conv15.i)
-  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1), !range !11
+  %call.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %spec.select.i, i32 noundef 1)
   %4 = load ptr, ptr %stack, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub14
   br label %if.end
@@ -1947,7 +1947,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %previous.i.i = getelementptr inbounds i8, ptr %ci.06.i.i, i64 16
   %ci.0.i.i = load ptr, ptr %previous.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %ci.0.i.i, null
-  br i1 %cmp.not.i.i, label %precover.exit, label %for.body.i.i, !llvm.loop !19
+  br i1 %cmp.not.i.i, label %precover.exit, label %for.body.i.i, !llvm.loop !18
 
 while.body.i:                                     ; preds = %for.body.i.i
   %callstatus.i.i.le = getelementptr inbounds i8, ptr %ci.06.i.i, i64 62
@@ -1960,7 +1960,7 @@ while.body.i:                                     ; preds = %for.body.i.i
   store i16 %conv3.i, ptr %callstatus.i.i.le, align 2
   %call5.i = call i32 @luaD_rawrunprotected(ptr noundef %L, ptr noundef nonnull @unroll, ptr noundef null)
   %cmp.i = icmp sgt i32 %call5.i, 1
-  br i1 %cmp.i, label %land.rhs.i, label %if.end47, !llvm.loop !20
+  br i1 %cmp.i, label %land.rhs.i, label %if.end47, !llvm.loop !19
 
 precover.exit:                                    ; preds = %for.inc.i.i
   %cmp33 = icmp slt i32 %status.addr.014.i, 2
@@ -2112,7 +2112,7 @@ if.end16:                                         ; preds = %if.end15, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @lua_isyieldable(ptr nocapture noundef readonly %L) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @lua_isyieldable(ptr nocapture noundef readonly %L) local_unnamed_addr #6 {
 entry:
   %nCcalls = getelementptr inbounds i8, ptr %L, i64 176
   %0 = load i32, ptr %nCcalls, align 8
@@ -2324,7 +2324,7 @@ for.body.i.i:                                     ; preds = %luaD_seterrorobj.ex
   %previous.i.i = getelementptr inbounds i8, ptr %ci.011.i.i, i64 16
   %ci.0.i.i = load ptr, ptr %previous.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %ci.0.i.i, null
-  br i1 %cmp.not.i.i, label %stackinuse.exit.i, label %for.body.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %stackinuse.exit.i, label %for.body.i.i, !llvm.loop !11
 
 stackinuse.exit.i:                                ; preds = %for.body.i.i, %luaD_seterrorobj.exit
   %lim.0.lcssa.i.i = phi ptr [ %add.ptr17.i, %luaD_seterrorobj.exit ], [ %spec.select.i.i, %for.body.i.i ]
@@ -2356,7 +2356,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %cmp4.i = icmp sgt i32 %conv.i.i, 499999
   %mul8.i = shl nuw nsw i32 %spec.store.select.i.i, 1
   %cond10.i = select i1 %cmp4.i, i32 1000000, i32 %mul8.i
-  %call11.i = call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %cond10.i, i32 noundef 0), !range !11
+  %call11.i = call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %cond10.i, i32 noundef 0)
   br label %luaD_shrinkstack.exit
 
 luaD_shrinkstack.exit:                            ; preds = %stackinuse.exit.i, %land.lhs.true.i, %if.then.i
@@ -2643,7 +2643,7 @@ for.body.i.i.i.i:                                 ; preds = %luaD_seterrorobj.ex
   %previous.i.i.i.i = getelementptr inbounds i8, ptr %ci.011.i.i.i.i, i64 16
   %ci.0.i.i.i.i = load ptr, ptr %previous.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %ci.0.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %stackinuse.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i, label %stackinuse.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !11
 
 stackinuse.exit.i.i.i:                            ; preds = %for.body.i.i.i.i, %luaD_seterrorobj.exit.i.i
   %lim.0.lcssa.i.i.i.i = phi ptr [ %add.ptr17.i.i.i, %luaD_seterrorobj.exit.i.i ], [ %spec.select.i.i.i.i, %for.body.i.i.i.i ]
@@ -2674,7 +2674,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %cmp4.i.i.i = icmp sgt i32 %conv.i.i.i.i, 499999
   %mul8.i.i.i = shl nuw nsw i32 %spec.store.select.i.i.i.i, 1
   %cond10.i.i.i = select i1 %cmp4.i.i.i, i32 1000000, i32 %mul8.i.i.i
-  %call11.i.i.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %cond10.i.i.i, i32 noundef 0), !range !11
+  %call11.i.i.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef %cond10.i.i.i, i32 noundef 0)
   br label %luaD_shrinkstack.exit.i.i
 
 luaD_shrinkstack.exit.i.i:                        ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %stackinuse.exit.i.i.i
@@ -2728,7 +2728,7 @@ if.else:                                          ; preds = %while.body
 if.end:                                           ; preds = %if.else, %finishCcall.exit
   %33 = load ptr, ptr %ci1, align 8
   %cmp.not = icmp eq ptr %33, %base_ci
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !21
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %if.end, %entry
   ret void
@@ -2794,7 +2794,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
@@ -2804,4 +2804,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}

@@ -4454,7 +4454,7 @@ declare double @difftime(i64 noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef zeroext i1 @_ZN3vcg3ply12GetCacheNameEPKcS2_Pc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #12 {
-  %4 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %0) #37
+  %4 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %0) #37
   %5 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 92) #39
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %.thread.i
@@ -4466,7 +4466,7 @@ define noundef zeroext i1 @_ZN3vcg3ply12GetCacheNameEPKcS2_Pc(ptr nocapture noun
 
 10:                                               ; preds = %7
   store i8 0, ptr %2, align 1
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZZN3vcg3ply12GetCacheNameEPKcS2_PcE1n, ptr noundef nonnull dereferenceable(1) %0) #37
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZZN3vcg3ply12GetCacheNameEPKcS2_PcE1n, ptr noundef nonnull readonly dereferenceable(1) %0) #37
   br label %_ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit
 
 .thread.i:                                        ; preds = %7, %3
@@ -4490,12 +4490,12 @@ _ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit:        ; preds = %10, %.thread.i
 16:                                               ; preds = %15, %_ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit
   %17 = load ptr, ptr @_ZN3vcg3ply8cachedirE, align 8
   %18 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %17) #37
-  %19 = tail call i32 @access(ptr noundef nonnull %2, i32 noundef 0) #37
+  %19 = tail call i32 @access(ptr noundef nonnull readonly %2, i32 noundef 0) #37
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %23, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @mkdir(ptr noundef nonnull %2, i32 noundef 493) #37
+  %21 = tail call i32 @mkdir(ptr noundef nonnull readonly %2, i32 noundef 493) #37
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %_ZN3vcg3plyL19CheckCacheDirectoryEPKc.exit, label %23
 
@@ -33087,7 +33087,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3ply8ScanBBoxIfEEbPKcRNS_4Box3IT_
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
-  %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %0) #37
+  %28 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %0) #37
   %29 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 92) #39
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %_ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit.i
@@ -33099,7 +33099,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3ply8ScanBBoxIfEEbPKcRNS_4Box3IT_
 
 _ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit.thread.i: ; preds = %31
   store i8 0, ptr %8, align 16
-  %34 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %0) #37
+  %34 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %0) #37
   br label %38
 
 _ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit.i:      ; preds = %31, %27
@@ -33120,12 +33120,12 @@ _ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit.i:      ; preds = %31, %27
 38:                                               ; preds = %37, %_ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit.i, %_ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit.thread.i
   %39 = load ptr, ptr @_ZN3vcg3ply8cachedirE, align 8
   %40 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %39) #37
-  %41 = call i32 @access(ptr noundef nonnull %8, i32 noundef 0) #37
+  %41 = call i32 @access(ptr noundef nonnull readonly %8, i32 noundef 0) #37
   %.not.i.i = icmp eq i32 %41, 0
   br i1 %.not.i.i, label %45, label %42
 
 42:                                               ; preds = %38
-  %43 = call i32 @mkdir(ptr noundef nonnull %8, i32 noundef 493) #37
+  %43 = call i32 @mkdir(ptr noundef nonnull readonly %8, i32 noundef 493) #37
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %_ZN3vcg3plyL14CheckBBoxCacheIfEEbPKcRNS_4Box3IT_EES3_.exit.thread, label %45
 
@@ -33136,7 +33136,7 @@ _ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit.i:      ; preds = %31, %27
   %46 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %9) #37
   %47 = load ptr, ptr @_ZN3vcg3ply12bboxcacheextE, align 8
   %48 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %47) #37
-  %49 = call noundef zeroext i1 @_ZN3vcg3ply14CheckCacheTimeEPKcS2_(ptr noundef %0, ptr noundef nonnull %8)
+  %49 = call noundef zeroext i1 @_ZN3vcg3ply14CheckCacheTimeEPKcS2_(ptr noundef readonly %0, ptr noundef nonnull %8)
   br i1 %49, label %50, label %_ZN3vcg3plyL14CheckBBoxCacheIfEEbPKcRNS_4Box3IT_EES3_.exit.thread
 
 50:                                               ; preds = %45
@@ -33144,7 +33144,7 @@ _ZN3vcg3ply14GetDirFromPathEPKcPcS3_.exit.i:      ; preds = %31, %27
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %50
-  %53 = call noundef zeroext i1 @_ZN3vcg3ply14CheckCacheTimeEPKcS2_(ptr noundef nonnull %4, ptr noundef nonnull %8)
+  %53 = call noundef zeroext i1 @_ZN3vcg3ply14CheckCacheTimeEPKcS2_(ptr noundef nonnull readonly %4, ptr noundef nonnull %8)
   br i1 %53, label %54, label %_ZN3vcg3plyL14CheckBBoxCacheIfEEbPKcRNS_4Box3IT_EES3_.exit.thread
 
 54:                                               ; preds = %52, %50
@@ -33754,7 +33754,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit:        ; preds = %_ZN3vcg4Box3IfE3Add
   %336 = fpext <2 x float> %335 to <2 x double>
   store <2 x double> %336, ptr %329, align 16
   %337 = load ptr, ptr @_ZN3vcg3ply12bboxcacheextE, align 8
-  %338 = call noundef zeroext i1 @_ZN3vcg3ply12GetCacheNameEPKcS2_Pc(ptr noundef %0, ptr noundef %337, ptr noundef nonnull %6)
+  %338 = call noundef zeroext i1 @_ZN3vcg3ply12GetCacheNameEPKcS2_Pc(ptr noundef readonly %0, ptr noundef %337, ptr noundef nonnull %6)
   br i1 %338, label %339, label %_ZN3vcg3plyL13SaveBBoxCacheIfEEbPKcRKNS_4Box3IT_EE.exit
 
 339:                                              ; preds = %328
@@ -45598,7 +45598,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %97 = ptrtoint ptr %95 to i64
   %98 = ptrtoint ptr %96 to i64
   %99 = sub i64 %97, %98
-  %100 = icmp ult i64 %99, 96
+  %100 = icmp ult i64 %99, 65
   br i1 %100, label %.loopexit646, label %101
 
 101:                                              ; preds = %94
@@ -52870,7 +52870,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
   %95 = ptrtoint ptr %93 to i64
   %96 = ptrtoint ptr %94 to i64
   %97 = sub i64 %95, %96
-  %98 = icmp ult i64 %97, 64
+  %98 = icmp ult i64 %97, 33
   br i1 %98, label %.loopexit, label %99
 
 99:                                               ; preds = %92
@@ -53008,7 +53008,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
   %191 = ptrtoint ptr %189 to i64
   %192 = ptrtoint ptr %190 to i64
   %193 = sub i64 %191, %192
-  %194 = icmp ult i64 %193, 64
+  %194 = icmp ult i64 %193, 33
   br i1 %194, label %195, label %.backedge
 
 195:                                              ; preds = %188
@@ -53031,7 +53031,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
   %207 = ptrtoint ptr %205 to i64
   %208 = ptrtoint ptr %206 to i64
   %209 = sub i64 %207, %208
-  %210 = icmp ult i64 %209, 64
+  %210 = icmp ult i64 %209, 33
   br i1 %210, label %211, label %.backedge
 
 211:                                              ; preds = %204
@@ -53053,7 +53053,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
   %222 = ptrtoint ptr %220 to i64
   %223 = ptrtoint ptr %221 to i64
   %224 = sub i64 %222, %223
-  %225 = icmp ult i64 %224, 64
+  %225 = icmp ult i64 %224, 33
   br i1 %225, label %226, label %.backedge
 
 226:                                              ; preds = %219
@@ -53075,7 +53075,7 @@ _ZNSt16allocator_traitsISaIN3vcg3tri2io8MaterialEEE9constructIS3_JRKS3_EEEvRS4_P
   %237 = ptrtoint ptr %235 to i64
   %238 = ptrtoint ptr %236 to i64
   %239 = sub i64 %237, %238
-  %240 = icmp ult i64 %239, 64
+  %240 = icmp ult i64 %239, 33
   br i1 %240, label %241, label %.backedge
 
 241:                                              ; preds = %234

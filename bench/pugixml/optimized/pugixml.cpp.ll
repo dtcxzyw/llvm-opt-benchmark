@@ -18963,8 +18963,8 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end3.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp.i.i = icmp slt i64 %sub.ptr.sub.i.i, 32
-  br i1 %cmp.i.i, label %if.end3.i, label %if.end.i.i
+  %cmp.i.i = icmp slt i64 %sub.ptr.sub.i.i, 17
+  br i1 %cmp.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xpath_sortEPNS_10xpath_nodeES3_NS_14xpath_node_set6type_tEb.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -18990,8 +18990,8 @@ if.then2.i:                                       ; preds = %for.body.i.i
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_14sortIPNS_10xpath_nodeENS1_25document_order_comparatorEEEvT_S6_RKT0_(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %if.end3.i
 
-if.end3.i:                                        ; preds = %if.then2.i, %for.end.i.i, %if.then.i, %entry
-  %type.addr.0.i = phi i32 [ 1, %if.then.i ], [ %cond.i.i, %for.end.i.i ], [ 1, %if.then2.i ], [ %2, %entry ]
+if.end3.i:                                        ; preds = %if.then2.i, %for.end.i.i, %entry
+  %type.addr.0.i = phi i32 [ %cond.i.i, %for.end.i.i ], [ 1, %if.then2.i ], [ %2, %entry ]
   %cmp4.not.i = icmp ne i32 %type.addr.0.i, %cond.i
   %cmp6.i.i = icmp sgt i64 %sub.ptr.sub.i.i, 16
   %or.cond.i = and i1 %cmp6.i.i, %cmp4.not.i
@@ -19013,7 +19013,7 @@ while.body.i.i:                                   ; preds = %if.end3.i, %while.b
   %cmp.i11.i = icmp sgt i64 %sub.ptr.sub.i10.i, 16
   br i1 %cmp.i11.i, label %while.body.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xpath_sortEPNS_10xpath_nodeES3_NS_14xpath_node_set6type_tEb.exit, !llvm.loop !159
 
-_ZN4pugi4impl12_GLOBAL__N_110xpath_sortEPNS_10xpath_nodeES3_NS_14xpath_node_set6type_tEb.exit: ; preds = %while.body.i.i, %if.end3.i
+_ZN4pugi4impl12_GLOBAL__N_110xpath_sortEPNS_10xpath_nodeES3_NS_14xpath_node_set6type_tEb.exit: ; preds = %while.body.i.i, %if.then.i, %if.end3.i
   store i32 %cond.i, ptr %this, align 8
   ret void
 }
@@ -27283,7 +27283,7 @@ if.then:                                          ; preds = %sw.bb14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end3.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %cmp.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i, 32
+  %cmp.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i, 17
   br i1 %cmp.i.i.i, label %if.end.thread, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -27300,13 +27300,13 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %call7.i.i.i = tail call fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_125document_order_comparatorclERKNS_10xpath_nodeES5_(ptr noundef nonnull align 8 dereferenceable(16) %it.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i.i.i)
   %22 = xor i1 %call.i.i.i, %call7.i.i.i
-  br i1 %22, label %if.then2.i.i, label %for.cond.i.i.i, !llvm.loop !158
+  br i1 %22, label %if.end3.i.thread.i, label %for.cond.i.i.i, !llvm.loop !158
 
 for.end.i.i.i:                                    ; preds = %for.cond.i.i.i
   %cond.i.i.i = select i1 %call.i.i.i, i32 1, i32 2
   br label %if.end3.i.i
 
-if.then2.i.i:                                     ; preds = %for.body.i.i.i
+if.end3.i.thread.i:                               ; preds = %for.body.i.i.i
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_14sortIPNS_10xpath_nodeENS1_25document_order_comparatorEEEvT_S6_RKT0_(ptr noundef nonnull %20, ptr noundef nonnull %21)
   br label %if.end.thread
 
@@ -27333,7 +27333,7 @@ while.body.i.i.i:                                 ; preds = %if.end3.i.i, %while
   %cmp.i11.i.i = icmp sgt i64 %sub.ptr.sub.i10.i.i, 16
   br i1 %cmp.i11.i.i, label %while.body.i.i.i, label %if.end.thread, !llvm.loop !159
 
-if.end.thread:                                    ; preds = %while.body.i.i.i, %if.end3.i.i, %if.then2.i.i, %if.then.i.i
+if.end.thread:                                    ; preds = %while.body.i.i.i, %if.end3.i.i, %if.end3.i.thread.i, %if.then.i.i
   store i32 1, ptr %agg.result, align 8
   %cmp1.i100 = icmp ne i32 %eval, 0
   br label %23

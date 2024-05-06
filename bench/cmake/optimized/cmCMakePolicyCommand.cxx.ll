@@ -993,7 +993,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleVersionModeE
   %10 = ptrtoint ptr %.8.val to i64
   %11 = ptrtoint ptr %.0.val to i64
   %12 = sub i64 %10, %11
-  %13 = icmp ult i64 %12, 64
+  %13 = icmp ult i64 %12, 33
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %1

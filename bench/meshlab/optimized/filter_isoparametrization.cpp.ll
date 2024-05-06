@@ -41012,7 +41012,7 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EE5clearEv.exit:     ; preds = %5, %10
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %7 to i64
   %15 = sub i64 %13, %14
-  %16 = icmp ult i64 %15, 16
+  %16 = icmp ult i64 %15, 9
   br i1 %16, label %_ZNSt6vectorIP8BaseFaceSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %_ZNSt6vectorIP8BaseFaceSaIS1_EE7reserveEm.exit
 
 _ZNSt6vectorIP8BaseFaceSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %_ZNSt6vectorIP8BaseFaceSaIS1_EE5clearEv.exit

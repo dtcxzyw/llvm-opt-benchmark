@@ -394,7 +394,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 40
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 33
   br i1 %cmp, label %if.then, label %try.cont
 
 if.then:                                          ; preds = %invoke.cont2

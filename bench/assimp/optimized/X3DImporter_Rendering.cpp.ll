@@ -1560,7 +1560,7 @@ if.else:                                          ; preds = %invoke.cont8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 8
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 5
   br i1 %cmp, label %if.then18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else

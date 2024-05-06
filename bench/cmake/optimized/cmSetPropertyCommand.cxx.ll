@@ -1902,7 +1902,7 @@ define dso_local noundef zeroext i1 @_Z20cmSetPropertyCommandRKSt6vectorINSt7__c
   %20 = ptrtoint ptr %18 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
-  %23 = icmp ult i64 %22, 64
+  %23 = icmp ult i64 %22, 33
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %2
@@ -2246,14 +2246,14 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 134:                                              ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %135 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand40HandleSourceFileDirectoryScopeValidationER17cmExecutionStatusbbRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESB_(ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %.0120.lcssa, i1 noundef zeroext %.0118.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %135 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand40HandleSourceFileDirectoryScopeValidationER17cmExecutionStatusbbRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESB_(ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %.0120.lcssa, i1 noundef zeroext %.0118.lcssa, ptr noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %.noexc155 unwind label %141
 
 .noexc155:                                        ; preds = %134
   br i1 %135, label %136, label %_ZN18SetPropertyCommand42HandleAndValidateSourceFileDirectoryScopesER17cmExecutionStatusbbRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESB_RS2_IP10cmMakefileSaISD_EE.exit
 
 136:                                              ; preds = %.noexc155
-  %137 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand31HandleSourceFileDirectoryScopesER17cmExecutionStatusRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESB_RS2_IP10cmMakefileSaISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  %137 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand31HandleSourceFileDirectoryScopesER17cmExecutionStatusRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESB_RS2_IP10cmMakefileSaISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %_ZN18SetPropertyCommand42HandleAndValidateSourceFileDirectoryScopesER17cmExecutionStatusbbRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESB_RS2_IP10cmMakefileSaISD_EE.exit unwind label %141
 
 _ZN18SetPropertyCommand42HandleAndValidateSourceFileDirectoryScopesER17cmExecutionStatusbbRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESB_RS2_IP10cmMakefileSaISD_EE.exit: ; preds = %.noexc155, %136
@@ -2265,7 +2265,7 @@ _ZN18SetPropertyCommand42HandleAndValidateSourceFileDirectoryScopesER17cmExecuti
   br i1 %138, label %139, label %_ZN18SetPropertyCommand36HandleAndValidateTestDirectoryScopesER17cmExecutionStatusbRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP10cmMakefile.exit.thread
 
 139:                                              ; preds = %.noexc158
-  %140 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand25HandleTestDirectoryScopesER17cmExecutionStatusRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %140 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand25HandleTestDirectoryScopesER17cmExecutionStatusRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull writeonly align 8 dereferenceable(8) %16)
           to label %_ZN18SetPropertyCommand36HandleAndValidateTestDirectoryScopesER17cmExecutionStatusbRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP10cmMakefile.exit unwind label %141
 
 _ZN18SetPropertyCommand36HandleAndValidateTestDirectoryScopesER17cmExecutionStatusbRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP10cmMakefile.exit: ; preds = %139

@@ -7331,7 +7331,7 @@ define linkonce_odr void @_ZN5Yosys15VerilogDefaults7executeESt6vectorINSt7__cxx
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
-  %14 = icmp ult i64 %13, 64
+  %14 = icmp ult i64 %13, 33
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %3
